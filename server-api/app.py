@@ -79,9 +79,9 @@ def findvs():
                 list_samples[col_idx] = v
 
         # Obtain view - always create a new view_generator, we assume these are new views
-        global dod
+        # global dod
         global view_generator
-        view_generator = iter(dod.virtual_schema_iterative_search(list_attributes, list_samples))
+        view_generator = iter(dod.virtual_schema_iterative_search(list_attributes, list_samples, {}))
         mvs, attrs_to_project, view_metadata = next(view_generator)
         proj_view = dpu.project(mvs, attrs_to_project)
         analysis = obtain_view_analysis(proj_view)
@@ -227,7 +227,7 @@ if __name__ == '__main__':
     network = fieldnetwork.deserialize_network(path_to_serialized_model)
     store_client = StoreHandler()
 
-    global dod
+    # global dod
     dod = DoD(network=network, store_client=store_client, csv_separator=sep)
 
     app.run()
