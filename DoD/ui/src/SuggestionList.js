@@ -15,7 +15,7 @@ class SuggestionList extends Component {
     handleClick(event) {
         // We set the value for this cell
         var test = console.log(event);
-        var newValue = event.target.innerHTML;
+        var newValue = event.target.innerHTML.split("--")[1];
         this.onSuggestionClick(this.rowId, this.colId, newValue);
     }
 
@@ -23,7 +23,7 @@ class SuggestionList extends Component {
         var listEntries = [];
         for(var i = 0; i < this.suggestions.length; i++) {
             var entry = this.suggestions[i];
-            listEntries.push(<li key={entry['id']} onClick={this.handleClick} className="suggestionlistentry">{entry['attributeName']}</li>);
+            listEntries.push(<li key={entry['id']} onClick={this.handleClick} className="suggestionlistentry">{entry['originRelation']}--{entry['attributeName']}</li>);
         }
         return (
             <ul>

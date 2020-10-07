@@ -657,6 +657,22 @@ def obtain_table_paths(set_nids, dod):
         table_path[table] = path
     return table_path
 
+def cluster_attributes(attrs):
+    lookup = {}
+    clusters = []
+    for drs in attrs:
+        lookup[drs] = False
+    for drs in attrs:
+        if not lookup[drs]:
+            lookup[drs] = True
+            cluster = [(drs.source_name, drs.field_name)]
+            neighbors = dod.aurum_api.content_similar_to(drs)
+            for neighbor in neighbors.data:
+                if neighbor in lookup:
+                    cluster.append((neighbor.source_name, neighbor.field_name))
+                    lookup[neighbor] = True
+            clusters.append(cluster)
+    return clusters
 
 def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False, interactive=False):
 
@@ -841,14 +857,28 @@ if __name__ == "__main__":
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/mitdwh/"
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/debug_sb_bug/"
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/massdata/"
-    path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/chembl_and_drugcentral/"
+    path_to_serialized_model = "/Users/gongyue/aurum-datadiscovery/test/chemblModels/"
     # sep = ","
     # sep = "|"
     sep = ";"
     store_client = StoreHandler()
     network = fieldnetwork.deserialize_network(path_to_serialized_model)
     dod = DoD(network=network, store_client=store_client, csv_separator=sep)
-
+    # drs = dod.aurum_api.search_exact_attribute("assay_id")
+    # print(drs.data[0])
+    # result = dod.aurum_api.content_similar_to(drs.data[0])
+    # print(result.data)
+    suggestions = dod.aurum_api.search_attribute("test_type", 50)
+    print(len(suggestions.data))
+    result = cluster_attributes(suggestions)
+    print(len(result))
+    for cluster in result :
+        print(cluster)
+    # result = [(s.field_name, s.source_name, s.score) for s in suggestions.data]
+    # result = sorted(result, key=lambda x: x[2], reverse=True)
+    # print(result)
+    # output = {s[0]: s[1] for s in result}
+    # print(output)
     ###
     ## Query Views
     ###
@@ -935,20 +965,20 @@ if __name__ == "__main__":
     # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
     # values = ['', '', '', '', '']
 
-    output_path = "/Users/ra-mit/development/discovery_proto/data/dod/test/"
+    # output_path = "/Users/ra-mit/development/discovery_proto/data/dod/test/"
 
     # remove all files in test
-    for f in os.listdir(output_path):
-        f_path = os.path.join(output_path, f)
-        try:
-            if os.path.isfile(f_path):
-                os.unlink(f_path)
-        except Exception as e:
-            print(e)
+    # for f in os.listdir(output_path):
+    #     f_path = os.path.join(output_path, f)
+    #     try:
+    #         if os.path.isfile(f_path):
+    #             os.unlink(f_path)
+    #     except Exception as e:
+    #         print(e)
 
     # test_e2e(dod, number_jps=10, output_path=None, interactive=False)
     # output_path = None
-    test_e2e(dod, attrs, values, number_jps=10, output_path=output_path)
+    # test_e2e(dod, attrs, values, number_jps=10, output_path=output_path)
 
     # debug intree mat join
     # test_intree(dod)

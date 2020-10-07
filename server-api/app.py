@@ -39,6 +39,7 @@ matview = None
 
 app = Flask(__name__)
 CORS(app)
+app.config['JSON_SORT_KEYS'] = False
 
 # this supports exactly 1 session right now
 global view_generator
@@ -122,10 +123,11 @@ def suggest_field():
         json_request = request.get_json()
         input_text = json_request['input_text']
 
-        suggestions = dod.aurum_api.suggest_schema(input_text)
-        print(suggestions)
-        output = {k: v for k, v in suggestions}
-
+        drs = dod.aurum_api.search_attribute(input_text, 50)
+        suggestions = [(s.field_name, s.source_name, s.score) for s in drs.data]
+        suggestions = sorted(suggestions, key=lambda x: x[2], reverse=True)
+        output = {s[0]: s[1] for s in suggestions}
+        print(output)
         return jsonify(output)
 
 
