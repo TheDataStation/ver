@@ -9,6 +9,7 @@ import psutil
 from tqdm import tqdm
 import time
 import pprint
+import cProfile
 
 
 pp = pprint.PrettyPrinter(indent=4)
@@ -249,6 +250,11 @@ def read_relation(relation_path):
         df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator)
         cache[relation_path] = df
     return df
+
+
+def read_column(relation_path, col):
+    df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col])
+    return df.copy()
 
 
 def read_relation_on_copy(relation_path):
@@ -509,10 +515,37 @@ def materialize_join_graph(jg, dod):
     return materialized_view
 
 
+def apply_consistent_sample_optimized(dfa, dfb, a_key, b_key, sample_size):
+    dfa[a_key] = dfa[a_key].apply(lambda x: str(x).lower())
+    dfb[b_key] = dfb[b_key].apply(lambda x: str(x).lower())
+    # drop duplicates ahead, i.e. make dfa and dfb two sets
+    dfa = dfa.drop_duplicates(subset=a_key)
+    dfb = dfb.drop_duplicates(subset=b_key)
+
+    # Chose consistently sample of IDs
+    if len(dfa) > len(dfb):
+        sampling_side = dfa
+    else:
+        sampling_side = dfb
+
+    chosen_ids = sampling_side[:sample_size]
+
+    dfa = dfa[dfa[a_key].isin(chosen_ids)]
+    dfb = dfb[dfb[b_key].isin(chosen_ids)]
+
+    dfa.reset_index(drop=True)
+    dfb.reset_index(drop=True)
+
+    return dfa, dfb
+
+
 def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
+    start = time.time()
     # Normalize values
     dfa[a_key] = dfa[a_key].apply(lambda x: str(x).lower())
     dfb[b_key] = dfb[b_key].apply(lambda x: str(x).lower())
+    print("time (normalization): ", time.time() - start)
+
     # Chose consistently sample of IDs
     a_len = len(set(dfa[a_key]))
     b_len = len(set(dfb[b_key]))
@@ -522,23 +555,31 @@ def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
     else:
         sampling_side = dfb
         sampling_key = b_key
+    start = time.time()
     id_to_hash = dict()
     for el in set(sampling_side[sampling_key]):  # make sure you don't draw repetitions
         h = hash(el)
         id_to_hash[h] = el
+    print("time (hash): ", time.time() - start)
+
+    start = time.time()
     sorted_hashes = sorted(id_to_hash.items(), key=lambda x: x[1], reverse=True)  # reverse or not does not matter
+    print("time (sorting): ", time.time() - start)
     chosen_ids = [id for hash, id in sorted_hashes[:sample_size]]
 
     # Apply selection on both DFs
+    start = time.time()
     dfa = dfa[dfa[a_key].isin(chosen_ids)]
     dfb = dfb[dfb[b_key].isin(chosen_ids)]
+    print("time (selection): ", time.time() - start)
 
     # Remove duplicate keys before returning
+    start = time.time()
     dfa = dfa.drop_duplicates(subset=a_key)
     dfb = dfb.drop_duplicates(subset=b_key)
     dfa.reset_index(drop=True)
     dfb.reset_index(drop=True)
-
+    print("time (remove dup): ", time.time() - start)
     return dfa, dfb
 
 
@@ -624,12 +665,14 @@ def materialize_join_graph_sample(jg, dod, sample_size=100):
 
                 # print("L: " + str(k.node) + " - " + str(l_key) + " size: " + str(len(l)))
                 # print("R: " + str(child.node) + " - " + str(r_key) + " size: " + str(len(r)))
-
+                # cProfile.runctx('apply_consistent_sample(l, r, l_key, r_key, sample_size)', {'l': l, 'r': r, 'l_key': l_key, 'r_key': r_key, 'sample_size': sample_size, 'apply_consistent_sample': apply_consistent_sample}, {}, sort="tottime")
+                start = time.time()
                 l, r = apply_consistent_sample(l, r, l_key, r_key, sample_size)
-
+                print("total time (apply_consistent_sample) ", time.time()-start)
                 # normalize false because I ensure it happens in the apply-consistent-sample function above
-                df = join_ab_on_key(l, r, l_key, r_key, suffix_str=suffix_str, normalize=True)
-
+                start = time.time()
+                df = join_ab_on_key(l, r, l_key, r_key, suffix_str=suffix_str, normalize=False)
+                print("total time (join) ", time.time() - start)
                 # df = join_ab_on_key_optimizer(l, r, l_key, r_key, suffix_str=suffix_str)
                 # df = join_ab_on_key(l, r, l_key, r_key, suffix_str=suffix_str)
                 if len(df) == 0:

@@ -3,7 +3,11 @@ import VirtualSchemaControl from './VirtualSchemaControl';
 import CellValue from './CellValue';
 import ResultViews from './ResultViews';
 import ResultViewControl from './ResultViewControl';
-import ReactDOM from 'react-dom';
+import ResultColumns from './ResultColumns'
+import ColumnControl from './ColumnControl'
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Dialog from "@material-ui/core/Dialog/Dialog";
+import DialogContent from '@material-ui/core/DialogContent';
 import vis from 'vis';
 
 
@@ -38,6 +42,7 @@ function Table(props) {
 }
 
 class VirtualSchema extends Component {
+
 	constructor(props) {
 		super(props);
 		
@@ -49,13 +54,22 @@ class VirtualSchema extends Component {
 		this.findView = this.findView.bind(this);
 		this.nextView = this.nextView.bind(this);
 		this.downloadView = this.downloadView.bind(this);
+        this.columnMapping = this.columnMapping.bind(this);
+        this.nextCol = this.nextCol.bind(this);
+        this.prvCol = this.prvCol.bind(this);
 
 		this.state = {
+		    open: false,
 			rows: 3,
 			columns: 3,
+            clusters:[],
+            all_clusters:[],
+            name:"",
+            colIdx: 0,
 			virtualSchemaValues: {} // key: "i"-"j" -> value
 		};
 	}
+
 
 	changeVS(rowId, columnId, newValue) {
 	    console.log(this);
@@ -173,6 +187,63 @@ class VirtualSchema extends Component {
             )
 	}
 
+	nextCol() {
+        var payload = {};
+        var body = JSON.stringify(payload);
+        var response = fetch("http://127.0.0.1:5000/nextCol", {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: 'same-origin',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            redirect: "follow",
+            referrer: "no-referrer",
+            body: body
+            })
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    // Set view
+                    this.setState({clusters: result});
+                    this.setState({name: result[0]["name"]})
+
+                },
+                (error) => {
+                    console.log("ERROR: " + error);
+                }
+            )
+    }
+
+    prvCol() {
+	    var payload = {};
+        var body = JSON.stringify(payload);
+        var response = fetch("http://127.0.0.1:5000/prvCol", {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: 'same-origin',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            redirect: "follow",
+            referrer: "no-referrer",
+            body: body
+            })
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    // Set view
+                    this.setState({clusters: result});
+                    this.setState({name: result[0]["name"]})
+
+                },
+                (error) => {
+                    console.log("ERROR: " + error);
+                }
+            )
+    }
 
 	nextView() {
 
@@ -263,6 +334,49 @@ class VirtualSchema extends Component {
             )
 	}
 
+	columnMapping() {
+	    this.setState({open:true})
+        var vsDefinition = this.state.virtualSchemaValues;
+        console.log(vsDefinition);
+
+        var payload = {};
+        payload['payload'] = JSON.stringify(vsDefinition);
+        payload['row_num'] = JSON.stringify(this.state.rows)
+        payload['col_num'] = JSON.stringify(this.state.columns)
+        var body = JSON.stringify(payload);
+        // document.getElementById('clusterView').innerHTML = '';
+        // document.getElementById('clusterView').className = 'loader';
+        var response = fetch("http://127.0.0.1:5000/colMap", {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: 'same-origin',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            redirect: "follow",
+            referrer: "no-referrer",
+            body: body
+            })
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    // Set view
+                    this.setState({all_clusters: result})
+                    this.setState({clusters: result[0]});
+                    this.setState({name: result[0][0]["name"]})
+                    this.setState({open:false})
+                    // document.getElementById('payload').className = '';
+                    // document.getElementById('payload').innerHTML = view;
+
+                },
+                (error) => {
+                    console.log("ERROR: " + error);
+                }
+            )
+
+    }
+
 	render() {
 		return (
 		    <div className="general-wrapper">
@@ -293,7 +407,7 @@ class VirtualSchema extends Component {
 									  add_column={this.addColumn}
 									  remove_column={this.removeColumn}
 									  find_view={this.findView}
-
+                                      column_mapping={this.columnMapping}
 				     />
 				   </div>
                 </div>
@@ -307,13 +421,20 @@ class VirtualSchema extends Component {
                 <div className="col-1">
 		        </div>
 		        <div className="col-5 text-center mt-1">
+                    <ResultColumns name={this.state.name} clusters={this.state.clusters}/>
 		            <ResultViews/>
 		        </div>
 		        <div className="col-5">
 
                     <div className="row mt-5">
                         <div className="col">
+                            <ColumnControl next_col={this.nextCol} prv_col={this.prvCol}/>
                             <ResultViewControl next_view={this.nextView} download_view={this.downloadView}/>
+                            <Dialog open={this.state.open}>
+                                <DialogContent>
+                                    <CircularProgress/>
+                                </DialogContent>
+                            </Dialog>
                         </div>
                     </div>
                     <div className="row mt-2">
@@ -322,7 +443,7 @@ class VirtualSchema extends Component {
                             </div>
                         </div>
                         <div className="col-6">
-                            <div id='joingraph'>
+                            <div id='joingraph' hidden>
                             </div>
                         </div>
                     </div>

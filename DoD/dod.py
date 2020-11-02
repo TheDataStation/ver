@@ -8,6 +8,7 @@ from DoD import material_view_analysis as mva
 from DoD.utils import FilterType
 import numpy as np
 from functools import reduce
+import cProfile
 import operator
 import pickle
 from tqdm import tqdm
@@ -67,6 +68,8 @@ class DoD:
         for attr, cell in sch_def.items():
             if cell == "":
                 drs = self.aurum_api.search_exact_attribute(attr, max_results=50)
+                if len(drs.data) == 0:
+                    drs = self.aurum_api.search_attribute(attr, max_results=50)
                 filter_drs[(attr, FilterType.ATTR, filter_id)] = drs
             else:
                 drs_attr = self.aurum_api.search_exact_attribute(attr, max_results=50)
@@ -657,22 +660,7 @@ def obtain_table_paths(set_nids, dod):
         table_path[table] = path
     return table_path
 
-def cluster_attributes(attrs):
-    lookup = {}
-    clusters = []
-    for drs in attrs:
-        lookup[drs] = False
-    for drs in attrs:
-        if not lookup[drs]:
-            lookup[drs] = True
-            cluster = [(drs.source_name, drs.field_name)]
-            neighbors = dod.aurum_api.content_similar_to(drs)
-            for neighbor in neighbors.data:
-                if neighbor in lookup:
-                    cluster.append((neighbor.source_name, neighbor.field_name))
-                    lookup[neighbor] = True
-            clusters.append(cluster)
-    return clusters
+
 
 def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False, interactive=False):
 
@@ -857,23 +845,24 @@ if __name__ == "__main__":
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/mitdwh/"
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/debug_sb_bug/"
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/massdata/"
-    path_to_serialized_model = "/Users/gongyue/aurum-datadiscovery/test/chemblModels/"
+    path_to_serialized_model = "/Users/gongyue/aurum-datadiscovery/test/mitModels/"
     # sep = ","
     # sep = "|"
-    sep = ";"
+    sep = ","
     store_client = StoreHandler()
     network = fieldnetwork.deserialize_network(path_to_serialized_model)
     dod = DoD(network=network, store_client=store_client, csv_separator=sep)
-    # drs = dod.aurum_api.search_exact_attribute("assay_id")
+    # drs = dod.aurum_api.search_exact_attribute("Full Name")
+    # print(drs.data)
     # print(drs.data[0])
     # result = dod.aurum_api.content_similar_to(drs.data[0])
     # print(result.data)
-    suggestions = dod.aurum_api.search_attribute("test_type", 50)
-    print(len(suggestions.data))
-    result = cluster_attributes(suggestions)
-    print(len(result))
-    for cluster in result :
-        print(cluster)
+    # suggestions = dod.aurum_api.search_attribute("test_type", 50)
+    # print(len(suggestions.data))
+    # result = cluster_attributes(suggestions)
+    # print(len(result))
+    # for cluster in result :
+    #     print(cluster)
     # result = [(s.field_name, s.source_name, s.score) for s in suggestions.data]
     # result = sorted(result, key=lambda x: x[2], reverse=True)
     # print(result)
@@ -913,13 +902,13 @@ if __name__ == "__main__":
 
     # EVAL - ONE
     # attrs = ["Iap Category Name", "Person Name", "Person Email"]
-    # # values = ["", "Meghan Kenney", "mkenney@mit.edu"]
+    # values = ["", "Meghan Kenney", "mkenney@mit.edu"]
     # values = ["Engineering", "", ""]
 
     # EVAL - TWO
-    # attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
-    # values = ["", "", "", ""]
-
+    attrs = ["Building Name", "Gross Area", "Building Room", "Room Square Footage"]
+    values = ["", "", "", ""]
+    drs = dod.aurum_api.search_exact_attribute("Gross Area")
     # EVAL - THREE
     # attrs = ["Last Name", "Building Name", "Bldg Gross Square Footage", "Department Name"]
     # values = ["Madden", "Ray and Maria Stata Center", "", "Dept of Electrical Engineering & Computer Science"]
@@ -946,8 +935,8 @@ if __name__ == "__main__":
     ## CHEMBL22
 
     # ONE (12)
-    attrs = ['assay_test_type', 'assay_category', 'journal', 'year', 'volume']
-    values = ['', '', '', '', '']
+    # attrs = ['assay_test_type', 'assay_category', 'journal', 'year', 'volume']
+    # values = ['', '', '', '', '']
 
     # TWO (27)
     # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
@@ -962,8 +951,8 @@ if __name__ == "__main__":
     # values = ['', '', '', '']
 
     # FIVE (100-)
-    # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
-    # values = ['', '', '', '', '']
+    # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position', 'assay_category']
+    # values = ['', '', '', '', '', '']
 
     # output_path = "/Users/ra-mit/development/discovery_proto/data/dod/test/"
 
@@ -975,11 +964,12 @@ if __name__ == "__main__":
     #             os.unlink(f_path)
     #     except Exception as e:
     #         print(e)
-
+    start = time.time()
     # test_e2e(dod, number_jps=10, output_path=None, interactive=False)
-    # output_path = None
-    # test_e2e(dod, attrs, values, number_jps=10, output_path=output_path)
 
+    output_path = None
+    test_e2e(dod, attrs, values, number_jps=10, output_path=output_path)
+    print("time = ", time.time() - start)
     # debug intree mat join
     # test_intree(dod)
 

@@ -15,7 +15,7 @@ python_version = (sys.version_info[0], sys.version_info[1], sys.version_info[2])
 global_origin_id = 0
 
 BaseHit = namedtuple(
-    'Hit', 'nid, db_name, source_name, field_name, score', verbose=False)
+    'Hit', 'nid, db_name, source_name, field_name, score, highlight', verbose=False)
 
 
 class Hit(BaseHit):
@@ -165,7 +165,7 @@ class Provenance:
         # We check operations that come with parameters
         elif op == OP.SCHNAME_LOOKUP or op == OP.ENTITY_LOOKUP or op == OP.KW_LOOKUP:
             global global_origin_id
-            hit = Hit(global_origin_id, params[0], params[0], params[0], -1)
+            hit = Hit(global_origin_id, params[0], params[0], params[0], -1, [])
             global_origin_id += 1
             self._p_graph.add_node(hit)
             for element in data:  # now we connect the new node to data with the op

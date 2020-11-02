@@ -61,6 +61,9 @@ class Algebra:
     def search_content(self, kw: str, max_results=10) -> DRS:
         return self.search(kw, kw_type=KWType.KW_CONTENT, max_results=max_results)
 
+    def search_exact_content(self, kw: str, max_results=10) -> DRS:
+        return self.exact_search(kw, kw_type=KWType.KW_CONTENT, max_results=max_results)
+
     def search_attribute(self, kw: str, max_results=10) -> DRS:
         return self.search(kw, kw_type=KWType.KW_SCHEMA, max_results=max_results)
 

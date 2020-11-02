@@ -1,8 +1,5 @@
 
 # input parameters
-#path_model = "/Users/ra-mit/development/discovery_proto/models/tpch/"
-#separator = "|"
-path_model = "/Users/gongyue/aurum-datadiscovery/test/chemblModels/"
+path_model = "/Users/gongyue/aurum-datadiscovery/test/mitModels/"
 separator = ","
-#path_model = "/Users/ra-mit/development/discovery_proto/models/mitdwh/"
-#separator = ","
+output_path = "/Users/ra-mit/development/discovery_proto/data/dod/test/"

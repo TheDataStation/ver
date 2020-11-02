@@ -226,7 +226,7 @@ class FieldNetwork:
             if relation in v:
                 score = v[relation]['score']
                 (db_name, source_name, field_name, data_type) = self.__id_names[k]
-                data.append(Hit(k, db_name, source_name, field_name, score))
+                data.append(Hit(k, db_name, source_name, field_name, score, []))
         op = self.get_op_from_relation(relation)
         o_drs = DRS(data, Operation(op, params=[hit]))
         return o_drs
