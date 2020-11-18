@@ -713,9 +713,9 @@ def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False
     # Run 4C
     ###
     # return
-    groups_per_column_cardinality = v4c.main(output_path)
+    results = v4c.main(output_path)
 
-    for k, v in groups_per_column_cardinality.items():
+    for k, v in results[0].items():
         compatible_groups = v['compatible']
         contained_groups = v['contained']
         complementary_group = v['complementary']
@@ -841,10 +841,10 @@ if __name__ == "__main__":
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/mitdwh/"
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/debug_sb_bug/"
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/massdata/"
-    path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/chembl_and_drugcentral/"
+    path_to_serialized_model = "/Users/zhiruzhu/Desktop/research/aurum-dod-staging/models/"
     # sep = ","
     # sep = "|"
-    sep = ";"
+    sep = ","
     store_client = StoreHandler()
     network = fieldnetwork.deserialize_network(path_to_serialized_model)
     dod = DoD(network=network, store_client=store_client, csv_separator=sep)
@@ -887,8 +887,8 @@ if __name__ == "__main__":
     # values = ["Engineering", "", ""]
 
     # EVAL - TWO
-    # attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
-    # values = ["", "", "", ""]
+    attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
+    values = ["", "", "", ""]
 
     # EVAL - THREE
     # attrs = ["Last Name", "Building Name", "Bldg Gross Square Footage", "Department Name"]
@@ -916,8 +916,8 @@ if __name__ == "__main__":
     ## CHEMBL22
 
     # ONE (12)
-    attrs = ['assay_test_type', 'assay_category', 'journal', 'year', 'volume']
-    values = ['', '', '', '', '']
+    # attrs = ['assay_test_type', 'assay_category', 'journal', 'year', 'volume']
+    # values = ['', '', '', '', '']
 
     # TWO (27)
     # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
@@ -935,7 +935,7 @@ if __name__ == "__main__":
     # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
     # values = ['', '', '', '', '']
 
-    output_path = "/Users/ra-mit/development/discovery_proto/data/dod/test/"
+    output_path = "/Users/zhiruzhu/Desktop/research/aurum-dod-staging/DoD/test/"
 
     # remove all files in test
     for f in os.listdir(output_path):

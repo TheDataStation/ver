@@ -591,9 +591,9 @@ if __name__ == "__main__":
     # input_path = "/Users/ra-mit/development/discovery_proto/data/dod/mitdwh/two/"
     input_path = "/Users/ra-mit/development/discovery_proto/data/dod/test/"
 
-    groups_per_column_cardinality = main(input_path)
+    results = main(input_path)
 
-    for k, v in groups_per_column_cardinality.items():
+    for k, v in results[0].items():
         compatible_group = v['compatible']
         contained_group = v['contained']
         complementary_group = v['complementary']
