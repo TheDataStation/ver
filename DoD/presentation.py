@@ -40,6 +40,7 @@ class ContinuousSignal(Signal):
     @abstractmethod
     def split(self, threshold, cluster=None):
         # Can re-split on a specific cluster
+        # returns {group1: [views], group2: [views], ...}
         pass
 
 
@@ -47,6 +48,7 @@ class DiscreteSignal(Signal):
 
     @abstractmethod
     def split(self):
+        # returns {group1: [views], group2: [views], ...}
         pass
 
 
@@ -220,6 +222,8 @@ if __name__ == '__main__':
 
         if isinstance(best_signal, ContinuousSignal):
             # Continue splitting on the cluster chosen
+            # TODO: maybe user wants to re-split on multiple clusters? Keep all clusters that have scores above some
+            #  confidence bounds? (might be overkill...)
             splits[best_signal] = best_signal.split(threshold=split_threshold, cluster=random_pick)
             if len(splits[best_signal]) == 0:
                 splits.pop(best_signal)
