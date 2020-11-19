@@ -189,7 +189,7 @@ if __name__ == '__main__':
     # Initialize ranking model, with the score of each view = 0
     ranking_model = {}
     for df_file_tuple in view_dfs:
-        view_file = df_file_tuple[1] # can't hash dataframe, so only hash filename
+        view_file = df_file_tuple[1]  # can't hash dataframe, so only hash filename
         ranking_model[view_file] = 0
 
     num_iters = 0
@@ -206,6 +206,9 @@ if __name__ == '__main__':
         # user randomly picks one branch from the representatives
         random_pick = random.choice(list(representatives.keys()))
         print("User chooses ", random_pick, "\n")
+
+        # TODO: let user assign their own score to each representative instead of picking just one, and update
+        #  ranking model accordingly
 
         # +1 to every view in the chosen group / cluster
         for df_file_tuple in splits[best_signal][random_pick]:
