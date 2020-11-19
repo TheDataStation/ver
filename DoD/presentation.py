@@ -18,6 +18,7 @@ Input: a list of signals, views
 from abc import ABC, abstractmethod
 import random
 
+
 class Signal(ABC):
 
     @abstractmethod
@@ -28,6 +29,7 @@ class Signal(ABC):
     def representatives(self):
         # returns {'signal_value': representative sample to show user}
         pass
+
 
 class ContinuousSignal(Signal):
 
@@ -40,11 +42,13 @@ class ContinuousSignal(Signal):
         # Can re-split on a specific cluster
         pass
 
+
 class DiscreteSignal(Signal):
 
     @abstractmethod
     def split(self):
         pass
+
 
 class ViewSize(ContinuousSignal):
 
@@ -99,6 +103,7 @@ class ViewSize(ContinuousSignal):
             representatives[label] = random.choice(views)
         return representatives
 
+
 class PrimaryKey(DiscreteSignal):
 
     def __init__(self, dict):
@@ -118,6 +123,7 @@ class PrimaryKey(DiscreteSignal):
             representatives[pk] = random.choice(views)
         return representatives
 
+
 def pick_best_signal_to_split(splits):
     # If the user randomly pick a branch in the split, what's the expected value of uncertainty removed?
     # ev = sum over p_i * x+i
@@ -135,6 +141,7 @@ def pick_best_signal_to_split(splits):
         if gain > max_gain:
             best_signal = signal
     return best_signal
+
 
 if __name__ == '__main__':
 
@@ -160,7 +167,7 @@ if __name__ == '__main__':
     fake_pk_dict = {}
     num_pks = 2
     for i in range(num_pks):
-        fake_pk_dict[i]= view_dfs[i::num_pks]
+        fake_pk_dict[i] = view_dfs[i::num_pks]
     pk_signal = PrimaryKey(fake_pk_dict)
     signals.append(pk_signal)
 
@@ -170,7 +177,7 @@ if __name__ == '__main__':
 
     # Do split (and do clustering based on split_threshold if necessary)
     split_threshold = 3
-    splits={}
+    splits = {}
     for signal in signals:
         if isinstance(signal, ContinuousSignal):
             splits[signal] = signal.split(threshold=split_threshold)
@@ -200,7 +207,7 @@ if __name__ == '__main__':
         # +1 to every view in the chosen group / cluster
         for df_file_tuple in splits[best_signal][random_pick]:
             view_file = df_file_tuple[1]
-            ranking_model[view_file] +=1
+            ranking_model[view_file] += 1
 
         if isinstance(best_signal, ContinuousSignal):
             # Continue splitting on the cluster chosen
@@ -211,8 +218,9 @@ if __name__ == '__main__':
             # Delete the signal so we won't choose from it again
             splits.pop(best_signal)
 
-        num_iters+=1
+        num_iters += 1
 
-    sorted_rank = [(view,score) for view,score in sorted(ranking_model.items(), key=lambda item: item[1], reverse=True)]
+    sorted_rank = [(view, score) for view, score in
+                   sorted(ranking_model.items(), key=lambda item: item[1], reverse=True)]
     print("Views ordered by preference score:")
     pprint.pprint(sorted_rank)
