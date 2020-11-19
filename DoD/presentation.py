@@ -194,9 +194,12 @@ if __name__ == '__main__':
 
     num_iters = 0
     while num_iters < 5 and len(splits) > 0:
+
+        # Pick the best split that can prune out most views (based on expected value)
         best_signal = pick_best_signal_to_split(splits)
         print("Best signal to split: ", best_signal.__class__.__name__)
 
+        # Present a representative view (or sample) from each branch
         representatives = best_signal.representatives()
 
         # skipping user interaction part...
