@@ -54,8 +54,8 @@ class ViewSize(ContinuousSignal):
 
     def __init__(self, views):
         self.views = views
-        self.sizes = {}
-        self.clusters = {}
+        self.sizes = {}  # sizes[size] = [views]
+        self.clusters = {}  # clusters[label] = [views]
 
     def evaluate(self):
         self.sizes.clear()
@@ -79,6 +79,7 @@ class ViewSize(ContinuousSignal):
         assert len(labels) == len(sizes)
 
         self.clusters.clear()
+        # views with the same label belong in same cluster
         for label, size in zip(labels, sizes):
             if label in self.clusters.keys():
                 self.clusters[label] = self.clusters[label] + self.sizes[size]
@@ -87,6 +88,7 @@ class ViewSize(ContinuousSignal):
 
     def split(self, threshold, cluster=None):
         if cluster != None:
+            # Narrowing down the region
             self.views = self.clusters[cluster]
             self.evaluate()
 
@@ -184,9 +186,10 @@ if __name__ == '__main__':
         if isinstance(signal, DiscreteSignal):
             splits[signal] = signal.split()
 
+    # Initialize ranking model, with the score of each view = 0
     ranking_model = {}
     for df_file_tuple in view_dfs:
-        view_file = df_file_tuple[1]
+        view_file = df_file_tuple[1] # can't hash dataframe, so only hash filename
         ranking_model[view_file] = 0
 
     num_iters = 0
@@ -220,6 +223,7 @@ if __name__ == '__main__':
 
         num_iters += 1
 
+    # present the list of views ordered by accumulated score
     sorted_rank = [(view, score) for view, score in
                    sorted(ranking_model.items(), key=lambda item: item[1], reverse=True)]
     print("Views ordered by preference score:")
