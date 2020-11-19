@@ -841,7 +841,7 @@ if __name__ == "__main__":
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/mitdwh/"
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/debug_sb_bug/"
     # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/massdata/"
-    path_to_serialized_model = "/Users/zhiruzhu/Desktop/research/aurum-dod-staging/models/"
+    path_to_serialized_model = "../models/"
     # sep = ","
     # sep = "|"
     sep = ","
@@ -935,7 +935,7 @@ if __name__ == "__main__":
     # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
     # values = ['', '', '', '', '']
 
-    output_path = "/Users/zhiruzhu/Desktop/research/aurum-dod-staging/DoD/test/"
+    output_path = "./test/"
 
     # remove all files in test
     for f in os.listdir(output_path):

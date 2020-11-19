@@ -589,7 +589,7 @@ if __name__ == "__main__":
     # exit()
 
     # input_path = "/Users/ra-mit/development/discovery_proto/data/dod/mitdwh/two/"
-    input_path = "/Users/ra-mit/development/discovery_proto/data/dod/test/"
+    input_path = "./test/"
 
     results = main(input_path)
 
