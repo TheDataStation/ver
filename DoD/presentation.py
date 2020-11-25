@@ -151,7 +151,7 @@ class ContradictoryViews(DiscreteSignal):
         representatives = {}
         for row, views in self.contradictions.items():
             # although it's random, the contradictory row's dataframe is the same (except the index)
-            representatives[row] = random.choice(views)[0]
+            representatives[row] = random.choice(views)
         return representatives
 
 
@@ -250,12 +250,13 @@ if __name__ == '__main__':
         if already_added:
             # This is kind of ugly. But since I can't add the tuple directly to a set, I need to have a separate
             # dict for deduplication of paths
-            contradictions_dict_dedup[(row1, row2)][0].add(path1)
-            contradictions_dict_dedup[(row1, row2)][1].add(path2)
             if path1 not in contradictions_dict_dedup[(row1, row2)][0]:
                 contradictions_dict[(row1, row2)][0].append((row1_df, path1))
             if path2 not in contradictions_dict_dedup[(row1, row2)][1]:
                 contradictions_dict[(row1, row2)][1].append((row2_df, path2))
+
+            contradictions_dict_dedup[(row1, row2)][0].add(path1)
+            contradictions_dict_dedup[(row1, row2)][1].add(path2)
         else:
             contradictions_dict_dedup[(row1, row2)] = ({path1}, {path2})  # use set to avoid duplicates
             contradictions_dict[(row1, row2)] = ([(row1_df, path1)], [(row2_df, path2)])
