@@ -19,6 +19,7 @@ from abc import ABC, abstractmethod
 import random
 from DoD import view_4c_analysis_baseline as v4c
 
+
 class Signal(ABC):
 
     @abstractmethod
@@ -100,7 +101,7 @@ class ViewSize(ContinuousSignal):
             self.clusters = self.sizes
 
         # just trying to extract the view file from the tuple
-        splits = {label:[df_file_tuple[1] for df_file_tuple in views] for label, views in self.clusters.items()}
+        splits = {label: [df_file_tuple[1] for df_file_tuple in views] for label, views in self.clusters.items()}
         return splits
 
     def representatives(self):
@@ -131,6 +132,7 @@ class PrimaryKey(DiscreteSignal):
             representatives[pk] = random.choice(views)
         return representatives
 
+
 class ContradictoryViews(DiscreteSignal):
 
     def __init__(self, contradictions):
@@ -148,8 +150,10 @@ class ContradictoryViews(DiscreteSignal):
         # TODO: show the two contradictory rows
         representatives = {}
         for row, views in self.contradictions.items():
-            representatives[row] = random.choice(views)[0] # although it's random, the contradictory row's dataframe is the same (except the index)
+            # although it's random, the contradictory row's dataframe is the same (except the index)
+            representatives[row] = random.choice(views)[0]
         return representatives
+
 
 def pick_best_signal_to_split(splits):
     # If the user randomly pick a branch in the split, what's the expected value of uncertainty removed?
@@ -223,7 +227,7 @@ if __name__ == '__main__':
 
     # Integrate contradictory groups as signals
     contradictions_dict = {}
-    contradictions_dict_dedup = {} # for deduplication
+    contradictions_dict_dedup = {}  # for deduplication
     for path1, key_column, key_value, path2 in contradictory_groups:
         # TODO: reading csv multiple times...
         df1 = pd.read_csv(path1)
@@ -253,7 +257,7 @@ if __name__ == '__main__':
             if path2 not in contradictions_dict_dedup[(row1, row2)][1]:
                 contradictions_dict[(row1, row2)][1].append((row2_df, path2))
         else:
-            contradictions_dict_dedup[(row1, row2)] = ({path1}, {path2}) # use set to avoid duplicates
+            contradictions_dict_dedup[(row1, row2)] = ({path1}, {path2})  # use set to avoid duplicates
             contradictions_dict[(row1, row2)] = ([(row1_df, path1)], [(row2_df, path2)])
 
     print("Found ", len(contradictions_dict), " contradictions")
