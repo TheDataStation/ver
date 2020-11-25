@@ -17,7 +17,7 @@ Input: a list of signals, views
 '''
 from abc import ABC, abstractmethod
 import random
-
+from DoD import view_4c_analysis_baseline as v4c
 
 class Signal(ABC):
 
@@ -40,7 +40,7 @@ class ContinuousSignal(Signal):
     @abstractmethod
     def split(self, threshold, cluster=None):
         # Can re-split on a specific cluster
-        # returns {group1: [views], group2: [views], ...}
+        # returns {group1: [view_files], group2: [view_files], ...}
         pass
 
 
@@ -48,7 +48,7 @@ class DiscreteSignal(Signal):
 
     @abstractmethod
     def split(self):
-        # returns {group1: [views], group2: [views], ...}
+        # returns {group1: [view_files], group2: [view_files], ...}
         pass
 
 
@@ -98,7 +98,10 @@ class ViewSize(ContinuousSignal):
             self.cluster(threshold)
         else:
             self.clusters = self.sizes
-        return self.clusters
+
+        # just trying to extract the view file from the tuple
+        splits = {label:[df_file_tuple[1] for df_file_tuple in views] for label, views in self.clusters.items()}
+        return splits
 
     def representatives(self):
         # TODO: choose a random view in each group for now
@@ -110,15 +113,16 @@ class ViewSize(ContinuousSignal):
 
 class PrimaryKey(DiscreteSignal):
 
-    def __init__(self, dict):
+    def __init__(self, primary_keys):
         # dict['pk'] = [views]
-        self.primary_keys = dict
+        self.primary_keys = primary_keys
 
     def evaluate(self):
         pass
 
     def split(self):
-        return self.primary_keys
+        splits = {pk: [df_file_tuple[1] for df_file_tuple in views] for pk, views in self.primary_keys.items()}
+        return splits
 
     def representatives(self):
         # TODO: choose a random view in each group for now
@@ -127,6 +131,25 @@ class PrimaryKey(DiscreteSignal):
             representatives[pk] = random.choice(views)
         return representatives
 
+class ContradictoryViews(DiscreteSignal):
+
+    def __init__(self, contradictions):
+        # dict[contradictory row] = [(row_df, view_file)]
+        self.contradictions = contradictions
+
+    def evaluate(self):
+        pass
+
+    def split(self):
+        splits = {row: [df_file_tuple[1] for df_file_tuple in views] for row, views in self.contradictions.items()}
+        return splits
+
+    def representatives(self):
+        # TODO: show the two contradictory rows
+        representatives = {}
+        for row, views in self.contradictions.items():
+            representatives[row] = random.choice(views)[0] # although it's random, the contradictory row's dataframe is the same (except the index)
+        return representatives
 
 def pick_best_signal_to_split(splits):
     # If the user randomly pick a branch in the split, what's the expected value of uncertainty removed?
@@ -153,14 +176,97 @@ if __name__ == '__main__':
     import pandas as pd
     import pprint
 
+    pd.set_option('display.max_columns', None)
+    # pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_colwidth', None)
+    pd.set_option('display.width', None)  # or 199
+
     dir_path = "./test"
-    cvs_files = glob.glob(dir_path + "/view_*")
+
+    # Run 4C
+    results = v4c.main(dir_path)
+
+    # TODO: don't separate by schemas for now
+    compatible_groups = []
+    contained_groups = []
+    complementary_groups = []
+    contradictory_groups = []
+    for k, v in results[0].items():
+        compatible_groups = compatible_groups + v['compatible']
+        contained_groups = contained_groups + v['contained']
+        complementary_groups = complementary_groups + v['complementary']
+        contradictory_groups = contradictory_groups + v['contradictory']
+
+    csv_files = glob.glob(dir_path + "/view_*")
     view_dfs = []
-    for f in cvs_files:
-        df = pd.read_csv(f)
-        view_dfs.append((df, f))
+    has_compatible_view_been_added = [False] * len(compatible_groups)
+
+    for f in csv_files:
+        # remove duplicates in compatible groups
+        already_added = False
+        for i, compatible_group in enumerate(compatible_groups):
+            if f in compatible_group:
+                if has_compatible_view_been_added[i]:
+                    already_added = True
+                else:
+                    has_compatible_view_been_added[i] = True
+
+        if not already_added:
+            df = pd.read_csv(f)
+            view_dfs.append((df, f))
+
+    print("\n--------------------------------------------------------------------------")
+    print("Number of views: ", len(csv_files))
+    print("After removing duplicates in compatible groups: ", len(view_dfs))
 
     signals = []
+
+    # Integrate contradictory groups as signals
+    contradictions_dict = {}
+    contradictions_dict_dedup = {} # for deduplication
+    for path1, key_column, key_value, path2 in contradictory_groups:
+        # TODO: reading csv multiple times...
+        df1 = pd.read_csv(path1)
+        df2 = pd.read_csv(path2)
+
+        row1_df = df1[df1[key_column] == key_value]
+        row2_df = df2[df2[key_column] == key_value]
+        # TODO: I want to use (row1, row2) as key for my dictionary but using to_string seems too hacky
+        row1 = row1_df.to_string(header=False, index=False, index_names=False)
+        row2 = row2_df.to_string(header=False, index=False, index_names=False)
+
+        # (row1, row2) and (row2, row1) count as the same contradiction
+        already_added = False
+        if (row1, row2) in contradictions_dict_dedup.keys():
+            already_added = True
+        elif (row2, row1) in contradictions_dict_dedup.keys():
+            row1, row2 = row2, row1
+            path1, path2 = path2, path1
+            row1_df, row2_df = row2_df, row1_df
+        if already_added:
+            # This is kind of ugly. But since I can't add the tuple directly to a set, I need to have a separate
+            # dict for deduplication of paths
+            contradictions_dict_dedup[(row1, row2)][0].add(path1)
+            contradictions_dict_dedup[(row1, row2)][1].add(path2)
+            if path1 not in contradictions_dict_dedup[(row1, row2)][0]:
+                contradictions_dict[(row1, row2)][0].append((row1_df, path1))
+            if path2 not in contradictions_dict_dedup[(row1, row2)][1]:
+                contradictions_dict[(row1, row2)][1].append((row2_df, path2))
+        else:
+            contradictions_dict_dedup[(row1, row2)] = ({path1}, {path2}) # use set to avoid duplicates
+            contradictions_dict[(row1, row2)] = ([(row1_df, path1)], [(row2_df, path2)])
+
+    print("Found ", len(contradictions_dict), " contradictions")
+
+    # One signal for each contradiction
+    for contradiction, views_tuple in contradictions_dict.items():
+        contradiction_dict = {}
+        # Two groups of views, each corresponds to a contradictory row
+        contradiction_dict[contradiction[0]] = views_tuple[0]
+        contradiction_dict[contradiction[1]] = views_tuple[1]
+
+        contradiction_signal = ContradictoryViews(contradiction_dict)
+        signals.append(contradiction_signal)
 
     size_signal = ViewSize(view_dfs)
     signals.append(size_signal)
@@ -195,7 +301,7 @@ if __name__ == '__main__':
         ranking_model[view_file] = 0
 
     num_iters = 0
-    while num_iters < 5 and len(splits) > 0:
+    while num_iters < 10 and len(splits) > 0:
 
         # Pick the best split that can prune out most views (based on expected value)
         best_signal = pick_best_signal_to_split(splits)
@@ -205,19 +311,20 @@ if __name__ == '__main__':
         representatives = best_signal.representatives()
 
         # skipping user interaction part...
-        print("Pick your preferred view:")
-        pprint.pprint(representatives)
+        print("Pick your preferred representative:")
+        pprint.pprint(list(representatives.values()))
+        print("Option: ")
+        pprint.pprint(list(representatives.keys()))
 
         # user randomly picks one branch from the representatives
         random_pick = random.choice(list(representatives.keys()))
-        print("User chooses ", random_pick, "\n")
+        print("User chooses option ", random_pick, "\n")
 
         # TODO: let user assign their own score to each representative instead of picking just one, and update
         #  ranking model accordingly
 
         # +1 to every view in the chosen group / cluster
-        for df_file_tuple in splits[best_signal][random_pick]:
-            view_file = df_file_tuple[1]
+        for view_file in splits[best_signal][random_pick]:
             ranking_model[view_file] += 1
 
         if isinstance(best_signal, ContinuousSignal):
@@ -225,7 +332,8 @@ if __name__ == '__main__':
             # TODO: maybe user wants to re-split on multiple clusters? Keep all clusters that have scores above some
             #  confidence bounds? (might be overkill...)
             splits[best_signal] = best_signal.split(threshold=split_threshold, cluster=random_pick)
-            if len(splits[best_signal]) == 0:
+            # If there's only one cluster left, remove it
+            if len(splits[best_signal]) <= 1:
                 splits.pop(best_signal)
         if isinstance(best_signal, DiscreteSignal):
             # Delete the signal so we won't choose from it again
