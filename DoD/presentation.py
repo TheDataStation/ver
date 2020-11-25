@@ -226,9 +226,14 @@ if __name__ == '__main__':
     signals = []
 
     # Integrate contradictory groups as signals
+    view_files = [v[1] for v in view_dfs]
     contradictions_dict = {}
     contradictions_dict_dedup = {}  # for deduplication
     for path1, key_column, key_value, path2 in contradictory_groups:
+
+        if not (path1 in view_files or path2 in view_files):
+            continue
+
         # TODO: reading csv multiple times...
         df1 = pd.read_csv(path1)
         df2 = pd.read_csv(path2)
@@ -261,7 +266,7 @@ if __name__ == '__main__':
             contradictions_dict_dedup[(row1, row2)] = ({path1}, {path2})  # use set to avoid duplicates
             contradictions_dict[(row1, row2)] = ([(row1_df, path1)], [(row2_df, path2)])
 
-    print("Found ", len(contradictions_dict), " contradictions")
+    print("Found ", len(contradictions_dict), " contradictions\n")
 
     # One signal for each contradiction
     for contradiction, views_tuple in contradictions_dict.items():
