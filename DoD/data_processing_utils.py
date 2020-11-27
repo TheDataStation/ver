@@ -6,6 +6,7 @@ from DoD.utils import FilterType
 import config as C
 import os
 import psutil
+import heapq
 from tqdm import tqdm
 import time
 import pprint
@@ -266,6 +267,7 @@ def read_relation_on_copy(relation_path):
     if relation_path in cache:
         df = cache[relation_path]
     else:
+        print(relation_path)
         df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator)
         cache[relation_path] = df
     return df.copy()
@@ -362,7 +364,7 @@ def obtain_attributes_to_project(filters):
     for f in filters:
         f_type = f[1].value
         if f_type is FilterType.ATTR.value:
-            attributes_to_project.add(f[0][0])
+            attributes_to_project.add(f[0][1])
         elif f_type is FilterType.CELL.value:
             attributes_to_project.add(f[0][1])
     return attributes_to_project
@@ -559,13 +561,15 @@ def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
     id_to_hash = dict()
     for el in set(sampling_side[sampling_key]):  # make sure you don't draw repetitions
         h = hash(el)
-        id_to_hash[h] = el
+        id_to_hash[el] = h
     print("time (hash): ", time.time() - start)
 
     start = time.time()
-    sorted_hashes = sorted(id_to_hash.items(), key=lambda x: x[1], reverse=True)  # reverse or not does not matter
+
+    sorted_hashes = heapq.nlargest(sample_size, id_to_hash.items(), key=lambda x: x[1])
+    # sorted_hashes = sorted(id_to_hash.items(), key=lambda x: x[1], reverse=True)  # reverse or not does not matter
     print("time (sorting): ", time.time() - start)
-    chosen_ids = [id for hash, id in sorted_hashes[:sample_size]]
+    chosen_ids = [id for id, hash in sorted_hashes]
 
     # Apply selection on both DFs
     start = time.time()
@@ -583,7 +587,7 @@ def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
     return dfa, dfb
 
 
-def materialize_join_graph_sample(jg, dod, sample_size=100):
+def materialize_join_graph_sample(jg, samples, filters, dod, sample_size=100):
     print("Materializing:")
     pp.pprint(jg)
 
@@ -668,11 +672,11 @@ def materialize_join_graph_sample(jg, dod, sample_size=100):
                 # cProfile.runctx('apply_consistent_sample(l, r, l_key, r_key, sample_size)', {'l': l, 'r': r, 'l_key': l_key, 'r_key': r_key, 'sample_size': sample_size, 'apply_consistent_sample': apply_consistent_sample}, {}, sort="tottime")
                 start = time.time()
                 l, r = apply_consistent_sample(l, r, l_key, r_key, sample_size)
-                print("total time (apply_consistent_sample) ", time.time()-start)
+                # print("total time (apply_consistent_sample) ", time.time()-start)
                 # normalize false because I ensure it happens in the apply-consistent-sample function above
                 start = time.time()
                 df = join_ab_on_key(l, r, l_key, r_key, suffix_str=suffix_str, normalize=False)
-                print("total time (join) ", time.time() - start)
+                # print("total time (join) ", time.time() - start)
                 # df = join_ab_on_key_optimizer(l, r, l_key, r_key, suffix_str=suffix_str)
                 # df = join_ab_on_key(l, r, l_key, r_key, suffix_str=suffix_str)
                 if len(df) == 0:

@@ -116,6 +116,22 @@ def findvs():
         json_request = request.get_json()
         payload_str = json_request['payload']
         payload = json.loads(payload_str)
+        col_num = int(json_request['col_num'])
+        row_num = int(json_request['row_num']) - 1
+
+        # Prepare input parameters to DoD
+        list_attributes = [""] * col_num  # measure number attrs
+        list_samples = []
+        for i in range(row_num):
+            list_samples.append([""] * col_num)
+
+        for k, v in payload.items():
+            row_idx = int(k[0])
+            col_idx = int(k[2])
+            if row_idx == 0:
+                list_attributes[col_idx] = v
+            else:
+                list_samples[row_idx - 1][col_idx] = v
 
         # Prepare input parameters to DoD
         list_attributes = ["" for k, v in payload.items() if k[0] == "0"]  # measure number attrs

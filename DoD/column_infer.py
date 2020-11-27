@@ -34,7 +34,7 @@ class ColumnInfer:
         self.aurum_api = API(network=network, store_client=store_client)
         self.paths_cache = dict()
         dpu.configure_csv_separator(csv_separator)
-        self.topk = 10  # magic top k number
+        self.topk = 500  # magic top k number
 
     """
     Main Logic of column infer process 
@@ -121,29 +121,35 @@ class ColumnInfer:
                 clusters.append(cluster)
         return clusters
 
-    def get_clusters(self, attrs, values):
+    def get_clusters(self, attrs, values, types=["",""]):
         candidate_columns, col_containment_score_dict, hit_type_dict = self.infer_candidate_columns(attrs, values)
         attr_clusters = []
+        idx = 0
         for column, candidates in candidate_columns.items():
             clusters = self.cluster_attributes(candidates.data, col_containment_score_dict[column[0]], hit_type_dict[column[0]])
             clusters_list = []
             for cluster in clusters:
                 tmp = dict()
                 cluster = self.correct_cluster_tfidf_score(cluster)
+                head_values, data_type = self.get_head_values_and_type(cluster[0], 3)
+                if len(head_values) == 0 or data_type.name != types[idx]:
+                    continue       # discard empty columns
                 tmp["name"] = column[0]
                 tmp["sample_score"], max_column = self.get_containment_score(cluster)
-                tmp["data"] = list(map(lambda x: (x.source_name, x.field_name, x.tfidf_score), cluster))
-                tmp["head_values"] = list(set(max_column.highlight)) + self.get_head_values(cluster[0], 10)
+                tmp["data"] = list(map(lambda x: (x.nid, x.source_name, x.field_name, x.tfidf_score), cluster))
+                tmp["type"] = data_type.name
+                tmp["head_values"] = list(set(max_column.highlight)) + head_values
                 clusters_list.append(tmp)
             sorted_list = sorted(clusters_list, key=lambda e: e.__getitem__('sample_score'), reverse=True)
             attr_clusters.append(sorted_list)
+        idx += 1
         return attr_clusters
 
-    def get_head_values(self, clusterItem, offset):
+    def get_head_values_and_type(self, clusterItem, offset):
         path = self.get_path(clusterItem.nid, clusterItem.source_name)
         df = dpu.read_column(path, clusterItem.field_name)
         top_df = df.dropna().drop_duplicates().head(offset).values
-        return [row[0] for row in top_df]
+        return [row[0] for row in top_df],df.dtypes[clusterItem.field_name]
 
     def get_path(self, nid, table):
         return self.aurum_api.helper.get_path_nid(nid) + table
@@ -202,8 +208,9 @@ if __name__ == '__main__':
     # values = [['Stonebraker', '',''], ['', '','']]
     attrs = ["faculty", ""]
     values = [['Stonebraker', 'database']]
+    types = ["object", "object"]
 
-    col_generator = columnInfer.get_clusters(attrs, values)
+    col_generator = columnInfer.get_clusters(attrs, values,types)
     print(col_generator)
     filter_drs, score_map, hit_type = columnInfer.infer_candidate_columns(attrs, values)
     for filter, drs in filter_drs.items():
