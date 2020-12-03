@@ -18,7 +18,7 @@ def get_dataframes(path):
     files = [path + "/" + f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store']
     dfs = []
     for f in files:
-        df = pd.read_csv(f, encoding='latin1', thousands=',')  # .replace('"','', regex=True)
+        df = pd.read_csv(f, encoding='latin1')
         df = mva.curate_view(df)
         df = normalize(df)
         if len(df) > 0:  # only append valid df
@@ -80,7 +80,7 @@ def summarize_views_and_find_candidate_complementary(dataframes_with_metadata):
                 if len(hashes2_set - hashes1_set) == 0:
                     contained_group.append(path2)
             else:
-                if (path1 + "%%%" + path2) in already_processed_complementary_pairs \
+                if (path1 + "%%%" + path2) in already_processed_complementary_pairs\
                         or (path2 + "%%%" + path1) in already_processed_complementary_pairs:
                     continue  # already processed, skip computation
                 # Verify that views are potentially complementary
@@ -116,7 +116,7 @@ def pick_most_likely_key_of_pair(md1, md2):
     return k
 
 
-def find_contradiction_pair(t1, idx1, t2, idx2, best_composite_key):
+def find_contradiction_pair(t1, idx1, t2, idx2, k):
     complementary_key1 = set()
     complementary_key2 = set()
     contradictory_key1 = set()
@@ -125,91 +125,35 @@ def find_contradiction_pair(t1, idx1, t2, idx2, best_composite_key):
     selection1 = t1.iloc[idx1]
     selection2 = t2.iloc[idx2]
 
-    '''
-    Since selection1 and selection2 has the same set of attributes, if their intersection on the composite key 
-    contains overlapping columns that are contradictory (ex. Room Square  Footage_left = 1000 and Room Square 
-    Footage_right = 1001), then its corresponding key value is a contradictory key. Any key values not contained in 
-    the intersection are complementary keys.
-    '''
-    left_merge = pd.merge(selection1, selection2, on=best_composite_key, how='left', suffixes=('_left', '_right'))
-    # this is the intersection of the composite keys from both selections
-    left_merge_intersection = left_merge[left_merge.notnull().all(axis=1)]
-    if not left_merge_intersection.empty:
-        for c in tqdm(selection1.columns.values):
-            if c not in best_composite_key:
-                # compare two columns with the same attribute (now with suffix '_left' or '_right')
-                # and get the key values of all the rows that have contradictions
-                contradictory_keys_df = left_merge_intersection.loc[
-                    ~(left_merge_intersection[c + '_left'] == left_merge_intersection[c + '_right'])][
-                    best_composite_key]
-                # need to convert to a set of tuples, each tuple is the contradicting key values (one or multiple
-                # columns)
-                contradictory_keys = set(tuple(row) for row in contradictory_keys_df.values.tolist())
-                if len(contradictory_keys) > 0:
-                    # TODO: do I keep only one contradiction key values or all?
-                    # contradictory_key1.update(contradictory_keys)
-                    contradictory_key1.add(contradictory_keys.pop())
-                    # no need to continue once we found a contradiction for some attribute
-                    break
-    # this is all the rows that are not contained in the intersection (so they have NaNs)
-    complementary_keys_df = left_merge[left_merge.isnull().any(axis=1)][best_composite_key]
-    complementary_keys = set(tuple(row) for row in complementary_keys_df.values.tolist())
-    complementary_key1.update(complementary_keys)
-
-    # mirror of above
-    right_merge = pd.merge(selection1, selection2, on=best_composite_key, how='right', suffixes=('_left', '_right'))
-    right_merge_intersection = right_merge[right_merge.notnull().all(axis=1)]
-    if not right_merge_intersection.empty:
-        for c in tqdm(selection2.columns.values):
-            if c not in best_composite_key:
-                contradictory_keys_df = right_merge_intersection.loc[
-                    ~(right_merge_intersection[c + '_right'] == right_merge_intersection[c + '_left'])][
-                    best_composite_key]
-                contradictory_keys = set(tuple(row) for row in contradictory_keys_df.values.tolist())
-                if len(contradictory_keys) > 0:
-                    # TODO: do I keep only one contradiction key values or all?
-                    # contradictory_key1.update(contradictory_keys)
-                    contradictory_key2.add(contradictory_keys.pop())
-                    break
-    complementary_keys_df = right_merge[right_merge.isnull().any(axis=1)][best_composite_key]
-    complementary_keys = set(tuple(row) for row in complementary_keys_df.values.tolist())
-    complementary_key2.update(complementary_keys)
-
-    # print(complementary_key1, complementary_key2, contradictory_key1, contradictory_key2)
-
-    '''
-    s1 = selection1[best_composite_key]
-    s2 = set(selection2[best_composite_key])
+    s1 = selection1[k]
+    s2 = set(selection2[k])
     for key in tqdm(s1):
-    # for key in s1:
         if len(contradictory_key1) > 0:  # check this condition for early skip
             break
         if key in s2:
             for c in selection1.columns:
-                cell_value1 = set(selection1[selection1[best_composite_key] == key][c])
-                cell_value2 = set(selection2[selection2[best_composite_key] == key][c])
+                cell_value1 = set(selection1[selection1[k] == key][c])
+                cell_value2 = set(selection2[selection2[k] == key][c])
                 if len(cell_value1 - cell_value2) != 0:
                     contradictory_key1.add(key)
                     break  # one contradictory example is sufficient
         else:
             complementary_key1.add(key)
     if len(contradictory_key1) == 0:  # if we found a contradictory example, no need to go on
-        s2 = set(selection2[best_composite_key]) - set(s1)  # we only check the set difference to save some lookups
-        s1 = set(selection1[best_composite_key])
-        # for key in tqdm(s2):
-        for key in s2:
+        s2 = set(selection2[k]) - set(s1)  # we only check the set difference to save some lookups
+        s1 = set(selection1[k])
+        for key in tqdm(s2):
             if len(contradictory_key2) > 0:  # check this condition for early skip
                 break
             if key in s1:
                 for c in selection2.columns:
-                    cell_value2 = set(selection2[selection2[best_composite_key] == key][c])
-                    cell_value1 = set(selection1[selection1[best_composite_key] == key][c])
+                    cell_value2 = set(selection2[selection2[k] == key][c])
+                    cell_value1 = set(selection1[selection1[k] == key][c])
                     if len(cell_value2 - cell_value1) != 0:
                         contradictory_key2.add(key)
                         break
             else:
-                complementary_key2.add(key)       
-    '''
+                complementary_key2.add(key)
     return complementary_key1, complementary_key2, contradictory_key1, contradictory_key2
 
 
@@ -282,14 +226,9 @@ def tell_contradictory_and_complementary_allpairs(candidate_complementary_group,
     return complementary_group, contradictory_group
 
 
-def tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove, best_composite_key):
+def tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove):
     complementary_group = list()
     contradictory_group = list()
-
-    # if we didn't find a composite key (ex. all the columns are float), then we don't classify any contradictory or
-    # complementary groups
-    if best_composite_key == None:
-        return complementary_group, contradictory_group
 
     contradictory_pairs = set()
     complementary_pairs = set()
@@ -314,41 +253,27 @@ def tell_contradictory_and_complementary_chasing(candidate_complementary_group, 
 
             marked_node = marked_nodes.pop()
             # print(marked_node)
-            path, composite_key_tuple, contradictory_key_tuple = marked_node  # pop on insertion
+            path, k_attr_name, contradictory_key = marked_node  # pop on insertion
             # contradictory_key = contradictory_keys.pop()
-            composite_key = list(composite_key_tuple)
-            # there is only one (tuple) contradictory key here
-            contradictory_key = list(contradictory_key_tuple)
 
             neighbors_graph = graph[path]
             # chase all neighbors of involved node
             for neighbor_k, neighbor_v in neighbors_graph.items():
                 df1, md1, path1, idx1, df2, md2, path2, idx2 = neighbor_v
                 # skip already processed pairs
-                if path1 + "%$%" + path2 in contradictory_pairs or path2 + "%$%" + path1 in contradictory_pairs \
+                if path1 + "%$%" + path2 in contradictory_pairs or path2 + "%$%" + path1 in contradictory_pairs\
                         or path1 + "%$%" + path2 in complementary_pairs or path2 + "%$%" + path1 in complementary_pairs:
                     continue
                 selection1 = df1.iloc[idx1]
                 selection2 = df2.iloc[idx2]
-
                 for c in selection1.columns:
-
-                    # select row based on multiple composite keys
-                    condition1 = (selection1[composite_key[0]] == contradictory_key[0])
-                    condition2 = (selection2[composite_key[0]] == contradictory_key[0])
-                    for i in range(1, len(composite_key)):
-                        condition1 = (condition1 & (selection1[composite_key[i]] == contradictory_key[i]))
-                        condition2 = (condition2 & (selection2[composite_key[i]] == contradictory_key[i]))
-
-                    cell_value1 = set(selection1.loc[condition1][c])
-                    cell_value2 = set(selection2.loc[condition2][c])
-
+                    cell_value1 = set(selection1[selection1[k_attr_name] == contradictory_key][c])
+                    cell_value2 = set(selection2[selection2[k_attr_name] == contradictory_key][c])
                     if len(cell_value1) > 0 and len(cell_value2) > 0 and len(cell_value1 - cell_value2) != 0:
-                        # {contradictory_key_tuple} need to be a set!!!
-                        contradictory_group.append((path1, composite_key_tuple, {contradictory_key_tuple}, path2))
+                        contradictory_group.append((path1, k_attr_name, contradictory_key, path2))
                         contradictory_pairs.add(path1 + "%$%" + path2)
                         contradictory_pairs.add(path2 + "%$%" + path1)
-                        marked_nodes.add((neighbor_k, composite_key_tuple, contradictory_key_tuple))
+                        marked_nodes.add((neighbor_k, k_attr_name, contradictory_key))
                         break  # one contradiction is enough to move on, no need to check other columns
 
         # At this point all marked nodes are processed. If there are no more candidate pairs, then we're done
@@ -364,34 +289,26 @@ def tell_contradictory_and_complementary_chasing(candidate_complementary_group, 
             continue
 
         # find contradiction in pair (if not put in complementary group and choose next pair)
-        # k = pick_most_likely_key_of_pair(md1, md2)
-        # switching to use best_composite_key instead of finding a key for every pair of views
+        k = pick_most_likely_key_of_pair(md1, md2)
         complementary_key1, complementary_key2, \
-        contradictory_key1, contradictory_key2 = find_contradiction_pair(df1, idx1, df2, idx2, best_composite_key)
-
-        # print(contradictory_key1, contradictory_key2)
-
-        composite_key_tuple = tuple(best_composite_key)
+        contradictory_key1, contradictory_key2 = find_contradiction_pair(df1, idx1, df2, idx2, k)
 
         # if contradiction found, mark keys and nodes of graph
         if len(contradictory_key1) > 0:
-            # tuple is: (path1: name of table, composite_key_tuple, contr_key1 (one tuple))
+            # tuple is: (path1: name of table, k: attribute_name, contradictory_key: set of contradictory keys)
             contr_key1 = contradictory_key1.pop()
-            marked_nodes.add((path1, composite_key_tuple, contr_key1))
+            marked_nodes.add((path1, k, contr_key1))
         if len(contradictory_key2) > 0:
             contr_key2 = contradictory_key2.pop()
-            marked_nodes.add((path2, composite_key_tuple, contr_key2))
+            marked_nodes.add((path2, k, contr_key2))
 
         # record the classification between complementary/contradictory of this iteration
         if len(contradictory_key1) > 0:
-            # tuple is: (path1, composite_key_tuple, contradictory_key: set of contradictory keys (tuples), path2)
-            contradictory_group.append((path1, composite_key_tuple, contradictory_key1, path2))
-            # print((path1, composite_key_tuple, contradictory_key1, path2))
+            contradictory_group.append((path1, k, contradictory_key1, path2))
             contradictory_pairs.add(path1 + "%$%" + path2)
             contradictory_pairs.add(path2 + "%$%" + path1)
         if len(contradictory_key2) > 0:
-            contradictory_group.append((path2, composite_key_tuple, contradictory_key2, path1))
-            # print((path2, composite_key_tuple, contradictory_key2, path1))
+            contradictory_group.append((path2, k, contradictory_key2, path1))
             contradictory_pairs.add(path1 + "%$%" + path2)
             contradictory_pairs.add(path2 + "%$%" + path1)
         if len(contradictory_key1) == 0 and len(contradictory_key2) == 0:
@@ -405,7 +322,8 @@ def tell_contradictory_and_complementary_chasing(candidate_complementary_group, 
     return complementary_group, contradictory_group
 
 
-def chasing_4c(dataframes_with_metadata, best_composite_key):
+def chasing_4c(dataframes_with_metadata):
+
     # sort relations by cardinality to avoid reverse containment
     # (df, path, metadata)
     dataframes_with_metadata = sorted(dataframes_with_metadata, key=lambda x: len(x[0]), reverse=True)
@@ -424,7 +342,7 @@ def chasing_4c(dataframes_with_metadata, best_composite_key):
     t_to_remove = set()
 
     complementary_group, contradictory_group = \
-        tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove, best_composite_key)
+        tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove)
 
     # prepare found groups for presentation
     compatible_groups = [cg for cg in compatible_groups if len(cg) > 1]
@@ -433,6 +351,7 @@ def chasing_4c(dataframes_with_metadata, best_composite_key):
 
 
 def no_chasing_4c(dataframes_with_metadata):
+
     # sort relations by cardinality to avoid reverse containment
     # (df, path, metadata)
     dataframes_with_metadata = sorted(dataframes_with_metadata, key=lambda x: len(x[0]), reverse=True)
@@ -486,7 +405,7 @@ def brute_force_4c_valuewise(dataframes_with_metadata):
             are_equivalent, equivalency_type = mva.equivalent(gv, v)  # local group
             if not are_equivalent:
                 contradictions.append((k, gn))
-                break  # one contradiction is enough to stop
+                break # one contradiction is enough to stop
         if len(contradictions) != 0:
             return True, contradictions
         return False, []
@@ -585,66 +504,6 @@ def get_df_metadata(dfs):
     return dfs_with_metadata
 
 
-def find_composite_key(dfs, sampling=True, max_num_attr_in_composite_key=4):
-    # Concatenate all rows for sampling
-    combined = pd.concat([df for df, path in dfs], ignore_index=True, sort=False)
-
-    # infer and convert types (originally all columns have 'object' type)
-    # print(combined.infer_objects().dtypes)
-    combined = combined.convert_dtypes()
-    # combined = mva.curate_view(combined)
-    # for col in combined.columns:
-    #     try:
-    #         print(combined[col])
-    #         combined[col] = pd.to_numeric(combined[col])
-    #     except:
-    #         pass
-    # print(combined.dtypes)
-
-    # drop float-type columns
-    combined = combined.select_dtypes(exclude=['float'])
-    total_rows, total_cols = combined.shape
-
-    sample = combined
-    sample_size = total_rows
-
-    if total_cols == 0:
-        return None
-
-    if sampling:
-        # a minimum sample size of O ( (T^½) (ε^-1) (d + log (δ^−1) ) is needed to ensure that, with probability (1−δ),
-        # the strength of each key discovered in a sample exceeds 1−ε. T is the number of entities and d is the
-        # number of attributes.
-        delta_prob = 0.99
-        epsilon = 0.99
-        import math
-        sample_size = math.ceil(math.sqrt(total_rows) * 1 / epsilon * (total_cols + math.log(1 / delta_prob)))
-        if sample_size < total_rows:
-            sample = combined.sample(n=sample_size, replace=False)
-
-    from itertools import chain, combinations
-
-    def power_set(iterable, size_range):
-        "power_set([1,2,3], (0, 3)) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"
-        s = list(iterable)
-        return chain.from_iterable(combinations(s, r) for r in range(size_range[0], size_range[1] + 1))
-
-    candidate_composite_keys = power_set(sample.columns.values, (1, max_num_attr_in_composite_key))
-
-    # TODO: pruning
-    max_strength = -1
-    for key in map(list, filter(None, candidate_composite_keys)):
-        # strength of a composite key = the number of distinct key values in the dataset divided by the number of rows
-        num_groups = sample.groupby(key).ngroups
-        strength = num_groups / sample_size
-        if strength > max_strength:
-            best_composite_key = key
-
-    print("Best composite key:", best_composite_key)
-
-    return best_composite_key
-
-
 def main(input_path):
     groups_per_column_cardinality = defaultdict(dict)
 
@@ -656,15 +515,10 @@ def main(input_path):
     print("")
     for key, group_dfs in dfs_per_schema.items():
         print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
-
-        best_composite_key = find_composite_key(group_dfs)
-
-        # TODO: the metadata is not needed anymore, but keep it for now so I don't ruin the code structure
         dfs_with_metadata = get_df_metadata(group_dfs)
 
         # summarized_group, complementary_group, contradictory_group = brute_force_4c(dfs_with_metadata)
-        compatible_group, contained_group, complementary_group, contradictory_group = chasing_4c(dfs_with_metadata,
-                                                                                                 best_composite_key)
+        compatible_group, contained_group, complementary_group, contradictory_group = chasing_4c(dfs_with_metadata)
         groups_per_column_cardinality[key]['compatible'] = compatible_group
         groups_per_column_cardinality[key]['contained'] = contained_group
         groups_per_column_cardinality[key]['complementary'] = complementary_group
@@ -718,7 +572,6 @@ def valuewise_main(input_path):
 
     return groups_per_column_cardinality
 
-
 if __name__ == "__main__":
     print("View 4C Analysis - Baseline")
 
@@ -769,41 +622,20 @@ if __name__ == "__main__":
             print(path1 + " - " + path2)
 
         print("Contradictory views: ")
-        for path1, composite_key_tuple, key_value_tuples, path2 in contradictory_group:
+        for path1, key_column, key_value, path2 in contradictory_group:
+
+            print("key: ", key_column)
 
             df1 = pd.read_csv(path1)
             df2 = pd.read_csv(path2)
-            # a list containing composite key names
-            composite_key = list(composite_key_tuple)
-            # a list of tuples, each tuple corresponds to the contradictory key values (I changed so that we only
-            # record one contradiction for each pair pf views)
-            key_values = list(key_value_tuples)
-
-            print("Composite key: ", composite_key)
-
-            # there could be multiple contradictions existing in a pair of views (right now only one)
-            assert len(key_values) == 1
-            for key_value in key_values:
-
-                # select row based on multiple composite keys
-                assert len(key_value) == len(composite_key)
-
-                condition1 = (df1[composite_key[0]] == key_value[0])
-                condition2 = (df2[composite_key[0]] == key_value[0])
-                for i in range(1, len(composite_key)):
-                    condition1 = (condition1 & (df1[composite_key[i]] == key_value[i]))
-                    condition2 = (condition2 & (df2[composite_key[i]] == key_value[i]))
-
-                row1 = df1.loc[condition1]
-                row2 = df2.loc[condition2]
-
-                print(path1 + " - " + path2)
-                print("ROW - 1")
-                print(row1)
-                print("ROW - 2")
-                print(row2)
-                print("")
-
+            row1 = df1[df1[key_column] == key_value]
+            row2 = df2[df2[key_column] == key_value]
+            print(path1 + " - " + path2)
+            print("ROW - 1")
+            print(row1)
+            print("ROW - 2")
+            print(row2)
+            print("")
             print("")
 
         # analyzing contradictory views:
@@ -813,3 +645,4 @@ if __name__ == "__main__":
             mapping[path2].append(path1)
         for k, v in mapping.items():
             print(k + " : " + str(len(v)))
+
