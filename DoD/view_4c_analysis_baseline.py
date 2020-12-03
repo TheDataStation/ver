@@ -195,7 +195,7 @@ def find_contradiction_pair(t1, idx1, t2, idx2, best_composite_key):
     if len(contradictory_key1) == 0:  # if we found a contradictory example, no need to go on
         s2 = set(selection2[k]) - set(s1)  # we only check the set difference to save some lookups
         s1 = set(selection1[k])
-        for key in s2:
+        for key in tqdm(s2):
             if len(contradictory_key2) > 0:  # check this condition for early skip
                 break
             if key in s1:
