@@ -178,32 +178,30 @@ def find_contradiction_pair(t1, idx1, t2, idx2, best_composite_key):
     # print(complementary_key1, complementary_key2, contradictory_key1, contradictory_key2)
 
     '''
-    s1 = selection1[best_composite_key]
-    s2 = set(selection2[best_composite_key])
+    s1 = selection1[k]
+    s2 = set(selection2[k])
     for key in tqdm(s1):
-    # for key in s1:
         if len(contradictory_key1) > 0:  # check this condition for early skip
             break
         if key in s2:
             for c in selection1.columns:
-                cell_value1 = set(selection1[selection1[best_composite_key] == key][c])
-                cell_value2 = set(selection2[selection2[best_composite_key] == key][c])
+                cell_value1 = set(selection1[selection1[k] == key][c])
+                cell_value2 = set(selection2[selection2[k] == key][c])
                 if len(cell_value1 - cell_value2) != 0:
                     contradictory_key1.add(key)
                     break  # one contradictory example is sufficient
         else:
             complementary_key1.add(key)
     if len(contradictory_key1) == 0:  # if we found a contradictory example, no need to go on
-        s2 = set(selection2[best_composite_key]) - set(s1)  # we only check the set difference to save some lookups
-        s1 = set(selection1[best_composite_key])
-        # for key in tqdm(s2):
+        s2 = set(selection2[k]) - set(s1)  # we only check the set difference to save some lookups
+        s1 = set(selection1[k])
         for key in s2:
             if len(contradictory_key2) > 0:  # check this condition for early skip
                 break
             if key in s1:
                 for c in selection2.columns:
-                    cell_value2 = set(selection2[selection2[best_composite_key] == key][c])
-                    cell_value1 = set(selection1[selection1[best_composite_key] == key][c])
+                    cell_value2 = set(selection2[selection2[k] == key][c])
+                    cell_value1 = set(selection1[selection1[k] == key][c])
                     if len(cell_value2 - cell_value1) != 0:
                         contradictory_key2.add(key)
                         break
