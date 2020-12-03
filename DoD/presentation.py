@@ -157,7 +157,7 @@ class ContradictoryViews(DiscreteSignal):
 
 def pick_best_signal_to_split(splits):
     # If the user randomly pick a branch in the split, what's the expected value of uncertainty removed?
-    # ev = sum over p_i * x+i
+    # ev = sum over p_i * x_i
     # gain = total size - ev
     # TODO: Do we need to use gain ratio to penalize large number of distinct values, or it's unnecessary
     #  if we already have the split threshold?
@@ -170,6 +170,7 @@ def pick_best_signal_to_split(splits):
             expected_value += num / split_size * num
         gain = split_size - expected_value
         if gain > max_gain:
+            max_gain = gain
             best_signal = signal
     return best_signal
 
@@ -224,12 +225,19 @@ if __name__ == '__main__':
     print("After removing duplicates in compatible groups: ", len(view_dfs))
 
     signals = []
+    view_files = [v[1] for v in view_dfs]
+
+    # complementary views
+    complementary_views_count = 0
+    for path1, path2, _, _ in complementary_groups:
+        if path1 in view_files and path2 in view_files:
+            complementary_views_count += 1
+    print("Found ", complementary_views_count, " pair of complementary views")
 
     # Integrate contradictory groups as signals
-    view_files = [v[1] for v in view_dfs]
     contradictions_dict = {}
     contradictions_dict_dedup = {}  # for deduplication
-    for path1, key_column, key_value, path2 in contradictory_groups:
+    for path1, composite_key_tuple, key_value_tuples, path2 in contradictory_groups:
 
         if not (path1 in view_files or path2 in view_files):
             continue
@@ -238,33 +246,44 @@ if __name__ == '__main__':
         df1 = pd.read_csv(path1)
         df2 = pd.read_csv(path2)
 
-        row1_df = df1[df1[key_column] == key_value]
-        row2_df = df2[df2[key_column] == key_value]
-        # TODO: I want to use (row1, row2) as key for my dictionary but using to_string seems too hacky
-        row1 = row1_df.to_string(header=False, index=False, index_names=False)
-        row2 = row2_df.to_string(header=False, index=False, index_names=False)
+        composite_key = list(composite_key_tuple)
+        key_values = list(key_value_tuples)
 
-        # (row1, row2) and (row2, row1) count as the same contradiction
-        already_added = False
-        if (row1, row2) in contradictions_dict_dedup.keys():
-            already_added = True
-        elif (row2, row1) in contradictions_dict_dedup.keys():
-            row1, row2 = row2, row1
-            path1, path2 = path2, path1
-            row1_df, row2_df = row2_df, row1_df
-        if already_added:
-            # This is kind of ugly. But since I can't add the tuple directly to a set, I need to have a separate
-            # dict for deduplication of paths
-            if path1 not in contradictions_dict_dedup[(row1, row2)][0]:
-                contradictions_dict[(row1, row2)][0].append((row1_df, path1))
-            if path2 not in contradictions_dict_dedup[(row1, row2)][1]:
-                contradictions_dict[(row1, row2)][1].append((row2_df, path2))
+        for key_value in key_values:
+            condition1 = (df1[composite_key[0]] == key_value[0])
+            condition2 = (df2[composite_key[0]] == key_value[0])
+            for i in range(1, len(composite_key)):
+                condition1 = (condition1 & (df1[composite_key[i]] == key_value[i]))
+                condition2 = (condition2 & (df2[composite_key[i]] == key_value[i]))
 
-            contradictions_dict_dedup[(row1, row2)][0].add(path1)
-            contradictions_dict_dedup[(row1, row2)][1].add(path2)
-        else:
-            contradictions_dict_dedup[(row1, row2)] = ({path1}, {path2})  # use set to avoid duplicates
-            contradictions_dict[(row1, row2)] = ([(row1_df, path1)], [(row2_df, path2)])
+            row1_df = df1.loc[condition1]
+            row2_df = df2.loc[condition2]
+
+            # TODO: I want to use (row1, row2) as key for my dictionary but using to_string seems too hacky
+            row1 = row1_df.to_string(header=False, index=False, index_names=False)
+            row2 = row2_df.to_string(header=False, index=False, index_names=False)
+
+            # (row1, row2) and (row2, row1) count as the same contradiction
+            already_added = False
+            if (row1, row2) in contradictions_dict_dedup.keys():
+                already_added = True
+            elif (row2, row1) in contradictions_dict_dedup.keys():
+                row1, row2 = row2, row1
+                path1, path2 = path2, path1
+                row1_df, row2_df = row2_df, row1_df
+            if already_added:
+                # This is kind of ugly. But since I can't add the tuple directly to a set, I need to have a separate
+                # dict for deduplication of paths
+                if path1 not in contradictions_dict_dedup[(row1, row2)][0]:
+                    contradictions_dict[(row1, row2)][0].append((row1_df, path1))
+                if path2 not in contradictions_dict_dedup[(row1, row2)][1]:
+                    contradictions_dict[(row1, row2)][1].append((row2_df, path2))
+
+                contradictions_dict_dedup[(row1, row2)][0].add(path1)
+                contradictions_dict_dedup[(row1, row2)][1].add(path2)
+            else:
+                contradictions_dict_dedup[(row1, row2)] = ({path1}, {path2})  # use set to avoid duplicates
+                contradictions_dict[(row1, row2)] = ([(row1_df, path1)], [(row2_df, path2)])
 
     print("Found ", len(contradictions_dict), " contradictions\n")
 
@@ -279,7 +298,7 @@ if __name__ == '__main__':
         signals.append(contradiction_signal)
 
     size_signal = ViewSize(view_dfs)
-    signals.append(size_signal)
+    # signals.append(size_signal)
 
     # assign fake primary keys randomly
     pk_dict = {}
@@ -311,7 +330,7 @@ if __name__ == '__main__':
         ranking_model[view_file] = 0
 
     num_iters = 0
-    while num_iters < 10 and len(splits) > 0:
+    while num_iters < 100 and len(splits) > 0:
 
         # Pick the best split that can prune out most views (based on expected value)
         best_signal = pick_best_signal_to_split(splits)
@@ -323,8 +342,9 @@ if __name__ == '__main__':
         # skipping user interaction part...
         print("Pick your preferred representative:")
         pprint.pprint(list(representatives.values()))
-        print("Option: ")
-        pprint.pprint(list(representatives.keys()))
+        print("{},\t{:>30}".format("Option", "Number of views in this group"))
+        for option, views in splits[best_signal].items():
+            print("{},\t{:>30}".format(option, len(views)))
 
         # user randomly picks one branch from the representatives
         random_pick = random.choice(list(representatives.keys()))

@@ -31,6 +31,10 @@ def uniqueness(df):
 
 
 def curate_view(df):
+
+    # df.columns = df.iloc[0]
+    # df = df.drop(index=0).reset_index(drop=True)
+
     df = df.dropna()  # drop nan
     df = df.drop_duplicates()
     # this may tweak indexes, so need to reset that
