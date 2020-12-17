@@ -228,10 +228,12 @@ if __name__ == '__main__':
     view_files = [v[1] for v in view_dfs]
 
     # complementary views
+    # print("Complementary views: ")
     complementary_views_count = 0
     for path1, path2, _, _ in complementary_groups:
         if path1 in view_files and path2 in view_files:
             complementary_views_count += 1
+            # print(path1 + " - " + path2)
     print("Found ", complementary_views_count, " pair of complementary views")
 
     # Integrate contradictory groups as signals

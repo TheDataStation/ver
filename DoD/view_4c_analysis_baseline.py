@@ -280,14 +280,9 @@ def tell_contradictory_and_complementary_allpairs(candidate_complementary_group,
     return complementary_group, contradictory_group
 
 
-def tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove, best_composite_key):
+def tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove):
     complementary_group = list()
     contradictory_group = list()
-
-    # if we didn't find a composite key (ex. all the columns are float), then we don't classify any contradictory or
-    # complementary groups
-    if best_composite_key == None:
-        return complementary_group, contradictory_group
 
     contradictory_pairs = set()
     complementary_pairs = set()
@@ -363,7 +358,15 @@ def tell_contradictory_and_complementary_chasing(candidate_complementary_group, 
 
         # find contradiction in pair (if not put in complementary group and choose next pair)
         # k = pick_most_likely_key_of_pair(md1, md2)
+
         # switching to use best_composite_key instead of finding a key for every pair of views
+        dfs = [df1, df2]
+        best_composite_key = find_composite_key(dfs, sampling=False, max_num_attr_in_composite_key=4)
+        # if we didn't find a composite key (ex. all the columns are float), then we don't classify any
+        # contradictory or complementary groups
+        if best_composite_key == None:
+            return complementary_group, contradictory_group
+
         complementary_key1, complementary_key2, \
         contradictory_key1, contradictory_key2 = find_contradiction_pair(df1, idx1, df2, idx2, best_composite_key)
 
@@ -403,7 +406,7 @@ def tell_contradictory_and_complementary_chasing(candidate_complementary_group, 
     return complementary_group, contradictory_group
 
 
-def chasing_4c(dataframes_with_metadata, best_composite_key):
+def chasing_4c(dataframes_with_metadata):
     # sort relations by cardinality to avoid reverse containment
     # (df, path, metadata)
     dataframes_with_metadata = sorted(dataframes_with_metadata, key=lambda x: len(x[0]), reverse=True)
@@ -422,7 +425,7 @@ def chasing_4c(dataframes_with_metadata, best_composite_key):
     t_to_remove = set()
 
     complementary_group, contradictory_group = \
-        tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove, best_composite_key)
+        tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove)
 
     # prepare found groups for presentation
     compatible_groups = [cg for cg in compatible_groups if len(cg) > 1]
@@ -585,7 +588,7 @@ def get_df_metadata(dfs):
 
 def find_composite_key(dfs, sampling=True, max_num_attr_in_composite_key=4):
     # Concatenate all rows for sampling
-    combined = pd.concat([df for df, path in dfs], ignore_index=True, sort=False)
+    combined = pd.concat(dfs, ignore_index=True, sort=False)
 
     # infer and convert types (originally all columns have 'object' type)
     # print(combined.infer_objects().dtypes)
@@ -637,8 +640,9 @@ def find_composite_key(dfs, sampling=True, max_num_attr_in_composite_key=4):
         strength = num_groups / sample_size
         if strength > max_strength:
             best_composite_key = key
+            max_strength = strength
 
-    print("Best composite key:", best_composite_key)
+    # print("Best composite key:", best_composite_key)
 
     return best_composite_key
 
@@ -655,14 +659,14 @@ def main(input_path):
     for key, group_dfs in dfs_per_schema.items():
         print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
 
-        best_composite_key = find_composite_key(group_dfs)
+        # best_composite_key = find_composite_key(group_dfs)
 
         # TODO: the metadata is not needed anymore, but keep it for now so I don't ruin the code structure
         dfs_with_metadata = get_df_metadata(group_dfs)
 
         # summarized_group, complementary_group, contradictory_group = brute_force_4c(dfs_with_metadata)
-        compatible_group, contained_group, complementary_group, contradictory_group = chasing_4c(dfs_with_metadata,
-                                                                                                 best_composite_key)
+        compatible_group, contained_group, complementary_group, contradictory_group = chasing_4c(dfs_with_metadata)
+
         groups_per_column_cardinality[key]['compatible'] = compatible_group
         groups_per_column_cardinality[key]['contained'] = contained_group
         groups_per_column_cardinality[key]['complementary'] = complementary_group
