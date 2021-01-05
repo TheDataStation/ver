@@ -258,6 +258,15 @@ def read_column(relation_path, col):
     return df.copy()
 
 
+def read_column(relation_path, col, offset):
+    df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col], nrows=offset)
+    return df.copy()
+
+def read_columns(relation_path, cols):
+    df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=cols)
+    return df.copy()
+
+
 def read_relation_on_copy(relation_path):
     """
     This is assuming than copying a DF is cheaper than reading it back from disk
@@ -383,7 +392,7 @@ def _obtain_attributes_to_project(jp_with_filters):
 
 
 def project(df, attributes_to_project):
-    print("Project: " + str(attributes_to_project))
+    # print("Project: " + str(attributes_to_project))
     df = df[list(attributes_to_project)]
     return df
 
@@ -542,48 +551,37 @@ def apply_consistent_sample_optimized(dfa, dfb, a_key, b_key, sample_size):
 
 
 def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
-    start = time.time()
     # Normalize values
     dfa[a_key] = dfa[a_key].apply(lambda x: str(x).lower())
     dfb[b_key] = dfb[b_key].apply(lambda x: str(x).lower())
-    print("time (normalization): ", time.time() - start)
 
     # Chose consistently sample of IDs
     a_len = len(set(dfa[a_key]))
     b_len = len(set(dfb[b_key]))
-    if a_len > b_len:
+    if a_len < b_len:
         sampling_side = dfa
         sampling_key = a_key
     else:
         sampling_side = dfb
         sampling_key = b_key
-    start = time.time()
     id_to_hash = dict()
     for el in set(sampling_side[sampling_key]):  # make sure you don't draw repetitions
         h = hash(el)
         id_to_hash[el] = h
-    print("time (hash): ", time.time() - start)
-
-    start = time.time()
 
     sorted_hashes = heapq.nlargest(sample_size, id_to_hash.items(), key=lambda x: x[1])
     # sorted_hashes = sorted(id_to_hash.items(), key=lambda x: x[1], reverse=True)  # reverse or not does not matter
-    print("time (sorting): ", time.time() - start)
     chosen_ids = [id for id, hash in sorted_hashes]
 
     # Apply selection on both DFs
-    start = time.time()
     dfa = dfa[dfa[a_key].isin(chosen_ids)]
     dfb = dfb[dfb[b_key].isin(chosen_ids)]
-    print("time (selection): ", time.time() - start)
 
     # Remove duplicate keys before returning
-    start = time.time()
     dfa = dfa.drop_duplicates(subset=a_key)
     dfb = dfb.drop_duplicates(subset=b_key)
     dfa.reset_index(drop=True)
     dfb.reset_index(drop=True)
-    print("time (remove dup): ", time.time() - start)
     return dfa, dfb
 
 

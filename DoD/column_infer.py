@@ -6,6 +6,7 @@ from api.apiutils import DRS, Operation, OP
 from modelstore.elasticstore import StoreHandler
 from knowledgerepr import fieldnetwork
 import server_config as config
+import time
 
 
 class ClusterItem:
@@ -40,9 +41,9 @@ class ColumnInfer:
     Main Logic of column infer process 
     """
     def infer_candidate_columns(self, attrs, values):
-        spread_sheet = dict()
+        spread_sheet = []
         for i in range(len(attrs)):
-            spread_sheet[attrs[i]] = [row[i] for row in values]
+            spread_sheet.append((attrs[i], [row[i] for row in values]))
 
         column_candidates = dict()  # candidate columns for one attr
         column_id = 0
@@ -51,7 +52,9 @@ class ColumnInfer:
         example_hit_dict = dict()  # dict of column_example_hit. each attribute has a example_hit dict
         hit_type_dict = dict() # dict of hit_type. each attribute has a hit_type dict
 
-        for attr, samples in spread_sheet.items():
+        for item in spread_sheet:
+            attr = item[0]
+            samples = item[1]
             drs_attr = None
             column_example_hit = dict()  # the number of samples contained in one column - column containment score
             hit_type = dict()
@@ -100,6 +103,7 @@ class ColumnInfer:
                 column_candidates[("Column" + str(column_id+1), FilterType.CELL, column_id)] = drs_samples_union
             else:
                 column_candidates[(attr, FilterType.ATTR, column_id)] = drs_attr
+            column_id += 1
         return column_candidates, example_hit_dict, hit_type_dict
 
     def cluster_attributes(self, candidates, score_map, hit_type):
@@ -130,10 +134,13 @@ class ColumnInfer:
             clusters_list = []
             for cluster in clusters:
                 tmp = dict()
-                cluster = self.correct_cluster_tfidf_score(cluster)
-                head_values, data_type = self.get_head_values_and_type(cluster[0], 3)
-                if len(head_values) == 0 or data_type.name != types[idx]:
-                    continue       # discard empty columns
+                # cluster = self.correct_cluster_tfidf_score(cluster)
+                s = time.time()
+                head_values, data_type = self.get_head_values_and_type(cluster[0], 5)
+                # if len(head_values) == 0 or data_type.name != types[idx]:
+                #     continue       # discard empty columns
+                # if len(head_values) == 0:
+                #     continue
                 tmp["name"] = column[0]
                 tmp["sample_score"], max_column = self.get_containment_score(cluster)
                 tmp["data"] = list(map(lambda x: (x.nid, x.source_name, x.field_name, x.tfidf_score), cluster))
@@ -142,14 +149,14 @@ class ColumnInfer:
                 clusters_list.append(tmp)
             sorted_list = sorted(clusters_list, key=lambda e: e.__getitem__('sample_score'), reverse=True)
             attr_clusters.append(sorted_list)
-        idx += 1
+            idx += 1
         return attr_clusters
 
     def get_head_values_and_type(self, clusterItem, offset):
         path = self.get_path(clusterItem.nid, clusterItem.source_name)
-        df = dpu.read_column(path, clusterItem.field_name)
-        top_df = df.dropna().drop_duplicates().head(offset).values
-        return [row[0] for row in top_df],df.dtypes[clusterItem.field_name]
+        df = dpu.read_column(path, clusterItem.field_name, offset)
+        top_df = df.dropna().drop_duplicates().values
+        return [row[0] for row in top_df], df.dtypes[clusterItem.field_name]
 
     def get_path(self, nid, table):
         return self.aurum_api.helper.get_path_nid(nid) + table

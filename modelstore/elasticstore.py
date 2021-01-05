@@ -211,7 +211,12 @@ class StoreHandler:
         if elasticfieldname == KWType.KW_CONTENT:
             index = "text"
             query_body = {"from": 0, "size": max_hits,
-                          "query": {"match": {"text": keywords}},
+                          "query":
+                              {
+                                  "match_phrase": {
+                                      "text": keywords
+                                  }
+                              },
                           "highlight": {
                                 "fields": {
                                     "text": {}
