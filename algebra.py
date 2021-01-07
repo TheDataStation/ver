@@ -61,6 +61,9 @@ class Algebra:
     def search_content(self, kw: str, max_results=10) -> DRS:
         return self.search(kw, kw_type=KWType.KW_CONTENT, max_results=max_results)
 
+    def search_exact_content(self, kw: str, max_results=10) -> DRS:
+        return self.exact_search(kw, kw_type=KWType.KW_CONTENT, max_results=max_results)
+
     def search_attribute(self, kw: str, max_results=10) -> DRS:
         return self.search(kw, kw_type=KWType.KW_SCHEMA, max_results=max_results)
 
@@ -235,6 +238,9 @@ class Algebra:
     """
     Helper Functions
     """
+    def nid_to_drs(self, nid) -> DRS:
+        hit = self._nid_to_hit(nid)
+        return self._hit_to_drs(hit)
 
     def make_drs(self, general_input):
         """
@@ -336,7 +342,7 @@ class Algebra:
         nid = str(nid)
         score = 0.0
         nid, db, source, field = self._network.get_info_for([nid])[0]
-        hit = Hit(nid, db, source, field, score)
+        hit = Hit(nid, db, source, field, score,[])
         return hit
 
     def _node_to_hit(self, node: (str, str, str)) -> Hit:
@@ -350,6 +356,9 @@ class Algebra:
         nid = id_from(db, source, field)
         hit = Hit(nid, db, source, field, 0)
         return hit
+
+    def hits_to_drs(self, hits):
+        return DRS(hits, Operation(OP.ORIGIN))
 
     def _hit_to_drs(self, hit: Hit, table_mode=False) -> DRS:
         """

@@ -74,7 +74,7 @@ class FieldNetwork:
     def get_hits_from_table(self, table) -> [Hit]:
         nids = self.get_fields_of_source(table)
         info = self.get_info_for(nids)
-        hits = [Hit(nid, db_name, s_name, f_name, 0) for nid, db_name, s_name, f_name in info]
+        hits = [Hit(nid, db_name, s_name, f_name, 0, []) for nid, db_name, s_name, f_name in info]
         return hits
 
     def get_cardinality_of(self, node_id):
@@ -226,7 +226,7 @@ class FieldNetwork:
             if relation in v:
                 score = v[relation]['score']
                 (db_name, source_name, field_name, data_type) = self.__id_names[k]
-                data.append(Hit(k, db_name, source_name, field_name, score))
+                data.append(Hit(k, db_name, source_name, field_name, score, []))
         op = self.get_op_from_relation(relation)
         o_drs = DRS(data, Operation(op, params=[hit]))
         return o_drs

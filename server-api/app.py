@@ -9,6 +9,7 @@ from flask import send_from_directory
 import json
 import pandas as pd
 from DoD.dod import DoD
+from DoD.column_infer import ColumnInfer
 from DoD import data_processing_utils as dpu
 import server_config as C
 
@@ -32,13 +33,16 @@ network = fieldnetwork.deserialize_network(path_to_serialized_model)
 store_client = StoreHandler()
 
 global dod
+global columnInfer
 dod = DoD(network=network, store_client=store_client, csv_separator=sep)
+columnInfer = ColumnInfer(network=network, store_client=store_client, csv_separator=sep)
 
 global matview
 matview = None
 
 app = Flask(__name__)
 CORS(app)
+app.config['JSON_SORT_KEYS'] = False
 
 # this supports exactly 1 session right now
 global view_generator
@@ -59,6 +63,52 @@ def testpost():
         print("rcvd: " + str(payload))
         return jsonify({"myResp": "ok"})
 
+@app.route("/colMap", methods=['POST'])
+def colMap():
+    if request.method == 'POST':
+        json_request = request.get_json()
+        payload_str = json_request['payload']
+        payload = json.loads(payload_str)
+        col_num = int(json_request['col_num'])
+        row_num = int(json_request['row_num'])-1
+        print(payload.items())
+
+        # Prepare input parameters to DoD
+        list_attributes = [""] * col_num  # measure number attrs
+        list_samples = []
+        for i in range(row_num):
+            list_samples.append([""] * col_num)
+
+        for k, v in payload.items():
+            row_idx = int(k[0])
+            col_idx = int(k[2])
+            if row_idx == 0:
+                list_attributes[col_idx] = v
+            else:
+                list_samples[row_idx-1][col_idx] = v
+
+        global clusters
+        global cnt
+        cnt = 0
+        clusters = columnInfer.get_clusters(list_attributes, list_samples)
+        return jsonify(clusters)
+
+
+@app.route("/nextCol", methods=['POST'])
+def nextCol():
+    global cnt
+    cnt += 1
+    if cnt == len(clusters):
+        cnt = len(clusters) - 1
+    return jsonify(clusters[cnt])
+
+@app.route("/prvCol", methods=['POST'])
+def prvCol():
+    global cnt
+    cnt -= 1
+    if cnt < 0:
+        cnt = 0
+    return jsonify(clusters[cnt])
 
 @app.route("/findvs", methods=['POST'])
 def findvs():
@@ -66,6 +116,22 @@ def findvs():
         json_request = request.get_json()
         payload_str = json_request['payload']
         payload = json.loads(payload_str)
+        col_num = int(json_request['col_num'])
+        row_num = int(json_request['row_num']) - 1
+
+        # Prepare input parameters to DoD
+        list_attributes = [""] * col_num  # measure number attrs
+        list_samples = []
+        for i in range(row_num):
+            list_samples.append([""] * col_num)
+
+        for k, v in payload.items():
+            row_idx = int(k[0])
+            col_idx = int(k[2])
+            if row_idx == 0:
+                list_attributes[col_idx] = v
+            else:
+                list_samples[row_idx - 1][col_idx] = v
 
         # Prepare input parameters to DoD
         list_attributes = ["" for k, v in payload.items() if k[0] == "0"]  # measure number attrs
@@ -122,10 +188,11 @@ def suggest_field():
         json_request = request.get_json()
         input_text = json_request['input_text']
 
-        suggestions = dod.aurum_api.suggest_schema(input_text)
-        print(suggestions)
-        output = {k: v for k, v in suggestions}
-
+        drs = dod.aurum_api.search_attribute(input_text, 50)
+        suggestions = [(s.field_name, s.source_name, s.score) for s in drs.data]
+        suggestions = sorted(suggestions, key=lambda x: x[2], reverse=True)
+        output = {s[0]: s[1] for s in suggestions}
+        print(output)
         return jsonify(output)
 
 

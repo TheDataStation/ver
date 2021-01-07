@@ -8,6 +8,7 @@ function ButtonPanel(props) {
 	const addColumn = props.add_column;
 	const removeColumn = props.remove_column;
 	const findView = props.find_view;
+	const columnMapping = props.column_mapping;
 
 	return (
 		<div>
@@ -35,6 +36,9 @@ function ButtonPanel(props) {
 
             <div className="row">
 		        <div className="col mt-1">
+					<button type="button" className="button-find" data-toggle="tooltip" data-placement="left" data-html="true" title="Map <em>columns</em>" onClick={columnMapping}>
+                        <span className="fas fa-play-circle"></span>
+                    </button>
                     <button type="button" className="button-find" data-toggle="tooltip" data-placement="left" data-html="true" title="Find <em>views</em>" onClick={findView}>
                         <span className="fas fa-play-circle"></span>
                     </button>
@@ -58,6 +62,7 @@ class VirtualSchemaControl extends Component {
 							 add_column={this.props.add_column}
 							 remove_column={this.props.remove_column}
 							 find_view={this.props.find_view}
+							 column_mapping={this.props.column_mapping}
 							 />
 			</div>
 		)

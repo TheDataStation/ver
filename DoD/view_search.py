@@ -19,12 +19,14 @@ from DoD import view_4c_analysis_baseline as v4c
 import os
 import pandas as pd
 import pprint
+import server_config as config
+from DoD import column_infer
 
 
 pp = pprint.PrettyPrinter(indent=4)
 
 
-class DoD:
+class ViewSearch:
 
     def __init__(self, network, store_client, csv_separator=","):
         self.aurum_api = API(network=network, store_client=store_client)
@@ -60,62 +62,26 @@ class DoD:
             filter_id += 1
         return filter_drs
 
-    def joint_filters(self, sch_def):
-        # Obtain sets that fulfill individual filters
-        filter_drs = dict()
-        filter_id = 0
+    def clusters2Hits(self, clusters, selected_index):
+        hits = []
+        for idx in selected_index:
+            for row in clusters[idx]["data"]:
+                hits.append(self.aurum_api._nid_to_hit(int(row[0])))
+        return hits
 
-        for attr, cell in sch_def.items():
-            if cell == "":
-                drs = self.aurum_api.search_exact_attribute(attr, max_results=50)
-                if len(drs.data) == 0:
-                    drs = self.aurum_api.search_attribute(attr, max_results=50)
-                filter_drs[(attr, FilterType.ATTR, filter_id)] = drs
-            else:
-                drs_attr = self.aurum_api.search_exact_attribute(attr, max_results=50)
-                drs_cell = self.aurum_api.search_content(cell, max_results=500)
-                drs = self.aurum_api.intersection(drs_attr, drs_cell)
-                filter_drs[(cell, FilterType.CELL, filter_id)] = drs
-            filter_id += 1
-        return filter_drs
-
-    def virtual_schema_iterative_search(self, list_attributes: [str], list_samples: [str], perf_stats, max_hops=2, debug_enumerate_all_jps=False):
-        # Align schema definition and samples
-        st_stage1 = time.time()
-        assert len(list_attributes) == len(list_samples)
-        sch_def = {attr: value for attr, value in zip(list_attributes, list_samples)}
-
-        sch_def = OrderedDict(sorted(sch_def.items(), key=lambda x: x[0], reverse=True))
-
-        filter_drs = self.joint_filters(sch_def)
-        et_stage1 = time.time()
-        perf_stats['t_stage1'] = (et_stage1 - st_stage1)
+    def virtual_schema_iterative_search(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False):
         st_stage2 = time.time()
         # We group now into groups that convey multiple filters.
         # Obtain list of tables ordered from more to fewer filters.
         table_fulfilled_filters = defaultdict(list)
         table_nid = dict()  # collect nids -- used later to obtain an access path to the tables
-        for filter, drs in filter_drs.items():
-            drs.set_table_mode()
-            # All these tables fulfill the filter above
-            for table in drs:
-                # table_fulfilled_filters[table].append(filter)
-                if filter[1] == FilterType.ATTR:
-                    columns = [c for c in drs.data]  # copy
-                    for c in columns:
-                        if c.source_name == table:
-                            table_nid[table] = c.nid
-                    # if filter not in table_fulfilled_filters[table]:
-                    if filter[2] not in [id for _,_,id in table_fulfilled_filters[table]]:
-                        table_fulfilled_filters[table].append(((filter[0], None), FilterType.ATTR, filter[2]))
-                elif filter[1] == FilterType.CELL:
-                    columns = [c for c in drs.data]  # copy
-                    for c in columns:
-                        if c.source_name == table:  # filter in this column
-                            table_nid[table] = c.nid
-                            # if filter not in table_fulfilled_filters[table]:
-                            if filter[2] not in [id for _, _, id in table_fulfilled_filters[table]]:
-                                table_fulfilled_filters[table].append(((filter[0], c.field_name), FilterType.CELL, filter[2]))
+        for filter, hits in filter_drs.items():
+            for hit in hits:
+                table = hit.source_name
+                nid = hit.nid
+                table_nid[table] = nid
+                if filter[2] not in [id for _, _, id in table_fulfilled_filters[table]]:
+                    table_fulfilled_filters[table].append(((filter[0], hit.field_name), FilterType.ATTR, filter[2]))
 
         table_path = obtain_table_paths(table_nid, self)
 
@@ -199,26 +165,6 @@ class DoD:
                     yield (candidate_group, candidate_group_filters_covered)
                 go_on = False  # finished exploring all groups
 
-        # """
-        # # FIXME: obtaining pairs of tables to join?
-        # """
-        # all_pairs = 0
-        # candidate_groups = 0
-        # for cg, _ in eager_candidate_exploration():
-        #     candidate_groups += 1
-        #     all_pairs += len([el for el in list(itertools.combinations(cg, 2))])
-        #     # all_pairs_to_join = [len([el for el in list(itertools.combinations(group_tables, 2))])
-        #     #                  for group_tables in all_candidate_groups]
-        #     # all_pairs += all_pairs_to_join[0]
-        # # print([el for el in all_candidate_groups])
-        # # print("all pairs to join: " + str(all_pairs))
-        # print("CG: " + str(candidate_groups))
-        # print("TOTAL: " + str(all_pairs))
-        # exit()
-        # """
-        # # FIXME
-        # """
-
         et_stage2 = time.time()
         perf_stats['t_stage2'] = (et_stage2 - st_stage2)
         # Find ways of joining together each group
@@ -289,9 +235,9 @@ class DoD:
                 # Obtain filters that apply to this join graph
                 filters = set()
                 for l, r in jpg:
-                    if l.source_name in table_fulfilled_filters:
+                    if l.source_name in candidate_group:
                         filters.update(table_fulfilled_filters[l.source_name])
-                    if r.source_name in table_fulfilled_filters:
+                    if r.source_name in candidate_group:
                         filters.update(table_fulfilled_filters[r.source_name])
 
                 # TODO: obtain join_graph score for diff metrics. useful for ranking later
@@ -299,10 +245,10 @@ class DoD:
                 st_is_materializable = time.time()
                 # if query view is all attributes, then it's always materializable or we could
                 # join on a small sample and see -- we can have 2 different impls.
-                if sum([0] + [1 for el in list_samples if el != '']) > 0:
-                    is_join_graph_valid = self.is_join_graph_materializable(jpg, table_fulfilled_filters)
-                else:
-                    is_join_graph_valid = True
+                # if sum([0] + [1 for el in list_samples if el != '']) > 0:
+                # is_join_graph_valid = self.is_join_graph_materializable(jpg, table_fulfilled_filters)
+                # else:
+                is_join_graph_valid = True
                 et_is_materializable = time.time()
                 perf_stats['time_is_materializable'] += (et_is_materializable - st_is_materializable)
                 # Obtain all materializable graphs, then materialize
@@ -312,7 +258,7 @@ class DoD:
             # At this point we can empty is-join-graph-materializable cache and create a new one
             # dpu.empty_relation_cache()  # TODO: If df.copy() works, then this is a nice reuse
             st_materialize = time.time()
-            to_return = self.materialize_join_graphs(materializable_join_graphs)
+            to_return = self.materialize_join_graphs(list_samples, materializable_join_graphs)
             et_materialize = time.time()
             perf_stats['time_materialize'] += (et_materialize - st_materialize)
             # yield to_return
@@ -349,13 +295,13 @@ class DoD:
         path_id = frozenset(all_nids)
         return path_id
 
-    def materialize_join_graphs(self, materializable_join_graphs):
+    def materialize_join_graphs(self, samples, materializable_join_graphs):
         to_return = []
         for mjg, filters in materializable_join_graphs:
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
             # continue  # test
-            materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, self, sample_size=1000)
+            materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, sample_size=1000)
             # materialized_virtual_schema = dpu.materialize_join_graph(mjg, self)
             if materialized_virtual_schema is False:
                 continue  # happens when the join was an outlier
@@ -662,7 +608,7 @@ def obtain_table_paths(set_nids, dod):
 
 
 
-def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False, interactive=False):
+def test_e2e(vs, values, filter_drs, number_jps=5, output_path=None, full_view=False, interactive=False):
 
     ###
     # Run Core DoD
@@ -671,7 +617,7 @@ def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False
     i = 0
     perf_stats = dict()
     st_runtime = time.time()
-    for mjp, attrs_project, metadata in dod.virtual_schema_iterative_search(attrs, values, perf_stats, max_hops=2,
+    for mjp, attrs_project, metadata in vs.virtual_schema_iterative_search(values, filter_drs, perf_stats, max_hops=2,
                                                         debug_enumerate_all_jps=False):
         print("JP: " + str(i))
         # i += 1
@@ -717,9 +663,9 @@ def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False
     # Run 4C
     ###
     # return
-    results = v4c.main(output_path)
+    groups_per_column_cardinality = v4c.main(output_path)
 
-    for k, v in results[0].items():
+    for k, v in groups_per_column_cardinality.items():
         compatible_groups = v['compatible']
         contained_groups = v['contained']
         complementary_group = v['complementary']
@@ -788,7 +734,7 @@ def main(args):
 
     store_client = StoreHandler()
     network = fieldnetwork.deserialize_network(model_path)
-    dod = DoD(network=network, store_client=store_client, csv_separator=separator)
+    dod = ViewSearch(network=network, store_client=store_client, csv_separator=separator)
 
     attrs = args.list_attributes.split(";")
     values = args.list_values.split(";")
@@ -836,142 +782,63 @@ def pe_paths(dod):
 
 
 if __name__ == "__main__":
-    print("DoD")
+    model_path = config.path_model
+    sep = config.separator
 
-    ###
-    ## Setup DoD
-    ###
-    # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/tpch/"
-    # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/mitdwh/"
-    # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/debug_sb_bug/"
-    # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/massdata/"
-    path_to_serialized_model = "../models/"
-    # sep = ","
-    # sep = "|"
-    sep = ","
     store_client = StoreHandler()
-    network = fieldnetwork.deserialize_network(path_to_serialized_model)
-    dod = DoD(network=network, store_client=store_client, csv_separator=sep)
-    # drs = dod.aurum_api.search_exact_attribute("Full Name")
-    # print(drs.data)
-    # print(drs.data[0])
-    # result = dod.aurum_api.content_similar_to(drs.data[0])
-    # print(result.data)
-    # suggestions = dod.aurum_api.search_attribute("test_type", 50)
-    # print(len(suggestions.data))
-    # result = cluster_attributes(suggestions)
-    # print(len(result))
-    # for cluster in result :
-    #     print(cluster)
-    # result = [(s.field_name, s.source_name, s.score) for s in suggestions.data]
-    # result = sorted(result, key=lambda x: x[2], reverse=True)
-    # print(result)
-    # output = {s[0]: s[1] for s in result}
-    # print(output)
-    ###
-    ## Query Views
-    ###
+    network = fieldnetwork.deserialize_network(model_path)
+    columnInfer = column_infer.ColumnInfer(network=network, store_client=store_client, csv_separator=sep)
+    viewSearch = ViewSearch(network=network, store_client=store_client, csv_separator=sep)
+    # experiment-1
+    # attrs = ["department", ""] #4,5,6,9,10,11,13,14,15,16,18,19,21 | 2,5,6,7,8,9,10,11,12,15
+    # values = [['', 'madden']]
+    # types = ["object", "object"]
+    attrs = ["Mit Id", "Krb Name", "Hr Org Unit Title"]
+    values = [["", "", ""]]
+    types = ["int64", "object", "object"]
 
-    ### TPCH
+    # experiment-2: this one stuck
+    # attrs = ["", "email"] # 2,5,6,7,8,9,10,11,12,15 | 0,1,2,3
+    # values = [['madden', '']]
+    # types = ["object", "object"]
+    # experiment-3:
+    # attrs = ["faculty", "building"] # 2,3,4,5,6,10 | 0,1,2,3
+    # values = [['madden', '']]
+    # attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
+    # values = [["", "", "", ""]]
+    # types = ["object", "integer", "object", "integer"]
 
-    # # cannot search for numbers
-    # attrs = ["s_name", "s_address", "ps_availqty"]
-    # values = ["Supplier#000000001", "N kD4on9OM Ipw3,gf0JBoQDd7tgrzrddZ", "7340"]
-
-    # attrs = ["s_name", "s_address", "ps_comment"]
-    # values = ["Supplier#000000001", "N kD4on9OM Ipw3,gf0JBoQDd7tgrzrddZ",
-    #           "dly final packages haggle blithely according to the pending packages. slyly regula"]
-
-    # attrs = ["n_name", "s_name", "c_name", "o_clerk"]
-    # values = ["CANADA", "Supplier#000000013", "Customer#000000005", "Clerk#000000400"]
-
-    # attrs = ["o_clerk", "o_orderpriority", "n_name"]
-    # values = ["Clerk#000000951", "5-LOW", "JAPAN"]
-
-    # attrs = ["c_name", "c_phone", "n_name", "l_tax"]
-    # values = ["Customer#000000001", "25-989-741-2988", "BRAZIL", ""]
-
-    ## MIT DWH
-
-    # tests equivalence and containment - did not finish executing though (out of memory)
-    # attrs = ["Mit Id", "Krb Name", "Hr Org Unit Title"]
-    # values = ["968548423", "kimball", "Mechanical Engineering"]
-
-    # attrs = ["Subject", "Title", "Publisher"]
-    # values = ["", "Man who would be king and other stories", "Oxford university press, incorporated"]
-
-    # EVAL - ONE
-    # attrs = ["Iap Category Name", "Person Name", "Person Email"]
-    # values = ["", "Meghan Kenney", "mkenney@mit.edu"]
-    # values = ["Engineering", "", ""]
-
-    # EVAL - TWO
-    attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
-    values = ["", "", "", ""]
-
-    # EVAL - THREE
-    # attrs = ["Last Name", "Building Name", "Bldg Gross Square Footage", "Department Name"]
-    # values = ["Madden", "Ray and Maria Stata Center", "", "Dept of Electrical Engineering & Computer Science"]
-
-    # EVAL - FOUR
-    # tests equivalence and containment
-    # attrs = ["Email Address", "Department Full Name"]
-    # values = ["madden@csail.mit.edu", ""]
-
-    # EVAL - FIVE
-    # attrs = ["Last Name", "Building Name", "Bldg Gross Square Footage", "Department Name"]
-    # values = ["", "", "", ""]
-
-    ## MASSDATA
-
-    # ONE (3 + 4)
-    # attrs = ["Neighborhood ", "Total Population ", "Graduate Degree %"]
-    # values = ["Cambridgeport", "", ""]
-
-    #
-    # attrs = ['CASE_TITLE', 'SUBJECT', 'Graduate Degree %']
-    # values = ['', 'Public Works Department', '']
-
-    ## CHEMBL22
-
-    # ONE (12)
-    # attrs = ['assay_test_type', 'assay_category', 'journal', 'year', 'volume']
-    # values = ['', '', '', '', '']
-
-    # TWO (27)
-    # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
-    # values = ['O09028', '', 'Rattus norvegicus', '', '']
-
-    # THREE (50)
-    # attrs = ['ref_type', 'ref_url', 'enzyme_name', 'organism']
-    # values = ['', '', '', '']
-
-    # FOUR (54)
-    # attrs = ['hba', 'hbd', 'parenteral', 'topical']
-    # values = ['', '', '', '']
-
-    # FIVE (100-)
-    # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position', 'assay_category']
-    # values = ['', '', '', '', '', '']
-
-    output_path = "./test/"
-
-    # remove all files in test
-    # for f in os.listdir(output_path):
-    #     f_path = os.path.join(output_path, f)
-    #     try:
-    #         if os.path.isfile(f_path):
-    #             os.unlink(f_path)
-    #     except Exception as e:
-    #         print(e)
-    start = time.time()
-    # test_e2e(dod, number_jps=10, output_path=None, interactive=False)
-
-    output_path = None
-    test_e2e(dod, attrs, values, number_jps=10, output_path=output_path)
-    print("time = ", time.time() - start)
-    # debug intree mat join
-    # test_intree(dod)
-
-    # test_joinable(dod)
-
+    column_clusters = columnInfer.get_clusters(attrs, values, types)
+    filter_drs = {}
+    col_values = {}
+    column_idx = 0
+    for column in column_clusters:
+        idx = 0
+        print("\033[1;33;44m NAME: %s \033[0m" % column[0]["name"])
+        for cluster in column:
+            print("\033[1;35m CLUSTER %d\033[0m " %idx)
+            print("SAMPLE_SCORE:", cluster["sample_score"])
+            print("Data Type:", cluster["type"])
+            for row in cluster["data"]:
+                print(row)
+            print("------------Samples--------------")
+            for value in cluster["head_values"]:
+                print(value)
+            print("---------------------------------")
+            idx += 1
+        print("======================================")
+        # if column_idx == 0:
+        #     selected = 3
+        # else:
+        #     selected = 0
+        selected = input("enter your selected clusters:")
+        clusters = selected.split(",")
+        sel_idx = []
+        for cluster in clusters:
+            sel_idx.append(int(cluster.strip()))
+        hits = viewSearch.clusters2Hits(column, sel_idx)
+        filter_drs[(column[0]["name"], FilterType.ATTR, column_idx)] = hits
+        col_values[column[0]["name"]] = [row[column_idx] for row in values]
+        column_idx += 1
+    print(filter_drs)
+    test_e2e(viewSearch, col_values, filter_drs, number_jps=10, output_path="~/aurum-datadiscovery/test/mitResult/")

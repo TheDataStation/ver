@@ -15,16 +15,26 @@ from tqdm import tqdm
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 import time
-from DoD import view_4c_analysis_baseline as v4c
+from DoD import view_search_4c as v4c
 import os
 import pandas as pd
 import pprint
+import server_config as config
+from DoD import column_infer
+from enum import Enum
 
 
 pp = pprint.PrettyPrinter(indent=4)
 
 
-class DoD:
+class RelationType(Enum):
+    ONE_ONE = 1
+    ONE_MANY = 2
+    MANY_ONE = 2
+    MANY_MANY = 3
+
+
+class ViewSearchPruning:
 
     def __init__(self, network, store_client, csv_separator=","):
         self.aurum_api = API(network=network, store_client=store_client)
@@ -60,62 +70,26 @@ class DoD:
             filter_id += 1
         return filter_drs
 
-    def joint_filters(self, sch_def):
-        # Obtain sets that fulfill individual filters
-        filter_drs = dict()
-        filter_id = 0
+    def clusters2Hits(self, clusters, selected_index):
+        hits = []
+        for idx in selected_index:
+            for row in clusters[idx]["data"]:
+                hits.append(self.aurum_api._nid_to_hit(int(row[0])))
+        return hits
 
-        for attr, cell in sch_def.items():
-            if cell == "":
-                drs = self.aurum_api.search_exact_attribute(attr, max_results=50)
-                if len(drs.data) == 0:
-                    drs = self.aurum_api.search_attribute(attr, max_results=50)
-                filter_drs[(attr, FilterType.ATTR, filter_id)] = drs
-            else:
-                drs_attr = self.aurum_api.search_exact_attribute(attr, max_results=50)
-                drs_cell = self.aurum_api.search_content(cell, max_results=500)
-                drs = self.aurum_api.intersection(drs_attr, drs_cell)
-                filter_drs[(cell, FilterType.CELL, filter_id)] = drs
-            filter_id += 1
-        return filter_drs
-
-    def virtual_schema_iterative_search(self, list_attributes: [str], list_samples: [str], perf_stats, max_hops=2, debug_enumerate_all_jps=False):
-        # Align schema definition and samples
-        st_stage1 = time.time()
-        assert len(list_attributes) == len(list_samples)
-        sch_def = {attr: value for attr, value in zip(list_attributes, list_samples)}
-
-        sch_def = OrderedDict(sorted(sch_def.items(), key=lambda x: x[0], reverse=True))
-
-        filter_drs = self.joint_filters(sch_def)
-        et_stage1 = time.time()
-        perf_stats['t_stage1'] = (et_stage1 - st_stage1)
+    def virtual_schema_iterative_search(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False):
         st_stage2 = time.time()
         # We group now into groups that convey multiple filters.
         # Obtain list of tables ordered from more to fewer filters.
         table_fulfilled_filters = defaultdict(list)
         table_nid = dict()  # collect nids -- used later to obtain an access path to the tables
-        for filter, drs in filter_drs.items():
-            drs.set_table_mode()
-            # All these tables fulfill the filter above
-            for table in drs:
-                # table_fulfilled_filters[table].append(filter)
-                if filter[1] == FilterType.ATTR:
-                    columns = [c for c in drs.data]  # copy
-                    for c in columns:
-                        if c.source_name == table:
-                            table_nid[table] = c.nid
-                    # if filter not in table_fulfilled_filters[table]:
-                    if filter[2] not in [id for _,_,id in table_fulfilled_filters[table]]:
-                        table_fulfilled_filters[table].append(((filter[0], None), FilterType.ATTR, filter[2]))
-                elif filter[1] == FilterType.CELL:
-                    columns = [c for c in drs.data]  # copy
-                    for c in columns:
-                        if c.source_name == table:  # filter in this column
-                            table_nid[table] = c.nid
-                            # if filter not in table_fulfilled_filters[table]:
-                            if filter[2] not in [id for _, _, id in table_fulfilled_filters[table]]:
-                                table_fulfilled_filters[table].append(((filter[0], c.field_name), FilterType.CELL, filter[2]))
+        for filter, hits in filter_drs.items():
+            for hit in hits:
+                table = hit.source_name
+                nid = hit.nid
+                table_nid[table] = nid
+                if filter[2] not in [id for _, _, id in table_fulfilled_filters[table]]:
+                    table_fulfilled_filters[table].append(((filter[0], hit.field_name), FilterType.ATTR, filter[2]))
 
         table_path = obtain_table_paths(table_nid, self)
 
@@ -130,10 +104,9 @@ class DoD:
             table_fulfilled_filters[k] = v
 
         def eager_candidate_exploration():
-            def covers_filters(candidate_filters, all_filters):
-                all_filters_set = set([id for _, _, id in filter_drs.keys()])
+            def covers_filters(candidate_filters):
                 candidate_filters_set = set([id for _, _, id in candidate_filters])
-                if len(candidate_filters_set) == len(all_filters_set):
+                if len(candidate_filters_set) == len(filter_drs.keys()):
                     return True
                 return False
 
@@ -144,23 +117,28 @@ class DoD:
                 return ix_size
 
             def clear_state():
-                candidate_group.clear()
+                candidate_group_unordered.clear()
                 candidate_group_filters_covered.clear()
+
+            def sort_candidate_group(unordered_cg):
+                ordered_cg = sorted(unordered_cg, key=lambda tup: tup[0])
+                return [x[1] for x in ordered_cg]
+
             # Eagerly obtain groups of tables that cover as many filters as possible
             backup = []
             go_on = True
             while go_on:
-                candidate_group = []
+                candidate_group_unordered = []
                 candidate_group_filters_covered = set()
                 for i in range(len(list(table_fulfilled_filters.items()))):
                     table_pivot, filters_pivot = list(table_fulfilled_filters.items())[i]
                     # Eagerly add pivot
-                    candidate_group.append(table_pivot)
+                    candidate_group_unordered.append((filters_pivot[0][2], table_pivot)) # (the largest filter_id, table_name) - add id for further sorting
                     candidate_group_filters_covered.update(filters_pivot)
                     # Did it cover all filters?
                     # if len(candidate_group_filters_covered) == len(filter_drs.items()):
-                    if covers_filters(candidate_group_filters_covered, filter_drs.items()):
-                        candidate_group = sorted(candidate_group)
+                    if covers_filters(candidate_group_filters_covered):
+                        candidate_group = sort_candidate_group(candidate_group_unordered)
                         # print("1: " + str(table_pivot))
                         yield (candidate_group, candidate_group_filters_covered)  # early stop
                         # Cleaning
@@ -174,20 +152,19 @@ class DoD:
                         # new_filters = len(set(filters).union(candidate_group_filters_covered)) - len(candidate_group_filters_covered)
                         new_filters = compute_size_filter_ix(filters, candidate_group_filters_covered)
                         if new_filters > 0:  # add table only if it adds new filters
-                            candidate_group.append(table)
+                            candidate_group_unordered.append((filters[0][2], table))
                             candidate_group_filters_covered.update(filters)
-                            if covers_filters(candidate_group_filters_covered, filter_drs.items()):
-                            # if len(candidate_group_filters_covered) == len(filter_drs.items()):
-                                candidate_group = sorted(candidate_group)
+                            if covers_filters(candidate_group_filters_covered):
+                                candidate_group = sort_candidate_group(candidate_group_unordered)
                                 # print("2: " + str(table_pivot))
                                 yield (candidate_group, candidate_group_filters_covered)
                                 clear_state()
                                 # Re-add the current pivot, only necessary in this case
-                                candidate_group.append(table_pivot)
+                                candidate_group_unordered.append((filters_pivot[0][2], table_pivot))
                                 candidate_group_filters_covered.update(filters_pivot)
-                    candidate_group = sorted(candidate_group)
+                    candidate_group = sort_candidate_group(candidate_group_unordered)
                     # print("3: " + str(table_pivot))
-                    if covers_filters(candidate_group_filters_covered, filter_drs.items()):
+                    if covers_filters(candidate_group_filters_covered):
                         yield (candidate_group, candidate_group_filters_covered)
                     else:
                         backup.append(([el for el in candidate_group],
@@ -195,29 +172,9 @@ class DoD:
                     # Cleaning
                     clear_state()
                 # before exiting, return backup in case that may be useful
-                for candidate_group, candidate_group_filters_covered in backup:
-                    yield (candidate_group, candidate_group_filters_covered)
+                # for candidate_group, candidate_group_filters_covered in backup:
+                #     yield (candidate_group, candidate_group_filters_covered)
                 go_on = False  # finished exploring all groups
-
-        # """
-        # # FIXME: obtaining pairs of tables to join?
-        # """
-        # all_pairs = 0
-        # candidate_groups = 0
-        # for cg, _ in eager_candidate_exploration():
-        #     candidate_groups += 1
-        #     all_pairs += len([el for el in list(itertools.combinations(cg, 2))])
-        #     # all_pairs_to_join = [len([el for el in list(itertools.combinations(group_tables, 2))])
-        #     #                  for group_tables in all_candidate_groups]
-        #     # all_pairs += all_pairs_to_join[0]
-        # # print([el for el in all_candidate_groups])
-        # # print("all pairs to join: " + str(all_pairs))
-        # print("CG: " + str(candidate_groups))
-        # print("TOTAL: " + str(all_pairs))
-        # exit()
-        # """
-        # # FIXME
-        # """
 
         et_stage2 = time.time()
         perf_stats['t_stage2'] = (et_stage2 - st_stage2)
@@ -227,6 +184,8 @@ class DoD:
         perf_stats['time_is_materializable'] = 0
         perf_stats['time_materialize'] = 0
         num_candidate_groups = 0
+        all_join_graphs = []
+        all_filters = []
         for candidate_group, candidate_group_filters_covered in eager_candidate_exploration():
             num_candidate_groups += 1
             print("")
@@ -256,8 +215,10 @@ class DoD:
             max_hops = max_hops
             # We find the different join graphs that would join the candidate_group
             st_joinable = time.time()
-            join_graphs = self.joinable(candidate_group, cache_unjoinable_pairs, max_hops=max_hops)
+            join_graphs = self.joinable(candidate_group, cache_unjoinable_pairs, max_hops=2)
             et_joinable = time.time()
+            # if len(join_graphs) != 0:
+            #     all_join_graphs.extend(join_graphs)
             perf_stats['time_joinable'] += (et_joinable - st_joinable)
             if debug_enumerate_all_jps:
                 for i, group in enumerate(join_graphs):
@@ -289,9 +250,9 @@ class DoD:
                 # Obtain filters that apply to this join graph
                 filters = set()
                 for l, r in jpg:
-                    if l.source_name in table_fulfilled_filters:
+                    if l.source_name in candidate_group:
                         filters.update(table_fulfilled_filters[l.source_name])
-                    if r.source_name in table_fulfilled_filters:
+                    if r.source_name in candidate_group:
                         filters.update(table_fulfilled_filters[r.source_name])
 
                 # TODO: obtain join_graph score for diff metrics. useful for ranking later
@@ -299,20 +260,23 @@ class DoD:
                 st_is_materializable = time.time()
                 # if query view is all attributes, then it's always materializable or we could
                 # join on a small sample and see -- we can have 2 different impls.
-                if sum([0] + [1 for el in list_samples if el != '']) > 0:
-                    is_join_graph_valid = self.is_join_graph_materializable(jpg, table_fulfilled_filters)
-                else:
-                    is_join_graph_valid = True
+                # if sum([0] + [1 for el in list_samples if el != '']) > 0:
+                # is_join_graph_valid = self.is_join_graph_materializable(jpg, table_fulfilled_filters)
+                # else:
+                is_join_graph_valid = True
                 et_is_materializable = time.time()
                 perf_stats['time_is_materializable'] += (et_is_materializable - st_is_materializable)
                 # Obtain all materializable graphs, then materialize
                 if is_join_graph_valid:
                     total_materializable_join_graphs += 1
                     materializable_join_graphs.append((jpg, filters))
+                    all_join_graphs.append(jpg)
+                    all_filters.append(filters)
             # At this point we can empty is-join-graph-materializable cache and create a new one
             # dpu.empty_relation_cache()  # TODO: If df.copy() works, then this is a nice reuse
             st_materialize = time.time()
-            to_return = self.materialize_join_graphs(materializable_join_graphs)
+            to_return = []
+            # to_return = self.materialize_join_graphs(list_samples, materializable_join_graphs)
             et_materialize = time.time()
             perf_stats['time_materialize'] += (et_materialize - st_materialize)
             # yield to_return
@@ -330,8 +294,285 @@ class DoD:
         print("Finished enumerating groups")
         cache_unjoinable_pairs = OrderedDict(sorted(cache_unjoinable_pairs.items(),
                                                     key=lambda x: x[1], reverse=True))
-        for k, v in cache_unjoinable_pairs.items():
-            print(str(k) + " => " + str(v))
+        # for k, v in cache_unjoinable_pairs.items():
+        #     print(str(k) + " => " + str(v))
+
+        # 4c pruning demo
+        before_num = len(all_join_graphs)
+        print("total join paths before", before_num)
+
+        flat_join_graphs = []
+        for jpg in all_join_graphs:
+            flat_jpg = []
+            for l, r in jpg:
+                flat_jpg.append(l)
+                flat_jpg.append(r)
+            flat_join_graphs.append(flat_jpg)
+
+        tk_cache = {}
+        tk_info = [[] for _ in range(len(all_join_graphs))]
+        for i in range(max_hops*2):
+            tk_views, tk_hash = self.prune_join_paths3(flat_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, i)
+            groups_per_column_cardinality = v4c.perform4c(tk_views)
+            paths_to_remove = []
+            for k, v in groups_per_column_cardinality.items():
+                compatible_group = v['compatible']
+                print("Compatible groups:", str(len(compatible_group)))
+                for group in compatible_group:
+                    if not self.is_compatible_valid(group):
+                        print(group, "invalid!")
+                        continue
+                    print(group)
+                    selected_view = group[0].split(";")
+                    paths_to_remove.extend(tk_hash[tuple(selected_view)])
+            print(paths_to_remove)
+
+            # remove join paths we do not need
+            all_join_graphs = [i for j, i in enumerate(all_join_graphs) if j not in paths_to_remove]
+            all_filters = [i for j, i in enumerate(all_filters) if j not in paths_to_remove]
+            flat_join_graphs = [i for j, i in enumerate(flat_join_graphs) if j not in paths_to_remove]
+            tk_info = [i for j, i in enumerate(tk_info) if j not in paths_to_remove]
+            print("number of join graphs after pruned", i, len(all_join_graphs))
+
+        # Rate all join paths after pruning
+        table_paths = {}
+        for idx, jpg in enumerate(all_join_graphs):
+            table_list = []
+            table_hash = {}
+            for l, r in jpg:
+                if l.source_name not in table_hash.keys():
+                    table_list.append(l.source_name)
+                    table_hash[l.source_name] = True
+                if r.source_name not in table_hash.keys():
+                    table_list.append(r.source_name)
+                    table_hash[r.source_name] = True
+            if tuple(table_list) not in table_paths.keys():
+                table_paths[tuple(table_list)] = [idx]
+            else:
+                table_paths[tuple(table_list)].append(idx)
+        final_list = []
+        for table, paths in table_paths.items():
+            print(table)
+            print("paths", paths)
+            if len(paths) == 1:
+                continue
+            # when len > 1, sort join paths based on tk relation type
+            score_list = []
+            for index in paths:
+                info = tk_info[index]
+                scores = []
+                for tk in info:
+                    target_col_values = tk[0]
+                    join_key = tk[1]
+                    if len(join_key) == 0 or len(target_col_values) == 0:
+                        continue
+                    key = []
+                    key.extend(target_col_values)
+                    key.extend(join_key)
+                    df = tk_cache[tuple(key)]
+                    sampling_fraction = 0.6
+                    relation_type = self.get_relation(df.copy(), join_key, target_col_values, sampling_fraction)
+                    scores.append(relation_type)
+                score_list.append((scores, index))
+            score_list.sort()
+            print(score_list)
+            final_list.append(score_list)
+        step = 1
+        while True:
+            candidates = []
+            for l in final_list:
+                for i in range(step):
+                    if len(l) > 0:
+                        candidates.append(l.pop(0)[1])
+            candidate_paths = list((all_join_graphs[i], all_filters[i]) for i in candidates)
+            to_return = self.materialize_join_graphs(list_samples, candidate_paths)
+            for el in to_return:
+                yield el
+            satisfied = input("Do you want to see more views? 1. Yes 2. No\n")
+            if satisfied == 2:
+                break
+
+    def get_relation(self, df, join_key, target_cols, sampling_fraction):
+        df.dropna()
+        df.sample(frac=sampling_fraction, replace=True, random_state=1)
+        first_max = df.groupby(join_key).count().max()[0]
+        if len(target_cols) == 1:
+            second_max = df.groupby(target_cols[0]).count().max()[0]
+        else:
+            second_max = df.groupby(target_cols).size().groupby(level=1).max()
+            if len(second_max) > 0:
+                second_max = second_max[0]
+            else:
+                return 4
+        if first_max == 1:
+            if second_max == 1:
+                return RelationType.ONE_ONE.value
+            else:
+                return RelationType.ONE_MANY.value
+        else:
+            if second_max == 1:
+                return RelationType.MANY_ONE.value
+            else:
+                return RelationType.MANY_MANY.value
+
+    def is_compatible_valid(self, group):
+        view_hash = {}
+        valid_list = []
+        for item in group:
+            view = item.split(";")
+            sorted_view = sorted(view)
+            if tuple(sorted_view) not in view_hash.keys():
+                valid_list.append(view)
+                view_hash[tuple(sorted_view)] = True
+        if len(valid_list) > 1:
+            return True
+        else:
+            return False
+
+    def prune_join_paths3(self, all_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, index):
+        tk_views = []
+        tk_hash = {}
+        for idx, flat_jpg in enumerate(all_join_graphs):
+            if index >= len(flat_jpg):
+                continue
+            join_key = []
+            if index == 0 or index == len(flat_jpg)-1:
+                join_key.append(flat_jpg[index])
+                table_name = join_key[0].source_name
+            else:
+                join_key_1 = flat_jpg[index]
+                table_name = join_key_1.source_name
+                join_key.append(join_key_1)
+                join_key_2 = flat_jpg[index+1]
+                if join_key_1.source_name == join_key_2.source_name and join_key_1.field_name != join_key_2.field_name:
+                    join_key.append(join_key_2)
+                elif join_key_1.source_name != join_key_2.source_name:
+                    continue
+            if table_name not in table_fulfilled_filters.keys():
+                continue
+            target_cols = table_fulfilled_filters[table_name]
+            tk = []
+            lookup = {}
+            target = []
+            join_key_set = []
+
+            for key in join_key:
+                join_key_set.append(key.field_name)
+                lookup[key.field_name] = True
+
+            for x in target_cols:
+                if x[0][1] not in lookup.keys():
+                    target.append(x[0][1])
+                    lookup[x[0][1]] = True
+
+            tk_info[idx].append((target, join_key_set))
+            tk.extend(target)
+            tk.extend(join_key_set)
+
+            if tuple(tk) in tk_hash.keys():
+                tk_hash[tuple(tk)].append(idx)
+                continue
+            tk_hash[tuple(tk)] = [idx]
+            print(table_name, tk)
+            tk_view = self.columns_to_view(table_path[table_name] + table_name, tk)
+            tk_cache[tuple(tk)] = tk_view
+            if len(tk_view) > 0:
+                tk_views.append((tk_view, self.generate_view_name(tk)))
+        return tk_views, tk_hash
+
+    def prune_join_paths(self, all_join_graphs, table_fulfilled_filters, table_path, tk_cache, FLAG):
+        tk_views = []
+        tk_hash = {}
+        for idx, jpg in enumerate(all_join_graphs):
+            if FLAG == "LEFT":
+                left_most = jpg[0]
+                join_key = left_most[0]
+            else:
+                right_most = jpg[-1]
+                join_key = right_most[1]
+            table_name = join_key.source_name
+            target_cols = table_fulfilled_filters[table_name]
+            tk = []
+            for x in target_cols:
+                tk.append(x[0][1])
+            tk.append(join_key.field_name)
+            if tuple(tk) in tk_hash.keys():
+                tk_hash[tuple(tk)].append(idx)
+                continue
+            tk_hash[tuple(tk)] = [idx]
+            print(table_name, tk)
+            tk_view = self.columns_to_view(table_path[table_name] + table_name, tk)
+            tk_cache[tuple(tk)] = tk_view
+            if len(tk_view) > 0:
+                tk_views.append((tk_view, self.generate_view_name(tk)))
+        return tk_views, tk_hash
+
+    def prune_join_paths2(self, all_join_graphs, table_fulfilled_filters, table_path):
+        tk_views = []
+        tk_hash = {}
+
+        for idx, jpg in enumerate(all_join_graphs):
+            table_keys = {}
+            for l, r in jpg:
+                if l.source_name not in table_keys.keys():
+                    table_keys[l.source_name] = [l.field_name]
+                else:
+                    table_keys[l.source_name].append(l.field_name)
+                if r.source_name not in table_keys.keys():
+                    table_keys[r.source_name] = [r.field_name]
+                else:
+                    table_keys[r.source_name].append(r.field_name)
+            for table_name in table_keys.keys():
+                target_cols = table_fulfilled_filters[table_name]
+                if len(target_cols) == 0:
+                    continue
+                tk = []
+                for x in target_cols:
+                    tk.append(x[0][1])
+                tk.extend(table_keys[table_name])
+                if tuple(tk) in tk_hash.keys():
+                    tk_hash[tuple(tk)].append(idx)
+                    continue
+                tk_hash[tuple(tk)] = [idx]
+                print(table_name, tk)
+                tk_view = self.columns_to_view(table_path[table_name] + table_name, tk)
+                if len(tk_view) > 0:
+                    tk_views.append((tk_view, self.generate_view_name(tk)))
+                paths_to_remove = self.get_dup_idx(tk_views, tk_hash)
+                all_join_graphs = [i for j, i in enumerate(all_join_graphs) if j not in paths_to_remove]
+                print("number of join graphs after pruned ",table_name,len(all_join_graphs))
+
+        return tk_views, tk_hash
+
+    def get_dup_idx(self, tk_views, tk_hash):
+        groups_per_column_cardinality = v4c.perform4c(tk_views)
+
+        paths_to_remove = []
+        for k, v in groups_per_column_cardinality.items():
+            compatible_group = v['compatible']
+            for group in compatible_group:
+                selected_view = group[0].split(";")
+                paths_to_remove.extend(tk_hash[tuple(selected_view)])
+
+            print("Compatible groups:", str(len(compatible_group)))
+            for group in compatible_group:
+                print(group)
+        return paths_to_remove
+
+
+    def columns_to_view(self, source, columns):
+        # input: columns from one table
+        # output: view drs
+        df = dpu.read_columns(source, columns)
+        df = mva.curate_view(df)
+        df = v4c.normalize(df)
+        return df
+
+    def generate_view_name(self, columns):
+        name = ""
+        for col in columns:
+            name += col + ";"
+        return name[0:-1]
 
     def compute_join_graph_id(self, join_graph):
         all_nids = []
@@ -349,13 +590,16 @@ class DoD:
         path_id = frozenset(all_nids)
         return path_id
 
-    def materialize_join_graphs(self, materializable_join_graphs):
+    def materialize_join_graphs(self, samples, materializable_join_graphs):
         to_return = []
+        idx = 1
         for mjg, filters in materializable_join_graphs:
+            print("JP -", idx)
+            idx += 1
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
             # continue  # test
-            materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, self, sample_size=1000)
+            materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, sample_size=1000)
             # materialized_virtual_schema = dpu.materialize_join_graph(mjg, self)
             if materialized_virtual_schema is False:
                 continue  # happens when the join was an outlier
@@ -661,19 +905,51 @@ def obtain_table_paths(set_nids, dod):
     return table_path
 
 
-
-def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False, interactive=False):
-
+def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_view=False, interactive=False):
     ###
-    # Run Core DoD
+    # View Specification
+    ###
+    filter_drs = {}
+    col_values = {}
+    column_idx = 0
+    column_clusters = ci.get_clusters(attrs, values, types)
+    for column in column_clusters:
+        idx = 0
+        print("\033[1;33;44m NAME: %s \033[0m" % column[0]["name"])
+        for cluster in column:
+            print("\033[1;35m CLUSTER %d\033[0m " % idx)
+            print("SAMPLE_SCORE:", cluster["sample_score"])
+            print("Data Type:", cluster["type"])
+            for row in cluster["data"]:
+                print(row)
+            print("------------Samples--------------")
+            for value in cluster["head_values"]:
+                print(value)
+            print("---------------------------------")
+            idx += 1
+        print("======================================")
+        selected = input("enter your selected clusters:")
+        sel_idx = []
+        if selected == "all":
+            sel_idx = range(len(column_clusters[column_idx]))
+        else:
+            clusters = selected.split(",")
+            for cluster in clusters:
+                sel_idx.append(int(cluster.strip()))
+        hits = vs.clusters2Hits(column, sel_idx)
+        filter_drs[(column[0]["name"], FilterType.ATTR, column_idx)] = hits
+        col_values[column[0]["name"]] = [row[column_idx] for row in values]
+        column_idx += 1
+    ###
+    # View Search
     ###
     view_metadata_mapping = dict()
     i = 0
     perf_stats = dict()
     st_runtime = time.time()
-    for mjp, attrs_project, metadata in dod.virtual_schema_iterative_search(attrs, values, perf_stats, max_hops=2,
+    for mjp, attrs_project, metadata in vs.virtual_schema_iterative_search(col_values, filter_drs, perf_stats, max_hops=2,
                                                         debug_enumerate_all_jps=False):
-        print("JP: " + str(i))
+        # print("JP: " + str(i))
         # i += 1
         # print(mjp.head(2))
         # if i > number_jps:
@@ -717,9 +993,9 @@ def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False
     # Run 4C
     ###
     # return
-    results = v4c.main(output_path)
+    groups_per_column_cardinality = v4c.main(output_path)
 
-    for k, v in results[0].items():
+    for k, v in groups_per_column_cardinality.items():
         compatible_groups = v['compatible']
         contained_groups = v['contained']
         complementary_group = v['complementary']
@@ -730,40 +1006,6 @@ def test_e2e(dod, attrs, values, number_jps=5, output_path=None, full_view=False
         print("Complementary views: " + str(len(complementary_group)))
         print("Contradictory views: " + str(len(contradictory_group)))
 
-        # for path1, key_column, key_value, path2 in contradictory_group[:2]:
-        #     df1 = pd.read_csv(path1)
-        #     df2 = pd.read_csv(path2)
-        #     row1 = df1[df1[key_column] == key_value]
-        #     row2 = df2[df2[key_column] == key_value]
-        #     print(path1 + " - " + path2)
-        #     print("ROW - 1")
-        #     print(view_metadata_mapping[path1])
-        #     print(row1)
-        #     print("ROW - 2")
-        #     print(view_metadata_mapping[path2])
-        #     print(row2)
-        #     print("")
-        #     print("")
-
-    # We can now link classified views with their metadata
-
-
-
-# def test_joinable(dod):
-#     candidate_group = ['Employee_directory.csv', 'Drupal_employee_directory.csv']
-#     #candidate_group = ['Se_person.csv', 'Employee_directory.csv', 'Drupal_employee_directory.csv']
-#     #candidate_group = ['Tip_detail.csv', 'Tip_material.csv']
-#     join_paths = dod.joinable(candidate_group)
-#
-#     # print("RAW: " + str(len(join_paths)))
-#     # for el in join_paths:
-#     #     print(el)
-#
-#     join_paths = dod.format_join_paths_pairhops(join_paths)
-#
-#     print("CLEAN: " + str(len(join_paths)))
-#     for el in join_paths:
-#         print(el)
 
 
 def test_intree(dod):
@@ -788,7 +1030,7 @@ def main(args):
 
     store_client = StoreHandler()
     network = fieldnetwork.deserialize_network(model_path)
-    dod = DoD(network=network, store_client=store_client, csv_separator=separator)
+    dod = ViewSearchPruning(network=network, store_client=store_client, csv_separator=separator)
 
     attrs = args.list_attributes.split(";")
     values = args.list_values.split(";")
@@ -836,60 +1078,13 @@ def pe_paths(dod):
 
 
 if __name__ == "__main__":
-    print("DoD")
+    model_path = config.path_model
+    sep = config.separator
 
-    ###
-    ## Setup DoD
-    ###
-    # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/tpch/"
-    # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/mitdwh/"
-    # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/debug_sb_bug/"
-    # path_to_serialized_model = "/Users/ra-mit/development/discovery_proto/models/massdata/"
-    path_to_serialized_model = "../models/"
-    # sep = ","
-    # sep = "|"
-    sep = ","
     store_client = StoreHandler()
-    network = fieldnetwork.deserialize_network(path_to_serialized_model)
-    dod = DoD(network=network, store_client=store_client, csv_separator=sep)
-    # drs = dod.aurum_api.search_exact_attribute("Full Name")
-    # print(drs.data)
-    # print(drs.data[0])
-    # result = dod.aurum_api.content_similar_to(drs.data[0])
-    # print(result.data)
-    # suggestions = dod.aurum_api.search_attribute("test_type", 50)
-    # print(len(suggestions.data))
-    # result = cluster_attributes(suggestions)
-    # print(len(result))
-    # for cluster in result :
-    #     print(cluster)
-    # result = [(s.field_name, s.source_name, s.score) for s in suggestions.data]
-    # result = sorted(result, key=lambda x: x[2], reverse=True)
-    # print(result)
-    # output = {s[0]: s[1] for s in result}
-    # print(output)
-    ###
-    ## Query Views
-    ###
-
-    ### TPCH
-
-    # # cannot search for numbers
-    # attrs = ["s_name", "s_address", "ps_availqty"]
-    # values = ["Supplier#000000001", "N kD4on9OM Ipw3,gf0JBoQDd7tgrzrddZ", "7340"]
-
-    # attrs = ["s_name", "s_address", "ps_comment"]
-    # values = ["Supplier#000000001", "N kD4on9OM Ipw3,gf0JBoQDd7tgrzrddZ",
-    #           "dly final packages haggle blithely according to the pending packages. slyly regula"]
-
-    # attrs = ["n_name", "s_name", "c_name", "o_clerk"]
-    # values = ["CANADA", "Supplier#000000013", "Customer#000000005", "Clerk#000000400"]
-
-    # attrs = ["o_clerk", "o_orderpriority", "n_name"]
-    # values = ["Clerk#000000951", "5-LOW", "JAPAN"]
-
-    # attrs = ["c_name", "c_phone", "n_name", "l_tax"]
-    # values = ["Customer#000000001", "25-989-741-2988", "BRAZIL", ""]
+    network = fieldnetwork.deserialize_network(model_path)
+    columnInfer = column_infer.ColumnInfer(network=network, store_client=store_client, csv_separator=sep)
+    viewSearch = ViewSearchPruning(network=network, store_client=store_client, csv_separator=sep)
 
     ## MIT DWH
 
@@ -898,16 +1093,17 @@ if __name__ == "__main__":
     # values = ["968548423", "kimball", "Mechanical Engineering"]
 
     # attrs = ["Subject", "Title", "Publisher"]
-    # values = ["", "Man who would be king and other stories", "Oxford university press, incorporated"]
+    # values = [["", "Man who would be king and other stories", "Oxford university press, incorporated"]]
+    # types = ["object", "object", "object"]
 
     # EVAL - ONE
     # attrs = ["Iap Category Name", "Person Name", "Person Email"]
-    # values = ["", "Meghan Kenney", "mkenney@mit.edu"]
+    # # values = ["", "Meghan Kenney", "mkenney@mit.edu"]
     # values = ["Engineering", "", ""]
 
     # EVAL - TWO
-    attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
-    values = ["", "", "", ""]
+    # attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
+    # values = ["", "", "", ""]
 
     # EVAL - THREE
     # attrs = ["Last Name", "Building Name", "Bldg Gross Square Footage", "Department Name"]
@@ -916,27 +1112,39 @@ if __name__ == "__main__":
     # EVAL - FOUR
     # tests equivalence and containment
     # attrs = ["Email Address", "Department Full Name"]
-    # values = ["madden@csail.mit.edu", ""]
+    # values = ["", ""]
 
     # EVAL - FIVE
     # attrs = ["Last Name", "Building Name", "Bldg Gross Square Footage", "Department Name"]
     # values = ["", "", "", ""]
 
-    ## MASSDATA
 
-    # ONE (3 + 4)
-    # attrs = ["Neighborhood ", "Total Population ", "Graduate Degree %"]
-    # values = ["Cambridgeport", "", ""]
+    # experiment-1
+    # attrs = ["department", ""] # 4,5,6,9,10,11,13,14,15,16,18,19,21 | 2,5,6,7,8,9,10,11,12,15
+    # values = [['', 'madden']]
+    # types = ["object", "object"]
+    # experiment-2: this one stuck
+    # attrs = ["", "email"] # 2,5,6,7,8,9,10,11,12,15 | 0,1,2,3
+    # values = [['madden', '']]
+    # types = ["object", "object"]
+    # experiment-3:
+    # attrs = ["faculty", "building"] # 2,3,4,5,6,10 | 0,1,2,3
+    # values = [['madden', '']]
+    # types = ["object", "object"]
+    # attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
+    # values = [["", "", "", ""]]
+    # types = ["object", "object", "object", "object"]
 
-    #
-    # attrs = ['CASE_TITLE', 'SUBJECT', 'Graduate Degree %']
-    # values = ['', 'Public Works Department', '']
+    # attrs = ["Mit Id", "Krb Name", "Hr Org Unit Title"]
+    # values = [["", "", ""]]
+    # types = ["int64", "object", "object"]
 
     ## CHEMBL22
 
     # ONE (12)
-    # attrs = ['assay_test_type', 'assay_category', 'journal', 'year', 'volume']
-    # values = ['', '', '', '', '']
+    attrs = ['assay_test_type', 'assay_category', 'journal', 'year', 'volume']
+    values = [['', '', '', '', '']]
+    types = ["object", "object", "object", "object", "object"]
 
     # TWO (27)
     # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
@@ -951,27 +1159,7 @@ if __name__ == "__main__":
     # values = ['', '', '', '']
 
     # FIVE (100-)
-    # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position', 'assay_category']
-    # values = ['', '', '', '', '', '']
+    # attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position']
+    # values = ['', '', '', '', '']
 
-    output_path = "./test/"
-
-    # remove all files in test
-    # for f in os.listdir(output_path):
-    #     f_path = os.path.join(output_path, f)
-    #     try:
-    #         if os.path.isfile(f_path):
-    #             os.unlink(f_path)
-    #     except Exception as e:
-    #         print(e)
-    start = time.time()
-    # test_e2e(dod, number_jps=10, output_path=None, interactive=False)
-
-    output_path = None
-    test_e2e(dod, attrs, values, number_jps=10, output_path=output_path)
-    print("time = ", time.time() - start)
-    # debug intree mat join
-    # test_intree(dod)
-
-    # test_joinable(dod)
-
+    start(viewSearch, columnInfer, attrs, values, types, number_jps=10, output_path=config.output_path)

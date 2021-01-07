@@ -156,11 +156,18 @@ class StoreHandler:
                        'hits.total',
                        'hits.hits._source.dbName',
                        'hits.hits._source.sourceName',
-                       'hits.hits._source.columnName']
+                       'hits.hits._source.columnName',
+                       'hits.hits.highlight.text']
         if elasticfieldname == KWType.KW_CONTENT:
             index = "text"
             query_body = {"from": 0, "size": max_hits,
-                          "query": {"term": {"text": keywords}}}
+                          "query": {"term": {"text": keywords}},
+                          "highlight": {
+                              "fields": {
+                                  "text": {}
+                              }
+                          }
+                          }
         elif elasticfieldname == KWType.KW_SCHEMA:
             index = "profile"
             query_body = {"from": 0, "size": max_hits,
@@ -178,8 +185,11 @@ class StoreHandler:
         if res['hits']['total'] == 0:
             return []
         for el in res['hits']['hits']:
+            matched_text = []
+            if elasticfieldname == KWType.KW_CONTENT:
+                matched_text = el['highlight']['text']
             data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
-                       el['_source']['columnName'], el['_score'])
+                       el['_source']['columnName'], el['_score'], matched_text)
             yield data
 
     def search_keywords(self, keywords, elasticfieldname, max_hits=15):
@@ -196,11 +206,22 @@ class StoreHandler:
                        'hits.total',
                        'hits.hits._source.dbName',
                        'hits.hits._source.sourceName',
-                       'hits.hits._source.columnName']
+                       'hits.hits._source.columnName',
+                       'hits.hits.highlight.text']
         if elasticfieldname == KWType.KW_CONTENT:
             index = "text"
             query_body = {"from": 0, "size": max_hits,
-                          "query": {"match": {"text": keywords}}}
+                          "query":
+                              {
+                                  "match_phrase": {
+                                      "text": keywords
+                                  }
+                              },
+                          "highlight": {
+                                "fields": {
+                                    "text": {}
+                                }
+                          }}
         elif elasticfieldname == KWType.KW_SCHEMA:
             index = "profile"
             query_body = {"from": 0, "size": max_hits,
@@ -213,13 +234,15 @@ class StoreHandler:
             index = "profile"
             query_body = {"from": 0, "size": max_hits,
                           "query": {"match": {"sourceName": keywords}}}
-        res = client.search(index=index, body=query_body,
-                            filter_path=filter_path)
+        res = client.search(index=index, body=query_body, filter_path=filter_path)
         if res['hits']['total'] == 0:
             return []
         for el in res['hits']['hits']:
+            matched_text = []
+            if elasticfieldname == KWType.KW_CONTENT:
+                matched_text = el['highlight']['text']
             data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
-                       el['_source']['columnName'], el['_score'])
+                           el['_source']['columnName'], el['_score'], matched_text)
             yield data
 
     def fuzzy_keyword_match(self, keywords, max_hits=15):
@@ -276,7 +299,8 @@ class StoreHandler:
                             "fuzziness": 3
                         },
                         "size": max_hits,
-                        "skip_duplicates": True
+                        # skip_duplicates can be supported only for ES above 6.1.0
+                        # "skip_duplicates": True
                     }
                 }
                 # ,
