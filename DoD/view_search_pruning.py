@@ -598,6 +598,10 @@ class ViewSearchPruning:
             idx += 1
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
+            # add join key
+            for l, r in mjg:
+                attrs_to_project.add(l.field_name)
+                attrs_to_project.add(r.field_name)
             # continue  # test
             materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, sample_size=1000)
             # materialized_virtual_schema = dpu.materialize_join_graph(mjg, self)
