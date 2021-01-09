@@ -196,14 +196,11 @@ def transform_to_lowercase(df):
 
 def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
 
-    selection1 = t1.iloc[idx1]
-    selection2 = t2.iloc[idx2]
-
     result = {}
 
-    # Find all candidate keys for both views
-    candidate_keys_1 = find_candidate_keys(selection1, sampling=False, max_num_attr_in_composite_key=4)
-    candidate_keys_2 = find_candidate_keys(selection2, sampling=False, max_num_attr_in_composite_key=4)
+    # Find all candidate keys for both views (before selecting specific idx for comparison)
+    candidate_keys_1 = find_candidate_keys(t1, sampling=False, max_num_attr_in_composite_key=2)
+    candidate_keys_2 = find_candidate_keys(t2, sampling=False, max_num_attr_in_composite_key=2)
 
     # if we didn't find any key (ex. all the columns are float), then we don't classify any
     # contradictory or complementary groups
@@ -211,6 +208,9 @@ def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
         return result
 
     candidate_keys = set(candidate_keys_1 + candidate_keys_2)
+
+    selection1 = t1.iloc[idx1]
+    selection2 = t2.iloc[idx2]
 
     for candidate_key_tuple in candidate_keys:
 
@@ -470,8 +470,8 @@ def tell_contradictory_and_complementary_allpairs(candidate_complementary_group,
     complementary_group = list()
     contradictory_group = list()
 
-    contradictory_pairs = set()
-    complementary_pairs = set()
+    # contradictory_pairs = set()
+    # complementary_pairs = set()
 
     all_pair_result = {}
 
@@ -498,16 +498,8 @@ def tell_contradictory_and_complementary_allpairs(candidate_complementary_group,
             if len(contradictory_keys) > 0:
                 # tuple is: (path1, composite_key_tuple, contradictory_key: set of contradictory keys (tuples), path2)
                 contradictory_group.append((path1, candidate_key_tuple, contradictory_keys, path2))
-                # print((path1, composite_key_tuple, contradictory_key1, path2))
-                contradictory_pairs.add(path1 + "%$%" + path2)
-                contradictory_pairs.add(path2 + "%$%" + path1)
             if len(contradictory_keys) == 0:
-                if path1 + "%$%" + path2 in contradictory_pairs or path2 + "%$%" + path1 in contradictory_pairs:
-                    continue
-                else:
-                    complementary_group.append((path1, path2, candidate_key_tuple, complementary_keys1, complementary_keys2))
-                    complementary_pairs.add(path1 + "%$%" + path2)
-                    complementary_pairs.add(path2 + "%$%" + path1)
+                complementary_group.append((path1, path2, candidate_key_tuple, complementary_keys1, complementary_keys2))
 
     return complementary_group, contradictory_group, all_pair_result
 
