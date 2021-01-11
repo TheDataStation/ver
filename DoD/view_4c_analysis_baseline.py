@@ -14,7 +14,7 @@ def normalize(df):
     # print(df.infer_objects().dtypes)
     df = df.convert_dtypes(convert_string=False, convert_integer=False)
     # print(df.dtypes)
-    df = df.apply(lambda x: x.astype(str).str.strip().str.lower() if(x.dtype == 'object') else x)
+    df = df.apply(lambda x: x.astype(str).str.strip().str.lower() if (x.dtype == 'object') else x)
     # df = df.convert_dtypes()
     # print(df.columns.dtype)
     # print(df)
@@ -124,7 +124,6 @@ def pick_most_likely_key_of_pair(md1, md2):
 
 
 def find_candidate_keys(df, sampling=True, max_num_attr_in_composite_key=4):
-
     candidate_keys = []
 
     # infer and convert types (originally all columns have 'object' type)
@@ -190,12 +189,13 @@ def find_candidate_keys(df, sampling=True, max_num_attr_in_composite_key=4):
 
     return candidate_keys
 
+
 def transform_to_lowercase(df):
     df = df.astype(str).apply(lambda x: x.str.strip().str.lower())
     return df
 
-def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
 
+def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
     result = {}
 
     # Find all candidate keys for both views (before selecting specific idx for comparison)
@@ -223,13 +223,15 @@ def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
 
         # Since selection1 and selection2 has the same set of attributes, if their intersection on the composite key
         # contains overlapping columns that are contradictory (ex. Room Square  Footage_left = 1000 and Room Square
-        # Footage_right = 1001), then its corresponding key value is a contradictory key. Any key values not contained in
+        # Footage_right = 1001), then its corresponding key value is a contradictory key. Any key values not
+        # contained in
         # the intersection are complementary keys.
 
         # print(candidate_key)
         # print("selection1:", selection1[candidate_key].dtypes)
         # print("selection2:", selection2[candidate_key].dtypes)
-        # There are rare cases when the dtypes of the candidate key don't match (even though they have the same attributes),
+        # There are rare cases when the dtypes of the candidate key don't match (even though they have the same
+        # attributes),
         # because convert_dtypes() may convert the same attribute to int in one df (if it only has one row of 0, for ex)
         # and float in another df. In this case the candidate key is obviously invalid so it's okay to skip it
         type_match = True
@@ -249,7 +251,8 @@ def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
                     # compare two columns with the same attribute (now with suffix '_left' or '_right')
                     # and get the key values of all the rows that have contradictions
                     contradictory_keys_df = inner_merge_intersection.loc[
-                        ~(inner_merge_intersection[c + '_left'] == inner_merge_intersection[c + '_right'])][candidate_key]
+                        ~(inner_merge_intersection[c + '_left'] == inner_merge_intersection[c + '_right'])][
+                        candidate_key]
                     # need to convert to a set of tuples, each tuple is the contradicting key values (one or multiple
                     # columns)
                     curr_contradictory_keys = set(tuple(row) for row in contradictory_keys_df.values.tolist())
@@ -352,7 +355,8 @@ def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
 #                 df1, md1, path1, idx1, df2, md2, path2, idx2 = neighbor_v
 #                 # skip already processed pairs
 #                 if path1 + "%$%" + path2 in contradictory_pairs or path2 + "%$%" + path1 in contradictory_pairs \
-#                         or path1 + "%$%" + path2 in complementary_pairs or path2 + "%$%" + path1 in complementary_pairs:
+#                         or path1 + "%$%" + path2 in complementary_pairs or path2 + "%$%" + path1 in
+#                         complementary_pairs:
 #                     continue
 #                 selection1 = df1.iloc[idx1]
 #                 selection2 = df2.iloc[idx2]
@@ -499,7 +503,8 @@ def tell_contradictory_and_complementary_allpairs(candidate_complementary_group,
                 # tuple is: (path1, composite_key_tuple, contradictory_key: set of contradictory keys (tuples), path2)
                 contradictory_group.append((path1, candidate_key_tuple, contradictory_keys, path2))
             if len(contradictory_keys) == 0:
-                complementary_group.append((path1, path2, candidate_key_tuple, complementary_keys1, complementary_keys2))
+                complementary_group.append(
+                    (path1, path2, candidate_key_tuple, complementary_keys1, complementary_keys2))
 
     return complementary_group, contradictory_group, all_pair_result
 
@@ -675,7 +680,9 @@ def main(input_path):
         dfs_with_metadata = get_df_metadata(group_dfs)
 
         # summarized_group, complementary_group, contradictory_group = brute_force_4c(dfs_with_metadata)
-        compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = no_chasing_4c(dfs_with_metadata)
+        compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = \
+            no_chasing_4c(
+                dfs_with_metadata)
 
         groups_per_column_cardinality[key]['compatible'] = compatible_group
         groups_per_column_cardinality[key]['contained'] = contained_group
@@ -700,7 +707,9 @@ def nochasing_main(input_path):
         dfs_with_metadata = get_df_metadata(group_dfs)
 
         # summarized_group, complementary_group, contradictory_group = brute_force_4c(dfs_with_metadata)
-        compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = no_chasing_4c(dfs_with_metadata)
+        compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = \
+            no_chasing_4c(
+                dfs_with_metadata)
         groups_per_column_cardinality[key]['compatible'] = compatible_group
         groups_per_column_cardinality[key]['contained'] = contained_group
         groups_per_column_cardinality[key]['complementary'] = complementary_group

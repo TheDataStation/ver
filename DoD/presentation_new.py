@@ -2,6 +2,7 @@ from DoD import view_4c_analysis_baseline as v4c
 from DoD import material_view_analysis as mva
 from tqdm import tqdm
 
+
 def get_row_from_key(df, key_name, key_value):
     # select row based on multiple composite keys
     assert len(key_value) == len(key_name)
@@ -14,6 +15,7 @@ def get_row_from_key(df, key_name, key_value):
     row = df.loc[condition]
     return row
 
+
 def row_df_to_string(row_df):
     # there may be multiple rows satisfying the same condition
     row_strs = []
@@ -22,6 +24,7 @@ def row_df_to_string(row_df):
         row_str = row.to_string(header=False, index=False, index_names=False)
         row_strs.append(row_str)
     return row_strs
+
 
 class Colors:
     CGREYBG = '\33[100m'
@@ -36,6 +39,7 @@ class Colors:
     CBEIGEBG = '\33[46m'
     CBOLD = '\33[1m'
     CEND = '\33[0m'
+
 
 if __name__ == '__main__':
 
@@ -101,12 +105,15 @@ if __name__ == '__main__':
 
     # key: contradictory or complementary row, value: set of views containing the row
     contr_or_compl_row_to_path_dict = {}
+
+
     def add_to_row_to_path_dict(row_strs, path):
         for row in row_strs:
             if row not in contr_or_compl_row_to_path_dict.keys():
                 contr_or_compl_row_to_path_dict[row] = {path}
             else:
                 contr_or_compl_row_to_path_dict[row].add(path)
+
 
     for path, result in tqdm(all_pair_contr_compl.items()):
         path1 = path[0]
@@ -197,10 +204,12 @@ if __name__ == '__main__':
     # epsilon-greedy
     epsilon = 0.1
 
-    # TODO: Pick unexplored views first? Pick a pair that would reduce the most uncertainty? Favor views with higher scores?
+    # TODO: Pick unexplored views first? Pick a pair that would reduce the most uncertainty? Favor views with higher
+    #  scores?
     #  For now, pick randomly
     paths = list(all_pair_contr_compl_new.keys())
     import random
+
     random.shuffle(paths)
 
     for path in paths:
@@ -218,10 +227,12 @@ if __name__ == '__main__':
 
         # TODO:
         #  Epsilon-greedy:
-        #  If the user has selected the same candidate key more than n times, and did not select other keys (of the current 2 views),
+        #  If the user has selected the same candidate key more than n times, and did not select other keys (of the
+        #  current 2 views),
         #  this means they are pretty confident about their choices, so we don't bother showing them other keys again.
         #  (This can be more complicated, like using confidence bounds etc)
-        #  In epsilon probability, we still show the user all candidate keys in case they made a mistake or want to explore other keys
+        #  In epsilon probability, we still show the user all candidate keys in case they made a mistake or want to
+        #  explore other keys
 
         n = 2
 
@@ -255,11 +266,13 @@ if __name__ == '__main__':
                 key_rank[candidate_key_tuple] = 0
 
             print("Candidate key " + Colors.CREDBG2 + str(candidate_key_tuple) + Colors.CEND + " is "
-                  + Colors.CVIOLETBG2 +  contr_or_compl_df_list[0] + Colors.CEND)
+                  + Colors.CVIOLETBG2 + contr_or_compl_df_list[0] + Colors.CEND)
+
 
             def print_option(option_num, df):
                 print(Colors.CGREENBG2 + "Option " + str(option_num) + Colors.CEND)
                 print(df)
+
 
             if contr_or_compl_df_list[0] == "contradictory":
                 # print(contr_or_compl_df_list)
@@ -309,7 +322,6 @@ if __name__ == '__main__':
                     print("Skipped all contradictions based on previous selection")
 
             if contr_or_compl_df_list[0] == "complementary":
-
                 # TODO: epsilon greedy for complementary rows?
                 #  But they are not really "choose one over the other" relationship
 
@@ -362,4 +374,3 @@ if __name__ == '__main__':
 
                         if row_str in row_rank.keys():
                             row_rank[row_str] += 1
-            
