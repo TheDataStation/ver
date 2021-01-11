@@ -230,7 +230,7 @@ if __name__ == '__main__':
     # complementary views
     # print("Complementary views: ")
     complementary_views_count = 0
-    for path1, path2, _, _ in complementary_groups:
+    for path1, path2, _, _, _ in complementary_groups:
         if path1 in view_files and path2 in view_files:
             complementary_views_count += 1
             # print(path1 + " - " + path2)
@@ -246,7 +246,11 @@ if __name__ == '__main__':
 
         # TODO: reading csv multiple times...
         df1 = pd.read_csv(path1)
+        df1 = v4c.normalize(df1)
+        df1 = df1.sort_index(axis=1)
         df2 = pd.read_csv(path2)
+        df2 = v4c.normalize(df2)
+        df2 = df2.sort_index(axis=1)
 
         composite_key = list(composite_key_tuple)
         key_values = list(key_value_tuples)
@@ -300,7 +304,7 @@ if __name__ == '__main__':
         signals.append(contradiction_signal)
 
     size_signal = ViewSize(view_dfs)
-    # signals.append(size_signal)
+    signals.append(size_signal)
 
     # assign fake primary keys randomly
     pk_dict = {}
@@ -310,7 +314,7 @@ if __name__ == '__main__':
     for i in range(num_pks):
         fake_pk_dict[i] = view_dfs[i::num_pks]
     pk_signal = PrimaryKey(fake_pk_dict)
-    signals.append(pk_signal)
+    # signals.append(pk_signal)
 
     # Evaluate
     for signal in signals:
