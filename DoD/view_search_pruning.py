@@ -389,7 +389,7 @@ class ViewSearchPruning:
             for el in to_return:
                 yield el
             satisfied = input("Do you want to see more views? 1. Yes 2. No\n")
-            if satisfied == 2:
+            if int(satisfied) == 2:
                 break
 
     def get_relation(self, df, join_key, target_cols, sampling_fraction):
@@ -599,9 +599,9 @@ class ViewSearchPruning:
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
             # add join key
-            for l, r in mjg:
-                attrs_to_project.add(l.field_name)
-                attrs_to_project.add(r.field_name)
+            # for l, r in mjg:
+            #     attrs_to_project.add(l.field_name)
+            #     attrs_to_project.add(r.field_name)
             # continue  # test
             materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, sample_size=1000)
             # materialized_virtual_schema = dpu.materialize_join_graph(mjg, self)
