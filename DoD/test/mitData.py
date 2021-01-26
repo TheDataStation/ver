@@ -30,3 +30,10 @@ class MitDataTest(unittest.TestCase):
         types = ["int64", "object", "object"]
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
               output_path=config.Mit.output_path)
+
+    def test_case3(self):
+        attrs = ["faculty", "building"] # 2,3,4,5,6,10 | 0,1,2,3
+        values = [['madden', '']]
+        types = ["object", "object"]
+        start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
+              output_path=config.Mit.output_path)
