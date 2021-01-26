@@ -1,7 +1,7 @@
 from DoD import view_4c_analysis_baseline as v4c
 from DoD import material_view_analysis as mva
 from tqdm import tqdm
-
+import random
 
 def get_row_from_key(df, key_name, key_value):
     # select row based on multiple composite keys
@@ -18,11 +18,15 @@ def get_row_from_key(df, key_name, key_value):
 
 def row_df_to_string(row_df):
     # there may be multiple rows satisfying the same condition
-    row_strs = []
-    for i in range(len(row_df)):
-        row = row_df.iloc[[i]]
-        row_str = row.to_string(header=False, index=False, index_names=False)
-        row_strs.append(row_str)
+    df_str = row_df.to_string(header=False, index=False, index_names=False).split('\n')
+    row_strs = [','.join(row.split()) for row in df_str]
+
+    # row_strs = []
+    # for i in range(len(row_df)):
+    #     row = row_df.iloc[[i]]
+    #     row_str = row.to_string(header=False, index=False, index_names=False)
+    #     row_strs.append(row_str)
+    # print(row_strs)
     return row_strs
 
 
@@ -96,8 +100,9 @@ if __name__ == '__main__':
     print("Number of views: ", len(csv_files))
     print("After removing duplicates in compatible groups: ", len(view_dfs))
 
-    signals = []
     view_files = [v[1] for v in view_dfs]
+    # print(compatible_groups)
+    # print(view_files)
 
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Processing complementary and contradictory views...")
@@ -115,13 +120,22 @@ if __name__ == '__main__':
                 contr_or_compl_row_to_path_dict[row].add(path)
 
 
+    import time
+
+    # sampling contradictory and complementary rows
+    sample_size = 5
+
     for path, result in tqdm(all_pair_contr_compl.items()):
         path1 = path[0]
         path2 = path[1]
 
-        if not (path1 in view_files or path2 in view_files):
+        # print("processing " + path1 + " " + path2)
+
+        if not (path1 in view_files and path2 in view_files):
             continue
 
+        # print("----IO----")
+        # start = time.time()
         df1 = pd.read_csv(path1, encoding='latin1', thousands=',')
         df1 = mva.curate_view(df1)
         df1 = v4c.normalize(df1)
@@ -130,8 +144,16 @@ if __name__ == '__main__':
         df2 = mva.curate_view(df2)
         df2 = v4c.normalize(df2)
         # df2 = df2.sort_index(axis=1)
+        # print(time.time() - start)
 
         all_pair_contr_compl_new[path] = {}
+
+        # print("---loop----")
+        # loopstart = time.time()
+
+        get_row_from_key_time = 0
+        row_df_to_string_time = 0
+        add_to_row_to_path_dict_time = 0
 
         for candidate_key_tuple, result_list in result.items():
 
@@ -147,20 +169,28 @@ if __name__ == '__main__':
                 candidate_key = list(candidate_key_tuple)
                 # a list of tuples, each tuple corresponds to the contradictory key values
                 key_values = list(contradictory_keys)
+                if len(key_values) > sample_size:
+                    key_values = random.sample(key_values, k=sample_size)
 
                 # there could be multiple contradictions existing in a pair of views
                 for key_value in key_values:
                     # select row based on multiple composite keys
+                    # start = time.time()
                     row1_df = get_row_from_key(df1, candidate_key, key_value)
                     row2_df = get_row_from_key(df2, candidate_key, key_value)
+                    # get_row_from_key_time += (time.time() - start)
 
                     all_pair_contr_compl_new[path][candidate_key_tuple].append((row1_df, row2_df))
 
+                    # start = time.time()
                     row1_strs = row_df_to_string(row1_df)
                     row2_strs = row_df_to_string(row2_df)
+                    # row_df_to_string_time += (time.time() - start)
 
+                    # start = time.time()
                     add_to_row_to_path_dict(row1_strs, path1)
                     add_to_row_to_path_dict(row2_strs, path2)
+                    # add_to_row_to_path_dict_time += (time.time() - start)
 
             if len(contradictory_keys) == 0:
 
@@ -169,28 +199,52 @@ if __name__ == '__main__':
                 candidate_key = list(candidate_key_tuple)
                 key_values1 = list(complementary_keys1)
                 key_values2 = list(complementary_keys2)
+                if len(key_values1) > sample_size:
+                    key_values1 = random.sample(key_values1, k=sample_size)
+                if len(key_values2) > sample_size:
+                    key_values2 = random.sample(key_values2, k=sample_size)
 
                 row1_dfs = []
                 for key_value in key_values1:
+                    # start = time.time()
                     row1_df = get_row_from_key(df1, candidate_key, key_value)
+                    # get_row_from_key_time += (time.time() - start)
                     # print(df1, candidate_key, key_value)
                     # print(row1_df)
                     row1_dfs.append(row1_df)
 
+                    # start = time.time()
                     row1_strs = row_df_to_string(row1_df)
+                    # row_df_to_string_time += (time.time() - start)
+
+                    # start = time.time()
                     add_to_row_to_path_dict(row1_strs, path1)
+                    # add_to_row_to_path_dict_time += (time.time() - start)
 
                 row2_dfs = []
                 for key_value in key_values2:
+                    # start = time.time()
                     row2_df = get_row_from_key(df2, candidate_key, key_value)
+                    # get_row_from_key_time += (time.time() - start)
                     # print(df2, candidate_key, key_value)
                     # print(row2_df)
                     row2_dfs.append(row2_df)
 
+                    # start = time.time()
                     row2_strs = row_df_to_string(row2_df)
+                    # row_df_to_string_time += (time.time() - start)
+
+                    # start = time.time()
                     add_to_row_to_path_dict(row2_strs, path2)
+                    # add_to_row_to_path_dict_time += (time.time() - start)
 
                 all_pair_contr_compl_new[path][candidate_key_tuple].append((row1_dfs, row2_dfs))
+
+        # print(time.time() - loopstart)
+        # print("get_row_from_key_time: " + str(get_row_from_key_time))
+        # print("row_df_to_string_time: " + str(row_df_to_string_time))
+        # print("add_to_row_to_path_dict_time: " + str(add_to_row_to_path_dict_time))
+
 
     # Initialize ranking model
     key_rank = {}
@@ -208,7 +262,6 @@ if __name__ == '__main__':
     #  scores?
     #  For now, pick randomly
     paths = list(all_pair_contr_compl_new.keys())
-    import random
 
     random.shuffle(paths)
 
@@ -225,6 +278,7 @@ if __name__ == '__main__':
         count = 0
         option_dict = {}
 
+        # exploitation vs exploration
         # TODO:
         #  Epsilon-greedy:
         #  If the user has selected the same candidate key more than n times, and did not select other keys (of the
@@ -341,10 +395,10 @@ if __name__ == '__main__':
             option_picked = input(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
 
             if option_picked == "":
-                print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
-                pprint.pprint(key_rank)
-                print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
-                pprint.pprint(row_rank)
+                # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
+                # pprint.pprint(key_rank)
+                # print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
+                # pprint.pprint(row_rank)
                 print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
                 sorted_view_rank = [(view, score) for view, score in
                                     sorted(view_rank.items(), key=lambda item: item[1], reverse=True)]
