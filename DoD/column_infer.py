@@ -1,12 +1,7 @@
 from algebra import API
 from DoD.utils import FilterType
 from DoD import data_processing_utils as dpu
-
 from api.apiutils import DRS, Operation, OP
-from modelstore.elasticstore import StoreHandler
-from knowledgerepr import fieldnetwork
-import server_config as config
-import time
 
 
 class ClusterItem:
@@ -38,7 +33,11 @@ class ColumnInfer:
         self.topk = 500  # magic top k number
 
     """
-    Main Logic of column infer process 
+        Get candidate columns for one attr
+        Returns:
+        column_candidates: A dictionary of one attr and its candidate columns
+        example_hit_dict: A dictionary of one attr and its sample hit number
+        hit_type_dict: A dictionary of one attr and its hit type {CELL, ATTR, CELL_AND_ATTR}
     """
     def infer_candidate_columns(self, attrs, values):
         spread_sheet = []
@@ -63,9 +62,9 @@ class ColumnInfer:
                 drs_attr = self.aurum_api.search_exact_attribute(attr, max_results=self.topk)
                 if len(drs_attr.data) == 0:
                     drs_attr = self.aurum_api.search_attribute(attr, max_results=self.topk)
-                for item in drs_attr:
-                    column_example_hit[(item.source_name, item.field_name)] = 0
-                    hit_type[(item.source_name, item.field_name)] = FilterType.ATTR
+                for x in drs_attr:
+                    column_example_hit[(x.source_name, x.field_name)] = 0
+                    hit_type[(x.source_name, x.field_name)] = FilterType.ATTR
             drs_samples_union = None
             if empty_str.join(samples) != "":
                 # if user provides samples
@@ -76,10 +75,10 @@ class ColumnInfer:
                     drs_sample = self.aurum_api.search_exact_content(sample, max_results=self.topk*3)
                     if len(drs_sample.data) == 0:
                         drs_sample = self.aurum_api.search_content(sample, max_results=self.topk*3)
-                    drs_sample_col = self.sample2columns(drs_sample, sample)
-                    for item in drs_sample_col:
-                        k = (item.source_name, item.field_name)
-                        if k in column_example_hit.keys():
+                    drs_sample_col = self.remove_redundant(drs_sample, sample)
+                    for x in drs_sample_col:
+                        k = (x.source_name, x.field_name)
+                        if k in column_example_hit:
                             column_example_hit[k] = column_example_hit[k] + 1
                             if hit_type[k] == FilterType.ATTR:
                                 hit_type[k] = FilterType.ATTR_CELL
@@ -106,7 +105,13 @@ class ColumnInfer:
             column_id += 1
         return column_candidates, example_hit_dict, hit_type_dict
 
-    def cluster_attributes(self, candidates, score_map, hit_type):
+    """
+        Cluster Identical Columns 
+        (could be potentially accelerated through hashvalue metadata and column store)
+        Returns:
+        clusters: A list of ClusterItem
+    """
+    def cluster_columns(self, candidates, score_map, hit_type):
         lookup = {}
         clusters = []
         for candidate in candidates:
@@ -125,17 +130,15 @@ class ColumnInfer:
                 clusters.append(cluster)
         return clusters
 
-    def get_clusters(self, attrs, values, types=["",""]):
-        candidate_columns, col_containment_score_dict, hit_type_dict = self.infer_candidate_columns(attrs, values)
+    def get_clusters(self, attrs, values, types):
+        candidate_columns, sample_score, hit_type_dict = self.infer_candidate_columns(attrs, values)
         attr_clusters = []
         idx = 0
         for column, candidates in candidate_columns.items():
-            clusters = self.cluster_attributes(candidates.data, col_containment_score_dict[column[0]], hit_type_dict[column[0]])
+            clusters = self.cluster_columns(candidates.data, sample_score[column[0]], hit_type_dict[column[0]])
             clusters_list = []
             for cluster in clusters:
                 tmp = dict()
-                # cluster = self.correct_cluster_tfidf_score(cluster)
-                s = time.time()
                 head_values, data_type = self.get_head_values_and_type(cluster[0], 5)
                 # if len(head_values) == 0 or data_type.name != types[idx]:
                 #     continue       # discard empty columns
@@ -184,12 +187,11 @@ class ColumnInfer:
         return cluster
 
     @staticmethod
-    def sample2columns(drs_sample, kw):
+    def remove_redundant(drs_sample, kw):
         lookup = {}
         for drs in drs_sample:
             k = (drs.source_name, drs.field_name)
-            if k not in lookup.keys() or (k in lookup.keys() and drs.score > lookup[k].score):
-                lookup[k] = drs
+            lookup[k] = drs
         return DRS(list(lookup.values()), Operation(OP.KW_LOOKUP, params=[kw]))
 
     @staticmethod
@@ -198,33 +200,3 @@ class ColumnInfer:
             return 0
         else:
             return round(candidate.score,2)
-
-
-if __name__ == '__main__':
-
-    model_path = config.path_model
-    sep = config.separator
-
-    store_client = StoreHandler()
-    network = fieldnetwork.deserialize_network(model_path)
-    columnInfer = ColumnInfer(network=network, store_client=store_client, csv_separator=sep)
-
-    # attrs = ["Building Name", "Gross Area", "Building Room", "Room Square Footage"]
-    # values = ["", "", "1-000CA", ""]
-    # attrs = ["", "Gross Area","Building Name"]
-    # values = [['Stonebraker', '',''], ['', '','']]
-    attrs = ["faculty", ""]
-    values = [['Stonebraker', 'database']]
-    types = ["object", "object"]
-
-    col_generator = columnInfer.get_clusters(attrs, values,types)
-    print(col_generator)
-    filter_drs, score_map, hit_type = columnInfer.infer_candidate_columns(attrs, values)
-    for filter, drs in filter_drs.items():
-        print(filter)
-        print("len:", len(drs.data))
-        clusters = columnInfer.cluster_attributes(drs.data, score_map, hit_type)
-        for cluster in clusters:
-            print("cluster size:", len(cluster))
-            print(cluster[0].highlight)
-        print("-----------------------")

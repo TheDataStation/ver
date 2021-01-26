@@ -1,3 +1,5 @@
+import random
+
 from algebra import API
 from api.apiutils import Relation
 from collections import defaultdict
@@ -217,8 +219,7 @@ class ViewSearchPruning:
             st_joinable = time.time()
             join_graphs = self.joinable(candidate_group, cache_unjoinable_pairs, max_hops=2)
             et_joinable = time.time()
-            # if len(join_graphs) != 0:
-            #     all_join_graphs.extend(join_graphs)
+
             perf_stats['time_joinable'] += (et_joinable - st_joinable)
             if debug_enumerate_all_jps:
                 for i, group in enumerate(join_graphs):
@@ -276,10 +277,8 @@ class ViewSearchPruning:
             # dpu.empty_relation_cache()  # TODO: If df.copy() works, then this is a nice reuse
             st_materialize = time.time()
             to_return = []
-            # to_return = self.materialize_join_graphs(list_samples, materializable_join_graphs)
             et_materialize = time.time()
             perf_stats['time_materialize'] += (et_materialize - st_materialize)
-            # yield to_return
             for el in to_return:
                 if 'actually_materialized' not in perf_stats:
                     perf_stats['actually_materialized'] = 0
@@ -294,13 +293,11 @@ class ViewSearchPruning:
         print("Finished enumerating groups")
         cache_unjoinable_pairs = OrderedDict(sorted(cache_unjoinable_pairs.items(),
                                                     key=lambda x: x[1], reverse=True))
-        # for k, v in cache_unjoinable_pairs.items():
-        #     print(str(k) + " => " + str(v))
-
         # 4c pruning demo
         before_num = len(all_join_graphs)
         print("total join paths before", before_num)
 
+        start = time.time()
         flat_join_graphs = []
         for jpg in all_join_graphs:
             flat_jpg = []
@@ -312,7 +309,7 @@ class ViewSearchPruning:
         tk_cache = {}
         tk_info = [[] for _ in range(len(all_join_graphs))]
         for i in range(max_hops*2):
-            tk_views, tk_hash = self.prune_join_paths3(flat_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, i)
+            tk_views, tk_hash = self.prune_join_paths(flat_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, i)
             groups_per_column_cardinality = v4c.perform4c(tk_views)
             paths_to_remove = []
             for k, v in groups_per_column_cardinality.items():
@@ -333,6 +330,7 @@ class ViewSearchPruning:
             flat_join_graphs = [i for j, i in enumerate(flat_join_graphs) if j not in paths_to_remove]
             tk_info = [i for j, i in enumerate(tk_info) if j not in paths_to_remove]
             print("number of join graphs after pruned", i, len(all_join_graphs))
+        print("Pruning Time:", time.time() - start)
 
         # Rate all join paths after pruning
         table_paths = {}
@@ -351,6 +349,7 @@ class ViewSearchPruning:
             else:
                 table_paths[tuple(table_list)].append(idx)
         final_list = []
+        score_cache = {}
         for table, paths in table_paths.items():
             print(table)
             print("paths", paths)
@@ -371,12 +370,41 @@ class ViewSearchPruning:
                     key.extend(join_key)
                     df = tk_cache[tuple(key)]
                     sampling_fraction = 0.6
+                    # relation_type = random.randint(1,3)
                     relation_type = self.get_relation(df.copy(), join_key, target_col_values, sampling_fraction)
+                    score_cache[(tuple(join_key), tuple(target_col_values))] = relation_type
                     scores.append(relation_type)
                 score_list.append((scores, index))
             score_list.sort()
             print(score_list)
             final_list.append(score_list)
+
+        start = time.time()
+        for table, paths in table_paths.items():
+            print(table)
+            print("paths", paths)
+            if len(paths) == 1:
+                continue
+            # when len > 1, sort join paths based on tk relation type
+            score_list2 = []
+            for index in paths:
+                info = tk_info[index]
+                scores = []
+                for tk in info:
+                    target_col_values = tk[0]
+                    join_key = tk[1]
+                    if len(join_key) == 0 or len(target_col_values) == 0:
+                        continue
+                    key = []
+                    key.extend(target_col_values)
+                    key.extend(join_key)
+                    relation_type = score_cache[(tuple(join_key), tuple(target_col_values))]
+                    scores.append(relation_type)
+                score_list2.append((scores, index))
+            score_list2.sort()
+            print(score_list2)
+        print("Scoring time:", time.time() - start)
+
         step = 1
         while True:
             candidates = []
@@ -429,7 +457,7 @@ class ViewSearchPruning:
         else:
             return False
 
-    def prune_join_paths3(self, all_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, index):
+    def prune_join_paths(self, all_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, index):
         tk_views = []
         tk_hash = {}
         for idx, flat_jpg in enumerate(all_join_graphs):
@@ -478,70 +506,6 @@ class ViewSearchPruning:
             tk_cache[tuple(tk)] = tk_view
             if len(tk_view) > 0:
                 tk_views.append((tk_view, self.generate_view_name(tk)))
-        return tk_views, tk_hash
-
-    def prune_join_paths(self, all_join_graphs, table_fulfilled_filters, table_path, tk_cache, FLAG):
-        tk_views = []
-        tk_hash = {}
-        for idx, jpg in enumerate(all_join_graphs):
-            if FLAG == "LEFT":
-                left_most = jpg[0]
-                join_key = left_most[0]
-            else:
-                right_most = jpg[-1]
-                join_key = right_most[1]
-            table_name = join_key.source_name
-            target_cols = table_fulfilled_filters[table_name]
-            tk = []
-            for x in target_cols:
-                tk.append(x[0][1])
-            tk.append(join_key.field_name)
-            if tuple(tk) in tk_hash.keys():
-                tk_hash[tuple(tk)].append(idx)
-                continue
-            tk_hash[tuple(tk)] = [idx]
-            print(table_name, tk)
-            tk_view = self.columns_to_view(table_path[table_name] + table_name, tk)
-            tk_cache[tuple(tk)] = tk_view
-            if len(tk_view) > 0:
-                tk_views.append((tk_view, self.generate_view_name(tk)))
-        return tk_views, tk_hash
-
-    def prune_join_paths2(self, all_join_graphs, table_fulfilled_filters, table_path):
-        tk_views = []
-        tk_hash = {}
-
-        for idx, jpg in enumerate(all_join_graphs):
-            table_keys = {}
-            for l, r in jpg:
-                if l.source_name not in table_keys.keys():
-                    table_keys[l.source_name] = [l.field_name]
-                else:
-                    table_keys[l.source_name].append(l.field_name)
-                if r.source_name not in table_keys.keys():
-                    table_keys[r.source_name] = [r.field_name]
-                else:
-                    table_keys[r.source_name].append(r.field_name)
-            for table_name in table_keys.keys():
-                target_cols = table_fulfilled_filters[table_name]
-                if len(target_cols) == 0:
-                    continue
-                tk = []
-                for x in target_cols:
-                    tk.append(x[0][1])
-                tk.extend(table_keys[table_name])
-                if tuple(tk) in tk_hash.keys():
-                    tk_hash[tuple(tk)].append(idx)
-                    continue
-                tk_hash[tuple(tk)] = [idx]
-                print(table_name, tk)
-                tk_view = self.columns_to_view(table_path[table_name] + table_name, tk)
-                if len(tk_view) > 0:
-                    tk_views.append((tk_view, self.generate_view_name(tk)))
-                paths_to_remove = self.get_dup_idx(tk_views, tk_hash)
-                all_join_graphs = [i for j, i in enumerate(all_join_graphs) if j not in paths_to_remove]
-                print("number of join graphs after pruned ",table_name,len(all_join_graphs))
-
         return tk_views, tk_hash
 
     def get_dup_idx(self, tk_views, tk_hash):
@@ -598,7 +562,10 @@ class ViewSearchPruning:
             idx += 1
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
-            # continue  # test
+            # add join key
+            for l,r in mjg:
+                attrs_to_project.add(l.field_name)
+                attrs_to_project.add(r.field_name)
             materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, sample_size=1000)
             # materialized_virtual_schema = dpu.materialize_join_graph(mjg, self)
             if materialized_virtual_schema is False:
@@ -949,20 +916,9 @@ def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_vie
     st_runtime = time.time()
     for mjp, attrs_project, metadata in vs.virtual_schema_iterative_search(col_values, filter_drs, perf_stats, max_hops=2,
                                                         debug_enumerate_all_jps=False):
-        # print("JP: " + str(i))
-        # i += 1
-        # print(mjp.head(2))
-        # if i > number_jps:
-        #     break
-
         proj_view = dpu.project(mjp, attrs_project)
 
-        # print(str(proj_view.head(5)))
-        # print("Metadata")
-        # print(metadata)
-
         if output_path is not None:
-            view_path = None
             if full_view:
                 view_path = output_path + "/raw_view_" + str(i)
                 mjp.to_csv(view_path, encoding='latin1', index=False)
