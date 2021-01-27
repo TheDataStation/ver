@@ -48,24 +48,15 @@ if __name__ == '__main__':
 
     msg_vspec = """
                     ######################################################################################################################
-                    #                                              View Presentation                                  
-                                       #
-                    #                    Goal: Help users find their preferred view among all generated views         
-                                       #                 
-                    # 1. Run 4C algorithm that classifies the views into 4 categories:                                
-                                       #
-                    #    Compatible, Contained, Contradictory, Complementary                                          
-                                       #
-                    # 2. Remove duplicates in compatible views and keep the view with the largest cardinality in 
-                    contained views         #
-                    # 3. Users choose the candidate key and its respective contradictory and complementary rows       
-                                       #
-                    # 4. Exploitation vs exploration: exploit the knowledge based on user's previous selections       
-                                       #
-                    #    and explore other options occasionally                                                       
-                                       #
-                    # 5. Rank the views based on user's preference by keeping an inverted index from each row to the 
-                    views containing it #                                                             #
+                    #                                              View Presentation                                                     #
+                    #                    Goal: Help users find their preferred view among all generated views                            #                 
+                    # 1. Run 4C algorithm that classifies the views into 4 categories:                                                   #
+                    #    Compatible, Contained, Contradictory, Complementary                                                             #
+                    # 2. Remove duplicates in compatible views and keep the view with the largest cardinality in contained views         #
+                    # 3. Users choose the candidate key and its respective contradictory and complementary rows                          #
+                    # 4. Exploitation vs exploration: exploit the knowledge based on user's previous selections                          #
+                    #    and explore other options occasionally                                                                          #
+                    # 5. Rank the views based on user's preference by keeping an inverted index from each row to the views containing it #                                                             #
                     ######################################################################################################################
                   """
     print(msg_vspec)
