@@ -32,6 +32,9 @@ class MitDataTest(unittest.TestCase):
               output_path=config.Mit.output_path)
 
     def test_case3(self):
+        # attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
+        # values = [["", "", "", ""]]
+        # types = ["object", "float", "object", "float"]
         attrs = ["faculty", "building"] # 2,3,4,5,6,10 | 0,1,2,3
         values = [['madden', '']]
         types = ["object", "object"]

@@ -48,6 +48,21 @@ if __name__ == '__main__':
 
     dir_path = config.Mit.output_path
 
+    msg_vspec = """
+                    ######################################################################################################################
+                    #                                              View Presentation                                                     #
+                    #                    Goal: Help users find their preferred view among all generated views                            #                 
+                    # 1. Run 4C algorithm that classifies the views into 4 categories:                                                   #
+                    #    Compatible, Contained, Contradictory, Complementary                                                             #
+                    # 2. Remove duplicates in compatible views and keep the view with the largest cardinality in contained views         #
+                    # 3. Users choose the candidate key and its respective contradictory and complementary rows                          #
+                    # 4. Exploitation vs exploration: exploit the knowledge based on user's previous selections                          #
+                    #    and explore other options occasionally                                                                          #
+                    # 5. Rank the views based on user's preference by keeping an inverted index from each row to the views containing it #                                                             #
+                    ######################################################################################################################
+                  """
+    print(msg_vspec)
+
     # Run 4C
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
@@ -67,34 +82,57 @@ if __name__ == '__main__':
         contradictory_groups = contradictory_groups + v['contradictory']
         all_pair_contr_compl.update(v['all_pair_contr_compl'])
 
-    print(len(complementary_groups))
-    print(len(contradictory_groups))
-    csv_files = glob.glob(dir_path + "view_*")
-    view_dfs = []
-    has_compatible_view_been_added = [False] * len(compatible_groups)
-
-    for f in csv_files:
-        # remove duplicates in compatible groups
-        already_added = False
-        for i, compatible_group in enumerate(compatible_groups):
-            if f in compatible_group:
-                if has_compatible_view_been_added[i]:
-                    already_added = True
-                else:
-                    has_compatible_view_been_added[i] = True
-
-        if not already_added:
-            df = pd.read_csv(f)
-            view_dfs.append((df, f))
+    # print(compatible_groups)
+    # print(contained_groups)
 
     print()
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
-    print("Number of views: ", len(csv_files))
-    print("After removing duplicates in compatible groups: ", len(view_dfs))
 
-    view_files = [v[1] for v in view_dfs]
-    # print(compatible_groups)
-    # print(view_files)
+    csv_files = glob.glob(dir_path + "/view_*")
+    print("Number of views: ", len(csv_files))
+
+    # Only keep the view with the largest cardinality in contained group
+    largest_contained_views = set()
+    for contained_group in contained_groups:
+        max_size = 0
+        largest_view = contained_group[0]
+        for view in contained_group:
+            if len(view) > max_size:
+                max_size = len(view)
+                largest_view = view
+        largest_contained_views.add(largest_view)
+
+    # print(largest_contained_views)
+
+    # has_compatible_view_been_added = [False] * len(compatible_groups)
+
+    view_files = set()
+
+    for f in csv_files:
+        # already_added = False
+        # for i, compatible_group in enumerate(compatible_groups):
+        #     if f in compatible_group:
+        #         if has_compatible_view_been_added[i]:
+        #             already_added = True
+        #         else:
+        #             has_compatible_view_been_added[i] = True
+        add = True
+        # Remove duplicates in compatible groups, only keep the first view in each group
+        for compatible_group in compatible_groups:
+            if f in compatible_group:
+                if f != compatible_group[0]:
+                    add = False
+                    break
+        for contained_group in contained_groups:
+            if f in contained_group:
+                if f not in largest_contained_views:
+                    add = False
+                    break
+
+        if add:
+            view_files.add(f)
+
+    print("After processing compatible and contained groups: ", len(view_files))
 
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Processing complementary and contradictory views...")
@@ -120,6 +158,8 @@ if __name__ == '__main__':
     for path, result in tqdm(all_pair_contr_compl.items()):
         path1 = path[0]
         path2 = path[1]
+
+        # print("processing " + path1 + " " + path2)
 
         if not (path1 in view_files and path2 in view_files):
             continue
@@ -234,7 +274,6 @@ if __name__ == '__main__':
         # print("get_row_from_key_time: " + str(get_row_from_key_time))
         # print("row_df_to_string_time: " + str(row_df_to_string_time))
         # print("add_to_row_to_path_dict_time: " + str(add_to_row_to_path_dict_time))
-
 
     # Initialize ranking model
     key_rank = {}
