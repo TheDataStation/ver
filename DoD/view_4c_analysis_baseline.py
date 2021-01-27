@@ -172,7 +172,7 @@ def find_candidate_keys(df, sampling=True, max_num_attr_in_composite_key=4):
 
     # TODO: pruning
     # Find all candidate keys that have the same/similar maximum strength
-    max_strength = -1
+    max_strength = 0
     epsilon = 10e-3
     for key in map(list, filter(None, possible_keys)):
         # strength of a key = the number of distinct key values in the dataset divided by the number of rows
@@ -201,13 +201,16 @@ def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
     # Find all candidate keys for both views (before selecting specific idx for comparison)
     candidate_keys_1 = find_candidate_keys(t1, sampling=False, max_num_attr_in_composite_key=2)
     candidate_keys_2 = find_candidate_keys(t2, sampling=False, max_num_attr_in_composite_key=2)
+    # print(candidate_keys_1)
+    # print(candidate_keys_2)
 
     # if we didn't find any key (ex. all the columns are float), then we don't classify any
     # contradictory or complementary groups
     if len(candidate_keys_1) == 0 and len(candidate_keys_2) == 0:
         return result
 
-    candidate_keys = set(candidate_keys_1 + candidate_keys_2)
+    candidate_keys = set(candidate_keys_1).intersection(set(candidate_keys_2))
+    # print(candidate_keys)
 
     selection1 = t1.iloc[idx1]
     selection2 = t2.iloc[idx2]
