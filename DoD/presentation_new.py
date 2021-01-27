@@ -5,6 +5,8 @@ import random
 
 from DoD.colors import Colors
 
+import server_config as config
+
 
 def get_row_from_key(df, key_name, key_value):
     # select row based on multiple composite keys
@@ -44,7 +46,7 @@ if __name__ == '__main__':
     pd.set_option('display.max_colwidth', None)
     pd.set_option('display.width', None)  # or 199
 
-    dir_path = "./test_old"
+    dir_path = config.Mit.output_path
 
     msg_vspec = """
                     ######################################################################################################################
