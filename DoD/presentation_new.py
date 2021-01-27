@@ -3,6 +3,7 @@ from DoD import material_view_analysis as mva
 from tqdm import tqdm
 import random
 
+
 def get_row_from_key(df, key_name, key_value):
     # select row based on multiple composite keys
     assert len(key_value) == len(key_name)
@@ -244,7 +245,6 @@ if __name__ == '__main__':
         # print("get_row_from_key_time: " + str(get_row_from_key_time))
         # print("row_df_to_string_time: " + str(row_df_to_string_time))
         # print("add_to_row_to_path_dict_time: " + str(add_to_row_to_path_dict_time))
-
 
     # Initialize ranking model
     key_rank = {}
