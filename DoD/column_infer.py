@@ -97,7 +97,7 @@ class ColumnInfer:
             hit_type_dict[attr] = hit_type
 
             if drs_attr is not None and drs_samples_union is not None:
-                column_candidates[(attr, FilterType.ATTR_CELL, column_id)] = self.aurum_api.union(drs_attr, drs_samples_union)
+                column_candidates[(attr, FilterType.ATTR_CELL, column_id)] = self.get_intersection(drs_attr, drs_samples_union)
             elif drs_attr is None:
                 column_candidates[("Column" + str(column_id+1), FilterType.CELL, column_id)] = drs_samples_union
             else:
@@ -140,13 +140,14 @@ class ColumnInfer:
             for cluster in clusters:
                 tmp = dict()
                 head_values, data_type = self.get_head_values_and_type(cluster[0], 5)
-                # if len(head_values) == 0 or data_type.name != types[idx]:
-                #     continue       # discard empty columns
-                # if len(head_values) == 0:
-                #     continue
+                if len(head_values) == 0 or data_type.name != types[idx]:
+                    continue       # discard empty columns
+                if len(head_values) == 0:
+                    continue
                 tmp["name"] = column[0]
                 tmp["sample_score"], max_column = self.get_containment_score(cluster)
-                tmp["data"] = list(map(lambda x: (x.nid, x.source_name, x.field_name, x.tfidf_score), cluster))
+                # tmp["data"] = list(map(lambda x: (x.nid, x.source_name, x.field_name, x.tfidf_score), cluster))
+                tmp["data"] = list(map(lambda x: (x.nid, x.source_name, x.field_name), cluster))
                 tmp["type"] = data_type.name
                 tmp["head_values"] = list(set(max_column.highlight)) + head_values
                 clusters_list.append(tmp)
@@ -200,3 +201,23 @@ class ColumnInfer:
             return 0
         else:
             return round(candidate.score,2)
+    
+    @staticmethod
+    def get_intersection(drs_attr: DRS, drs_sample: DRS) -> DRS:
+        lookup = {}
+        intersection = []
+        if len(drs_attr.data) > len(drs_sample.data):
+            lookupDrs = drs_attr
+            queryDrs = drs_sample
+        else:
+            lookupDrs = drs_sample
+            queryDrs = drs_attr
+        for (idx, hit) in enumerate(lookupDrs.data):
+            lookup[(hit.source_name, hit.field_name)] = idx
+        for hit in queryDrs.data:
+            if (hit.source_name, hit.field_name) in lookup:
+                if lookupDrs == drs_sample:
+                    intersection.append(lookupDrs.data[lookup[(hit.source_name, hit.field_name)]])
+                else:
+                    intersection.append(hit)
+        return DRS(intersection, Operation(OP.KW_LOOKUP, params=[""]))
