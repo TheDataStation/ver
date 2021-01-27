@@ -3,6 +3,7 @@ from api.apiutils import Relation
 from collections import defaultdict
 from collections import OrderedDict
 import itertools
+from DoD.colors import Colors
 from DoD import data_processing_utils as dpu
 from DoD import material_view_analysis as mva
 from DoD.utils import FilterType
@@ -22,6 +23,8 @@ import pprint
 import server_config as config
 from DoD import column_infer
 from enum import Enum
+
+from tabulate import tabulate
 
 
 pp = pprint.PrettyPrinter(indent=4)
@@ -78,6 +81,15 @@ class ViewSearchPruning:
         return hits
 
     def virtual_schema_iterative_search(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False):
+        msg_enumerate = """
+                    ######################################################################
+                    #                  Begin Join Path Enumeration                       #
+                    #    Find all join paths between every pair of candidate tables      #
+                    #    based on Aurum API. (No known PK/FK relationships, depend on    #
+                    #    inclusion dependency to discover approximate PK/FK)             #  
+                    ######################################################################
+        """
+        print(msg_enumerate)
         st_stage2 = time.time()
         # We group now into groups that convey multiple filters.
         # Obtain list of tables ordered from more to fewer filters.
@@ -217,8 +229,7 @@ class ViewSearchPruning:
             st_joinable = time.time()
             join_graphs = self.joinable(candidate_group, cache_unjoinable_pairs, max_hops=2)
             et_joinable = time.time()
-            # if len(join_graphs) != 0:
-            #     all_join_graphs.extend(join_graphs)
+
             perf_stats['time_joinable'] += (et_joinable - st_joinable)
             if debug_enumerate_all_jps:
                 for i, group in enumerate(join_graphs):
@@ -276,10 +287,8 @@ class ViewSearchPruning:
             # dpu.empty_relation_cache()  # TODO: If df.copy() works, then this is a nice reuse
             st_materialize = time.time()
             to_return = []
-            # to_return = self.materialize_join_graphs(list_samples, materializable_join_graphs)
             et_materialize = time.time()
             perf_stats['time_materialize'] += (et_materialize - st_materialize)
-            # yield to_return
             for el in to_return:
                 if 'actually_materialized' not in perf_stats:
                     perf_stats['actually_materialized'] = 0
@@ -294,13 +303,18 @@ class ViewSearchPruning:
         print("Finished enumerating groups")
         cache_unjoinable_pairs = OrderedDict(sorted(cache_unjoinable_pairs.items(),
                                                     key=lambda x: x[1], reverse=True))
-        # for k, v in cache_unjoinable_pairs.items():
-        #     print(str(k) + " => " + str(v))
-
         # 4c pruning demo
+        msg_pruning = """
+                    ######################################################################
+                    #                  Begin Join Path Pruning                           #
+                    #               Goal: Prune identical join paths                     # 
+                    ######################################################################
+                    """
+        print(msg_pruning)
         before_num = len(all_join_graphs)
-        print("total join paths before", before_num)
+        print(Colors.HEADER + "Total join paths before:" + str(before_num) + Colors.CEND)
 
+        start = time.time()
         flat_join_graphs = []
         for jpg in all_join_graphs:
             flat_jpg = []
@@ -311,31 +325,42 @@ class ViewSearchPruning:
 
         tk_cache = {}
         tk_info = [[] for _ in range(len(all_join_graphs))]
-        for i in range(max_hops*2):
-            tk_views, tk_hash = self.prune_join_paths3(flat_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, i)
+        for i in range(max_hops*2-2):
+            tk_views, tk_hash = self.prune_join_paths(flat_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, i)
             groups_per_column_cardinality = v4c.perform4c(tk_views)
             paths_to_remove = []
             for k, v in groups_per_column_cardinality.items():
                 compatible_group = v['compatible']
-                print("Compatible groups:", str(len(compatible_group)))
+                # print("Compatible groups:", str(len(compatible_group)))
                 for group in compatible_group:
                     if not self.is_compatible_valid(group):
-                        print(group, "invalid!")
+                        # print(group, "invalid!")
                         continue
-                    print(group)
+                    # print(group)
                     selected_view = group[0].split(";")
                     paths_to_remove.extend(tk_hash[tuple(selected_view)])
-            print(paths_to_remove)
+            # print(paths_to_remove)
 
             # remove join paths we do not need
             all_join_graphs = [i for j, i in enumerate(all_join_graphs) if j not in paths_to_remove]
             all_filters = [i for j, i in enumerate(all_filters) if j not in paths_to_remove]
             flat_join_graphs = [i for j, i in enumerate(flat_join_graphs) if j not in paths_to_remove]
             tk_info = [i for j, i in enumerate(tk_info) if j not in paths_to_remove]
-            print("number of join graphs after pruned", i, len(all_join_graphs))
+            print(Colors.HEADER + "Number of join graphs after pruned " + str(i) + " " + str(len(all_join_graphs)) + Colors.CEND)
+        print(Colors.OKGREEN + "Total pruning Time:" + str(time.time() - start) + Colors.CEND)
 
         # Rate all join paths after pruning
+        msg_pruning = """
+                        ######################################################################
+                        #                  Begin to rate all join paths                      #
+                        #                   We prefer join paths that                        #
+                        #                   1. More likely to be PK/FK path                  #
+                        #                   2. Use fewer join key                            #
+                        ######################################################################
+                            """
+        print(msg_pruning)
         table_paths = {}
+        # build inverted index candidate tables -> [indexes of corresponding join paths]
         for idx, jpg in enumerate(all_join_graphs):
             table_list = []
             table_hash = {}
@@ -350,33 +375,48 @@ class ViewSearchPruning:
                 table_paths[tuple(table_list)] = [idx]
             else:
                 table_paths[tuple(table_list)].append(idx)
+        '''
+        main scoring logic
+        '''
         final_list = []
+        threshold = 0.8
         for table, paths in table_paths.items():
-            print(table)
-            print("paths", paths)
+            # print(table)
+            # print("paths", paths)
             if len(paths) == 1:
                 continue
             # when len > 1, sort join paths based on tk relation type
             score_list = []
             for index in paths:
                 info = tk_info[index]
-                scores = []
+                score = 0
+                join_key_num = 0
                 for tk in info:
                     target_col_values = tk[0]
-                    join_key = tk[1]
-                    if len(join_key) == 0 or len(target_col_values) == 0:
+                    join_keys = tk[1]
+                    join_key_num += len(join_keys)
+                    if len(join_keys) == 0 or len(target_col_values) == 0:
                         continue
                     key = []
                     key.extend(target_col_values)
-                    key.extend(join_key)
+                    key.extend(join_keys)
                     df = tk_cache[tuple(key)]
-                    sampling_fraction = 0.6
-                    relation_type = self.get_relation(df.copy(), join_key, target_col_values, sampling_fraction)
-                    scores.append(relation_type)
-                score_list.append((scores, index))
-            score_list.sort()
-            print(score_list)
+                    for join_key in join_keys:
+                        unique_score = mva.column_uniqueness(df[join_key])
+                        if unique_score >= threshold:
+                            score += 1
+                score = score/join_key_num - (join_key_num - 2)/10 # add a penalty to the number of join keys
+                score_list.append((score, index))
+            score_list.sort(reverse=True)
+            # print(score_list)
             final_list.append(score_list)
+
+        finish_msg = """
+                        ######################################################################
+                        #      Finish Rating and Ranking, Begin Materializing Join Paths     #
+                        ######################################################################
+                    """
+        print(finish_msg)
         step = 1
         while True:
             candidates = []
@@ -390,7 +430,11 @@ class ViewSearchPruning:
                 yield el
             satisfied = input("Do you want to see more views? 1. Yes 2. No\n")
             if int(satisfied) == 2:
-                break
+                msg = """
+                    Thank you for using our system!
+                    """
+                print(msg)
+                os._exit(1)
 
     def get_relation(self, df, join_key, target_cols, sampling_fraction):
         df.dropna()
@@ -429,7 +473,7 @@ class ViewSearchPruning:
         else:
             return False
 
-    def prune_join_paths3(self, all_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, index):
+    def prune_join_paths(self, all_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, index):
         tk_views = []
         tk_hash = {}
         for idx, flat_jpg in enumerate(all_join_graphs):
@@ -473,75 +517,11 @@ class ViewSearchPruning:
                 tk_hash[tuple(tk)].append(idx)
                 continue
             tk_hash[tuple(tk)] = [idx]
-            print(table_name, tk)
+            # print(table_name, tk)
             tk_view = self.columns_to_view(table_path[table_name] + table_name, tk)
             tk_cache[tuple(tk)] = tk_view
             if len(tk_view) > 0:
                 tk_views.append((tk_view, self.generate_view_name(tk)))
-        return tk_views, tk_hash
-
-    def prune_join_paths(self, all_join_graphs, table_fulfilled_filters, table_path, tk_cache, FLAG):
-        tk_views = []
-        tk_hash = {}
-        for idx, jpg in enumerate(all_join_graphs):
-            if FLAG == "LEFT":
-                left_most = jpg[0]
-                join_key = left_most[0]
-            else:
-                right_most = jpg[-1]
-                join_key = right_most[1]
-            table_name = join_key.source_name
-            target_cols = table_fulfilled_filters[table_name]
-            tk = []
-            for x in target_cols:
-                tk.append(x[0][1])
-            tk.append(join_key.field_name)
-            if tuple(tk) in tk_hash.keys():
-                tk_hash[tuple(tk)].append(idx)
-                continue
-            tk_hash[tuple(tk)] = [idx]
-            print(table_name, tk)
-            tk_view = self.columns_to_view(table_path[table_name] + table_name, tk)
-            tk_cache[tuple(tk)] = tk_view
-            if len(tk_view) > 0:
-                tk_views.append((tk_view, self.generate_view_name(tk)))
-        return tk_views, tk_hash
-
-    def prune_join_paths2(self, all_join_graphs, table_fulfilled_filters, table_path):
-        tk_views = []
-        tk_hash = {}
-
-        for idx, jpg in enumerate(all_join_graphs):
-            table_keys = {}
-            for l, r in jpg:
-                if l.source_name not in table_keys.keys():
-                    table_keys[l.source_name] = [l.field_name]
-                else:
-                    table_keys[l.source_name].append(l.field_name)
-                if r.source_name not in table_keys.keys():
-                    table_keys[r.source_name] = [r.field_name]
-                else:
-                    table_keys[r.source_name].append(r.field_name)
-            for table_name in table_keys.keys():
-                target_cols = table_fulfilled_filters[table_name]
-                if len(target_cols) == 0:
-                    continue
-                tk = []
-                for x in target_cols:
-                    tk.append(x[0][1])
-                tk.extend(table_keys[table_name])
-                if tuple(tk) in tk_hash.keys():
-                    tk_hash[tuple(tk)].append(idx)
-                    continue
-                tk_hash[tuple(tk)] = [idx]
-                print(table_name, tk)
-                tk_view = self.columns_to_view(table_path[table_name] + table_name, tk)
-                if len(tk_view) > 0:
-                    tk_views.append((tk_view, self.generate_view_name(tk)))
-                paths_to_remove = self.get_dup_idx(tk_views, tk_hash)
-                all_join_graphs = [i for j, i in enumerate(all_join_graphs) if j not in paths_to_remove]
-                print("number of join graphs after pruned ",table_name,len(all_join_graphs))
-
         return tk_views, tk_hash
 
     def get_dup_idx(self, tk_views, tk_hash):
@@ -599,10 +579,9 @@ class ViewSearchPruning:
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
             # add join key
-            # for l, r in mjg:
+            # for l,r in mjg:
             #     attrs_to_project.add(l.field_name)
             #     attrs_to_project.add(r.field_name)
-            # continue  # test
             materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, sample_size=1000)
             # materialized_virtual_schema = dpu.materialize_join_graph(mjg, self)
             if materialized_virtual_schema is False:
@@ -647,7 +626,7 @@ class ViewSearchPruning:
             # drs = self.are_paths_in_cache(table1, table2)
             paths = self.are_paths_in_cache(table1, table2)  # list of lists
             if paths is None:
-                print("Finding paths between " + str(table1) + " and " + str(table2))
+                print("\nFinding paths between " + str(table1) + " and " + str(table2))
                 print("max hops: " + str(max_hops))
                 s = time.time()
                 drs = self.aurum_api.paths(t1, t2, Relation.PKFK, max_hops=max_hops, lean_search=True)
@@ -910,29 +889,38 @@ def obtain_table_paths(set_nids, dod):
 
 
 def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_view=False, interactive=False):
-    ###
-    # View Specification
-    ###
+    msg_vspec = """
+                ######################################################################
+                #                      View Specification                            #
+                #          Goal: Reduce the column choice space for users            #                 
+                # 1. Cluster identical columns into one group                        #
+                # 2. Rank clusters based on the number of examples contained in them #
+                ######################################################################
+              """
+    print(msg_vspec)
     filter_drs = {}
     col_values = {}
     column_idx = 0
     column_clusters = ci.get_clusters(attrs, values, types)
     for column in column_clusters:
         idx = 0
-        print("\033[1;33;44m NAME: %s \033[0m" % column[0]["name"])
+        print(Colors.OKBLUE + "NAME: " + column[0]["name"] + Colors.CEND)
         for cluster in column:
-            print("\033[1;35m CLUSTER %d\033[0m " % idx)
-            print("SAMPLE_SCORE:", cluster["sample_score"])
-            print("Data Type:", cluster["type"])
-            for row in cluster["data"]:
-                print(row)
-            print("------------Samples--------------")
+            print(Colors.OKCYAN + "CLUSTER " + str(idx) + Colors.CEND)
+            print(Colors.OKGREEN + "SAMPLE_SCORE:" + str(cluster["sample_score"]) + "\t" + "Data Type:" + cluster["type"] + Colors.CEND)
+            print(tabulate(cluster["data"], headers=['Table Name', 'Attribute Name'], tablefmt='fancy_grid'))
+            print(Colors.CBOLD + "\tSamples" + Colors.CEND)
             for value in cluster["head_values"]:
-                print(value)
-            print("---------------------------------")
+                value = str(value)
+                if value[0:4] == "<em>":
+                    value = value.replace("<em>", "")
+                    value = value.replace("</em>", "")
+                    print(Colors.WARNING + "\t" + value + Colors.CEND)
+                else:
+                    print("\t" + str(value))
+            print('\n')
             idx += 1
-        print("======================================")
-        selected = input("enter your selected clusters:")
+        selected = input(Colors.HEADER + "Enter clusters you want or enter \"all\" instead:" + Colors.CEND)
         sel_idx = []
         if selected == "all":
             sel_idx = range(len(column_clusters[column_idx]))
@@ -944,29 +932,27 @@ def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_vie
         filter_drs[(column[0]["name"], FilterType.ATTR, column_idx)] = hits
         col_values[column[0]["name"]] = [row[column_idx] for row in values]
         column_idx += 1
-    ###
-    # View Search
-    ###
+        print("\n")
+    msg_vsearch = """
+                   ######################################################################
+                   #                          View Search                               #
+                   #          Goal: Find how to combine relevant tables found in        #
+                   #                the view specification                              #
+                   #  1. Explore all join paths to combine relevant tables              #
+                   #  2. Prune identical join paths                                     #
+                   #  3. Rate all join paths                                            #
+                   ######################################################################
+                 """
+    print(msg_vsearch)
     view_metadata_mapping = dict()
     i = 0
     perf_stats = dict()
     st_runtime = time.time()
     for mjp, attrs_project, metadata in vs.virtual_schema_iterative_search(col_values, filter_drs, perf_stats, max_hops=2,
                                                         debug_enumerate_all_jps=False):
-        # print("JP: " + str(i))
-        # i += 1
-        # print(mjp.head(2))
-        # if i > number_jps:
-        #     break
-
         proj_view = dpu.project(mjp, attrs_project)
 
-        # print(str(proj_view.head(5)))
-        # print("Metadata")
-        # print(metadata)
-
         if output_path is not None:
-            view_path = None
             if full_view:
                 view_path = output_path + "/raw_view_" + str(i)
                 mjp.to_csv(view_path, encoding='latin1', index=False)

@@ -30,6 +30,12 @@ def uniqueness(df):
     return res
 
 
+def column_uniqueness(df):
+    total = len(df)
+    unique = len(df.unique())
+    return float(unique) / float(total)
+
+
 def curate_view(df):
 
     # df.columns = df.iloc[0]

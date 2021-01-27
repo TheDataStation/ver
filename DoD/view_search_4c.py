@@ -536,10 +536,9 @@ def get_df_metadata(dfs):
 def perform4c(dfs):
     groups_per_column_cardinality = defaultdict(dict)
     dfs_per_schema, schema_id_info = group_into_one_schema(dfs)
-    print("View candidates classify into " + str(len(dfs_per_schema)) + " groups based on schema")
-    print("")
+    # print("View candidates classify into " + str(len(dfs_per_schema)) + " groups based on schema")
     for key, group_dfs in dfs_per_schema.items():
-        print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
+        # print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
         dfs_with_metadata = get_df_metadata(group_dfs)
         # summarized_group, complementary_group, contradictory_group = brute_force_4c(dfs_with_metadata)
         # compatible_group, contained_group, complementary_group, contradictory_group = chasing_4c(dfs_with_metadata)

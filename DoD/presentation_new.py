@@ -3,6 +3,8 @@ from DoD import material_view_analysis as mva
 from tqdm import tqdm
 import random
 
+from DoD.colors import Colors
+
 
 def get_row_from_key(df, key_name, key_value):
     # select row based on multiple composite keys
@@ -29,21 +31,6 @@ def row_df_to_string(row_df):
     #     row_strs.append(row_str)
     # print(row_strs)
     return row_strs
-
-
-class Colors:
-    CGREYBG = '\33[100m'
-    CREDBG2 = '\33[101m'
-    CGREENBG2 = '\33[102m'
-    CYELLOWBG2 = '\33[103m'
-    CBLUEBG2 = '\33[104m'
-    CVIOLETBG2 = '\33[105m'
-    CBEIGEBG2 = '\33[106m'
-    CWHITEBG2 = '\33[107m'
-    CGREENBG = '\33[42m'
-    CBEIGEBG = '\33[46m'
-    CBOLD = '\33[1m'
-    CEND = '\33[0m'
 
 
 if __name__ == '__main__':
