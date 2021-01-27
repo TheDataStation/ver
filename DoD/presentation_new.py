@@ -5,6 +5,8 @@ import random
 
 from DoD.colors import Colors
 
+import server_config as config
+
 
 def get_row_from_key(df, key_name, key_value):
     # select row based on multiple composite keys
@@ -44,7 +46,7 @@ if __name__ == '__main__':
     pd.set_option('display.max_colwidth', None)
     pd.set_option('display.width', None)  # or 199
 
-    dir_path = "./e2e_test"
+    dir_path = config.Mit.output_path
 
     # Run 4C
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
@@ -65,7 +67,9 @@ if __name__ == '__main__':
         contradictory_groups = contradictory_groups + v['contradictory']
         all_pair_contr_compl.update(v['all_pair_contr_compl'])
 
-    csv_files = glob.glob(dir_path + "/view_*")
+    print(len(complementary_groups))
+    print(len(contradictory_groups))
+    csv_files = glob.glob(dir_path + "view_*")
     view_dfs = []
     has_compatible_view_been_added = [False] * len(compatible_groups)
 
@@ -116,8 +120,6 @@ if __name__ == '__main__':
     for path, result in tqdm(all_pair_contr_compl.items()):
         path1 = path[0]
         path2 = path[1]
-
-        # print("processing " + path1 + " " + path2)
 
         if not (path1 in view_files and path2 in view_files):
             continue

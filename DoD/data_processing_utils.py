@@ -276,7 +276,6 @@ def read_relation_on_copy(relation_path):
     if relation_path in cache:
         df = cache[relation_path]
     else:
-        print(relation_path)
         df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator)
         cache[relation_path] = df
     return df.copy()
@@ -369,13 +368,14 @@ def is_value_in_column(value, relation_path, column):
 
 
 def obtain_attributes_to_project(filters):
-    attributes_to_project = set()
+    attributes_to_project = []
+    lookup = {}
     for f in filters:
         f_type = f[1].value
-        if f_type is FilterType.ATTR.value:
-            attributes_to_project.add(f[0][1])
-        elif f_type is FilterType.CELL.value:
-            attributes_to_project.add(f[0][1])
+        if f_type is FilterType.ATTR.value or f_type is FilterType.CELL.value:
+            if f[0][1] not in lookup:
+                attributes_to_project.append(f[0][1])
+                lookup[f[0][1]] = True
     return attributes_to_project
 
 
@@ -442,7 +442,7 @@ def materialize_join_graph(jg, dod):
             for l, r in hops:
                 if len(intree) == 0:
                     node = InTreeNode(l.source_name)
-                    node_path = dod.aurum_api.helper.get_path_nid(l.nid) + "/" + l.source_name
+                    node_path = dod.aurum_api.helper.get_path_nid(l.nid) + l.source_name
                     df = read_relation_on_copy(node_path)# FIXME FIXME FIXME
                     # df = get_dataframe(node_path)
                     node.set_payload(df)
@@ -451,7 +451,7 @@ def materialize_join_graph(jg, dod):
                 # now either l or r should be in intree
                 if l.source_name in intree.keys():
                     rnode = InTreeNode(r.source_name)  # create node for r
-                    node_path = dod.aurum_api.helper.get_path_nid(r.nid) + "/" + r.source_name
+                    node_path = dod.aurum_api.helper.get_path_nid(r.nid)  + r.source_name
                     df = read_relation_on_copy(node_path)# FIXME FIXME FIXME
                     # df = get_dataframe(node_path)
                     rnode.set_payload(df)
@@ -464,7 +464,7 @@ def materialize_join_graph(jg, dod):
                     intree[r.source_name] = rnode
                 elif r.source_name in intree.keys():
                     lnode = InTreeNode(l.source_name)  # create node for l
-                    node_path = dod.aurum_api.helper.get_path_nid(l.nid) + "/" + l.source_name
+                    node_path = dod.aurum_api.helper.get_path_nid(l.nid) + l.source_name
                     df = read_relation_on_copy(node_path)# FIXME FIXME FIXME
                     # df = get_dataframe(node_path)
                     lnode.set_payload(df)
@@ -585,9 +585,9 @@ def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
     return dfa, dfb
 
 
-def materialize_join_graph_sample(jg, samples, filters, dod, sample_size=100):
-    print("Materializing:")
-    pp.pprint(jg)
+def materialize_join_graph_sample(jg, samples, filters, dod, idx, sample_size=100):
+    print("Materializing JP", idx)
+    print(jg)
 
     def build_tree(jg):
         # Build in-tree (leaves to root)

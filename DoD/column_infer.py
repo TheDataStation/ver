@@ -140,10 +140,10 @@ class ColumnInfer:
             for cluster in clusters:
                 tmp = dict()
                 head_values, data_type = self.get_head_values_and_type(cluster[0], 5)
-                if len(head_values) == 0 or data_type.name != types[idx]:
-                    continue       # discard empty columns
-                if len(head_values) == 0:
-                    continue
+                # if len(head_values) == 0 or data_type.name != types[idx]:
+                #     continue       # discard empty columns
+                # if len(head_values) == 0:
+                #     continue
                 tmp["name"] = column[0]
                 tmp["sample_score"], max_column = self.get_containment_score(cluster)
                 # tmp["data"] = list(map(lambda x: (x.nid, x.source_name, x.field_name, x.tfidf_score), cluster))

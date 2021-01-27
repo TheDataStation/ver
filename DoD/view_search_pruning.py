@@ -572,17 +572,16 @@ class ViewSearchPruning:
 
     def materialize_join_graphs(self, samples, materializable_join_graphs):
         to_return = []
-        idx = 1
+        idx = 0
         for mjg, filters in materializable_join_graphs:
-            print("JP -", idx)
-            idx += 1
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
             # add join key
             # for l,r in mjg:
             #     attrs_to_project.add(l.field_name)
             #     attrs_to_project.add(r.field_name)
-            materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, sample_size=1000)
+            idx += 1
+            materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, idx, sample_size=1000)
             # materialized_virtual_schema = dpu.materialize_join_graph(mjg, self)
             if materialized_virtual_schema is False:
                 continue  # happens when the join was an outlier
