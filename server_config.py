@@ -6,6 +6,11 @@ class Chembl:
 
 
 class Mit:
-    path_model = "/Users/gongyue/aurum-datadiscovery/test/mitModels/"
+    path_model = "/Users/zhiruzhu/Desktop/research/aurum-dod-staging/models/"
     separator = ","
-    output_path = "/Users/gongyue/aurum-datadiscovery/test/mitResult/"
+    output_path = "/Users/zhiruzhu/Desktop/research/aurum-dod-staging/DoD/e2e_test/"
+
+class TPCH:
+    path_model = "/Users/zhiruzhu/Desktop/research/aurum-dod-staging/models/"
+    separator = ","
+    output_path = "/Users/zhiruzhu/Desktop/research/aurum-dod-staging/DoD/e2e_test/"
