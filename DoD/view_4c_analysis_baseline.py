@@ -195,12 +195,12 @@ def transform_to_lowercase(df):
     return df
 
 
-def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
+def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2, candidate_key_size):
     result = {}
 
     # Find all candidate keys for both views (before selecting specific idx for comparison)
-    candidate_keys_1 = find_candidate_keys(t1, sampling=False, max_num_attr_in_composite_key=2)
-    candidate_keys_2 = find_candidate_keys(t2, sampling=False, max_num_attr_in_composite_key=2)
+    candidate_keys_1 = find_candidate_keys(t1, sampling=False, max_num_attr_in_composite_key=candidate_key_size)
+    candidate_keys_2 = find_candidate_keys(t2, sampling=False, max_num_attr_in_composite_key=candidate_key_size)
     # print(candidate_keys_1)
     # print(candidate_keys_2)
 
@@ -473,7 +473,7 @@ def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2):
 #     return compatible_groups, contained_groups, complementary_group, contradictory_group
 
 
-def tell_contradictory_and_complementary_allpairs(candidate_complementary_group, t_to_remove):
+def tell_contradictory_and_complementary_allpairs(candidate_complementary_group, t_to_remove, candidate_key_size):
     complementary_group = list()
     contradictory_group = list()
 
@@ -491,7 +491,7 @@ def tell_contradictory_and_complementary_allpairs(candidate_complementary_group,
         #                       candidate_key2:[...], ...}
         # If the views have contradictions, complementary_keys will be empty and contradictory_keys will have value,
         # if the views are complementary, the opposite.
-        result = find_complementary_or_contradictory_keys(t1, idx1, t2, idx2)
+        result = find_complementary_or_contradictory_keys(t1, idx1, t2, idx2, candidate_key_size)
 
         all_pair_result[(path1, path2)] = result
 
@@ -512,7 +512,7 @@ def tell_contradictory_and_complementary_allpairs(candidate_complementary_group,
     return complementary_group, contradictory_group, all_pair_result
 
 
-def no_chasing_4c(dataframes_with_metadata):
+def no_chasing_4c(dataframes_with_metadata, candidate_key_size):
     # sort relations by cardinality to avoid reverse containment
     # (df, path, metadata)
     dataframes_with_metadata = sorted(dataframes_with_metadata, key=lambda x: len(x[0]), reverse=True)
@@ -528,7 +528,7 @@ def no_chasing_4c(dataframes_with_metadata):
 
     t_to_remove = set()
     complementary_group, contradictory_group, all_pair_contr_compl = \
-        tell_contradictory_and_complementary_allpairs(candidate_complementary_group, t_to_remove)
+        tell_contradictory_and_complementary_allpairs(candidate_complementary_group, t_to_remove, candidate_key_size)
 
     # complementary_group, contradictory_group = \
     #     tell_contradictory_and_complementary_chasing(candidate_complementary_group, t_to_remove)
@@ -665,7 +665,7 @@ def get_df_metadata(dfs):
     return dfs_with_metadata
 
 
-def main(input_path):
+def main(input_path, candidate_key_size):
     groups_per_column_cardinality = defaultdict(dict)
 
     dfs = get_dataframes(input_path)
@@ -685,7 +685,7 @@ def main(input_path):
         # summarized_group, complementary_group, contradictory_group = brute_force_4c(dfs_with_metadata)
         compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = \
             no_chasing_4c(
-                dfs_with_metadata)
+                dfs_with_metadata, candidate_key_size)
 
         groups_per_column_cardinality[key]['compatible'] = compatible_group
         groups_per_column_cardinality[key]['contained'] = contained_group

@@ -46,7 +46,7 @@ if __name__ == '__main__':
     pd.set_option('display.max_colwidth', None)
     pd.set_option('display.width', None)  # or 199
 
-    dir_path = config.Mit.output_path
+    dir_path = config.TPCH.output_path
 
     msg_vspec = """
                     ######################################################################################################################
@@ -66,7 +66,9 @@ if __name__ == '__main__':
     # Run 4C
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
-    results = v4c.main(dir_path)
+
+    candidate_key_size = 1
+    results = v4c.main(dir_path, candidate_key_size)
 
     # TODO: don't separate by schemas for now
     compatible_groups = []
@@ -367,6 +369,7 @@ if __name__ == '__main__':
                     #  If the user always select one contradictory row over the other, skip this contradiction
                     skip_this_pair = False
                     exclude_this_contradiction = False
+                    preferred_view = None
                     if p > epsilon:
                         row1_strs = row_df_to_string(row_tuple[0])
                         row2_strs = row_df_to_string(row_tuple[1])
@@ -374,6 +377,8 @@ if __name__ == '__main__':
                             for row2 in row2_strs:
                                 if (row_rank[row1] > n and row_rank[row2] == 0) or \
                                         (row_rank[row2] > n and row_rank[row1] == 0):
+                                    preferred_view = path1 if row_rank[row1] > n and row_rank[row2] == 0 else path2
+
                                     if best_key != None:
                                         # The user already have a preferred key and preferred row
                                         # skip showing this pair of view
@@ -383,7 +388,10 @@ if __name__ == '__main__':
                                         exclude_this_contradiction = True
 
                         if skip_this_pair:
-                            print("Skipping...")
+                            print("Skipping this pair...")
+                            if preferred_view != None:
+                                view_rank[preferred_view] += 1
+                            break
                         if exclude_this_contradiction:
                             continue
 
@@ -445,6 +453,7 @@ if __name__ == '__main__':
                 key_rank[candidate_key_picked] += 1
 
                 # TODO： Add score for any view containing the contradictory or complementary row selected
+                views_to_add_score = set()
                 rows_picked = option_dict[option_picked][1]
                 for row_df in rows_picked:
                     row_strs = row_df_to_string(row_df)
@@ -453,7 +462,10 @@ if __name__ == '__main__':
                         if row_str in contr_or_compl_row_to_path_dict.keys():
                             paths_containing_row = contr_or_compl_row_to_path_dict[row_str]
                             for path in paths_containing_row:
-                                view_rank[path] += 1
+                                views_to_add_score.add(path)
 
                         if row_str in row_rank.keys():
                             row_rank[row_str] += 1
+
+                for path in views_to_add_score:
+                    view_rank[path] += 1
