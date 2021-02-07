@@ -432,14 +432,6 @@ if __name__ == '__main__':
             option_picked = input(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
 
             if option_picked == "":
-                # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
-                # pprint.pprint(key_rank)
-                # print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
-                # pprint.pprint(row_rank)
-                print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
-                sorted_view_rank = [(view, score) for view, score in
-                                    sorted(view_rank.items(), key=lambda item: item[1], reverse=True)]
-                pprint.pprint(sorted_view_rank)
                 break
 
             while not (option_picked.isdigit() and
@@ -469,3 +461,13 @@ if __name__ == '__main__':
 
                 for path in views_to_add_score:
                     view_rank[path] += 1
+
+    print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+    # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
+    # pprint.pprint(key_rank)
+    # print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
+    # pprint.pprint(row_rank)
+    print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
+    sorted_view_rank = [(view, score) for view, score in
+                        sorted(view_rank.items(), key=lambda item: item[1], reverse=True)]
+    pprint.pprint(sorted_view_rank)
