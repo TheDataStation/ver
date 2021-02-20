@@ -37,6 +37,12 @@ def row_df_to_string(row_df):
 
 if __name__ == '__main__':
 
+    dir_path = config.TPCH.output_path
+    # top-k views
+    top_k = 10
+    # epsilon-greedy
+    epsilon = 0.1
+
     import glob
     import pandas as pd
     import pprint
@@ -45,8 +51,6 @@ if __name__ == '__main__':
     pd.set_option('display.max_rows', None)
     pd.set_option('display.max_colwidth', None)
     pd.set_option('display.width', None)  # or 199
-
-    dir_path = config.TPCH.output_path
 
     msg_vspec = """
                     ######################################################################################################################
@@ -286,22 +290,87 @@ if __name__ == '__main__':
     for path in view_files:
         view_rank[path] = 0
 
-    # epsilon-greedy
-    epsilon = 0.1
-
-    # TODO: Pick unexplored views first? Pick a pair that would reduce the most uncertainty? Favor views with higher
-    #  scores?
-    #  For now, pick randomly
+    # TODO: dynamic exploration / exploitation
     paths = list(all_pair_contr_compl_new.keys())
-
     random.shuffle(paths)
 
+    # Explore unexplored views first
+    all_distinct_view_pairs = set()
+    distinct_views = set()
     for path in paths:
+        path1 = path[0]
+        path2 = path[1]
+        if path1 not in distinct_views and path2 not in distinct_views:
+            all_distinct_view_pairs.add(path)
+            distinct_views.add(path1)
+            distinct_views.add(path2)
+    other_non_distinct_view_pairs = set(paths) - set(all_distinct_view_pairs)
 
-        print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+    from collections import defaultdict
+    view_to_view_pairs_dict = defaultdict(list)
+    for path in paths:
+        path1 = path[0]
+        path2 = path[1]
+        view_to_view_pairs_dict[path1].append(path2)
+        # view_to_view_pairs_dict[path2].append(path1)
+
+    # print(len(paths))
+    # print(len(all_distinct_view_pairs))
+    # print(len(other_non_distinct_view_pairs))
+
+    def sort_view_by_scores(view_rank):
+        sorted_view_rank = [(view, score) for view, score in
+                            sorted(view_rank.items(), key=lambda item: item[1], reverse=True)]
+        return sorted_view_rank
+
+    def pick_a_pair_from_top_k_views(sorted_view_rank, k):
+        if k > len(sorted_view_rank):
+            k = len(sorted_view_rank)
+        top_k_views = []
+        for i in range(k):
+            top_k_views.append(sorted_view_rank[i][0])
+        # print(top_k_views)
+
+        path = None
+        for view1 in top_k_views:
+            for view2 in top_k_views:
+                if view1 != view2:
+                    if view2 in view_to_view_pairs_dict[view1]:
+                        path = (view1, view2)
+                        return path
+        return path
+
+    while True:
+
+        # Explore unexplored views first
+        if len(all_distinct_view_pairs) > 0:
+            path = all_distinct_view_pairs.pop()
+        # Epsilon-greedy: Pick the best pair from top-k views (exploitation), or pick a random pair (exploration)
+        else:
+            if len(view_to_view_pairs_dict) <= 0:
+                break
+
+            p = random.random()
+            if p > epsilon:
+                sorted_view_rank = sort_view_by_scores(view_rank)
+                path = pick_a_pair_from_top_k_views(sorted_view_rank, top_k)
+            else:
+                view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
+                view2 = random.choice(pair_list)
+                path = (view1, view2)
+
+        if path == None:
+            break
 
         path1 = path[0]
         path2 = path[1]
+        view_to_view_pairs_dict[path1].remove(path2)
+        if len(view_to_view_pairs_dict[path1]) == 0:
+            del view_to_view_pairs_dict[path1]
+        # view_to_view_pairs_dict[path2].remove(path1)
+
+        print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+
         print(Colors.CBLUEBG2 + path1 + " - " + path2 + Colors.CEND)
 
         candidate_key_dict = all_pair_contr_compl_new[path]
@@ -312,8 +381,7 @@ if __name__ == '__main__':
         # exploitation vs exploration
         # TODO:
         #  Epsilon-greedy:
-        #  If the user has selected the same candidate key more than n times, and did not select other keys (of the
-        #  current 2 views),
+        #  If the user has selected the a candidate key (n times) more frequently than the others,
         #  this means they are pretty confident about their choices, so we don't bother showing them other keys again.
         #  (This can be more complicated, like using confidence bounds etc)
         #  In epsilon probability, we still show the user all candidate keys in case they made a mistake or want to
@@ -325,12 +393,12 @@ if __name__ == '__main__':
 
         best_key = None
         if p > epsilon:
-            best_score = None
+            max_score = -1
             for candidate_key_tuple in candidate_key_dict.keys():
                 if candidate_key_tuple in key_rank.keys():
-                    if key_rank[candidate_key_tuple] >= n:
+                    if key_rank[candidate_key_tuple] > max_score:
                         best_key = candidate_key_tuple
-                        best_score = key_rank[candidate_key_tuple]
+                        max_score = key_rank[candidate_key_tuple]
             if best_key != None:
                 sum_scores = 0
                 other_keys = []
@@ -338,8 +406,8 @@ if __name__ == '__main__':
                     if key != best_key and key in key_rank.keys():
                         sum_scores += key_rank[key]
                         other_keys.append(key)
-                # Exclude other keys because they all have 0 score
-                if sum_scores == 0:
+                # Exclude other keys because the best key was selected much more frequently than the others
+                if max_score >= n * sum_scores:
                     for key in other_keys:
                         del candidate_key_dict[key]
                 else:
@@ -366,7 +434,8 @@ if __name__ == '__main__':
                 for row_tuple in contr_or_compl_df_list[1:]:
 
                     # TODO: epsilon greedy
-                    #  If the user always select one contradictory row over the other, skip this contradiction
+                    #  If the user selected one contradictory row (n times) more frequently over the other,
+                    #  skip this contradiction
                     skip_this_pair = False
                     exclude_this_contradiction = False
                     preferred_view = None
@@ -375,9 +444,9 @@ if __name__ == '__main__':
                         row2_strs = row_df_to_string(row_tuple[1])
                         for row1 in row1_strs:
                             for row2 in row2_strs:
-                                if (row_rank[row1] > n and row_rank[row2] == 0) or \
-                                        (row_rank[row2] > n and row_rank[row1] == 0):
-                                    preferred_view = path1 if row_rank[row1] > n and row_rank[row2] == 0 else path2
+                                if (row_rank[row1] >= n * row_rank[row2] and row_rank[row1] > 0) or \
+                                        (row_rank[row2] >= n * row_rank[row1] and row_rank[row2] > 0):
+                                    preferred_view = path1 if row_rank[row1] >= n * row_rank[row2] else path2
 
                                     if best_key != None:
                                         # The user already have a preferred key and preferred row
@@ -462,12 +531,15 @@ if __name__ == '__main__':
                 for path in views_to_add_score:
                     view_rank[path] += 1
 
+            print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
+            sorted_view_rank = sort_view_by_scores(view_rank)
+            pprint.pprint(sorted_view_rank)
+
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
     # pprint.pprint(key_rank)
     # print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
     # pprint.pprint(row_rank)
-    print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
-    sorted_view_rank = [(view, score) for view, score in
-                        sorted(view_rank.items(), key=lambda item: item[1], reverse=True)]
-    pprint.pprint(sorted_view_rank)
+    print(Colors.CREDBG2 + "Final Top-" + str(top_k) + " views" + Colors.CEND)
+    sorted_view_rank = sort_view_by_scores(view_rank)
+    pprint.pprint(sorted_view_rank[:top_k])
