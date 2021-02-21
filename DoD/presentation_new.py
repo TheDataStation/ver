@@ -42,6 +42,10 @@ if __name__ == '__main__':
     top_k = 10
     # epsilon-greedy
     epsilon = 0.1
+    # max size of candidate (composite) key
+    candidate_key_size = 1
+    # sample size of contradictory and complementary rows to present
+    sample_size = 5
 
     import glob
     import pandas as pd
@@ -71,7 +75,6 @@ if __name__ == '__main__':
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
 
-    candidate_key_size = 1
     results = v4c.main(dir_path, candidate_key_size)
 
     # TODO: don't separate by schemas for now
@@ -157,9 +160,6 @@ if __name__ == '__main__':
 
 
     import time
-
-    # sampling contradictory and complementary rows
-    sample_size = 5
 
     for path, result in tqdm(all_pair_contr_compl.items()):
         path1 = path[0]
@@ -307,12 +307,14 @@ if __name__ == '__main__':
     other_non_distinct_view_pairs = set(paths) - set(all_distinct_view_pairs)
 
     from collections import defaultdict
+
     view_to_view_pairs_dict = defaultdict(list)
     for path in paths:
         path1 = path[0]
         path2 = path[1]
         view_to_view_pairs_dict[path1].append(path2)
         # view_to_view_pairs_dict[path2].append(path1)
+
 
     # print(len(paths))
     # print(len(all_distinct_view_pairs))
@@ -322,6 +324,7 @@ if __name__ == '__main__':
         sorted_view_rank = [(view, score) for view, score in
                             sorted(view_rank.items(), key=lambda item: item[1], reverse=True)]
         return sorted_view_rank
+
 
     def pick_a_pair_from_top_k_views(sorted_view_rank, k):
         if k > len(sorted_view_rank):
@@ -339,6 +342,7 @@ if __name__ == '__main__':
                         path = (view1, view2)
                         return path
         return path
+
 
     while True:
 
