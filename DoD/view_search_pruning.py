@@ -307,7 +307,7 @@ class ViewSearchPruning:
         msg_pruning = """
                     ######################################################################
                     #                  Begin Join Path Pruning                           #
-                    #               Goal: Prune identical join paths                     # 
+                    #               Goal: Prune identical join paths                     #
                     ######################################################################
                     """
         print(msg_pruning)
@@ -359,6 +359,11 @@ class ViewSearchPruning:
                         ######################################################################
                             """
         print(msg_pruning)
+
+        # for jpg in all_join_graphs:
+        #     for l, r in jpg:
+        #         l_df = dpu.read_column(table_path[l.source_name] + l.source_name, l.field_name)
+
         table_paths = {}
         # build inverted index candidate tables -> [indexes of corresponding join paths]
         for idx, jpg in enumerate(all_join_graphs):
@@ -383,8 +388,6 @@ class ViewSearchPruning:
         for table, paths in table_paths.items():
             # print(table)
             # print("paths", paths)
-            if len(paths) == 1:
-                continue
             # when len > 1, sort join paths based on tk relation type
             score_list = []
             for index in paths:

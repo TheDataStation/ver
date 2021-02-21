@@ -258,8 +258,11 @@ def read_column(relation_path, col):
     return df.copy()
 
 
-def read_column(relation_path, col, offset):
-    df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col], nrows=offset)
+def read_column(relation_path, col, offset=0):
+    if offset == 0:
+        df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col])
+    else:
+        df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col], nrows=offset)
     return df.copy()
 
 def read_columns(relation_path, cols):
@@ -587,7 +590,8 @@ def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
 
 def materialize_join_graph_sample(jg, samples, filters, dod, idx, sample_size=100):
     print("Materializing JP", idx)
-    print(jg)
+    for l, r in jg:
+        print(l.source_name + "." + l.field_name + " JOIN " + r.source_name + "." + r.field_name)
 
     def build_tree(jg):
         # Build in-tree (leaves to root)

@@ -8,7 +8,7 @@ import sys
 import time
 
 
-def main(output_path=None):
+def main(output_path=None, table_path=None):
     start_all = time.time()
     network = FieldNetwork()
     store = StoreHandler()
@@ -69,7 +69,7 @@ def main(output_path=None):
     start_num_sig_sim = time.time()
     id_sig = store.get_all_fields_num_signatures()
     #networkbuilder.build_content_sim_relation_num(network, id_sig)
-    networkbuilder.build_content_sim_relation_num_overlap_distr(network, id_sig)
+    networkbuilder.build_content_sim_relation_num_overlap_distr(network, id_sig, table_path=table_path)
     #networkbuilder.build_content_sim_relation_num_overlap_distr_indexed(network, id_sig)
     end_num_sig_sim = time.time()
     print("Total num-sig-sim: {0}".format(str(end_num_sig_sim - start_num_sig_sim)))
@@ -121,7 +121,7 @@ def plot_num():
     plt.show()
 
 
-def test_content_sim_num():
+def test_content_sim_num(table_path):
 
     '''
     SETUP
@@ -148,7 +148,7 @@ def test_content_sim_num():
     start_num_sig_sim = time.time()
     id_sig = store.get_all_fields_num_signatures()
     # networkbuilder.build_content_sim_relation_num(network, id_sig)
-    networkbuilder.build_content_sim_relation_num_overlap_distr(network, id_sig)
+    networkbuilder.build_content_sim_relation_num_overlap_distr(network, id_sig, table_path)
     end_num_sig_sim = time.time()
     print("Total num-sig-sim: {0}".format(str(end_num_sig_sim - start_num_sig_sim)))
 
@@ -158,16 +158,17 @@ if __name__ == "__main__":
     #test_content_sim_num()
     #exit()
 
-    path = None
-    if len(sys.argv) == 3:
-        path = sys.argv[2]
-
+    output_path = None
+    table_path = None
+    if len(sys.argv) == 5:
+        output_path = sys.argv[2]
+        table_path = sys.argv[4]
     else:
         print("USAGE: ")
-        print("python networkbuildercoordinator.py --opath <path>")
+        print("python networkbuildercoordinator.py --opath <output_path> --tpath <table_path>")
         print("where opath must be writable by the process")
         exit()
-    main(path)
+    main(output_path, table_path)
 
     #test_read_store()
 
