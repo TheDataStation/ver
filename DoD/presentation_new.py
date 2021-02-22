@@ -38,10 +38,12 @@ def row_df_to_string(row_df):
     # print(row_strs)
     return row_strs
 
+
 class Mode(Enum):
     manual = 1,
     random = 2,
     optimal = 3
+
 
 if __name__ == '__main__':
 
@@ -555,7 +557,8 @@ if __name__ == '__main__':
                     if set(candidate_key) == set(optimal_candidate_key):
                         row_dfs = values[1]
                         concat_row_df = pd.concat(row_dfs)
-                        intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None) #default to intersection
+                        intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)  # default to
+                        # intersection
                         if len(intersection) > max_intersection_with_fact_back:
                             # Always selection the option that's more consistent with the fact bank
                             # if there's no intersection, then skip this option (select 0)
@@ -578,7 +581,8 @@ if __name__ == '__main__':
 
                 while not (option_picked.isdigit() and
                            (int(option_picked) in option_dict.keys() or int(option_picked) == 0)):
-                    option_picked = input(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
+                    option_picked = input(
+                        Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
 
                 option_picked = int(option_picked)
 
@@ -617,3 +621,8 @@ if __name__ == '__main__':
     sorted_view_rank = sort_view_by_scores(view_rank)
     pprint.pprint(sorted_view_rank[:top_k])
     print("Number of interactions = " + str(num_interactions))
+    if mode == Mode.optimal:
+        for i in range(len(sorted_view_rank)):
+            view, score = sorted_view_rank[i]
+            if fact_bank_path == view:
+                print("Ground truth view is top-" + str(i+1))
