@@ -621,7 +621,7 @@ if __name__ == '__main__':
     sorted_view_rank = sort_view_by_scores(view_rank)
     pprint.pprint(sorted_view_rank[:top_k])
     print("Number of interactions = " + str(num_interactions))
-    if mode == Mode.optimal:
+    if mode == Mode.optimal or mode == Mode.random:
         for i in range(len(sorted_view_rank)):
             view, score = sorted_view_rank[i]
             if fact_bank_path == view:
