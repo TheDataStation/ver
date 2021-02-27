@@ -115,12 +115,14 @@ Note you need to use elasticsearch 6.0.0 in the current version.
 #### Deployment
 
 The model builder is executed from 'networkbuildercoordinator.py', which takes
-exactly one parameter, **--opath**, that expects a path to an existing folder
-where you want to store the built model (in the form of Python pickle files).
+exactly two parameter, **--opath**, that expects a path to an existing folder
+where you want to store the built model (in the form of Python pickle files); **--tpath**,
+that expects a path to your csv files.
+
 For example:
 
 ```shell
-$> python networkbuildercoordinator.py --opath test/testmodel/
+$> python networkbuildercoordinator.py --opath test/testmodel/network --tpath table_path
 ```
 
 Once the model is built, it will be serialized and stored in the provided path.
