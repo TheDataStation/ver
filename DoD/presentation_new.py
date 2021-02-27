@@ -68,7 +68,7 @@ if __name__ == '__main__':
         fact_bank_df = mva.curate_view(fact_bank_df)
         fact_bank_df = v4c.normalize(fact_bank_df)
 
-    max_num_interactions = 100
+    max_num_interactions = 20
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -369,7 +369,8 @@ if __name__ == '__main__':
     while num_interactions < max_num_interactions:
 
         # Explore unexplored views first
-        if len(all_distinct_view_pairs) > 0:
+        # TODO: full explore mode for half of max_num_interactions
+        if len(all_distinct_view_pairs) > 0 and num_interactions < max_num_interactions/2:
             path = all_distinct_view_pairs.pop()
         # Epsilon-greedy: Pick the best available pair from top-k views for users to choose(exploitation),
         # or pick a random pair (exploration)
