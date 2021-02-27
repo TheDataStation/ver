@@ -8,7 +8,7 @@ import sys
 import time
 
 
-def main(output_path=None):
+def main(output_path=None, table_path=None):
     start_all = time.time()
     network = FieldNetwork()
     store = StoreHandler()
@@ -60,7 +60,8 @@ def main(output_path=None):
     print("Time to extract minhash signatures from store: {0}".format(str(et - st)))
     print("!!3 " + str(et - st))
 
-    content_sim_index = networkbuilder.build_content_sim_mh_text(network, mh_signatures)
+    lsh_threshold = 0.3
+    content_sim_index = networkbuilder.build_content_sim_mh_text(network, mh_signatures, lsh_threshold)
     end_text_sig_sim = time.time()
     print("Total text-sig-sim (minhash): {0}".format(str(end_text_sig_sim - start_text_sig_sim)))
     print("!!4 " + str(end_text_sig_sim - start_text_sig_sim))
@@ -69,7 +70,7 @@ def main(output_path=None):
     start_num_sig_sim = time.time()
     id_sig = store.get_all_fields_num_signatures()
     #networkbuilder.build_content_sim_relation_num(network, id_sig)
-    networkbuilder.build_content_sim_relation_num_overlap_distr(network, id_sig)
+    networkbuilder.build_content_sim_relation_num_overlap_distr(network, id_sig, table_path)
     #networkbuilder.build_content_sim_relation_num_overlap_distr_indexed(network, id_sig)
     end_num_sig_sim = time.time()
     print("Total num-sig-sim: {0}".format(str(end_num_sig_sim - start_num_sig_sim)))
@@ -159,15 +160,16 @@ if __name__ == "__main__":
     #exit()
 
     path = None
-    if len(sys.argv) == 3:
+    if len(sys.argv) == 5:
         path = sys.argv[2]
+        table_path = sys.argv[4]
 
     else:
         print("USAGE: ")
-        print("python networkbuildercoordinator.py --opath <path>")
+        print("python networkbuildercoordinator.py --opath <model_path> --tpath <table_path>")
         print("where opath must be writable by the process")
         exit()
-    main(path)
+    main(path, table_path)
 
     #test_read_store()
 
