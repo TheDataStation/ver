@@ -48,7 +48,7 @@ class Mode(Enum):
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./toytest/"
+    dir_path = "./e2e_test/"
     # top-k views
     top_k = 5
     # epsilon-greedy
@@ -58,17 +58,9 @@ if __name__ == '__main__':
     # sample size of contradictory and complementary rows to present
     sample_size = 5
 
-    mode = Mode.optimal
+    mode = Mode.random
 
-    fact_bank_path = "./toytest/view_11"
-    fact_bank_df = None
-    optimal_candidate_key = ["Building Room", "Building Name Long"]
-    if mode == Mode.optimal:
-        fact_bank_df = pd.read_csv(fact_bank_path, encoding='latin1', thousands=',')
-        fact_bank_df = mva.curate_view(fact_bank_df)
-        fact_bank_df = v4c.normalize(fact_bank_df)
-
-    max_num_interactions = 20
+    max_num_interactions = 10
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -302,6 +294,20 @@ if __name__ == '__main__':
         # print("row_df_to_string_time: " + str(row_df_to_string_time))
         # print("add_to_row_to_path_dict_time: " + str(add_to_row_to_path_dict_time))
 
+
+    import numpy as np
+
+    ground_truth_rank = np.empty(max_num_interactions, dtype=int)
+
+    ground_truth_path = random.choice(list(view_files))
+    fact_bank_df = None
+    optimal_candidate_key = ["Building Room", "Building Name"]
+    if mode == Mode.optimal:
+        print("Ground truth view: " + ground_truth_path)
+        fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+        fact_bank_df = mva.curate_view(fact_bank_df)
+        fact_bank_df = v4c.normalize(fact_bank_df)
+
     # Initialize ranking model
     key_rank = {}
     row_rank = contr_or_compl_row_to_path_dict.copy()
@@ -346,6 +352,19 @@ if __name__ == '__main__':
                             sorted(view_rank.items(), key=lambda item: item[1], reverse=True)]
         return sorted_view_rank
 
+    def get_view_rank_with_ties(sorted_view_rank, view):
+        # Same rank for ties
+        res = {}
+        prev = None
+        for i, (v, score) in enumerate(sorted_view_rank):
+            if score != prev:
+                place, prev = i + 1, score
+            res[v] = place
+
+        if view in res.keys():
+            rank = res[ground_truth_path]
+            return rank
+        return None
 
     def pick_a_pair_from_top_k_views(sorted_view_rank, k):
         if k > len(sorted_view_rank):
@@ -367,7 +386,10 @@ if __name__ == '__main__':
 
 
     num_interactions = 0
+    loop_count = 0
     while num_interactions < max_num_interactions:
+
+        loop_count += 1
 
         # Explore unexplored views first
         # TODO: full explore mode for half of max_num_interactions
@@ -556,17 +578,17 @@ if __name__ == '__main__':
                 max_intersection_with_fact_back = 0
                 for option, values in option_dict.items():
                     candidate_key = values[0]
-                    if set(candidate_key) == set(optimal_candidate_key):
-                        row_dfs = values[1]
-                        concat_row_df = pd.concat(row_dfs)
-                        intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)  # default to
-                        # intersection
-                        if len(intersection) > max_intersection_with_fact_back:
-                            # Always selection the option that's more consistent with the fact bank
-                            # if there's no intersection, then skip this option (select 0)
-                            option_picked = option
-                            max_intersection_with_fact_back = len(intersection)
-                            # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
+                    # if set(candidate_key) == set(optimal_candidate_key):
+                    row_dfs = values[1]
+                    concat_row_df = pd.concat(row_dfs)
+                    intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)  # default to
+                    # intersection
+                    if len(intersection) > max_intersection_with_fact_back:
+                        # Always selection the option that's more consistent with the fact bank
+                        # if there's no intersection, then skip this option (select 0)
+                        option_picked = option
+                        max_intersection_with_fact_back = len(intersection)
+                        # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
                 print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
                 print("Optimal option = " + str(option_picked))
 
@@ -614,6 +636,12 @@ if __name__ == '__main__':
         sorted_view_rank = sort_view_by_scores(view_rank)
         pprint.pprint(sorted_view_rank)
 
+        if mode == Mode.optimal or mode == Mode.random:
+            rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
+            # print("rank = " + str(rank))
+            if rank != None:
+                ground_truth_rank[loop_count-1] = rank
+
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
     # pprint.pprint(key_rank)
@@ -624,7 +652,15 @@ if __name__ == '__main__':
     pprint.pprint(sorted_view_rank[:top_k])
     print("Number of interactions = " + str(num_interactions))
     if mode == Mode.optimal or mode == Mode.random:
-        for i in range(len(sorted_view_rank)):
-            view, score = sorted_view_rank[i]
-            if fact_bank_path == view:
-                print("Ground truth view is top-" + str(i+1))
+        rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
+        if rank != None:
+            print("Ground truth view is top-" + str(rank))
+        # for i in range(len(sorted_view_rank)):
+        #     view, score = sorted_view_rank[i]
+        #     if ground_truth_path == view:
+        #         print("Ground truth view is top-" + str(i+1))
+        import matplotlib.pyplot as plt
+        x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
+        # print(ground_truth_rank)
+        plt.plot(x_axis, ground_truth_rank)
+        plt.show()
