@@ -338,8 +338,8 @@ class ViewSearchPruning:
             score = 0
             threshold = 0.8
             for l, r in path:
-                join_keys.add(l.field_name)
-                join_keys.add(r.field_name)
+                join_keys.add((l.source_name, l.field_name))
+                join_keys.add((r.source_name, r.field_name))
                 nid_l = (self.aurum_api.make_drs(l.source_name)).data[0].nid
                 nid_r = (self.aurum_api.make_drs(r.source_name)).data[0].nid
                 unique_score = max(self.aurum_api.helper.get_uniqueness_score(nid_l), self.aurum_api.helper.get_uniqueness_score(nid_r))
