@@ -826,7 +826,7 @@ def obtain_table_paths(set_nids, dod):
     return table_path
 
 
-def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_view=False, interactive=False):
+def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_view=False, interactive=False, offset = 1):
     msg_vspec = """
                 ######################################################################
                 #                      View Specification                            #
@@ -887,7 +887,7 @@ def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_vie
     perf_stats = dict()
     st_runtime = time.time()
     for mjp, attrs_project, metadata in vs.virtual_schema_iterative_search(col_values, filter_drs, perf_stats, max_hops=2,
-                                                        debug_enumerate_all_jps=False):
+                                                        debug_enumerate_all_jps=False, offset=offset):
         proj_view = dpu.project(mjp, attrs_project)
 
         if output_path is not None:
@@ -915,24 +915,24 @@ def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_vie
         print("Total materializable join graphs: " + str(total_materializable_join_graphs))
 
     print("Total views: " + str(i))
-    exit()
+    # exit()
 
     ###
     # Run 4C
     ###
     # return
-    groups_per_column_cardinality = v4c.main(output_path)
-
-    for k, v in groups_per_column_cardinality.items():
-        compatible_groups = v['compatible']
-        contained_groups = v['contained']
-        complementary_group = v['complementary']
-        contradictory_group = v['contradictory']
-
-        print("Compatible views: " + str(len(compatible_groups)))
-        print("Contained views: " + str(len(contained_groups)))
-        print("Complementary views: " + str(len(complementary_group)))
-        print("Contradictory views: " + str(len(contradictory_group)))
+    # groups_per_column_cardinality = v4c.main(output_path)
+    #
+    # for k, v in groups_per_column_cardinality.items():
+    #     compatible_groups = v['compatible']
+    #     contained_groups = v['contained']
+    #     complementary_group = v['complementary']
+    #     contradictory_group = v['contradictory']
+    #
+    #     print("Compatible views: " + str(len(compatible_groups)))
+    #     print("Contained views: " + str(len(contained_groups)))
+    #     print("Complementary views: " + str(len(complementary_group)))
+    #     print("Contradictory views: " + str(len(contradictory_group)))
 
 
 

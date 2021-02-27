@@ -304,7 +304,7 @@ class ColumnInfer:
         attr_clusters = []
         idx = 0
         for column, candidates in candidate_columns.items():
-            clusters = self.cluster_columns(candidates.data, sample_score[column[0]], match_dict[column[0]])
+            clusters = self.cluster_columns(candidates.data, sample_score[column], match_dict[column])
             # clusters = self.cluster_based_on_hit_type(match_dict[column[0]])
             clusters_list = []
             for cluster in clusters:
@@ -314,7 +314,7 @@ class ColumnInfer:
                 #     continue       # discard empty columns
                 # if len(head_values) == 0:
                 #     continue
-                tmp["name"] = column[0]
+                tmp["name"] = column
                 # tmp["sample_score"], max_column = self.get_containment_score(cluster)
                 tmp["sample_score"] = 0
                 # tmp["data"] = list(map(lambda x: (x.nid, x.source_name, x.field_name, x.tfidf_score), cluster))
