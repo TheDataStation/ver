@@ -80,7 +80,7 @@ class ViewSearchPruning:
                 hits.append(self.aurum_api._nid_to_hit(int(row[0])))
         return hits
 
-    def virtual_schema_iterative_search(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False):
+    def virtual_schema_iterative_search(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False, offset=10):
         msg_enumerate = """
                     ######################################################################
                     #                  Begin Join Path Enumeration                       #
@@ -272,7 +272,7 @@ class ViewSearchPruning:
                 # if query view is all attributes, then it's always materializable or we could
                 # join on a small sample and see -- we can have 2 different impls.
                 # if sum([0] + [1 for el in list_samples if el != '']) > 0:
-                # is_join_graph_valid = self.is_join_graph_materializable(jpg, table_fulfilled_filters)
+                is_join_graph_valid = self.is_join_graph_materializable(jpg, table_fulfilled_filters)
                 # else:
                 is_join_graph_valid = True
                 et_is_materializable = time.time()
@@ -301,53 +301,6 @@ class ViewSearchPruning:
 
         perf_stats["num_candidate_groups"] = num_candidate_groups
         print("Finished enumerating groups")
-        cache_unjoinable_pairs = OrderedDict(sorted(cache_unjoinable_pairs.items(),
-                                                    key=lambda x: x[1], reverse=True))
-        # 4c pruning demo
-        msg_pruning = """
-                    ######################################################################
-                    #                  Begin Join Path Pruning                           #
-                    #               Goal: Prune identical join paths                     # 
-                    ######################################################################
-                    """
-        print(msg_pruning)
-        before_num = len(all_join_graphs)
-        print(Colors.HEADER + "Total join paths before:" + str(before_num) + Colors.CEND)
-
-        start = time.time()
-        flat_join_graphs = []
-        for jpg in all_join_graphs:
-            flat_jpg = []
-            for l, r in jpg:
-                flat_jpg.append(l)
-                flat_jpg.append(r)
-            flat_join_graphs.append(flat_jpg)
-
-        tk_cache = {}
-        tk_info = [[] for _ in range(len(all_join_graphs))]
-        for i in range(max_hops*2-2):
-            tk_views, tk_hash = self.prune_join_paths(flat_join_graphs, table_fulfilled_filters, table_path, tk_cache, tk_info, i)
-            groups_per_column_cardinality = v4c.perform4c(tk_views)
-            paths_to_remove = []
-            for k, v in groups_per_column_cardinality.items():
-                compatible_group = v['compatible']
-                # print("Compatible groups:", str(len(compatible_group)))
-                for group in compatible_group:
-                    if not self.is_compatible_valid(group):
-                        # print(group, "invalid!")
-                        continue
-                    # print(group)
-                    selected_view = group[0].split(";")
-                    paths_to_remove.extend(tk_hash[tuple(selected_view)])
-            # print(paths_to_remove)
-
-            # remove join paths we do not need
-            all_join_graphs = [i for j, i in enumerate(all_join_graphs) if j not in paths_to_remove]
-            all_filters = [i for j, i in enumerate(all_filters) if j not in paths_to_remove]
-            flat_join_graphs = [i for j, i in enumerate(flat_join_graphs) if j not in paths_to_remove]
-            tk_info = [i for j, i in enumerate(tk_info) if j not in paths_to_remove]
-            print(Colors.HEADER + "Number of join graphs after pruned " + str(i) + " " + str(len(all_join_graphs)) + Colors.CEND)
-        print(Colors.OKGREEN + "Total pruning Time:" + str(time.time() - start) + Colors.CEND)
 
         # Rate all join paths after pruning
         msg_pruning = """
@@ -359,6 +312,7 @@ class ViewSearchPruning:
                         ######################################################################
                             """
         print(msg_pruning)
+
         table_paths = {}
         # build inverted index candidate tables -> [indexes of corresponding join paths]
         for idx, jpg in enumerate(all_join_graphs):
@@ -378,63 +332,48 @@ class ViewSearchPruning:
         '''
         main scoring logic
         '''
-        final_list = []
-        threshold = 0.8
-        for table, paths in table_paths.items():
-            # print(table)
-            # print("paths", paths)
-            if len(paths) == 1:
-                continue
-            # when len > 1, sort join paths based on tk relation type
-            score_list = []
-            for index in paths:
-                info = tk_info[index]
-                score = 0
-                join_key_num = 0
-                for tk in info:
-                    target_col_values = tk[0]
-                    join_keys = tk[1]
-                    join_key_num += len(join_keys)
-                    if len(join_keys) == 0 or len(target_col_values) == 0:
-                        continue
-                    key = []
-                    key.extend(target_col_values)
-                    key.extend(join_keys)
-                    df = tk_cache[tuple(key)]
-                    for join_key in join_keys:
-                        unique_score = mva.column_uniqueness(df[join_key])
-                        if unique_score >= threshold:
-                            score += 1
-                score = score/join_key_num - (join_key_num - 2)/10 # add a penalty to the number of join keys
-                score_list.append((score, index))
-            score_list.sort(reverse=True)
-            # print(score_list)
-            final_list.append(score_list)
-
+        score_list = []
+        for idx, path in enumerate(all_join_graphs):
+            join_keys = set()
+            score = 0
+            threshold = 0.8
+            for l, r in path:
+                join_keys.add(l.field_name)
+                join_keys.add(r.field_name)
+                nid_l = (self.aurum_api.make_drs(l.source_name)).data[0].nid
+                nid_r = (self.aurum_api.make_drs(r.source_name)).data[0].nid
+                unique_score = max(self.aurum_api.helper.get_uniqueness_score(nid_l), self.aurum_api.helper.get_uniqueness_score(nid_r))
+                if unique_score > threshold:
+                    score += 1
+            join_key_num = len(join_keys)
+            score = score / join_key_num - (join_key_num - 2) / 10  # add a penalty to the number of join keys
+            score_list.append((score, idx))
+        score_list.sort(reverse=True)
+        sorted_all_graphs = [(all_join_graphs[x[1]], all_filters[x[1]])for x in score_list]
         finish_msg = """
                         ######################################################################
                         #      Finish Rating and Ranking, Begin Materializing Join Paths     #
                         ######################################################################
                     """
         print(finish_msg)
-        step = 1
-        while True:
-            candidates = []
-            for l in final_list:
-                for i in range(step):
-                    if len(l) > 0:
-                        candidates.append(l.pop(0)[1])
-            candidate_paths = list((all_join_graphs[i], all_filters[i]) for i in candidates)
-            to_return = self.materialize_join_graphs(list_samples, candidate_paths)
-            for el in to_return:
-                yield el
-            satisfied = input("Do you want to see more views? 1. Yes 2. No\n")
-            if int(satisfied) == 2:
-                msg = """
-                    Thank you for using our system!
-                    """
-                print(msg)
-                os._exit(1)
+        non_empty_cnt = 0
+        start = 0
+        while start < len(sorted_all_graphs):
+            if start + offset < len(sorted_all_graphs):
+                paths_to_materialize = sorted_all_graphs[start: start + offset]
+            else:
+                paths_to_materialize = sorted_all_graphs[start:]
+            start = start + offset
+            to_return = self.materialize_join_graphs(list_samples, paths_to_materialize)
+            for (idx, el) in enumerate(to_return):
+                if len(el) != 0:
+                    print("Materialized Join Path")
+                    for l, r in paths_to_materialize[idx][0]:
+                        print(l.source_name + "." + l.field_name + " JOIN " + r.source_name + "." + r.field_name)
+                    non_empty_cnt += 1
+                    if non_empty_cnt > offset:
+                        break
+                    yield el
 
     def get_relation(self, df, join_key, target_cols, sampling_fraction):
         df.dropna()
@@ -907,16 +846,16 @@ def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_vie
         for cluster in column:
             print(Colors.OKCYAN + "CLUSTER " + str(idx) + Colors.CEND)
             print(Colors.OKGREEN + "SAMPLE_SCORE:" + str(cluster["sample_score"]) + "\t" + "Data Type:" + cluster["type"] + Colors.CEND)
-            print(tabulate(cluster["data"], headers=['Table Name', 'Attribute Name'], tablefmt='fancy_grid'))
-            print(Colors.CBOLD + "\tSamples" + Colors.CEND)
-            for value in cluster["head_values"]:
-                value = str(value)
-                if value[0:4] == "<em>":
-                    value = value.replace("<em>", "")
-                    value = value.replace("</em>", "")
-                    print(Colors.WARNING + "\t" + value + Colors.CEND)
-                else:
-                    print("\t" + str(value))
+            print(tabulate(cluster["data"], headers=['id', 'Table Name', 'Attribute Name', 'Sample Score', 'Highlight'], tablefmt='fancy_grid'))
+            # print(Colors.CBOLD + "\tSamples" + Colors.CEND)
+            # for value in cluster["head_values"]:
+            #     value = str(value)
+            #     if value[0:4] == "<em>":
+            #         value = value.replace("<em>", "")
+            #         value = value.replace("</em>", "")
+            #         print(Colors.WARNING + "\t" + value + Colors.CEND)
+            #     else:
+            #         print("\t" + str(value))
             print('\n')
             idx += 1
         selected = input(Colors.HEADER + "Enter clusters you want or enter \"all\" instead:" + Colors.CEND)
