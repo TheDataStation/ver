@@ -86,7 +86,7 @@ class ViewSearchPruning:
                     #                  Begin Join Path Enumeration                       #
                     #    Find all join paths between every pair of candidate tables      #
                     #    based on Aurum API. (No known PK/FK relationships, depend on    #
-                    #    inclusion dependency to discover approximate PK/FK)             #  
+                    #    inclusion dependency to discover approximate PK/FK)       f      #  
                     ######################################################################
         """
         print(msg_enumerate)
@@ -272,7 +272,7 @@ class ViewSearchPruning:
                 # if query view is all attributes, then it's always materializable or we could
                 # join on a small sample and see -- we can have 2 different impls.
                 # if sum([0] + [1 for el in list_samples if el != '']) > 0:
-                is_join_graph_valid = self.is_join_graph_materializable(jpg, table_fulfilled_filters)
+                # is_join_graph_valid = self.is_join_graph_materializable(jpg, table_fulfilled_filters)
                 # else:
                 is_join_graph_valid = True
                 et_is_materializable = time.time()
@@ -366,6 +366,8 @@ class ViewSearchPruning:
             start = start + offset
             to_return = self.materialize_join_graphs(list_samples, paths_to_materialize)
             for (idx, el) in enumerate(to_return):
+                if len(el) == 0:
+                    print("INVALID VIEW")
                 if len(el) != 0:
                     print("Materialized Join Path")
                     for l, r in paths_to_materialize[idx][0]:

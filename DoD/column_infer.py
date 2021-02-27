@@ -270,7 +270,7 @@ class ColumnInfer:
         Returns:
         clusters: A list of ClusterItem
     """
-    def cluster_columns(self, candidates, score_map, example_match):
+    def cluster_columns(self, candidates, score_map, example_match, hit_type):
         visited = defaultdict(bool)
         clusters = []
         column_cluster = defaultdict(int)
@@ -295,7 +295,7 @@ class ColumnInfer:
         for column, cluster_idx in column_cluster.items():
             k = (column.source_name, column.field_name)
             sample_score = score_map[k]
-            if sample_score > 0:
+            if sample_score > 0 or hit_type[k] == FilterType.ATTR:
                 clusters[cluster_idx].append(ClusterItem(column.nid, column.source_name, column.field_name, 0, sample_score, example_match[k]))
         return clusters.values()
 
@@ -304,7 +304,7 @@ class ColumnInfer:
         attr_clusters = []
         idx = 0
         for column, candidates in candidate_columns.items():
-            clusters = self.cluster_columns(candidates.data, sample_score[column], match_dict[column])
+            clusters = self.cluster_columns(candidates.data, sample_score[column], match_dict[column], hit_type_dict[column])
             # clusters = self.cluster_based_on_hit_type(match_dict[column[0]])
             clusters_list = []
             for cluster in clusters:
