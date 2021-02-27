@@ -47,3 +47,10 @@ class MitDataTest(unittest.TestCase):
         types = ["object", "object", "object"]
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
               output_path=config.Mit.output_path)
+
+    def test_case5(self):
+        attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
+        values = [["224 Albany Street", "", "", ""]]
+        types = ["object", "float", "object", "float"]
+        start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
+              output_path=config.Mit.output_path, offset=20)
