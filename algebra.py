@@ -576,6 +576,9 @@ class Helper:
         path_str = self._store_client.get_path_of(nid)
         return path_str
 
+    def get_uniqueness_score(self, nid):
+        return self._network.get_cardinality_of(nid)
+
     def help(self):
         """
         Prints general help information, or specific usage information of a function if provided
