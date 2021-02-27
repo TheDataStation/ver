@@ -358,7 +358,7 @@ class ViewSearchPruning:
         print(finish_msg)
         non_empty_cnt = 0
         start = 0
-        while start < len(sorted_all_graphs):
+        while start < len(sorted_all_graphs) and non_empty_cnt <= offset:
             if start + offset < len(sorted_all_graphs):
                 paths_to_materialize = sorted_all_graphs[start: start + offset]
             else:
