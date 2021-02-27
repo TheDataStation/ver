@@ -230,7 +230,7 @@ def build_content_sim_relation_text(network, signatures):
     create_sim_graph_text(nid_gen, network, text_engine, tfidf, Relation.CONTENT_SIM)
 
 
-def build_content_sim_mh_text(network, mh_signatures):
+def build_content_sim_mh_text(network, mh_signatures, t):
 
     def connect(nid1, nid2, score):
         network.add_relation(nid1, nid2, Relation.CONTENT_SIM, score)

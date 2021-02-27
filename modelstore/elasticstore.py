@@ -29,7 +29,7 @@ class StoreHandler:
             :return:
             """
         global client
-        client = Elasticsearch([{'host': c.db_host, 'port': c.db_port}])
+        client = Elasticsearch([{'host': c.db_host, 'port': c.db_port}], timeout=30)
 
     def close(self):
         print("TODO")
@@ -161,7 +161,11 @@ class StoreHandler:
         if elasticfieldname == KWType.KW_CONTENT:
             index = "text"
             query_body = {"from": 0, "size": max_hits,
-                          "query": {"term": {"text": keywords}},
+                          "query": {
+                              "match_phrase": {
+                                  "text": keywords
+                              }
+                          },
                           "highlight": {
                               "fields": {
                                   "text": {}
