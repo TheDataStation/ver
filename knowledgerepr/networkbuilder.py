@@ -15,9 +15,13 @@ from datasketch import MinHash, MinHashLSH
 from sklearn.cluster import DBSCAN
 import numpy as np
 
+from DoD import data_processing_utils as dpu
+
 from collections import defaultdict
 
 rbp = RandomBinaryProjections('default', 30)
+
+cache = defaultdict()
 
 
 def create_sim_graph_text(nid_gen, network, text_engine, tfidf, relation, tfidf_is_dense=False):
@@ -226,7 +230,7 @@ def build_content_sim_relation_text(network, signatures):
     create_sim_graph_text(nid_gen, network, text_engine, tfidf, Relation.CONTENT_SIM)
 
 
-def build_content_sim_mh_text(network, mh_signatures):
+def build_content_sim_mh_text(network, mh_signatures, t):
 
     def connect(nid1, nid2, score):
         network.add_relation(nid1, nid2, Relation.CONTENT_SIM, score)
@@ -234,7 +238,7 @@ def build_content_sim_mh_text(network, mh_signatures):
     # Materialize signatures for convenience
     mh_sig_obj = []
 
-    content_index = MinHashLSH(threshold=0.7, num_perm=512)
+    content_index = MinHashLSH(threshold=t, num_perm=512)
 
     # Create minhash objects and index
     for nid, mh_sig in mh_signatures:
@@ -335,7 +339,7 @@ def build_content_sim_relation_num_overlap_distr_indexed(network, id_sig):
                     del active_set[current_nid]
 
 
-def build_content_sim_relation_num_overlap_distr(network, id_sig):
+def build_content_sim_relation_num_overlap_distr(network, id_sig, table_path):
 
     def compute_overlap(ref_left, ref_right, left, right):
         ov = 0
@@ -379,7 +383,7 @@ def build_content_sim_relation_num_overlap_distr(network, id_sig):
     for ref in candidate_entries:
         ref_nid, ref_domain, ref_x_min, ref_x_left, ref_x_right, ref_x_max = ref
 
-        if ref_nid == '2314808454':
+        if ref_nid == '2316507623':
             debug = True
 
         if ref_domain == 0:
@@ -397,7 +401,7 @@ def build_content_sim_relation_num_overlap_distr(network, id_sig):
         for entry in candidate_entries:
             candidate_nid, candidate_domain, candidate_x_min, candidate_x_left, candidate_x_right, candidate_x_max = entry
 
-            if candidate_nid == '1504465753':
+            if candidate_nid == '1684416169':
                 debug = True
 
             if candidate_nid == ref_nid:
@@ -414,43 +418,56 @@ def build_content_sim_relation_num_overlap_distr(network, id_sig):
                 (_, _, sn2, fn2) = info2[0]
                 if isinf(float(ref_x_min)) or isinf(float(ref_x_max)) or isinf(float(candidate_x_max)) or isinf(float(candidate_x_min)):
                     continue
-                if candidate_x_min >= ref_x_min and candidate_x_max <= ref_x_max:
-                    # inclusion relation
-                    if candidate_x_min >= 0:
+                if (sn1, fn1) not in cache:
+                    ref_df = dpu.read_column(table_path+sn1, fn1)
+                    cache[(sn1, fn1)] = ref_df
+                else:
+                    ref_df = cache[(sn1, fn1)]
+                if (sn2, fn2) not in cache:
+                    candidate_df = dpu.read_column(table_path+sn2, fn2)
+                    cache[(sn2, fn2)] = candidate_df
+                else:
+                    candidate_df = cache[(sn2, fn2)]
+                if set(candidate_df).issubset(ref_df):
+                    connect(candidate_nid, ref_nid, 1, inddep=True)
 
-                        # min overlap for precision
-                        actual_overlap = compute_overlap(ref_x_left, ref_x_right, candidate_x_left, candidate_x_right)
-                        if actual_overlap >= 0.3:
-                            connect(candidate_nid, ref_nid, 1, inddep=True)
-                    """
-                    if candidate_x_left >= ref_x_left and candidate_x_right <= ref_x_right:
-                        # TODO: probably want to apply some filter here, division of medians or similar
-                        # TODO: or maybe try max min instead of median-+iqr
-                        #candidate_median = int((candidate_x_left + candidate_x_right)/2)
-                        #ref_median = float((ref_x_left + ref_x_right)/2)
-                        #heuristic = 0  # uninitialized
-                        #if ref_median > 0:
-                        #    heuristic = float(candidate_median / ref_median)
-                        #elif candidate_median > 0:
-                        #    heuristic = float(ref_median / candidate_median)
-                        #else:
-                        #    continue
-                        #if heuristic > 0.2 and heuristic < 5:
-
-                        if candidate_x_min >= 0:  # Only consider positive numbers as IDs
-
-                            info2 = network.get_info_for([candidate_nid])
-                            #(nid, db_name, source_name, field_name) = info2[0]
-                            #print(str(source_name) + " - " + str(field_name) + " ov: " + str(actual_overlap))
-                            connect(candidate_nid, ref_nid, 1, inddep=True)
-                    """
-
-            #if float(candidate_domain / ref_domain) <= overlap:
-            #    # There won't be a content sim relation -> not even the entire domain would overlap more than the th.
-            #    break
-            actual_overlap = compute_overlap(ref_x_left, ref_x_right, candidate_x_left, candidate_x_right)
-            if actual_overlap >= overlap:
-                connect(candidate_nid, ref_nid, actual_overlap)
+            #     if candidate_x_min >= ref_x_min and candidate_x_max <= ref_x_max:
+            #         # inclusion relation
+            #         # if candidate_x_min >= 0:
+            #         #     # min overlap for precision
+            #         #     actual_overlap = compute_overlap(ref_x_left, ref_x_right, candidate_x_left, candidate_x_right)
+            #         #     if actual_overlap >= 0.3:
+            #         #         connect(candidate_nid, ref_nid, 1, inddep=True)
+            #         connect(candidate_nid, ref_nid, 1, inddep=True)
+            #         """
+            #         if candidate_x_left >= ref_x_left and candidate_x_right <= ref_x_right:
+            #             # TODO: probably want to apply some filter here, division of medians or similar
+            #             # TODO: or maybe try max min instead of median-+iqr
+            #             #candidate_median = int((candidate_x_left + candidate_x_right)/2)
+            #             #ref_median = float((ref_x_left + ref_x_right)/2)
+            #             #heuristic = 0  # uninitialized
+            #             #if ref_median > 0:
+            #             #    heuristic = float(candidate_median / ref_median)
+            #             #elif candidate_median > 0:
+            #             #    heuristic = float(ref_median / candidate_median)
+            #             #else:
+            #             #    continue
+            #             #if heuristic > 0.2 and heuristic < 5:
+            #
+            #             if candidate_x_min >= 0:  # Only consider positive numbers as IDs
+            #
+            #                 info2 = network.get_info_for([candidate_nid])
+            #                 #(nid, db_name, source_name, field_name) = info2[0]
+            #                 #print(str(source_name) + " - " + str(field_name) + " ov: " + str(actual_overlap))
+            #                 connect(candidate_nid, ref_nid, 1, inddep=True)
+            #         """
+            #
+            # #if float(candidate_domain / ref_domain) <= overlap:
+            # #    # There won't be a content sim relation -> not even the entire domain would overlap more than the th.
+            # #    break
+            # actual_overlap = compute_overlap(ref_x_left, ref_x_right, candidate_x_left, candidate_x_right)
+            # if actual_overlap >= overlap:
+            #     connect(candidate_nid, ref_nid, actual_overlap)
 
             """
             if candidate_x_left >= ref_x_left and candidate_x_right <= ref_x_right:
@@ -635,7 +652,7 @@ def build_pkfk_relation(network):
     total_pkfk_relations = 0
     for n in network.iterate_ids():
         n_card = network.get_cardinality_of(n)
-        if n == '2314808454' or n == '1504465753':
+        if n == '2316507623':
             debug = True
         if n_card > 0.7:  # Early check if this is a candidate
             neighborhood = get_neighborhood(n)
