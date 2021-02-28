@@ -358,7 +358,7 @@ class ViewSearchPruning:
         print(finish_msg)
         non_empty_cnt = 0
         start = 0
-        while start < len(sorted_all_graphs):
+        while start < len(sorted_all_graphs) or non_empty_cnt < offset:
             if start + offset < len(sorted_all_graphs):
                 paths_to_materialize = sorted_all_graphs[start: start + offset]
             else:
@@ -366,8 +366,6 @@ class ViewSearchPruning:
             start = start + offset
             to_return = self.materialize_join_graphs(list_samples, paths_to_materialize)
             for (idx, el) in enumerate(to_return):
-                if len(el) == 0:
-                    print("INVALID VIEW")
                 if len(el) != 0:
                     print("Materialized Join Path")
                     for l, r in paths_to_materialize[idx][0]:
