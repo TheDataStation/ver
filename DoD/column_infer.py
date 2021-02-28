@@ -86,7 +86,7 @@ class ColumnInfer:
                         max_containment = 0
                         for h in x.highlight:
                             h = h.replace("<em>", "").replace("</em>", "")
-                            c_score = len(sample)/len(h)
+                            c_score = min(len(sample)/len(h), len(h)/len(sample))
                             max_containment = max(max_containment, c_score)
                             hit_example.add(h)
 
@@ -153,6 +153,48 @@ class ColumnInfer:
                     result.add((neighbor.source_name, neighbor.field_name))
             results.append(list(result))
         return results
+
+    def view_spec_cluster2(self, all_candidates, example_hit_dict):
+        results = []
+        for col, sample_scores in example_hit_dict.items():
+            candidates = all_candidates[col]
+            visited = defaultdict(bool)
+            column_cluster = defaultdict(int)
+            idx = 0
+            for candidate in candidates:
+                if candidate.nid not in visited:
+                    visited[candidate.nid] = True
+                    cluster = [candidate]
+                    target_idx = idx
+                    neighbors = self.aurum_api.content_similar_to(candidate)
+                    for neighbor in neighbors.data:
+                        if neighbor.nid in visited:
+                            # merge into the previous cluster
+                            target_idx = column_cluster[neighbor]
+                        cluster.append(neighbor)
+                        visited[neighbor.nid] = True
+                    for x in cluster:
+                        column_cluster[x] = target_idx
+                    idx += 1
+            clusters = defaultdict(list)
+            clusters_score = defaultdict(list)
+            max_score = 0
+            for column, cluster_idx in column_cluster.items():
+                k = (column.source_name, column.field_name)
+                sample_score = sample_scores[k]
+                if sample_score > max_score:
+                    max_score = sample_score
+                clusters[cluster_idx].append(k)
+                clusters_score[cluster_idx].append(sample_score)
+            with open('result.txt', 'a') as f:
+                f.write(str(len(candidates.data)) + " " + str(len(clusters)) + "\n")
+            final_cluster = []
+            for idx, columns in clusters.items():
+                if max(clusters_score[idx]) == max_score:
+                    final_cluster.extend(columns)
+            results.append(final_cluster)
+        return results
+
 
     def view_spec(self, all_candidates, example_hit_dict):
         # select columns with highest containment scores and its neighbors
@@ -241,13 +283,11 @@ class ColumnInfer:
             stats.append([Precision, Recall, F1])
         return stats
 
-    def print_stats(self, stats, stats_truth, unit):
+    def print_stats(self, stats, unit):
         for (idx, stat) in enumerate(stats):
-            truth = stats_truth[idx]
             precision = stat[0]
             recall = stat[1]
-            normalized_recall = recall / truth[1]
-            normalized_f1 = 2 * precision * normalized_recall / (precision + normalized_recall)
+            f1 = stat[2]
 
             if idx < unit:
                 prefix = "low"
@@ -255,8 +295,7 @@ class ColumnInfer:
                 prefix = "mid"
             else:
                 prefix = "high"
-            print(prefix, round(precision, 3), '\t', round(recall, 3), '\t', round(normalized_recall, 3), '\t',
-                  round(stat[2], 3), '\t', round(normalized_f1, 3))
+            print(prefix, round(precision, 3), '\t', round(recall, 3), '\t', round(f1, 3))
 
     def cluster_based_on_hit_type(self, example_match_dict):
         clusters = defaultdict(list)
