@@ -59,7 +59,7 @@ if __name__ == '__main__':
     # sample size of contradictory and complementary rows to present
     sample_size = 5
 
-    mode = Mode.optimal
+    mode = Mode.random
 
     max_num_interactions = 10
 
@@ -319,7 +319,10 @@ if __name__ == '__main__':
         return None
 
 
-    def pick_a_pair_from_top_k_views(sorted_view_rank, k):
+    def pick_a_pair_from_top_k_views(view_rank, view_to_view_pairs_dict, k):
+
+        sorted_view_rank = sort_view_by_scores(view_rank)
+
         if k > len(sorted_view_rank):
             k = len(sorted_view_rank)
         top_k_views = []
@@ -405,8 +408,7 @@ if __name__ == '__main__':
 
                 p = random.random()
                 if p > epsilon:
-                    sorted_view_rank = sort_view_by_scores(view_rank)
-                    path = pick_a_pair_from_top_k_views(sorted_view_rank, top_k)
+                    path = pick_a_pair_from_top_k_views(view_rank, view_to_view_pairs_dict, top_k)
                 else:
                     view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
                     # pprint.pprint(view_to_view_pairs_dict)
@@ -663,7 +665,10 @@ if __name__ == '__main__':
         if mode == Mode.optimal or mode == Mode.random:
             rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
             if rank != None:
-                print("Ground truth view is top-" + str(rank))
+                print("Ground truth view " + ground_truth_path + " is top-" + str(rank))
+                print(
+                    Colors.CBOLD + "--------------------------------------------------------------------------" +
+                    Colors.CEND)
             # for i in range(len(sorted_view_rank)):
             #     view, score = sorted_view_rank[i]
             #     if ground_truth_path == view:
