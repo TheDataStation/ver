@@ -7,6 +7,7 @@ import glob
 import pandas as pd
 import pprint
 import numpy as np
+from collections import defaultdict
 
 from DoD.colors import Colors
 
@@ -49,9 +50,9 @@ class Mode(Enum):
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./e2e_test/"
+    dir_path = "./mit_id/"
     # top-k views
-    top_k = 5
+    top_k = 10
     # epsilon-greedy
     epsilon = 0.1
     # max size of candidate (composite) key
@@ -59,11 +60,11 @@ if __name__ == '__main__':
     # sample size of contradictory and complementary rows to present
     sample_size = 5
 
-    mode = Mode.random
+    mode = Mode.optimal
 
-    max_num_interactions = 10
+    max_num_interactions = 1000
 
-    num_runs = 50
+    num_runs = 10
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -77,8 +78,7 @@ if __name__ == '__main__':
                     #                    Goal: Help users find their preferred view among all generated views                            #                 
                     # 1. Run 4C algorithm that classifies the views into 4 categories:                                                   #
                     #    Compatible, Contained, Contradictory, Complementary                                                             #
-                    # 2. Remove duplicates in compatible views and keep the view with :q
-                    # the largest cardinality in contained views         #
+                    # 2. Remove duplicates in compatible views and keep the view with the largest cardinality in contained views         #
                     # 3. Users choose the candidate key and its respective contradictory and complementary rows                          #
                     # 4. Exploitation vs exploration: exploit the knowledge based on user's previous selections                          #
                     #    and explore other options occasionally                                                                          #
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
 
-    results = v4c.main(dir_path, candidate_key_size)
+    results, views_by_schema_dict = v4c.main(dir_path, candidate_key_size)
 
     # TODO: don't separate by schemas for now
     compatible_groups = []
@@ -100,15 +100,24 @@ if __name__ == '__main__':
     contradictory_groups = []
     all_pair_contr_compl = {}
 
-    for k, v in results[0].items():
+    # views_by_schema_dict = defaultdict(set)
+
+    for k, v in results.items():
         compatible_groups = compatible_groups + v['compatible']
         contained_groups = contained_groups + v['contained']
         complementary_groups = complementary_groups + v['complementary']
         contradictory_groups = contradictory_groups + v['contradictory']
         all_pair_contr_compl.update(v['all_pair_contr_compl'])
 
+    # print(views_by_schema_dict.keys())
+
     # print(compatible_groups)
     # print(contained_groups)
+    # for path1, candidate_key_tuple, key_value_tuples, path2 in contradictory_groups:
+    #     print(path1 + " - " + path2)
+    #
+    # for path1, path2, _, _, _ in complementary_groups:
+    #     print(path1 + " - " + path2)
 
     print()
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
@@ -164,22 +173,27 @@ if __name__ == '__main__':
     all_pair_contr_compl_new = {}
 
     # key: contradictory or complementary row, value: set of views containing the row
-    contr_or_compl_row_to_path_dict = {}
+    row_to_path_dict = {}
 
 
     def add_to_row_to_path_dict(row_strs, path):
         for row in row_strs:
-            if row not in contr_or_compl_row_to_path_dict.keys():
-                contr_or_compl_row_to_path_dict[row] = {path}
+            if row not in row_to_path_dict.keys():
+                row_to_path_dict[row] = {path}
             else:
-                contr_or_compl_row_to_path_dict[row].add(path)
+                row_to_path_dict[row].add(path)
 
 
     import time
 
+    contr_or_compl_views = set()
+
     for path, result in tqdm(all_pair_contr_compl.items()):
         path1 = path[0]
         path2 = path[1]
+
+        contr_or_compl_views.add(path1)
+        contr_or_compl_views.add(path2)
 
         # print("processing " + path1 + " " + path2)
 
@@ -297,6 +311,22 @@ if __name__ == '__main__':
         # print("row_df_to_string_time: " + str(row_df_to_string_time))
         # print("add_to_row_to_path_dict_time: " + str(add_to_row_to_path_dict_time))
 
+    non_contr_or_compl_views = view_files - contr_or_compl_views
+    non_contr_or_compl_views_df = []
+    # print(non_contr_or_compl_views)
+    for path in non_contr_or_compl_views:
+        df = pd.read_csv(path, encoding='latin1', thousands=',')
+        df = mva.curate_view(df)
+        df = v4c.normalize(df)
+
+        row_strs = row_df_to_string(df)
+        add_to_row_to_path_dict(row_strs, path)
+
+        sample_df = df
+        if len(df) > sample_size:
+            sample_df = df.sample(n=sample_size)
+        non_contr_or_compl_views_df.append((path, sample_df))
+
 
     def sort_view_by_scores(view_rank):
         sorted_view_rank = [(view, score) for view, score in
@@ -341,9 +371,28 @@ if __name__ == '__main__':
         return path
 
 
-    ground_truth_rank = np.zeros((num_runs, max_num_interactions), dtype=int)
+    def print_option(option_num, df):
+        print(Colors.CGREENBG2 + "Option " + str(option_num) + Colors.CEND)
+        print(df)
+
+
+    ground_truth_rank = np.empty((num_runs, len(all_pair_contr_compl_new.keys()) + len(non_contr_or_compl_views_df)),
+                                 dtype=int)
+
+    sum_num_interactions = 0
+
+    # ground_truth_path = "./mit_id/view_0"
+    # fact_bank_df = None
+    # optimal_candidate_key = ["Building Room", "Building Name"]
+    # if mode == Mode.optimal:
+    #     print("Ground truth view: " + ground_truth_path)
+    #     fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+    #     fact_bank_df = mva.curate_view(fact_bank_df)
+    #     fact_bank_df = v4c.normalize(fact_bank_df)
 
     for run in range(num_runs):
+
+        print("Run " + str(run))
 
         ground_truth_path = random.choice(list(view_files))
         fact_bank_df = None
@@ -356,7 +405,7 @@ if __name__ == '__main__':
 
         # Initialize ranking model
         key_rank = {}
-        row_rank = contr_or_compl_row_to_path_dict.copy()
+        row_rank = row_to_path_dict.copy()
         for row, path in row_rank.items():
             row_rank[row] = 0
         view_rank = {}
@@ -379,8 +428,6 @@ if __name__ == '__main__':
                 distinct_views.add(path2)
         other_non_distinct_view_pairs = set(paths) - set(all_distinct_view_pairs)
 
-        from collections import defaultdict
-
         view_to_view_pairs_dict = defaultdict(list)
         for path in paths:
             path1 = path[0]
@@ -392,14 +439,29 @@ if __name__ == '__main__':
         # print(len(all_distinct_view_pairs))
         # print(len(other_non_distinct_view_pairs))
 
+        non_contr_or_compl_views_df_copy = non_contr_or_compl_views_df.copy()
+
         num_interactions = 0
         loop_count = 0
         while num_interactions < max_num_interactions:
 
             # Explore unexplored views first
             # TODO: full explore mode for half of max_num_interactions
-            if len(all_distinct_view_pairs) > 0 and num_interactions < max_num_interactions / 2:
-                path = all_distinct_view_pairs.pop()
+            path = None
+            single_view = None
+            if len(all_distinct_view_pairs) > 0 or len(
+                    non_contr_or_compl_views_df_copy) > 0:  # and num_interactions < max_num_interactions / 2:
+
+                if len(all_distinct_view_pairs) <= 0:
+                    single_view = non_contr_or_compl_views_df_copy.pop()
+                elif len(non_contr_or_compl_views_df_copy) <= 0:
+                    path = all_distinct_view_pairs.pop()
+                else:
+                    p = random.random()
+                    if p < 0.5:
+                        path = all_distinct_view_pairs.pop()
+                    else:
+                        single_view = non_contr_or_compl_views_df_copy.pop()
             # Epsilon-greedy: Pick the best available pair from top-k views for users to choose(exploitation),
             # or pick a random pair (exploration)
             else:
@@ -409,171 +471,173 @@ if __name__ == '__main__':
                 p = random.random()
                 if p > epsilon:
                     path = pick_a_pair_from_top_k_views(view_rank, view_to_view_pairs_dict, top_k)
-                else:
+                # path = None -> all pairs from current top-k views have been explored
+                if path == None or p <= epsilon:
                     view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
                     # pprint.pprint(view_to_view_pairs_dict)
                     # print(view1)
                     view2 = random.choice(pair_list)
                     path = (view1, view2)
 
-            if path == None:
-                # all pairs from current top-k views have been explored, no need to continue
-                break
-
-            path1 = path[0]
-            path2 = path[1]
-            if path not in all_pair_contr_compl_new.keys():
-                path = (path2, path1)
-                path1 = path[0]
-                path2 = path[1]
-
-            view_to_view_pairs_dict[path1].remove(path2)
-            view_to_view_pairs_dict[path2].remove(path1)
-
-            if len(view_to_view_pairs_dict[path1]) == 0:
-                del view_to_view_pairs_dict[path1]
-                # print("deleted " + path1)
-            if len(view_to_view_pairs_dict[path2]) == 0:
-                del view_to_view_pairs_dict[path2]
-                # print("deleted " + path2)
-
-            # pprint.pprint(view_to_view_pairs_dict)
-
             print(
                 Colors.CBOLD + "--------------------------------------------------------------------------" +
                 Colors.CEND)
 
-            print(Colors.CBLUEBG2 + path1 + " - " + path2 + Colors.CEND)
-
-            candidate_key_dict = all_pair_contr_compl_new[path]
-
             count = 0
             option_dict = {}
 
-            # exploitation vs exploration
-            # TODO:
-            #  Epsilon-greedy:
-            #  If the user has selected the a candidate key (n times) more frequently than the others,
-            #  this means they are pretty confident about their choices, so we don't bother showing them other keys
-            #  again.
-            #  (This can be more complicated, like using confidence bounds etc)
-            #  In epsilon probability, we still show the user all candidate keys in case they made a mistake or want to
-            #  explore other keys
+            if single_view != None:
+                # present the single view
+                count += 1
+                path, sample_df = single_view
+                print(Colors.CBLUEBG2 + path + Colors.CEND)
+                print_option(count, sample_df)
+                option_dict[count] = (None, [sample_df], path)
+            else:
+                path1 = path[0]
+                path2 = path[1]
+                if path not in all_pair_contr_compl_new.keys():
+                    path = (path2, path1)
+                    path1 = path[0]
+                    path2 = path[1]
 
-            n = 2
+                view_to_view_pairs_dict[path1].remove(path2)
+                view_to_view_pairs_dict[path2].remove(path1)
 
-            p = random.random()
+                if len(view_to_view_pairs_dict[path1]) == 0:
+                    del view_to_view_pairs_dict[path1]
+                    # print("deleted " + path1)
+                if len(view_to_view_pairs_dict[path2]) == 0:
+                    del view_to_view_pairs_dict[path2]
+                    # print("deleted " + path2)
 
-            best_key = None
-            if p > epsilon:
-                max_score = -1
-                for candidate_key_tuple in candidate_key_dict.keys():
-                    if candidate_key_tuple in key_rank.keys():
-                        if key_rank[candidate_key_tuple] > max_score:
-                            best_key = candidate_key_tuple
-                            max_score = key_rank[candidate_key_tuple]
-                if best_key != None:
-                    sum_scores = 0
-                    other_keys = []
-                    for key in candidate_key_dict.keys():
-                        if key != best_key and key in key_rank.keys():
-                            sum_scores += key_rank[key]
-                            other_keys.append(key)
-                    # Exclude other keys because the best key was selected much more frequently than the others
-                    if int((max_score - n * sum_scores) / n) >= 1:
-                        for key in other_keys:
-                            del candidate_key_dict[key]
-                    else:
-                        best_key = None
+                # pprint.pprint(view_to_view_pairs_dict)
 
-            for candidate_key_tuple, contr_or_compl_df_list in candidate_key_dict.items():
+                print(Colors.CBLUEBG2 + path1 + " - " + path2 + Colors.CEND)
 
-                if candidate_key_tuple not in key_rank.keys():
-                    key_rank[candidate_key_tuple] = 0
+                candidate_key_dict = all_pair_contr_compl_new[path]
 
-                print("Candidate key " + Colors.CREDBG2 + str(candidate_key_tuple) + Colors.CEND + " is "
-                      + Colors.CVIOLETBG2 + contr_or_compl_df_list[0] + Colors.CEND)
+                # exploitation vs exploration
+                # TODO:
+                #  Epsilon-greedy:
+                #  If the user has selected the a candidate key (n times) more frequently than the others,
+                #  this means they are pretty confident about their choices, so we don't bother showing them other keys
+                #  again.
+                #  (This can be more complicated, like using confidence bounds etc)
+                #  In epsilon probability, we still show the user all candidate keys in case they made a mistake or
+                #  want to
+                #  explore other keys
 
+                n = 2
 
-                def print_option(option_num, df):
-                    print(Colors.CGREENBG2 + "Option " + str(option_num) + Colors.CEND)
-                    print(df)
+                p = random.random()
 
-
-                if contr_or_compl_df_list[0] == "contradictory":
-                    # print(contr_or_compl_df_list)
-                    row1_dfs = []
-                    row2_dfs = []
-
-                    skip_this_pair = False
-                    preferred_view_set = set()
-
-                    for row_tuple in contr_or_compl_df_list[1:]:
-
-                        # TODO: epsilon greedy
-                        #  If the user selected one contradictory row (n times) more frequently over the other,
-                        #  skip this contradiction
-
-                        exclude_this_contradiction = False
-                        if p > epsilon:
-                            row1_strs = row_df_to_string(row_tuple[0])
-                            row2_strs = row_df_to_string(row_tuple[1])
-                            for row1 in row1_strs:
-                                for row2 in row2_strs:
-                                    if (int((row_rank[row1] - n * row_rank[row2]) / n) >= 1) or \
-                                            (int((row_rank[row2] - n * row_rank[row1]) / n) >= 1):
-                                        preferred_view = path1 if row_rank[row1] > n * row_rank[row2] else path2
-                                        preferred_view_set.add(preferred_view)
-                                        # exclude this particular contradiction
-                                        exclude_this_contradiction = True
-
-                            if exclude_this_contradiction:
-                                continue
-
-                        row1_dfs.append(row_tuple[0])
-                        row2_dfs.append(row_tuple[1])
-
-                    # concatenate all contradictory rows in both side
-                    if len(row1_dfs) > 0 and len(row2_dfs) > 0:
-                        contradictory_rows1 = pd.concat(row1_dfs)
-                        count += 1
-                        print_option(count, contradictory_rows1)
-                        option_dict[count] = (candidate_key_tuple, row1_dfs, path1)
-
-                        contradictory_rows2 = pd.concat(row2_dfs)
-                        count += 1
-                        print_option(count, contradictory_rows2)
-                        option_dict[count] = (candidate_key_tuple, row2_dfs, path2)
-                    else:
-                        if best_key != None:
-                            # If there's already a preferred key
-                            if len(preferred_view_set) == 1:
-                                # If the user always select all the contradictory rows in one view over the other
-                                # then skip this pair
-                                print("Skipping this pair...")
-                                preferred_view = preferred_view_set.pop()
-                                print("Automatically selecting preferred view " + preferred_view)
-                                view_rank[preferred_view] += 1
-                                break
+                best_key = None
+                if p > epsilon:
+                    max_score = -1
+                    for candidate_key_tuple in candidate_key_dict.keys():
+                        if candidate_key_tuple in key_rank.keys():
+                            if key_rank[candidate_key_tuple] > max_score:
+                                best_key = candidate_key_tuple
+                                max_score = key_rank[candidate_key_tuple]
+                    if best_key != None:
+                        sum_scores = 0
+                        other_keys = []
+                        for key in candidate_key_dict.keys():
+                            if key != best_key and key in key_rank.keys():
+                                sum_scores += key_rank[key]
+                                other_keys.append(key)
+                        # Exclude other keys because the best key was selected much more frequently than the others
+                        if max_score > n * sum_scores and max_score - sum_scores > n:
+                            for key in other_keys:
+                                del candidate_key_dict[key]
                         else:
-                            # Otherwise skip showing this contradiction for the current key
-                            print("Automatically skipping all contradictions based on previous selections")
+                            best_key = None
 
-                if contr_or_compl_df_list[0] == "complementary":
-                    # TODO: epsilon greedy for complementary rows?
-                    #  But they are not really "choose one over the other" relationship
+                for candidate_key_tuple, contr_or_compl_df_list in candidate_key_dict.items():
 
-                    # concatenate all complementary (non-intersecting) rows in both side
-                    complementary_df_tuple = contr_or_compl_df_list[1]
-                    count += 1
-                    complementary_part1 = pd.concat(complementary_df_tuple[0])
-                    print_option(count, complementary_part1)
-                    option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+                    if candidate_key_tuple not in key_rank.keys():
+                        key_rank[candidate_key_tuple] = 0
 
-                    count += 1
-                    complementary_part2 = pd.concat(complementary_df_tuple[1])
-                    print_option(count, complementary_part2)
-                    option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
+                    print("Candidate key " + Colors.CREDBG2 + str(candidate_key_tuple) + Colors.CEND + " is "
+                          + Colors.CVIOLETBG2 + contr_or_compl_df_list[0] + Colors.CEND)
+
+                    if contr_or_compl_df_list[0] == "contradictory":
+                        # print(contr_or_compl_df_list)
+                        row1_dfs = []
+                        row2_dfs = []
+
+                        skip_this_pair = False
+                        preferred_view_set = set()
+
+                        for row_tuple in contr_or_compl_df_list[1:]:
+
+                            # TODO: epsilon greedy
+                            #  If the user selected one contradictory row (n times) more frequently over the other,
+                            #  skip this contradiction
+
+                            exclude_this_contradiction = False
+                            if p > epsilon:
+                                row1_strs = row_df_to_string(row_tuple[0])
+                                row2_strs = row_df_to_string(row_tuple[1])
+                                for row1 in row1_strs:
+                                    for row2 in row2_strs:
+                                        if (row_rank[row1] > n * row_rank[row2] and row_rank[row1] - row_rank[
+                                            row2] > n) or \
+                                                (row_rank[row2] > n * row_rank[row1] and row_rank[row2] - row_rank[
+                                                    row1] > n):
+                                            preferred_view = path1 if row_rank[row1] > n * row_rank[row2] else path2
+                                            preferred_view_set.add(preferred_view)
+                                            # exclude this particular contradiction
+                                            exclude_this_contradiction = True
+
+                                if exclude_this_contradiction:
+                                    continue
+
+                            row1_dfs.append(row_tuple[0])
+                            row2_dfs.append(row_tuple[1])
+
+                        # concatenate all contradictory rows in both side
+                        if len(row1_dfs) > 0 and len(row2_dfs) > 0:
+                            contradictory_rows1 = pd.concat(row1_dfs)
+                            count += 1
+                            print_option(count, contradictory_rows1)
+                            option_dict[count] = (candidate_key_tuple, row1_dfs, path1)
+
+                            contradictory_rows2 = pd.concat(row2_dfs)
+                            count += 1
+                            print_option(count, contradictory_rows2)
+                            option_dict[count] = (candidate_key_tuple, row2_dfs, path2)
+                        else:
+                            if best_key != None:
+                                # If there's already a preferred key
+                                if len(preferred_view_set) == 1:
+                                    # If the user always select all the contradictory rows in one view over the other
+                                    # then skip this pair
+                                    print("Skipping this pair...")
+                                    preferred_view = preferred_view_set.pop()
+                                    print("Automatically selecting preferred view " + preferred_view)
+                                    view_rank[preferred_view] += 1
+                                    break
+                            else:
+                                # Otherwise skip showing this contradiction for the current key
+                                print("Automatically skipping all contradictions based on previous selections")
+
+                    if contr_or_compl_df_list[0] == "complementary":
+                        # TODO: epsilon greedy for complementary rows?
+                        #  But they are not really "choose one over the other" relationship
+
+                        # concatenate all complementary (non-intersecting) rows in both side
+                        complementary_df_tuple = contr_or_compl_df_list[1]
+                        count += 1
+                        complementary_part1 = pd.concat(complementary_df_tuple[0])
+                        print_option(count, complementary_part1)
+                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+
+                        count += 1
+                        complementary_part2 = pd.concat(complementary_df_tuple[1])
+                        print_option(count, complementary_part2)
+                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
 
             if len(option_dict) > 0:
 
@@ -620,7 +684,8 @@ if __name__ == '__main__':
 
                 if option_picked != 0:
                     candidate_key_picked = option_dict[option_picked][0]
-                    key_rank[candidate_key_picked] += 1
+                    if candidate_key_picked != None:
+                        key_rank[candidate_key_picked] += 1
 
                     # TODO： Add score for any view containing the contradictory or complementary row selected
                     views_to_add_score = set()
@@ -629,8 +694,8 @@ if __name__ == '__main__':
                         row_strs = row_df_to_string(row_df)
 
                         for row_str in row_strs:
-                            if row_str in contr_or_compl_row_to_path_dict.keys():
-                                paths_containing_row = contr_or_compl_row_to_path_dict[row_str]
+                            if row_str in row_to_path_dict.keys():
+                                paths_containing_row = row_to_path_dict[row_str]
                                 for path in paths_containing_row:
                                     views_to_add_score.add(path)
 
@@ -640,16 +705,19 @@ if __name__ == '__main__':
                     for path in views_to_add_score:
                         view_rank[path] += 1
 
-                if mode == Mode.optimal or mode == Mode.random:
-                    sorted_view_rank = sort_view_by_scores(view_rank)
-                    rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
-                    # print("rank = " + str(rank))
-                    if rank != None:
-                        ground_truth_rank[run][num_interactions - 1] = rank
-
             print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
             sorted_view_rank = sort_view_by_scores(view_rank)
             pprint.pprint(sorted_view_rank)
+
+            if mode == Mode.optimal or mode == Mode.random:
+                # sorted_view_rank = sort_view_by_scores(view_rank)
+                rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
+                # print("rank = " + str(rank))
+                if rank != None:
+                    ground_truth_rank[run][loop_count] = rank
+                else:
+                    print("ERROR!!!")
+                    exit()
 
             loop_count += 1
 
@@ -662,6 +730,8 @@ if __name__ == '__main__':
         sorted_view_rank = sort_view_by_scores(view_rank)
         pprint.pprint(sorted_view_rank[:top_k])
         print("Number of interactions = " + str(num_interactions))
+        sum_num_interactions += num_interactions
+
         if mode == Mode.optimal or mode == Mode.random:
             rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
             if rank != None:
@@ -674,11 +744,26 @@ if __name__ == '__main__':
             #     if ground_truth_path == view:
             #         print("Ground truth view is top-" + str(i+1))
 
-    avg_ground_truth_rank = np.mean(ground_truth_rank, axis=0)
+    # avg_ground_truth_rank = np.mean(ground_truth_rank, axis=0)
+
+    # print(ground_truth_rank)
+
+    print("Average number of interactions = " + str(sum_num_interactions / num_runs))
 
     import matplotlib.pyplot as plt
 
-    x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
+    plt.rcParams['figure.figsize'] = [12, 8]
+    plt.rcParams['figure.dpi'] = 200
+
+    # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
     # print(ground_truth_rank)
-    plt.plot(x_axis, avg_ground_truth_rank)
+    print(ground_truth_rank.shape)
+    # fig, ax = plt.subplots()
+
+    plt.boxplot(ground_truth_rank[:, ::2])
+    locs, labels = plt.xticks()
+    # print(locs)
+    # print(labels)
+    # ax.set_xticks()
+    plt.xticks(ticks=locs, labels=np.arange(1, ground_truth_rank.shape[1] + 1, step=2))
     plt.show()
