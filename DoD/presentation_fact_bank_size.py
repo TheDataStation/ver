@@ -181,7 +181,7 @@ if __name__ == '__main__':
 
     for fact_bank_fraction in range(10, 101, 10):
 
-        print("fact_bank_fraction = " + str(fact_bank_fraction/100))
+        print("fact_bank_fraction = " + str(fact_bank_fraction / 100))
 
         fact_bank_df = None
         optimal_candidate_key = ["Building Room", "Building Name"]
@@ -189,7 +189,7 @@ if __name__ == '__main__':
             fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
             fact_bank_df = mva.curate_view(fact_bank_df)
             fact_bank_df = v4c.normalize(fact_bank_df)
-            fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction/100)
+            fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction / 100)
 
         ground_truth_rank = []
 
@@ -418,7 +418,8 @@ if __name__ == '__main__':
                 pass
 
 
-            ground_truth_rank_per_run = np.empty(len(all_pair_contr_compl_new.keys()) + len(non_contr_or_compl_views_df), dtype=int)
+            ground_truth_rank_per_run = np.empty(
+                len(all_pair_contr_compl_new.keys()) + len(non_contr_or_compl_views_df), dtype=int)
 
             # sum_num_interactions = 0
 
@@ -592,7 +593,8 @@ if __name__ == '__main__':
                     # TODO:
                     #  Epsilon-greedy:
                     #  If the user has selected the a candidate key (n times) more frequently than the others,
-                    #  this means they are pretty confident about their choices, so we don't bother showing them other keys
+                    #  this means they are pretty confident about their choices, so we don't bother showing them
+                    #  other keys
                     #  again.
                     #  (This can be more complicated, like using confidence bounds etc)
                     #  In epsilon probability, we still show the user all candidate keys in case they made a mistake or
@@ -683,7 +685,8 @@ if __name__ == '__main__':
                                 if best_key != None:
                                     # If there's already a preferred key
                                     if len(preferred_view_set) == 1:
-                                        # If the user always select all the contradictory rows in one view over the other
+                                        # If the user always select all the contradictory rows in one view over the
+                                        # other
                                         # then skip this pair
                                         print("Skipping this pair...")
                                         preferred_view = preferred_view_set.pop()
@@ -794,7 +797,9 @@ if __name__ == '__main__':
 
                 loop_count += 1
 
-            print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+            print(
+                Colors.CBOLD + "--------------------------------------------------------------------------" +
+                Colors.CEND)
             # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
             # pprint.pprint(key_rank)
             # print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
@@ -823,7 +828,7 @@ if __name__ == '__main__':
         # print(ground_truth_rank)
         ground_truth_rank_np = np.array(ground_truth_rank)
 
-        ground_truth_rank_at_iter_20 = ground_truth_rank_np[:,19]
+        ground_truth_rank_at_iter_20 = ground_truth_rank_np[:, 19]
         result_by_fact_bank_size.append(ground_truth_rank_at_iter_20)
 
         if mode == Mode.optimal or mode == Mode.random:
@@ -841,9 +846,11 @@ if __name__ == '__main__':
 
             plt.boxplot(ground_truth_rank_np[:, ::2])
             if mode == Mode.optimal:
-                plt.title("With exploration/exploitation, optimal mode, fact bank fraction=" + str(fact_bank_fraction/100))
+                plt.title(
+                    "With exploration/exploitation, optimal mode, fact bank fraction=" + str(fact_bank_fraction / 100))
             elif mode == Mode.random:
-                plt.title("With exploration/exploitation, random mode, fact bank fraction=" + str(fact_bank_fraction/100))
+                plt.title(
+                    "With exploration/exploitation, random mode, fact bank fraction=" + str(fact_bank_fraction / 100))
             locs, labels = plt.xticks()
             # print(locs)
             # print(labels)

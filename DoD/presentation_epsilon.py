@@ -181,7 +181,7 @@ if __name__ == '__main__':
 
     for epsilon in range(10, 101, 10):
 
-        epsilon = epsilon/100
+        epsilon = epsilon / 100
 
         print("epsilon = " + str(epsilon))
 
@@ -420,7 +420,8 @@ if __name__ == '__main__':
                 pass
 
 
-            ground_truth_rank_per_run = np.empty(len(all_pair_contr_compl_new.keys()) + len(non_contr_or_compl_views_df), dtype=int)
+            ground_truth_rank_per_run = np.empty(
+                len(all_pair_contr_compl_new.keys()) + len(non_contr_or_compl_views_df), dtype=int)
 
             # sum_num_interactions = 0
 
@@ -489,7 +490,8 @@ if __name__ == '__main__':
                 # or pick a random pair (exploration)
                 p = random.random()
                 if p > epsilon:
-                    path, single_view_list = pick_from_top_k_views(view_rank, view_to_view_pairs_dict, non_contr_or_compl_views_df, top_k)
+                    path, single_view_list = pick_from_top_k_views(view_rank, view_to_view_pairs_dict,
+                                                                   non_contr_or_compl_views_df, top_k)
 
                 # path = None -> all pairs from current top-k views have been explored
                 if (path == None and len(single_view_list) == 0) or p <= epsilon:
@@ -552,7 +554,8 @@ if __name__ == '__main__':
                     # TODO:
                     #  Epsilon-greedy:
                     #  If the user has selected the a candidate key (n times) more frequently than the others,
-                    #  this means they are pretty confident about their choices, so we don't bother showing them other keys
+                    #  this means they are pretty confident about their choices, so we don't bother showing them
+                    #  other keys
                     #  again.
                     #  (This can be more complicated, like using confidence bounds etc)
                     #  In epsilon probability, we still show the user all candidate keys in case they made a mistake or
@@ -643,7 +646,8 @@ if __name__ == '__main__':
                                 if best_key != None:
                                     # If there's already a preferred key
                                     if len(preferred_view_set) == 1:
-                                        # If the user always select all the contradictory rows in one view over the other
+                                        # If the user always select all the contradictory rows in one view over the
+                                        # other
                                         # then skip this pair
                                         print("Skipping this pair...")
                                         preferred_view = preferred_view_set.pop()
@@ -754,7 +758,9 @@ if __name__ == '__main__':
 
                 loop_count += 1
 
-            print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+            print(
+                Colors.CBOLD + "--------------------------------------------------------------------------" +
+                Colors.CEND)
             # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
             # pprint.pprint(key_rank)
             # print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
@@ -783,7 +789,7 @@ if __name__ == '__main__':
         # print(ground_truth_rank)
         ground_truth_rank_np = np.array(ground_truth_rank)
 
-        ground_truth_rank_at_iter_20 = ground_truth_rank_np[:,19]
+        ground_truth_rank_at_iter_20 = ground_truth_rank_np[:, 19]
         result_by_epsilon.append(ground_truth_rank_at_iter_20)
 
         if mode == Mode.optimal or mode == Mode.random:
