@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
     max_num_interactions = 1000
 
-    num_runs = 10
+    num_runs = 100
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -118,6 +118,9 @@ if __name__ == '__main__':
     #
     # for path1, path2, _, _, _ in complementary_groups:
     #     print(path1 + " - " + path2)
+    #
+    # for k,v in views_by_schema_dict.items():
+    #     print([path for df, path in v])
 
     print()
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
@@ -344,12 +347,12 @@ if __name__ == '__main__':
             res[v] = place
 
         if view in res.keys():
-            rank = res[ground_truth_path]
+            rank = res[view]
             return rank
         return None
 
 
-    def pick_a_pair_from_top_k_views(view_rank, view_to_view_pairs_dict, k):
+    def pick_from_top_k_views(view_rank, view_to_view_pairs_dict, non_contr_or_compl_views_df, k):
 
         sorted_view_rank = sort_view_by_scores(view_rank)
 
@@ -360,15 +363,29 @@ if __name__ == '__main__':
             top_k_views.append(sorted_view_rank[i][0])
         # print(top_k_views)
 
+        p = random.random()
+
         path = None
+        single_view_list = []
+
+        if p < 0.5 and len(non_contr_or_compl_views_df) > 0:
+            for view in top_k_views:
+                for view_df in non_contr_or_compl_views_df:
+                    if view == view_df[0]:
+                        single_view_list.append(view_df)
+        if len(single_view_list) > 0:
+            return path, single_view_list
+
+        # if p > 0.5 or there is no single view present in top-k
         for view1 in top_k_views:
             for view2 in top_k_views:
                 if view1 != view2:
                     if view1 in view_to_view_pairs_dict.keys():
                         if view2 in view_to_view_pairs_dict[view1]:
                             path = (view1, view2)
-                            return path
-        return path
+                            return path, single_view_list
+
+        return path, single_view_list
 
 
     def print_option(option_num, df):
@@ -381,7 +398,7 @@ if __name__ == '__main__':
 
     sum_num_interactions = 0
 
-    # ground_truth_path = "./mit_id/view_0"
+    # ground_truth_path = "./building/view_49"
     # fact_bank_df = None
     # optimal_candidate_key = ["Building Room", "Building Name"]
     # if mode == Mode.optimal:
@@ -445,39 +462,78 @@ if __name__ == '__main__':
         loop_count = 0
         while num_interactions < max_num_interactions:
 
-            # Explore unexplored views first
-            # TODO: full explore mode for half of max_num_interactions
             path = None
-            single_view = None
-            if len(all_distinct_view_pairs) > 0 or len(
-                    non_contr_or_compl_views_df_copy) > 0:  # and num_interactions < max_num_interactions / 2:
+            single_view_list = []
 
-                if len(all_distinct_view_pairs) <= 0:
-                    single_view = non_contr_or_compl_views_df_copy.pop()
-                elif len(non_contr_or_compl_views_df_copy) <= 0:
-                    path = all_distinct_view_pairs.pop()
-                else:
-                    p = random.random()
-                    if p < 0.5:
-                        path = all_distinct_view_pairs.pop()
-                    else:
-                        single_view = non_contr_or_compl_views_df_copy.pop()
+            if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_df_copy) <= 0:
+                # we have explored all the contradictory / complementary view pairs and single views at least once
+                break
+
+            if loop_count >= ground_truth_rank.shape[1]:
+                break
+
             # Epsilon-greedy: Pick the best available pair from top-k views for users to choose(exploitation),
             # or pick a random pair (exploration)
-            else:
-                if len(view_to_view_pairs_dict) <= 0:
-                    break
+            p = random.random()
+            if p > epsilon:
+                path, single_view_list = pick_from_top_k_views(view_rank, view_to_view_pairs_dict,
+                                                               non_contr_or_compl_views_df, top_k)
 
-                p = random.random()
-                if p > epsilon:
-                    path = pick_a_pair_from_top_k_views(view_rank, view_to_view_pairs_dict, top_k)
-                # path = None -> all pairs from current top-k views have been explored
-                if path == None or p <= epsilon:
+            # path = None -> all pairs from current top-k views have been explored
+            if (path == None and len(single_view_list) == 0) or p <= epsilon:
+
+                p2 = random.random()
+
+                if p2 < 0.5 and len(non_contr_or_compl_views_df_copy) > 0:
+                    single_view = non_contr_or_compl_views_df_copy.pop()
+                    single_view_list.append(single_view)
+                else:
                     view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
                     # pprint.pprint(view_to_view_pairs_dict)
                     # print(view1)
                     view2 = random.choice(pair_list)
                     path = (view1, view2)
+
+            # Explore unexplored views first
+            # if len(all_distinct_view_pairs) > 0 or len(
+            #         non_contr_or_compl_views_df_copy) > 0:  # and num_interactions < max_num_interactions / 2:
+            #
+            #     if len(all_distinct_view_pairs) <= 0:
+            #         single_view = non_contr_or_compl_views_df_copy.pop()
+            #         single_view_list.append(single_view)
+            #     elif len(non_contr_or_compl_views_df_copy) <= 0:
+            #         path = all_distinct_view_pairs.pop()
+            #     else:
+            #         p = random.random()
+            #         if p < 0.5:
+            #             path = all_distinct_view_pairs.pop()
+            #         else:
+            #             single_view = non_contr_or_compl_views_df_copy.pop()
+            #             single_view_list.append(single_view)
+            #
+            # # Epsilon-greedy: Pick the best available pair from top-k views for users to choose(exploitation),
+            # # or pick a random pair (exploration)
+            # else:
+            #
+            #     p = random.random()
+            #     if p > epsilon:
+            #         path, single_view = pick_from_top_k_views(view_rank, view_to_view_pairs_dict,
+            #                                                   non_contr_or_compl_views_df, top_k)
+            #
+            #     # path = None -> all pairs from current top-k views have been explored
+            #     if (path == None and len(single_view_list) == 0) or p <= epsilon:
+            #
+            #         p2 = random.random()
+            #
+            #         if p2 < 0.5 and len(non_contr_or_compl_views_df_copy) > 0:
+            #             single_view = non_contr_or_compl_views_df_copy.pop()
+            #             single_view_list.append(single_view)
+            #         else:
+            #             view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
+            #             # pprint.pprint(view_to_view_pairs_dict)
+            #             # print(view1)
+            #             view2 = random.choice(pair_list)
+            #             path = (view1, view2)
 
             print(
                 Colors.CBOLD + "--------------------------------------------------------------------------" +
@@ -486,13 +542,17 @@ if __name__ == '__main__':
             count = 0
             option_dict = {}
 
-            if single_view != None:
-                # present the single view
-                count += 1
-                path, sample_df = single_view
-                print(Colors.CBLUEBG2 + path + Colors.CEND)
-                print_option(count, sample_df)
-                option_dict[count] = (None, [sample_df], path)
+            if len(single_view_list) > 0:
+                # present the single views
+                for single_view in single_view_list:
+                    count += 1
+                    path, sample_df = single_view
+                    print(Colors.CBLUEBG2 + path + Colors.CEND)
+                    print_option(count, sample_df)
+                    option_dict[count] = (None, [sample_df], path)
+
+                    if single_view in non_contr_or_compl_views_df_copy:
+                        non_contr_or_compl_views_df_copy.remove(single_view)
             else:
                 path1 = path[0]
                 path2 = path[1]
@@ -688,7 +748,7 @@ if __name__ == '__main__':
                         key_rank[candidate_key_picked] += 1
 
                     # TODO： Add score for any view containing the contradictory or complementary row selected
-                    views_to_add_score = set()
+                    # views_to_add_score = set()
                     rows_picked = option_dict[option_picked][1]
                     for row_df in rows_picked:
                         row_strs = row_df_to_string(row_df)
@@ -697,13 +757,14 @@ if __name__ == '__main__':
                             if row_str in row_to_path_dict.keys():
                                 paths_containing_row = row_to_path_dict[row_str]
                                 for path in paths_containing_row:
-                                    views_to_add_score.add(path)
+                                    # views_to_add_score.add(path)
+                                    view_rank[path] += 1
 
                             if row_str in row_rank.keys():
                                 row_rank[row_str] += 1
 
-                    for path in views_to_add_score:
-                        view_rank[path] += 1
+                    # for path in views_to_add_score:
+                    #     view_rank[path] += 1
 
             print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
             sorted_view_rank = sort_view_by_scores(view_rank)
@@ -716,7 +777,7 @@ if __name__ == '__main__':
                 if rank != None:
                     ground_truth_rank[run][loop_count] = rank
                 else:
-                    print("ERROR!!!")
+                    print("ERROR!!! Did not find " + ground_truth_path + " in view rank")
                     exit()
 
             loop_count += 1
@@ -748,22 +809,29 @@ if __name__ == '__main__':
 
     # print(ground_truth_rank)
 
-    print("Average number of interactions = " + str(sum_num_interactions / num_runs))
+    if mode == Mode.optimal or mode == Mode.random:
+        print("Average number of interactions = " + str(sum_num_interactions / num_runs))
 
-    import matplotlib.pyplot as plt
+        import matplotlib.pyplot as plt
 
-    plt.rcParams['figure.figsize'] = [12, 8]
-    plt.rcParams['figure.dpi'] = 200
+        plt.rcParams['figure.figsize'] = [12, 8]
+        plt.rcParams['figure.dpi'] = 200
 
-    # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
-    # print(ground_truth_rank)
-    print(ground_truth_rank.shape)
-    # fig, ax = plt.subplots()
+        # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
+        # print(ground_truth_rank)
+        # print(ground_truth_rank.shape)
+        # fig, ax = plt.subplots()
 
-    plt.boxplot(ground_truth_rank[:, ::2])
-    locs, labels = plt.xticks()
-    # print(locs)
-    # print(labels)
-    # ax.set_xticks()
-    plt.xticks(ticks=locs, labels=np.arange(1, ground_truth_rank.shape[1] + 1, step=2))
-    plt.show()
+        plt.boxplot(ground_truth_rank[:, ::2])
+        if mode == Mode.optimal:
+            plt.title("With exploration/exploitation, optimal mode")
+        elif mode == Mode.random:
+            plt.title("With exploration/exploitation, random mode")
+        locs, labels = plt.xticks()
+        # print(locs)
+        # print(labels)
+        # ax.set_xticks()
+        plt.xticks(ticks=locs, labels=np.arange(1, ground_truth_rank.shape[1] + 1, step=2))
+        plt.xlabel("Interaction num")
+        plt.ylabel("Rank")
+        plt.show()

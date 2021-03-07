@@ -693,7 +693,7 @@ def main(input_path, candidate_key_size):
         groups_per_column_cardinality[key]['contradictory'] = contradictory_group
         groups_per_column_cardinality[key]['all_pair_contr_compl'] = all_pair_contr_compl
 
-    return groups_per_column_cardinality, schema_id_info
+    return groups_per_column_cardinality, dfs_per_schema
 
 
 def nochasing_main(input_path):

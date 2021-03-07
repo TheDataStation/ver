@@ -49,7 +49,7 @@ class Mode(Enum):
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./mit_id/"
+    dir_path = "./building/"
     # top-k views
     top_k = 10
     # epsilon-greedy
@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
     max_num_interactions = 1000
 
-    num_runs = 10
+    num_runs = 100
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -334,7 +334,7 @@ if __name__ == '__main__':
             res[v] = place
 
         if view in res.keys():
-            rank = res[ground_truth_path]
+            rank = res[view]
             return rank
         return None
 
@@ -349,27 +349,27 @@ if __name__ == '__main__':
 
     sum_num_interactions = 0
 
-    # ground_truth_path = "./mit_id/view_3"
-    # fact_bank_df = None
-    # optimal_candidate_key = ["Building Room", "Building Name"]
-    # if mode == Mode.optimal:
-    #     print("Ground truth view: " + ground_truth_path)
-    #     fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
-    #     fact_bank_df = mva.curate_view(fact_bank_df)
-    #     fact_bank_df = v4c.normalize(fact_bank_df)
+    ground_truth_path = "./building/view_49"
+    fact_bank_df = None
+    optimal_candidate_key = ["Building Room", "Building Name"]
+    if mode == Mode.optimal:
+        print("Ground truth view: " + ground_truth_path)
+        fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+        fact_bank_df = mva.curate_view(fact_bank_df)
+        fact_bank_df = v4c.normalize(fact_bank_df)
 
     for run in range(num_runs):
 
         print("Run " + str(run))
 
-        ground_truth_path = random.choice(list(view_files))
-        fact_bank_df = None
-        optimal_candidate_key = ["Building Room", "Building Name"]
-        if mode == Mode.optimal:
-            print("Ground truth view: " + ground_truth_path)
-            fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
-            fact_bank_df = mva.curate_view(fact_bank_df)
-            fact_bank_df = v4c.normalize(fact_bank_df)
+        # ground_truth_path = random.choice(list(view_files))
+        # fact_bank_df = None
+        # optimal_candidate_key = ["Building Room", "Building Name"]
+        # if mode == Mode.optimal:
+        #     print("Ground truth view: " + ground_truth_path)
+        #     fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+        #     fact_bank_df = mva.curate_view(fact_bank_df)
+        #     fact_bank_df = v4c.normalize(fact_bank_df)
 
         # Initialize ranking model
         key_rank = {}
@@ -526,7 +526,7 @@ if __name__ == '__main__':
                         key_rank[candidate_key_picked] += 1
 
                     # TODO： Add score for any view containing the contradictory or complementary row selected
-                    views_to_add_score = set()
+                    # views_to_add_score = set()
                     rows_picked = option_dict[option_picked][1]
                     for row_df in rows_picked:
                         row_strs = row_df_to_string(row_df)
@@ -535,13 +535,14 @@ if __name__ == '__main__':
                             if row_str in row_to_path_dict.keys():
                                 paths_containing_row = row_to_path_dict[row_str]
                                 for path in paths_containing_row:
-                                    views_to_add_score.add(path)
+                                    # views_to_add_score.add(path)
+                                    view_rank[path] += 1
 
                             if row_str in row_rank.keys():
                                 row_rank[row_str] += 1
 
-                    for path in views_to_add_score:
-                        view_rank[path] += 1
+                    # for path in views_to_add_score:
+                    #     view_rank[path] += 1
 
             print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
             sorted_view_rank = sort_view_by_scores(view_rank)
@@ -554,7 +555,7 @@ if __name__ == '__main__':
                 if rank != None:
                     ground_truth_rank[run][loop_count] = rank
                 else:
-                    print("ERROR!!!")
+                    print("ERROR!!! Did not find " + ground_truth_path + " in view rank")
                     exit()
 
             loop_count += 1
@@ -583,22 +584,29 @@ if __name__ == '__main__':
 
     # avg_ground_truth_rank = np.mean(ground_truth_rank, axis=0)
 
-    print("Average number of interactions = " + str(sum_num_interactions / num_runs))
+    if mode == Mode.optimal or mode == Mode.random:
+        print("Average number of interactions = " + str(sum_num_interactions / num_runs))
 
-    import matplotlib.pyplot as plt
+        import matplotlib.pyplot as plt
 
-    plt.rcParams['figure.figsize'] = [12, 8]
-    plt.rcParams['figure.dpi'] = 200
+        plt.rcParams['figure.figsize'] = [12, 8]
+        plt.rcParams['figure.dpi'] = 200
 
-    # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
-    # print(ground_truth_rank)
-    # print(ground_truth_rank.shape)
-    # fig, ax = plt.subplots()
+        # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
+        # print(ground_truth_rank)
+        # print(ground_truth_rank.shape)
+        # fig, ax = plt.subplots()
 
-    plt.boxplot(ground_truth_rank[:, ::2])
-    locs, labels = plt.xticks()
-    # print(locs)
-    # print(labels)
-    # ax.set_xticks()
-    plt.xticks(ticks=locs, labels=np.arange(1, ground_truth_rank.shape[1] + 1, step=2))
-    plt.show()
+        plt.boxplot(ground_truth_rank[:, ::2])
+        if mode == Mode.optimal:
+            plt.title("No exploration/exploitation, optimal mode")
+        elif mode == Mode.random:
+            plt.title("No exploration/exploitation, random mode")
+        locs, labels = plt.xticks()
+        # print(locs)
+        # print(labels)
+        # ax.set_xticks()
+        plt.xticks(ticks=locs, labels=np.arange(1, ground_truth_rank.shape[1] + 1, step=2))
+        plt.xlabel("Interaction num")
+        plt.ylabel("Rank")
+        plt.show()
