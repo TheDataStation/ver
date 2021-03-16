@@ -1,5 +1,6 @@
 from DoD import view_4c_analysis_baseline as v4c
 from DoD import material_view_analysis as mva
+from DoD.colors import Colors
 from tqdm import tqdm
 import random
 from enum import Enum
@@ -8,8 +9,6 @@ import pandas as pd
 import pprint
 import numpy as np
 from collections import defaultdict
-
-from DoD.colors import Colors
 
 import server_config as config
 
@@ -179,7 +178,7 @@ if __name__ == '__main__':
     row_to_path_dict = {}
 
 
-    def add_to_row_to_path_dict(row_strs, path):
+    def add_to_row_to_path_dict(row_to_path_dict, row_strs, path):
         for row in row_strs:
             if row not in row_to_path_dict.keys():
                 row_to_path_dict[row] = {path}
@@ -257,8 +256,8 @@ if __name__ == '__main__':
                     # row_df_to_string_time += (time.time() - start)
 
                     # start = time.time()
-                    add_to_row_to_path_dict(row1_strs, path1)
-                    add_to_row_to_path_dict(row2_strs, path2)
+                    add_to_row_to_path_dict(row_to_path_dict, row1_strs, path1)
+                    add_to_row_to_path_dict(row_to_path_dict, row2_strs, path2)
                     # add_to_row_to_path_dict_time += (time.time() - start)
 
             if len(contradictory_keys) == 0:
@@ -287,7 +286,7 @@ if __name__ == '__main__':
                     # row_df_to_string_time += (time.time() - start)
 
                     # start = time.time()
-                    add_to_row_to_path_dict(row1_strs, path1)
+                    add_to_row_to_path_dict(row_to_path_dict, row1_strs, path1)
                     # add_to_row_to_path_dict_time += (time.time() - start)
 
                 row2_dfs = []
@@ -304,7 +303,7 @@ if __name__ == '__main__':
                     # row_df_to_string_time += (time.time() - start)
 
                     # start = time.time()
-                    add_to_row_to_path_dict(row2_strs, path2)
+                    add_to_row_to_path_dict(row_to_path_dict, row2_strs, path2)
                     # add_to_row_to_path_dict_time += (time.time() - start)
 
                 all_pair_contr_compl_new[path][candidate_key_tuple].append((row1_dfs, row2_dfs))
@@ -323,7 +322,7 @@ if __name__ == '__main__':
         df = v4c.normalize(df)
 
         row_strs = row_df_to_string(df)
-        add_to_row_to_path_dict(row_strs, path)
+        add_to_row_to_path_dict(row_to_path_dict, row_strs, path)
 
         sample_df = df
         if len(df) > sample_size:
@@ -411,14 +410,18 @@ if __name__ == '__main__':
 
         print("Run " + str(run))
 
+        #################################################################################
         ground_truth_path = random.choice(list(view_files))
         fact_bank_df = None
-        optimal_candidate_key = ["Building Room", "Building Name"]
+        fact_bank_fraction = 1.0
+        # optimal_candidate_key = ["Building Room", "Building Name"]
         if mode == Mode.optimal:
             print("Ground truth view: " + ground_truth_path)
             fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
             fact_bank_df = mva.curate_view(fact_bank_df)
             fact_bank_df = v4c.normalize(fact_bank_df)
+            fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
+        #################################################################################
 
         # Initialize ranking model
         key_rank = {}
