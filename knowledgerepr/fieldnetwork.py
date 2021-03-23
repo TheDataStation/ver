@@ -84,6 +84,11 @@ class FieldNetwork:
             return 0  # no cardinality is like card 0
         return card
 
+    def get_size_of(self, node_id):
+        c = self.__G.node[node_id]
+        size = c['size']
+        return size
+
     def _get_underlying_repr_graph(self):
         return self.__G
 
@@ -114,17 +119,17 @@ class FieldNetwork:
             cardinality_ratio = None
             if float(total_values) > 0:
                 cardinality_ratio = float(unique_values) / float(total_values)
-            self.add_field(nid, cardinality_ratio)
+            self.add_field(nid, cardinality_ratio, unique_values)
         print("Building schema relation...OK")
 
-    def add_field(self, nid, cardinality=None):
+    def add_field(self, nid, cardinality=None, size=0):
         """
         Creates a graph node for this field and adds it to the graph
         :param nid: the id of the node (a hash of dbname, sourcename and fieldname
         :param cardinality: the cardinality of the values of the node, if any
         :return: the newly added field node
         """
-        self.__G.add_node(nid, cardinality=cardinality)
+        self.__G.add_node(nid, cardinality=cardinality, size=size)
         return nid
 
     def add_fields(self, list_of_fields):

@@ -11,8 +11,8 @@ Test cases for adventureWork Dataset
 '''
 class AWDataTest(unittest.TestCase):
     def setUp(self):
-        model_path = config.Mit.path_model
-        sep = config.Mit.separator
+        model_path = config.Advw.path_model
+        sep = config.Advw.separator
 
         store_client = StoreHandler()
         network = fieldnetwork.deserialize_network(model_path)
@@ -26,13 +26,28 @@ class AWDataTest(unittest.TestCase):
             FROM HumanResources.Employee JOIN Person.Person
             on Employee.BusinessEntityID = Person.BusinessEntityID;
         '''
-        attrs = ["FirstName", "LastName", "JobTitle"]
-        values = [["Syed", "Abbas", "Pacific Sales Manager"],
+        attrs = ["", "", ""]
+        values = [["Amy", "Alberts", "European Sales Manager"],
                   ["Ryan", "Cornelsen", "Production Technician - WC40"],
-                  ["Erin", "Hagens", "Buyer"]]
+                  ["Gary", "Altman", "Facilities Manager"]]
         types = ["object", "object", "object"]
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
-              output_path=config.Mit.output_path)
+              output_path=config.Advw.output_path, offset=10)
+
+    def test_case11(self):
+        '''
+        GroundTruth SQL:
+            SELECT FirstName, LastName, Gender, JobTitle
+            FROM HumanResources.Employee JOIN Person.Person
+            on Employee.BusinessEntityID = Person.BusinessEntityID;
+        '''
+        attrs = ["", "", ""]
+        values = [["Amy", "Alberts", "European Sales Manager"],
+                  ["Ryan", "Cornelsen", "Production Technician - WC40"],
+                  ["Gary", "Altman", "Facilities Manager"]]
+        types = ["object", "object", "object"]
+        start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
+              output_path=config.Advw.output_path)
 
     def test_case2(self):
         '''
@@ -50,7 +65,7 @@ class AWDataTest(unittest.TestCase):
                   ["China", "CNY", "Yuan Renminbi"]]
         types = ["object", "object", "object"]
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
-              output_path=config.Mit.output_path)
+              output_path=config.Advw.output_path)
 
     def test_case3(self):
         '''
@@ -68,4 +83,4 @@ class AWDataTest(unittest.TestCase):
                   ["1050 Greenhills Circle", "New South Wales", "Australia"]]
         types = ["object", "object", "object"]
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
-              output_path=config.Mit.output_path)
+              output_path=config.Advw.output_path)

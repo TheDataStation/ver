@@ -10,7 +10,7 @@ from nearpy.hashes import RandomBinaryProjections, RandomBinaryProjectionTree
 from nearpy.hashes import RandomDiscretizedProjections
 from nearpy.distances import CosineDistance, EuclideanDistance, ManhattanDistance
 from sklearn.decomposition import TruncatedSVD
-from datasketch import MinHash, MinHashLSH
+from datasketch import MinHash, MinHashLSH, MinHashLSHEnsemble
 
 from sklearn.cluster import DBSCAN
 import numpy as np
@@ -238,19 +238,22 @@ def build_content_sim_mh_text(network, mh_signatures, t):
     # Materialize signatures for convenience
     mh_sig_obj = []
 
-    content_index = MinHashLSH(threshold=t, num_perm=512)
+    content_index = MinHashLSHEnsemble(threshold=t, num_perm=512, num_part=32)
 
+    objects = []
     # Create minhash objects and index
     for nid, mh_sig in mh_signatures:
         mh_obj = MinHash(num_perm=512)
         mh_array = np.asarray(mh_sig, dtype=int)
         mh_obj.hashvalues = mh_array
-        content_index.insert(nid, mh_obj)
+        # content_index.insert(nid, mh_obj)
+        n_size = network.get_size_of(nid)
+        objects.append((nid, mh_obj, n_size))
         mh_sig_obj.append((nid, mh_obj))
-
+    content_index.index(objects)
     # Query objects
     for nid, mh_obj in mh_sig_obj:
-        res = content_index.query(mh_obj)
+        res = content_index.query(mh_obj, network.get_size_of(nid))
         for r_nid in res:
             if r_nid != nid:
                 connect(nid, r_nid, 1)
@@ -652,14 +655,10 @@ def build_pkfk_relation(network):
     total_pkfk_relations = 0
     for n in network.iterate_ids():
         n_card = network.get_cardinality_of(n)
-        if n == '2316507623':
-            debug = True
-        if n_card > 0.7:  # Early check if this is a candidate
+        if n_card > 0.5:  # Early check if this is a candidate
             neighborhood = get_neighborhood(n)
             for ne in neighborhood:
                 if ne is not n:
-                    if ne.nid == '1504465753' or ne.nid == '2314808454':
-                        debug = True
                     ne_card = network.get_cardinality_of(ne.nid)
                     if n_card > ne_card:
                         highest_card = n_card

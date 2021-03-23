@@ -26,7 +26,9 @@ class MitDataTest(unittest.TestCase):
 
     def test_case2(self):
         attrs = ["Mit Id", "", ""]
-        values = [["", "kimball", "Mechanical Engineering"]]
+        values = [["", "kimball", "Mechanical"],
+                  ["", "pjcorn", "Medical"],
+                  ["", "Patil", "Computer Science"]]
         types = ["int64", "object", "object"]
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
               output_path=config.Mit.output_path)
@@ -47,3 +49,10 @@ class MitDataTest(unittest.TestCase):
         types = ["object", "object", "object"]
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
               output_path=config.Mit.output_path)
+
+    def test_case5(self):
+        attrs = ["Building Name Long", "Ext Gross Area", "Building Room", "Room Square Footage"]
+        values = [["224 Albany Street", "", "", ""]]
+        types = ["object", "float", "object", "float"]
+        start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
+              output_path=config.Mit.output_path, offset=100)

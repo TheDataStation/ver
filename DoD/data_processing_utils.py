@@ -283,6 +283,19 @@ def read_relation_on_copy(relation_path):
         cache[relation_path] = df
     return df.copy()
 
+def read_relation_on_copy2(relation_path, separator):
+    """
+    This is assuming than copying a DF is cheaper than reading it back from disk
+    :param relation_path:
+    :return:
+    """
+    if relation_path in cache:
+        df = cache[relation_path]
+    else:
+        df = pd.read_csv(relation_path, encoding='latin1', sep=separator)
+        cache[relation_path] = df
+    return df.copy()
+
 
 def empty_relation_cache():
     global cache
