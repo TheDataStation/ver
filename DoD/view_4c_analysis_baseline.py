@@ -688,7 +688,7 @@ def main(input_path, candidate_key_size):
         dfs_with_metadata = get_df_metadata(group_dfs)
 
         # summarized_group, complementary_group, contradictory_group = brute_force_4c(dfs_with_metadata)
-        compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = \
+        compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl_cur = \
             no_chasing_4c(
                 dfs_with_metadata, candidate_key_size)
 
@@ -696,7 +696,7 @@ def main(input_path, candidate_key_size):
         contained_groups += contained_group
         complementary_groups += complementary_group
         contradictory_groups += contradictory_group
-        all_pair_contr_compl.update(all_pair_contr_compl)
+        all_pair_contr_compl.update(all_pair_contr_compl_cur)
 
         # groups_per_column_cardinality[key]['compatible'] = compatible_group
         # groups_per_column_cardinality[key]['contained'] = contained_group

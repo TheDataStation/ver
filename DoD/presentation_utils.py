@@ -388,6 +388,13 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
     num_interactions = 0
     while num_interactions < max_num_interactions:
 
+        path = None
+        single_view_list = []
+
+        if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
+            # we have explored all the contradictory / complementary view pairs and single views at least once
+            break
+
         clear_output()
         out.clear_output()
 
@@ -396,13 +403,6 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
             print(Colors.CBEIGEBG + "Current view scores" + Colors.CEND)
             pprint.pprint(sorted_view_rank)
         # display(out)
-
-        path = None
-        single_view_list = []
-
-        if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
-            # we have explored all the contradictory / complementary view pairs and single views at least once
-            break
 
         # Explore unexplored views first
         # if len(all_distinct_view_pairs) > 0 or len(
@@ -830,6 +830,13 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
         num_interactions = 0
         while num_interactions < max_num_interactions:
 
+            path = None
+            single_view_list = []
+
+            if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
+                # we have explored all the contradictory / complementary view pairs and single views at least once
+                break
+
             # clear_output()
             out.clear_output()
             buttons = [skip_button, stop_button]
@@ -840,13 +847,6 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
                 pprint.pprint(sorted_view_rank)
                 display(HBox([skip_button, stop_button]))
             # display(out)
-
-            path = None
-            single_view_list = []
-
-            if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
-                # we have explored all the contradictory / complementary view pairs and single views at least once
-                break
 
             # Explore unexplored views first
             # if len(all_distinct_view_pairs) > 0 or len(
