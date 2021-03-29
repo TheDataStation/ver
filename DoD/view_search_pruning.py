@@ -225,6 +225,7 @@ class ViewSearchPruning:
         # We group now into groups that convey multiple filters.
         # Obtain list of tables ordered from more to fewer filters.
         table_fulfilled_filters = defaultdict(list)
+        filter_fulfilled_tables = defaultdict(list)
         table_nid = dict()  # collect nids -- used later to obtain an access path to the tables
         # table_hits = defaultdict(list)
         for filter, hits in filter_drs.items():
@@ -232,6 +233,7 @@ class ViewSearchPruning:
                 table = hit.source_name
                 nid = hit.nid
                 table_nid[table] = nid
+                filter_fulfilled_tables[filter].append((table, hit.field_name))
                 if filter[2] not in [id for _, _, id in table_fulfilled_filters[table]]:
                     table_fulfilled_filters[table].append(((filter[0], hit.field_name), FilterType.ATTR, filter[2]))
                     # if len(table_fulfilled_filters[table]) == len(filter_drs):
@@ -270,10 +272,22 @@ class ViewSearchPruning:
             def sort_candidate_group(unordered_cg):
                 ordered_cg = sorted(unordered_cg, key=lambda tup: tup[0])
                 return [x[1] for x in ordered_cg]
-
+            candidate_table_groups = filter_fulfilled_tables.values()
+            filters = list(filter_drs.keys())
+            import itertools
+            for group in list(itertools.product(*candidate_table_groups)):
+                candidate_group_unordered = []
+                candidate_group_filters_covered = []
+                for idx, item in enumerate(group):
+                    if item[0] not in candidate_group_unordered:
+                        candidate_group_unordered.append(item[0])
+                    f = ((filters[idx][0], item[1]), FilterType.ATTR, filters[idx][2])
+                    if f not in candidate_group_filters_covered:
+                        candidate_group_filters_covered.append(f)
+                yield (list(candidate_group_unordered), candidate_group_filters_covered)
             # Eagerly obtain groups of tables that cover as many filters as possible
             backup = []
-            go_on = True
+            go_on = False
             while go_on:
                 candidate_group_unordered = []
                 candidate_group_filters_covered = set()
@@ -289,16 +303,17 @@ class ViewSearchPruning:
                         # print("1: " + str(table_pivot))
                         yield (candidate_group, candidate_group_filters_covered)  # early stop
                         # Cleaning
-                        clear_state()
-                        continue
+                        # clear_state()
+                        # continue
                     for j in range(len(list(table_fulfilled_filters.items()))):
                         idx = i + j + 1
                         if idx == len(table_fulfilled_filters.items()):
                             break
                         table, filters = list(table_fulfilled_filters.items())[idx]
                         # new_filters = len(set(filters).union(candidate_group_filters_covered)) - len(candidate_group_filters_covered)
-                        new_filters = compute_size_filter_ix(filters, candidate_group_filters_covered)
-                        if new_filters > 0:  # add table only if it adds new filters
+                        # new_filters = compute_size_filter_ix(filters, candidate_group_filters_covered)
+                        # if new_filters > 0:  # add table only if it adds new filters
+                        if True:
                             candidate_group_unordered.append((filters[0][2], table))
                             candidate_group_filters_covered.update(filters)
                             if covers_filters(candidate_group_filters_covered):
@@ -392,14 +407,15 @@ class ViewSearchPruning:
             # join graphs covers all tables in candidate_group, so if they're materializable we're good.
             total_materializable_join_graphs = 0
             materializable_join_graphs = []
+            filters = candidate_group_filters_covered
             for jpg in join_graphs:
                 # Obtain filters that apply to this join graph
-                filters = set()
-                for l, r in jpg:
-                    if l.source_name in candidate_group:
-                        filters.update(table_fulfilled_filters[l.source_name])
-                    if r.source_name in candidate_group:
-                        filters.update(table_fulfilled_filters[r.source_name])
+                # filters = set()
+                # for l, r in jpg:
+                #     if l.source_name in candidate_group:
+                #         filters.update(table_fulfilled_filters[l.source_name])
+                #     if r.source_name in candidate_group:
+                #         filters.update(table_fulfilled_filters[r.source_name])
 
                 # TODO: obtain join_graph score for diff metrics. useful for ranking later
                 # rank_materializable_join_graphs(materializable_join_paths, table_path, dod)
