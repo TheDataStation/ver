@@ -1,6 +1,5 @@
 .DS_Store
 .ipynb_checkpoints/
-*.ipynb
 .python-version
 
 # Byte-compiled / optimized / DLL files
@@ -76,7 +75,6 @@ notes.sh
 
 # Index Pickle Files
 /test/testmodel/*.pickle
-/test/
 
 /venv/*
 # Frontend node modules
