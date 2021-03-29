@@ -1,384 +1,542 @@
-'''
-Algorithm:
-
-Input: a list of signals, views
-
-1. Evaluate each signal, if necessary (Some signals may only needed to be evaluated one time or lazily) (deterministic)
-2. Split the views according to the signals (deterministic?) (try hierarchical clustering?)
-3. Pick the best signal to split on according to the impurity criterion
-4. Show user the representative view (function) from each split (each group of views)
-5. User assigns a score to each representative view (or rank them in order of preference).
-6. Update the ranking model.
-7. Repeat from 3. Pick the next best signal to split on (with replacement if a signal is continuous or
-   without replacement if a signal is categorical). The process continues until there’s no more signal to split on
-   or user is satisfied with the current result
-8. Show the user the views in the order of their preference, based on a ranking criterion.
-
-'''
-from abc import ABC, abstractmethod
-import random
+from presentation_utils import *
 from DoD import view_4c_analysis_baseline as v4c
+from DoD import material_view_analysis as mva
+from DoD.colors import Colors
+from tqdm import tqdm
+import random
+from enum import Enum
+import glob
+import pandas as pd
+import pprint
+import numpy as np
+from collections import defaultdict
+
+import server_config as config
 
 
-class Signal(ABC):
-
-    @abstractmethod
-    def evaluate(self):
-        pass
-
-    @abstractmethod
-    def representatives(self):
-        # returns {'signal_value': representative sample to show user}
-        pass
-
-
-class ContinuousSignal(Signal):
-
-    @abstractmethod
-    def cluster(self, threshold):
-        pass
-
-    @abstractmethod
-    def split(self, threshold, cluster=None):
-        # Can re-split on a specific cluster
-        # returns {group1: [view_files], group2: [view_files], ...}
-        pass
-
-
-class DiscreteSignal(Signal):
-
-    @abstractmethod
-    def split(self):
-        # returns {group1: [view_files], group2: [view_files], ...}
-        pass
-
-
-class ViewSize(ContinuousSignal):
-
-    def __init__(self, views):
-        self.views = views
-        self.sizes = {}  # sizes[size] = [views]
-        self.clusters = {}  # clusters[label] = [views]
-
-    def evaluate(self):
-        self.sizes.clear()
-        for df_file_tuple in self.views:
-            view = df_file_tuple[0]
-            if len(view) in self.sizes.keys():
-                self.sizes[len(view)].append(df_file_tuple)
-            else:
-                self.sizes[len(view)] = [df_file_tuple]
-
-    def cluster(self, threshold):
-        # TODO
-        from sklearn.cluster import KMeans
-        import numpy as np
-
-        to_cluster = np.array(list(self.sizes.keys()), dtype=int).reshape(-1, 1)
-        kmeans = KMeans(n_clusters=threshold).fit(to_cluster)
-
-        labels = kmeans.labels_.tolist()
-        sizes = to_cluster.flatten().tolist()
-        assert len(labels) == len(sizes)
-
-        self.clusters.clear()
-        # views with the same label belong in same cluster
-        for label, size in zip(labels, sizes):
-            if label in self.clusters.keys():
-                self.clusters[label] = self.clusters[label] + self.sizes[size]
-            else:
-                self.clusters[label] = self.sizes[size]
-
-    def split(self, threshold, cluster=None):
-        if cluster != None:
-            # Narrowing down the region
-            self.views = self.clusters[cluster]
-            self.evaluate()
-
-        if len(self.sizes.keys()) > threshold:
-            self.cluster(threshold)
-        else:
-            self.clusters = self.sizes
-
-        # just trying to extract the view file from the tuple
-        splits = {label: [df_file_tuple[1] for df_file_tuple in views] for label, views in self.clusters.items()}
-        return splits
-
-    def representatives(self):
-        # TODO: choose a random view in each group for now
-        representatives = {}
-        for label, views in self.clusters.items():
-            representatives[label] = random.choice(views)
-        return representatives
-
-
-class PrimaryKey(DiscreteSignal):
-
-    def __init__(self, primary_keys):
-        # dict['pk'] = [views]
-        self.primary_keys = primary_keys
-
-    def evaluate(self):
-        pass
-
-    def split(self):
-        splits = {pk: [df_file_tuple[1] for df_file_tuple in views] for pk, views in self.primary_keys.items()}
-        return splits
-
-    def representatives(self):
-        # TODO: choose a random view in each group for now
-        representatives = {}
-        for pk, views in self.primary_keys.items():
-            representatives[pk] = random.choice(views)
-        return representatives
-
-
-class ContradictoryViews(DiscreteSignal):
-
-    def __init__(self, contradictions):
-        # dict[contradictory row] = [(row_df, view_file)]
-        self.contradictions = contradictions
-
-    def evaluate(self):
-        pass
-
-    def split(self):
-        splits = {row: [df_file_tuple[1] for df_file_tuple in views] for row, views in self.contradictions.items()}
-        return splits
-
-    def representatives(self):
-        # TODO: show the two contradictory rows
-        representatives = {}
-        for row, views in self.contradictions.items():
-            # although it's random, the contradictory row's dataframe is the same (except the index)
-            representatives[row] = random.choice(views)
-        return representatives
-
-
-def pick_best_signal_to_split(splits):
-    # If the user randomly pick a branch in the split, what's the expected value of uncertainty removed?
-    # ev = sum over p_i * x_i
-    # gain = total size - ev
-    # TODO: Do we need to use gain ratio to penalize large number of distinct values, or it's unnecessary
-    #  if we already have the split threshold?
-    max_gain = -1
-    for signal, dict in splits.items():
-        split = [len(views) for views in dict.values()]
-        expected_value = 0.0
-        split_size = sum(split)
-        for num in split:
-            expected_value += num / split_size * num
-        gain = split_size - expected_value
-        if gain > max_gain:
-            max_gain = gain
-            best_signal = signal
-    return best_signal
+class Mode(Enum):
+    manual = 1,
+    random = 2,
+    optimal = 3
 
 
 if __name__ == '__main__':
 
-    import glob
-    import pandas as pd
-    import pprint
+    #################################CONFIG#####################################
+    dir_path = "./toytest/"
+    # top-k views
+    top_k = 10
+    # epsilon-greedy
+    epsilon = 0.1
+    # max size of candidate (composite) key
+    candidate_key_size = 2
+    # sample size of contradictory and complementary rows to present
+    sample_size = 5
+
+    mode = Mode.manual
+
+    max_num_interactions = 1000
+
+    num_runs = 1
+    ############################################################################
 
     pd.set_option('display.max_columns', None)
-    # pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_rows', None)
     pd.set_option('display.max_colwidth', None)
     pd.set_option('display.width', None)  # or 199
 
-    dir_path = "./test"
+    msg_vspec = """
+                    ######################################################################################################################
+                    #                                              View Presentation                                                     #
+                    #                    Goal: Help users find their preferred view among all generated views                            #                 
+                    # 1. Run 4C algorithm that classifies the views into 4 categories:                                                   #
+                    #    Compatible, Contained, Contradictory, Complementary                                                             #
+                    # 2. Remove duplicates in compatible views and keep the view with the largest cardinality in contained views         #
+                    # 3. Users choose the candidate key and its respective contradictory and complementary rows                          #
+                    # 4. Exploitation vs exploration: exploit the knowledge based on user's previous selections                          #
+                    #    and explore other options occasionally                                                                          #
+                    # 5. Rank the views based on user's preference by keeping an inverted index from each row to the views containing it #                                                             #
+                    ######################################################################################################################
+                  """
+    print(msg_vspec)
 
     # Run 4C
-    results = v4c.main(dir_path)
+    print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+    print("Running 4C...")
+
+    results, views_by_schema_dict = v4c.main(dir_path, candidate_key_size)
 
     # TODO: don't separate by schemas for now
     compatible_groups = []
     contained_groups = []
     complementary_groups = []
     contradictory_groups = []
-    for k, v in results[0].items():
+    all_pair_contr_compl = {}
+
+    # views_by_schema_dict = defaultdict(set)
+
+    for k, v in results.items():
         compatible_groups = compatible_groups + v['compatible']
         contained_groups = contained_groups + v['contained']
         complementary_groups = complementary_groups + v['complementary']
         contradictory_groups = contradictory_groups + v['contradictory']
+        all_pair_contr_compl.update(v['all_pair_contr_compl'])
 
-    csv_files = glob.glob(dir_path + "/view_*")
-    view_dfs = []
-    has_compatible_view_been_added = [False] * len(compatible_groups)
+    # print(views_by_schema_dict.keys())
 
-    for f in csv_files:
-        # remove duplicates in compatible groups
-        already_added = False
-        for i, compatible_group in enumerate(compatible_groups):
-            if f in compatible_group:
-                if has_compatible_view_been_added[i]:
-                    already_added = True
+    # print(compatible_groups)
+    # print(contained_groups)
+    # for path1, candidate_key_tuple, key_value_tuples, path2 in contradictory_groups:
+    #     print(path1 + " - " + path2)
+    #
+    # for path1, path2, _, _, _ in complementary_groups:
+    #     print(path1 + " - " + path2)
+    #
+    # for k,v in views_by_schema_dict.items():
+    #     print([path for df, path in v])
+
+    print()
+    print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+
+    view_files = glob.glob(dir_path + "/view_*")
+    print("Number of views: ", len(view_files))
+
+    view_files = prune_compatible_views(view_files, compatible_groups)
+    print("After pruning compatible views: ", len(view_files))
+
+    view_files = prune_contained_views(view_files, contained_groups)
+    print("After pruning contained views: ", len(view_files))
+
+    print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+    print("Processing complementary and contradictory views...")
+
+    contr_or_compl_view_pairs, non_contr_or_compl_views, row_to_path_dict = preprocess(view_files, all_pair_contr_compl,
+                                                                                       sample_size)
+
+
+    def print_option(option_num, df):
+        print(Colors.CGREENBG2 + "Option " + str(option_num) + Colors.CEND)
+        print(df)
+
+
+    ground_truth_rank = np.empty((num_runs, len(contr_or_compl_view_pairs.keys()) + len(non_contr_or_compl_views)),
+                                 dtype=int)
+
+    sum_num_interactions = 0
+
+    # ground_truth_path = "./building/view_49"
+    # fact_bank_df = None
+    # optimal_candidate_key = ["Building Room", "Building Name"]
+    # if mode == Mode.optimal:
+    #     print("Ground truth view: " + ground_truth_path)
+    #     fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+    #     fact_bank_df = mva.curate_view(fact_bank_df)
+    #     fact_bank_df = v4c.normalize(fact_bank_df)
+
+    for run in range(num_runs):
+
+        print("Run " + str(run))
+
+        #################################################################################
+        ground_truth_path = random.choice(list(view_files))
+        fact_bank_df = None
+        fact_bank_fraction = 1.0
+        # optimal_candidate_key = ["Building Room", "Building Name"]
+        if mode == Mode.optimal:
+            print("Ground truth view: " + ground_truth_path)
+            fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+            fact_bank_df = mva.curate_view(fact_bank_df)
+            fact_bank_df = v4c.normalize(fact_bank_df)
+            fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
+        #################################################################################
+
+        # Initialize ranking model
+        key_rank = {}
+        row_rank = row_to_path_dict.copy()
+        for row, path in row_rank.items():
+            row_rank[row] = 0
+        view_rank = {}
+        for path in view_files:
+            view_rank[path] = 0
+
+        # TODO: dynamic exploration / exploitation
+        paths = list(contr_or_compl_view_pairs.keys())
+        random.shuffle(paths)
+
+        # Explore unexplored views first
+        all_distinct_view_pairs = set()
+        distinct_views = set()
+        for path in paths:
+            path1 = path[0]
+            path2 = path[1]
+            if path1 not in distinct_views and path2 not in distinct_views:
+                all_distinct_view_pairs.add(path)
+                distinct_views.add(path1)
+                distinct_views.add(path2)
+        other_non_distinct_view_pairs = set(paths) - set(all_distinct_view_pairs)
+
+        view_to_view_pairs_dict = defaultdict(list)
+        for path in paths:
+            path1 = path[0]
+            path2 = path[1]
+            view_to_view_pairs_dict[path1].append(path2)
+            view_to_view_pairs_dict[path2].append(path1)
+
+        # print(len(paths))
+        # print(len(all_distinct_view_pairs))
+        # print(len(other_non_distinct_view_pairs))
+
+        non_contr_or_compl_views_copy = non_contr_or_compl_views.copy()
+
+        num_interactions = 0
+        loop_count = 0
+        while num_interactions < max_num_interactions:
+
+            path = None
+            single_view_list = []
+
+            if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
+                # we have explored all the contradictory / complementary view pairs and single views at least once
+                break
+
+            if loop_count >= ground_truth_rank.shape[1]:
+                break
+
+            # Explore unexplored views first
+            # if len(all_distinct_view_pairs) > 0 or len(
+            #         non_contr_or_compl_views_copy) > 0:  # and num_interactions < max_num_interactions / 2:
+            #
+            #     if len(all_distinct_view_pairs) <= 0:
+            #         single_view = non_contr_or_compl_views_copy.pop()
+            #         single_view_list.append(single_view)
+            #     elif len(non_contr_or_compl_views_copy) <= 0:
+            #         path = all_distinct_view_pairs.pop()
+            #     else:
+            #         p = random.random()
+            #         if p < 0.5:
+            #             path = all_distinct_view_pairs.pop()
+            #         else:
+            #             single_view = non_contr_or_compl_views_copy.pop()
+            #             single_view_list.append(single_view)
+            # else:
+            # Epsilon-greedy: Pick the best available pair from top-k views for users to choose(exploitation),
+            # or pick a random pair (exploration)
+            p = random.random()
+            if p > epsilon:
+                path, single_view_list = pick_from_top_k_views(view_rank, view_to_view_pairs_dict,
+                                                               non_contr_or_compl_views, top_k)
+
+            # path = None -> all pairs from current top-k views have been explored
+            if (path == None and len(single_view_list) == 0) or p <= epsilon:
+
+                p2 = random.random()
+
+                if p2 < 0.5 and len(non_contr_or_compl_views_copy) > 0:
+                    single_view = non_contr_or_compl_views_copy.pop()
+                    single_view_list.append(single_view)
                 else:
-                    has_compatible_view_been_added[i] = True
+                    view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
+                    # pprint.pprint(view_to_view_pairs_dict)
+                    # print(view1)
+                    view2 = random.choice(pair_list)
+                    path = (view1, view2)
 
-        if not already_added:
-            df = pd.read_csv(f)
-            view_dfs.append((df, f))
+            print(
+                Colors.CBOLD + "--------------------------------------------------------------------------" +
+                Colors.CEND)
 
-    print("\n--------------------------------------------------------------------------")
-    print("Number of views: ", len(csv_files))
-    print("After removing duplicates in compatible groups: ", len(view_dfs))
+            count = 0
+            option_dict = {}
 
-    signals = []
-    view_files = [v[1] for v in view_dfs]
+            if len(single_view_list) > 0:
+                # present the single views
+                for single_view in single_view_list:
+                    count += 1
+                    path, sample_df = single_view
+                    print(Colors.CBLUEBG2 + path + Colors.CEND)
+                    print_option(count, sample_df)
+                    option_dict[count] = (None, [sample_df], path)
 
-    # complementary views
-    # print("Complementary views: ")
-    complementary_views_count = 0
-    for path1, path2, _, _, _ in complementary_groups:
-        if path1 in view_files and path2 in view_files:
-            complementary_views_count += 1
-            # print(path1 + " - " + path2)
-    print("Found ", complementary_views_count, " pair of complementary views")
-
-    # Integrate contradictory groups as signals
-    contradictions_dict = {}
-    contradictions_dict_dedup = {}  # for deduplication
-    for path1, composite_key_tuple, key_value_tuples, path2 in contradictory_groups:
-
-        if not (path1 in view_files or path2 in view_files):
-            continue
-
-        # TODO: reading csv multiple times...
-        df1 = pd.read_csv(path1)
-        df1 = v4c.normalize(df1)
-        df1 = df1.sort_index(axis=1)
-        df2 = pd.read_csv(path2)
-        df2 = v4c.normalize(df2)
-        df2 = df2.sort_index(axis=1)
-
-        composite_key = list(composite_key_tuple)
-        key_values = list(key_value_tuples)
-
-        for key_value in key_values:
-            condition1 = (df1[composite_key[0]] == key_value[0])
-            condition2 = (df2[composite_key[0]] == key_value[0])
-            for i in range(1, len(composite_key)):
-                condition1 = (condition1 & (df1[composite_key[i]] == key_value[i]))
-                condition2 = (condition2 & (df2[composite_key[i]] == key_value[i]))
-
-            row1_df = df1.loc[condition1]
-            row2_df = df2.loc[condition2]
-
-            # TODO: I want to use (row1, row2) as key for my dictionary but using to_string seems too hacky
-            row1 = row1_df.to_string(header=False, index=False, index_names=False)
-            row2 = row2_df.to_string(header=False, index=False, index_names=False)
-
-            # (row1, row2) and (row2, row1) count as the same contradiction
-            already_added = False
-            if (row1, row2) in contradictions_dict_dedup.keys():
-                already_added = True
-            elif (row2, row1) in contradictions_dict_dedup.keys():
-                row1, row2 = row2, row1
-                path1, path2 = path2, path1
-                row1_df, row2_df = row2_df, row1_df
-            if already_added:
-                # This is kind of ugly. But since I can't add the tuple directly to a set, I need to have a separate
-                # dict for deduplication of paths
-                if path1 not in contradictions_dict_dedup[(row1, row2)][0]:
-                    contradictions_dict[(row1, row2)][0].append((row1_df, path1))
-                if path2 not in contradictions_dict_dedup[(row1, row2)][1]:
-                    contradictions_dict[(row1, row2)][1].append((row2_df, path2))
-
-                contradictions_dict_dedup[(row1, row2)][0].add(path1)
-                contradictions_dict_dedup[(row1, row2)][1].add(path2)
+                    if single_view in non_contr_or_compl_views_copy:
+                        non_contr_or_compl_views_copy.remove(single_view)
             else:
-                contradictions_dict_dedup[(row1, row2)] = ({path1}, {path2})  # use set to avoid duplicates
-                contradictions_dict[(row1, row2)] = ([(row1_df, path1)], [(row2_df, path2)])
+                path1 = path[0]
+                path2 = path[1]
+                if path not in contr_or_compl_view_pairs.keys():
+                    path = (path2, path1)
+                    path1 = path[0]
+                    path2 = path[1]
 
-    print("Found ", len(contradictions_dict), " contradictions\n")
+                view_to_view_pairs_dict[path1].remove(path2)
+                view_to_view_pairs_dict[path2].remove(path1)
 
-    # One signal for each contradiction
-    for contradiction, views_tuple in contradictions_dict.items():
-        contradiction_dict = {}
-        # Two groups of views, each corresponds to a contradictory row
-        contradiction_dict[contradiction[0]] = views_tuple[0]
-        contradiction_dict[contradiction[1]] = views_tuple[1]
+                if len(view_to_view_pairs_dict[path1]) == 0:
+                    del view_to_view_pairs_dict[path1]
+                    # print("deleted " + path1)
+                if len(view_to_view_pairs_dict[path2]) == 0:
+                    del view_to_view_pairs_dict[path2]
+                    # print("deleted " + path2)
 
-        contradiction_signal = ContradictoryViews(contradiction_dict)
-        signals.append(contradiction_signal)
+                # pprint.pprint(view_to_view_pairs_dict)
 
-    size_signal = ViewSize(view_dfs)
-    signals.append(size_signal)
+                print(Colors.CBLUEBG2 + path1 + " - " + path2 + Colors.CEND)
 
-    # assign fake primary keys randomly
-    pk_dict = {}
-    random.shuffle(view_dfs)
-    fake_pk_dict = {}
-    num_pks = 2
-    for i in range(num_pks):
-        fake_pk_dict[i] = view_dfs[i::num_pks]
-    pk_signal = PrimaryKey(fake_pk_dict)
-    # signals.append(pk_signal)
+                candidate_key_dict = contr_or_compl_view_pairs[path]
 
-    # Evaluate
-    for signal in signals:
-        signal.evaluate()
+                # exploitation vs exploration
+                # TODO:
+                #  Epsilon-greedy:
+                #  If the user has selected the a candidate key (n times) more frequently than the others,
+                #  this means they are pretty confident about their choices, so we don't bother showing them other keys
+                #  again.
+                #  (This can be more complicated, like using confidence bounds etc)
+                #  In epsilon probability, we still show the user all candidate keys in case they made a mistake or
+                #  want to explore other keys
 
-    # Do split (and do clustering based on split_threshold if necessary)
-    split_threshold = 3
-    splits = {}
-    for signal in signals:
-        if isinstance(signal, ContinuousSignal):
-            splits[signal] = signal.split(threshold=split_threshold)
-        if isinstance(signal, DiscreteSignal):
-            splits[signal] = signal.split()
+                n = 2
 
-    # Initialize ranking model, with the score of each view = 0
-    ranking_model = {}
-    for df_file_tuple in view_dfs:
-        view_file = df_file_tuple[1]  # can't hash dataframe, so only hash filename
-        ranking_model[view_file] = 0
+                p = random.random()
 
-    num_iters = 0
-    while num_iters < 100 and len(splits) > 0:
+                best_key = None
+                if p > epsilon:
+                    max_score = -1
+                    for candidate_key_tuple in candidate_key_dict.keys():
+                        if candidate_key_tuple in key_rank.keys():
+                            if key_rank[candidate_key_tuple] > max_score:
+                                best_key = candidate_key_tuple
+                                max_score = key_rank[candidate_key_tuple]
+                    if best_key != None:
+                        sum_scores = 0
+                        other_keys = []
+                        for key in candidate_key_dict.keys():
+                            if key != best_key and key in key_rank.keys():
+                                sum_scores += key_rank[key]
+                                other_keys.append(key)
+                        # Exclude other keys because the best key was selected much more frequently than the others
+                        if max_score > n * sum_scores and max_score - sum_scores > n:
+                            for key in other_keys:
+                                del candidate_key_dict[key]
+                        else:
+                            best_key = None
 
-        # Pick the best split that can prune out most views (based on expected value)
-        best_signal = pick_best_signal_to_split(splits)
-        print("Best signal to split: ", best_signal.__class__.__name__)
+                for candidate_key_tuple, contr_or_compl_df_list in candidate_key_dict.items():
 
-        # Present a representative view (or sample) from each branch
-        representatives = best_signal.representatives()
+                    if candidate_key_tuple not in key_rank.keys():
+                        key_rank[candidate_key_tuple] = 0
 
-        # skipping user interaction part...
-        print("Pick your preferred representative:")
-        pprint.pprint(list(representatives.values()))
-        print("{},\t{:>30}".format("Option", "Number of views in this group"))
-        for option, views in splits[best_signal].items():
-            print("{},\t{:>30}".format(option, len(views)))
+                    print("Candidate key " + Colors.CREDBG2 + str(candidate_key_tuple) + Colors.CEND + " is "
+                          + Colors.CVIOLETBG2 + contr_or_compl_df_list[0] + Colors.CEND)
 
-        # user randomly picks one branch from the representatives
-        random_pick = random.choice(list(representatives.keys()))
-        print("User chooses option ", random_pick, "\n")
+                    if contr_or_compl_df_list[0] == "contradictory":
+                        # print(contr_or_compl_df_list)
+                        row1_dfs = []
+                        row2_dfs = []
 
-        # TODO: let user assign their own score to each representative instead of picking just one, and update
-        #  ranking model accordingly
+                        skip_this_pair = False
+                        preferred_view_set = set()
 
-        # +1 to every view in the chosen group / cluster
-        for view_file in splits[best_signal][random_pick]:
-            ranking_model[view_file] += 1
+                        for row_tuple in contr_or_compl_df_list[1:]:
 
-        if isinstance(best_signal, ContinuousSignal):
-            # Continue splitting on the cluster chosen
-            # TODO: maybe user wants to re-split on multiple clusters? Keep all clusters that have scores above some
-            #  confidence bounds? (might be overkill...)
-            splits[best_signal] = best_signal.split(threshold=split_threshold, cluster=random_pick)
-            # If there's only one cluster left, remove it
-            if len(splits[best_signal]) <= 1:
-                splits.pop(best_signal)
-        if isinstance(best_signal, DiscreteSignal):
-            # Delete the signal so we won't choose from it again
-            splits.pop(best_signal)
+                            # TODO: epsilon greedy
+                            #  If the user selected one contradictory row (n times) more frequently over the other,
+                            #  skip this contradiction
 
-        num_iters += 1
+                            exclude_this_contradiction = False
+                            if p > epsilon:
+                                row1_strs = row_df_to_string(row_tuple[0])
+                                row2_strs = row_df_to_string(row_tuple[1])
+                                for row1 in row1_strs:
+                                    for row2 in row2_strs:
+                                        if (row_rank[row1] > n * row_rank[row2] and row_rank[row1] - row_rank[
+                                            row2] > n) or \
+                                                (row_rank[row2] > n * row_rank[row1] and row_rank[row2] - row_rank[
+                                                    row1] > n):
+                                            preferred_view = path1 if row_rank[row1] > n * row_rank[row2] else path2
+                                            preferred_view_set.add(preferred_view)
+                                            # exclude this particular contradiction
+                                            exclude_this_contradiction = True
 
-    # present the list of views ordered by accumulated score
-    sorted_rank = [(view, score) for view, score in
-                   sorted(ranking_model.items(), key=lambda item: item[1], reverse=True)]
-    print("Views ordered by preference score:")
-    pprint.pprint(sorted_rank)
+                                if exclude_this_contradiction:
+                                    continue
+
+                            row1_dfs.append(row_tuple[0])
+                            row2_dfs.append(row_tuple[1])
+
+                        # concatenate all contradictory rows in both side
+                        if len(row1_dfs) > 0 and len(row2_dfs) > 0:
+                            contradictory_rows1 = pd.concat(row1_dfs)
+                            count += 1
+                            print_option(count, contradictory_rows1)
+                            option_dict[count] = (candidate_key_tuple, row1_dfs, path1)
+
+                            contradictory_rows2 = pd.concat(row2_dfs)
+                            count += 1
+                            print_option(count, contradictory_rows2)
+                            option_dict[count] = (candidate_key_tuple, row2_dfs, path2)
+                        else:
+                            if best_key != None:
+                                # If there's already a preferred key
+                                if len(preferred_view_set) == 1:
+                                    # If the user always select all the contradictory rows in one view over the other
+                                    # then skip this pair
+                                    print("Skipping this pair...")
+                                    preferred_view = preferred_view_set.pop()
+                                    print("Automatically selecting preferred view " + preferred_view)
+                                    view_rank[preferred_view] += 1
+                                    break
+                            else:
+                                # Otherwise skip showing this contradiction for the current key
+                                print("Automatically skipping all contradictions based on previous selections")
+
+                    if contr_or_compl_df_list[0] == "complementary":
+                        # TODO: epsilon greedy for complementary rows?
+                        #  But they are not really "choose one over the other" relationship
+
+                        # concatenate all complementary (non-intersecting) rows in both side
+                        complementary_df_tuple = contr_or_compl_df_list[1]
+                        count += 1
+                        complementary_part1 = pd.concat(complementary_df_tuple[0])
+                        print_option(count, complementary_part1)
+                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+
+                        count += 1
+                        complementary_part2 = pd.concat(complementary_df_tuple[1])
+                        print_option(count, complementary_part2)
+                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
+
+            if len(option_dict) > 0:
+
+                num_interactions += 1
+
+                option_picked = 0
+
+                if mode == Mode.optimal:
+                    max_intersection_with_fact_back = 0
+                    for option, values in option_dict.items():
+                        candidate_key = values[0]
+                        # if set(candidate_key) == set(optimal_candidate_key):
+                        row_dfs = values[1]
+                        concat_row_df = pd.concat(row_dfs)
+                        intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)  # default to
+                        # intersection
+                        if len(intersection) > max_intersection_with_fact_back:
+                            # Always selection the option that's more consistent with the fact bank
+                            # if there's no intersection, then skip this option (select 0)
+                            option_picked = option
+                            max_intersection_with_fact_back = len(intersection)
+                            # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
+                    print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
+                    print("Optimal option = " + str(option_picked))
+
+                elif mode == Mode.random:
+                    option_picked = random.choice(list(option_dict.keys()))
+                    print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
+                    print("Random option = " + str(option_picked))
+
+                else:
+                    option_picked = input(
+                        Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
+
+                    if option_picked == "":
+                        break
+
+                    while not (option_picked.isdigit() and
+                               (int(option_picked) in option_dict.keys() or int(option_picked) == 0)):
+                        option_picked = input(
+                            Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
+
+                    option_picked = int(option_picked)
+
+                if option_picked != 0:
+                    candidate_key_picked = option_dict[option_picked][0]
+                    if candidate_key_picked != None:
+                        key_rank[candidate_key_picked] += 1
+
+                    # TODO： Add score for any view containing the contradictory or complementary row selected
+                    # views_to_add_score = set()
+                    rows_picked = option_dict[option_picked][1]
+                    for row_df in rows_picked:
+                        row_strs = row_df_to_string(row_df)
+
+                        for row_str in row_strs:
+                            if row_str in row_to_path_dict.keys():
+                                paths_containing_row = row_to_path_dict[row_str]
+                                for path in paths_containing_row:
+                                    # views_to_add_score.add(path)
+                                    view_rank[path] += 1
+
+                            if row_str in row_rank.keys():
+                                row_rank[row_str] += 1
+
+                    # for path in views_to_add_score:
+                    #     view_rank[path] += 1
+
+            print(Colors.CBEIGEBG + "View rank" + Colors.CEND)
+            sorted_view_rank = sort_view_by_scores(view_rank)
+            pprint.pprint(sorted_view_rank)
+
+            if mode == Mode.optimal or mode == Mode.random:
+                # sorted_view_rank = sort_view_by_scores(view_rank)
+                rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
+                # print("rank = " + str(rank))
+                if rank != None:
+                    ground_truth_rank[run][loop_count] = rank
+                else:
+                    print("ERROR!!! Did not find " + ground_truth_path + " in view rank")
+                    exit()
+
+            loop_count += 1
+
+        print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+        # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
+        # pprint.pprint(key_rank)
+        # print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
+        # pprint.pprint(row_rank)
+        print(Colors.CREDBG2 + "Final Top-" + str(top_k) + " views" + Colors.CEND)
+        sorted_view_rank = sort_view_by_scores(view_rank)
+        pprint.pprint(sorted_view_rank[:top_k])
+        print("Number of interactions = " + str(num_interactions))
+        sum_num_interactions += num_interactions
+
+        if mode == Mode.optimal or mode == Mode.random:
+            rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
+            if rank != None:
+                print("Ground truth view " + ground_truth_path + " is top-" + str(rank))
+                print(
+                    Colors.CBOLD + "--------------------------------------------------------------------------" +
+                    Colors.CEND)
+            # for i in range(len(sorted_view_rank)):
+            #     view, score = sorted_view_rank[i]
+            #     if ground_truth_path == view:
+            #         print("Ground truth view is top-" + str(i+1))
+
+    # avg_ground_truth_rank = np.mean(ground_truth_rank, axis=0)
+
+    # print(ground_truth_rank)
+
+    if mode == Mode.optimal or mode == Mode.random:
+        print("Average number of interactions = " + str(sum_num_interactions / num_runs))
+
+        import matplotlib.pyplot as plt
+
+        plt.rcParams['figure.figsize'] = [12, 8]
+        plt.rcParams['figure.dpi'] = 200
+
+        # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
+        # print(ground_truth_rank)
+        # print(ground_truth_rank.shape)
+        # fig, ax = plt.subplots()
+
+        plt.boxplot(ground_truth_rank[:, ::2])
+        if mode == Mode.optimal:
+            plt.title("With exploration/exploitation, optimal mode")
+        elif mode == Mode.random:
+            plt.title("With exploration/exploitation, random mode")
+        locs, labels = plt.xticks()
+        # print(locs)
+        # print(labels)
+        # ax.set_xticks()
+        plt.xticks(ticks=locs, labels=np.arange(1, ground_truth_rank.shape[1] + 1, step=2))
+        plt.xlabel("Interaction num")
+        plt.ylabel("Rank")
+        plt.show()

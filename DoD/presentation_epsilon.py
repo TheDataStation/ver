@@ -1,3 +1,4 @@
+from presentation_utils import *
 from DoD import view_4c_analysis_baseline as v4c
 from DoD import material_view_analysis as mva
 from tqdm import tqdm
@@ -12,33 +13,6 @@ from collections import defaultdict
 from DoD.colors import Colors
 
 import server_config as config
-
-
-def get_row_from_key(df, key_name, key_value):
-    # select row based on multiple composite keys
-    assert len(key_value) == len(key_name)
-
-    condition = (df[key_name[0]] == key_value[0])
-    for i in range(1, len(key_name)):
-        condition = (condition & (df[key_name[i]] == key_value[i]))
-
-    # there may be multiple rows satisfying the same condition
-    row = df.loc[condition]
-    return row
-
-
-def row_df_to_string(row_df):
-    # there may be multiple rows satisfying the same condition
-    df_str = row_df.to_string(header=False, index=False, index_names=False).split('\n')
-    row_strs = [','.join(row.split()) for row in df_str]
-
-    # row_strs = []
-    # for i in range(len(row_df)):
-    #     row = row_df.iloc[[i]]
-    #     row_str = row.to_string(header=False, index=False, index_names=False)
-    #     row_strs.append(row_str)
-    # print(row_strs)
-    return row_strs
 
 
 class Mode(Enum):
@@ -109,67 +83,17 @@ if __name__ == '__main__':
         contradictory_groups = contradictory_groups + v['contradictory']
         all_pair_contr_compl.update(v['all_pair_contr_compl'])
 
-    # print(views_by_schema_dict.keys())
-
-    # print(compatible_groups)
-    # print(contained_groups)
-    # for path1, candidate_key_tuple, key_value_tuples, path2 in contradictory_groups:
-    #     print(path1 + " - " + path2)
-    #
-    # for path1, path2, _, _, _ in complementary_groups:
-    #     print(path1 + " - " + path2)
-    #
-    # for k,v in views_by_schema_dict.items():
-    #     print([path for df, path in v])
-
     print()
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
 
-    csv_files = glob.glob(dir_path + "/view_*")
-    print("Number of views: ", len(csv_files))
+    view_files = glob.glob(dir_path + "/view_*")
+    print("Number of views: ", len(view_files))
 
-    # Only keep the view with the largest cardinality in contained group
-    largest_contained_views = set()
-    for contained_group in contained_groups:
-        max_size = 0
-        largest_view = contained_group[0]
-        for view in contained_group:
-            if len(view) > max_size:
-                max_size = len(view)
-                largest_view = view
-        largest_contained_views.add(largest_view)
+    view_files = prune_compatible_views(view_files, compatible_groups)
+    print("After pruning compatible views: ", len(view_files))
 
-    # print(largest_contained_views)
-
-    # has_compatible_view_been_added = [False] * len(compatible_groups)
-
-    view_files = set()
-
-    for f in csv_files:
-        # already_added = False
-        # for i, compatible_group in enumerate(compatible_groups):
-        #     if f in compatible_group:
-        #         if has_compatible_view_been_added[i]:
-        #             already_added = True
-        #         else:
-        #             has_compatible_view_been_added[i] = True
-        add = True
-        # Remove duplicates in compatible groups, only keep the first view in each group
-        for compatible_group in compatible_groups:
-            if f in compatible_group:
-                if f != compatible_group[0]:
-                    add = False
-                    break
-        for contained_group in contained_groups:
-            if f in contained_group:
-                if f not in largest_contained_views:
-                    add = False
-                    break
-
-        if add:
-            view_files.add(f)
-
-    print("After processing compatible and contained groups: ", len(view_files))
+    view_files = prune_contained_views(view_files, contained_groups)
+    print("After pruning contained views: ", len(view_files))
 
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Processing complementary and contradictory views...")
@@ -199,219 +123,9 @@ if __name__ == '__main__':
 
             print("Run " + str(run))
 
-            all_pair_contr_compl_new = {}
-
-            # key: contradictory or complementary row, value: set of views containing the row
-            row_to_path_dict = {}
-
-
-            def add_to_row_to_path_dict(row_to_path_dict, row_strs, path):
-                for row in row_strs:
-                    if row not in row_to_path_dict.keys():
-                        row_to_path_dict[row] = {path}
-                    else:
-                        row_to_path_dict[row].add(path)
-
-
-            import time
-
-            contr_or_compl_views = set()
-
-            for path, result in tqdm(all_pair_contr_compl.items()):
-                path1 = path[0]
-                path2 = path[1]
-
-                contr_or_compl_views.add(path1)
-                contr_or_compl_views.add(path2)
-
-                # print("processing " + path1 + " " + path2)
-
-                if not (path1 in view_files and path2 in view_files):
-                    continue
-
-                # print("----IO----")
-                # start = time.time()
-                df1 = pd.read_csv(path1, encoding='latin1', thousands=',')
-                df1 = mva.curate_view(df1)
-                df1 = v4c.normalize(df1)
-                # df1 = df1.sort_index(axis=1)
-                df2 = pd.read_csv(path2, encoding='latin1', thousands=',')
-                df2 = mva.curate_view(df2)
-                df2 = v4c.normalize(df2)
-                # df2 = df2.sort_index(axis=1)
-                # print(time.time() - start)
-
-                all_pair_contr_compl_new[path] = {}
-
-                # print("---loop----")
-                # loopstart = time.time()
-
-                get_row_from_key_time = 0
-                row_df_to_string_time = 0
-                add_to_row_to_path_dict_time = 0
-
-                for candidate_key_tuple, result_list in result.items():
-
-                    complementary_keys1 = result_list[0]
-                    complementary_keys2 = result_list[1]
-                    contradictory_keys = result_list[2]
-
-                    if len(contradictory_keys) > 0:
-
-                        all_pair_contr_compl_new[path][candidate_key_tuple] = ["contradictory"]
-
-                        # a list containing candidate key names
-                        candidate_key = list(candidate_key_tuple)
-                        # a list of tuples, each tuple corresponds to the contradictory key values
-                        key_values = list(contradictory_keys)
-                        if len(key_values) > sample_size:
-                            key_values = random.sample(key_values, k=sample_size)
-
-                        # there could be multiple contradictions existing in a pair of views
-                        for key_value in key_values:
-                            # select row based on multiple composite keys
-                            # start = time.time()
-                            row1_df = get_row_from_key(df1, candidate_key, key_value)
-                            row2_df = get_row_from_key(df2, candidate_key, key_value)
-                            # get_row_from_key_time += (time.time() - start)
-
-                            all_pair_contr_compl_new[path][candidate_key_tuple].append((row1_df, row2_df))
-
-                            # start = time.time()
-                            row1_strs = row_df_to_string(row1_df)
-                            row2_strs = row_df_to_string(row2_df)
-                            # row_df_to_string_time += (time.time() - start)
-
-                            # start = time.time()
-                            add_to_row_to_path_dict(row_to_path_dict, row1_strs, path1)
-                            add_to_row_to_path_dict(row_to_path_dict, row2_strs, path2)
-                            # add_to_row_to_path_dict_time += (time.time() - start)
-
-                    if len(contradictory_keys) == 0:
-
-                        all_pair_contr_compl_new[path][candidate_key_tuple] = ["complementary"]
-
-                        candidate_key = list(candidate_key_tuple)
-                        key_values1 = list(complementary_keys1)
-                        key_values2 = list(complementary_keys2)
-                        if len(key_values1) > sample_size:
-                            key_values1 = random.sample(key_values1, k=sample_size)
-                        if len(key_values2) > sample_size:
-                            key_values2 = random.sample(key_values2, k=sample_size)
-
-                        row1_dfs = []
-                        for key_value in key_values1:
-                            # start = time.time()
-                            row1_df = get_row_from_key(df1, candidate_key, key_value)
-                            # get_row_from_key_time += (time.time() - start)
-                            # print(df1, candidate_key, key_value)
-                            # print(row1_df)
-                            row1_dfs.append(row1_df)
-
-                            # start = time.time()
-                            row1_strs = row_df_to_string(row1_df)
-                            # row_df_to_string_time += (time.time() - start)
-
-                            # start = time.time()
-                            add_to_row_to_path_dict(row_to_path_dict, row1_strs, path1)
-                            # add_to_row_to_path_dict_time += (time.time() - start)
-
-                        row2_dfs = []
-                        for key_value in key_values2:
-                            # start = time.time()
-                            row2_df = get_row_from_key(df2, candidate_key, key_value)
-                            # get_row_from_key_time += (time.time() - start)
-                            # print(df2, candidate_key, key_value)
-                            # print(row2_df)
-                            row2_dfs.append(row2_df)
-
-                            # start = time.time()
-                            row2_strs = row_df_to_string(row2_df)
-                            # row_df_to_string_time += (time.time() - start)
-
-                            # start = time.time()
-                            add_to_row_to_path_dict(row_to_path_dict, row2_strs, path2)
-                            # add_to_row_to_path_dict_time += (time.time() - start)
-
-                        all_pair_contr_compl_new[path][candidate_key_tuple].append((row1_dfs, row2_dfs))
-
-                # print(time.time() - loopstart)
-                # print("get_row_from_key_time: " + str(get_row_from_key_time))
-                # print("row_df_to_string_time: " + str(row_df_to_string_time))
-                # print("add_to_row_to_path_dict_time: " + str(add_to_row_to_path_dict_time))
-
-            non_contr_or_compl_views = view_files - contr_or_compl_views
-            non_contr_or_compl_views_df = []
-            # print(non_contr_or_compl_views)
-            for path in non_contr_or_compl_views:
-                df = pd.read_csv(path, encoding='latin1', thousands=',')
-                df = mva.curate_view(df)
-                df = v4c.normalize(df)
-
-                row_strs = row_df_to_string(df)
-                add_to_row_to_path_dict(row_to_path_dict, row_strs, path)
-
-                sample_df = df
-                if len(df) > sample_size:
-                    sample_df = df.sample(n=sample_size)
-                non_contr_or_compl_views_df.append((path, sample_df))
-
-
-            def sort_view_by_scores(view_rank):
-                sorted_view_rank = [(view, score) for view, score in
-                                    sorted(view_rank.items(), key=lambda item: item[1], reverse=True)]
-                return sorted_view_rank
-
-
-            def get_view_rank_with_ties(sorted_view_rank, view):
-                # Same rank for ties
-                res = {}
-                prev = None
-                for i, (v, score) in enumerate(sorted_view_rank):
-                    if score != prev:
-                        place, prev = i + 1, score
-                    res[v] = place
-
-                if view in res.keys():
-                    rank = res[view]
-                    return rank
-                return None
-
-
-            def pick_from_top_k_views(view_rank, view_to_view_pairs_dict, non_contr_or_compl_views_df, k):
-
-                sorted_view_rank = sort_view_by_scores(view_rank)
-
-                if k > len(sorted_view_rank):
-                    k = len(sorted_view_rank)
-                top_k_views = []
-                for i in range(k):
-                    top_k_views.append(sorted_view_rank[i][0])
-                # print(top_k_views)
-
-                p = random.random()
-
-                path = None
-                single_view_list = []
-
-                if p < 0.5 and len(non_contr_or_compl_views_df) > 0:
-                    for view in top_k_views:
-                        for view_df in non_contr_or_compl_views_df:
-                            if view == view_df[0]:
-                                single_view_list.append(view_df)
-                if len(single_view_list) > 0:
-                    return path, single_view_list
-
-                # if p > 0.5 or there is no single view present in top-k
-                for view1 in top_k_views:
-                    for view2 in top_k_views:
-                        if view1 != view2:
-                            if view1 in view_to_view_pairs_dict.keys():
-                                if view2 in view_to_view_pairs_dict[view1]:
-                                    path = (view1, view2)
-                                    return path, single_view_list
-
-                return path, single_view_list
+            contr_or_compl_view_pairs, non_contr_or_compl_views, row_to_path_dict = preprocess(view_files,
+                                                                                               all_pair_contr_compl,
+                                                                                               sample_size)
 
 
             def print_option(option_num, df):
@@ -421,7 +135,7 @@ if __name__ == '__main__':
 
 
             ground_truth_rank_per_run = np.empty(
-                len(all_pair_contr_compl_new.keys()) + len(non_contr_or_compl_views_df), dtype=int)
+                len(contr_or_compl_view_pairs.keys()) + len(non_contr_or_compl_views), dtype=int)
 
             # sum_num_interactions = 0
 
@@ -444,7 +158,7 @@ if __name__ == '__main__':
                 view_rank[path] = 0
 
             # TODO: dynamic exploration / exploitation
-            paths = list(all_pair_contr_compl_new.keys())
+            paths = list(contr_or_compl_view_pairs.keys())
             random.shuffle(paths)
 
             # Explore unexplored views first
@@ -470,7 +184,7 @@ if __name__ == '__main__':
             # print(len(all_distinct_view_pairs))
             # print(len(other_non_distinct_view_pairs))
 
-            non_contr_or_compl_views_df_copy = non_contr_or_compl_views_df.copy()
+            non_contr_or_compl_views_copy = non_contr_or_compl_views.copy()
 
             num_interactions = 0
             loop_count = 0
@@ -479,7 +193,7 @@ if __name__ == '__main__':
                 path = None
                 single_view_list = []
 
-                if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_df_copy) <= 0:
+                if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
                     # we have explored all the contradictory / complementary view pairs and single views at least once
                     break
 
@@ -491,15 +205,15 @@ if __name__ == '__main__':
                 p = random.random()
                 if p > epsilon:
                     path, single_view_list = pick_from_top_k_views(view_rank, view_to_view_pairs_dict,
-                                                                   non_contr_or_compl_views_df, top_k)
+                                                                   non_contr_or_compl_views, top_k)
 
                 # path = None -> all pairs from current top-k views have been explored
                 if (path == None and len(single_view_list) == 0) or p <= epsilon:
 
                     p2 = random.random()
 
-                    if p2 < 0.5 and len(non_contr_or_compl_views_df_copy) > 0:
-                        single_view = non_contr_or_compl_views_df_copy.pop()
+                    if p2 < 0.5 and len(non_contr_or_compl_views_copy) > 0:
+                        single_view = non_contr_or_compl_views_copy.pop()
                         single_view_list.append(single_view)
                     else:
                         view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
@@ -524,12 +238,12 @@ if __name__ == '__main__':
                         print_option(count, sample_df)
                         option_dict[count] = (None, [sample_df], path)
 
-                        if single_view in non_contr_or_compl_views_df_copy:
-                            non_contr_or_compl_views_df_copy.remove(single_view)
+                        if single_view in non_contr_or_compl_views_copy:
+                            non_contr_or_compl_views_copy.remove(single_view)
                 else:
                     path1 = path[0]
                     path2 = path[1]
-                    if path not in all_pair_contr_compl_new.keys():
+                    if path not in contr_or_compl_view_pairs.keys():
                         path = (path2, path1)
                         path1 = path[0]
                         path2 = path[1]
@@ -548,7 +262,7 @@ if __name__ == '__main__':
 
                     print(Colors.CBLUEBG2 + path1 + " - " + path2 + Colors.CEND)
 
-                    candidate_key_dict = all_pair_contr_compl_new[path]
+                    candidate_key_dict = contr_or_compl_view_pairs[path]
 
                     # exploitation vs exploration
                     # TODO:
