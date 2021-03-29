@@ -80,6 +80,137 @@ class ViewSearchPruning:
                 hits.append(self.aurum_api._nid_to_hit(int(row[0])))
         return hits
 
+    def virtual_schema_iterative_search2(self, list_samples, filter_drs, perf_stats, max_hops=2,
+                                        debug_enumerate_all_jps=False, offset=10):
+        table_fulfilled_filters = defaultdict(list)
+        table_nid = dict()  # collect nids -- used later to obtain an access path to the tables
+        # table_hits = defaultdict(list)
+        for filter, hits in filter_drs.items():
+            for hit in hits:
+                table = hit.source_name
+                nid = hit.nid
+                table_nid[table] = nid
+                if filter[2] not in [id for _, _, id in table_fulfilled_filters[table]]:
+                    table_fulfilled_filters[table].append(((filter[0], hit.field_name), FilterType.ATTR, filter[2]))
+                    # if len(table_fulfilled_filters[table]) == len(filter_drs):
+                    #     table_fulfilled_filters.pop(table)
+                    # table_hits[table].append(nid)
+
+        table_path = obtain_table_paths(table_nid, self)
+
+        # sort by value len -> # fulfilling filters
+        table_fulfilled_filters = OrderedDict(
+            sorted(table_fulfilled_filters.items(), key=lambda el:
+            (len({filter_id for _, _, filter_id in el[1]}), el[0]), reverse=True))  # len of unique filters, then lexico
+
+        # Ordering filters for more determinism
+        for k, v in table_fulfilled_filters.items():
+            v = sorted(v, key=lambda el: (el[2], el[0][0]), reverse=True)  # sort by id, then filter_name
+            table_fulfilled_filters[k] = v
+
+        def eager_candidate_exploration():
+            def covers_filters(candidate_filters):
+                candidate_filters_set = set([id for _, _, id in candidate_filters])
+                if len(candidate_filters_set) == len(filter_drs.keys()):
+                    return True
+                return False
+
+            def compute_size_filter_ix(filters, candidate_group_filters_covered):
+                new_fs_set = set([id for _, _, id in filters])
+                candidate_fs_set = set([id for _, _, id in candidate_group_filters_covered])
+                ix_size = len(new_fs_set.union(candidate_fs_set)) - len(candidate_fs_set)
+                return ix_size
+
+            def clear_state():
+                candidate_group_unordered.clear()
+                candidate_group_filters_covered.clear()
+
+            def sort_candidate_group(unordered_cg):
+                ordered_cg = sorted(unordered_cg, key=lambda tup: tup[0])
+                return [x[1] for x in ordered_cg]
+
+            # Eagerly obtain groups of tables that cover as many filters as possible
+            backup = []
+            go_on = True
+            while go_on:
+                candidate_group_unordered = []
+                candidate_group_filters_covered = set()
+                for i in range(len(list(table_fulfilled_filters.items()))):
+                    table_pivot, filters_pivot = list(table_fulfilled_filters.items())[i]
+                    # Eagerly add pivot
+                    candidate_group_unordered.append((filters_pivot[0][2],
+                                                      table_pivot))  # (the largest filter_id, table_name) - add id for further sorting
+                    candidate_group_filters_covered.update(filters_pivot)
+                    # Did it cover all filters?
+                    # if len(candidate_group_filters_covered) == len(filter_drs.items()):
+                    if covers_filters(candidate_group_filters_covered):
+                        candidate_group = sort_candidate_group(candidate_group_unordered)
+                        # print("1: " + str(table_pivot))
+                        yield (candidate_group, candidate_group_filters_covered)  # early stop
+                        # Cleaning
+                        clear_state()
+                        continue
+                    for j in range(len(list(table_fulfilled_filters.items()))):
+                        idx = i + j + 1
+                        if idx == len(table_fulfilled_filters.items()):
+                            break
+                        table, filters = list(table_fulfilled_filters.items())[idx]
+                        # new_filters = len(set(filters).union(candidate_group_filters_covered)) - len(candidate_group_filters_covered)
+                        new_filters = compute_size_filter_ix(filters, candidate_group_filters_covered)
+                        if new_filters > 0:  # add table only if it adds new filters
+                            candidate_group_unordered.append((filters[0][2], table))
+                            candidate_group_filters_covered.update(filters)
+                            if covers_filters(candidate_group_filters_covered):
+                                candidate_group = sort_candidate_group(candidate_group_unordered)
+                                # print("2: " + str(table_pivot))
+                                yield (candidate_group, candidate_group_filters_covered)
+                                clear_state()
+                                # Re-add the current pivot, only necessary in this case
+                                candidate_group_unordered.append((filters_pivot[0][2], table_pivot))
+                                candidate_group_filters_covered.update(filters_pivot)
+                    candidate_group = sort_candidate_group(candidate_group_unordered)
+                    # print("3: " + str(table_pivot))
+                    if covers_filters(candidate_group_filters_covered):
+                        yield (candidate_group, candidate_group_filters_covered)
+                    else:
+                        backup.append(([el for el in candidate_group],
+                                       set([el for el in candidate_group_filters_covered])))
+                    # Cleaning
+                    clear_state()
+                # before exiting, return backup in case that may be useful
+                # for candidate_group, candidate_group_filters_covered in backup:
+                #     yield (candidate_group, candidate_group_filters_covered)
+                go_on = False  # finished exploring all groups
+
+        # Find ways of joining together each group
+        cache_unjoinable_pairs = defaultdict(int)
+        perf_stats['time_joinable'] = 0
+        perf_stats['time_is_materializable'] = 0
+        perf_stats['time_materialize'] = 0
+        num_candidate_groups = 0
+        all_join_graphs = []
+        all_filters = []
+        for candidate_group, candidate_group_filters_covered in eager_candidate_exploration():
+            num_candidate_groups += 1
+            print("")
+            print("Candidate group: " + str(candidate_group))
+            num_unique_filters = len({f_id for _, _, f_id in candidate_group_filters_covered})
+            print("Covers #Filters: " + str(num_unique_filters))
+
+            if len(candidate_group) == 1:
+                continue  # to go to the next group
+
+            # Pre-check
+            # TODO: with a connected components index we can pre-filter many of those groups without checking
+            # group_with_all_relations, join_path_groups = self.joinable(candidate_group, cache_unjoinable_pairs)
+            max_hops = max_hops
+            # We find the different join graphs that would join the candidate_group
+            join_graphs = self.joinable(candidate_group, cache_unjoinable_pairs, max_hops)
+            print("Total join graphs:", len(join_graphs))
+            all_join_graphs.extend(join_graphs)
+        print(num_candidate_groups, len(all_join_graphs))
+        return num_candidate_groups, len(all_join_graphs)
+
     def virtual_schema_iterative_search(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False, offset=10):
         msg_enumerate = """
                     ######################################################################
@@ -95,6 +226,7 @@ class ViewSearchPruning:
         # Obtain list of tables ordered from more to fewer filters.
         table_fulfilled_filters = defaultdict(list)
         table_nid = dict()  # collect nids -- used later to obtain an access path to the tables
+        # table_hits = defaultdict(list)
         for filter, hits in filter_drs.items():
             for hit in hits:
                 table = hit.source_name
@@ -102,6 +234,9 @@ class ViewSearchPruning:
                 table_nid[table] = nid
                 if filter[2] not in [id for _, _, id in table_fulfilled_filters[table]]:
                     table_fulfilled_filters[table].append(((filter[0], hit.field_name), FilterType.ATTR, filter[2]))
+                    # if len(table_fulfilled_filters[table]) == len(filter_drs):
+                    #     table_fulfilled_filters.pop(table)
+                    # table_hits[table].append(nid)
 
         table_path = obtain_table_paths(table_nid, self)
 
@@ -227,9 +362,9 @@ class ViewSearchPruning:
             max_hops = max_hops
             # We find the different join graphs that would join the candidate_group
             st_joinable = time.time()
-            join_graphs = self.joinable(candidate_group, cache_unjoinable_pairs, max_hops=2)
+            join_graphs = self.joinable(candidate_group, cache_unjoinable_pairs, max_hops)
             et_joinable = time.time()
-
+            print("Total join graphs:",len(join_graphs))
             perf_stats['time_joinable'] += (et_joinable - st_joinable)
             if debug_enumerate_all_jps:
                 for i, group in enumerate(join_graphs):
@@ -312,6 +447,7 @@ class ViewSearchPruning:
                         ######################################################################
                             """
         print(msg_pruning)
+        print("total join graphs", len(all_join_graphs))
 
         table_paths = {}
         # build inverted index candidate tables -> [indexes of corresponding join paths]
@@ -355,25 +491,12 @@ class ViewSearchPruning:
                         #      Finish Rating and Ranking, Begin Materializing Join Paths     #
                         ######################################################################
                     """
-        print(finish_msg)
+        # print(finish_msg)
         non_empty_cnt = 0
-        start = 0
-        while start < len(sorted_all_graphs) or non_empty_cnt < offset:
-            if start + offset < len(sorted_all_graphs):
-                paths_to_materialize = sorted_all_graphs[start: start + offset]
-            else:
-                paths_to_materialize = sorted_all_graphs[start:]
-            start = start + offset
-            to_return = self.materialize_join_graphs(list_samples, paths_to_materialize)
-            for (idx, el) in enumerate(to_return):
-                if len(el) != 0:
-                    print("Materialized Join Path")
-                    for l, r in paths_to_materialize[idx][0]:
-                        print(l.source_name + "." + l.field_name + " JOIN " + r.source_name + "." + r.field_name)
-                    non_empty_cnt += 1
-                    if non_empty_cnt > offset:
-                        break
-                    yield el
+        paths_to_materialize = sorted_all_graphs[0: offset]
+        to_return = self.materialize_join_graphs(list_samples, paths_to_materialize)
+        for el in to_return:
+            yield el
 
     def get_relation(self, df, join_key, target_cols, sampling_fraction):
         df.dropna()
@@ -552,7 +675,7 @@ class ViewSearchPruning:
 
         table_combinations = [el for el in itertools.combinations(group_tables, 2)]
 
-        for table1, table2 in tqdm(table_combinations):
+        for table1, table2 in table_combinations:
             # Check if tables are already known to be unjoinable
             if (table1, table2) in cache_unjoinable_pairs.keys() or (table2, table1) in cache_unjoinable_pairs.keys():
                 continue  # FIXME FIXME FIXME
@@ -571,6 +694,7 @@ class ViewSearchPruning:
                 e = time.time()
                 print("Total time: " + str((e-s)))
                 paths = drs.paths()  # list of lists
+                print("Total paths:", len(paths))
                 self.place_paths_in_cache(table1, table2, paths)  # FIXME FIXME FIXME
             # paths = drs.paths()  # list of lists
             # If we didn't find paths, update unjoinable_pairs cache with this pair
@@ -825,6 +949,39 @@ def obtain_table_paths(set_nids, dod):
         table_path[table] = path
     return table_path
 
+def evaluate_view_search(vs, ci, attrs, values, flag, offset = 1):
+    candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = ci.infer_candidate_columns(attrs, values)
+    filter_drs = {}
+    perf_stats = dict()
+
+    if flag == 1:
+        idx = 0
+        for column, candidates in candidate_columns.items():
+            filter_drs[(column, FilterType.ATTR, idx)] = candidates
+            idx += 1
+    elif flag == 2:
+        results = ci.view_spec_benchmark(sample_score)
+        idx = 0
+        for column, _ in candidate_columns.items():
+            filter_drs[(column, FilterType.ATTR, idx)] = [hit_dict[x] for x in results[idx]]
+            idx += 1
+    elif flag == 3:
+        _, results_hit = ci.view_spec_cluster(candidate_columns, sample_score)
+        idx = 0
+        for column, _ in candidate_columns.items():
+            filter_drs[(column, FilterType.ATTR, idx)] = results_hit[idx]
+            idx += 1
+    elif flag == 4:
+        results, _, results_hit = ci.view_spec_cluster2(candidate_columns, sample_score)
+        idx = 0
+        for column, _ in candidate_columns.items():
+            filter_drs[(column, FilterType.ATTR, idx)] = results_hit[idx]
+            idx += 1
+
+    num_group, num_path = vs.virtual_schema_iterative_search2({}, filter_drs, perf_stats, max_hops=2,
+                                       debug_enumerate_all_jps=False, offset=offset)
+    return num_group, num_path
+            
 
 def start(vs, ci, attrs, values, types, number_jps=5, output_path=None, full_view=False, interactive=False, offset = 1):
     msg_vspec = """
