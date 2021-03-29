@@ -64,23 +64,8 @@ if __name__ == '__main__':
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
 
-    results, views_by_schema_dict = v4c.main(dir_path, candidate_key_size)
-
-    # TODO: don't separate by schemas for now
-    compatible_groups = []
-    contained_groups = []
-    complementary_groups = []
-    contradictory_groups = []
-    all_pair_contr_compl = {}
-
-    # views_by_schema_dict = defaultdict(set)
-
-    for k, v in results.items():
-        compatible_groups = compatible_groups + v['compatible']
-        contained_groups = contained_groups + v['contained']
-        complementary_groups = complementary_groups + v['complementary']
-        contradictory_groups = contradictory_groups + v['contradictory']
-        all_pair_contr_compl.update(v['all_pair_contr_compl'])
+    compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl = \
+        v4c.main(dir_path, candidate_key_size)
 
     # print(views_by_schema_dict.keys())
 

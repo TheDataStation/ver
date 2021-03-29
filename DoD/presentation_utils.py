@@ -308,6 +308,7 @@ def highlight_diff(df1, df2, color='pink'):
     # Where df1 != df2 set attribute
     return pd.DataFrame(np.where(df1.ne(df2), attr, ''), index=df1.index, columns=df1.columns)
 
+
 def highlight_cols(s, color='lightgreen'):
     return 'background-color: %s' % color
 
@@ -531,11 +532,13 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
                 with out:
                     print_line()
                     if contr_or_compl_df_list[0] == "contradictory":
-                        print("Candidate key " + Colors.CBOLD + str(list(candidate_key_tuple)) + Colors.CEND + " yields "
-                          + Colors.CREDBG + contr_or_compl_df_list[0] + Colors.CEND + " values")
+                        print(
+                            "Candidate key " + Colors.CBOLD + str(list(candidate_key_tuple)) + Colors.CEND + " yields "
+                            + Colors.CREDBG + contr_or_compl_df_list[0] + Colors.CEND + " values")
                     else:
-                        print("Candidate key " + Colors.CBOLD + str(list(candidate_key_tuple)) + Colors.CEND + " yields "
-                              + Colors.CGREENBG + contr_or_compl_df_list[0] + Colors.CEND + " values")
+                        print(
+                            "Candidate key " + Colors.CBOLD + str(list(candidate_key_tuple)) + Colors.CEND + " yields "
+                            + Colors.CGREENBG + contr_or_compl_df_list[0] + Colors.CEND + " values")
 
                 if contr_or_compl_df_list[0] == "contradictory":
                     # print(contr_or_compl_df_list)
@@ -578,16 +581,17 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
                         contradictory_rows1 = pd.concat(row1_dfs).reset_index(drop=True)
                         contradictory_rows2 = pd.concat(row2_dfs).reset_index(drop=True)
 
-                        html1 = contradictory_rows1.style\
-                                .applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)], color='lightyellow')\
-                                .apply(highlight_diff, axis=None, df2=contradictory_rows2)\
-                                .render()
+                        html1 = contradictory_rows1.style \
+                            .applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)],
+                                      color='lightyellow') \
+                            .apply(highlight_diff, axis=None, df2=contradictory_rows2) \
+                            .render()
 
-                        html2 = contradictory_rows2.style\
-                                .applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)], color='lightyellow')\
-                                .apply(highlight_diff, axis=None, df2=contradictory_rows1)\
-                                .render()
-
+                        html2 = contradictory_rows2.style \
+                            .applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)],
+                                      color='lightyellow') \
+                            .apply(highlight_diff, axis=None, df2=contradictory_rows1) \
+                            .render()
 
                         count += 1
                         print_option(count, html1)
@@ -622,8 +626,10 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
                     complementary_part1 = pd.concat(complementary_df_tuple[0])
                     complementary_part2 = pd.concat(complementary_df_tuple[1])
 
-                    html1 = complementary_part1.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)]).render()
-                    html2 = complementary_part2.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)]).render()
+                    html1 = complementary_part1.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
+                        candidate_key_tuple)]).render()
+                    html2 = complementary_part2.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
+                        candidate_key_tuple)]).render()
 
                     count += 1
                     print_option(count, html1)
@@ -717,7 +723,8 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
     #
     # sorted_view_rank = sort_view_by_scores(view_rank)
     # with out:
-    #     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+    #     print(Colors.CBOLD + "--------------------------------------------------------------------------" +
+    #     Colors.CEND)
     #     # print(Colors.CBEIGEBG + "Key rank" + Colors.CEND)
     #     # pprint.pprint(key_rank)
     #     # print(Colors.CBEIGEBG + "Row rank" + Colors.CEND)
@@ -727,8 +734,9 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
     #     print("Number of interactions = " + str(num_interactions))
     # display(out)
 
+
 def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row_to_path_dict, top_k, epsilon,
-            max_num_interactions):
+                  max_num_interactions):
     from ipywidgets import Output, Button, ToggleButtons, interact, fixed, HBox
     from IPython.display import display, clear_output, HTML
 
@@ -968,10 +976,12 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
                     with out:
                         print_line()
                         if contr_or_compl_df_list[0] == "contradictory":
-                            print("Candidate key " + Colors.CBOLD + str(list(candidate_key_tuple)) + Colors.CEND + " yields "
-                              + Colors.CREDBG + contr_or_compl_df_list[0] + Colors.CEND + " values")
+                            print("Candidate key " + Colors.CBOLD + str(
+                                list(candidate_key_tuple)) + Colors.CEND + " yields "
+                                  + Colors.CREDBG + contr_or_compl_df_list[0] + Colors.CEND + " values")
                         else:
-                            print("Candidate key " + Colors.CBOLD + str(list(candidate_key_tuple)) + Colors.CEND + " yields "
+                            print("Candidate key " + Colors.CBOLD + str(
+                                list(candidate_key_tuple)) + Colors.CEND + " yields "
                                   + Colors.CGREENBG + contr_or_compl_df_list[0] + Colors.CEND + " values")
 
                     if contr_or_compl_df_list[0] == "contradictory":
@@ -1015,16 +1025,17 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
                             contradictory_rows1 = pd.concat(row1_dfs).reset_index(drop=True)
                             contradictory_rows2 = pd.concat(row2_dfs).reset_index(drop=True)
 
-                            html1 = contradictory_rows1.style\
-                                    .applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)], color='lightyellow')\
-                                    .apply(highlight_diff, axis=None, df2=contradictory_rows2)\
-                                    .render()
+                            html1 = contradictory_rows1.style \
+                                .applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)],
+                                          color='lightyellow') \
+                                .apply(highlight_diff, axis=None, df2=contradictory_rows2) \
+                                .render()
 
-                            html2 = contradictory_rows2.style\
-                                    .applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)], color='lightyellow')\
-                                    .apply(highlight_diff, axis=None, df2=contradictory_rows1)\
-                                    .render()
-
+                            html2 = contradictory_rows2.style \
+                                .applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)],
+                                          color='lightyellow') \
+                                .apply(highlight_diff, axis=None, df2=contradictory_rows1) \
+                                .render()
 
                             count += 1
                             print_option(count, html1, buttons)
@@ -1059,8 +1070,10 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
                         complementary_part1 = pd.concat(complementary_df_tuple[0])
                         complementary_part2 = pd.concat(complementary_df_tuple[1])
 
-                        html1 = complementary_part1.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)]).render()
-                        html2 = complementary_part2.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(candidate_key_tuple)]).render()
+                        html1 = complementary_part1.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
+                            candidate_key_tuple)]).render()
+                        html2 = complementary_part2.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
+                            candidate_key_tuple)]).render()
 
                         count += 1
                         print_option(count, html1, buttons)
@@ -1145,6 +1158,3 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
     display(out)
 
     return task
-
-
-

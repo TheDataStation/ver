@@ -666,7 +666,12 @@ def get_df_metadata(dfs):
 
 
 def main(input_path, candidate_key_size):
-    groups_per_column_cardinality = defaultdict(dict)
+    # groups_per_column_cardinality = defaultdict(dict)
+    compatible_groups = []
+    contained_groups = []
+    complementary_groups = []
+    contradictory_groups = []
+    all_pair_contr_compl = {}
 
     dfs = get_dataframes(input_path)
     print("Found " + str(len(dfs)) + " valid tables")
@@ -687,13 +692,19 @@ def main(input_path, candidate_key_size):
             no_chasing_4c(
                 dfs_with_metadata, candidate_key_size)
 
-        groups_per_column_cardinality[key]['compatible'] = compatible_group
-        groups_per_column_cardinality[key]['contained'] = contained_group
-        groups_per_column_cardinality[key]['complementary'] = complementary_group
-        groups_per_column_cardinality[key]['contradictory'] = contradictory_group
-        groups_per_column_cardinality[key]['all_pair_contr_compl'] = all_pair_contr_compl
+        compatible_groups += compatible_group
+        contained_groups += contained_group
+        complementary_groups += complementary_group
+        contradictory_groups += contradictory_group
+        all_pair_contr_compl.update(all_pair_contr_compl)
 
-    return groups_per_column_cardinality, dfs_per_schema
+        # groups_per_column_cardinality[key]['compatible'] = compatible_group
+        # groups_per_column_cardinality[key]['contained'] = contained_group
+        # groups_per_column_cardinality[key]['complementary'] = complementary_group
+        # groups_per_column_cardinality[key]['contradictory'] = contradictory_group
+        # groups_per_column_cardinality[key]['all_pair_contr_compl'] = all_pair_contr_compl
+
+    return compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl
 
 
 def nochasing_main(input_path):
@@ -769,77 +780,71 @@ if __name__ == "__main__":
     # input_path = "/Users/ra-mit/development/discovery_proto/data/dod/mitdwh/two/"
     input_path = "./test"
 
-    results = main(input_path)
+    compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = main(input_path)
 
-    for k, v in results[0].items():
-        compatible_group = v['compatible']
-        contained_group = v['contained']
-        complementary_group = v['complementary']
-        contradictory_group = v['contradictory']
+    print("Compatible groups: " + str(len(compatible_group)))
+    print("Contained groups: " + str(len(contained_group)))
+    print("Complementary views: " + str(len(complementary_group)))
+    print("Contradictory views: " + str(len(contradictory_group)))
 
-        print("Compatible groups: " + str(len(compatible_group)))
-        print("Contained groups: " + str(len(contained_group)))
-        print("Complementary views: " + str(len(complementary_group)))
-        print("Contradictory views: " + str(len(contradictory_group)))
+    print("Compatible groups:")
+    for group in compatible_group:
+        print(group)
 
-        print("Compatible groups:")
-        for group in compatible_group:
-            print(group)
+    print("Contained groups:")
+    for group in contained_group:
+        print(group)
 
-        print("Contained groups:")
-        for group in contained_group:
-            print(group)
+    print("Complementary views: ")
+    for path1, path2, _, _, _ in complementary_group:
+        print(path1 + " - " + path2)
 
-        print("Complementary views: ")
-        for path1, path2, _, _, _ in complementary_group:
+    print("Contradictory views: ")
+    for path1, candidate_key_tuple, key_value_tuples, path2 in contradictory_group:
+
+        df1 = pd.read_csv(path1)
+        df1 = normalize(df1)
+        df1 = df1.sort_index(axis=1)
+        df2 = pd.read_csv(path2)
+        df2 = normalize(df2)
+        df2 = df2.sort_index(axis=1)
+
+        # a list containing candidate key names
+        candidate_key = list(candidate_key_tuple)
+        # a list of tuples, each tuple corresponds to the contradictory key values
+        key_values = list(key_value_tuples)
+
+        print("Candidate key: ", candidate_key)
+
+        # there could be multiple contradictions existing in a pair of views
+        assert len(key_values) >= 1
+        for key_value in key_values:
+
+            # select row based on multiple composite keys
+            assert len(key_value) == len(candidate_key)
+
+            condition1 = (df1[candidate_key[0]] == key_value[0])
+            condition2 = (df2[candidate_key[0]] == key_value[0])
+            for i in range(1, len(candidate_key)):
+                condition1 = (condition1 & (df1[candidate_key[i]] == key_value[i]))
+                condition2 = (condition2 & (df2[candidate_key[i]] == key_value[i]))
+
+            row1 = df1.loc[condition1]
+            row2 = df2.loc[condition2]
+
             print(path1 + " - " + path2)
-
-        print("Contradictory views: ")
-        for path1, candidate_key_tuple, key_value_tuples, path2 in contradictory_group:
-
-            df1 = pd.read_csv(path1)
-            df1 = normalize(df1)
-            df1 = df1.sort_index(axis=1)
-            df2 = pd.read_csv(path2)
-            df2 = normalize(df2)
-            df2 = df2.sort_index(axis=1)
-
-            # a list containing candidate key names
-            candidate_key = list(candidate_key_tuple)
-            # a list of tuples, each tuple corresponds to the contradictory key values
-            key_values = list(key_value_tuples)
-
-            print("Candidate key: ", candidate_key)
-
-            # there could be multiple contradictions existing in a pair of views
-            assert len(key_values) >= 1
-            for key_value in key_values:
-
-                # select row based on multiple composite keys
-                assert len(key_value) == len(candidate_key)
-
-                condition1 = (df1[candidate_key[0]] == key_value[0])
-                condition2 = (df2[candidate_key[0]] == key_value[0])
-                for i in range(1, len(candidate_key)):
-                    condition1 = (condition1 & (df1[candidate_key[i]] == key_value[i]))
-                    condition2 = (condition2 & (df2[candidate_key[i]] == key_value[i]))
-
-                row1 = df1.loc[condition1]
-                row2 = df2.loc[condition2]
-
-                print(path1 + " - " + path2)
-                print("ROW - 1")
-                print(row1)
-                print("ROW - 2")
-                print(row2)
-                print("")
-
+            print("ROW - 1")
+            print(row1)
+            print("ROW - 2")
+            print(row2)
             print("")
 
-        # analyzing contradictory views:
-        mapping = defaultdict(list)
-        for path1, _, _, path2 in contradictory_group:
-            mapping[path1].append(path2)
-            mapping[path2].append(path1)
-        for k, v in mapping.items():
-            print(k + " : " + str(len(v)))
+        print("")
+
+    # analyzing contradictory views:
+    mapping = defaultdict(list)
+    for path1, _, _, path2 in contradictory_group:
+        mapping[path1].append(path2)
+        mapping[path2].append(path1)
+    for k, v in mapping.items():
+        print(k + " : " + str(len(v)))

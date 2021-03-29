@@ -189,18 +189,8 @@ if __name__ == '__main__':
     dir_path = "./test"
 
     # Run 4C
-    results = v4c.main(dir_path)
-
-    # TODO: don't separate by schemas for now
-    compatible_groups = []
-    contained_groups = []
-    complementary_groups = []
-    contradictory_groups = []
-    for k, v in results[0].items():
-        compatible_groups = compatible_groups + v['compatible']
-        contained_groups = contained_groups + v['contained']
-        complementary_groups = complementary_groups + v['complementary']
-        contradictory_groups = contradictory_groups + v['contradictory']
+    compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl = \
+        v4c.main(dir_path, candidate_key_size=2)
 
     csv_files = glob.glob(dir_path + "/view_*")
     view_dfs = []
