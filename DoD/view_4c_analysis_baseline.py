@@ -778,9 +778,10 @@ if __name__ == "__main__":
     # exit()
 
     # input_path = "/Users/ra-mit/development/discovery_proto/data/dod/mitdwh/two/"
-    input_path = "./test"
+    input_path = "./toytest/"
 
-    compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = main(input_path)
+    compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl = \
+        main(input_path, candidate_key_size=2)
 
     print("Compatible groups: " + str(len(compatible_group)))
     print("Contained groups: " + str(len(contained_group)))
