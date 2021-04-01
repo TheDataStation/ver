@@ -83,4 +83,14 @@ class AWDataTest(unittest.TestCase):
                   ["1050 Greenhills Circle", "New South Wales", "Australia"]]
         types = ["object", "object", "object"]
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
-              output_path=config.Advw.output_path)
+              output_path=config.Mit.output_path)
+
+    def test_case4(self):
+        attrs = ['', '']
+        values = [["Amy", "F"],
+                  ["Ryan", "M"],
+                  ["Gary", "M"],
+                  ["Ken", "M"],
+                  ["Terri", "F"]]
+        start(self.viewSearch, self.columnInfer, attrs, values, [], number_jps=10,
+              output_path=config.Mit.output_path)
