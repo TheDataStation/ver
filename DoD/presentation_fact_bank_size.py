@@ -14,6 +14,11 @@ from DoD.colors import Colors
 
 import server_config as config
 
+import matplotlib.pyplot as plt
+
+plt.rcParams['figure.figsize'] = [12, 8]
+plt.rcParams['figure.dpi'] = 200
+
 
 class Mode(Enum):
     manual = 1,
@@ -39,6 +44,9 @@ if __name__ == '__main__':
     max_num_interactions = 1000
 
     num_runs = 100
+
+    ground_truth_path = "./building/view_49"
+    print("Ground truth view: " + ground_truth_path)
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -82,9 +90,6 @@ if __name__ == '__main__':
 
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Processing complementary and contradictory views...")
-
-    ground_truth_path = "./building/view_49"
-    print("Ground truth view: " + ground_truth_path)
 
     result_by_fact_bank_size = []
 
@@ -509,23 +514,18 @@ if __name__ == '__main__':
         if mode == Mode.optimal or mode == Mode.random:
             # print("Average number of interactions = " + str(sum_num_interactions / num_runs))
 
-            import matplotlib.pyplot as plt
-
-            plt.rcParams['figure.figsize'] = [12, 8]
-            plt.rcParams['figure.dpi'] = 200
-
             # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
             # print(ground_truth_rank)
             # print(ground_truth_rank.shape)
             # fig, ax = plt.subplots()
 
             plt.boxplot(ground_truth_rank_np[:, ::2])
+
+            title = "fact_bank_frac=" + str(fact_bank_fraction) + "_epsilon=" + str(epsilon)
             if mode == Mode.optimal:
-                plt.title(
-                    "With exploration/exploitation, optimal mode, fact bank fraction=" + str(fact_bank_fraction / 100))
+                title += "_optimal"
             elif mode == Mode.random:
-                plt.title(
-                    "With exploration/exploitation, random mode, fact bank fraction=" + str(fact_bank_fraction / 100))
+                title += "_random"
             locs, labels = plt.xticks()
             # print(locs)
             # print(labels)
@@ -533,17 +533,16 @@ if __name__ == '__main__':
             plt.xticks(ticks=locs, labels=np.arange(1, ground_truth_rank_np.shape[1] + 1, step=2))
             plt.xlabel("Interaction num")
             plt.ylabel("Rank")
-            plt.show()
+            plt.title(title)
+            plt.tight_layout()
+            file_name = "./presentation_plots/" + title
+            plt.savefig(file_name)
+            # plt.show()
 
     result_by_fact_bank_size_np = np.array(result_by_fact_bank_size).transpose()
 
     if mode == Mode.optimal or mode == Mode.random:
         # print("Average number of interactions = " + str(sum_num_interactions / num_runs))
-
-        import matplotlib.pyplot as plt
-
-        plt.rcParams['figure.figsize'] = [12, 8]
-        plt.rcParams['figure.dpi'] = 200
 
         # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
         # print(ground_truth_rank)
@@ -551,11 +550,12 @@ if __name__ == '__main__':
         # fig, ax = plt.subplots()
 
         plt.boxplot(result_by_fact_bank_size_np)
+
+        title = "rank_at_interaction_20_epsilon=" + str(epsilon)
         if mode == Mode.optimal:
-            plt.title(
-                "With exploration/exploitation, optimal mode")
+            title += "_optimal"
         elif mode == Mode.random:
-            plt.title("With exploration/exploitation, random mode")
+            title += "_random"
         locs, labels = plt.xticks()
         # print(locs)
         # print(labels)
@@ -563,4 +563,8 @@ if __name__ == '__main__':
         plt.xticks(ticks=locs, labels=np.linspace(0.1, 1.0, num=10))
         plt.xlabel("Fact bank fraction")
         plt.ylabel("Rank at interaction 20")
-        plt.show()
+        plt.title(title)
+        plt.tight_layout()
+        file_name = "./presentation_plots/" + title
+        plt.savefig(file_name)
+        # plt.show()
