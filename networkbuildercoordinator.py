@@ -37,21 +37,6 @@ def main(output_path=None, table_path=None):
     end_entity_sim = time.time()
     print("Total entity-sim: {0}".format(str(end_entity_sim - start_entity_sim)))
 
-    """
-    # Content_sim text relation (random-projection based)
-    start_text_sig_sim = time.time()
-    st = time.time()
-    text_signatures = store.get_all_fields_text_signatures(network)
-    et = time.time()
-    print("Time to extract signatures from store: {0}".format(str(et - st)))
-    print("!!3 " + str(et - st))
-
-    networkbuilder.build_content_sim_relation_text_lsa(network, text_signatures)
-    end_text_sig_sim = time.time()
-    print("Total text-sig-sim: {0}".format(str(end_text_sig_sim - start_text_sig_sim)))
-    print("!!4 " + str(end_text_sig_sim - start_text_sig_sim))
-    """
-
     # Content_sim text relation (minhash-based)
     start_text_sig_sim = time.time()
     st = time.time()
