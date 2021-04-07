@@ -60,7 +60,7 @@ def main(output_path=None, table_path=None):
     print("Time to extract minhash signatures from store: {0}".format(str(et - st)))
     print("!!3 " + str(et - st))
 
-    lsh_threshold = 0.5
+    lsh_threshold = 0.8
     content_sim_index = networkbuilder.build_content_sim_mh_text(network, mh_signatures, lsh_threshold)
     end_text_sig_sim = time.time()
     print("Total text-sig-sim (minhash): {0}".format(str(end_text_sig_sim - start_text_sig_sim)))
