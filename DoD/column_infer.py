@@ -30,7 +30,6 @@ class ColumnInfer:
 
     def __init__(self, network, store_client, csv_separator=","):
         self.aurum_api = API(network=network, store_client=store_client)
-        self.paths_cache = dict()
         dpu.configure_csv_separator(csv_separator)
         self.topk = 1000  # magic top k number
 
@@ -91,7 +90,8 @@ class ColumnInfer:
                             c_score = min(len(sample)/len(h), len(h)/len(sample))
                             max_containment = max(max_containment, c_score)
                             hit_example.add(h)
-
+                        if max_containment < 0.5:
+                            continue
                         column_example_hit[k] += max_containment
                         example_match[(x.source_name, x.field_name)].extend(list(hit_example))
                         if hit_type[k] == FilterType.ATTR:
@@ -215,24 +215,6 @@ class ColumnInfer:
             results_hits.append(result_hit)
         return results, results_all, results_hits
 
-
-    def view_spec(self, all_candidates, example_hit_dict):
-        # select columns with highest containment scores and its neighbors
-        results = {}
-        for col, sample_scores in example_hit_dict.items():
-            max_score = max(sample_scores.values())
-            candidates = all_candidates[col]
-            result = set()
-            for c in candidates:
-                k = (c.source_name, c.field_name)
-                if sample_scores[k] != max_score:
-                    continue
-                result.add(c)
-                neighbors = self.aurum_api.content_similar_to(c)
-                for neighbor in neighbors:
-                    result.add(neighbor)
-            results[col] = list(result)
-        return results
 
     def view_spec_cluster_exploration(self, all_candidates, example_hit_dict):
         # select columns with highest containment scores and its neighbors

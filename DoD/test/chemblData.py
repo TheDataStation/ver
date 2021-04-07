@@ -14,6 +14,7 @@ class ChemblDataTest(unittest.TestCase):
     def setUp(self):
         model_path = config.Chembl.path_model
         sep = config.Chembl.separator
+        self.base_outpath = config.Chembl.output_path
 
         store_client = StoreHandler()
         network = fieldnetwork.deserialize_network(model_path)
@@ -29,12 +30,6 @@ class ChemblDataTest(unittest.TestCase):
 
 
     def test_case2(self):
-        '''
-        GroundTruth SQL:
-            SELECT FirstName, LastName, Gender, JobTitle
-            FROM HumanResources.Employee JOIN Person.Person
-            on Employee.BusinessEntityID = Person.BusinessEntityID;
-        '''
         attrs = ['accession', 'sequence', 'organism', 'start_position', 'end_position', 'assay_category']
         values = [['', '', '', '', '', '']]
         types = ['object', 'object', 'object', 'object', 'object', 'object', 'object']
@@ -77,14 +72,16 @@ class ChemblDataTest(unittest.TestCase):
         idx = 0
         cnt = 0
         while True:
-            if cnt == 50:
+            if cnt == 1:
                 break
             values = []
             values.append(data[idx])
             values.append(data[idx+1])
             values.append(data[idx+2])
-            num_candidate_group, num_join_paths = evaluate_view_search(self.viewSearch, self.columnInfer, attrs, values, 4)
-            f.write(str(num_candidate_group) + " " + str(num_join_paths) + '\n')
+            print(values)
+            evaluate_view_search(self.viewSearch, self.columnInfer, attrs, values, 2, 1000, self.base_outpath + "/result2/")
+            evaluate_view_search(self.viewSearch, self.columnInfer, attrs, values, 3, 1000, self.base_outpath + "/result3/")
+            evaluate_view_search(self.viewSearch, self.columnInfer, attrs, values, 4, 1000, self.base_outpath + "/result4/")
             cnt += 1
             idx += 10
     def test_view_spec_1(self):

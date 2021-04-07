@@ -6,8 +6,7 @@ from DoD.utils import FilterType
 from DoD import data_processing_utils as dpu
 import pandas as pd
 
-class DOD_API:
-
+class DoD_Pipeline:
     def __init__(self, model_path, output_path, sep):
         self.model_path = model_path
         self.output_path = output_path
@@ -18,9 +17,6 @@ class DOD_API:
         self.columnInfer = column_infer.ColumnInfer(network=network, store_client=store_client, csv_separator=sep)
         self.viewSearch = ViewSearchPruning(network=network, store_client=store_client, csv_separator=sep)
 
-    """
-    Get top k views without user interaction
-    """
     def get_topk_views(self, attrs, values, k):
         candidate_columns, sample_score, hit_type_dict, match_dict, _ = self.columnInfer.infer_candidate_columns(attrs, values)
         results = self.columnInfer.view_spec_cluster_1(candidate_columns, sample_score)
@@ -53,24 +49,3 @@ class DOD_API:
             i += 1
         print("total views:", i)
 
-if __name__ == '__main__':
-    path_model = "/Users/gongyue/aurum-datadiscovery/test/wdcModel/"
-    separator = ","
-    output_path = "/Users/gongyue/aurum-datadiscovery/test/wdcResult/"
-    api = DOD_API(path_model, output_path, separator)
-
-    attrs = ["", "", ""]
-    # values = [["Amy", "Alberts", "European Sales Manager"],
-    #           ["Ryan", "Cornelsen", "Production Technician - WC40"],
-    #           ["Gary", "Altman", "Facilities Manager"]]
-    # values = [["Amy", "F"],
-    #           ["Ryan", "M"],
-    #           ["Gary", "M"],
-    #           ["Ken", "M"],
-    #           ["Terri", "F"]]
-    values = [["Academy Awards", "Annie Hall", "UA"],
-               ["Academy Awards", "Marvin's Room", "xx"],
-                ["Academy Awards", "Something's Gotta Give","Sony"]]
-    api.get_topk_views(attrs, values, 5)
-    # print(pd.__version__)
-    # print(pd.__file__)

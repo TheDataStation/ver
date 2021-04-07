@@ -31,7 +31,7 @@ defusedxml==0.7.1
 Django==1.10.5
 editdistance==0.2
 elasticsearch==6.0.0
-elasticsearch-dsl==2.0.0
+elasticsearch-dsl
 entrypoints==0.3
 fdm==0.2.0
 fire==0.1.3

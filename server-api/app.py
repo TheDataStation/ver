@@ -147,7 +147,7 @@ def findvs():
         # Obtain view - always create a new view_generator, we assume these are new views
         # global dod
         global view_generator
-        view_generator = iter(dod.virtual_schema_iterative_search(list_attributes, list_samples, {}))
+        view_generator = iter(dod.search_views(list_attributes, list_samples, {}))
         mvs, attrs_to_project, view_metadata = next(view_generator)
         proj_view = dpu.project(mvs, attrs_to_project)
         analysis = obtain_view_analysis(proj_view)
