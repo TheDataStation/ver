@@ -267,21 +267,27 @@ def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2, candidate_key_s
                         # no need to continue once we found a contradiction for some attribute
                         # break
 
-        # Finding complementary keys using from view 1 to view 2 and view 2 to view 1
-        left_merge = pd.merge(selection1, selection2, on=candidate_key, how='left', suffixes=('_left', '_right'))
-        # this is the intersection of the composite keys from both selections
-        left_merge_intersection = left_merge[left_merge.notnull().all(axis=1)]
-        # this is all the rows that are not contained in the intersection (so they have NaNs)
-        complementary_keys_df = left_merge[left_merge.isnull().any(axis=1)][candidate_key]
-        complementary_keys = set(tuple(row) for row in complementary_keys_df.values.tolist())
-        complementary_keys1.update(complementary_keys)
+        if len(contradictory_keys) == 0:
+            if len(selection1.columns) == len(candidate_key):
+                # add dummy column
+                selection1["dummy_col"] = ""
+                selection2["dummy_col"] = ""
 
-        # mirror of above
-        right_merge = pd.merge(selection1, selection2, on=candidate_key, how='right', suffixes=('_left', '_right'))
-        right_merge_intersection = right_merge[right_merge.notnull().all(axis=1)]
-        complementary_keys_df = right_merge[right_merge.isnull().any(axis=1)][candidate_key]
-        complementary_keys = set(tuple(row) for row in complementary_keys_df.values.tolist())
-        complementary_keys2.update(complementary_keys)
+            # Finding complementary keys using from view 1 to view 2 and view 2 to view 1
+            left_merge = pd.merge(selection1, selection2, on=candidate_key, how='left', suffixes=('_left', '_right'))
+            # this is the intersection of the composite keys from both selections
+            left_merge_intersection = left_merge[left_merge.notnull().all(axis=1)]
+            # this is all the rows that are not contained in the intersection (so they have NaNs)
+            complementary_keys_df = left_merge[left_merge.isnull().any(axis=1)][candidate_key]
+            complementary_keys = set(tuple(row) for row in complementary_keys_df.values.tolist())
+            complementary_keys1.update(complementary_keys)
+
+            # mirror of above
+            right_merge = pd.merge(selection1, selection2, on=candidate_key, how='right', suffixes=('_left', '_right'))
+            right_merge_intersection = right_merge[right_merge.notnull().all(axis=1)]
+            complementary_keys_df = right_merge[right_merge.isnull().any(axis=1)][candidate_key]
+            complementary_keys = set(tuple(row) for row in complementary_keys_df.values.tolist())
+            complementary_keys2.update(complementary_keys)
 
         # print(complementary_key1, complementary_key2, contradictory_key1, contradictory_key2)
         result[candidate_key_tuple] = [complementary_keys1, complementary_keys2, contradictory_keys]
