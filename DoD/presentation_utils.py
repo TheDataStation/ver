@@ -391,14 +391,14 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
         path = None
         single_view_list = []
 
+        clear_output()
+        out.clear_output()
+
         if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
             # we have explored all the contradictory / complementary view pairs and single views at least once
             with out:
                 print("You have explored all views")
             break
-
-        clear_output()
-        out.clear_output()
 
         sorted_view_rank = sort_view_by_scores(view_rank)
         with out:
@@ -848,14 +848,15 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
             path = None
             single_view_list = []
 
+            # clear_output()
+            out.clear_output()
+
             if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
                 # we have explored all the contradictory / complementary view pairs and single views at least once
                 with out:
                     print("You have explored all views")
                 break
 
-            # clear_output()
-            out.clear_output()
             buttons = [skip_button, stop_button]
 
             sorted_view_rank = sort_view_by_scores(view_rank)
