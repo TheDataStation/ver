@@ -230,9 +230,9 @@ def preprocess(view_files, all_pair_contr_compl, sample_size):
     # print(non_contr_or_compl_views)
     for path in non_contr_or_compl_view_files:
         df = pd.read_csv(path, encoding='latin1', thousands=',')
-        df = mva.curate_view(df)
+        df = mva.curate_view_not_dropna(df)
         df = v4c.normalize(df)
-
+        print(df)
         row_strs = row_df_to_string(df)
         add_to_row_to_path_dict(row_to_path_dict, row_strs, path)
 
@@ -393,6 +393,8 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
 
         if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
             # we have explored all the contradictory / complementary view pairs and single views at least once
+            with out:
+                print("You have explored all views")
             break
 
         clear_output()
@@ -848,6 +850,8 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
 
             if len(view_to_view_pairs_dict) <= 0 and len(non_contr_or_compl_views_copy) <= 0:
                 # we have explored all the contradictory / complementary view pairs and single views at least once
+                with out:
+                    print("You have explored all views")
                 break
 
             # clear_output()

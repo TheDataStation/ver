@@ -50,6 +50,20 @@ def curate_view(df):
     df.sort_index(inplace=True, axis=0)
     return df
 
+def curate_view_not_dropna(df):
+
+    # df.columns = df.iloc[0]
+    # df = df.drop(index=0).reset_index(drop=True)
+
+    # df = df.dropna()  # drop nan
+    df = df.drop_duplicates()
+    # this may tweak indexes, so need to reset that
+    df = df.reset_index(drop=True)
+    # make sure it's sorted according to some order
+    df.sort_index(inplace=True, axis=1)
+    df.sort_index(inplace=True, axis=0)
+    return df
+
 
 """
 VIEW CLASSIFICATION FUNCTIONS
