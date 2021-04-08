@@ -29,7 +29,7 @@ class Mode(Enum):
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./building/"
+    dir_path = "./chembl_result/result4/"
     # top-k views
     top_k = 10
     # epsilon-greedy
@@ -43,12 +43,14 @@ if __name__ == '__main__':
 
     max_num_interactions = 1000
 
-    num_runs = 100
+    num_runs = 20
 
-    ground_truth_path = "./building/view_49"
+    ground_truth_path = "./chembl_result/result4/view_9.csv"
     print("Ground truth view: " + ground_truth_path)
     fact_bank_fraction = 0.5
     print("fact_bank_fraction=" + str(fact_bank_fraction))
+
+    plot_dir = "./presentation_plots/result4/"
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -202,17 +204,25 @@ if __name__ == '__main__':
                 # path = None -> all pairs from current top-k views have been explored
                 if (path == None and len(single_view_list) == 0) or p <= epsilon:
 
-                    p2 = random.random()
-
-                    if p2 < 0.5 and len(non_contr_or_compl_views_copy) > 0:
+                    if len(view_to_view_pairs_dict) == 0:
                         single_view = non_contr_or_compl_views_copy.pop()
                         single_view_list.append(single_view)
-                    else:
+                    elif len(non_contr_or_compl_views_copy) == 0:
                         view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
-                        # pprint.pprint(view_to_view_pairs_dict)
-                        # print(view1)
                         view2 = random.choice(pair_list)
                         path = (view1, view2)
+                    else:
+                        p2 = random.random()
+
+                        if p2 < 0.5:
+                            single_view = non_contr_or_compl_views_copy.pop()
+                            single_view_list.append(single_view)
+                        else:
+                            view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
+                            # pprint.pprint(view_to_view_pairs_dict)
+                            # print(view1)
+                            view2 = random.choice(pair_list)
+                            path = (view1, view2)
 
                 print(
                     Colors.CBOLD + "--------------------------------------------------------------------------" +
@@ -225,7 +235,10 @@ if __name__ == '__main__':
                     # present the single views
                     for single_view in single_view_list:
                         count += 1
-                        path, sample_df = single_view
+                        path, df = single_view
+                        sample_df = df
+                        if len(df) > sample_size:
+                            sample_df = df.sample(n=sample_size)
                         print(Colors.CBLUEBG2 + path + Colors.CEND)
                         print_option(count, sample_df)
                         option_dict[count] = (None, [sample_df], path)
@@ -370,15 +383,17 @@ if __name__ == '__main__':
 
                             # concatenate all complementary (non-intersecting) rows in both side
                             complementary_df_tuple = contr_or_compl_df_list[1]
-                            count += 1
-                            complementary_part1 = pd.concat(complementary_df_tuple[0])
-                            print_option(count, complementary_part1)
-                            option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
 
-                            count += 1
-                            complementary_part2 = pd.concat(complementary_df_tuple[1])
-                            print_option(count, complementary_part2)
-                            option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
+                            if len(complementary_df_tuple[0]) > 0:
+                                count += 1
+                                complementary_part1 = pd.concat(complementary_df_tuple[0])
+                                print_option(count, complementary_part1)
+                                option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+                            if len(complementary_df_tuple[1]) > 0:
+                                count += 1
+                                complementary_part2 = pd.concat(complementary_df_tuple[1])
+                                print_option(count, complementary_part2)
+                                option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
 
                 if len(option_dict) > 0:
 
@@ -393,14 +408,15 @@ if __name__ == '__main__':
                             # if set(candidate_key) == set(optimal_candidate_key):
                             row_dfs = values[1]
                             concat_row_df = pd.concat(row_dfs)
-                            intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)  # default to
-                            # intersection
-                            if len(intersection) > max_intersection_with_fact_back:
-                                # Always selection the option that's more consistent with the fact bank
-                                # if there's no intersection, then skip this option (select 0)
-                                option_picked = option
-                                max_intersection_with_fact_back = len(intersection)
-                                # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
+                            if len(concat_row_df.columns.intersection(fact_bank_df.columns)) > 0:
+                                # default to intersection
+                                intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)
+                                if len(intersection) > max_intersection_with_fact_back:
+                                    # Always selection the option that's more consistent with the fact bank
+                                    # if there's no intersection, then skip this option (select 0)
+                                    option_picked = option
+                                    max_intersection_with_fact_back = len(intersection)
+                                    # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
                         print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
                         print("Optimal option = " + str(option_picked))
 
@@ -495,8 +511,8 @@ if __name__ == '__main__':
         # print(ground_truth_rank)
         ground_truth_rank_np = np.array(ground_truth_rank)
 
-        ground_truth_rank_at_iter_20 = ground_truth_rank_np[:, 19]
-        result_by_epsilon.append(ground_truth_rank_at_iter_20)
+        # ground_truth_rank_at_iter_20 = ground_truth_rank_np[:, 19]
+        # result_by_epsilon.append(ground_truth_rank_at_iter_20)
 
         if mode == Mode.optimal or mode == Mode.random:
             # print("Average number of interactions = " + str(sum_num_interactions / num_runs))
@@ -507,7 +523,7 @@ if __name__ == '__main__':
             # fig, ax = plt.subplots()
 
             plt.boxplot(ground_truth_rank_np[:, ::2])
-            title = "epsilon=" + str(epsilon) + "_fact_bank_frac=" + str(fact_bank_fraction)
+            title = "epsilon=" + str(int(epsilon * 100))
             if mode == Mode.optimal:
                 title += "_optimal"
             elif mode == Mode.random:
@@ -521,35 +537,36 @@ if __name__ == '__main__':
             plt.ylabel("Rank")
             plt.title(title)
             plt.tight_layout()
-            file_name = "./presentation_plots/" + title
+            file_name = plot_dir + title + ".jpg"
             plt.savefig(file_name)
+            plt.close()
             # plt.show()
 
-    result_by_epsilon_np = np.array(result_by_epsilon).transpose()
-
-    if mode == Mode.optimal or mode == Mode.random:
-        # print("Average number of interactions = " + str(sum_num_interactions / num_runs))
-
-        # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
-        # print(ground_truth_rank)
-        # print(ground_truth_rank.shape)
-        # fig, ax = plt.subplots()
-
-        plt.boxplot(result_by_epsilon_np)
-        title = "rank_at_interaction_20_fact_bank_frac=" + str(fact_bank_fraction)
-        if mode == Mode.optimal:
-            title += "_optimal"
-        elif mode == Mode.random:
-            title += "_random"
-        locs, labels = plt.xticks()
-        # print(locs)
-        # print(labels)
-        # ax.set_xticks()
-        plt.xticks(ticks=locs, labels=np.linspace(0.1, 1.0, num=10))
-        plt.xlabel("epsilon")
-        plt.ylabel("Rank at interaction 20")
-        plt.title(title)
-        plt.tight_layout()
-        file_name = "./presentation_plots/" + title
-        plt.savefig(file_name)
-        # plt.show()
+    # result_by_epsilon_np = np.array(result_by_epsilon).transpose()
+    #
+    # if mode == Mode.optimal or mode == Mode.random:
+    #     # print("Average number of interactions = " + str(sum_num_interactions / num_runs))
+    #
+    #     # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
+    #     # print(ground_truth_rank)
+    #     # print(ground_truth_rank.shape)
+    #     # fig, ax = plt.subplots()
+    #
+    #     plt.boxplot(result_by_epsilon_np)
+    #     title = "rank_at_interaction_20_epsilon"
+    #     if mode == Mode.optimal:
+    #         title += "_optimal"
+    #     elif mode == Mode.random:
+    #         title += "_random"
+    #     locs, labels = plt.xticks()
+    #     # print(locs)
+    #     # print(labels)
+    #     # ax.set_xticks()
+    #     plt.xticks(ticks=locs, labels=np.linspace(0.1, 1.0, num=10))
+    #     plt.xlabel("epsilon")
+    #     plt.ylabel("Rank at interaction 20")
+    #     plt.title(title)
+    #     plt.tight_layout()
+    #     file_name = "./presentation_plots/" + title + ".jpg"
+    #     plt.savefig(file_name)
+    #     # plt.show()

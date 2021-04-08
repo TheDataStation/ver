@@ -236,10 +236,10 @@ def preprocess(view_files, all_pair_contr_compl, sample_size):
         row_strs = row_df_to_string(df)
         add_to_row_to_path_dict(row_to_path_dict, row_strs, path)
 
-        sample_df = df
-        if len(df) > sample_size:
-            sample_df = df.sample(n=sample_size)
-        non_contr_or_compl_views.append((path, sample_df))
+        # sample_df = df
+        # if len(df) > sample_size:
+        #     sample_df = df.sample(n=sample_size)
+        non_contr_or_compl_views.append((path, df))
 
     return all_pair_contr_compl_new, non_contr_or_compl_views, row_to_path_dict
 
@@ -314,7 +314,7 @@ def highlight_cols(s, color='lightgreen'):
 
 
 def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row_to_path_dict, top_k, epsilon,
-            max_num_interactions):
+            max_num_interactions, sample_size):
     from ipywidgets import Output, ToggleButtons, interact, fixed
     from IPython.display import display, clear_output, HTML
 
@@ -432,17 +432,25 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
         # path = None -> all pairs from current top-k views have been explored
         if (path == None and len(single_view_list) == 0) or p <= epsilon:
 
-            p2 = random.random()
-
-            if p2 < 0.5 and len(non_contr_or_compl_views_copy) > 0:
+            if len(view_to_view_pairs_dict) == 0:
                 single_view = non_contr_or_compl_views_copy.pop()
                 single_view_list.append(single_view)
-            else:
+            elif len(non_contr_or_compl_views_copy) == 0:
                 view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
-                # pprint.pprint(view_to_view_pairs_dict)
-                # print(view1)
                 view2 = random.choice(pair_list)
                 path = (view1, view2)
+            else:
+                p2 = random.random()
+
+                if p2 < 0.5:
+                    single_view = non_contr_or_compl_views_copy.pop()
+                    single_view_list.append(single_view)
+                else:
+                    view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
+                    # pprint.pprint(view_to_view_pairs_dict)
+                    # print(view1)
+                    view2 = random.choice(pair_list)
+                    path = (view1, view2)
 
         count = 0
         option_dict = {}
@@ -455,7 +463,10 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
             # present the single views
             for single_view in single_view_list:
                 count += 1
-                path, sample_df = single_view
+                path, df = single_view
+                sample_df = df
+                if len(df) > sample_size:
+                    sample_df = df.sample(n=sample_size)
                 with out:
                     print(Colors.CBLUEBG + path + Colors.CEND)
                 print_option(count, sample_df.to_html())
@@ -623,21 +634,23 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
 
                     # concatenate all complementary (non-intersecting) rows in both side
                     complementary_df_tuple = contr_or_compl_df_list[1]
-                    complementary_part1 = pd.concat(complementary_df_tuple[0])
-                    complementary_part2 = pd.concat(complementary_df_tuple[1])
 
-                    html1 = complementary_part1.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
-                        candidate_key_tuple)]).render()
-                    html2 = complementary_part2.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
-                        candidate_key_tuple)]).render()
+                    if len(complementary_df_tuple[0]) > 0:
+                        complementary_part1 = pd.concat(complementary_df_tuple[0])
+                        html1 = complementary_part1.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
+                            candidate_key_tuple)]).render()
 
-                    count += 1
-                    print_option(count, html1)
-                    option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+                        count += 1
+                        print_option(count, html1)
+                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+                    if len(complementary_df_tuple[1]) > 0:
+                        complementary_part2 = pd.concat(complementary_df_tuple[1])
+                        html2 = complementary_part2.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
+                            candidate_key_tuple)]).render()
 
-                    count += 1
-                    print_option(count, html2)
-                    option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
+                        count += 1
+                        print_option(count, html2)
+                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
 
         if len(option_dict) > 0:
 
@@ -736,7 +749,7 @@ def present(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row
 
 
 def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_views, row_to_path_dict, top_k, epsilon,
-                  max_num_interactions):
+                  max_num_interactions, sample_size):
     from ipywidgets import Output, Button, ToggleButtons, interact, fixed, HBox
     from IPython.display import display, clear_output, HTML
 
@@ -876,17 +889,25 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
             # path = None -> all pairs from current top-k views have been explored
             if (path == None and len(single_view_list) == 0) or p <= epsilon:
 
-                p2 = random.random()
-
-                if p2 < 0.5 and len(non_contr_or_compl_views_copy) > 0:
+                if len(view_to_view_pairs_dict) == 0:
                     single_view = non_contr_or_compl_views_copy.pop()
                     single_view_list.append(single_view)
-                else:
+                elif len(non_contr_or_compl_views_copy) == 0:
                     view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
-                    # pprint.pprint(view_to_view_pairs_dict)
-                    # print(view1)
                     view2 = random.choice(pair_list)
                     path = (view1, view2)
+                else:
+                    p2 = random.random()
+
+                    if p2 < 0.5:
+                        single_view = non_contr_or_compl_views_copy.pop()
+                        single_view_list.append(single_view)
+                    else:
+                        view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
+                        # pprint.pprint(view_to_view_pairs_dict)
+                        # print(view1)
+                        view2 = random.choice(pair_list)
+                        path = (view1, view2)
 
             count = 0
             option_dict = {}
@@ -899,7 +920,10 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
                 # present the single views
                 for single_view in single_view_list:
                     count += 1
-                    path, sample_df = single_view
+                    path, df = single_view
+                    sample_df = df
+                    if len(df) > sample_size:
+                        sample_df = df.sample(n=sample_size)
                     with out:
                         print(Colors.CBLUEBG + path + Colors.CEND)
                     print_option(count, sample_df.to_html(), buttons)
@@ -1067,21 +1091,23 @@ def present_async(view_files, contr_or_compl_view_pairs, non_contr_or_compl_view
 
                         # concatenate all complementary (non-intersecting) rows in both side
                         complementary_df_tuple = contr_or_compl_df_list[1]
-                        complementary_part1 = pd.concat(complementary_df_tuple[0])
-                        complementary_part2 = pd.concat(complementary_df_tuple[1])
 
-                        html1 = complementary_part1.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
-                            candidate_key_tuple)]).render()
-                        html2 = complementary_part2.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
-                            candidate_key_tuple)]).render()
+                        if len(complementary_df_tuple[0]) > 0:
+                            complementary_part1 = pd.concat(complementary_df_tuple[0])
+                            html1 = complementary_part1.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
+                                candidate_key_tuple)]).render()
 
-                        count += 1
-                        print_option(count, html1, buttons)
-                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+                            count += 1
+                            print_option(count, html1, buttons)
+                            option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+                        if len(complementary_df_tuple[1]) > 0:
+                            complementary_part2 = pd.concat(complementary_df_tuple[1])
+                            html2 = complementary_part2.style.applymap(highlight_cols, subset=pd.IndexSlice[:, list(
+                                candidate_key_tuple)]).render()
 
-                        count += 1
-                        print_option(count, html2, buttons)
-                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
+                            count += 1
+                            print_option(count, html2, buttons)
+                            option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
 
             if len(option_dict) > 0:
 

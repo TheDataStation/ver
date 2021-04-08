@@ -23,7 +23,7 @@ class Mode(Enum):
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./toytest/"
+    dir_path = "./chembl_result/result1/"
     # top-k views
     top_k = 10
     # epsilon-greedy
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # sample size of contradictory and complementary rows to present
     sample_size = 5
 
-    mode = Mode.manual
+    mode = Mode.optimal
 
     max_num_interactions = 1000
 
@@ -109,30 +109,32 @@ if __name__ == '__main__':
 
     sum_num_interactions = 0
 
-    # ground_truth_path = "./building/view_49"
-    # fact_bank_df = None
-    # optimal_candidate_key = ["Building Room", "Building Name"]
-    # if mode == Mode.optimal:
-    #     print("Ground truth view: " + ground_truth_path)
-    #     fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
-    #     fact_bank_df = mva.curate_view(fact_bank_df)
-    #     fact_bank_df = v4c.normalize(fact_bank_df)
+    ground_truth_path = "./chembl_result/result1/view_43.csv"
+    fact_bank_fraction = 0.5
+    fact_bank_df = None
+    optimal_candidate_key = ["Building Room", "Building Name"]
+    if mode == Mode.optimal:
+        print("Ground truth view: " + ground_truth_path)
+        fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+        fact_bank_df = mva.curate_view(fact_bank_df)
+        fact_bank_df = v4c.normalize(fact_bank_df)
+        fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
 
     for run in range(num_runs):
 
         print("Run " + str(run))
 
         #################################################################################
-        ground_truth_path = random.choice(list(view_files))
-        fact_bank_df = None
-        fact_bank_fraction = 1.0
-        # optimal_candidate_key = ["Building Room", "Building Name"]
-        if mode == Mode.optimal:
-            print("Ground truth view: " + ground_truth_path)
-            fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
-            fact_bank_df = mva.curate_view(fact_bank_df)
-            fact_bank_df = v4c.normalize(fact_bank_df)
-            fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
+        # ground_truth_path = random.choice(list(view_files))
+        # fact_bank_df = None
+        # fact_bank_fraction = 1.0
+        # # optimal_candidate_key = ["Building Room", "Building Name"]
+        # if mode == Mode.optimal:
+        #     print("Ground truth view: " + ground_truth_path)
+        #     fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+        #     fact_bank_df = mva.curate_view(fact_bank_df)
+        #     fact_bank_df = v4c.normalize(fact_bank_df)
+        #     fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
         #################################################################################
 
         # Initialize ranking model
@@ -214,17 +216,25 @@ if __name__ == '__main__':
             # path = None -> all pairs from current top-k views have been explored
             if (path == None and len(single_view_list) == 0) or p <= epsilon:
 
-                p2 = random.random()
-
-                if p2 < 0.5 and len(non_contr_or_compl_views_copy) > 0:
+                if len(view_to_view_pairs_dict) == 0:
                     single_view = non_contr_or_compl_views_copy.pop()
                     single_view_list.append(single_view)
-                else:
+                elif len(non_contr_or_compl_views_copy) == 0:
                     view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
-                    # pprint.pprint(view_to_view_pairs_dict)
-                    # print(view1)
                     view2 = random.choice(pair_list)
                     path = (view1, view2)
+                else:
+                    p2 = random.random()
+
+                    if p2 < 0.5:
+                        single_view = non_contr_or_compl_views_copy.pop()
+                        single_view_list.append(single_view)
+                    else:
+                        view1, pair_list = random.choice(list(view_to_view_pairs_dict.items()))
+                        # pprint.pprint(view_to_view_pairs_dict)
+                        # print(view1)
+                        view2 = random.choice(pair_list)
+                        path = (view1, view2)
 
             print(
                 Colors.CBOLD + "--------------------------------------------------------------------------" +
@@ -237,7 +247,10 @@ if __name__ == '__main__':
                 # present the single views
                 for single_view in single_view_list:
                     count += 1
-                    path, sample_df = single_view
+                    path, df = single_view
+                    sample_df = df
+                    if len(df) > sample_size:
+                        sample_df = df.sample(n=sample_size)
                     print(Colors.CBLUEBG2 + path + Colors.CEND)
                     print_option(count, sample_df)
                     option_dict[count] = (None, [sample_df], path)
@@ -379,15 +392,17 @@ if __name__ == '__main__':
 
                         # concatenate all complementary (non-intersecting) rows in both side
                         complementary_df_tuple = contr_or_compl_df_list[1]
-                        count += 1
-                        complementary_part1 = pd.concat(complementary_df_tuple[0])
-                        print_option(count, complementary_part1)
-                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
 
-                        count += 1
-                        complementary_part2 = pd.concat(complementary_df_tuple[1])
-                        print_option(count, complementary_part2)
-                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
+                        if len(complementary_df_tuple[0]) > 0:
+                            count += 1
+                            complementary_part1 = pd.concat(complementary_df_tuple[0])
+                            print_option(count, complementary_part1)
+                            option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+                        if len(complementary_df_tuple[1]) > 0:
+                            count += 1
+                            complementary_part2 = pd.concat(complementary_df_tuple[1])
+                            print_option(count, complementary_part2)
+                            option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
 
             if len(option_dict) > 0:
 
@@ -402,14 +417,15 @@ if __name__ == '__main__':
                         # if set(candidate_key) == set(optimal_candidate_key):
                         row_dfs = values[1]
                         concat_row_df = pd.concat(row_dfs)
-                        intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)  # default to
-                        # intersection
-                        if len(intersection) > max_intersection_with_fact_back:
-                            # Always selection the option that's more consistent with the fact bank
-                            # if there's no intersection, then skip this option (select 0)
-                            option_picked = option
-                            max_intersection_with_fact_back = len(intersection)
-                            # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
+                        if len(concat_row_df.columns.intersection(fact_bank_df.columns)) > 0:
+                            # default to intersection
+                            intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)
+                            if len(intersection) > max_intersection_with_fact_back:
+                                # Always selection the option that's more consistent with the fact bank
+                                # if there's no intersection, then skip this option (select 0)
+                                option_picked = option
+                                max_intersection_with_fact_back = len(intersection)
+                                # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
                     print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
                     print("Optimal option = " + str(option_picked))
 

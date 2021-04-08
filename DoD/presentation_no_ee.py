@@ -167,7 +167,10 @@ if __name__ == '__main__':
             if single_view != None:
                 # present the single view
                 count += 1
-                path, sample_df = single_view
+                path, df = single_view
+                sample_df = df
+                if len(df) > sample_size:
+                    sample_df = df.sample(n=sample_size)
                 print(Colors.CBLUEBG2 + path + Colors.CEND)
                 print_option(count, sample_df)
                 option_dict[count] = (None, [sample_df], path)
@@ -217,15 +220,17 @@ if __name__ == '__main__':
 
                         # concatenate all complementary (non-intersecting) rows in both side
                         complementary_df_tuple = contr_or_compl_df_list[1]
-                        count += 1
-                        complementary_part1 = pd.concat(complementary_df_tuple[0])
-                        print_option(count, complementary_part1)
-                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
 
-                        count += 1
-                        complementary_part2 = pd.concat(complementary_df_tuple[1])
-                        print_option(count, complementary_part2)
-                        option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
+                        if len(complementary_df_tuple[0]) > 0:
+                            count += 1
+                            complementary_part1 = pd.concat(complementary_df_tuple[0])
+                            print_option(count, complementary_part1)
+                            option_dict[count] = (candidate_key_tuple, complementary_df_tuple[0], path1)
+                        if len(complementary_df_tuple[1]) > 0:
+                            count += 1
+                            complementary_part2 = pd.concat(complementary_df_tuple[1])
+                            print_option(count, complementary_part2)
+                            option_dict[count] = (candidate_key_tuple, complementary_df_tuple[1], path2)
 
             if len(option_dict) > 0:
 
@@ -240,14 +245,15 @@ if __name__ == '__main__':
                         # if set(candidate_key) == set(optimal_candidate_key):
                         row_dfs = values[1]
                         concat_row_df = pd.concat(row_dfs)
-                        intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)  # default to
-                        # intersection
-                        if len(intersection) > max_intersection_with_fact_back:
-                            # Always selection the option that's more consistent with the fact bank
-                            # if there's no intersection, then skip this option (select 0)
-                            option_picked = option
-                            max_intersection_with_fact_back = len(intersection)
-                            # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
+                        if len(concat_row_df.columns.intersection(fact_bank_df.columns)) > 0:
+                            # default to intersection
+                            intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)
+                            if len(intersection) > max_intersection_with_fact_back:
+                                # Always selection the option that's more consistent with the fact bank
+                                # if there's no intersection, then skip this option (select 0)
+                                option_picked = option
+                                max_intersection_with_fact_back = len(intersection)
+                                # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
                     print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
                     print("Optimal option = " + str(option_picked))
 
