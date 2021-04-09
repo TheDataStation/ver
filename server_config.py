@@ -1,6 +1,6 @@
 # input parameters
 class Chembl:
-    path_model = "/Users/gongyue/aurum-datadiscovery/test/chemblModels/"
+    path_model = "/Users/gongyue/aurum-datadiscovery/test/chemblModel2/"
     separator = ";"
     output_path = "/Users/gongyue/aurum-datadiscovery/test/chemblResult/"
 

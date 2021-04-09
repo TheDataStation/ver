@@ -296,6 +296,13 @@ def read_relation_on_copy2(relation_path, separator):
         cache[relation_path] = df
     return df.copy()
 
+def read_relation_on_copy_renamed(relation_path, separator, names, offset):
+    if relation_path in cache:
+        df = cache[relation_path]
+    else:
+        df = pd.read_csv(relation_path, encoding='latin1', sep=separator, names = names, nrows=offset)
+        cache[relation_path] = df
+    return df.copy()
 
 def empty_relation_cache():
     global cache

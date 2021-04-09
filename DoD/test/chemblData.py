@@ -2,10 +2,11 @@ import unittest
 
 import server_config as config
 from DoD import column_infer
-from DoD.view_search_pruning import ViewSearchPruning, start, evaluate_view_search
+from DoD.view_search_pruning import ViewSearchPruning, start, evaluate_view_search, found_view_eval
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 from DoD import data_processing_utils as dpu
+from DoD.generate_tests import generate_tests
 
 '''
 Test cases for adventureWork Dataset
@@ -43,9 +44,14 @@ class ChemblDataTest(unittest.TestCase):
         # values = [['Homo sapiens', 'XVI'],
         #           ['Mus musculus', 'XIX']]
 
-        values = [['Glycine max', 'Doxorubicin'],
-                  ['Mus musculus', 'Ciprofloxacin']]
+        # values = [['Glycine max', 'Doxorubicin'],
+        #           ['Mus musculus', 'Ciprofloxacin']]
+       # values = [['Homo sapiens', 'Doxorubicin'], ['Mus musculus', 'Ciprofloxacin'], ['Rattus norvegicus', 'Chloroquine']]
+       #  values = [['Staphylococcus aureus', 'Chloroquine'], ['Canis lupus familiaris', 'Ampicillin'],
+       #   ['Escherichia coli', 'Fluconazole']]
+        values = [['Homo sapiens', '2-{4-[3-(1,4,5,6-Tetrahydro-pyrimidin-2-ylamino)-benzoylamino]-phenyl}-cyclopropanecarboxylic acid'], ['Epstein-Barr virus (strain B95-8) (HHV-4) (Human herpesvirus 4)', '(+/-)-8'], ['Human immunodeficiency virus type 1 group M subtype B (isolateBRU/LAI) (HIV-1)', 'NSC-364170']]
         types = ['object', 'object']
+
         start(self.viewSearch, self.columnInfer, attrs, values, types, number_jps=10,
               output_path=config.Chembl.output_path)
 
@@ -79,11 +85,51 @@ class ChemblDataTest(unittest.TestCase):
             values.append(data[idx+1])
             values.append(data[idx+2])
             print(values)
+            evaluate_view_search(self.viewSearch, self.columnInfer, attrs, values, 1, 1000, self.base_outpath + "/result1/")
             evaluate_view_search(self.viewSearch, self.columnInfer, attrs, values, 2, 1000, self.base_outpath + "/result2/")
             evaluate_view_search(self.viewSearch, self.columnInfer, attrs, values, 3, 1000, self.base_outpath + "/result3/")
             evaluate_view_search(self.viewSearch, self.columnInfer, attrs, values, 4, 1000, self.base_outpath + "/result4/")
             cnt += 1
             idx += 10
+
+    def test_found_view_or_not(self):
+        zero_noise, med_noise, high_noise = generate_tests()
+        gt_cols = [("public.assays.csv", "assay_organism"), ("public.compound_records.csv", "compound_name")]
+        attrs = ["", ""]
+        # correct1, correct2, correct3 = 0, 0, 0
+        # for case in zero_noise:
+        #     print(case)
+        #     f1, f2, f3 = found_view_eval(self.columnInfer, attrs, case, gt_cols)
+        #     if f1:
+        #         correct1 += 1
+        #     if f2:
+        #         correct2 += 1
+        #     if f3:
+        #         correct3 += 1
+        # print(correct1, correct2, correct3)
+        # correct1, correct2, correct3 = 0, 0, 0
+        # for case in med_noise:
+        #     print(case)
+        #     f1, f2, f3 = found_view_eval(self.columnInfer, attrs, case,  gt_cols)
+        #     if f1:
+        #         correct1 += 1
+        #     if f2:
+        #         correct2 += 1
+        #     if f3:
+        #         correct3 += 1
+        # print(correct1, correct2, correct3)
+        correct1, correct2, correct3 = 0, 0, 0
+        for case in high_noise:
+            print(case)
+            f1, f2, f3 = found_view_eval(self.columnInfer, attrs, case, gt_cols)
+            if f1:
+                correct1 += 1
+            if f2:
+                correct2 += 1
+            if f3:
+                correct3 += 1
+        print(correct1, correct2, correct3)
+
     def test_view_spec_1(self):
         # no ambiguity
         # attrs = ['', '', '', '', '', '', '', '', '']

@@ -31,7 +31,7 @@ class ColumnInfer:
     def __init__(self, network, store_client, csv_separator=","):
         self.aurum_api = API(network=network, store_client=store_client)
         dpu.configure_csv_separator(csv_separator)
-        self.topk = 1000  # magic top k number
+        self.topk = 100  # magic top k number
 
     """
         Get candidate columns for one attr
@@ -338,6 +338,7 @@ class ColumnInfer:
                 visited[candidate.nid] = True
                 cluster = [candidate]
                 target_idx = idx
+                print(candidate)
                 neighbors = self.aurum_api.content_similar_to(candidate)
                 for neighbor in neighbors.data:
                     if neighbor.nid in visited:

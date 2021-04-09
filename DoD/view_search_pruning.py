@@ -42,6 +42,7 @@ class ViewSearchPruning:
     def __init__(self, network, store_client, csv_separator=","):
         self.aurum_api = API(network=network, store_client=store_client)
         self.paths_cache = dict()
+        self.view_cache = dict()
         dpu.configure_csv_separator(csv_separator)
 
     def place_paths_in_cache(self, t1, t2, paths):
@@ -278,7 +279,12 @@ class ViewSearchPruning:
                 table = candidate_group[0]
                 path = table_path[table]
                 # materialized_virtual_schema = dpu.get_dataframe(path + "/" + table)
-                materialized_virtual_schema = dpu.read_relation(path + "/" + table)
+                if table in self.view_cache:
+                    materialized_virtual_schema = self.view_cache[table]
+                    print("HIT")
+                else:
+                    materialized_virtual_schema = dpu.read_relation(path + "/" + table)
+                    self.view_cache[table] = materialized_virtual_schema
                 attrs_to_project = dpu.obtain_attributes_to_project(candidate_group_filters_covered)
                 # Create metadata to document this view
                 view_metadata = dict()
@@ -287,7 +293,7 @@ class ViewSearchPruning:
                 if 'single_relation_group' not in perf_stats:
                     perf_stats['single_relation_group'] = 0
                 perf_stats['single_relation_group'] += 1
-                yield materialized_virtual_schema, attrs_to_project, view_metadata
+                yield materialized_virtual_schema, attrs_to_project, view_metadata, table
                 continue  # to go to the next group
 
             # Pre-check
@@ -338,7 +344,7 @@ class ViewSearchPruning:
         print("Finished enumerating groups")
 
         # Rate all join paths after pruning
-
+        print(all_join_graphs)
         print("total join graphs", len(all_join_graphs))
 
         table_paths = {}
@@ -524,26 +530,28 @@ class ViewSearchPruning:
         for mjg, filters in materializable_join_graphs:
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
-            # add join key
-            # for l,r in mjg:
-            #     attrs_to_project.add(l.field_name)
-            #     attrs_to_project.add(r.field_name)
+
             idx += 1
 
-            materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, idx, sample_size=1000)
-            # materialized_virtual_schema = dpu.materialize_join_graph(mjg, self)
+            if tuple(mjg) in self.view_cache:
+                materialized_virtual_schema = self.view_cache[tuple(mjg)]
+                print("HIT")
+            else:
+                materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, idx,
+                                                                                sample_size=1000)
+                self.view_cache[tuple(mjg)] = materialized_virtual_schema
+            join_path = ""
             if materialized_virtual_schema is False:
                 continue  # happens when the join was an outlier
             else:
-                print("Materialized Join Path")
                 for l, r in mjg:
-                    print(l.source_name + "." + l.field_name + " JOIN " + r.source_name + "." + r.field_name)
+                    join_path += l.source_name + "-" + l.field_name + " JOIN " + r.source_name + "-" + r.field_name + "\n"
             # Create metadata to document this view
             view_metadata = dict()
             view_metadata["#join_graphs"] = len(materializable_join_graphs)
             # view_metadata["join_graph"] = self.format_join_paths_pairhops(jpg)
             view_metadata["join_graph"] = self.format_join_graph_into_nodes_edges(mjg)
-            to_return.append((materialized_virtual_schema, attrs_to_project, view_metadata))
+            to_return.append((materialized_virtual_schema, attrs_to_project, view_metadata, join_path))
             # yield materialized_virtual_schema, attrs_to_project, view_metadata
         return to_return
 
@@ -840,6 +848,33 @@ def obtain_table_paths(set_nids, dod):
         table_path[table] = path
     return table_path
 
+def found_view_eval(ci, attrs, values, gt_cols):
+    candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = ci.infer_candidate_columns(attrs, values)
+    results = []
+    for _, columns in candidate_columns.items():
+        results.append([(c.source_name, c.field_name) for c in columns])
+    found1 = True
+    for i, result in enumerate(results):
+        if gt_cols[i] not in result:
+            found1 = False
+            break
+    found2 = True
+    results = ci.view_spec_benchmark(sample_score)
+    for i, result in enumerate(results):
+        if gt_cols[i] not in result:
+            found2 = False
+            break
+
+    found3 = True
+    results, _, _ = ci.view_spec_cluster2(candidate_columns, sample_score)
+    for i, result in enumerate(results):
+        if gt_cols[i] not in result:
+            found3 = False
+            break
+
+    return found1, found2, found3
+
+
 def evaluate_view_search(vs, ci, attrs, values, flag, offset = 1000, output_path = ""):
     candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = ci.infer_candidate_columns(attrs, values)
     filter_drs = {}
@@ -870,8 +905,13 @@ def evaluate_view_search(vs, ci, attrs, values, flag, offset = 1000, output_path
             idx += 1
 
     i = 0
-    for mjp, attrs_project, metadata in vs.search_views({}, filter_drs, perf_stats, max_hops=2,
+    log = open(output_path + "/log.txt", "w")
+    log.write("Method" + str(flag))
+    for mjp, attrs_project, metadata, jp in vs.search_views({}, filter_drs, perf_stats, max_hops=2,
                                        debug_enumerate_all_jps=False, offset=offset):
+        log.write("view" + str(i))
+        log.write(jp)
+        log.write(attrs_project)
         proj_view = dpu.project(mjp, attrs_project)
         full_view = False
 

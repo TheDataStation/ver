@@ -29,7 +29,7 @@ class StoreHandler:
             :return:
             """
         global client
-        client = Elasticsearch([{'host': c.db_host, 'port': c.db_port}], timeout=30)
+        client = Elasticsearch([{'host': c.db_host, 'port': c.db_port}], timeout=60)
 
     def close(self):
         print("TODO")
@@ -77,6 +77,7 @@ class StoreHandler:
                                          'hits.hits._source.uniqueValues',
                                          'hits.hits._source.dataType']
                             )
+        print(res)
         scroll_id = res['_scroll_id']
         remaining = res['hits']['total']
         while remaining > 0:
