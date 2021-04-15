@@ -853,27 +853,47 @@ def found_view_eval(ci, attrs, values, gt_cols):
     results = []
     for _, columns in candidate_columns.items():
         results.append([(c.source_name, c.field_name) for c in columns])
-    found1 = True
-    for i, result in enumerate(results):
-        if gt_cols[i] not in result:
-            found1 = False
-            break
-    found2 = True
-    results = ci.view_spec_benchmark(sample_score)
-    for i, result in enumerate(results):
-        if gt_cols[i] not in result:
-            found2 = False
-            break
+    found1 = found_gt_view_or_not(results, gt_cols)
 
-    found3 = True
+    results = ci.view_spec_benchmark(sample_score)
+    found2 = found_gt_view_or_not(results, gt_cols)
+
     results, _, _ = ci.view_spec_cluster2(candidate_columns, sample_score)
-    for i, result in enumerate(results):
-        if gt_cols[i] not in result:
-            found3 = False
-            break
+    found3 = found_gt_view_or_not(results, gt_cols)
 
     return found1, found2, found3
 
+def pipeline_evaluation(vs, ci, attrs, values, gt_cols, offset = 1000, output_path = ""):
+    candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = ci.infer_candidate_columns(attrs, values)
+    results = []
+    filter_drs = {}
+    perf_stats = dict()
+    '''
+    baseline 1: S4
+    '''
+    idx = 0
+    for column, candidates in candidate_columns.items():
+        results.append([(c.source_name, c.field_name) for c in candidates])
+        filter_drs[(column, FilterType.ATTR, idx)] = candidates
+        idx += 1
+    found1 = found_gt_view_or_not(results, gt_cols)
+
+    '''
+    baseline2: SQUID
+    '''
+    results = ci.view_spec_benchmark(sample_score)
+    found2 = found_gt_view_or_not(results, gt_cols)
+
+    results, _, _ = ci.view_spec_cluster2(candidate_columns, sample_score)
+    found3 = found_gt_view_or_not(results, gt_cols)
+
+def found_gt_view_or_not(results, gt_cols):
+    found = True
+    for i, result in enumerate(results):
+        if gt_cols[i] not in result:
+            found = False
+            break
+    return found
 
 def evaluate_view_search(vs, ci, attrs, values, flag, offset = 1000, output_path = ""):
     candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = ci.infer_candidate_columns(attrs, values)
