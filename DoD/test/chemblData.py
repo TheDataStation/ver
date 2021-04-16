@@ -6,7 +6,7 @@ from DoD.view_search_pruning import ViewSearchPruning, start, evaluate_view_sear
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 from DoD import data_processing_utils as dpu
-from DoD.generate_tests import generate_tests
+from DoD.evaluation.generate_tests import generate_tests
 
 '''
 Test cases for adventureWork Dataset

@@ -1,0 +1,117 @@
+gt 0
+zero noise
+[['unidentified phage', 'SID24802579'], ['Marthasterias glacialis', "1-(5'-phenyl-pentyl)-benzo[4,5]thieno[3,2-b]pyridin-1-ium iodide"], ['Phasmarhabditis hermaphrodita', '5-(4-(morpholinosulfonyl)phenyl)-1H-indazol-3-amine']]
+[['Thermus aquaticus', '[4-(2-Benzyl-1-phenyl-but-1-enyl)-phenoxymethyl]-diethyl-amine'], ['Rheum palmatum', '[(2S,5S)-5-(4-Benzyloxy-benzyl)-3,6-dioxo-piperazin-2-yl]-acetic acid methyl ester'], ['Anethum graveolens', 'SID47201684']]
+[['Lemna minor', 'N-(Naphthalen-2-yl)-2-(4-oxo-3-phenyl-4H-chromen-7-yloxy)acetamide'], ['Gibberella intermedia', '(1S,2R,5R,6R,9R,10R,13S,15S)-5-[(3E)-5,6-dimethylhept-3-en-2-yl]-6,10-dimethyl-16,17-dioxapentacyclo[13.2.2.0^{1,9}.0^{2,6}.0^{10,15}]nonadec-18-en-13-ol'], ['Saccharomyces bayanus', 'rac-2-(4-methoxyphenylamino)-7-methyl-7,8-dihydroquinazolin-5(6H)-one']]
+[['Rat sialodacryoadenitis coronavirus', '4-(4-Isopropyl-phenyl)-6-(5,6,7,8-tetrahydronaphthalen-2-yl)-2-thioxo-1,2-dihydro-pyridine-3-carbonitrile'], ['Lupinus albus', 'CNDR-04'], ['Senna obtusifolia', "N-methyl-N-[2-(3',6'-dimethylbenzyloxy)-4-nitrophenyl]-methanesulfonamide"]]
+[['Erythrina crista-galli', '(S)-2-Amino-3-(6-bromo-3,5-dioxo-4,5-dihydro-3H-[1,2,4]triazin-2-yl)-propionic acid'], ['Pleurotus ostreatus', '2-tert-Butyl-6-methyl-phenol'], ['Mycobacterium avium subsp. hominissuis', 'SID24275025']]
+mid noise
+[['Staphylococcus aureus', '4-(6-Cyclopentylamino-purin-9-yl)-1-hydroxymethyl-bicyclo[3.1.0]hexane-2,3-diol'], ['Abelson murine leukemia virus', '(1S,2S,3R,4S,7R,9S,10S,11R,12R,15S)-4,12-bis(acetyloxy)-15-{[(2R,3S)-3-(2,2-dimethylpropanamido)-2-hydroxy-3-phenylpropanoyl]oxy}-1,9,11-trihydroxy-10,14,17,17-tetramethyl-6-oxatetracyclo[11.3.1.0^{3,10}.0^{4,7}]heptadec-13-en-2-yl benzoate'], ['Neosartorya fumigata (strain ATCC MYA-4609 / Af293 / CBS 101355 / FGSCA1100) (Aspergillus fumigatus)', '10bm']]
+[['phialophora uerrucosa', '4-(3-chloro-2-fluorophenylamino)-7-isopropoxy-6-(4-methylpiperazin-1-yl)quinoline-3-carboxamide'], ['Salmonella enterica subsp. enterica serovar Mbandaka', 'SID24787858'], ['Helicobacter pylori (strain HPAG1)', '9/41']]
+[['Alicyclobacillus acidocaldarius', "2,2'-((3S,6R,9S,12S,15S,18S,21S,24S,27S,32aS)-21-(3-aminopropyl)-6,27-dibenzyl-3-(4-hydroxybenzyl)-15,24-diisobutyl-18-isopropyl-1,4,7,10,13,16,19,22,25,28-decaoxodotriacontahydropyrrolo[1,2-a][1,4,7,10,13,16,19,22,25,28]decaazacyclotriacontine-9,12-diyl)diacetamide"], ['Porphyromonas uenonis', 'SID17389737'], ['Lygaeidae', 'TM-2f']]
+[['Popillia japonica', '5-Ethyl-1-methyl-4-methylidene-2-phenylpyrazolidin-3-one'], ['Burkholderia vietnamiensis', 'SID49648126'], ['Mycobacterium tuberculosis (strain ATCC 25177 / H37Ra)', '1-14']]
+[['Pichia jadinii', 'SID4257684'], ['Sarcina ventriculi', 'DDD00541691'], ['Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG12228)', '10ck']]
+high noise
+[['Heliothis virescens', '1-(4-chlorophenyl)-4-(3-(3-fluorophenyl)-1,2,4-oxadiazol-5-yl)pyrrolidin-2-one'], ['Influenza A virus (strain A/Aichi/2/1968 H3N2)', '9, salt form'], ['Plasmodium falciparum (isolate K1 / Thailand)', '[Met7]SP']]
+[['Chrysosporium tropicum', 'N-Methyl-N-(3-methylphenyl)-4-(4-pyridinyl)-1,3-thiazol-2-amine'], ['Strongyloides stercoralis', '22(R1(3),R2(1))'], ['Pseudomonas aeruginosa (strain ATCC 15692 / PAO1 / 1C / PRS 101 / LMG12228)', '14Aa']]
+[['Carpophilus', 'SID99454221'], ['Human T-cell leukemia virus 1 (strain Japan ATK-1 subtype A) (HTLV-1)', '3 HCl'], ['Human immunodeficiency virus type 1 group M subtype B (isolate BH10)(HIV-1)', 'STEAROYL POLYOXYLGLCERIDES']]
+[['Malva sylvestris', 'N1-(anthracen-10-ylmethyl)-N1-ethylpropane-1,3-diamine'], ['Oryza sativa subsp. japonica', '3a(S)'], ['Zymomonas mobilis (strain ATCC 31821 / ZM4 / CP4)', 'B82']]
+[['Influenza A virus (A/Washington/01/2007(H3N2))', '(S)-6-(4-fluorobenzylamino)-1-(1-hydroxy-3,3-dimethylbutan-2-yl)-7-methoxy-4-oxo-1,4-dihydro-1,8-naphthyridine-3-carboxylic acid'], ['Acinetobacter genomosp. 3', '1br'], ['Xanthomonas campestris pv. Phaseoli', '23 table 1']]
+gt 1
+zero noise
+[['Porcine rotavirus', 'Bone osteosarcoma'], ['Olea europaea', "Kidney Wilm's tumor"], ['human rhinovirus serotype 1b', 'Breast carcinoma cells']]
+[['Rhizomucor miehei', 'Keratinocyte'], ['Bacteroides ovatus ATCC 8483', 'Glioblastoma Astrocytoma'], ['Human rhinovirus A54', 'Cervical Carcinoma']]
+[['Vitis vinifera', 'Skeletal muscle myoblast cells'], ['Ureaplasma urealyticum', 'Melanophore cells'], ['Rhodococcus rhodochrous', 'Hippocampal CA1 neurones']]
+[['Saccharomyces mikatae', 'Fetal Lung'], ['Streptococcus constellatus', 'Ovarian sarcoma cells'], ['Adoxophyes honmai', 'Cervical Carcinoma']]
+[['Neoseiulus cucumeris', 'Melanocytes'], ['Mustela', 'Peripheral blood mononuclear cells'], ['Chlamydophila psittaci', 'Placenta']]
+mid noise
+[['pseudomonas aerginosa', 'Pituitary Adenoma'], ['Streptococcus pyogenes', 'Mammary adenocarcinoma'], ['Ammannia multiflora', 'ANGINA PECTORIS']]
+[['Salmonella enterica subsp. enterica serovar Stanley', 'Lymphoblast'], ['Candida rugosa', 'foreskin fibroblast (aspartoacylase deficiency)'], ['Human immunodeficiency virus type 1 (RF/HAT ISOLATE)', 'OSTEITIS DEFORMANS']]
+[['Bromus sterilis', 'Renal proximal tubule epithelial cells'], ['Bacteroides uniformis ATCC 8492', 'Monocytes'], ['Influenza A virus (strain A/Wilson-Smith/1933 H1N1) (Influenza A virus(strain A/WS/1933 H1N1))', 'OSTEOSARCOMA']]
+[['Brassica juncea', 'B-cell leukemia cells'], ['Neofusicoccum ribis', 'Retinoblastoma cells'], ['Methanococcus maripaludis (strain S2 / LL)', 'WET MACULAR DEGENERATION']]
+[['Lenzites betulinus', 'Non-small cell lung carcinoma cells'], ['Saprolegnia parasitica', 'Cytotoxic T-cells'], ['Neosartorya fumigata (strain ATCC MYA-4609 / Af293 / CBS 101355 / FGSCA1100) (Aspergillus fumigatus)', 'MACROGLOBULINEMIA']]
+high noise
+[['Enterocytozoon bieneusi', 'Panreatic Carcinoma'], ['Influenza A virus (strain A/X-31 H3N2)', 'UTERINE NEOPLASM'], ['Agrobacterium sp. ATCC 21400', 'BRONCHOALVEOLAR ADENOCARCINOMA']]
+[['Mycobacterium tuberculosis H37Ra', 'Epidermoid carcinoma cells'], ['Lactococcus lactis subsp. lactis (strain IL1403) (Streptococcuslactis)', 'RENAL INSUFFICIENCY'], ['Macaaca fascicularis', 'PRIMARY SYSTEMIC AMYLOIDOSIS']]
+[['Viruses', 'B-cells'], ['Ammi majus', 'PSYCHOSIS'], ['Human herpesvirus 1 (strain SC16) (HHV-1) (Human herpes simplex virus1)', 'DILATED CARDIOMYOPATHY']]
+[['Phaedon cochleariae', 'Ovarian carcinoma'], ['Plasmodium falciparum (isolate 3D7)', 'HIV INFECTION'], ['Saccharomycopsis fibuligera', 'AZOOSPERMIA']]
+[['Orobanche cernua var. cumana', 'Leukaemia'], ['Deinococcus radiodurans (strain ATCC 13939 / DSM 20539 / JCM 16871 /LMG 4051 / NBRC 15346 / NCIMB 9279 / R1 / VKM B-1422)', 'SARCOIDOSIS'], ['Human immunodeficiency virus type 1 group M subtype B (isolate PCV12)(HIV-1)', 'ENDOCRINE SYSTEM DISEASE']]
+gt 2
+zero noise
+[['Influenza A virus (A/chicken/Yogjakarta/BBVet-IX/2004(H5N1))', 'Oryza sp.'], ['Campylobacter jejuni', 'Clostridium sticklandii'], ['Human rhinovirus A89', 'Vaccinia virus Copenhagen']]
+[['Paralobesia', 'Trichosporon beigelii'], ['African swine fever virus', 'Acinetobacter radioresistens'], ['Paecilomyces', 'Cardamine hirsuta']]
+[['Bacillus mycoides', 'Acanthamoeba polyphaga'], ['Influenza A virus (A/swine/Belzig/2/2001(H1N1))', 'Apophysomyces elegans'], ['Streptomyces lividans', 'Agaricus bisporus']]
+[['Hellula undalis', 'Pseudoalteromonas espejiana'], ['Ammannia', 'Pseudomonas savastanoi pv. savastanoi'], ['Siphonaptera', 'Ureaplasma']]
+[['Helianthus annuus', 'Cyperus esculentus'], ['streptococcus chartreusis', 'Streptomyces scabiei'], ['Chlamydophila pneumoniae CWL029', 'Plasmodium falciparum FcB1/Columbia']]
+mid noise
+[['Corynebacterium diphtheriae', 'Scedosporium apiospermum'], ['Physalis ixocarpa', 'Bothrops asper'], ['Staphylococcus aureus (strain NCTC 8325)', 'Coniella diplodiella']]
+[['Clostridium celerecrescens', 'Measles virus genotype D6'], ['Abelmoschus esculentus', 'Enterococcus faecalis'], ['Pestalotia longiseta', 'Solobacterium moorei']]
+[['Lactobacillus sp.', 'Enterococcus faecalis ATCC 29212'], ['Ditylenchus myceliophagus', 'Locusta migratoria'], ['Aulacophora femoralis', 'Octopus']]
+[['Parabacteroides merdae', 'Human metapneumovirus'], ['Influenza A virus (A/New York/18/2009(H1N1))', 'Neosartorya fumigata (strain ATCC MYA-4609 / Af293 / CBS 101355 / FGSCA1100) (Aspergillus fumigatus)'], ['Influenza A virus (strain A/Hong Kong/1/1968 H3N2)', 'Thermococcus sp. 9oN-7']]
+[['Murdannia keisak', 'Nocardia nova'], ['Amblyseius andersoni', 'Cytomegalovirus'], ['Penicillium janthinellum', 'Psychrobacter frigidicola']]
+high noise
+[['Human coxsackievirus A24', 'Hepatitis C virus genotype 1'], ['Oscillatoria perornata', 'Ebolavirus'], ['Loxostege sticticalis', 'Streptococcus agalactiae COH1']]
+[['Heterobasidion annosum', 'Plakortis simplex'], ['Macaaca fascicularis', 'Mycoplasma hyorhinis'], ['Enterococcus faecalis (strain ATCC 700802 / V583)', 'Hepatitis C virus subtype 1a']]
+[['Epidermophyton floccosum', 'Meleagris gallopavo'], ['Asteraceae', 'Streptococcus pneumoniae D39'], ['Clostridium tetani (strain Massachusetts / E88)', 'Agelas conifera']]
+[['Salmonella enterica', 'Woodchuck hepatitis virus'], ['Human immunodeficiency virus type 1 group M subtype B (isolate PCV12)(HIV-1)', 'CYP11B'], ['Human cytomegalovirus', 'Chlorocebus sabaeus']]
+[['Aquifex aeolicus', 'Abutilon theophrasti'], ['Human herpesvirus 1 (strain KOS) (HHV-1) (Human herpes simplex virus1)', 'Equus asinus'], ['Penicillium janthinellum', 'psudomonas auriginisa']]
+gt 3
+sys:1: DtypeWarning: Columns (21) have mixed types.Specify dtype option on import or set low_memory=False.
+zero noise
+[['6,7-Dichloro-2-methyl-3-phenylquinolin-4(1H)-one', '-serpine'], ['SID24397564', '-pin(e); -vir-'], ['3alpha,8-dimethyl-1-phenethyl-1,2,3,3alpha,8,8alpha-hexahydropyrrolo[2,3-b]indol-5-yl4-chlorophenylcarbamate', '-gest-']]
+[['(E)-3-(5-((E)-3-(4-Chlorophenyl)-3-oxoprop-1-enyl)furan-2-yl)-N-hydroxyacrylamide', '-eridine; -tox-'], ['2-(4-Aminophenyl)benzothiazole', '-degib'], ['SID505433', '-opilone']]
+[['SID24384952', '-parantag'], ['4-(5-allyl-2-(5-methoxythiophen-2-yl)-6-methylpyrimidin-4-ylamino)benzoic acid', '-fylline; -tox-'], ['2-(3-Chloro-2-mercapto-benzyl)-4-methyl-pentanoic acid [(S)-2-(4-methoxy-phenyl)-1-methylcarbamoyl-ethyl]-amide', '-nixin']]
+[['3-[1-(3-Amino-propylsulfanylmethyl)-2-(biphenyl-4-yloxy)-ethylsulfanyl]-propylamine', '-pride; trop-'], ['4-[(2R,2aS,4S,4aS,6aS)-4-(4-hydroxyphenyl)-2,4-dimethylhexahydro-1,3,5-trioxa-6b-azacyclopenta[cd]pentalen-2-yl]phenol', '-bufen'], ['2-ethyl-N-(3-fluoro-4-(4-((5-isopropyl-1,3,4-oxadiazol-2-yl)(phenyl)methyl)piperazin-1-yl)phenyl)butanamide', 'fos-; -toin']]
+[['SID24792845', '-onide'], ['SID24275652', '-anib; peg-'], ['2-[4-(5H-Benzo[e][1,4]dioxepin-6-yl)-piperazin-1-ylmethyl]-tetrahydro-imidazo[1,5-a]pyridine-1,3-dione', '-platin']]
+mid noise
+[['SID47199148', '-steride'], ['(R)-5-(benzylthio)-7-(1-hydroxybutan-2-ylamino)thiazolo[4,5-d]pyrimidin-2(3H)-one', '-sertib'], ['5S (table 2)', '-fos-']]
+[['(6aR,13bR)-5,6a,7,8,9,13b-Hexahydro-6H-7-aza-benzo[6,7]cyclohepta[1,2-a]naphthalene-2,3-diol', '-pamine'], ['SID22412929', '-nesib'], ['(RR/SS)-10l', '-punil']]
+[['SID57256471', '-prazole'], ['TCMDC-123783', 'dil-; -tiazem'], ['BEFIPERIDE', '-arsin']]
+[['SID87337900', 'fos-; -mycin'], ['SID4251940', '-kiren'], ['45S', '-antrone']]
+[['SID24800337', '-glumide'], ['2-(4-(2-(7-(2-(3,4-Dihydroxyphenyl)-5,7-dihydroxy-4-oxo-4H-chromen-3-yloxy)-7-oxoheptanamido)acetamido)phenyl)acetic acid', '-troline'], ['1, Saquayamycin G', 'gab-']]
+high noise
+[['4-acetamido-N-(2-(5-(3-(2-(2-(4-(5-(5-(3-(5-(2-(1-(chloromethyl)-5-hydroxy-2,3-dihydro-1H-benzo[e]indole-3-carbonyl)-1H-indol-5-ylcarbamoyl)-1-methyl-1H-pyrrol-3-ylamino)-3-oxopropylcarbamoyl)-1-methyl-1H-pyrrol-3-ylcarbamoyl)-1-methyl-1H-pyrrol-3-ylamino)-4-oxobutylcarbamoyl)-1-methyl-1H-imidazol-4-ylcarbamoyl)-1-methyl-1H-imidazol-4-ylamino)-3-oxopropylcarbamoyl)-1-methyl-1H-pyrrol-3-ylcarbamoyl)-1-methyl-1H-imidazol-4-yl)-1-methyl-1H-imidazole-2-carboxamide', '-arol'], ['IVa, (L-158338)', '-calcet'], ['Ym5', '-dronate']]
+[['DDD01078427', '-setron; trop-'], ['MeNHOH', '-ivon'], ['MK-27 (S)', '-lazard']]
+[['N-methyl-SSR-504734', '-troline'], ['CRR-203', '-quinil'], ['V27', '-closporin']]
+[["(+/-)-1-Methyl-4-(4-fluorophenyl)pyrrolo-(spiro[2.3']oxindole)-spiro[3.3'']-5''-(4-fluorophenylmethylidene)-1''-N-acrolylpiperidin-4''-one", '-butazone'], ['2\\ Phevalin 2', '-faxine'], ['20a (IC4B)', '-fos']]
+[['SID7967344', '-micin'], ['beta-6b', '-clidinium'], ['AG-09/93', '-vatrep']]
+gt 4
+zero noise
+[['Rattus norvegicus', 'Gap junction protein alpha'], ['Plutella xylostella', 'Relaxin receptor'], ['Streptomyces sp. R61', 'AGC protein kinase PKA family']]
+[['Pseudomonas stutzeri', 'Nuclear hormone receptor subfamily 1 group C member 2'], ['Flavobacterium meningosepticum', 'Phosphodiesterase 5'], ['Dictyostelium discoideum', 'Cytochrome P450 17A1']]
+[['Ovis aries', 'Threonine protease T1A subfamily'], ['Staphylococcus epidermidis RP62A', 'Cysteine protease CM clan'], ['Drosophila melanogaster', 'Melatonin receptor']]
+[['Nephotettix cincticeps', 'Acetylcholine receptor'], ['Loa loa', 'Steroid-like ligand receptor'], ['Simian virus 40', 'Nuclear hormone receptor subfamily 3 group A member 2']]
+[['Helicoverpa zea', 'Cytochrome P450 4A1'], ['Plodia interpunctella', 'Mitochondrial EF hand Ca2+ uptake porter/regulator family'], ['Aspergillus niger', 'Metallo protease M14B subfamily']]
+mid noise
+[['Streptomyces plicatus', 'CMGC protein kinase CK subfamily'], ['Human herpesvirus 1', 'Cannabinoid receptor'], ['Cytochrome P450 family 19A', 'biological_process  digestion']]
+[['Lolium perenne', 'Calcium-activated chloride channel'], ['Sus scrofa', 'SLC41 family of divalent cation transporters'], ['Calcium-activated potassium channel', 'molecular_function  catalytic activity  hydrolase activity  hydrolase activity, acting on ester bonds  lipase activity  phospholipase activity  sphingomyelin phosphodiesterase activity']]
+[['Echinococcus granulosus', 'Nuclear hormone receptor subfamily 1 group F'], ['Enterococcus faecium', 'Metallo protease M79 family'], ['Cytochrome P450 family 11A', 'biological_process  metabolic process  small molecule metabolic process']]
+[['Human immunodeficiency virus 2', 'Nucleotide-like receptor (family A GPCR)'], ['Arthrospira platensis', 'Cytochrome P450 family 17'], ['SLC44 choline transporter-like family', 'molecular_function  transporter activity  transmembrane transporter activity']]
+[['Lolium rigidum', 'Nuclear hormone receptor subfamily 3'], ['Escherichia coli O127:H6 (strain E2348/69 / EPEC)', 'Serine protease S12 family'], ['Cystic fibrosis transmembrane conductance regulator', 'cellular_component  organelle']]
+high noise
+[['Maedi visna virus (strain 1514) (MVV) (Visna lentivirus)', 'Drug/metabolite transporter superfamily'], ['PR domain', 'molecular_function  catalytic activity  transferase activity  sulfotransferase activity  bile-salt sulfotransferase activity'], ['SLC40 iron transporter', 'molecular_function  catalytic activity']]
+[['Human immunodeficiency virus 1', 'AGC protein kinase NDR family'], ['SLC02 family of hexose and sugar alcohol transporters', 'molecular_function  protein binding  SNARE binding'], ['Phosphodiesterase 4C', 'biological_process  digestion']]
+[['Streptomyces hygroscopicus subsp. ascomyceticus', 'Nuclear hormone receptor subfamily 2 group C'], ['Cysteine protease CD clan', 'biological_process  metabolic process  generation of precursor metabolites and energy'], ['CK1 protein kinase group', 'molecular_function  catalytic activity  transferase activity  sulfotransferase activity  alcohol sulfotransferase activity']]
+[['Influenza A virus (strain A/USSR/90/1977 H1N1)', 'Histamine receptor'], ['SLC35 family of nucleotide sugar transporters', 'molecular_function  protein binding  growth factor binding  insulin-like growth factor binding  insulin-like growth factor II binding'], ['Serine protease unclassified', 'molecular_function  catalytic activity  transferase activity  sulfotransferase activity  protein-tyrosine sulfotransferase activity']]
+[['Trypanosoma brucei', 'Drug/metabolite transporter superfamily'], ['SLC35 family of nucleotide sugar transporters', 'biological_process  symbiosis, encompassing mutualism through parasitism'], ['Nicotinic acetylcholine receptor epsilon subunit', 'molecular_function  protein binding  receptor binding  interleukin-8 receptor binding']]
+gt 5
+zero noise
+[['Clostridium perfringens (strain SM101 / Type A)', 'cellular amino acid metabolic process'], ['Lysobacter enzymogenes', 'sphingomyelin phosphodiesterase activity'], ['Escherichia coli O127:H6 (strain E2348/69 / EPEC)', 'cell-cell signaling']]
+[['Hepatitis C virus genotype 1b (isolate BK) (HCV)', 'secondary metabolic process'], ['Periplaneta americana', 'autophagy'], ['Staphylococcus aureus (strain COL)', 'viral nucleocapsid']]
+[['Influenza A virus (A/Udorn/307/1972(H3N2))', 'ion binding'], ['Cryptosporidium parvum', 'growth factor binding'], ['Bothropoides pauloensis', 'death receptor binding']]
+[['Proteus mirabilis', 'cell division'], ['Klebsiella oxytoca', 'GTPase activity'], ['Influenza A virus (A/Memphis/1/1971(H3N2))', 'plasminogen activation']]
+[['Medicago truncatula', 'cytoplasm'], ['Paramecium bursaria Chlorella virus 1', 'peroxisome'], ['Yersinia enterocolitica', 'metabolic process']]
+mid noise
+[['Staphylococcus aureus (strain MRSA252)', 'beta-2-microglobulin binding'], ['Staphylococcus aureus', 'chemokine activity'], ['Gap junction protein delta', 'biological_process  multicellular organismal development']]
+[['Electrophorus electricus', 'beta-amyloid binding'], ['Poa annua', 'pigmentation'], ['TKL protein kinase group', 'molecular_function  protein binding  phosphoprotein binding']]
+[['Carica papaya', 'BH3 domain binding'], ['Pennisetum americanum', 'protein binding transcription factor activity'], ['Cytochrome P450 family 2C', 'biological_process  cell wall organization or biogenesis']]
+[['Synechocystis sp. (strain PCC 6803 / Kazusa)', 'protein transporter activity'], ['Salmonella choleraesuis (strain SC-B67)', 'enzyme binding'], ['SLC32 vesicular inhibitory amino acid transporter', 'biological_process  metabolic process  amine metabolic process  cytokinin metabolic process']]
+[['Spodoptera frugiperda', 'juvenile-hormone esterase activity'], ['Bacillus subtilis', 'cytokinin metabolic process'], ['Phospholipid-transporting ATPase', 'biological_process  transport  cytoskeleton-dependent intracellular transport']]
+high noise
+[['Burkholderia pseudomallei (strain K96243)', 'biological_process'], ['AMPA receptor', 'biological_process  transposition'], ['Protein phosphatase regulatory subunit', 'biological_process  metabolic process  small molecule metabolic process']]
+[['Trichophyton rubrum', 'nucleocytoplasmic transport'], ['Phosphodiesterase 1A', 'molecular_function  protein binding  receptor binding  growth factor activity'], ['ABCE subfamily', 'molecular_function  nucleic acid binding  RNA binding  rRNA binding']]
+[['Dicentrarchus labrax', 'structural constituent of ribosome'], ['Ionotropic glutamate receptor-like', 'biological_process  regulation of catalytic activity  positive regulation of catalytic activity'], ['Metallo protease MF clan', 'molecular_function  catalytic activity  hydrolase activity  hydrolase activity, acting on ester bonds  lipase activity  phospholipase activity  lysophospholipase activity']]
+[['Human parainfluenza virus 1', 'plasma membrane organization'], ['Ionotropic glutamate receptor-like', 'molecular_function  protein binding  calmodulin binding'], ['Phosphodiesterase 6A', 'biological_process  metabolic process  secondary metabolic process']]
+[['Streptococcus pneumoniae R6', 'microtubule-based process'], ['SLC44 choline transporter-like family', 'biological_process  cellular response to drug'], ['Cysteine protease CD clan', 'biological_process  transport  protein targeting']]
+
+Process finished with exit code 0

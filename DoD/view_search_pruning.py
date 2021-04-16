@@ -882,10 +882,38 @@ def pipeline_evaluation(vs, ci, attrs, values, gt_cols, offset = 1000, output_pa
     baseline2: SQUID
     '''
     results = ci.view_spec_benchmark(sample_score)
+    for column, _ in candidate_columns.items():
+        filter_drs[(column, FilterType.ATTR, idx)] = [hit_dict[x] for x in results[idx]]
     found2 = found_gt_view_or_not(results, gt_cols)
 
+    '''
+    baseline3: DoD
+    '''
     results, _, _ = ci.view_spec_cluster2(candidate_columns, sample_score)
     found3 = found_gt_view_or_not(results, gt_cols)
+
+def run_view_search(vs, filter_drs, perf_stats, flag, offset = 1000, output_path = ""):
+    i = 0
+    log = open(output_path + "/log.txt", "w")
+    log.write("Method" + str(flag))
+    for mjp, attrs_project, metadata, jp in vs.search_views({}, filter_drs, perf_stats, max_hops=2,
+                                                            debug_enumerate_all_jps=False, offset=offset):
+        log.write("view" + str(i))
+        log.write(jp)
+        log.write(attrs_project)
+        proj_view = dpu.project(mjp, attrs_project)
+        full_view = False
+
+        if output_path is not None:
+            if full_view:
+                view_path = output_path + "/raw_view_" + str(i)
+                mjp.to_csv(view_path, encoding='latin1', index=False)
+            view_path = output_path + "/view_" + str(i) + ".csv"
+            proj_view.to_csv(view_path, encoding='latin1', index=False)  # always store this
+
+        i += 1
+    print("total views:", i)
+
 
 def found_gt_view_or_not(results, gt_cols):
     found = True
@@ -895,16 +923,19 @@ def found_gt_view_or_not(results, gt_cols):
             break
     return found
 
-def evaluate_view_search(vs, ci, attrs, values, flag, offset = 1000, output_path = ""):
+def evaluate_view_search(vs, ci, attrs, values, flag, gt_cols, offset = 1000, output_path = ""):
     candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = ci.infer_candidate_columns(attrs, values)
     filter_drs = {}
     perf_stats = dict()
+    results = []
 
     if flag == 1:
         idx = 0
         for column, candidates in candidate_columns.items():
+            results.append([(c.source_name, c.field_name) for c in candidates])
             filter_drs[(column, FilterType.ATTR, idx)] = candidates
             idx += 1
+        found = found_gt_view_or_not(results, gt_cols)
     elif flag == 2:
         results = ci.view_spec_benchmark(sample_score)
         idx = 0
@@ -912,12 +943,6 @@ def evaluate_view_search(vs, ci, attrs, values, flag, offset = 1000, output_path
             filter_drs[(column, FilterType.ATTR, idx)] = [hit_dict[x] for x in results[idx]]
             idx += 1
     elif flag == 3:
-        _, results_hit = ci.view_spec_cluster(candidate_columns, sample_score)
-        idx = 0
-        for column, _ in candidate_columns.items():
-            filter_drs[(column, FilterType.ATTR, idx)] = results_hit[idx]
-            idx += 1
-    elif flag == 4:
         results, _, results_hit = ci.view_spec_cluster2(candidate_columns, sample_score)
         idx = 0
         for column, _ in candidate_columns.items():
