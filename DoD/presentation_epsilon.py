@@ -19,6 +19,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = [12, 8]
 plt.rcParams['figure.dpi'] = 200
 
+import time
 
 class Mode(Enum):
     manual = 1,
@@ -29,7 +30,7 @@ class Mode(Enum):
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./chembl_result/result4/"
+    dir_path = "./chembl_result/result1/"
     # top-k views
     top_k = 10
     # epsilon-greedy
@@ -45,12 +46,12 @@ if __name__ == '__main__':
 
     num_runs = 20
 
-    ground_truth_path = "./chembl_result/result4/view_9.csv"
+    ground_truth_path = "./chembl_result/result1/view_99.csv"
     print("Ground truth view: " + ground_truth_path)
     fact_bank_fraction = 0.5
     print("fact_bank_fraction=" + str(fact_bank_fraction))
 
-    plot_dir = "./presentation_plots/result4/"
+    plot_dir = "./presentation_plots/result1/"
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -74,6 +75,7 @@ if __name__ == '__main__':
     print(msg_vspec)
 
     # Run 4C
+    start_time_4c = time.time()
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
 
@@ -92,10 +94,12 @@ if __name__ == '__main__':
     view_files = prune_contained_views(view_files, contained_groups)
     print("After pruning contained views: ", len(view_files))
 
-    print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
-    print("Processing complementary and contradictory views...")
+    time_4c = time.time() - start_time_4c
+
+    print("4C --- %s seconds ---" % (time_4c))
 
     result_by_epsilon = []
+    time_by_epsilon = []
 
     for epsilon in range(10, 101, 10):
 
@@ -112,10 +116,18 @@ if __name__ == '__main__':
             fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
 
         ground_truth_rank = []
+        times = np.empty(num_runs)
 
         for run in range(num_runs):
 
+            start_time_run = time.time()
+
             print("Run " + str(run))
+
+            print(
+                Colors.CBOLD + "--------------------------------------------------------------------------" +
+                Colors.CEND)
+            print("Processing complementary and contradictory views...")
 
             contr_or_compl_view_pairs, non_contr_or_compl_views, row_to_path_dict = preprocess(view_files,
                                                                                                all_pair_contr_compl,
@@ -408,6 +420,10 @@ if __name__ == '__main__':
                             # if set(candidate_key) == set(optimal_candidate_key):
                             row_dfs = values[1]
                             concat_row_df = pd.concat(row_dfs)
+                            # because for singleton views I choose to not drop na, so I have to do it here in order to compare
+                            concat_row_df = mva.curate_view(concat_row_df)
+                            concat_row_df = v4c.normalize(concat_row_df)
+
                             if len(concat_row_df.columns.intersection(fact_bank_df.columns)) > 0:
                                 # default to intersection
                                 intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)
@@ -508,8 +524,13 @@ if __name__ == '__main__':
             ground_truth_rank.append(ground_truth_rank_per_run)
         # avg_ground_truth_rank = np.mean(ground_truth_rank, axis=0)
 
+            times[run] = time.time() - start_time_run
+
         # print(ground_truth_rank)
         ground_truth_rank_np = np.array(ground_truth_rank)
+        result_by_epsilon.append(ground_truth_rank_np)
+
+        time_by_epsilon.append(times)
 
         # ground_truth_rank_at_iter_20 = ground_truth_rank_np[:, 19]
         # result_by_epsilon.append(ground_truth_rank_at_iter_20)
@@ -541,6 +562,12 @@ if __name__ == '__main__':
             plt.savefig(file_name)
             plt.close()
             # plt.show()
+
+    result_by_epsilon_np = np.array(result_by_epsilon)
+    np.save(plot_dir + "result_by_epsilon", result_by_epsilon_np)
+
+    time_by_epsilon_np = np.array(time_by_epsilon)
+    np.save(plot_dir + "time_by_epsilon", time_by_epsilon_np)
 
     # result_by_epsilon_np = np.array(result_by_epsilon).transpose()
     #

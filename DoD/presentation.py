@@ -417,6 +417,11 @@ if __name__ == '__main__':
                         # if set(candidate_key) == set(optimal_candidate_key):
                         row_dfs = values[1]
                         concat_row_df = pd.concat(row_dfs)
+                        # because for singleton views I choose to not drop na, so I have to do it here in order to
+                        # compare
+                        concat_row_df = mva.curate_view(concat_row_df)
+                        concat_row_df = v4c.normalize(concat_row_df)
+
                         if len(concat_row_df.columns.intersection(fact_bank_df.columns)) > 0:
                             # default to intersection
                             intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)

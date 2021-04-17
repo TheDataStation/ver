@@ -12,6 +12,8 @@ from collections import defaultdict
 
 from DoD.colors import Colors
 
+import time
+
 import server_config as config
 
 import matplotlib.pyplot as plt
@@ -29,11 +31,11 @@ class Mode(Enum):
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./building/"
+    dir_path = "./chembl_result/result4/"
     # top-k views
     top_k = 10
     # epsilon-greedy
-    epsilon = 0.1
+    epsilon = 0.5
     # max size of candidate (composite) key
     candidate_key_size = 2
     # sample size of contradictory and complementary rows to present
@@ -43,10 +45,12 @@ if __name__ == '__main__':
 
     max_num_interactions = 1000
 
-    num_runs = 100
+    num_runs = 20
 
-    ground_truth_path = "./building/view_49"
+    ground_truth_path = "./chembl_result/result4/view_9.csv"
     print("Ground truth view: " + ground_truth_path)
+    
+    plot_dir = "./presentation_plots/result4/"
     ############################################################################
 
     pd.set_option('display.max_columns', None)
@@ -70,6 +74,8 @@ if __name__ == '__main__':
     print(msg_vspec)
 
     # Run 4C
+    start_time_4c = time.time()
+
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
 
@@ -88,10 +94,12 @@ if __name__ == '__main__':
     view_files = prune_contained_views(view_files, contained_groups)
     print("After pruning contained views: ", len(view_files))
 
-    print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
-    print("Processing complementary and contradictory views...")
+    time_4c = time.time() - start_time_4c
 
-    result_by_fact_bank_size = []
+    print("4C --- %s seconds ---" % (time_4c))
+
+    result_by_fact_bank_frac = []
+    time_by_fact_bank_frac = []
 
     for fact_bank_fraction in range(10, 101, 10):
 
@@ -106,10 +114,18 @@ if __name__ == '__main__':
             fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction / 100)
 
         ground_truth_rank = []
+        times = np.empty(num_runs)
 
         for run in range(num_runs):
+            
+            start_time_run = time.time()
 
             print("Run " + str(run))
+
+            print(
+                Colors.CBOLD + "--------------------------------------------------------------------------" + 
+                Colors.CEND)
+            print("Processing complementary and contradictory views...")
 
             contr_or_compl_view_pairs, non_contr_or_compl_views, row_to_path_dict = preprocess(view_files,
                                                                                                all_pair_contr_compl,
@@ -419,6 +435,11 @@ if __name__ == '__main__':
                             # if set(candidate_key) == set(optimal_candidate_key):
                             row_dfs = values[1]
                             concat_row_df = pd.concat(row_dfs)
+                            # because for singleton views I choose to not drop na, so I have to do it here in order
+                            # to compare
+                            concat_row_df = mva.curate_view(concat_row_df)
+                            concat_row_df = v4c.normalize(concat_row_df)
+
                             if len(concat_row_df.columns.intersection(fact_bank_df.columns)) > 0:
                                 # default to intersection
                                 intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)
@@ -518,12 +539,17 @@ if __name__ == '__main__':
 
             ground_truth_rank.append(ground_truth_rank_per_run)
         # avg_ground_truth_rank = np.mean(ground_truth_rank, axis=0)
+        
+            times[run] = time.time() - start_time_run
 
         # print(ground_truth_rank)
         ground_truth_rank_np = np.array(ground_truth_rank)
+        result_by_fact_bank_frac.append(ground_truth_rank_np)
 
-        ground_truth_rank_at_iter_20 = ground_truth_rank_np[:, 19]
-        result_by_fact_bank_size.append(ground_truth_rank_at_iter_20)
+        time_by_fact_bank_frac.append(times)
+
+        # ground_truth_rank_at_iter_20 = ground_truth_rank_np[:, 19]
+        # result_by_fact_bank_frac.append(ground_truth_rank_at_iter_20)
 
         if mode == Mode.optimal or mode == Mode.random:
             # print("Average number of interactions = " + str(sum_num_interactions / num_runs))
@@ -549,37 +575,43 @@ if __name__ == '__main__':
             plt.ylabel("Rank")
             plt.title(title)
             plt.tight_layout()
-            file_name = "./presentation_plots/" + title + ".jpg"
+            file_name = plot_dir + title + ".jpg"
             plt.savefig(file_name)
             # plt.show()
             plt.close()
 
-    result_by_fact_bank_size_np = np.array(result_by_fact_bank_size).transpose()
+    result_by_epsilon_np = np.array(result_by_fact_bank_frac)
+    np.save(plot_dir + "result_by_fact_bank_frac", result_by_epsilon_np)
 
-    if mode == Mode.optimal or mode == Mode.random:
-        # print("Average number of interactions = " + str(sum_num_interactions / num_runs))
-
-        # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
-        # print(ground_truth_rank)
-        # print(ground_truth_rank.shape)
-        # fig, ax = plt.subplots()
-
-        plt.boxplot(result_by_fact_bank_size_np)
-
-        title = "rank_at_interaction_20_face_bank_fraction"
-        if mode == Mode.optimal:
-            title += "_optimal"
-        elif mode == Mode.random:
-            title += "_random"
-        locs, labels = plt.xticks()
-        # print(locs)
-        # print(labels)
-        # ax.set_xticks()
-        plt.xticks(ticks=locs, labels=np.linspace(0.1, 1.0, num=10))
-        plt.xlabel("Fact bank fraction")
-        plt.ylabel("Rank at interaction 20")
-        plt.title(title)
-        plt.tight_layout()
-        file_name = "./presentation_plots/" + title + ".jpg"
-        plt.savefig(file_name)
-        # plt.show()
+    time_by_epsilon_np = np.array(time_by_fact_bank_frac)
+    np.save(plot_dir + "time_by_fact_bank_frac", time_by_epsilon_np)
+    
+    # result_by_fact_bank_frac_np = np.array(result_by_fact_bank_frac).transpose()
+    # 
+    # if mode == Mode.optimal or mode == Mode.random:
+    #     # print("Average number of interactions = " + str(sum_num_interactions / num_runs))
+    # 
+    #     # x_axis = np.linspace(1, max_num_interactions, num=max_num_interactions)
+    #     # print(ground_truth_rank)
+    #     # print(ground_truth_rank.shape)
+    #     # fig, ax = plt.subplots()
+    # 
+    #     plt.boxplot(result_by_fact_bank_frac_np)
+    # 
+    #     title = "rank_at_interaction_20_face_bank_fraction"
+    #     if mode == Mode.optimal:
+    #         title += "_optimal"
+    #     elif mode == Mode.random:
+    #         title += "_random"
+    #     locs, labels = plt.xticks()
+    #     # print(locs)
+    #     # print(labels)
+    #     # ax.set_xticks()
+    #     plt.xticks(ticks=locs, labels=np.linspace(0.1, 1.0, num=10))
+    #     plt.xlabel("Fact bank fraction")
+    #     plt.ylabel("Rank at interaction 20")
+    #     plt.title(title)
+    #     plt.tight_layout()
+    #     file_name = "./presentation_plots/" + title + ".jpg"
+    #     plt.savefig(file_name)
+    #     # plt.show()

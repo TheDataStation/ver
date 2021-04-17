@@ -280,9 +280,9 @@ def pick_from_top_k_views(view_rank, view_to_view_pairs_dict, non_contr_or_compl
 
     p = random.random()
 
-    # TODO: in equal probability, either pick singleton views or pick a C/C pair from top-k
+    # TODO: in some probability, either pick singleton views or pick a C/C pair from top-k
 
-    if p < 0.5 and len(non_contr_or_compl_views_df) > 0:
+    if p < 0.3 and len(non_contr_or_compl_views_df) > 0:
         for view, score in top_k_views:
             for view_df in non_contr_or_compl_views_df:
                 if view == view_df[0] and score > 0:
