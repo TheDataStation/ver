@@ -46,10 +46,16 @@ def prune_contained_views(views, contained_groups):
         max_size = 0
         largest_view = contained_group[0]
         for view in contained_group:
-            if len(view) > max_size:
-                max_size = len(view)
+            df = pd.read_csv(view, encoding='latin1', thousands=',')
+            df = mva.curate_view(df)
+            df = v4c.normalize(df)
+
+            if len(df) > max_size:
+                max_size = len(df)
                 largest_view = view
         largest_contained_views.add(largest_view)
+
+    # print(largest_contained_views)
 
     pruned_views = set()
     for f in views:

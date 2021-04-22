@@ -327,5 +327,5 @@ if __name__ == '__main__':
                     np.save(result_dir + result_np_file_name, result_by_top_percentile_np)
 
                     time_by_top_percentile_np = np.array(time_by_top_percentile)
-                    np.save(result_dir + "time_by_top_percentile_zero", time_by_top_percentile_np)
+                    np.save(result_dir + time_np_file_name, time_by_top_percentile_np)
 

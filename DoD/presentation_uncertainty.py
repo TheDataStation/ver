@@ -14,7 +14,7 @@ from tabulate import tabulate
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./building/"
+    dir_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3/"
     # top percentile of view scores to include in window
     top_percentiles = [0, 25, 50, 75, 100]
     # max size of candidate (composite) key
@@ -28,10 +28,21 @@ if __name__ == '__main__':
 
     num_runs = 20
 
-    ground_truth_path = "./building/view_0"
+    # ground_truth_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3"
     fact_bank_fraction = 0.5
 
-    result_dir = "./result_uncertainty/building/"
+    log_path = dir_path + "log.txt"
+    log_file = open(log_path, "r")
+    lines = log_file.readlines()
+    # print(lines)
+    ground_truth_view = lines[-3].split(sep=": ")[1][:-1]
+    ground_truth_view = ground_truth_view.replace("view", "view_")
+    log_file.close()
+
+    ground_truth_path = dir_path + ground_truth_view
+    print("Ground truth view: " + ground_truth_path)
+
+    result_dir = "./result_uncertainty/"
     ############################################################################
 
     # Run 4C
