@@ -17,7 +17,7 @@ import time
 if __name__ == '__main__':
 
     root_dir = "/home/cc/experiments_chembl/"
-    for query in range(6):
+    for query in range(1):
         query_dir = root_dir + "chembl_gt" + str(query) + "/"
         for noise in ["zero_noise", "mid_noise", "high_noise"]:
             noise_dir = query_dir + noise + "/"
@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
                 num_runs = 20
 
-                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_chembl/")
+                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_chembl/change_key_rank/")
                 Path(result_dir).mkdir(parents=True, exist_ok=True)
 
                 ################################GROUND TRUTH###################################
@@ -165,7 +165,7 @@ if __name__ == '__main__':
                                 for path in view_files:
                                     view_scores[path] = 0
                             elif initialize_score == "s4":
-                                view_scores = s4_score
+                                view_scores = s4_score.copy()
 
                             num_interactions = 0
                             ground_truth_rank_per_run = []

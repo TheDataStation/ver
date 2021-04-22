@@ -108,7 +108,7 @@ if __name__ == '__main__':
             # row_rank = row_to_path_dict.copy()
             # for row, path in row_rank.items():
             #     row_rank[row] = 0
-            view_scores = s4_score
+            view_scores = s4_score.copy()
             # for path in view_files:
             #     view_scores[path] = 0
 
