@@ -9,6 +9,7 @@ import pandas as pd
 import pprint
 import numpy as np
 from collections import defaultdict
+from scipy.stats import rankdata
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
@@ -250,18 +251,19 @@ def sort_view_by_scores(view_rank):
     return sorted_view_rank
 
 
-def get_view_rank_with_ties(sorted_view_rank, view):
-    # Same rank for ties
-    res = {}
-    prev = None
-    for i, (v, score) in enumerate(sorted_view_rank):
-        if score != prev:
-            place, prev = i + 1, score
-        res[v] = place
+def get_view_rank_with_ties(view_scores, view):
 
-    if view in res.keys():
-        rank = res[view]
-        return rank
+    # add negative sign in order for rankdata to rank in reverse direction
+    scores = [-score for v, score in view_scores.items()]
+    views = [v for v, score in view_scores.items()]
+
+    # The average of the ranks that would have been assigned to all the tied values is assigned to each value.
+    ranks = list(rankdata(scores, method='average'))
+
+    for i in range(len(views)):
+        if views[i] == view:
+            rank = ranks[i]
+            return rank
     return None
 
 

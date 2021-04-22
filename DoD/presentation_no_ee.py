@@ -250,14 +250,19 @@ if __name__ == '__main__':
                         concat_row_df = mva.curate_view(concat_row_df)
                         concat_row_df = v4c.normalize(concat_row_df)
 
-                        if len(concat_row_df.columns.intersection(fact_bank_df.columns)) > 0:
+                        column_intersections = concat_row_df.columns.intersection(fact_bank_df.columns)
+                        if len(column_intersections) > 0:
                             # default to intersection
-                            intersection = pd.merge(left=concat_row_df, right=fact_bank_df, on=None)
-                            if len(intersection) > max_intersection_with_fact_back:
+                            intersection = pd.merge(left=concat_row_df[list(column_intersections)],
+                                                    right=fact_bank_df[list(column_intersections)],
+                                                    on=None)
+                            intersection = intersection.drop_duplicates()
+
+                            if intersection.size > max_intersection_with_fact_back:
                                 # Always selection the option that's more consistent with the fact bank
                                 # if there's no intersection, then skip this option (select 0)
                                 option_picked = option
-                                max_intersection_with_fact_back = len(intersection)
+                                max_intersection_with_fact_back = intersection.size
                                 # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
                     print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
                     print("Optimal option = " + str(option_picked))
@@ -311,7 +316,7 @@ if __name__ == '__main__':
 
             if mode == Mode.optimal or mode == Mode.random:
                 # sorted_view_rank = sort_view_by_scores(view_rank)
-                rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
+                rank = get_view_rank_with_ties(view_rank, ground_truth_path)
                 # print("rank = " + str(rank))
                 if rank != None:
                     ground_truth_rank[run][loop_count] = rank
@@ -333,7 +338,7 @@ if __name__ == '__main__':
         sum_num_interactions += num_interactions
 
         if mode == Mode.optimal or mode == Mode.random:
-            rank = get_view_rank_with_ties(sorted_view_rank, ground_truth_path)
+            rank = get_view_rank_with_ties(view_rank, ground_truth_path)
             if rank != None:
                 print("Ground truth view " + ground_truth_path + " is top-" + str(rank))
                 print(
