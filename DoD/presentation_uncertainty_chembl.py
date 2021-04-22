@@ -16,12 +16,13 @@ import time
 
 if __name__ == '__main__':
 
+    root_dir = "/home/cc/experiments_chembl/"
     for query in range(6):
-        query_dir = "/home/cc/experiments_chembl/chembl_gt" + str(query) + "/"
+        query_dir = root_dir + "chembl_gt" + str(query) + "/"
         for noise in ["zero_noise", "mid_noise", "high_noise"]:
             noise_dir = query_dir + noise + "/"
             sample_dir = noise_dir + "sample0/"
-            s4_scores_path = sample_dir.replace("/home/cc/experiments_chembl/", "/home/cc/s4_score_chembl/")
+            s4_scores_path = sample_dir.replace(root_dir, "/home/cc/s4_score_chembl/")
             for pipeline in range(1, 4):
 
                 #################################CONFIG#####################################
@@ -31,7 +32,7 @@ if __name__ == '__main__':
                 print("Running in dir: ", dir_path)
 
                 # top percentile of view scores to include in window
-                top_percentiles = [0, 25, 50, 75, 100]
+                top_percentiles = [50]
                 # max size of candidate (composite) key
                 candidate_key_size = 2
                 # sampling 5 contradictory or complementary rows from each view to include in the presentation
@@ -43,7 +44,7 @@ if __name__ == '__main__':
 
                 num_runs = 20
 
-                result_dir = dir_path.replace("/home/cc/experiments_chembl/", "/home/cc/zhiru/presentation_results_chembl/")
+                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_chembl/")
                 Path(result_dir).mkdir(parents=True, exist_ok=True)
 
                 ################################GROUND TRUTH###################################
@@ -51,7 +52,9 @@ if __name__ == '__main__':
                 log_path = dir_path + "log.txt"
                 log_file = open(log_path, "r")
                 lines = log_file.readlines()
-                ground_truth_view = lines[-4].split(sep=": ")[1]
+                # print(lines)
+                ground_truth_view = lines[-3].split(sep=": ")[1][:-1]
+                ground_truth_view = ground_truth_view.replace("view", "view_")
                 log_file.close()
 
                 ground_truth_path = dir_path + ground_truth_view
@@ -61,12 +64,13 @@ if __name__ == '__main__':
                 s4_score_path = s4_scores_path + "s4_score_pipeline" + str(pipeline) + ".txt"
                 s4_score_file = open(s4_score_path, "r")
                 s4_score = {}
-                lines = s4_score_file.readlines()[:-1]
+                lines = s4_score_file.readlines()
                 for line in lines:
                     line_list = line.split()
                     view_path = dir_path + line_list[0]
                     s4_score[view_path] = float(line_list[1])
                 s4_score_file.close()
+                # print(s4_score)
 
                 #####################################4C#####################################
 
@@ -123,6 +127,8 @@ if __name__ == '__main__':
                     fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
 
                 for initialize_score in ["zero", "s4"]:
+
+                    print("Initialize score with ", initialize_score)
 
                     result_by_top_percentile = []
                     time_by_top_percentile = []

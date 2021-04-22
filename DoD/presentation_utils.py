@@ -1393,7 +1393,10 @@ def pick_best_signal_to_present(signals, best_key, view_scores, top_percentile):
 
         if signal_type == "contradictions" or signal_type == "complements":
             if best_key not in s.keys():
-                best_key = random.choice(list(s.keys()))
+                if len(list(s.keys())) > 0:
+                    best_key = random.choice(list(s.keys()))
+                else:
+                    continue
             for row_tuple, vtuple in s[best_key].items():
                 # print(vtuple.views1, vtuple.views2)
                 # print(views_to_consider)

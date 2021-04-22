@@ -22,7 +22,7 @@ def normalize(df):
 
 
 def get_dataframes(path):
-    files = [path + f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store']
+    files = [path + f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store' and f != "log.txt"]
     dfs = []
     for f in files:
         df = pd.read_csv(f, encoding='latin1', thousands=',')  # .replace('"','', regex=True)
