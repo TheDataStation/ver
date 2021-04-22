@@ -32,7 +32,7 @@ if __name__ == '__main__':
                 print("Running in dir: ", dir_path)
 
                 # top percentile of view scores to include in window
-                top_percentiles = [50]
+                top_percentiles = [25]
                 # max size of candidate (composite) key
                 candidate_key_size = 2
                 # sampling 5 contradictory or complementary rows from each view to include in the presentation

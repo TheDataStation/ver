@@ -1377,6 +1377,7 @@ def pick_best_signal_to_present(signals, best_key, view_scores, top_percentile):
     for view, score in view_scores.items():
         if score >= threshold or abs(score - threshold) < epsilon:
             views_to_consider.add(view)
+    # print("views_to_consider: ", views_to_consider)
 
     # If the user randomly picks a branch in the split, what's the expected value of uncertainty removed?
     # ev = sum over p_i * x_i
@@ -1404,14 +1405,18 @@ def pick_best_signal_to_present(signals, best_key, view_scores, top_percentile):
                 else:
                     continue
             for row_tuple, vtuple in s[best_key].items():
-                # print(vtuple.views1, vtuple.views2)
+                # print("views1: ", vtuple.views1)
+                # print("views2: ", vtuple.views2)
                 # print(views_to_consider)
                 views1 = views_to_consider.intersection(set(vtuple.views1))
                 views2 = views_to_consider.intersection(set(vtuple.views2))
+                # print("new views1: ", views1)
+                # print("new views2: ", views2)
 
-                if len(views1) == 0 or len(views2) == 0:
+                if len(views1) == 0 and len(views2) == 0:
                     continue
-                # print(views1, views2)
+
+                print()
                 split = [len(views1), len(views2)]
 
                 gain = compute_gain(split)

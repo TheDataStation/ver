@@ -14,9 +14,9 @@ from tabulate import tabulate
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3/"
+    dir_path = "./chembl_results/chembl_gt0/high_noise/sample0/result1/"
     # top percentile of view scores to include in window
-    top_percentiles = [0, 25, 50, 75, 100]
+    top_percentiles = [25]
     # max size of candidate (composite) key
     candidate_key_size = 2
     # sampling 5 contradictory or complementary rows from each view to include in the presentation
@@ -43,8 +43,17 @@ if __name__ == '__main__':
     print("Ground truth view: " + ground_truth_path)
 
     result_dir = "./result_uncertainty/"
-    ############################################################################
 
+    ##################################S4 SCORE##########################################
+    s4_score_path = "./s4_score_chembl/chembl_gt0/high_noise/sample0/s4_score_pipeline1.txt"
+    s4_score_file = open(s4_score_path, "r")
+    s4_score = {}
+    lines = s4_score_file.readlines()
+    for line in lines:
+        line_list = line.split()
+        view_path = dir_path + line_list[0]
+        s4_score[view_path] = float(line_list[1])
+    s4_score_file.close()
     # Run 4C
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
@@ -97,9 +106,9 @@ if __name__ == '__main__':
             # row_rank = row_to_path_dict.copy()
             # for row, path in row_rank.items():
             #     row_rank[row] = 0
-            view_scores = {}
-            for path in view_files:
-                view_scores[path] = 0
+            view_scores = s4_score
+            # for path in view_files:
+            #     view_scores[path] = 0
 
             num_interactions = 0
             ground_truth_rank_per_run = []
