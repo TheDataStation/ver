@@ -41,17 +41,17 @@ if __name__ == '__main__':
 
                 max_num_interactions = 100
 
-                num_runs = 1
+                num_runs = 20
 
-                result_dir = dir_path.replace("/home/cc/experiments_chembl/", "./presentation_results_chembl/")
+                result_dir = dir_path.replace("/home/cc/experiments_chembl/", "/home/cc/zhiru/presentation_results_chembl/")
                 Path(result_dir).mkdir(parents=True, exist_ok=True)
 
                 ################################GROUND TRUTH###################################
 
                 log_path = dir_path + "log.txt"
-                log_file = open(log_path, "w")
+                log_file = open(log_path, "r")
                 lines = log_file.readlines()
-                ground_truth_view = lines[-5].split(sep=": ")[1]
+                ground_truth_view = lines[-4].split(sep=": ")[1]
                 log_file.close()
 
                 ground_truth_path = dir_path + ground_truth_view
