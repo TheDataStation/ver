@@ -232,9 +232,10 @@ def join_ab_on_key_spill_disk(a: pd.DataFrame, b: pd.DataFrame, a_key: str, b_ke
 
 
 def join_ab_on_key(a: pd.DataFrame, b: pd.DataFrame, a_key: str, b_key: str, suffix_str=None, normalize=True):
-    if normalize:
-        a[a_key] = a[a_key].apply(lambda x: str(x).lower())
-        b[b_key] = b[b_key].apply(lambda x: str(x).lower())
+    # if normalize:
+    #     a[a_key] = a[a_key].apply(lambda x: str(x).lower())
+    #     b[b_key] = b[b_key].apply(lambda x: str(x).lower())
+
     joined = pd.merge(a, b, how='inner', left_on=a_key, right_on=b_key, sort=False, suffixes=('', suffix_str))
     return joined
 
@@ -550,12 +551,14 @@ def materialize_join_graph(jg, dod):
 
 
 def apply_consistent_sample_optimized(dfa, dfb, a_key, b_key, sample_size):
+    print("start")
     dfa[a_key] = dfa[a_key].apply(lambda x: str(x).lower())
     dfb[b_key] = dfb[b_key].apply(lambda x: str(x).lower())
     # drop duplicates ahead, i.e. make dfa and dfb two sets
     dfa = dfa.drop_duplicates(subset=a_key)
     dfb = dfb.drop_duplicates(subset=b_key)
 
+    print("finish 1")
     # Chose consistently sample of IDs
     if len(dfa) > len(dfb):
         sampling_side = dfa
@@ -566,21 +569,25 @@ def apply_consistent_sample_optimized(dfa, dfb, a_key, b_key, sample_size):
 
     dfa = dfa[dfa[a_key].isin(chosen_ids)]
     dfb = dfb[dfb[b_key].isin(chosen_ids)]
-
+    print("finish2")
     dfa.reset_index(drop=True)
     dfb.reset_index(drop=True)
-
+    print("finish3")
     return dfa, dfb
 
 
 def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
     # Normalize values
-    dfa[a_key] = dfa[a_key].apply(lambda x: str(x).lower())
-    dfb[b_key] = dfb[b_key].apply(lambda x: str(x).lower())
-
+    # dfa[a_key] = dfa[a_key].apply(lambda x: str(x).lower())
+    # dfb[b_key] = dfb[b_key].apply(lambda x: str(x).lower())
+    # print("start")
     # Chose consistently sample of IDs
-    a_len = len(set(dfa[a_key]))
-    b_len = len(set(dfb[b_key]))
+    a_len = dfa[a_key].drop_duplicates().shape[0]
+    # a_len = len(set(dfa[a_key]))
+    # print("finish a")
+    b_len = dfb[b_key].drop_duplicates().shape[0]
+    # b_len = len(set(dfb[b_key]))
+    # print("finish 0")
     if a_len < b_len:
         sampling_side = dfa
         sampling_key = a_key
@@ -588,23 +595,24 @@ def apply_consistent_sample(dfa, dfb, a_key, b_key, sample_size):
         sampling_side = dfb
         sampling_key = b_key
     id_to_hash = dict()
-    for el in set(sampling_side[sampling_key]):  # make sure you don't draw repetitions
+    for el in sampling_side[sampling_key].drop_duplicates().values.tolist():  # make sure you don't draw repetitions
         h = hash(el)
         id_to_hash[el] = h
-
+    # print("finish 1")
     sorted_hashes = heapq.nlargest(sample_size, id_to_hash.items(), key=lambda x: x[1])
     # sorted_hashes = sorted(id_to_hash.items(), key=lambda x: x[1], reverse=True)  # reverse or not does not matter
     chosen_ids = [id for id, hash in sorted_hashes]
-
+    # print("finish 2")
     # Apply selection on both DFs
     dfa = dfa[dfa[a_key].isin(chosen_ids)]
     dfb = dfb[dfb[b_key].isin(chosen_ids)]
-
+    # print("finish 3")
     # Remove duplicate keys before returning
     dfa = dfa.drop_duplicates(subset=a_key)
     dfb = dfb.drop_duplicates(subset=b_key)
     dfa.reset_index(drop=True)
     dfb.reset_index(drop=True)
+    # print("finish 4")
     return dfa, dfb
 
 
@@ -702,9 +710,9 @@ def materialize_join_graph_sample(jg, samples, filters, dod, idx, sample_size=10
                 # df = join_ab_on_key_optimizer(l, r, l_key, r_key, suffix_str=suffix_str)
                 # df = join_ab_on_key(l, r, l_key, r_key, suffix_str=suffix_str)
                 if len(df) == 0:
+                    print("df has zero rows")
                     df = False
                 if df is False:  # happens when join is outlier - (causes run out of memory)
-                    # print("FALSE")
                     return False
 
                 suffix_str += '_x'

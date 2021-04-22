@@ -231,7 +231,6 @@ def build_content_sim_relation_text(network, signatures):
 
 
 def build_content_sim_mh_text(network, mh_signatures, t):
-    f = open('relation.txt', 'w')
     def connect(nid1, nid2, score):
         network.add_relation(nid1, nid2, Relation.CONTENT_SIM, score)
 
@@ -260,8 +259,8 @@ def build_content_sim_mh_text(network, mh_signatures, t):
             if r_nid != nid:
                 info2 = network.get_info_for([r_nid])
                 (_, _, sn2, fn2) = info2[0]
-                relation = sn1 + "-" + fn1 + " " + sn2 + "-" + fn2
-                f.write(relation)
+                # relation = sn1 + "-" + fn1 + " " + sn2 + "-" + fn2
+                # f.write(relation)
                 connect(nid, r_nid, 1)
 
     return content_index

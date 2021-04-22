@@ -45,6 +45,10 @@ class ViewSearchPruning:
         self.view_cache = dict()
         dpu.configure_csv_separator(csv_separator)
 
+    def clear_all_cache(self):
+        self.paths_cache.clear()
+        self.view_cache.clear()
+
     def place_paths_in_cache(self, t1, t2, paths):
         self.paths_cache[(t1, t2)] = paths
         self.paths_cache[(t2, t1)] = paths
@@ -190,6 +194,8 @@ class ViewSearchPruning:
         perf_stats['time_materialize'] = 0
         num_candidate_groups = 0
         all_join_graphs = []
+        unique_all_join_graphs = set()
+        unique_all_candidate_groups = set()
         all_filters = []
         for candidate_group, candidate_group_filters_covered in eager_candidate_exploration():
             num_candidate_groups += 1
@@ -268,7 +274,10 @@ class ViewSearchPruning:
         num_candidate_groups = 0
         all_join_graphs = []
         all_filters = []
+        unique_all_join_graphs = set()
+        unique_all_candidate_groups = set()
         for candidate_group, candidate_group_filters_covered in eager_candidate_exploration():
+            unique_all_candidate_groups.add(tuple(candidate_group))
             num_candidate_groups += 1
             print("")
             print("Candidate group: " + str(candidate_group))
@@ -281,7 +290,7 @@ class ViewSearchPruning:
                 # materialized_virtual_schema = dpu.get_dataframe(path + "/" + table)
                 if table in self.view_cache:
                     materialized_virtual_schema = self.view_cache[table]
-                    print("HIT")
+                    print("HIT Cached View")
                 else:
                     materialized_virtual_schema = dpu.read_relation(path + "/" + table)
                     self.view_cache[table] = materialized_virtual_schema
@@ -293,7 +302,7 @@ class ViewSearchPruning:
                 if 'single_relation_group' not in perf_stats:
                     perf_stats['single_relation_group'] = 0
                 perf_stats['single_relation_group'] += 1
-                yield materialized_virtual_schema, attrs_to_project, view_metadata, table
+                yield materialized_virtual_schema, attrs_to_project, view_metadata, table, 1
                 continue  # to go to the next group
 
             # Pre-check
@@ -337,15 +346,16 @@ class ViewSearchPruning:
                 total_materializable_join_graphs += 1
                 materializable_join_graphs.append((jpg, filters))
                 all_join_graphs.append(jpg)
+                unique_all_join_graphs.add(tuple(jpg))
                 all_filters.append(filters)
 
 
-        perf_stats["num_candidate_groups"] = num_candidate_groups
+        perf_stats["num_candidate_groups"] = len(unique_all_candidate_groups)
+        perf_stats["num_join_graphs"] = len(unique_all_join_graphs)
         print("Finished enumerating groups")
 
         # Rate all join paths after pruning
-        print(all_join_graphs)
-        print("total join graphs", len(all_join_graphs))
+        # print("total join graphs", len(all_join_graphs))
 
         table_paths = {}
         # build inverted index candidate tables -> [indexes of corresponding join paths]
@@ -368,22 +378,20 @@ class ViewSearchPruning:
         '''
         score_list = []
         for idx, path in enumerate(all_join_graphs):
-            join_keys = set()
             score = 0
             threshold = 0.8
+            relations = set()
             for l, r in path:
-                join_keys.add((l.source_name, l.field_name))
-                join_keys.add((r.source_name, r.field_name))
-                nid_l = (self.aurum_api.make_drs(l.source_name)).data[0].nid
-                nid_r = (self.aurum_api.make_drs(r.source_name)).data[0].nid
-                unique_score = max(self.aurum_api.helper.get_uniqueness_score(nid_l), self.aurum_api.helper.get_uniqueness_score(nid_r))
+                relations.add(l.source_name)
+                relations.add(r.source_name)
+                unique_score = max(self.aurum_api.helper.get_uniqueness_score(l.nid),
+                                   self.aurum_api.helper.get_uniqueness_score(r.nid))
                 if unique_score > threshold:
                     score += 1
-            join_key_num = len(join_keys)
-            score = score / join_key_num - (join_key_num - 2) / 10  # add a penalty to the number of join keys
+            score = score / len(path) / (1 + np.log(1 + np.log(len(relations))))  # add a penalty to the number of involved relations
             score_list.append((score, idx))
         score_list.sort(reverse=True)
-        sorted_all_graphs = [(all_join_graphs[x[1]], all_filters[x[1]])for x in score_list]
+        sorted_all_graphs = [(all_join_graphs[x[1]], all_filters[x[1]]) for x in score_list]
 
         paths_to_materialize = sorted_all_graphs[0: offset]
         to_return = self.materialize_join_graphs(list_samples, paths_to_materialize)
@@ -535,23 +543,27 @@ class ViewSearchPruning:
 
             if tuple(mjg) in self.view_cache:
                 materialized_virtual_schema = self.view_cache[tuple(mjg)]
-                print("HIT")
+                print("HIT Cached View")
             else:
                 materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, idx,
-                                                                                sample_size=1000)
+                                                                                sample_size=10000)
                 self.view_cache[tuple(mjg)] = materialized_virtual_schema
             join_path = ""
+            relations = set()
             if materialized_virtual_schema is False:
+                # print(mjg)
                 continue  # happens when the join was an outlier
             else:
                 for l, r in mjg:
-                    join_path += l.source_name + "-" + l.field_name + " JOIN " + r.source_name + "-" + r.field_name + "\n"
+                    relations.add(l.source_name)
+                    relations.add(r.source_name)
+                    join_path += l.source_name + "-" + l.field_name + " JOIN " + r.source_name + "-" + r.field_name + "; "
             # Create metadata to document this view
             view_metadata = dict()
             view_metadata["#join_graphs"] = len(materializable_join_graphs)
             # view_metadata["join_graph"] = self.format_join_paths_pairhops(jpg)
             view_metadata["join_graph"] = self.format_join_graph_into_nodes_edges(mjg)
-            to_return.append((materialized_virtual_schema, attrs_to_project, view_metadata, join_path))
+            to_return.append((materialized_virtual_schema, attrs_to_project, view_metadata, join_path[:-2], len(relations)))
             # yield materialized_virtual_schema, attrs_to_project, view_metadata
         return to_return
 

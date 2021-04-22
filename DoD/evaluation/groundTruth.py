@@ -4,7 +4,7 @@ from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 from DoD import data_processing_utils as dpu
 
-dataPath = "/Users/gongyue/data/chemBL/"
+dataPath = "/home/cc/chemBL/"
 
 class GroundTruth:
     table1 = ""
@@ -58,6 +58,8 @@ class GroundTruth:
             df_noise = dpu.read_column(dataPath+x.source_name, x.field_name)
             noise = df_noise[~df_noise[x.field_name].isin(df[attr])][x.field_name].dropna().drop_duplicates().values.tolist()
             if len(noise) > 20:
+                print("gt col:", table, attr)
+                print("noise col:", x.source_name, x.field_name)
                 return noise
         return None
 
@@ -82,7 +84,7 @@ def getGroundTruths():
     gt.append(gt1)
 
     jp2 = "public.assays.csv-cell_id JOIN public.cell_dictionary.csv-cell_id"
-    gt2 = GroundTruth("public.assays.csv", "assay_organism", "public.cell_dictionary.csv", "cell_source_tissue", jp2)
+    gt2 = GroundTruth("public.assays.csv", "assay_organism", "public.cell_dictionary.csv", "cell_name", jp2)
     gt2.set_noise_columns()
     gt.append(gt2)
 

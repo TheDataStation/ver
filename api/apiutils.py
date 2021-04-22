@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from collections import namedtuple
 from collections import defaultdict
 from collections import OrderedDict
@@ -408,7 +408,7 @@ class DRS:
             nx.draw_networkx(self.get_provenance().prov_graph())
         else:
             nx.draw(self.get_provenance().prov_graph())
-        plt.show()
+        # plt.show()
 
     def absorb_provenance(self, drs, annotate_and_edges=False, annotate_or_edges=False):
         """

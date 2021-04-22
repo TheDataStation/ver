@@ -157,10 +157,10 @@ public class NativeElasticStore implements Store {
 	    text_mapping.field("type", "keyword").field("index", "false");
 	    text_mapping.field("ignore_above", "512");
 	    text_mapping.endObject();
-	    text_mapping.startObject("columnNameSuggest");
-	    text_mapping.field("type", "completion");
+	    // text_mapping.startObject("columnNameSuggest");
+	    // text_mapping.field("type", "completion");
 	    // .field("analyzer", "aurum_analyzer");
-	    text_mapping.endObject();
+//	    text_mapping.endObject();
 	    text_mapping.startObject("text");
 	    text_mapping.field("type", "text").field("store", "false");
 	    text_mapping.field("index", "true").field("analyzer", "english");
@@ -257,9 +257,11 @@ public class NativeElasticStore implements Store {
 
 	XContentBuilder builder = null;
 	try {
-	    builder = jsonBuilder().startObject().field("id", id).field("dbName", dbName).field("path", path)
-		    .field("sourceName", sourceName).field("columnName", columnName)
-		    .field("columnNameSuggest", columnName).startArray("text");
+//	    builder = jsonBuilder().startObject().field("id", id).field("dbName", dbName).field("path", path)
+//		    .field("sourceName", sourceName).field("columnName", columnName)
+//		    .field("columnNameSuggest", columnName).startArray("text");
+		builder = jsonBuilder().startObject().field("id", id).field("dbName", dbName).field("path", path)
+		    .field("sourceName", sourceName).field("columnName", columnName).startArray("text");
 
 	    for (String v : values) {
 		builder.value(v);

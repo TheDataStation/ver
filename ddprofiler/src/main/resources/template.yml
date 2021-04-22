@@ -23,35 +23,35 @@ sources:
 # Include a source for each data source to configure
 
   # name to identify each source, e.g., migration_database, production, lake, etc.
-- name: "csv_repository"
+- name: "wdc"
   # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]  
   type: csv
   config:
     # path indicates where the CSV files live
-    path: "/Users/test/data/csvrepository/"
+    path: "/home/cc/wdc_3000/"
     # separator used in the CSV files
     separator: ','
   
-- name: "data_in_postgres_db"
-  type: postgres
-  config:
-    # The IP where the DB server lives
-    db_server_ip: localhost
-    # The port
-    db_server_port: 5432
-    # The name of the database
-    database_name: chembl_21
-    # User and password to access the DB server
-    db_username: <user name to access the db>
-    db_password: <passwd to access the db>
-
-- name: "data_in_hive"
-  type: hive
-  config:
-    # The IP where the DB server lives
-    hive_server_ip: localhost
-    # The port
-    hive_server_port: 10000
-    # The name of the database
-    database_name: hive-data
+#- name: "data_in_postgres_db"
+#  type: postgres
+#  config:
+#    # The IP where the DB server lives
+#    db_server_ip: localhost
+#    # The port
+#    db_server_port: 5432
+#    # The name of the database
+#    database_name: chembl_21
+#    # User and password to access the DB server
+#    db_username: <user name to access the db>
+#    db_password: <passwd to access the db>
+#
+#- name: "data_in_hive"
+#  type: hive
+#  config:
+#    # The IP where the DB server lives
+#    hive_server_ip: localhost
+#    # The port
+#    hive_server_port: 10000
+#    # The name of the database
+#    database_name: hive-data
 

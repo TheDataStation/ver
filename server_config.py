@@ -1,9 +1,13 @@
 # input parameters
 class Chembl:
-    path_model = "/Users/gongyue/aurum-datadiscovery/test/chemblModel2/"
+    path_model = "/home/cc/aurum-dod-staging/models/chemblModels/"
     separator = ";"
-    output_path = "/Users/gongyue/aurum-datadiscovery/test/chemblResult/"
+    output_path = "/home/cc/experiments_chembl/"
 
+class Wdc:
+    path_model = "/home/cc/aurum-dod-staging/models/wdcModels_3000/"
+    separator = ","
+    output_path = "/home/cc/experiments_wdc_3000/"
 
 class Mit:
     path_model = "/Users/gongyue/aurum-datadiscovery/test/mitModels/"

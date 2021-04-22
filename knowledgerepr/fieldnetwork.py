@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import operator
 import networkx as nx
 import os
@@ -100,7 +100,7 @@ class FieldNetwork:
 
     def _visualize_graph(self):
         nx.draw(self.__G)
-        plt.show()
+        # plt.show()
 
     def init_meta_schema(self, fields: (int, str, str, str, int, int, str)):
         """
