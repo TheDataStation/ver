@@ -1,3 +1,5 @@
+import math
+
 from DoD import view_4c_analysis_baseline as v4c
 from DoD import material_view_analysis as mva
 from DoD.colors import Colors
@@ -1272,6 +1274,8 @@ def create_signals(view_files, all_pair_contr_compl, sample_size):
                     row1_str = row_df_to_string(row1_df)[0]
                     row2_str = row_df_to_string(row2_df)[0]
 
+                    p1 = path1
+                    p2 = path2
                     contradiction_already_exist = False
                     if candidate_key_tuple in contradictions.keys():
                         if (row1_str, row2_str) in contradictions[candidate_key_tuple]:
@@ -1279,15 +1283,15 @@ def create_signals(view_files, all_pair_contr_compl, sample_size):
                         elif (row2_str, row1_str) in contradictions[candidate_key_tuple]:
                             row1_str, row2_str = row2_str, row1_str
                             row1_df, row2_df = row2_df, row1_df
-                            path1, path2 = path2, path1
+                            p1, p2 = path2, path1
                             contradiction_already_exist = True
 
                     if contradiction_already_exist:
                         contradiction = contradictions[candidate_key_tuple][(row1_str, row2_str)]
-                        contradiction.views1.add(path1)
-                        contradiction.views2.add(path2)
+                        contradiction.views1.add(p1)
+                        contradiction.views2.add(p2)
                     else:
-                        contradiction = Contradiction(row1_df=row1_df, row2_df=row2_df, views1={path1}, views2={path2})
+                        contradiction = Contradiction(row1_df=row1_df, row2_df=row2_df, views1={p1}, views2={p2})
 
                     contradictions[candidate_key_tuple][(row1_str, row2_str)] = contradiction
 
@@ -1309,6 +1313,9 @@ def create_signals(view_files, all_pair_contr_compl, sample_size):
                     row1_str = row_df_to_string(row1_df)[0]
                     row2_str = row_df_to_string(row2_df)[0]
 
+                    p1 = path1
+                    p2 = path2
+
                     complement_already_exist = False
                     if candidate_key_tuple in complements.keys():
                         if (row1_str, row2_str) in complements[candidate_key_tuple]:
@@ -1316,15 +1323,15 @@ def create_signals(view_files, all_pair_contr_compl, sample_size):
                         elif (row2_str, row1_str) in complements[candidate_key_tuple]:
                             row1_str, row2_str = row2_str, row1_str
                             row1_df, row2_df = row2_df, row1_df
-                            path1, path2 = path2, path1
+                            p1, p2 = path2, path1
                             complement_already_exist = True
 
                     if complement_already_exist:
                         complement = complements[candidate_key_tuple][(row1_str, row2_str)]
-                        complement.views1.add(path1)
-                        complement.views2.add(path2)
+                        complement.views1.add(p1)
+                        complement.views2.add(p2)
                     else:
-                        complement = Complement(row1_df=row1_df, row2_df=row2_df, views1={path1}, views2={path2})
+                        complement = Complement(row1_df=row1_df, row2_df=row2_df, views1={p1}, views2={p2})
 
                     complements[candidate_key_tuple][(row1_str, row2_str)] = complement
 
@@ -1351,7 +1358,7 @@ def create_signals(view_files, all_pair_contr_compl, sample_size):
     signals["complements"] = complements
     signals["singletons"] = singletons
 
-    return signals, candidate_keys
+    return signals, list(candidate_keys)
 
 
 def get_sorted_views_in_top_percentile(view_scores, top_percentile):
@@ -1399,12 +1406,16 @@ def pick_best_signal_to_present(signals, best_key, view_scores, top_percentile):
     for signal_type, s in signals.items():
 
         if signal_type == "contradictions" or signal_type == "complements":
-            if best_key not in s.keys():
-                if len(list(s.keys())) > 0:
-                    best_key = random.choice(list(s.keys()))
+
+            key = best_key
+            if key not in s.keys():
+                # only choose a random key if currently there are no best signals
+                if len(candidate_best_signal) == 0 and len(list(s.keys())) > 0:
+                    key = random.choice(list(s.keys()))
                 else:
                     continue
-            for row_tuple, vtuple in s[best_key].items():
+            for row_tuple, vtuple in s[key].items():
+
                 # print("views1: ", vtuple.views1)
                 # print("views2: ", vtuple.views2)
                 # print(views_to_consider)
@@ -1416,26 +1427,28 @@ def pick_best_signal_to_present(signals, best_key, view_scores, top_percentile):
                 if len(views1) == 0 and len(views2) == 0:
                     continue
 
-                print()
                 split = [len(views1), len(views2)]
 
                 gain = compute_gain(split)
 
                 if abs(gain - max_gain) < epsilon:
-                    best_signal = (signal_type, s[best_key][row_tuple], best_key)
-                    signal_to_delete = (best_key, row_tuple)
+                    best_signal = (signal_type, s[key][row_tuple], key)
+                    signal_to_delete = (key, row_tuple)
                     candidate_best_signal.append(best_signal)
                     candidate_signal_to_delete.append(signal_to_delete)
                 elif gain > max_gain:
-                    best_signal = (signal_type, s[best_key][row_tuple], best_key)
-                    signal_to_delete = (best_key, row_tuple)
+                    best_signal = (signal_type, s[key][row_tuple], key)
+                    signal_to_delete = (key, row_tuple)
                     candidate_best_signal = [best_signal]
                     candidate_signal_to_delete = [signal_to_delete]
                     max_gain = gain
 
+        # TODO: force the singleton signal to always be the first to present
         elif signal_type == "singletons":
             views = [view for view, _ in s]
+            # print(views)
             views = views_to_consider.intersection(set(views))
+            # print(views)
 
             if len(views) == 0:
                 continue
@@ -1444,6 +1457,7 @@ def pick_best_signal_to_present(signals, best_key, view_scores, top_percentile):
             split = [1] * len(views)
 
             gain = compute_gain(split)
+            # gain = math.inf
 
             if abs(gain - max_gain) < epsilon:
                 best_signal = (signal_type, s, None)

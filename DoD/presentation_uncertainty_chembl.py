@@ -77,14 +77,16 @@ if __name__ == '__main__':
                 start_time_4c = time.time()
 
                 # Run 4C
-                print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+                print(
+                    Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
                 print("Running 4C...")
 
                 compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl = \
                     v4c.main(dir_path, candidate_key_size)
 
                 print()
-                print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+                print(
+                    Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
 
                 original_view_files = glob.glob(dir_path + "/view_*")
                 print("Number of views: ", len(original_view_files))
@@ -153,8 +155,10 @@ if __name__ == '__main__':
                             signals, candidate_keys = create_signals(view_files, all_pair_contr_compl, sample_size)
 
                             # Initialize ranking model
-                            key_rank = list(candidate_keys)
-                            random.shuffle(key_rank)
+                            key_rank = {}
+                            random.shuffle(candidate_keys)
+                            for key in candidate_keys:
+                                key_rank[key] = 0
 
                             view_scores = {}
                             if initialize_score == "zero":
@@ -171,8 +175,11 @@ if __name__ == '__main__':
                                     Colors.CEND)
 
                                 # pick top key from key_rank
-                                best_key = key_rank[0]
-                                best_signal = pick_best_signal_to_present(signals, best_key, view_scores, top_percentile)
+                                candidate_best_keys = [key for (key, value) in key_rank.items() if
+                                                       value == max(key_rank.values())]
+                                best_key = random.choice(candidate_best_keys)
+                                best_signal = pick_best_signal_to_present(signals, best_key, view_scores,
+                                                                          top_percentile)
 
                                 if best_signal == None:
                                     # we have explored all the signals
@@ -233,12 +240,14 @@ if __name__ == '__main__':
                                                 option_picked = option
                                                 max_intersection_with_fact_back = intersection.size
                                                 # print(str(max_intersection_with_fact_back) + " " + str(option_picked))
-                                    print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
+                                    print(
+                                        Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
                                     print("Optimal option = " + str(option_picked))
 
                                 elif mode == Mode.random:
                                     option_picked = random.choice(valid_options)
-                                    print(Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
+                                    print(
+                                        Colors.CGREYBG + "Select option (or 0 if no preferred option): " + Colors.CEND)
                                     print("Random option = " + str(option_picked))
 
                                 else:
@@ -256,14 +265,16 @@ if __name__ == '__main__':
 
                                 # update rank
                                 if option_picked != 0:
-                                    option, df, views = options[option_picked-1]
+                                    option, df, views = options[option_picked - 1]
                                     for view in views:
                                         view_scores[view] += 1
+                                    key_rank[best_key] += 1
                                 else:
-                                    # didn't select any option, move down the current key's rank to the bottom (to make sure other keys
-                                    # get chances of being presented)
+                                    # didn't select any option, decrement key's score
+                                    # (not using this strategy) move down the current key's rank to the bottom (to make sure other keys get chances of being presented)
                                     if signal_type == "contradictions" or signal_type == "complements":
-                                        key_rank.append(key_rank.pop(key_rank.index(best_key)))
+                                        key_rank[best_key] -= 1
+                                        # key_rank.append(key_rank.pop(key_rank.index(best_key)))
 
                                 # pprint.pprint(sort_view_by_scores(view_scores))
 
@@ -310,7 +321,8 @@ if __name__ == '__main__':
                         for ground_truth_rank_per_run in ground_truth_rank:
                             ground_truth_rank_per_run_new = ground_truth_rank_per_run
                             if len(ground_truth_rank_per_run) < cur_max_interactions:
-                                ground_truth_rank_per_run_new += [np.nan] * (cur_max_interactions - len(ground_truth_rank_per_run))
+                                ground_truth_rank_per_run_new += [np.nan] * (
+                                            cur_max_interactions - len(ground_truth_rank_per_run))
                             ground_truth_rank_new.append(ground_truth_rank_per_run_new)
                         result_by_top_percentile_new.append(ground_truth_rank_new)
 
@@ -328,4 +340,3 @@ if __name__ == '__main__':
 
                     time_by_top_percentile_np = np.array(time_by_top_percentile)
                     np.save(result_dir + time_np_file_name, time_by_top_percentile_np)
-

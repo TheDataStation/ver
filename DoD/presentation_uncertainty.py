@@ -100,8 +100,10 @@ if __name__ == '__main__':
             signals, candidate_keys = create_signals(view_files, all_pair_contr_compl, sample_size)
 
             # Initialize ranking model
-            key_rank = list(candidate_keys)
-            random.shuffle(key_rank)
+            key_rank = {}
+            random.shuffle(candidate_keys)
+            for key in candidate_keys:
+                key_rank[key] = 0
 
             # row_rank = row_to_path_dict.copy()
             # for row, path in row_rank.items():
@@ -118,7 +120,9 @@ if __name__ == '__main__':
                     Colors.CEND)
 
                 # pick top key from key_rank
-                best_key = key_rank[0]
+                candidate_best_keys = [key for (key, value) in key_rank.items() if
+                                       value == max(key_rank.values())]
+                best_key = random.choice(candidate_best_keys)
                 best_signal = pick_best_signal_to_present(signals, best_key, view_scores, top_percentile)
 
                 if best_signal == None:
@@ -206,11 +210,13 @@ if __name__ == '__main__':
                     option, df, views = options[option_picked - 1]
                     for view in views:
                         view_scores[view] += 1
+                    key_rank[best_key] += 1
                 else:
-                    # didn't select any option, move down the current key's rank to the bottom (to make sure other keys
-                    # get chances of being presented)
+                    # didn't select any option, decrement key's score
+                    # (not using this strategy) move down the current key's rank to the bottom (to make sure other keys get chances of being presented)
                     if signal_type == "contradictions" or signal_type == "complements":
-                        key_rank.append(key_rank.pop(key_rank.index(best_key)))
+                        key_rank[best_key] -= 1
+                    # key_rank.append(key_rank.pop(key_rank.index(best_key)))
 
                 # pprint.pprint(sort_view_by_scores(view_scores))
 
