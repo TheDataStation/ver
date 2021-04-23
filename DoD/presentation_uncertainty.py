@@ -14,7 +14,7 @@ from tabulate import tabulate
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./chembl_results/chembl_gt0/high_noise/sample0/result1/"
+    dir_path = "./experiments_chembl_small/chembl_gt0/zero_noise/sample0/result3/"
     # top percentile of view scores to include in window
     top_percentiles = [25]
     # max size of candidate (composite) key
@@ -31,29 +31,44 @@ if __name__ == '__main__':
     # ground_truth_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3"
     fact_bank_fraction = 0.5
 
+    initialize_score = "dod"
+
     log_path = dir_path + "log.txt"
     log_file = open(log_path, "r")
     lines = log_file.readlines()
     # print(lines)
-    ground_truth_view = lines[-3].split(sep=": ")[1][:-1]
-    ground_truth_view = ground_truth_view.replace("view", "view_")
+    dod_score = {}
+    s4_score = {}
+    cur_view = None
+    cur_s4_score = None
+    ground_truth_view = None
+    time_before_view_pre = None
+    for line in lines:
+        if line.startswith("view"):
+            cur_view = dir_path + line[:-1].replace("view", "view_") + ".csv"
+            cur_dod_score = -int(line[4:])
+            dod_score[cur_view] = cur_dod_score
+        if line.startswith("s4_score"):
+            cur_s4_score = float(line.split(sep=": ")[1])
+            s4_score[cur_view] = cur_s4_score
+
+        if line.startswith("ground truth view"):
+            ground_truth_view = line.split(sep=": ")[1][:-1]
+            ground_truth_view = ground_truth_view.replace("view", "view_")
+
+        if line.startswith("total_time"):
+            time_before_view_pre = float(line.split(sep=": ")[1])
     log_file.close()
+
+    # print("s4_score")
+    # pprint.pprint(s4_score)
+    # print("time_before_view_pre: ", str(time_before_view_pre))
 
     ground_truth_path = dir_path + ground_truth_view
     print("Ground truth view: " + ground_truth_path)
 
     result_dir = "./result_uncertainty/"
 
-    ##################################S4 SCORE##########################################
-    s4_score_path = "./s4_score_chembl/chembl_gt0/high_noise/sample0/s4_score_pipeline1.txt"
-    s4_score_file = open(s4_score_path, "r")
-    s4_score = {}
-    lines = s4_score_file.readlines()
-    for line in lines:
-        line_list = line.split()
-        view_path = dir_path + line_list[0]
-        s4_score[view_path] = float(line_list[1])
-    s4_score_file.close()
     # Run 4C
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
@@ -108,9 +123,16 @@ if __name__ == '__main__':
             # row_rank = row_to_path_dict.copy()
             # for row, path in row_rank.items():
             #     row_rank[row] = 0
-            view_scores = s4_score.copy()
-            # for path in view_files:
-            #     view_scores[path] = 0
+            view_scores = {}
+            if initialize_score == "dod":
+                for path in view_files:
+                    view_scores[path] = dod_score[path]
+            elif initialize_score == "s4":
+                for path in view_files:
+                    view_scores[path] = s4_score[path]
+            elif initialize_score == "zero":
+                for path in view_files:
+                    view_scores[path] = 0
 
             num_interactions = 0
             ground_truth_rank_per_run = []
@@ -128,6 +150,13 @@ if __name__ == '__main__':
                 if best_signal == None:
                     # we have explored all the signals
                     break
+                    # if top_percentile != 0:
+                        # TODO: can't find any signal in the window, temporarily change the window size to
+                        #  the entire space and find a signal to present
+                        # best_signal = pick_best_signal_to_present(signals, best_key, view_scores, top_percentile=0)
+                        # if best_signal == None:
+                            # we have explored all the signals
+                            # break
                 signal_type, signal, best_key = best_signal
 
                 num_interactions += 1
@@ -216,7 +245,13 @@ if __name__ == '__main__':
                     # (not using this strategy) move down the current key's rank to the bottom (to make sure other keys get chances of being presented)
                     if signal_type == "contradictions" or signal_type == "complements":
                         key_rank[best_key] -= 1
-                    # key_rank.append(key_rank.pop(key_rank.index(best_key)))
+                        # key_rank.append(key_rank.pop(key_rank.index(best_key)))
+                    # views_to_decrement = set()
+                    # for option, df, views in options:
+                    #     for view in views:
+                    #         views_to_decrement.add(view)
+                    # for view in views_to_decrement:
+                    #     view_scores[view] -= 1
 
                 # pprint.pprint(sort_view_by_scores(view_scores))
 
