@@ -17,7 +17,7 @@ import time
 if __name__ == '__main__':
 
     root_dir = "/home/cc/experiments_chembl_small/"
-    for query in range(1):
+    for query in range(6):
         query_dir = root_dir + "chembl_gt" + str(query) + "/"
         for noise in ["zero_noise", "mid_noise", "high_noise"]:
             noise_dir = query_dir + noise + "/"
@@ -106,11 +106,11 @@ if __name__ == '__main__':
 
                 time_4c = time.time() - start_time_4c
                 file_4c = open(result_dir + "log.txt", "w")
-                file_4c.write("Total time before view presentation:" + str(time_before_view_pre))
-                file_4c.write("4c time(s):" + str(time_4c))
-                file_4c.write("original num of views:" + str(len(original_view_files)))
-                file_4c.write("After pruning compatible views:" + str(num_views_after_prune_compatible))
-                file_4c.write("After pruning contained views:" + str(len(view_files)))
+                file_4c.write("Total time before view presentation:" + str(time_before_view_pre) + "\n")
+                file_4c.write("4c time(s):" + str(time_4c) + "\n")
+                file_4c.write("original num of views:" + str(len(original_view_files)) + "\n")
+                file_4c.write("After pruning compatible views:" + str(num_views_after_prune_compatible) + "\n")
+                file_4c.write("After pruning contained views:" + str(len(view_files)) + "\n")
                 file_4c.close()
 
                 ############################################################################
@@ -285,7 +285,8 @@ if __name__ == '__main__':
                                 option, df, views = options[option_picked - 1]
                                 for view in views:
                                     view_scores[view] += 1
-                                key_rank[best_key] += 1
+                                if signal_type == "contradictions" or signal_type == "complements":
+                                    key_rank[best_key] += 1
                             else:
                                 # didn't select any option, decrement key's score
                                 # (not using this strategy) move down the current key's rank to the bottom (to make sure other keys get chances of being presented)

@@ -14,7 +14,7 @@ from tabulate import tabulate
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./experiments_chembl_small/chembl_gt0/zero_noise/sample0/result3/"
+    dir_path = "./experiments_chembl_small/chembl_gt1/zero_noise/sample0/result1/"
     # top percentile of view scores to include in window
     top_percentiles = [25]
     # max size of candidate (composite) key
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     # ground_truth_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3"
     fact_bank_fraction = 0.5
 
-    initialize_score = "dod"
+    initialize_score = "s4"
 
     log_path = dir_path + "log.txt"
     log_file = open(log_path, "r")
@@ -239,7 +239,8 @@ if __name__ == '__main__':
                     option, df, views = options[option_picked - 1]
                     for view in views:
                         view_scores[view] += 1
-                    key_rank[best_key] += 1
+                    if signal_type == "contradictions" or signal_type == "complements":
+                        key_rank[best_key] += 1
                 else:
                     # didn't select any option, decrement key's score
                     # (not using this strategy) move down the current key's rank to the bottom (to make sure other keys get chances of being presented)
