@@ -14,7 +14,8 @@ from tabulate import tabulate
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./experiments_chembl_small_3/chembl_gt1/high_noise/sample0/result3/"
+    pipeline = 1
+    dir_path = "./experiments_chembl_small_3/chembl_gt1/high_noise/sample0/result" + str(pipeline) + "/"
     # top percentile of view scores to include in window
     top_percentiles = [25]
     # max size of candidate (composite) key
@@ -48,11 +49,15 @@ if __name__ == '__main__':
         if line.startswith("view"):
             cur_view = dir_path + line[:-1].replace("view", "view_") + ".csv"
         if line.startswith("s4_score"):
-            lst = line.split(sep=", ")
-            cur_s4_score = float(lst[0].split(sep=": ")[1])
-            s4_score[cur_view] = cur_s4_score
-            cur_dod_score = float(lst[1].split(sep=": ")[1])
-            dod_score[cur_view] = cur_dod_score
+            if pipeline == 3:
+                lst = line.split(sep=", ")
+                cur_s4_score = float(lst[0].split(sep=": ")[1])
+                s4_score[cur_view] = cur_s4_score
+                cur_dod_score = float(lst[1].split(sep=": ")[1])
+                dod_score[cur_view] = cur_dod_score
+            else:
+                cur_s4_score = float(line.split(sep=": ")[1])
+                s4_score[cur_view] = cur_s4_score
         if line.startswith("ground truth view"):
             ground_truth_view = line.split(sep=": ")[1][:-1]
             ground_truth_view = ground_truth_view.replace("view", "view_")
