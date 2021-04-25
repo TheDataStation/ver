@@ -98,6 +98,13 @@ if __name__ == '__main__':
                     Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
                 print("Running 4C...")
 
+                original_view_files = glob.glob(dir_path + "/view_*")
+                if len(original_view_files) > len(s4_score):
+                    for i in range(len(s4_score), len(original_view_files)):
+                        view_to_remove = Path(dir_path + "view_" + str(i) + ".csv")
+                        view_to_remove.unlink()
+                original_view_files = glob.glob(dir_path + "/view_*")
+
                 compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl = \
                     v4c.main(dir_path, candidate_key_size)
 
@@ -105,7 +112,6 @@ if __name__ == '__main__':
                 print(
                     Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
 
-                original_view_files = glob.glob(dir_path + "/view_*")
                 print("Number of views: ", len(original_view_files))
 
                 view_files = prune_compatible_views(original_view_files, compatible_groups)

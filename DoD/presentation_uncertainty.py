@@ -10,12 +10,13 @@ import pandas as pd
 import pprint
 import numpy as np
 from tabulate import tabulate
+from pathlib import Path
 
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    pipeline = 1
-    dir_path = "./experiments_chembl_small_3/chembl_gt1/high_noise/sample0/result" + str(pipeline) + "/"
+    pipeline = 2
+    dir_path = "./experiments_chembl_small_3/chembl_gt0/zero_noise/sample0/" + "result" + str(pipeline) + "/"
     # top percentile of view scores to include in window
     top_percentiles = [25]
     # max size of candidate (composite) key
@@ -30,7 +31,7 @@ if __name__ == '__main__':
     num_runs = 20
 
     # ground_truth_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3"
-    fact_bank_fraction = 1
+    fact_bank_fraction = 0.5
 
     initialize_score = "s4"
 
@@ -81,13 +82,19 @@ if __name__ == '__main__':
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
     print("Running 4C...")
 
+    view_files = glob.glob(dir_path + "/view_*")
+    if len(view_files) > len(s4_score):
+        for i in range(len(s4_score), len(view_files)):
+            view_to_remove = Path(dir_path + "view_" + str(i) + ".csv")
+            view_to_remove.unlink()
+    view_files = glob.glob(dir_path + "/view_*")
+
     compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl = \
         v4c.main(dir_path, candidate_key_size)
 
     print()
     print(Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
 
-    view_files = glob.glob(dir_path + "/view_*")
     print("Number of views: ", len(view_files))
 
     view_files = prune_compatible_views(view_files, compatible_groups)
