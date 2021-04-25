@@ -16,7 +16,7 @@ import time
 
 if __name__ == '__main__':
 
-    root_dir = "/home/cc/experiments_chembl_small/"
+    root_dir = "/home/cc/experiments_chembl_small_3/"
     for query in range(6):
         query_dir = root_dir + "chembl_gt" + str(query) + "/"
         for noise in ["zero_noise", "mid_noise", "high_noise"]:
@@ -31,7 +31,7 @@ if __name__ == '__main__':
                 print("Running in dir: ", dir_path)
 
                 # top percentile of view scores to include in window
-                top_percentiles = [25]
+                top_percentiles = [25, 50]
                 # max size of candidate (composite) key
                 candidate_key_size = 2
                 # sampling 5 contradictory or complementary rows from each view to include in the presentation
@@ -43,8 +43,15 @@ if __name__ == '__main__':
 
                 num_runs = 20
 
-                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_chembl/change_key_rank/")
+                fact_bank_fraction = 0.5
+
+                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_chembl/new_fact_bank_50/")
                 Path(result_dir).mkdir(parents=True, exist_ok=True)
+
+                initialize_score = "s4"
+                # if pipeline == 1 or pipeline == 2:
+                #     initialize_score = "s4"
+                # print("Initialize score with ", initialize_score)
 
                 ################################LOG FILE###################################
 
@@ -55,18 +62,19 @@ if __name__ == '__main__':
                 dod_score = {}
                 s4_score = {}
                 cur_view = None
-                cur_s4_score = None
+                # cur_s4_score = None
+                # cur_dod_score = None
                 ground_truth_view = None
                 time_before_view_pre = None
                 for line in lines:
                     if line.startswith("view"):
                         cur_view = dir_path + line[:-1].replace("view", "view_") + ".csv"
-                        cur_dod_score = -int(line[4:])
-                        dod_score[cur_view] = cur_dod_score
                     if line.startswith("s4_score"):
-                        cur_s4_score = float(line.split(sep=": ")[1])
+                        lst = line.split(sep=", ")
+                        cur_s4_score = float(lst[0].split(sep=": ")[1])
                         s4_score[cur_view] = cur_s4_score
-
+                        cur_dod_score = float(lst[1].split(sep=": ")[1])
+                        dod_score[cur_view] = cur_dod_score
                     if line.startswith("ground truth view"):
                         ground_truth_view = line.split(sep=": ")[1][:-1]
                         ground_truth_view = ground_truth_view.replace("view", "view_")
@@ -76,7 +84,6 @@ if __name__ == '__main__':
                 log_file.close()
 
                 ground_truth_path = dir_path + ground_truth_view
-                fact_bank_fraction = 0.5
 
                 #####################################4C#####################################
 
@@ -139,12 +146,6 @@ if __name__ == '__main__':
                     fact_bank_df = v4c.normalize(fact_bank_df)
                     fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
 
-                initialize_score = "dod"
-                if pipeline == 1 or pipeline == 2:
-                    initialize_score = "s4"
-
-                print("Initialize score with ", initialize_score)
-
                 result_by_top_percentile = []
                 time_by_top_percentile = []
 
@@ -194,7 +195,9 @@ if __name__ == '__main__':
                             # pick top key from key_rank
                             candidate_best_keys = [key for (key, value) in key_rank.items() if
                                                    value == max(key_rank.values())]
-                            best_key = random.choice(candidate_best_keys)
+                            best_key = None
+                            if len(candidate_best_keys) > 0:
+                                best_key = random.choice(candidate_best_keys)
                             best_signal = pick_best_signal_to_present(signals, best_key, view_scores,
                                                                       top_percentile)
 
@@ -243,7 +246,7 @@ if __name__ == '__main__':
                                 for option, df, views in options:
                                     column_intersections = df.columns.intersection(fact_bank_df.columns)
                                     # print(column_intersections)
-                                    if len(column_intersections) > 0:
+                                    if len(column_intersections) == fact_bank_df.shape[1]:
                                         # default to intersection
                                         intersection = pd.merge(left=df[list(column_intersections)],
                                                                 right=fact_bank_df[list(column_intersections)],

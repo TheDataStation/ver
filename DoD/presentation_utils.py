@@ -1366,7 +1366,7 @@ def get_sorted_views_in_top_percentile(view_scores, top_percentile):
     threshold = np.percentile(scores, top_percentile)
     # print(threshold)
 
-    epsilon = 10e-3
+    epsilon = 1e-8
     top_views = [(view, score) for view, score in
                  sorted(view_scores.items(), key=lambda item: item[1], reverse=True)
                  if score >= threshold or abs(score - threshold) < epsilon]
@@ -1380,7 +1380,7 @@ def pick_best_signal_to_present(signals, best_key, view_scores, top_percentile):
     scores = np.array(list(view_scores.values()))
     threshold = np.percentile(scores, top_percentile)
     # print(threshold)
-    epsilon = 10e-3
+    epsilon = 1e-8
     for view, score in view_scores.items():
         if score >= threshold or abs(score - threshold) < epsilon:
             views_to_consider.add(view)

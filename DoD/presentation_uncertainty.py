@@ -14,7 +14,7 @@ from tabulate import tabulate
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    dir_path = "./experiments_chembl_small/chembl_gt1/zero_noise/sample0/result1/"
+    dir_path = "./experiments_chembl_small_3/chembl_gt1/high_noise/sample0/result3/"
     # top percentile of view scores to include in window
     top_percentiles = [25]
     # max size of candidate (composite) key
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     num_runs = 20
 
     # ground_truth_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3"
-    fact_bank_fraction = 0.5
+    fact_bank_fraction = 1
 
     initialize_score = "s4"
 
@@ -40,18 +40,19 @@ if __name__ == '__main__':
     dod_score = {}
     s4_score = {}
     cur_view = None
-    cur_s4_score = None
+    # cur_s4_score = None
+    # cur_dod_score = None
     ground_truth_view = None
     time_before_view_pre = None
     for line in lines:
         if line.startswith("view"):
             cur_view = dir_path + line[:-1].replace("view", "view_") + ".csv"
-            cur_dod_score = -int(line[4:])
-            dod_score[cur_view] = cur_dod_score
         if line.startswith("s4_score"):
-            cur_s4_score = float(line.split(sep=": ")[1])
+            lst = line.split(sep=", ")
+            cur_s4_score = float(lst[0].split(sep=": ")[1])
             s4_score[cur_view] = cur_s4_score
-
+            cur_dod_score = float(lst[1].split(sep=": ")[1])
+            dod_score[cur_view] = cur_dod_score
         if line.startswith("ground truth view"):
             ground_truth_view = line.split(sep=": ")[1][:-1]
             ground_truth_view = ground_truth_view.replace("view", "view_")
@@ -60,8 +61,10 @@ if __name__ == '__main__':
             time_before_view_pre = float(line.split(sep=": ")[1])
     log_file.close()
 
-    # print("s4_score")
-    # pprint.pprint(s4_score)
+    print("s4_score")
+    pprint.pprint(s4_score)
+    print("dod_score")
+    pprint.pprint(dod_score)
     # print("time_before_view_pre: ", str(time_before_view_pre))
 
     ground_truth_path = dir_path + ground_truth_view
@@ -199,7 +202,7 @@ if __name__ == '__main__':
                     for option, df, views in options:
                         column_intersections = df.columns.intersection(fact_bank_df.columns)
                         # print(column_intersections)
-                        if len(column_intersections) > 0:
+                        if len(column_intersections) == fact_bank_df.shape[1]:
                             # default to intersection
                             intersection = pd.merge(left=df[list(column_intersections)],
                                                     right=fact_bank_df[list(column_intersections)],

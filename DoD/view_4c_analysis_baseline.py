@@ -173,7 +173,7 @@ def find_candidate_keys(df, sampling=True, max_num_attr_in_composite_key=4):
     # TODO: pruning
     # Find all candidate keys that have the same/similar maximum strength
     max_strength = 0
-    epsilon = 10e-3
+    epsilon = 1e-8
     for key in map(list, filter(None, possible_keys)):
         # strength of a key = the number of distinct key values in the dataset divided by the number of rows
         num_groups = sample.groupby(key).ngroups
