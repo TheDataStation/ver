@@ -270,8 +270,10 @@ def find_complementary_or_contradictory_keys(t1, idx1, t2, idx2, candidate_key_s
         if len(contradictory_keys) == 0:
             if len(selection1.columns) == len(candidate_key):
                 # add dummy column
-                selection1["dummy_col"] = ""
-                selection2["dummy_col"] = ""
+                selection1 = selection1.assign(dummy_col_dod = "")
+                selection2 = selection2.assign(dummy_col_dod="")
+                # selection1["dummy_col"] = ""
+                # selection2["dummy_col"] = ""
 
             # Finding complementary keys using from view 1 to view 2 and view 2 to view 1
             left_merge = pd.merge(selection1, selection2, on=candidate_key, how='left', suffixes=('_left', '_right'))

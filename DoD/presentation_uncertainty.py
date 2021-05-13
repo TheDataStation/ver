@@ -15,23 +15,23 @@ from pathlib import Path
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    pipeline = 2
-    dir_path = "./experiments_chembl_small_3/chembl_gt0/zero_noise/sample0/" + "result" + str(pipeline) + "/"
+    pipeline = 1
+    dir_path = "./experiments_chembl_5_9/chembl_gt3/zero_noise/sample0/" + "result" + str(pipeline) + "/"
     # top percentile of view scores to include in window
     top_percentiles = [25]
     # max size of candidate (composite) key
     candidate_key_size = 2
-    # sampling 5 contradictory or complementary rows from each view to include in the presentation
-    sample_size = 5
+    # sampling n contradictory or complementary rows from each view to include in the presentation
+    sample_size = 10
 
     mode = Mode.optimal
 
-    max_num_interactions = 100
+    max_num_interactions = 10
 
-    num_runs = 20
+    num_runs = 1
 
     # ground_truth_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3"
-    fact_bank_fraction = 0.5
+    fact_bank_fraction = 0.1
 
     initialize_score = "s4"
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     if mode == Mode.optimal:
         print("Ground truth view: " + ground_truth_path)
         fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
-        fact_bank_df = mva.curate_view(fact_bank_df)
+        fact_bank_df = mva.curate_view_not_dropna(fact_bank_df)
         fact_bank_df = v4c.normalize(fact_bank_df)
         fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
 
@@ -127,7 +127,8 @@ if __name__ == '__main__':
                 Colors.CEND)
             print("Creating signals...")
 
-            signals, candidate_keys = create_signals(view_files, all_pair_contr_compl, sample_size)
+            signals, candidate_keys = create_signals_multi_row(view_files, all_pair_contr_compl, sample_size)
+            # exit()
 
             # Initialize ranking model
             key_rank = {}
@@ -160,8 +161,12 @@ if __name__ == '__main__':
                 candidate_best_keys = [key for (key, value) in key_rank.items() if
                                        value == max(key_rank.values())]
                 best_key = random.choice(candidate_best_keys)
-                best_signal = pick_best_signal_to_present(signals, best_key, view_scores, top_percentile)
-
+                if initialize_score == "zero" and num_interactions == 0:
+                    # consider all views
+                    best_signal = pick_best_signal_to_present(signals, best_key, view_scores, 0)
+                else:
+                    best_signal = pick_best_signal_to_present(signals, best_key, view_scores,
+                                                              top_percentile)
                 if best_signal == None:
                     # we have explored all the signals
                     break
@@ -212,12 +217,17 @@ if __name__ == '__main__':
 
                     max_intersection_with_fact_back = 0
                     for option, df, views in options:
+
                         column_intersections = df.columns.intersection(fact_bank_df.columns)
                         # print(column_intersections)
                         if len(column_intersections) == fact_bank_df.shape[1]:
+                            # print(df)
+                            # print(fact_bank_df)
+                            df_object = df[list(column_intersections)].astype('object')
+                            fact_bank_object = fact_bank_df[list(column_intersections)].astype('object')
                             # default to intersection
-                            intersection = pd.merge(left=df[list(column_intersections)],
-                                                    right=fact_bank_df[list(column_intersections)],
+                            intersection = pd.merge(left=df_object,
+                                                    right=fact_bank_object,
                                                     on=None)
                             # print(intersection)
                             intersection = intersection.drop_duplicates()
@@ -262,12 +272,12 @@ if __name__ == '__main__':
                     if signal_type == "contradictions" or signal_type == "complements":
                         key_rank[best_key] -= 1
                         # key_rank.append(key_rank.pop(key_rank.index(best_key)))
-                    # views_to_decrement = set()
-                    # for option, df, views in options:
-                    #     for view in views:
-                    #         views_to_decrement.add(view)
-                    # for view in views_to_decrement:
-                    #     view_scores[view] -= 1
+                    views_to_decrement = set()
+                    for option, df, views in options:
+                        for view in views:
+                            views_to_decrement.add(view)
+                    for view in views_to_decrement:
+                        view_scores[view] -= 1
 
                 # pprint.pprint(sort_view_by_scores(view_scores))
 

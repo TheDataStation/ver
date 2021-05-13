@@ -16,10 +16,10 @@ import time
 
 if __name__ == '__main__':
 
-    root_dir = "/home/cc/experiments_chembl_5_9/"
+    root_dir = "/home/cc/experiments_wdc_5_9/"
     # root_dir = "./experiments_wdc_10000_2/"
-    for query in range(6):
-        query_dir = root_dir + "chembl_gt" + str(query) + "/"
+    for query in range(5):
+        query_dir = root_dir + "wdc_gt" + str(query) + "/"
         for noise in ["zero_noise", "mid_noise", "high_noise"]:
             noise_dir = query_dir + noise + "/"
             sample_dir = noise_dir + "sample0/"
@@ -49,7 +49,7 @@ if __name__ == '__main__':
                 fact_bank_fractions = [10, 50, 100]
                 # fact_bank_fraction = 1
 
-                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_chembl_5_12_no_decrement/")
+                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_wdc_5_12_no_decrement/")
                 # result_dir = dir_path.replace(root_dir, "./test_dir/")
                 Path(result_dir).mkdir(parents=True, exist_ok=True)
 

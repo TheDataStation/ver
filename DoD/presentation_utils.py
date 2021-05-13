@@ -1361,6 +1361,255 @@ def create_signals(view_files, all_pair_contr_compl, sample_size):
     return signals, list(candidate_keys)
 
 
+def create_signals_multi_row(view_files, all_pair_contr_compl, sample_size):
+    # contradictions[key][(row1, row2)] = (row1_df, row2_df, views1, views2)
+    Contradiction = namedtuple("Contradiction", ["row1_df", "row2_df", "views1", "views2"])
+    contradictions = defaultdict(lambda: defaultdict(Contradiction))
+
+    # complements[key][(row1, row2)] = (row1_df, row2_df, views1, views2)
+    Complement = namedtuple("Complement", ["row1_df", "row2_df", "views1", "views2"])
+    complements = defaultdict(lambda: defaultdict(Complement))
+
+    # key: distinct row in all views, value: set of views containing the row
+    row_to_path_dict = {}
+
+    # views that are either contradictory or complementary
+    contr_or_compl_views = set()
+
+    candidate_keys = set()
+
+    contradictions_view_pair_dict = defaultdict(lambda: defaultdict(set))
+    complements_view_pair_dict = defaultdict(lambda: defaultdict(set))
+
+    for path, result in tqdm(all_pair_contr_compl.items()):
+        path1 = path[0]
+        path2 = path[1]
+
+        contr_or_compl_views.add(path1)
+        contr_or_compl_views.add(path2)
+
+        if not (path1 in view_files and path2 in view_files):
+            continue
+
+        df1 = pd.read_csv(path1, encoding='latin1', thousands=',')
+        df1 = mva.curate_view(df1)
+        df1 = v4c.normalize(df1)
+
+        df2 = pd.read_csv(path2, encoding='latin1', thousands=',')
+        df2 = mva.curate_view(df2)
+        df2 = v4c.normalize(df2)
+
+        for candidate_key_tuple, result_list in result.items():
+
+            candidate_keys.add(candidate_key_tuple)
+
+            complementary_keys1 = result_list[0]
+            complementary_keys2 = result_list[1]
+            contradictory_keys = result_list[2]
+
+            if len(contradictory_keys) > 0:
+
+                # a list containing candidate key names
+                candidate_key = list(candidate_key_tuple)
+                # a list of tuples, each tuple corresponds to the contradictory key values
+                key_values = list(contradictory_keys)
+
+                if len(key_values) > sample_size:
+                    key_values = random.sample(key_values, k=sample_size)
+
+                # print(len(key_values))
+                sampled_rows = set()
+
+                # there could be multiple contradictions existing in a pair of views
+                for key_value in key_values:
+                    # select row based on multiple composite keys
+                    row1_df = get_row_from_key(df1, candidate_key, key_value).head(1)
+                    row2_df = get_row_from_key(df2, candidate_key, key_value).head(1)
+
+                    # In some case one key can correspond to more than 1 row, we only take the first row as one row
+                    # will be sufficient
+                    row1_df = row1_df.head(1)
+                    row2_df = row2_df.head(1)
+                    row1_str = row_df_to_string(row1_df)[0]
+                    row2_str = row_df_to_string(row2_df)[0]
+
+                    p1 = path1
+                    p2 = path2
+                    contradiction_already_exist = False
+                    if candidate_key_tuple in contradictions.keys():
+                        if (row1_str, row2_str) in contradictions[candidate_key_tuple]:
+                            contradiction_already_exist = True
+                        elif (row2_str, row1_str) in contradictions[candidate_key_tuple]:
+                            row1_str, row2_str = row2_str, row1_str
+                            row1_df, row2_df = row2_df, row1_df
+                            p1, p2 = path2, path1
+                            contradiction_already_exist = True
+
+                    if contradiction_already_exist:
+                        contradiction = contradictions[candidate_key_tuple][(row1_str, row2_str)]
+                        contradiction.views1.add(p1)
+                        contradiction.views2.add(p2)
+                    else:
+                        contradiction = Contradiction(row1_df=row1_df, row2_df=row2_df, views1={p1}, views2={p2})
+
+                    contradictions[candidate_key_tuple][(row1_str, row2_str)] = contradiction
+                    sampled_rows.add((row1_str, row2_str))
+
+                # only skip this signal if the entire rows are the subset of rows in other signal
+                # TODO: we could keep the rows that didn't appear in other signals but then we have to resampling,
+                #  which has other implications: if we can't resample enough, we are decreasing this signal's
+                #  information gain
+                skip_this_pair = False
+                for view_pair, row_tuples in contradictions_view_pair_dict[candidate_key_tuple].items():
+                    if sampled_rows.issubset(row_tuples):
+                        skip_this_pair = True
+                        break
+                if not skip_this_pair:
+                    contradictions_view_pair_dict[candidate_key_tuple][(path1, path2)].update(sampled_rows)
+
+            elif len(complementary_keys1) > 0 and len(complementary_keys2) > 0:
+
+                candidate_key = list(candidate_key_tuple)
+                key_values1 = list(complementary_keys1)
+                key_values2 = list(complementary_keys2)
+
+                key_combinations = [(key_value1, key_value2) for key_value1 in key_values1 for key_value2 in
+                                    key_values2]
+                if (len(key_combinations)) > sample_size:
+                    key_combinations = random.sample(key_combinations, k=sample_size)
+
+                sampled_rows = set()
+
+                for key_value1, key_value2 in key_combinations:
+                    row1_df = get_row_from_key(df1, candidate_key, key_value1)
+                    row2_df = get_row_from_key(df2, candidate_key, key_value2)
+
+                    row1_df = row1_df.head(1)
+                    row2_df = row2_df.head(1)
+                    row1_str = row_df_to_string(row1_df)[0]
+                    row2_str = row_df_to_string(row2_df)[0]
+
+                    p1 = path1
+                    p2 = path2
+
+                    complement_already_exist = False
+                    if candidate_key_tuple in complements.keys():
+                        if (row1_str, row2_str) in complements[candidate_key_tuple]:
+                            complement_already_exist = True
+                        elif (row2_str, row1_str) in complements[candidate_key_tuple]:
+                            row1_str, row2_str = row2_str, row1_str
+                            row1_df, row2_df = row2_df, row1_df
+                            p1, p2 = path2, path1
+                            complement_already_exist = True
+
+                    if complement_already_exist:
+                        complement = complements[candidate_key_tuple][(row1_str, row2_str)]
+                        complement.views1.add(p1)
+                        complement.views2.add(p2)
+                    else:
+                        complement = Complement(row1_df=row1_df, row2_df=row2_df, views1={p1}, views2={p2})
+
+                    complements[candidate_key_tuple][(row1_str, row2_str)] = complement
+                    sampled_rows.add((row1_str, row2_str))
+
+                skip_this_pair = False
+                for view_pair, row_tuples in complements_view_pair_dict[candidate_key_tuple].items():
+                    if sampled_rows.issubset(row_tuples):
+                        skip_this_pair = True
+                        break
+                if not skip_this_pair:
+                    complements_view_pair_dict[candidate_key_tuple][(path1, path2)].update(sampled_rows)
+
+    contradictions_new = defaultdict(lambda: defaultdict(Contradiction))
+    for candidate_key_tuple, v in tqdm(contradictions.items()):
+        for view_pair, row_tuples in contradictions_view_pair_dict[candidate_key_tuple].items():
+            dfs1 = []
+            dfs2 = []
+            combined_views1 = set()
+            combined_views2 = set()
+
+            for row_tuple in row_tuples:
+                contradiction = contradictions[candidate_key_tuple][row_tuple]
+                row1_df, row2_df, views1, views2 = contradiction
+                dfs1.append(row1_df)
+                dfs2.append(row2_df)
+                combined_views1.update(views1)
+                combined_views2.update(views2)
+
+            df1 = pd.concat(dfs1, ignore_index=True)
+            df2 = pd.concat(dfs2, ignore_index=True)
+
+            df1 = mva.curate_view_not_dropna(df1)
+            df1 = v4c.normalize(df1)
+            df2 = mva.curate_view_not_dropna(df2)
+            df2 = v4c.normalize(df2)
+
+            contradiction_multi_row = Contradiction(row1_df=df1, row2_df=df2, views1=combined_views1,
+                                                    views2=combined_views2)
+            contradictions_new[candidate_key_tuple][view_pair] = contradiction_multi_row
+            # print(contradiction_multi_row)
+            # print(len(df1))
+            # print(len(df2))
+            # print()
+    # pprint.pprint(contradictions)
+    contradictions = contradictions_new
+    # pprint.pprint(contradictions)
+
+    complements_new = defaultdict(lambda: defaultdict(Complement))
+    for candidate_key_tuple, v in tqdm(complements.items()):
+        for view_pair, row_tuples in complements_view_pair_dict[candidate_key_tuple].items():
+            dfs1 = []
+            dfs2 = []
+            combined_views1 = set()
+            combined_views2 = set()
+
+            for row_tuple in row_tuples:
+                complement = complements[candidate_key_tuple][row_tuple]
+                row1_df, row2_df, views1, views2 = complement
+                dfs1.append(row1_df)
+                dfs2.append(row2_df)
+                combined_views1.update(views1)
+                combined_views2.update(views2)
+
+            df1 = pd.concat(dfs1, ignore_index=True)
+            df2 = pd.concat(dfs2, ignore_index=True)
+
+            df1 = mva.curate_view_not_dropna(df1)
+            df1 = v4c.normalize(df1)
+            df2 = mva.curate_view_not_dropna(df2)
+            df2 = v4c.normalize(df2)
+
+            complement_multi_row = Complement(row1_df=df1, row2_df=df2, views1=combined_views1, views2=combined_views2)
+            complements_new[candidate_key_tuple][view_pair] = complement_multi_row
+
+    complements = complements_new
+
+    non_contr_or_compl_view_files = view_files - contr_or_compl_views
+    singletons = []
+    for path in non_contr_or_compl_view_files:
+
+        df = pd.read_csv(path, encoding='latin1', thousands=',')
+        df = mva.curate_view_not_dropna(df)
+        df = v4c.normalize(df)
+
+        row_strs = row_df_to_string(df)
+        add_to_row_to_path_dict(row_to_path_dict, row_strs, path)
+
+        sample_df = df
+        if len(df) > sample_size:
+            sample_df = df.sample(n=sample_size)
+        singletons.append((path, sample_df))
+
+    # pprint.pprint(contradictions)
+    # pprint.pprint(complements)
+    signals = {}
+    signals["contradictions"] = contradictions
+    signals["complements"] = complements
+    signals["singletons"] = singletons
+
+    return signals, list(candidate_keys)
+
+
 def get_sorted_views_in_top_percentile(view_scores, top_percentile):
     scores = np.array(list(view_scores.values()))
     threshold = np.percentile(scores, top_percentile)
@@ -1384,6 +1633,7 @@ def pick_best_signal_to_present(signals, best_key, view_scores, top_percentile):
     for view, score in view_scores.items():
         if score >= threshold or abs(score - threshold) < epsilon:
             views_to_consider.add(view)
+
     # print("views_to_consider: ", views_to_consider)
 
     # If the user randomly picks a branch in the split, what's the expected value of uncertainty removed?
