@@ -16,8 +16,8 @@ import time
 
 if __name__ == '__main__':
 
-    root_dir = "/home/cc/experiments_wdc_5_9/"
-    # root_dir = "./experiments_wdc_10000_2/"
+    root_dir = "/home/cc/experiments_wdc_5_13/"
+    # root_dir = "./experiments_wdc_5_13/"
     for query in range(5):
         query_dir = root_dir + "wdc_gt" + str(query) + "/"
         for noise in ["zero_noise", "mid_noise", "high_noise"]:
@@ -49,7 +49,7 @@ if __name__ == '__main__':
                 fact_bank_fractions = [10, 50, 100]
                 # fact_bank_fraction = 1
 
-                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_wdc_5_12_no_decrement/")
+                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_wdc_5_14/")
                 # result_dir = dir_path.replace(root_dir, "./test_dir/")
                 Path(result_dir).mkdir(parents=True, exist_ok=True)
 
@@ -147,17 +147,21 @@ if __name__ == '__main__':
                             max_size = 0
                             largest_view = contained_group[0]
                             for view in contained_group:
-                                if len(view) > max_size:
-                                    max_size = len(view)
+                                df = pd.read_csv(view, encoding='latin1', thousands=',')
+                                df = mva.curate_view(df)
+
+                                if len(df) > max_size:
+                                    max_size = len(df)
                                     largest_view = view
                             ground_truth_path = largest_view
                             break
+                assert (ground_truth_path in view_files)
 
                 fact_bank_df = None
                 if mode == Mode.optimal:
                     print("Ground truth view: " + ground_truth_path)
                     fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
-                    fact_bank_df = mva.curate_view_not_dropna(fact_bank_df)
+                    fact_bank_df = mva.curate_view_not_drop_duplicates(fact_bank_df)
                     fact_bank_df = v4c.normalize(fact_bank_df)
 
                 for fact_bank_fraction in fact_bank_fractions:
@@ -286,7 +290,7 @@ if __name__ == '__main__':
                                                                         right=fact_bank_object,
                                                                         on=None)
                                                 # print(intersection)
-                                                intersection = intersection.drop_duplicates()
+                                                # intersection = intersection.drop_duplicates()
                                                 # print(intersection)
                                                 if intersection.size > max_intersection_with_fact_back:
                                                     # Always selection the option that's more consistent with the fact bank
@@ -330,12 +334,12 @@ if __name__ == '__main__':
                                         if signal_type == "contradictions" or signal_type == "complements":
                                             key_rank[best_key] -= 1
                                             # key_rank.append(key_rank.pop(key_rank.index(best_key)))
-                                        # views_to_decrement = set()
-                                        # for option, df, views in options:
-                                        #     for view in views:
-                                        #         views_to_decrement.add(view)
-                                        # for view in views_to_decrement:
-                                        #     view_scores[view] -= 1
+                                        views_to_decrement = set()
+                                        for option, df, views in options:
+                                            for view in views:
+                                                views_to_decrement.add(view)
+                                        for view in views_to_decrement:
+                                            view_scores[view] -= 1
 
                                     # pprint.pprint(sort_view_by_scores(view_scores))
 

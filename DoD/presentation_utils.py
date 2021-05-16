@@ -50,7 +50,6 @@ def prune_contained_views(views, contained_groups):
         for view in contained_group:
             df = pd.read_csv(view, encoding='latin1', thousands=',')
             df = mva.curate_view(df)
-            df = v4c.normalize(df)
 
             if len(df) > max_size:
                 max_size = len(df)
@@ -1423,8 +1422,8 @@ def create_signals_multi_row(view_files, all_pair_contr_compl, sample_size):
                 # there could be multiple contradictions existing in a pair of views
                 for key_value in key_values:
                     # select row based on multiple composite keys
-                    row1_df = get_row_from_key(df1, candidate_key, key_value).head(1)
-                    row2_df = get_row_from_key(df2, candidate_key, key_value).head(1)
+                    row1_df = get_row_from_key(df1, candidate_key, key_value)
+                    row2_df = get_row_from_key(df2, candidate_key, key_value)
 
                     # In some case one key can correspond to more than 1 row, we only take the first row as one row
                     # will be sufficient
@@ -1539,9 +1538,9 @@ def create_signals_multi_row(view_files, all_pair_contr_compl, sample_size):
             df1 = pd.concat(dfs1, ignore_index=True)
             df2 = pd.concat(dfs2, ignore_index=True)
 
-            df1 = mva.curate_view_not_dropna(df1)
+            df1 = mva.curate_view_not_drop_duplicates(df1)
             df1 = v4c.normalize(df1)
-            df2 = mva.curate_view_not_dropna(df2)
+            df2 = mva.curate_view_not_drop_duplicates(df2)
             df2 = v4c.normalize(df2)
 
             contradiction_multi_row = Contradiction(row1_df=df1, row2_df=df2, views1=combined_views1,
@@ -1574,9 +1573,9 @@ def create_signals_multi_row(view_files, all_pair_contr_compl, sample_size):
             df1 = pd.concat(dfs1, ignore_index=True)
             df2 = pd.concat(dfs2, ignore_index=True)
 
-            df1 = mva.curate_view_not_dropna(df1)
+            df1 = mva.curate_view_not_drop_duplicates(df1)
             df1 = v4c.normalize(df1)
-            df2 = mva.curate_view_not_dropna(df2)
+            df2 = mva.curate_view_not_drop_duplicates(df2)
             df2 = v4c.normalize(df2)
 
             complement_multi_row = Complement(row1_df=df1, row2_df=df2, views1=combined_views1, views2=combined_views2)
@@ -1589,7 +1588,7 @@ def create_signals_multi_row(view_files, all_pair_contr_compl, sample_size):
     for path in non_contr_or_compl_view_files:
 
         df = pd.read_csv(path, encoding='latin1', thousands=',')
-        df = mva.curate_view_not_dropna(df)
+        df = mva.curate_view_not_drop_duplicates(df)
         df = v4c.normalize(df)
 
         row_strs = row_df_to_string(df)

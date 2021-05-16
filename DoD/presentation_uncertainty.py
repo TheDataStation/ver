@@ -15,25 +15,25 @@ from pathlib import Path
 if __name__ == '__main__':
 
     #################################CONFIG#####################################
-    pipeline = 1
-    dir_path = "./experiments_chembl_5_9/chembl_gt3/zero_noise/sample0/" + "result" + str(pipeline) + "/"
+    pipeline = 3
+    dir_path = "./experiments_chembl_5_13/chembl_gt2/zero_noise/sample0/" + "result" + str(pipeline) + "/"
     # top percentile of view scores to include in window
     top_percentiles = [25]
     # max size of candidate (composite) key
     candidate_key_size = 2
     # sampling n contradictory or complementary rows from each view to include in the presentation
-    sample_size = 10
+    sample_size = 1
 
     mode = Mode.optimal
 
-    max_num_interactions = 10
+    max_num_interactions = 30
 
     num_runs = 1
 
     # ground_truth_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3"
     fact_bank_fraction = 0.1
 
-    initialize_score = "s4"
+    initialize_score = "zero"
 
     log_path = dir_path + "log.txt"
     log_file = open(log_path, "r")
@@ -103,11 +103,30 @@ if __name__ == '__main__':
     view_files = prune_contained_views(view_files, contained_groups)
     print("After pruning contained views: ", len(view_files))
 
+    if ground_truth_path not in view_files:
+        for compatible_group in compatible_groups:
+            if ground_truth_path in compatible_group:
+                ground_truth_path = compatible_group[0]
+                break
+        for contained_group in contained_groups:
+            if ground_truth_path in contained_group:
+                max_size = 0
+                largest_view = contained_group[0]
+                for view in contained_group:
+                    df = pd.read_csv(view, encoding='latin1', thousands=',')
+                    df = mva.curate_view(df)
+
+                    if len(df) > max_size:
+                        max_size = len(df)
+                        largest_view = view
+                ground_truth_path = largest_view
+                break
+
     fact_bank_df = None
     if mode == Mode.optimal:
         print("Ground truth view: " + ground_truth_path)
         fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
-        fact_bank_df = mva.curate_view_not_dropna(fact_bank_df)
+        fact_bank_df = mva.curate_view_not_drop_duplicates(fact_bank_df)
         fact_bank_df = v4c.normalize(fact_bank_df)
         fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction)
 
