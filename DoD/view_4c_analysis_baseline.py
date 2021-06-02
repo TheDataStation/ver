@@ -715,6 +715,48 @@ def main(input_path, candidate_key_size):
     return compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl
 
 
+def eval_main(input_path, candidate_key_size):
+    # groups_per_column_cardinality = defaultdict(dict)
+    compatible_groups = []
+    contained_groups = []
+    complementary_groups = []
+    contradictory_groups = []
+    all_pair_contr_compl = {}
+
+    dfs = get_dataframes(input_path)
+    print("Found " + str(len(dfs)) + " valid tables")
+
+    dfs_per_schema, schema_id_info = classify_per_table_schema(dfs)
+    print("View candidates classify into " + str(len(dfs_per_schema)) + " groups based on schema")
+    print("")
+    for key, group_dfs in dfs_per_schema.items():
+        print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
+
+        # best_composite_key = find_composite_key(group_dfs)
+
+        # TODO: the metadata is not needed anymore, but keep it for now so I don't ruin the code structure
+        dfs_with_metadata = get_df_metadata(group_dfs)
+
+        # summarized_group, complementary_group, contradictory_group = brute_force_4c(dfs_with_metadata)
+        compatible_group, contained_group, complementary_group, contradictory_group, all_pair_contr_compl_cur = \
+            no_chasing_4c(
+                dfs_with_metadata, candidate_key_size)
+
+        compatible_groups += compatible_group
+        contained_groups += contained_group
+        complementary_groups.append(complementary_group)
+        contradictory_groups.append(contradictory_group)
+        all_pair_contr_compl.update(all_pair_contr_compl_cur)
+
+        # groups_per_column_cardinality[key]['compatible'] = compatible_group
+        # groups_per_column_cardinality[key]['contained'] = contained_group
+        # groups_per_column_cardinality[key]['complementary'] = complementary_group
+        # groups_per_column_cardinality[key]['contradictory'] = contradictory_group
+        # groups_per_column_cardinality[key]['all_pair_contr_compl'] = all_pair_contr_compl
+
+    return compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl
+
+
 def nochasing_main(input_path):
     groups_per_column_cardinality = defaultdict(dict)
 

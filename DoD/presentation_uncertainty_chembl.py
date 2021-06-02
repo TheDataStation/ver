@@ -18,12 +18,15 @@ if __name__ == '__main__':
 
     root_dir = "/home/cc/experiments_chembl_5_13/"
     # root_dir = "./experiments_chembl_5_13/"
-    for query in range(2, 6):
+    for query in range(5):
         query_dir = root_dir + "chembl_gt" + str(query) + "/"
         for noise in ["zero_noise", "mid_noise", "high_noise"]:
             noise_dir = query_dir + noise + "/"
             sample_dir = noise_dir + "sample0/"
             for pipeline in range(1, 4):
+
+                if pipeline != 3:
+                    continue
 
                 #################################CONFIG#####################################
 
@@ -43,13 +46,13 @@ if __name__ == '__main__':
 
                 max_num_interactions = 100
 
-                num_runs = 50
+                num_runs = 20
 
                 initialize_scores = ["zero", "s4"]
                 fact_bank_fractions = [10, 50, 100]
                 # fact_bank_fraction = 1
 
-                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_chembl_5_14/")
+                result_dir = dir_path.replace(root_dir, "/home/cc/zhiru/presentation_results_chembl_5_27/")
                 # result_dir = dir_path.replace(root_dir, "./test_dir/")
                 Path(result_dir).mkdir(parents=True, exist_ok=True)
 
@@ -157,12 +160,12 @@ if __name__ == '__main__':
                             break
                 assert (ground_truth_path in view_files)
 
-                fact_bank_df = None
+                full_fact_bank = None
                 if mode == Mode.optimal:
                     print("Ground truth view: " + ground_truth_path)
-                    fact_bank_df = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
-                    fact_bank_df = mva.curate_view_not_drop_duplicates(fact_bank_df)
-                    fact_bank_df = v4c.normalize(fact_bank_df)
+                    full_fact_bank = pd.read_csv(ground_truth_path, encoding='latin1', thousands=',')
+                    full_fact_bank = mva.curate_view_not_drop_duplicates(full_fact_bank)
+                    full_fact_bank = v4c.normalize(full_fact_bank)
 
                 for fact_bank_fraction in fact_bank_fractions:
 
@@ -187,7 +190,7 @@ if __name__ == '__main__':
                             for run in range(num_runs):
 
                                 # create a new fact bank for every run
-                                fact_bank_df = fact_bank_df.sample(frac=fact_bank_fraction / 100)
+                                fact_bank_df = full_fact_bank.sample(frac=fact_bank_fraction / 100)
 
                                 start_time_run = time.time()
                                 print("Run " + str(run))

@@ -16,13 +16,16 @@ if __name__ == '__main__':
 
     #################################CONFIG#####################################
     pipeline = 3
-    dir_path = "./experiments_chembl_5_13/chembl_gt2/zero_noise/sample0/" + "result" + str(pipeline) + "/"
+    dataset = "chembl"
+    query = 2
+    noise = "mid"
+    dir_path = "./experiments_" + dataset + "_5_13/" + dataset + "_gt" + str(query) + "/" + noise + "_noise/sample0/" + "result" + str(pipeline) + "/"
     # top percentile of view scores to include in window
     top_percentiles = [25]
     # max size of candidate (composite) key
     candidate_key_size = 2
     # sampling n contradictory or complementary rows from each view to include in the presentation
-    sample_size = 1
+    sample_size = 5
 
     mode = Mode.optimal
 
@@ -33,7 +36,7 @@ if __name__ == '__main__':
     # ground_truth_path = "./chembl_results/chembl_gt0/high_noise/sample0/result3"
     fact_bank_fraction = 0.1
 
-    initialize_score = "zero"
+    initialize_score = "s4"
 
     log_path = dir_path + "log.txt"
     log_file = open(log_path, "r")
@@ -102,6 +105,10 @@ if __name__ == '__main__':
 
     view_files = prune_contained_views(view_files, contained_groups)
     print("After pruning contained views: ", len(view_files))
+
+    # pprint.pprint(view_files)
+    pprint.pprint(compatible_groups)
+    exit()
 
     if ground_truth_path not in view_files:
         for compatible_group in compatible_groups:
