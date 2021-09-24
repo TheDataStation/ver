@@ -46,7 +46,7 @@ def main(output_path=None, table_path=None):
     print("!!3 " + str(et - st))
 
     lsh_threshold = 0.5
-    content_sim_index = networkbuilder.build_content_sim_mh_text(network, mh_signatures, lsh_threshold)
+    content_sim_index = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold)
     end_text_sig_sim = time.time()
     print("Total text-sig-sim (minhash): {0}".format(str(end_text_sig_sim - start_text_sig_sim)))
     print("!!4 " + str(end_text_sig_sim - start_text_sig_sim))

@@ -94,7 +94,7 @@ Requires Python 3 (tested with 3.4, 3.5 and 3.6). Use requirements.txt to
 install all the dependencies:
 
 ```shell
-$> pip install -r requirements.txt
+$> pip install --no-deps -r requirements.txt
 ```
 
 In a vanilla linux (debian-based) system, the following packages will need to be installed system-wide:

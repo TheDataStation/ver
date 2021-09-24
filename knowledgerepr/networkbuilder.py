@@ -230,7 +230,35 @@ def build_content_sim_relation_text(network, signatures):
     create_sim_graph_text(nid_gen, network, text_engine, tfidf, Relation.CONTENT_SIM)
 
 
-def build_content_sim_mh_text(network, mh_signatures, t):
+def build_content_sim_mh_text_js(network, mh_signatures, t):
+
+    def connect(nid1, nid2, score):
+        network.add_relation(nid1, nid2, Relation.CONTENT_SIM, score)
+
+    # Materialize signatures for convenience
+    mh_sig_obj = []
+
+    content_index = MinHashLSH(threshold=t, num_perm=512)
+
+    # Create minhash objects and index
+    for nid, mh_sig in mh_signatures:
+        mh_obj = MinHash(num_perm=512)
+        mh_array = np.asarray(mh_sig, dtype=int)
+        mh_obj.hashvalues = mh_array
+        content_index.insert(nid, mh_obj)
+        mh_sig_obj.append((nid, mh_obj))
+
+    # Query objects
+    for nid, mh_obj in mh_sig_obj:
+        res = content_index.query(mh_obj)
+        for r_nid in res:
+            if r_nid != nid:
+                connect(nid, r_nid, 1)
+
+    return content_index
+
+
+def build_content_sim_mh_text_jc(network, mh_signatures, t):
     def connect(nid1, nid2, score):
         network.add_relation(nid1, nid2, Relation.CONTENT_SIM, score)
 
