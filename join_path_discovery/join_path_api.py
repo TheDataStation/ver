@@ -4,6 +4,7 @@ from modelstore.elasticstore import StoreHandler
 from knowledgerepr.fieldnetwork import deserialize_network
 import pandas as pd
 from join_path import JoinKey, JoinPath
+import sys
 
 data_path = "/home/yuegong/Documents/datasets/adventureWork/"
 
@@ -59,13 +60,15 @@ def find_join_path(col, max_hop, result, cur_path):
 if __name__ == '__main__':
     # create store handler
     store_client = StoreHandler()
-    # read graph
-    path = '../models/adventureWorks/'
+    # read command line arguments
+    path = sys.argv[1]  # path = '../models/adventureWorks/'
+    table = sys.argv[2]     # Employee.csv
+
     network = deserialize_network(path)
     api = API(network)
     api.init_store()
 
-    table = 'Employee.csv'
+    # find join paths
     result = []
     find_join_paths_from(table, 2, result)
     print("# join paths:", len(result))
