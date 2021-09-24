@@ -10,6 +10,12 @@ class JoinPath:
                 format_str += " JOIN "
         return format_str
 
+    def print_metadata_str(self):
+        print(self.to_str())
+        for join_key in self.join_path:
+            print(join_key.tbl[:-4] + "." + join_key.col)
+            print("datasource: {}, unique_values: {}, total_values: {}".format(join_key.tbl, join_key.unique_values, join_key.total_values))
+
 
 class JoinKey:
     def __init__(self, col_drs, unique_values, total_values):

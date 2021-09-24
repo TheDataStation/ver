@@ -8,7 +8,8 @@ from join_path import JoinKey, JoinPath
 data_path = "/home/yuegong/Documents/datasets/adventureWork/"
 
 
-def is_column_nan(unique_values, col):
+def is_column_nan(col):
+    unique_values = network.get_size_of(col.nid)
     if unique_values != 1:
         return False
     df = pd.read_csv(data_path + col.source_name, usecols=[col.field_name])
@@ -32,22 +33,27 @@ def get_sizes_from_drs(col):
     return unique, total
 
 
-def find_join_path(start, max_hop, result):
-    if max_hop == 0:
-        return
+def col_to_join_key(col):
+    unique, total = get_sizes_from_drs(col)
+    return JoinKey(col, unique, total)
+
+
+def find_join_paths_from(start, max_hop, result):
     columns = api.drs_from_table(start)
     for col in columns:
-        unique, total = get_sizes_from_drs(col)
-        path = [JoinKey(col, unique, total)]
-        unique_values = network.get_size_of(col.nid)
-        if not is_column_nan(unique_values, col):
-            neighbors = network.neighbors_id(col, Relation.CONTENT_SIM)
-            for nei in neighbors:
-                unique, total = get_sizes_from_drs(nei)
-                path.append(JoinKey(nei, unique, total))
-                result.append(JoinPath(path[:]))
-                find_join_path(nei, max_hop-1, result)
-                path.pop()
+        find_join_path(col, max_hop, result, [col_to_join_key(col)])
+
+
+def find_join_path(col, max_hop, result, cur_path):
+    if max_hop == 0:
+        return
+    if not is_column_nan(col):
+        neighbors = network.neighbors_id(col, Relation.CONTENT_SIM)
+        for nei in neighbors:
+            cur_path.append(col_to_join_key(nei))
+            result.append(JoinPath(cur_path[:]))
+            find_join_path(nei, max_hop - 1, result, cur_path)
+            cur_path.pop()
 
 
 if __name__ == '__main__':
@@ -61,20 +67,8 @@ if __name__ == '__main__':
 
     table = 'Employee.csv'
     result = []
-    find_join_path(table, 1, result)
+    find_join_paths_from(table, 2, result)
+    print("# join paths:", len(result))
     for jp in result:
-        print(jp)
-    # res = api.drs_from_table(table)
-    # for el in res:
-    #
-    #     unique_values = network.get_size_of(el.nid) # the number of unique values in a column
-    #     cardinality = network.get_cardinality_of(el.nid)    # the number of unique values / the number of values
-    #     total_values = unique_values / cardinality
-    #     print("query col:", el, "unique_values:", unique_values, "total_values", total_values, "cardi:", cardinality)
-    #     if is_column_nan(unique_values, el):
-    #         continue
-    #     neighbors = network.neighbors_id(el, Relation.CONTENT_SIM)
-    #     print("---------------neighbors--------------------")
-    #     for nei in neighbors:
-    #         print(nei)
-    #     print("---------------neighbors-------------------")
+        jp.print_metadata_str()
+        print("------------------------")
