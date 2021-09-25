@@ -63,6 +63,7 @@ if __name__ == '__main__':
     # read command line arguments
     path = sys.argv[1]  # path = '../models/adventureWorks/'
     table = sys.argv[2]     # Employee.csv
+    max_hop = int(sys.argv[3])   # max_hop of join paths
 
     network = deserialize_network(path)
     api = API(network)
@@ -70,7 +71,7 @@ if __name__ == '__main__':
 
     # find join paths
     result = []
-    find_join_paths_from(table, 2, result)
+    find_join_paths_from(table, max_hop, result)
     print("# join paths:", len(result))
     for jp in result:
         jp.print_metadata_str()
