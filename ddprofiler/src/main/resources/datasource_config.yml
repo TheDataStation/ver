@@ -28,7 +28,7 @@ sources:
   type: csv
   config:
     # path indicates where the CSV files live
-    path: "//home/yuegong/Documents/datasets/adventureWork/"
+    path: "/home/cc/datasets/adventureWork/"
     # separator used in the CSV files
     separator: ','
 
