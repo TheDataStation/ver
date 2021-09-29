@@ -88,6 +88,13 @@ class FieldNetwork:
         c = self.__G.node[node_id]
         size = c['size']
         return size
+    
+    def get_non_empty_values_of(self, node_id):
+        c = self.__G.node[node_id]
+        non_empty = c['non_empty_values']
+        if not non_empty:
+            return 0
+        return non_empty
 
     def _get_underlying_repr_graph(self):
         return self.__G
@@ -113,23 +120,23 @@ class FieldNetwork:
         :return:
         """
         print("Building schema relation...")
-        for (nid, db_name, sn_name, fn_name, total_values, unique_values, data_type) in fields:
+        for (nid, db_name, sn_name, fn_name, total_values, unique_values, non_empty_values, data_type) in fields:
             self.__id_names[nid] = (db_name, sn_name, fn_name, data_type)
             self.__source_ids[sn_name].append(nid)
             cardinality_ratio = None
             if float(total_values) > 0:
                 cardinality_ratio = float(unique_values) / float(total_values)
-            self.add_field(nid, cardinality_ratio, unique_values)
+            self.add_field(nid, cardinality_ratio, unique_values, non_empty_values)
         print("Building schema relation...OK")
 
-    def add_field(self, nid, cardinality=None, size=0):
+    def add_field(self, nid, cardinality=None, size=0, non_empty_values=0):
         """
         Creates a graph node for this field and adds it to the graph
         :param nid: the id of the node (a hash of dbname, sourcename and fieldname
         :param cardinality: the cardinality of the values of the node, if any
         :return: the newly added field node
         """
-        self.__G.add_node(nid, cardinality=cardinality, size=size)
+        self.__G.add_node(nid, cardinality=cardinality, size=size, non_empty_values=non_empty_values)
         return nid
 
     def add_fields(self, list_of_fields):

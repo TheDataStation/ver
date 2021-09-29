@@ -10,11 +10,8 @@ import sys
 
 
 def is_column_nan(col):
-    unique_values = network.get_size_of(col.nid)
-    if unique_values != 1:
-        return False
-    df = pd.read_csv(data_path + col.source_name, usecols=[col.field_name])
-    if df[col.field_name].isnull().values.any():
+    non_empty = network.get_non_empty_values_of(col.nid)
+    if non_empty == 0:
         return True
     return False
 
@@ -31,12 +28,13 @@ def join_path_formatter(join_path):
 def get_sizes_from_drs(col):
     unique = network.get_size_of(col.nid)
     total = int(network.get_size_of(col.nid)/network.get_cardinality_of(col.nid))
-    return unique, total
+    non_empty = network.get_non_empty_values_of(col.nid)
+    return unique, total, non_empty
 
 
 def col_to_join_key(col):
-    unique, total = get_sizes_from_drs(col)
-    return JoinKey(col, unique, total)
+    unique, total, non_empty = get_sizes_from_drs(col)
+    return JoinKey(col, unique, total, non_empty)
 
 
 def find_join_paths_from(start, max_hop, result):

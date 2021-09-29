@@ -75,6 +75,7 @@ class StoreHandler:
                                          'hits.hits._source.columnName',
                                          'hits.hits._source.totalValues',
                                          'hits.hits._source.uniqueValues',
+                                         'hits.hits._source.nonEmptyValues',
                                          'hits.hits._source.dataType']
                             )
         print(res)
@@ -85,7 +86,7 @@ class StoreHandler:
             for h in hits:
                 id_source_and_file_name = (h['_id'], h['_source']['dbName'], h['_source']['sourceName'],
                                            h['_source']['columnName'], h['_source']['totalValues'],
-                                           h['_source']['uniqueValues'], h['_source']['dataType'])
+                                           h['_source']['uniqueValues'], h['_source']['nonEmptyValues'], h['_source']['dataType'])
                 yield id_source_and_file_name
                 remaining -= 1
             res = client.scroll(scroll="5m", scroll_id=scroll_id,
@@ -96,6 +97,7 @@ class StoreHandler:
                                              'hits.hits._source.columnName',
                                              'hits.hits._source.totalValues',
                                              'hits.hits._source.uniqueValues',
+                                             'hits.hits._source.nonEmptyValues',
                                              'hits.hits._source.dataType']
                                 )
             scroll_id = res['_scroll_id']  # update the scroll_id

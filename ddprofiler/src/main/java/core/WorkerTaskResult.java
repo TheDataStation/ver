@@ -11,6 +11,7 @@ public class WorkerTaskResult {
 	final private String dataType;
 	final private int totalValues;
 	final private int uniqueValues;
+	final private int nonEmptyValues;
 	final private String entities;
 	final private long[] minhash;
 	final private float minValue;
@@ -28,6 +29,7 @@ public class WorkerTaskResult {
 			String dataType,
 			int totalValues,
 			int uniqueValues,
+			int nonEmptyValues,
 			String entities,
 			long[] minhash) {
 		this.id = id;
@@ -38,6 +40,7 @@ public class WorkerTaskResult {
 		this.dataType = dataType;
 		this.totalValues = totalValues;
 		this.uniqueValues = uniqueValues;
+		this.nonEmptyValues = nonEmptyValues;
 		this.entities = entities;
 		this.minhash = minhash;
 		this.minValue = 0; // non existent
@@ -56,6 +59,7 @@ public class WorkerTaskResult {
 			String dataType,
 			int totalValues,
 			int uniqueValues,
+			int nonEmptyValues,
 			float minValue,
 			float maxValue,
 			float avgValue,
@@ -69,6 +73,7 @@ public class WorkerTaskResult {
 		this.dataType = dataType;
 		this.totalValues = totalValues;
 		this.uniqueValues = uniqueValues;
+		this.nonEmptyValues = nonEmptyValues;
 		this.entities = ""; // non existent
 		this.minValue = minValue;
 		this.maxValue = maxValue;
@@ -108,6 +113,10 @@ public class WorkerTaskResult {
 
 	public int getUniqueValues() {
 		return uniqueValues;
+	}
+
+	public int getNonEmptyValues() {
+		return nonEmptyValues;
 	}
 
 	public String getEntities() {

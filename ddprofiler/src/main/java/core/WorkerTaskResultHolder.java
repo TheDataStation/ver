@@ -22,7 +22,7 @@ public class WorkerTaskResultHolder {
 	public static List<WorkerTaskResult> makeFakeOne() {
 		List<WorkerTaskResult> rs = new ArrayList<>();
 		WorkerTaskResult wtr = new WorkerTaskResult(
-				-1,	"none", "none", "none",	"none",	"N", 100, 100, 0, 100, 50, 50, 50);
+				-1,	"none", "none", "none",	"none",	"N", 100, 100, 100, 0, 100, 50, 50, 50);
 		rs.add(wtr);
 		return rs;
 	}
@@ -48,6 +48,7 @@ public class WorkerTaskResultHolder {
 						"N",
 						(int)na.getCardinality().getTotalRecords(),
 						(int)na.getCardinality().getUniqueElements(),
+						(int)na.getCardinality().getNonEmptyValues(),
 						na.getNumericalRange(AttributeType.FLOAT).getMinF(),
 						na.getNumericalRange(AttributeType.FLOAT).getMaxF(),
 						na.getNumericalRange(AttributeType.FLOAT).getAvg(),
@@ -66,6 +67,7 @@ public class WorkerTaskResultHolder {
 						"N",
 						(int)na.getCardinality().getTotalRecords(),
 						(int)na.getCardinality().getUniqueElements(),
+						(int)na.getCardinality().getNonEmptyValues(),
 						na.getNumericalRange(AttributeType.INT).getMin(),
 						na.getNumericalRange(AttributeType.INT).getMax(),
 						na.getNumericalRange(AttributeType.INT).getAvg(),
@@ -94,6 +96,7 @@ public class WorkerTaskResultHolder {
 						"T",
 						(int)ta.getCardinality().getTotalRecords(),
 						(int)ta.getCardinality().getUniqueElements(),
+						(int)ta.getCardinality().getNonEmptyValues(),
 						entities,
 						mh);
 				rs.add(wtr);
