@@ -14,12 +14,13 @@ class JoinPath:
         print(self.to_str())
         for join_key in self.join_path:
             print(join_key.tbl[:-4] + "." + join_key.col)
-            print("datasource: {}, unique_values: {}, total_values: {}".format(join_key.tbl, join_key.unique_values, join_key.total_values))
+            print("datasource: {}, unique_values: {}, non_empty_values: {}, total_values: {}".format(join_key.tbl, join_key.unique_values, join_key.total_values, join_key.non_empty))
 
 
 class JoinKey:
-    def __init__(self, col_drs, unique_values, total_values):
+    def __init__(self, col_drs, unique_values, total_values, non_empty):
         self.tbl = col_drs.source_name
         self.col = col_drs.field_name
         self.unique_values = unique_values
         self.total_values = total_values
+        self.non_empty = non_empty

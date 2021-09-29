@@ -23,12 +23,12 @@ sources:
 # Include a source for each data source to configure
 
   # name to identify each source, e.g., migration_database, production, lake, etc.
-- name: "wdc"
+- name: "advw"
   # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]  
   type: csv
   config:
     # path indicates where the CSV files live
-    path: "/home/cc/wdc_3000/"
+    path: "/home/cc/datasets/adventureWorks/"
     # separator used in the CSV files
     separator: ','
   

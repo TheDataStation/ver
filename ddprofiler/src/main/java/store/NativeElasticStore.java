@@ -206,6 +206,9 @@ public class NativeElasticStore implements Store {
 	    profile_mapping.startObject("uniqueValues");
 	    profile_mapping.field("type", "long").field("index", "false");
 	    profile_mapping.endObject();
+		profile_mapping.startObject("nonEmptyValues");
+		profile_mapping.field("type", "long").field("index", "false");
+		profile_mapping.endObject();
 	    profile_mapping.startObject("entities");
 	    profile_mapping.field("type", "keyword").field("index", "true");
 	    profile_mapping.endObject();
@@ -290,7 +293,7 @@ public class NativeElasticStore implements Store {
 		    .field("columnNameNA", wtr.getColumnName()).field("columnName", wtr.getColumnName())
 		    .field("dataType", wtr.getDataType()).field("totalValues", wtr.getTotalValues())
 		    .field("uniqueValues", wtr.getUniqueValues()).field("entities", wtr.getEntities().toString())
-
+			.field("nonEmptyValues", wtr.getNonEmptyValues())
 		    .startArray("minhash");
 
 	    long[] mh = wtr.getMH();

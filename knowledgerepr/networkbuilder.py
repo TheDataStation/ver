@@ -250,6 +250,7 @@ def build_content_sim_mh_text_js(network, mh_signatures, t):
 
     # Query objects
     for nid, mh_obj in mh_sig_obj:
+        # if the column is empty, do not query its neighbors.
         res = content_index.query(mh_obj)
         for r_nid in res:
             if r_nid != nid:
