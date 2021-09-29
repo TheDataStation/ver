@@ -6,7 +6,7 @@ import pandas as pd
 from join_path import JoinKey, JoinPath
 import sys
 
-data_path = "/home/yuegong/Documents/datasets/adventureWork/"
+# data_path = "/home/yuegong/Documents/datasets/adventureWork/"
 
 
 def is_column_nan(col):
@@ -61,9 +61,10 @@ if __name__ == '__main__':
     # create store handler
     store_client = StoreHandler()
     # read command line arguments
-    path = sys.argv[1]  # path = '../models/adventureWorks/'
-    table = sys.argv[2]     # Employee.csv
-    max_hop = int(sys.argv[3])   # max_hop of join paths
+    data_path = sys.argv[1] # path to csv files
+    path = sys.argv[2]  # path = '../models/adventureWorks/'
+    table = sys.argv[3]     # Employee.csv
+    max_hop = int(sys.argv[4])   # max_hop of join paths
 
     network = deserialize_network(path)
     api = API(network)
