@@ -152,17 +152,17 @@ class FieldNetwork:
         self.__G.add_nodes_from(nodes)
         return nodes
 
-    def add_relation(self, node_src, node_target, relation, score):
+    def add_relation(self, node_src, node_target, relation, join_card=0, js=0, jc=0):
         """
         Adds or updates the score of relation for the edge between node_src and node_target
         :param node_src: the source node
         :param node_target: the target node
         :param relation: the type of relation (edge)
-        :param score: the numerical value of the score
+        :param join_card: 0: one-to-one; 1: one-to-many; 2: many-to-one; 3: many-to-many
         :return:
         """
-        score = {'score': score}
-        self.__G.add_edge(node_src, node_target, relation, score)
+        meta_data = {'join_card': join_card, 'js': js, 'jc': jc}
+        self.__G.add_edge(node_src, node_target, relation, meta_data)
 
     def fields_degree(self, topk):
         degree = nx.degree(self.__G)
@@ -236,9 +236,11 @@ class FieldNetwork:
         neighbours = self.__G[nid]
         for k, v in neighbours.items():
             if relation in v:
-                score = v[relation]['score']
+                join_card = v[relation]['join_card']
+                js = v[relation]['js']
+                jc = v[relation]['jc']
                 (db_name, source_name, field_name, data_type) = self.__id_names[k]
-                data.append(Hit(k, db_name, source_name, field_name, score, []))
+                data.append(Hit(k, db_name, source_name, field_name, {'join_card': join_card, 'js': js, 'jc': jc}, []))
         op = self.get_op_from_relation(relation)
         o_drs = DRS(data, Operation(op, params=[hit]))
         return o_drs

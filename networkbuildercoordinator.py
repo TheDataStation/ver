@@ -23,19 +23,19 @@ def main(output_path=None, table_path=None):
     print("Total skeleton: {0}".format(str(end_schema - start_schema)))
     print("!!1 " + str(end_schema - start_schema))
 
-    # Schema_sim relation
-    start_schema_sim = time.time()
-    schema_sim_index = networkbuilder.build_schema_sim_relation(network)
-    end_schema_sim = time.time()
-    print("Total schema-sim: {0}".format(str(end_schema_sim - start_schema_sim)))
-    print("!!2 " + str(end_schema_sim - start_schema_sim))
+    # # Schema_sim relation
+    # start_schema_sim = time.time()
+    # schema_sim_index = networkbuilder.build_schema_sim_relation(network)
+    # end_schema_sim = time.time()
+    # print("Total schema-sim: {0}".format(str(end_schema_sim - start_schema_sim)))
+    # print("!!2 " + str(end_schema_sim - start_schema_sim))
 
-    # Entity_sim relation
-    start_entity_sim = time.time()
-    #fields, entities = store.get_all_fields_entities()
-    #networkbuilder.build_entity_sim_relation(network, fields, entities)
-    end_entity_sim = time.time()
-    print("Total entity-sim: {0}".format(str(end_entity_sim - start_entity_sim)))
+    # # Entity_sim relation
+    # start_entity_sim = time.time()
+    # #fields, entities = store.get_all_fields_entities()
+    # #networkbuilder.build_entity_sim_relation(network, fields, entities)
+    # end_entity_sim = time.time()
+    # print("Total entity-sim: {0}".format(str(end_entity_sim - start_entity_sim)))
 
     # Content_sim text relation (minhash-based)
     start_text_sig_sim = time.time()
@@ -46,7 +46,7 @@ def main(output_path=None, table_path=None):
     print("!!3 " + str(et - st))
 
     lsh_threshold = 0.5
-    content_sim_index = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold)
+    content_sim_index = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold, table_path)
     end_text_sig_sim = time.time()
     print("Total text-sig-sim (minhash): {0}".format(str(end_text_sig_sim - start_text_sig_sim)))
     print("!!4 " + str(end_text_sig_sim - start_text_sig_sim))
@@ -78,8 +78,8 @@ def main(output_path=None, table_path=None):
     fieldnetwork.serialize_network(network, path)
 
     # Serialize indexes
-    path_schsim = path + "/schema_sim_index.pkl"
-    io.serialize_object(schema_sim_index, path_schsim)
+    # path_schsim = path + "/schema_sim_index.pkl"
+    # io.serialize_object(schema_sim_index, path_schsim)
     path_cntsim = path + "/content_sim_index.pkl"
     io.serialize_object(content_sim_index, path_cntsim)
 

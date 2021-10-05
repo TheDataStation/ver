@@ -230,10 +230,10 @@ def build_content_sim_relation_text(network, signatures):
     create_sim_graph_text(nid_gen, network, text_engine, tfidf, Relation.CONTENT_SIM)
 
 
-def build_content_sim_mh_text_js(network, mh_signatures, t):
+def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
 
-    def connect(nid1, nid2, score):
-        network.add_relation(nid1, nid2, Relation.CONTENT_SIM, score)
+    def connect(nid1, nid2, join_card, js, jc):
+        network.add_relation(nid1, nid2, Relation.CONTENT_SIM, join_card, js, jc)
 
     # Materialize signatures for convenience
     mh_sig_obj = []
@@ -251,10 +251,23 @@ def build_content_sim_mh_text_js(network, mh_signatures, t):
     # Query objects
     for nid, mh_obj in mh_sig_obj:
         # if the column is empty, do not query its neighbors.
+        if network.get_non_empty_values_of(nid) == 0:
+            continue
         res = content_index.query(mh_obj)
+        (_, _, sn1, fn1) = network.get_info_for([nid])[0]
         for r_nid in res:
             if r_nid != nid:
-                connect(nid, r_nid, 1)
+                (_, _, sn2, fn2) = network.get_info_for([r_nid])[0]
+                # read column content 
+                df1 = get_column_content(sn1, fn1, table_path)
+                df2 = get_column_content(sn2, fn2, table_path)
+                # calculate join cardinality
+                join_card = get_relation(df1, fn1, df2, fn2)
+                # calculate exact containment
+                col1 = df1[fn1].drop_duplicates().tolist()
+                col2 = df2[fn2].drop_duplicates().tolist()
+                js, jc = get_js_and_jc(set(col1), set(col2))
+                connect(nid, r_nid, join_card, js, jc)
 
     return content_index
 
@@ -294,6 +307,41 @@ def build_content_sim_mh_text_jc(network, mh_signatures, t):
 
     return content_index
 
+
+def get_column_content(sn, fn, table_path):
+    if (sn, fn) not in cache:
+        df = dpu.read_column(table_path+sn, fn)
+        cache[(sn, fn)] = df
+    else:
+        df = cache[(sn, fn)]
+    return df
+
+class JoinRelation(Enum):
+    ONE_ONE = 1
+    ONE_MANY = 2
+    MANY_ONE = 2
+    MANY_MANY = 3
+
+def get_relation(col1, fn1, col2, fn2):
+    first_max = col1.groupby(fn1)[fn1].count().max()
+    second_max = col2.groupby(fn2)[fn2].count().max()
+    if first_max == 1:
+        if second_max == 1:
+            return JoinRelation.ONE_ONE
+        else:
+            return JoinRelation.ONE_MANY
+    else:
+        if second_max == 1:
+            return JoinRelation.MANY_ONE
+        else:
+            return JoinRelation.MANY_MANY
+
+def get_js_and_jc(col1, col2):
+    intersection = len(col1.intersection(col2))
+    union = len(col1) + len(col2) - intersection
+    js = float(intersection) / union
+    jc = max(intersection/len(col1), intersection/len(col2))
+    return js, jc
 
 def build_content_sim_relation_num_overlap_distr_indexed(network, id_sig):
 

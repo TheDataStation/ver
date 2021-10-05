@@ -14,7 +14,8 @@ class JoinPath:
         print(self.to_str())
         for join_key in self.join_path:
             print(join_key.tbl[:-4] + "." + join_key.col)
-            print("datasource: {}, unique_values: {}, non_empty_values: {}, total_values: {}".format(join_key.tbl, join_key.unique_values, join_key.total_values, join_key.non_empty))
+            print("datasource: {}, unique_values: {}, non_empty_values: {}, total_values: {}, join_card: {}, jaccard_similarity: {}, jaccard_containment: {}"
+            .format(join_key.tbl, join_key.unique_values, join_key.total_values, join_key.non_empty, get_join_type(join_key.join_card), join_key.js, join_key.jc))
 
 
 class JoinKey:
@@ -24,3 +25,21 @@ class JoinKey:
         self.unique_values = unique_values
         self.total_values = total_values
         self.non_empty = non_empty
+        if col_drs.metadata == 0:
+            self.join_card = 0
+            self.js = 0
+            self.jc = 0
+        else:
+            self.join_card = col_drs.metadata['join_card']
+            self.js = col_drs.metadata['js']
+            self.jc = col_drs.metadata['jc']
+
+def get_join_type(join_card):
+    if join_card == 0:
+        return "One-to-One"
+    elif join_card == 1:
+        return "One-to-Many"
+    elif join_card == 2:
+        return "Many-to-One"
+    else:
+        return "Many-to-Many"
