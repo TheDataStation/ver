@@ -23,19 +23,19 @@ def main(output_path=None, table_path=None):
     print("Total skeleton: {0}".format(str(end_schema - start_schema)))
     print("!!1 " + str(end_schema - start_schema))
 
-    # Schema_sim relation
-    start_schema_sim = time.time()
-    schema_sim_index = networkbuilder.build_schema_sim_relation(network)
-    end_schema_sim = time.time()
-    print("Total schema-sim: {0}".format(str(end_schema_sim - start_schema_sim)))
-    print("!!2 " + str(end_schema_sim - start_schema_sim))
+    # # Schema_sim relation
+    # start_schema_sim = time.time()
+    # schema_sim_index = networkbuilder.build_schema_sim_relation(network)
+    # end_schema_sim = time.time()
+    # print("Total schema-sim: {0}".format(str(end_schema_sim - start_schema_sim)))
+    # print("!!2 " + str(end_schema_sim - start_schema_sim))
 
-    # Entity_sim relation
-    start_entity_sim = time.time()
-    #fields, entities = store.get_all_fields_entities()
-    #networkbuilder.build_entity_sim_relation(network, fields, entities)
-    end_entity_sim = time.time()
-    print("Total entity-sim: {0}".format(str(end_entity_sim - start_entity_sim)))
+    # # Entity_sim relation
+    # start_entity_sim = time.time()
+    # #fields, entities = store.get_all_fields_entities()
+    # #networkbuilder.build_entity_sim_relation(network, fields, entities)
+    # end_entity_sim = time.time()
+    # print("Total entity-sim: {0}".format(str(end_entity_sim - start_entity_sim)))
 
     # Content_sim text relation (minhash-based)
     start_text_sig_sim = time.time()
@@ -45,10 +45,11 @@ def main(output_path=None, table_path=None):
     print("Time to extract minhash signatures from store: {0}".format(str(et - st)))
     print("!!3 " + str(et - st))
 
+    print("Begin to extract text-sim")
     lsh_threshold = 0.5
-    content_sim_index = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold)
+    content_sim_index, empty_cnt, edges_cnt, failed_cnt = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold, table_path)
     end_text_sig_sim = time.time()
-    print("Total text-sig-sim (minhash): {0}".format(str(end_text_sig_sim - start_text_sig_sim)))
+    print("Total text-sig-sim (minhash): {0}; empty column names: {1}; edges count: {2}; failed count: {3}".format(str(end_text_sig_sim - start_text_sig_sim), str(empty_cnt), str(edges_cnt), str(failed_cnt)))
     print("!!4 " + str(end_text_sig_sim - start_text_sig_sim))
 
     # Content_sim num relation
@@ -62,11 +63,11 @@ def main(output_path=None, table_path=None):
     print("!!5 " + str(end_num_sig_sim - start_num_sig_sim))
 
     # Primary Key / Foreign key relation
-    start_pkfk = time.time()
-    networkbuilder.build_pkfk_relation(network)
-    end_pkfk = time.time()
-    print("Total PKFK: {0}".format(str(end_pkfk - start_pkfk)))
-    print("!!6 " + str(end_pkfk - start_pkfk))
+    # start_pkfk = time.time()
+    # networkbuilder.build_pkfk_relation(network)
+    # end_pkfk = time.time()
+    # print("Total PKFK: {0}".format(str(end_pkfk - start_pkfk)))
+    # print("!!6 " + str(end_pkfk - start_pkfk))
 
     end_all = time.time()
     print("Total time: {0}".format(str(end_all - start_all)))
@@ -78,8 +79,8 @@ def main(output_path=None, table_path=None):
     fieldnetwork.serialize_network(network, path)
 
     # Serialize indexes
-    path_schsim = path + "/schema_sim_index.pkl"
-    io.serialize_object(schema_sim_index, path_schsim)
+    # path_schsim = path + "/schema_sim_index.pkl"
+    # io.serialize_object(schema_sim_index, path_schsim)
     path_cntsim = path + "/content_sim_index.pkl"
     io.serialize_object(content_sim_index, path_cntsim)
 

@@ -255,15 +255,15 @@ def read_relation(relation_path):
 
 
 def read_column(relation_path, col):
-    df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col])
+    df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator, usecols=[col])
     return df.copy()
 
 
 def read_column(relation_path, col, offset=0):
     if offset == 0:
-        df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col])
+        df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator, usecols=[col])
     else:
-        df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col], nrows=offset)
+        df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator, usecols=[col], nrows=offset)
     return df.copy()
 
 def read_columns(relation_path, cols):
