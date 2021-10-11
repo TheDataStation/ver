@@ -45,10 +45,11 @@ def main(output_path=None, table_path=None):
     print("Time to extract minhash signatures from store: {0}".format(str(et - st)))
     print("!!3 " + str(et - st))
 
+    print("Begin to extract text-sim")
     lsh_threshold = 0.5
-    content_sim_index = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold, table_path)
+    content_sim_index, empty_cnt, edges_cnt, failed_cnt = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold, table_path)
     end_text_sig_sim = time.time()
-    print("Total text-sig-sim (minhash): {0}".format(str(end_text_sig_sim - start_text_sig_sim)))
+    print("Total text-sig-sim (minhash): {0}; empty column names: {1}; edges count: {2}; failed count: {3}".format(str(end_text_sig_sim - start_text_sig_sim), str(empty_cnt), str(edges_cnt), str(failed_cnt)))
     print("!!4 " + str(end_text_sig_sim - start_text_sig_sim))
 
     # Content_sim num relation
@@ -62,11 +63,11 @@ def main(output_path=None, table_path=None):
     print("!!5 " + str(end_num_sig_sim - start_num_sig_sim))
 
     # Primary Key / Foreign key relation
-    start_pkfk = time.time()
-    networkbuilder.build_pkfk_relation(network)
-    end_pkfk = time.time()
-    print("Total PKFK: {0}".format(str(end_pkfk - start_pkfk)))
-    print("!!6 " + str(end_pkfk - start_pkfk))
+    # start_pkfk = time.time()
+    # networkbuilder.build_pkfk_relation(network)
+    # end_pkfk = time.time()
+    # print("Total PKFK: {0}".format(str(end_pkfk - start_pkfk)))
+    # print("!!6 " + str(end_pkfk - start_pkfk))
 
     end_all = time.time()
     print("Total time: {0}".format(str(end_all - start_all)))

@@ -248,6 +248,10 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
         content_index.insert(nid, mh_obj)
         mh_sig_obj.append((nid, mh_obj))
 
+    empty_header_cnt = 0
+    edges_cnt = 0
+    failed_cnt = 0
+    log = open('log.txt', 'w')
     # Query objects
     for nid, mh_obj in mh_sig_obj:
         # if the column is empty, do not query its neighbors.
@@ -255,12 +259,28 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
             continue
         res = content_index.query(mh_obj)
         (_, _, sn1, fn1) = network.get_info_for([nid])[0]
+        if len(fn1) == 0:
+            empty_header_cnt += 1
+            continue
         for r_nid in res:
             if r_nid != nid:
                 (_, _, sn2, fn2) = network.get_info_for([r_nid])[0]
+                if len(fn2) == 0:
+                    empty_header_cnt += 1
+                    continue
                 # read column content 
-                df1 = get_column_content(sn1, fn1, table_path)
-                df2 = get_column_content(sn2, fn2, table_path)
+                try:
+                    df1 = get_column_content(sn1, fn1, table_path)
+                except:
+                    log.write(sn1 + ' ' + fn1 + '\n')
+                    failed_cnt += 1
+                    continue
+                try:
+                    df2 = get_column_content(sn2, fn2, table_path)
+                except:
+                    log.write(sn2 + ' ' + fn2 + '\n')
+                    failed_cnt += 1
+                    continue
                 # calculate join cardinality
                 join_card = get_relation(df1, fn1, df2, fn2)
                 # calculate exact containment
@@ -268,8 +288,9 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
                 col2 = df2[fn2].drop_duplicates().tolist()
                 js, jc = get_js_and_jc(set(col1), set(col2))
                 connect(nid, r_nid, join_card, js, jc)
-
-    return content_index
+                edges_cnt += 1
+    log.close()
+    return content_index, empty_header_cnt, edges_cnt, failed_cnt
 
 
 def build_content_sim_mh_text_jc(network, mh_signatures, t):
@@ -310,6 +331,7 @@ def build_content_sim_mh_text_jc(network, mh_signatures, t):
 
 def get_column_content(sn, fn, table_path):
     if (sn, fn) not in cache:
+        print("reading", sn, fn)
         df = dpu.read_column(table_path+sn, fn)
         cache[(sn, fn)] = df
     else:
