@@ -149,7 +149,8 @@ public class Worker implements Runnable {
 		conductor.notifyProcessedTask(results.size());
 	    } catch (Exception e) {
 		String init = "#########";
-		String msg = task.toString() + " $FAILED$ cause-> " + e.getMessage();
+		String msg = task.toString() + " $FAILED$ cause-> " + e.getStackTrace();
+		e.printStackTrace();
 		StackTraceElement[] trace = e.getStackTrace();
 		StringBuffer sb = new StringBuffer();
 		sb.append(init);
