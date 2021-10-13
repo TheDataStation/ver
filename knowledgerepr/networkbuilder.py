@@ -1,4 +1,5 @@
 import time
+import os
 
 from dataanalysis import dataanalysis as da
 from math import isinf
@@ -235,6 +236,12 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
     def connect(nid1, nid2, join_card, js, jc):
         network.add_relation(nid1, nid2, Relation.CONTENT_SIM, join_card, js, jc)
 
+    def load_cache(table_path):
+        for table in os.listdir(table_path):
+            cache[table] = dpu.read_relation(table_path+table)
+    
+    # load all tables into the memory
+    load_cache(table_path)
     # Materialize signatures for convenience
     mh_sig_obj = []
 
@@ -263,20 +270,20 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
             empty_header_cnt += 1
             continue
         for r_nid in res:
-            if r_nid != nid:
+            if r_nid > nid:
                 (_, _, sn2, fn2) = network.get_info_for([r_nid])[0]
                 if len(fn2) == 0:
                     empty_header_cnt += 1
                     continue
                 # read column content 
                 try:
-                    df1 = get_column_content(sn1, fn1, table_path)
+                    df1 = cache[sn1]
                 except:
                     log.write(sn1 + ' ' + fn1 + '\n')
                     failed_cnt += 1
                     continue
                 try:
-                    df2 = get_column_content(sn2, fn2, table_path)
+                    df2 = cache[sn2]
                 except:
                     log.write(sn2 + ' ' + fn2 + '\n')
                     failed_cnt += 1
@@ -288,6 +295,12 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
                 col2 = df2[fn2].drop_duplicates().tolist()
                 js, jc = get_js_and_jc(set(col1), set(col2))
                 connect(nid, r_nid, join_card, js, jc)
+                if join_card == JoinRelation.ONE_MANY:
+                    join_card = JoinRelation.MANY_ONE
+                elif join_card == JoinRelation.MANY_ONE:
+                    join_card = JoinRelation.ONE_MANY
+                connect(r_nid, nid, join_card, js, jc)
+                print("{}.{} {}.{} connected".format(sn1[:-4], fn1, sn2[:-4], fn2))
                 edges_cnt += 1
     log.close()
     return content_index, empty_header_cnt, edges_cnt, failed_cnt
@@ -344,9 +357,9 @@ class JoinRelation(Enum):
     MANY_ONE = 2
     MANY_MANY = 3
 
-def get_relation(col1, fn1, col2, fn2):
-    first_max = col1.groupby(fn1)[fn1].count().max()
-    second_max = col2.groupby(fn2)[fn2].count().max()
+def get_relation(df1, fn1, df2, fn2):
+    first_max = df1.groupby(fn1)[fn1].count().max()
+    second_max = df2.groupby(fn2)[fn2].count().max()
     if first_max == 1:
         if second_max == 1:
             return JoinRelation.ONE_ONE
@@ -357,7 +370,19 @@ def get_relation(col1, fn1, col2, fn2):
             return JoinRelation.MANY_ONE
         else:
             return JoinRelation.MANY_MANY
-
+    # Too slow
+    # m1, m2 = defaultdict(int), defaultdict(int)
+    # relation = JoinRelation.ONE_ONE
+    # for v in col1:
+    #     m1[v] += 1
+    # for v in col2:
+    #     m2[v] += 1
+    # for k1, v1 in m1.items():
+    #     if k1 in m2 and v1 != 1 and m2[k1] != 1:
+    #         return JoinRelation.MANY_MANY
+    #     elif k1 in m2 and v1 == 1 and m2[k1] != 1:
+    #         relation = JoinRelation.ONE_MANY
+    # return JoinRelation.ONE_ONE
 def get_js_and_jc(col1, col2):
     intersection = len(col1.intersection(col2))
     union = len(col1) + len(col2) - intersection

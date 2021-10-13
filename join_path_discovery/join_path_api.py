@@ -5,6 +5,7 @@ from knowledgerepr.fieldnetwork import deserialize_network
 import pandas as pd
 from join_path import JoinKey, JoinPath
 import sys
+from DoD import data_processing_utils as dpu
 
 # data_path = "/home/yuegong/Documents/datasets/adventureWork/"
 
@@ -54,6 +55,23 @@ def find_join_path(col, max_hop, result, cur_path):
             find_join_path(nei, max_hop - 1, result, cur_path)
             cur_path.pop()
 
+def corelation(jp1, jp2):
+    if len(jp1) != len(jp2):
+        return -2
+    for i in range(len(jp1)):
+        jk1 = jp1[i]
+        jk2 = jp2[i]
+        col1 = dpu.read_column(data_path+jk1.tbl, jk1.col)[jk1.col]
+        col2 = dpu.read_column(data_path+jk2.tbl, jk2.col)[jk2.col]
+        if col1.dtype == col2.dtype == 'int64':
+            co = col1.corr(col2)
+        elif col1.dtype == col2.dtype == 'object':
+            col1 = col1.astype('category').cat.codes
+            col2 = col2.astype('category').cat.codes
+            co = col1.corr(col2)
+        else:
+            co = 0
+    return co
 
 if __name__ == '__main__':
     # create store handler

@@ -249,7 +249,7 @@ def read_relation(relation_path):
     if relation_path in cache:
         df = cache[relation_path]
     else:
-        df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator)
+        df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator)
         cache[relation_path] = df
     return df
 
