@@ -7,7 +7,7 @@ from join_path import JoinKey, JoinPath
 import sys
 from DoD import data_processing_utils as dpu
 
-# data_path = "/home/yuegong/Documents/datasets/adventureWork/"
+
 class Join_Path_API:
     def __init__(self, model_path):
         self.network = deserialize_network(model_path)
