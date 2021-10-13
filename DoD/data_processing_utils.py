@@ -249,8 +249,12 @@ def read_relation(relation_path):
     if relation_path in cache:
         df = cache[relation_path]
     else:
-        df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator)
-        cache[relation_path] = df
+        try:
+            df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator)
+            cache[relation_path] = df
+        except pd.errors.EmptyDataError:
+            print(relation_path, " is empty and has been skipped.")
+            return None
     return df
 
 

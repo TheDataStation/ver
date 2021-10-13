@@ -8,52 +8,44 @@ import sys
 from DoD import data_processing_utils as dpu
 
 # data_path = "/home/yuegong/Documents/datasets/adventureWork/"
+class Join_Path_API:
+    def __init__(self, model_path):
+        self.network = deserialize_network(model_path)
+        self.api = API(self.network)
+        self.api.init_store()
+    
+    def find_join_paths_from(self, start, max_hop, result):
+        columns = self.api.drs_from_table(start)
+        for col in columns:
+            self.find_join_path(col, max_hop, result, [self.col_to_join_key(col)])
+
+    def find_join_path(self, col, max_hop, result, cur_path):
+        if max_hop == 0:
+            return
+        if not self.is_column_nan(col):
+            neighbors = self.network.neighbors_id(col, Relation.CONTENT_SIM)
+            for nei in neighbors:
+                cur_path.append(self.col_to_join_key(nei))
+                result.append(JoinPath(cur_path[:]))
+                self.find_join_path(nei, max_hop - 1, result, cur_path)
+                cur_path.pop()
+    
+    def is_column_nan(self, col):
+        non_empty = self.network.get_non_empty_values_of(col.nid)
+        if non_empty == 0:
+            return True
+        return False
+
+    def get_sizes_from_drs(self, col):
+        unique = self.network.get_size_of(col.nid)
+        total = int(self.network.get_size_of(col.nid)/self.network.get_cardinality_of(col.nid))
+        non_empty = self.network.get_non_empty_values_of(col.nid)
+        return unique, total, non_empty
 
 
-def is_column_nan(col):
-    non_empty = network.get_non_empty_values_of(col.nid)
-    if non_empty == 0:
-        return True
-    return False
-
-
-def join_path_formatter(join_path):
-    format_str = ""
-    for i, join_key in enumerate(join_path):
-        format_str += join_key.tbl[:-4] + '.' + join_key.col
-        if i < len(join_path)-1:
-            format_str += " JOIN "
-    return format_str
-
-
-def get_sizes_from_drs(col):
-    unique = network.get_size_of(col.nid)
-    total = int(network.get_size_of(col.nid)/network.get_cardinality_of(col.nid))
-    non_empty = network.get_non_empty_values_of(col.nid)
-    return unique, total, non_empty
-
-
-def col_to_join_key(col):
-    unique, total, non_empty = get_sizes_from_drs(col)
-    return JoinKey(col, unique, total, non_empty)
-
-
-def find_join_paths_from(start, max_hop, result):
-    columns = api.drs_from_table(start)
-    for col in columns:
-        find_join_path(col, max_hop, result, [col_to_join_key(col)])
-
-
-def find_join_path(col, max_hop, result, cur_path):
-    if max_hop == 0:
-        return
-    if not is_column_nan(col):
-        neighbors = network.neighbors_id(col, Relation.CONTENT_SIM)
-        for nei in neighbors:
-            cur_path.append(col_to_join_key(nei))
-            result.append(JoinPath(cur_path[:]))
-            find_join_path(nei, max_hop - 1, result, cur_path)
-            cur_path.pop()
+    def col_to_join_key(self, col):
+        unique, total, non_empty = self.get_sizes_from_drs(col)
+        return JoinKey(col, unique, total, non_empty)
 
 def corelation(jp1, jp2):
     if len(jp1) != len(jp2):
