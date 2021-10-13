@@ -238,7 +238,9 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
 
     def load_cache(table_path):
         for table in os.listdir(table_path):
-            cache[table] = dpu.read_relation(table_path+table)
+            df = dpu.read_relation(table_path+table)
+            if df is not None:
+                cache[table] = df
     
     # load all tables into the memory
     load_cache(table_path)
