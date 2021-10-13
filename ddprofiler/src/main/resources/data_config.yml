@@ -42,12 +42,12 @@ sources:
 #     # separator used in the CSV files
 #     separator: ','
 
-- name: "wdc"
+- name: "nyc_open_data"
   # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]  
   type: csv
   config:
     # path indicates where the CSV files live
-    path: "/home/cc/datasets/wdc_100000/"
+    path: "/home/cc/datasets/nyc_open_data/"
     # separator used in the CSV files
     separator: ','
   
