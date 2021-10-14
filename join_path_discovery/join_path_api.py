@@ -6,6 +6,7 @@ import pandas as pd
 from join_path import JoinKey, JoinPath
 import sys
 from DoD import data_processing_utils as dpu
+from collections import defaultdict
 
 
 class Join_Path_API:
@@ -47,14 +48,53 @@ class Join_Path_API:
         unique, total, non_empty = self.get_sizes_from_drs(col)
         return JoinKey(col, unique, total, non_empty)
 
-def corelation(jp1, jp2):
+
+corr_cache = {}
+column_cache = {}
+
+def get_correlations(jp_list, data_path, f):
+    m = group_by_jp_len(jp_list)
+    f.write("jp1, jp2, jp_len, corr\n")
+    for _, jps in m.items():
+        n = len(jps)
+        for i in range(n):
+            for j in range(i+1,n):
+                corr_list = corelation(jps[i].join_path, jps[j].join_path, data_path)
+                print(jps[i].to_str())
+                print(jps[j].to_str())
+                print(str(corr_list))
+                f.write(jps[i].to_str() + "," + jps[j].to_str() + "," + str(corr_list) + "\n")
+    f.close()
+
+def group_by_jp_len(jp_list):
+    m = defaultdict(list)
+    for jp in jp_list:
+        m[len(jp.join_path)].append(jp)
+    return m
+
+def corelation(jp1, jp2, data_path):
+    '''
+    correlation measure: cov(i,j)/[stdev(i)*stdev(j)]
+    if the number of distinct values is low, stdev will be
+    close to 0, which leads the correlation to be nan.
+    '''
     if len(jp1) != len(jp2):
-        return -2
+        return []
+    corr_list = []
     for i in range(len(jp1)):
         jk1 = jp1[i]
         jk2 = jp2[i]
-        col1 = dpu.read_column(data_path+jk1.tbl, jk1.col)[jk1.col]
-        col2 = dpu.read_column(data_path+jk2.tbl, jk2.col)[jk2.col]
+        if (jk1, jk2) in corr_cache:
+            corr_list.append(corr_cache[(jk1, jk2)])
+            continue
+        if jk1.tbl == jk2.tbl and jk1.col == jk2.col:
+            corr_list.append(1)
+            continue
+        if jk1.unique_values < 2 or jk2.unique_values < 2:
+            corr_list.append(None)
+            continue
+        col1 = get_column_content(data_path, jk1)
+        col2 = get_column_content(data_path, jk2)
         if col1.dtype == col2.dtype == 'int64':
             co = col1.corr(col2)
         elif col1.dtype == col2.dtype == 'object':
@@ -63,7 +103,19 @@ def corelation(jp1, jp2):
             co = col1.corr(col2)
         else:
             co = 0
-    return co
+        corr_cache[(jk1, jk2)] = co
+        corr_cache[(jk2, jk1)] = co
+        corr_list.append(co)
+    return corr_list
+
+def get_column_content(data_path:str, jk: JoinKey):
+    query = (jk.tbl, jk.col)
+    if query in column_cache:
+        return column_cache[query]
+    else:
+        df = dpu.read_column(data_path+jk.tbl, jk.col)[jk.col]
+        column_cache[query] = df
+    return df
 
 if __name__ == '__main__':
     # create store handler
