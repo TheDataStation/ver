@@ -5,7 +5,7 @@ from knowledgerepr.fieldnetwork import deserialize_network
 import pandas as pd
 from join_path import JoinKey, JoinPath
 from DoD import data_processing_utils as dpu
-from join_path_api import Join_Path_API
+from join_path_api import Join_Path_API, get_correlations
 import sys
 import os
 
@@ -23,12 +23,22 @@ def get_neighbor_rank(api):
     for num_nei, table in sorted_list:
         f.write(table + "," + str(num_nei) + "\n")
 
-def get_join_paths_from(api, table, max_hop, offset):
+def output_correlations(api, table):
+    api = Join_Path_API(model_path)
+
+    jps = get_join_paths_from(api, table, 1, 100)
+
+    f = open(table + '_jp_corr.csv', 'w')
+    get_correlations(jps, data_path, f)
+
+def get_join_paths_from(api, table, max_hop, offset=0):
     result = []
     api.find_join_paths_from(table, max_hop, result)
-    for jp in result[0:offset]:
+    if offset != 0:
+        result = result[:offset]
+    for jp in result:
         print(jp.to_str())
-    return result[0:offset]
+    return result
 
 def get_dataframe(data_path, tbl, col):
     df = dpu.read_column(data_path + tbl, col)
@@ -44,4 +54,6 @@ if __name__ == "__main__":
 
     api = Join_Path_API(model_path)
 
-    jps = get_join_paths_from(api, 'dd6w-hnq9.csv', 1, 100)
+    # jps = get_join_paths_from(api, 'fxdy-q85h.csv', 1, 100)
+    # examples: 'kvhd-5fmu.csv', 'wcmg-48ep.csv'
+    output_correlations(api, 'wcmg-48ep.csv')
