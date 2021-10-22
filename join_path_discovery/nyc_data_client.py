@@ -53,7 +53,6 @@ if __name__ == "__main__":
     max_hop = 1  # max_hop of join paths
 
     api = Join_Path_API(model_path)
-
     # jps = get_join_paths_from(api, 'fxdy-q85h.csv', 1, 100)
     # examples: 'kvhd-5fmu.csv', 'wcmg-48ep.csv'
-    output_correlations(api, 'wcmg-48ep.csv')
+    output_correlations(api, 'kxua-p5dg.csv')

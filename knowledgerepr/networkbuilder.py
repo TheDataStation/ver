@@ -239,6 +239,7 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
     def load_cache(table_path):
         for table in os.listdir(table_path):
             df = dpu.read_relation(table_path+table)
+            df.columns = df.columns = df.columns.str.replace("\\", "")
             if df is not None:
                 cache[table] = df
     
@@ -291,6 +292,8 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
                     failed_cnt += 1
                     continue
                 # calculate join cardinality
+                print(sn1, fn1)
+                print(sn2, fn2)
                 join_card = get_relation(df1, fn1, df2, fn2)
                 # calculate exact containment
                 col1 = df1[fn1].drop_duplicates().tolist()
