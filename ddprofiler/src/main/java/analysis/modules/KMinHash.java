@@ -73,6 +73,9 @@ public class KMinHash implements TextualDataConsumer {
 	    r = r.replace("-", " ");
 	    String[] tokens = r.split(" ");
 	    for (String token : tokens) {
+			if (token.length() == 0) {
+				continue;
+			}
 		token = token.toLowerCase();
 		long rawHash = hash(token);
 		for (int i = 0; i < K; i++) {

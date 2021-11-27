@@ -20,6 +20,8 @@ from DoD import data_processing_utils as dpu
 
 from collections import defaultdict
 
+import traceback
+
 rbp = RandomBinaryProjections('default', 30)
 
 cache = defaultdict()
@@ -236,15 +238,17 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
     def connect(nid1, nid2, join_card, js, jc):
         network.add_relation(nid1, nid2, Relation.CONTENT_SIM, join_card, js, jc)
 
-    def load_cache(table_path):
+    def load_cache(table_path, log):
         for table in os.listdir(table_path):
-            df = dpu.read_relation(table_path+table)
-            df.columns = df.columns = df.columns.str.replace("\\", "")
+            df = dpu.read_relation(table_path+table, log)
             if df is not None:
+                df.columns = df.columns = df.columns.str.replace("\\", "")
                 cache[table] = df
     
     # load all tables into the memory
-    load_cache(table_path)
+    log = open('log.txt', 'w')
+    load_cache(table_path, log)
+    print("finished loading cache")
     # Materialize signatures for convenience
     mh_sig_obj = []
 
@@ -261,13 +265,101 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
     empty_header_cnt = 0
     edges_cnt = 0
     failed_cnt = 0
-    log = open('log.txt', 'w')
+    
     # Query objects
     for nid, mh_obj in mh_sig_obj:
         # if the column is empty, do not query its neighbors.
         if network.get_non_empty_values_of(nid) == 0:
             continue
         res = content_index.query(mh_obj)
+        (_, _, sn1, fn1) = network.get_info_for([nid])[0]
+        fn1 = fn1.replace(u'\ufeff', '')
+        if len(fn1) == 0:
+            empty_header_cnt += 1
+            continue
+        for r_nid in res:
+            if r_nid > nid:
+                (_, _, sn2, fn2) = network.get_info_for([r_nid])[0]
+                fn2 = fn2.replace(u'\ufeff', '')
+                if len(fn2) == 0:
+                    empty_header_cnt += 1
+                    continue
+                # read column content 
+                try:
+                    df1 = cache[sn1]
+                    col1 = df1[fn1]
+                except KeyError:
+                    log.write(nid + ' ' + sn1 + ' ' + fn1 + '\n')
+                    traceback.print_exc()
+                    failed_cnt += 1
+                    continue
+                try:
+                    df2 = cache[sn2]
+                    col2 = df2[fn2]
+                except KeyError:
+                    log.write(r_nid + ' ' + sn2 + ' ' + fn2 + '\n')
+                    traceback.print_exc()
+                    failed_cnt += 1
+                    continue
+                # calculate join cardinality
+                join_card = get_relation(df1, fn1, df2, fn2)
+                # calculate exact containment
+                col1 = df1[fn1].drop_duplicates().tolist()
+                col2 = df2[fn2].drop_duplicates().tolist()
+                js, jc = get_js_and_jc(set(col1), set(col2))
+                connect(nid, r_nid, join_card, js, jc)
+                if join_card == JoinRelation.ONE_MANY:
+                    join_card = JoinRelation.MANY_ONE
+                elif join_card == JoinRelation.MANY_ONE:
+                    join_card = JoinRelation.ONE_MANY
+                connect(r_nid, nid, join_card, js, jc)
+                print("{}.{} {}.{} connected".format(sn1[:-4], fn1, sn2[:-4], fn2))
+                edges_cnt += 1
+    log.close()
+    return content_index, empty_header_cnt, edges_cnt, failed_cnt
+
+def build_content_sim_mh_text_jc(network, mh_signatures, t, table_path):
+
+    def connect(nid1, nid2, join_card, js, jc):
+        network.add_relation(nid1, nid2, Relation.CONTENT_SIM, join_card, js, jc)
+
+    def load_cache(table_path, log):
+        for table in os.listdir(table_path):
+            df = dpu.read_relation(table_path+table, log)
+            if df is not None:
+                df.columns = df.columns = df.columns.str.replace("\\", "")
+                cache[table] = df
+    
+    # load all tables into the memory
+    log = open('log.txt', 'w')
+    load_cache(table_path, log)
+    print("finished loading cache")
+    # Materialize signatures for convenience
+    mh_sig_obj = []
+
+    content_index = MinHashLSHEnsemble(threshold=t, num_perm=512, num_part=32)
+
+    # Create minhash objects and index
+    for nid, mh_sig in mh_signatures:
+        mh_obj = MinHash(num_perm=512)
+        mh_array = np.asarray(mh_sig, dtype=int)
+        mh_obj.hashvalues = mh_array
+        # content_index.insert(nid, mh_obj)
+        n_size = network.get_non_empty_values_of(nid)
+        mh_sig_obj.append((nid, mh_obj, n_size))
+
+    content_index.index(mh_sig_obj)
+
+    empty_header_cnt = 0
+    edges_cnt = 0
+    failed_cnt = 0
+    
+    # Query objects
+    for nid, mh_obj, n_size in mh_sig_obj:
+        # if the column is empty, do not query its neighbors.
+        if n_size == 0:
+            continue
+        res = content_index.query(mh_obj, n_size)
         (_, _, sn1, fn1) = network.get_info_for([nid])[0]
         if len(fn1) == 0:
             empty_header_cnt += 1
@@ -281,19 +373,23 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
                 # read column content 
                 try:
                     df1 = cache[sn1]
-                except:
-                    log.write(sn1 + ' ' + fn1 + '\n')
+                    col1 = df1[fn1]
+                except KeyError:
+                    log.write(nid + ' ' + sn1 + ' ' + fn1 + '\n')
                     failed_cnt += 1
                     continue
                 try:
                     df2 = cache[sn2]
-                except:
-                    log.write(sn2 + ' ' + fn2 + '\n')
+                    col2 = df2[fn2]
+                except KeyError:
+                    log.write(r_nid + ' ' + sn2 + ' ' + fn2 + '\n')
                     failed_cnt += 1
                     continue
                 # calculate join cardinality
-                print(sn1, fn1)
-                print(sn2, fn2)
+                print(nid, sn1, fn1)
+                print(r_nid, sn2, fn2)
+                fn1 = fn1.replace(u'\ufeff', '')
+                fn2 = fn2.replace(u'\ufeff', '')
                 join_card = get_relation(df1, fn1, df2, fn2)
                 # calculate exact containment
                 col1 = df1[fn1].drop_duplicates().tolist()
@@ -311,7 +407,7 @@ def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
     return content_index, empty_header_cnt, edges_cnt, failed_cnt
 
 
-def build_content_sim_mh_text_jc(network, mh_signatures, t):
+def build_content_sim_mh_text_jc_old(network, mh_signatures, t):
     def connect(nid1, nid2, score):
         network.add_relation(nid1, nid2, Relation.CONTENT_SIM, score)
 
