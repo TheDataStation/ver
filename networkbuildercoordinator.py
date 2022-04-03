@@ -46,7 +46,7 @@ def main(output_path=None, table_path=None):
     print("!!3 " + str(et - st))
 
     print("Begin to extract text-sim")
-    lsh_threshold = 0.4
+    lsh_threshold = 0.6 # set a large one here to make demo more interactive
     content_sim_index, empty_cnt, edges_cnt, failed_cnt = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold, table_path)
     end_text_sig_sim = time.time()
     print("Total text-sig-sim (minhash): {0}; empty column names: {1}; edges count: {2}; failed count: {3}".format(str(end_text_sig_sim - start_text_sig_sim), str(empty_cnt), str(edges_cnt), str(failed_cnt)))
