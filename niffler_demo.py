@@ -68,7 +68,8 @@ class Demo:
 
         display(tab)
         display(output)
-    def define_a_view(self):
+
+    def start(self):
         global row_num
         global col_num
         row_num = 3

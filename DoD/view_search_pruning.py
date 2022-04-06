@@ -285,7 +285,7 @@ class ViewSearchPruning:
         # print(finish_msg)
         non_empty_cnt = 0
         paths_to_materialize = sorted_all_graphs[0:]
-        print("begin materialization")
+        
         to_return = self.materialize_join_graphs(list_samples, paths_to_materialize)
         for (idx, el) in enumerate(to_return):
             if len(el) != 0:
