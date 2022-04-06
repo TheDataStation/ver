@@ -244,9 +244,13 @@ def join_ab_on_key(a: pd.DataFrame, b: pd.DataFrame, a_key: str, b_key: str, suf
 #     if relation_path in cache:
 #         cache[relation_path] = df
 
-
+def read_relation_n_rows(relation_path, n_rows):
+    print("reading", relation_path, "with", n_rows)
+    df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator, error_bad_lines=False, nrows=n_rows)
+    return df.dropna()
+    
 def read_relation(relation_path, log=None):
-    # print("reading", relation_path)
+    print("reading", relation_path)
     if relation_path in cache:
         df = cache[relation_path]
     else:

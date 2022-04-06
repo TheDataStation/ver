@@ -152,7 +152,7 @@ class ViewSearchPruning:
                 table = candidate_group[0]
                 path = table_path[table]
                 # materialized_virtual_schema = dpu.get_dataframe(path + "/" + table)
-                materialized_virtual_schema = dpu.read_relation(path + "/" + table)
+                materialized_virtual_schema = dpu.read_relation_n_rows(path + "/" + table, 10000)
                 attrs_to_project = dpu.obtain_attributes_to_project(candidate_group_filters_covered)
                 # Create metadata to document this view
                 view_metadata = dict()
@@ -238,44 +238,45 @@ class ViewSearchPruning:
         # print(msg_pruning)
         # print("total join graphs", len(all_join_graphs))
 
-        table_paths = {}
-        # build inverted index candidate tables -> [indexes of corresponding join paths]
-        for idx, jpg in enumerate(all_join_graphs):
-            table_list = []
-            table_hash = {}
-            for l, r in jpg:
-                if l.source_name not in table_hash.keys():
-                    table_list.append(l.source_name)
-                    table_hash[l.source_name] = True
-                if r.source_name not in table_hash.keys():
-                    table_list.append(r.source_name)
-                    table_hash[r.source_name] = True
-            if tuple(table_list) not in table_paths.keys():
-                table_paths[tuple(table_list)] = [idx]
-            else:
-                table_paths[tuple(table_list)].append(idx)
-        '''
-        main scoring logic
-        '''
-        score_list = []
-        for idx, path in enumerate(all_join_graphs):
-            join_keys = set()
-            score = 0
-            threshold = 0.8
-            for l, r in path:
-                join_keys.add((l.source_name, l.field_name))
-                join_keys.add((r.source_name, r.field_name))
-                nid_l = (self.aurum_api.make_drs(l.source_name)).data[0].nid
-                nid_r = (self.aurum_api.make_drs(r.source_name)).data[0].nid
-                unique_score = max(self.aurum_api.helper.get_uniqueness_score(nid_l),
-                                   self.aurum_api.helper.get_uniqueness_score(nid_r))
-                if unique_score > threshold:
-                    score += 1
-            join_key_num = len(join_keys)
-            score = score / join_key_num - (join_key_num - 2) / 10  # add a penalty to the number of join keys
-            score_list.append((score, idx))
-        score_list.sort(reverse=True)
-        sorted_all_graphs = [(all_join_graphs[x[1]], all_filters[x[1]]) for x in score_list]
+        # table_paths = {}
+        # # build inverted index candidate tables -> [indexes of corresponding join paths]
+        # for idx, jpg in enumerate(all_join_graphs):
+        #     table_list = []
+        #     table_hash = {}
+        #     for l, r in jpg:
+        #         if l.source_name not in table_hash.keys():
+        #             table_list.append(l.source_name)
+        #             table_hash[l.source_name] = True
+        #         if r.source_name not in table_hash.keys():
+        #             table_list.append(r.source_name)
+        #             table_hash[r.source_name] = True
+        #     if tuple(table_list) not in table_paths.keys():
+        #         table_paths[tuple(table_list)] = [idx]
+        #     else:
+        #         table_paths[tuple(table_list)].append(idx)
+        # '''
+        # main scoring logic
+        # '''
+        # score_list = []
+        # for idx, path in enumerate(all_join_graphs):
+        #     join_keys = set()
+        #     score = 0
+        #     threshold = 0.8
+        #     for l, r in path:
+        #         join_keys.add((l.source_name, l.field_name))
+        #         join_keys.add((r.source_name, r.field_name))
+        #         nid_l = (self.aurum_api.make_drs(l.source_name)).data[0].nid
+        #         nid_r = (self.aurum_api.make_drs(r.source_name)).data[0].nid
+        #         unique_score = max(self.aurum_api.helper.get_uniqueness_score(nid_l),
+        #                            self.aurum_api.helper.get_uniqueness_score(nid_r))
+        #         if unique_score > threshold:
+        #             score += 1
+        #     join_key_num = len(join_keys)
+        #     score = score / join_key_num - (join_key_num - 2) / 10  # add a penalty to the number of join keys
+        #     score_list.append((score, idx))
+        # score_list.sort(reverse=True)
+        # sorted_all_graphs = [(all_join_graphs[x[1]], all_filters[x[1]]) for x in score_list]
+        sorted_all_graphs = [(all_join_graphs[i], all_filters[i]) for i in range(len(all_join_graphs))]
         finish_msg = """
                         ######################################################################
                         #      Finish Rating and Ranking, Begin Materializing Join Paths     #
