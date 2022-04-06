@@ -245,7 +245,7 @@ def join_ab_on_key(a: pd.DataFrame, b: pd.DataFrame, a_key: str, b_key: str, suf
 #         cache[relation_path] = df
 
 
-def read_relation(relation_path):
+def read_relation(relation_path, log=None):
     # print("reading", relation_path)
     if relation_path in cache:
         df = cache[relation_path]
@@ -263,11 +263,13 @@ def read_relation(relation_path):
                 return None
         except pd.errors.EmptyDataError:
             print(relation_path, " is empty and has been skipped.")
-            # log.write(relation_path + " is empty and has been skipped.")
+            if log:
+                log.write(relation_path + " is empty and has been skipped.")
             return None
         except pd.errors.ParserError:
             print("broken csv file")
-            # log.write(relation_path + " is broken")
+            if log:
+                log.write(relation_path + " is broken")
             return None
     return df
 

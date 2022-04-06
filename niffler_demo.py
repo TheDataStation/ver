@@ -159,6 +159,7 @@ class Demo:
                         row.append(x[i][j].value)
                 if i != 0:
                     values.append(row)
+            self.get_relevant_columns()
 
 
         button1 = widgets.Button(description="Add Column")
@@ -207,19 +208,27 @@ class Demo:
             clear_output()
             c_id = max(0, c_id - 1)
             self.columnInfer.show_clusters(column_clusters[c_id], self.filter_drs, self.viewSearch, c_id)
+        
+        def on_button_show_views(b):
+            if len(self.filter_drs.keys()) < len(column_clusters):
+                print("please finish selection for all columns")
+            self.show_views()
 
         button_next = widgets.Button(description="Next")
         button_prev = widgets.Button(description="Prev")
+        button_show_views = widgets.Button(description="Show Views")
         display(widgets.HBox([button_prev, button_next]))
         button_next.on_click(on_button_next)
         button_prev.on_click(on_button_prev)
+        button_show_views.on_click(on_button_show_views)
         initial_show()
         display(output)
+        display(button_show_views)
 
     def show_views(self):
         init_notebook_mode(all_interactive=False)
         from DoD import data_processing_utils as dpu
-
+        
         view_metadata_mapping = dict()
         global view_id
         view_id = 0
