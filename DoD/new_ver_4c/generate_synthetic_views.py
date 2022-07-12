@@ -16,13 +16,13 @@ other_col = np.zeros(num_rows, dtype=int)
 base_view = pd.DataFrame({"key": key_col, "other": other_col})
 # print(base_view)
 
-data_dir = "./new_ver_4c/synthetic_views"
+data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views"
 
 # Compatible
 # Generate n identical base views
-clear_dir(f"./synthetic_views/compatible/")
+clear_dir(f"{data_dir}/compatible/")
 for i in range(num_views):
-    base_view.to_csv(f"{data_dir}/{i}.csv", index=False)
+    base_view.to_csv(f"{data_dir}/compatible/{i}.csv", index=False)
 
 # Contained
 # For i in n:
@@ -48,7 +48,7 @@ for i in range(1, num_views):
 # Change the key value to max + j
 # Max = n + m
 # Add the new view to the list
-clear_dir("{data_dir}/complementary/")
+clear_dir(f"{data_dir}/complementary/")
 max_key_value = num_views - 1
 for i in range(num_views):
     random_index = np.random.choice(base_view.index)
@@ -62,7 +62,7 @@ for i in range(num_views):
 # For i in n:
 # Choose 1 random row in base view and change the non-key column value to some other value
 # Add the new view to the list
-clear_dir("{data_dir}/contradictory/")
+clear_dir(f"{data_dir}/contradictory/")
 max_other_value = 0
 for i in range(num_views):
     random_index = np.random.choice(base_view.index)
