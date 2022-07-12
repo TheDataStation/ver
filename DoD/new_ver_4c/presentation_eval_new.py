@@ -99,7 +99,7 @@ if __name__ == '__main__':
                         complementary_view_map[candidate_key_tuple][path1].add(path2)
                         complementary_view_map[candidate_key_tuple][path2].add(path1)
                         candidate_keys.add(candidate_key_tuple)
-                    for path1, candidate_key_tuple, key_value_tuples, path2 in contradictory_group:
+                    for path1, candidate_key_tuple, _, path2 in contradictory_group:
                         contradictory_view_map[candidate_key_tuple][path1].add(path2)
                         contradictory_view_map[candidate_key_tuple][path2].add(path1)
                         candidate_keys.add(candidate_key_tuple)

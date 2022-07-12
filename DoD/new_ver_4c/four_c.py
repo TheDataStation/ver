@@ -1,3 +1,4 @@
+import itertools
 import pprint
 import time
 from os import listdir
@@ -284,11 +285,14 @@ def identify_complementary_contradictory_views(candidate_complementary_contradic
     # for df, path in tqdm(candidate_complementary_contradictory_views):
     #     print(path)
 
+    view_to_candidate_keys_dict = {}
+
     for df, path in tqdm(candidate_complementary_contradictory_views):
 
         start_time = time.time()
 
         candidate_keys = find_candidate_keys(df, sampling=False, max_num_attr_in_composite_key=candidate_key_size)
+        view_to_candidate_keys_dict[path] = candidate_keys
 
         total_find_candidate_keys_time += time.time() - start_time
 
@@ -315,7 +319,7 @@ def identify_complementary_contradictory_views(candidate_complementary_contradic
 
     start_time = time.time()
 
-    all_pair_result = defaultdict(lambda: defaultdict(set))
+    all_pair_result = defaultdict(lambda: defaultdict())
 
     # print(candidate_key_to_inverted_index.keys())
 
@@ -329,6 +333,10 @@ def identify_complementary_contradictory_views(candidate_complementary_contradic
 
             to_be_removed = set()
 
+            if len(dfs) <= 1:
+                # only one view for this key value, no need to compare
+                continue
+
             for df1, path1, idx1 in dfs:
                 for df2, path2, idx2 in dfs:
 
@@ -338,20 +346,67 @@ def identify_complementary_contradictory_views(candidate_complementary_contradic
 
                     # complementary_keys1 = set()
                     # complementary_keys2 = set()
-                    contradictory_keys = set()
+                    # contradictory_keys = set()
+                    all_pair_result[(path1, path2)][candidate_key] = None
 
                     if (df1.iloc[idx1].values == df2.iloc[idx2].values).all(axis=1):
                         # print("in")
                         to_be_removed.add(path1)
                     else:
-                        contradictory_keys.add(key_value)
-                        all_pair_result[(path1, path2)][candidate_key] = contradictory_keys
+                        # contradictory_keys.add(key_value)
+                        all_pair_result[(path1, path2)][candidate_key] = key_value
                         already_classified_as_contradictory.add((path1, path2))
                         already_classified_as_contradictory.add((path2, path1))
 
     print(f"total_find_contradiction_time: {time.time() - start_time} s")
 
-    return all_pair_result
+    start_time = time.time()
+    # processed_pairs = list(all_pair_result.keys())
+    processed_pairs = set()
+    for pair in all_pair_result.keys():
+        path1, path2 = pair
+        processed_pairs.add((path1, path2))
+        processed_pairs.add((path2, path1))
+
+    complementary_contradictory_view_paths = [path for df, path in candidate_complementary_contradictory_views]
+    complementary_pairs_dup = set(itertools.product(complementary_contradictory_view_paths, repeat=2)) - processed_pairs
+    complementary_pairs_dedup = set()
+    complementary_pairs = []
+    for pair in complementary_pairs_dup:
+
+        path1, path2 = pair
+        if path1 == path2:
+            continue
+
+        if pair not in complementary_pairs_dedup:
+
+            complementary_pairs_dedup.add((path1, path2))
+            complementary_pairs_dedup.add((path2, path1))
+
+            candidate_keys1 = view_to_candidate_keys_dict[path1]
+            candidate_keys2 = view_to_candidate_keys_dict[path2]
+
+            if len(candidate_keys1) == 0 and len(candidate_keys2) == 0:
+                continue
+
+            candidate_keys = set(candidate_keys1).intersection(set(candidate_keys2))
+
+            for candidate_key in candidate_keys:
+                complementary_pairs.append((path1, path2, candidate_key))
+
+    contradictory_pairs = []
+    for path, v1 in all_pair_result.items():
+        path1, path2 = path
+        for candidate_key, contradictory_key_value in v1.items():
+            if contradictory_key_value is None:
+                complementary_pairs.append((path1, path2, candidate_key))
+            else:
+                contradictory_pairs.append((path1, path2, candidate_key, contradictory_key_value))
+
+    print(f"total_find_complementary_time: {time.time() - start_time} s")
+
+
+    return complementary_pairs, contradictory_pairs
 
 
 
@@ -383,18 +438,28 @@ def main(input_path, candidate_key_size=2):
         # print(contained_views)
 
         start_time = time.time()
-        result = identify_complementary_contradictory_views(candidate_complementary_contradictory_views)
+        complementary_pairs, contradictory_pairs = identify_complementary_contradictory_views(candidate_complementary_contradictory_views)
         elapsed = time.time() - start_time
         print(f"identify_complementary_contradictory_views time: {elapsed} s")
-        print(f"number of contradictory groups: {len(result)}")
+        print(f"number of contradictory pairs: {len(contradictory_pairs)}")
+        print(f"number of complementary pairs: {len(complementary_pairs)}")
+        # pprint.pprint(complementary_pairs)
         # pprint.pprint(result)
 
 
 if __name__ == "__main__":
-    input_path = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views/contained/"
 
-    start_time = time.time()
-    main(input_path)
-    elapsed = time.time() - start_time
-    print(f"total 4c time: {elapsed} s")
+    groups = ["compatible", "contained", "contradictory", "complementary"]
+    times = []
+
+    for group in groups:
+        input_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views/{group}/"
+
+        start_time = time.time()
+        main(input_path)
+        elapsed = time.time() - start_time
+        print(f"total 4c time for {group}: {elapsed} s")
+        times.append(elapsed)
+
+    print(times)
 
