@@ -23,9 +23,11 @@ if __name__ == "__main__":
     base_view = pd.DataFrame({"key": key_col, "other": other_col})
     # print(base_view)
 
-    data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views"
+    # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views"
+    data_dir = "/home/cc/aurum-dod-staging/DoD/new_ver_4c/synthetic_views"
 
-    log = open("/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/log.txt", "w")
+    # log = open("/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/log.txt", "w")
+    log = open("/home/cc/aurum-dod-staging/DoD/new_ver_4c/log.txt", "w")
     times = defaultdict(list)
 
     for num_views in num_views_list:
