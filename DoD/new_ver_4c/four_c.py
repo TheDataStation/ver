@@ -6,7 +6,7 @@ from os.path import isfile, join
 from collections import defaultdict
 import pandas as pd
 from pandas.util import hash_pandas_object
-import DoD.material_view_analysis as mva
+import material_view_analysis as mva
 
 from tqdm import tqdm
 from itertools import chain, combinations
