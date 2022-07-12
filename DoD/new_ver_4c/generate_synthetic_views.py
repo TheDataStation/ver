@@ -24,10 +24,11 @@ if __name__ == "__main__":
     # print(base_view)
 
     # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views"
-    data_dir = "/home/cc/aurum-dod-staging/DoD/new_ver_4c/synthetic_views"
+    root_dir = "/home/cc/aurum-dod-staging/DoD/new_ver_4c"
+    data_dir = f"{root_dir}/synthetic_views"
 
     # log = open("/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/log.txt", "w")
-    log = open("/home/cc/aurum-dod-staging/DoD/new_ver_4c/log.txt", "w")
+    log = open(f"{root_dir}/log.txt", "w")
     times = defaultdict(list)
 
     for num_views in num_views_list:
@@ -91,7 +92,7 @@ if __name__ == "__main__":
         groups = ["compatible", "contained", "contradictory", "complementary"]
 
         for group in groups:
-            input_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views/{group}/"
+            input_path = f"{root_dir}/synthetic_views/{group}/"
 
             start_time = time.time()
             four_c.main(input_path)
