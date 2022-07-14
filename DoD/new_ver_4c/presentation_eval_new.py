@@ -14,6 +14,20 @@ import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = [12, 8]
 plt.rcParams['figure.dpi'] = 200
 
+def prune_compatible_views(views, compatible_groups):
+    pruned_views = set()
+    for f in views:
+        add = True
+        # Remove duplicates in compatible groups, only keep the first view in each group
+        for compatible_group in compatible_groups:
+            if f in compatible_group:
+                if f != compatible_group[0]:
+                    add = False
+                    break
+        if add:
+            pruned_views.add(f)
+    return pruned_views
+
 if __name__ == '__main__':
 
     # root_dir = "/home/cc/experiments_chembl_5_13/"
@@ -63,7 +77,7 @@ if __name__ == '__main__':
 
                 original_view_files = set(glob.glob(dir_path + "/view_*"))
 
-                path_to_df_dict, compatible_groups, contained_groups, complementary_groups, contradictory_groups, \
+                path_to_df_dict, compatible_groups, contained_groups, removed_contained_groups, complementary_groups, contradictory_groups, \
                 all_pair_results = \
                     v4c.main(dir_path, candidate_key_size, find_all_contradictions=True)
 
@@ -75,12 +89,14 @@ if __name__ == '__main__':
                 print("Number of views: ", len(original_view_files))
                 eval_file.write(str(len(original_view_files)) + ",")
 
-                view_files = original_view_files - compatible_groups
+                # print(compatible_groups)
+
+                view_files = prune_compatible_views(original_view_files, compatible_groups)
                 print("After pruning compatible views: ", len(view_files))
                 num_views_after_prune_compatible = len(view_files)
                 eval_file.write(str(num_views_after_prune_compatible) + ",")
 
-                view_files = view_files - contained_groups
+                view_files = view_files - set(removed_contained_groups)
                 print("After pruning contained views: ", len(view_files))
                 eval_file.write(str(len(view_files)) + ",")
 

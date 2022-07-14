@@ -2,7 +2,6 @@
 .ipynb_checkpoints/
 .python-version
 synthetic_views/
-DoD/new_ver_4c/synthetic_views/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
