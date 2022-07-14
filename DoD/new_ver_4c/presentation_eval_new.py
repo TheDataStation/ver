@@ -1,19 +1,13 @@
 import math
 
-from DoD.presentation_utils import *
-from DoD import view_4c_analysis_baseline as v4c
-from DoD import material_view_analysis as mva
+from utils import *
+import four_c as v4c
 from DoD.colors import Colors
-from tqdm import tqdm
 import random
-from enum import Enum
 import glob
-import pandas as pd
-import pprint
-import numpy as np
-from collections import defaultdict, namedtuple
+from collections import defaultdict
 from tabulate import tabulate
-from pathlib import Path
+
 import time
 import matplotlib.pyplot as plt
 
@@ -23,11 +17,12 @@ plt.rcParams['figure.dpi'] = 200
 if __name__ == '__main__':
 
     # root_dir = "/home/cc/experiments_chembl_5_13/"
-    root_dir = "./experiments_chembl_5_13/"
-    eval_file = open(root_dir + "eval.txt", "w")
-    for query in range(5):
+    root_dir = "../experiments_chembl_5_13/"
+    eval_file = open(root_dir + "eval_test.txt", "w")
+
+    for query in range(1, 2):
         query_dir = root_dir + "chembl_gt" + str(query) + "/"
-        for noise in ["zero_noise", "mid_noise", "high_noise"]:
+        for noise in ["zero_noise"]:  # , "mid_noise", "high_noise"]:
             noise_dir = query_dir + noise + "/"
             sample_dir = noise_dir + "sample0/"
             for pipeline in range(1, 4):
@@ -42,47 +37,50 @@ if __name__ == '__main__':
                 print("Running in dir: ", dir_path)
 
                 # top percentile of view scores to include in window
-                top_percentile = 25
+                # top_percentile = 25
                 # top_percentiles = [25]
                 # max size of candidate (composite) key
                 candidate_key_size = 2
                 # sampling 5 contradictory or complementary rows from each view to include in the presentation
-                sample_sizes = [1, 5, 10]
+                # sample_sizes = [1, 5, 10]
 
-                mode = Mode.optimal
+                # mode = Mode.optimal
 
                 max_num_interactions = 10
 
-                num_runs = 50
+                # num_runs = 50
 
-                initialize_scores = ["zero", "s4"]
-                fact_bank_fractions = [10, 50, 100]
+                # initialize_scores = ["zero", "s4"]
+                # fact_bank_fractions = [10, 50, 100]
                 # fact_bank_fraction = 1
                 #####################################4C#####################################
 
                 # Run 4C
                 print(
-                    Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+                    Colors.CBOLD + "--------------------------------------------------------------------------" +
+                    Colors.CEND)
                 print("Running 4C...")
 
-                original_view_files = glob.glob(dir_path + "/view_*")
+                original_view_files = set(glob.glob(dir_path + "/view_*"))
 
-                compatible_groups, contained_groups, complementary_groups, contradictory_groups, all_pair_contr_compl = \
-                    v4c.eval_main(dir_path, candidate_key_size)
+                path_to_df_dict, compatible_groups, contained_groups, complementary_groups, contradictory_groups, \
+                all_pair_results = \
+                    v4c.main(dir_path, candidate_key_size, find_all_contradictions=True)
 
                 print()
                 print(
-                    Colors.CBOLD + "--------------------------------------------------------------------------" + Colors.CEND)
+                    Colors.CBOLD + "--------------------------------------------------------------------------" +
+                    Colors.CEND)
 
                 print("Number of views: ", len(original_view_files))
                 eval_file.write(str(len(original_view_files)) + ",")
 
-                view_files = prune_compatible_views(original_view_files, compatible_groups)
+                view_files = original_view_files - compatible_groups
                 print("After pruning compatible views: ", len(view_files))
                 num_views_after_prune_compatible = len(view_files)
                 eval_file.write(str(num_views_after_prune_compatible) + ",")
 
-                view_files = prune_contained_views(view_files, contained_groups)
+                view_files = view_files - contained_groups
                 print("After pruning contained views: ", len(view_files))
                 eval_file.write(str(len(view_files)) + ",")
 
@@ -95,20 +93,23 @@ if __name__ == '__main__':
                     complementary_view_map = defaultdict(lambda: defaultdict(set))
                     contradictory_view_map = defaultdict(lambda: defaultdict(set))
                     candidate_keys = set()
-                    for path1, path2, candidate_key_tuple, _, _ in complementary_group:
-                        complementary_view_map[candidate_key_tuple][path1].add(path2)
-                        complementary_view_map[candidate_key_tuple][path2].add(path1)
-                        candidate_keys.add(candidate_key_tuple)
-                    for path1, candidate_key_tuple, _, path2 in contradictory_group:
-                        contradictory_view_map[candidate_key_tuple][path1].add(path2)
-                        contradictory_view_map[candidate_key_tuple][path2].add(path1)
-                        candidate_keys.add(candidate_key_tuple)
+                    # print(complementary_group)
+                    for path1, path2, candidate_key in complementary_group:
+                        complementary_view_map[candidate_key][path1].add(path2)
+                        complementary_view_map[candidate_key][path2].add(path1)
+                        candidate_keys.add(candidate_key)
+                    for path1, path2, candidate_key, contradictory_key_value in contradictory_group:
+                        contradictory_view_map[candidate_key][path1].add(path2)
+                        contradictory_view_map[candidate_key][path2].add(path1)
+                        candidate_keys.add(candidate_key)
+
 
                     def can_union(view, candidate_key, current_union):
                         contradictory_view_set = contradictory_view_map[candidate_key][view]
                         return (contradictory_view_set.isdisjoint(current_union) and view in view_files)
 
-                    min_union_per_schema = [None]*10000
+
+                    min_union_per_schema = [None] * 10000
                     max_union_per_schema = set()
                     for candidate_key in candidate_keys:
                         union_views_set = set()
@@ -143,10 +144,12 @@ if __name__ == '__main__':
 
                 min_view_files = view_files - min_union_complementary_views
                 max_view_files = view_files - max_union_complementary_views
-                print("worst case num views after union complementary views: ", str(len(min_view_files)+worst_case_has_union))
-                print("best case num views after union complementary views: ", str(len(max_view_files)+best_case_has_union))
-                eval_file.write(str(len(min_view_files)+worst_case_has_union) + ",")
-                eval_file.write(str(len(max_view_files)+best_case_has_union) + ",")
+                print("worst case num views after union complementary views: ",
+                      str(len(min_view_files) + worst_case_has_union))
+                print("best case num views after union complementary views: ",
+                      str(len(max_view_files) + best_case_has_union))
+                eval_file.write(str(len(min_view_files) + worst_case_has_union) + ",")
+                eval_file.write(str(len(max_view_files) + best_case_has_union) + ",")
                 # continue
 
                 ############################################################################
@@ -156,8 +159,13 @@ if __name__ == '__main__':
                     Colors.CEND)
                 print("Creating signals...")
 
-                worst_case = [len(min_view_files)+worst_case_has_union]
-                best_case = [len(max_view_files)+best_case_has_union]
+                worst_case = [len(min_view_files) + worst_case_has_union]
+                best_case = [len(max_view_files) + best_case_has_union]
+
+                # flatten
+                contradictory_pairs = [pair for contradictory_group in contradictory_groups for pair in
+                                       contradictory_group]
+
                 for i in range(2):
 
                     num_interactions = 0
@@ -168,13 +176,15 @@ if __name__ == '__main__':
                         if i == 0:
                             if len(cur_min_views) == 0:
                                 break
-                            signals, candidate_keys = create_contradictory_signals_multi_row(cur_min_views, all_pair_contr_compl,
-                                                                                             sample_size=5)
+                            signals, candidate_keys = create_contradictory_signals_multi_row(path_to_df_dict,
+                                                                                             cur_min_views,
+                                                                                             all_pair_results)
                         else:
                             if len(cur_max_views) == 0:
                                 break
-                            signals, candidate_keys = create_contradictory_signals_multi_row(cur_max_views, all_pair_contr_compl,
-                                                                                            sample_size=5)
+                            signals, candidate_keys = create_contradictory_signals_multi_row(path_to_df_dict,
+                                                                                             cur_max_views,
+                                                                                             all_pair_results)
                         num_interactions += 1
 
                         best_signal = pick_best_signal_eval(signals)
@@ -211,39 +221,39 @@ if __name__ == '__main__':
 
                             if i == 0:
                                 cur_min_views = cur_min_views - less_views
-                                worst_case.append(len(cur_min_views)+worst_case_has_union)
+                                worst_case.append(len(cur_min_views) + worst_case_has_union)
                             else:
                                 cur_max_views = cur_max_views - more_views
-                                best_case.append(len(cur_max_views)+best_case_has_union)
+                                best_case.append(len(cur_max_views) + best_case_has_union)
 
                         elif signal_type == "singletons":
                             view_to_prune = random.choice(signal)[0]
                             if i == 0:
                                 cur_min_views = cur_min_views - {view_to_prune}
-                                worst_case.append(len(cur_min_views)+worst_case_has_union)
+                                worst_case.append(len(cur_min_views) + worst_case_has_union)
                             else:
                                 cur_max_views = cur_max_views - {view_to_prune}
-                                best_case.append(len(cur_max_views)+best_case_has_union)
+                                best_case.append(len(cur_max_views) + best_case_has_union)
 
                 print("worst case num of views after pruning using contradictory signals: ", worst_case)
                 print("best_case after pruning using contradictory signals: ", best_case)
                 eval_file.write(str(worst_case) + ",")
                 eval_file.write(str(best_case) + "\n")
 
-                x_axis = [i for i in range(len(worst_case))]
-                best_case += [np.nan] * (len(x_axis) - len(best_case))
-                ax = plt.figure().gca()
-                ax.yaxis.get_major_locator().set_params(integer=True)
-                ax.plot(x_axis, worst_case, linestyle='-', marker='o', label="worst case")
-                ax.plot(x_axis, best_case, linestyle='--', marker='o', label="best case")
-                ax.legend()
-                ax.set_xticks(x_axis)
-                # y_ticks = [i for i in range(min(best_case), max(worst_case) + 1)]
-                # plt.yticks(y_ticks)
-                # plt.title("Number of views left at each step after pruning using contradictory signals")
-                plt.tight_layout()
-                plot_fn = root_dir + "q" + str(query+1) + "_" + noise
-                plt.savefig(plot_fn)
-                plt.close()
+                # x_axis = [i for i in range(len(worst_case))]
+                # best_case += [np.nan] * (len(x_axis) - len(best_case))
+                # ax = plt.figure().gca()
+                # ax.yaxis.get_major_locator().set_params(integer=True)
+                # ax.plot(x_axis, worst_case, linestyle='-', marker='o', label="worst case")
+                # ax.plot(x_axis, best_case, linestyle='--', marker='o', label="best case")
+                # ax.legend()
+                # ax.set_xticks(x_axis)
+                # # y_ticks = [i for i in range(min(best_case), max(worst_case) + 1)]
+                # # plt.yticks(y_ticks)
+                # # plt.title("Number of views left at each step after pruning using contradictory signals")
+                # plt.tight_layout()
+                # plot_fn = root_dir + "q" + str(query+1) + "_" + noise
+                # plt.savefig(plot_fn)
+                # plt.close()
 
     eval_file.close()

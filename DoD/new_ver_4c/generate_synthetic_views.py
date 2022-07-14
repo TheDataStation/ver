@@ -14,8 +14,8 @@ def clear_dir(path):
 
 if __name__ == "__main__":
 
-    num_views_list = [500, 1000, 2000]
-    num_rows = 10000
+    num_views_list = [1000]
+    num_rows = 1000
 
     key_col = np.arange(num_rows)
     other_col = np.zeros(num_rows, dtype=int)
@@ -24,7 +24,8 @@ if __name__ == "__main__":
     # print(base_view)
 
     # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views"
-    root_dir = "/home/cc/aurum-dod-staging/DoD/new_ver_4c"
+    # root_dir = "/home/cc/aurum-dod-staging/DoD/new_ver_4c"
+    root_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c"
     data_dir = f"{root_dir}/synthetic_views"
 
     # log = open("/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/log.txt", "w")
