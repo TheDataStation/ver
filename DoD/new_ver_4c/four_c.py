@@ -1,4 +1,5 @@
 import itertools
+import pprint
 import time
 from os import listdir
 from os.path import isfile, join
@@ -48,7 +49,6 @@ def identify_compatible_contained_views(dfs):
     largest_contained_views = set()
     candidate_complementary_contradictory_views = []
     # compl_contra_relation_graph = defaultdict(lambda: defaultdict(tuple))
-
 
     hash_dict = {}
 
@@ -141,27 +141,27 @@ def identify_compatible_contained_views(dfs):
                 #         candidate_complementary_contradictory_views.append((df2, path2))
                 #         already_classified_as_compl_or_contr.add(path2)
 
-                    # # Verify that views are potentially complementary
-                    # s12 = (hash_set1 - hash_set2)
-                    # s1_complement = set()
-                    # if len(s12) > 0:
-                    #     s1_complement.update((s12))
-                    # s21 = (hash_set2 - hash_set1)
-                    # s2_complement = set()
-                    # if len(s21) > 0:
-                    #     s2_complement.update((s21))
-                    #
-                    # if len(s1_complement) > 0 and len(s2_complement) > 0:  # and, otherwise it's a containment rel
-                    #
-                    #     # idx1 = [idx for idx, value in enumerate(hash_set1) if value in s1_complement]
-                    #     # idx2 = [idx for idx, value in enumerate(hash_set2) if value in s2_complement]
-                    #
-                    #     if path1 not in already_classified_as_compl_or_contr:
-                    #         candidate_complementary_contradictory_views.append((df1, path1))
-                    #         already_classified_as_compl_or_contr.add(path1)
-                    #     if path2 not in already_classified_as_compl_or_contr:
-                    #         candidate_complementary_contradictory_views.append((df2, path2))
-                    #         already_classified_as_compl_or_contr.add(path2)
+                # # Verify that views are potentially complementary
+                # s12 = (hash_set1 - hash_set2)
+                # s1_complement = set()
+                # if len(s12) > 0:
+                #     s1_complement.update((s12))
+                # s21 = (hash_set2 - hash_set1)
+                # s2_complement = set()
+                # if len(s21) > 0:
+                #     s2_complement.update((s21))
+                #
+                # if len(s1_complement) > 0 and len(s2_complement) > 0:  # and, otherwise it's a containment rel
+                #
+                #     # idx1 = [idx for idx, value in enumerate(hash_set1) if value in s1_complement]
+                #     # idx2 = [idx for idx, value in enumerate(hash_set2) if value in s2_complement]
+                #
+                #     if path1 not in already_classified_as_compl_or_contr:
+                #         candidate_complementary_contradictory_views.append((df1, path1))
+                #         already_classified_as_compl_or_contr.add(path1)
+                #     if path2 not in already_classified_as_compl_or_contr:
+                #         candidate_complementary_contradictory_views.append((df2, path2))
+                #         already_classified_as_compl_or_contr.add(path2)
 
                 already_processed_pair.add((path1, path2))
                 already_processed_pair.add((path2, path1))
@@ -169,8 +169,8 @@ def identify_compatible_contained_views(dfs):
             total_identify_c1_c2_time += time.time() - start_time
 
         # if len(compatible_group) > 1:
-            # compatible_views.append(compatible_group)
-            # compatible_views.add(path1)
+        # compatible_views.append(compatible_group)
+        # compatible_views.add(path1)
         compatible_views.append(compatible_group)
 
         if largest_contained_view is not None:
@@ -314,7 +314,7 @@ def identify_complementary_contradictory_views(path_to_df_dict,
 
     all_pair_result = defaultdict(lambda: defaultdict(set))
 
-    # print(candidate_key_to_inverted_index.keys())
+    # print(candidate_key_to_inverted_index[tuple("a")][(2,)])
 
     for candidate_key, inverted_index in tqdm(candidate_key_to_inverted_index.items()):
 
@@ -331,8 +331,19 @@ def identify_complementary_contradictory_views(path_to_df_dict,
                 # only one view for this key value, no need to compare
                 continue
 
+            clusters = defaultdict(set)
+            new_contradictions = set()
+
+            for df, path, idx in dfs:
+                clusters[path].add(path)
+
             for df1, path1, idx1 in dfs:
+
                 for df2, path2, idx2 in dfs:
+
+                    # if candidate_key == tuple("a") and key_value == (2,):
+                    # and path1 == "test_dir/view_1.csv" and path2 == "test_dir/view_2.csv":
+                    # print("in")
 
                     if path1 == path2:
                         continue
@@ -340,19 +351,79 @@ def identify_complementary_contradictory_views(path_to_df_dict,
                     if (path1, path2) in already_processed_pairs:
                         continue
 
+                    # have_contradiction = False
+                    # skip = False
+                    # if path1 in to_be_removed:
+                    #     skip = True
+                    #     cluster = clusters[path1]
+                    #     for p in cluster:
+                    #         if (path2, p) in all_pair_result.keys():
+                    #             if candidate_key in all_pair_result[(path2, p)].keys():
+                    #                 if len(all_pair_result[(path2, p)][candidate_key]) > 0:
+                    #                     have_contradiction = True
+                    #                     all_pair_result[(path1, path2)][candidate_key].update(
+                    #                         all_pair_result[(path2, p)][candidate_key])
+                    #         elif (p, path2) in all_pair_result.keys():
+                    #             if candidate_key in all_pair_result[(p, path2)].keys():
+                    #                 if len(all_pair_result[(p, path2)][candidate_key]) > 0:
+                    #                     have_contradiction = True
+                    #                     all_pair_result[(path1, path2)][candidate_key].update(
+                    #                         all_pair_result[(p, path2)][candidate_key])
+                    #         if have_contradiction:
+                    #             # print("in")
+                    #             break
+                    # if path2 in to_be_removed:
+                    #     skip = True
+                    #     cluster = clusters[path2]
+                    #     for p in cluster:
+                    #         if (path1, p) in all_pair_result.keys():
+                    #             if candidate_key in all_pair_result[(path1, p)].keys():
+                    #                 if len(all_pair_result[(path1, p)][candidate_key]) > 0:
+                    #                     have_contradiction = True
+                    #                     all_pair_result[(path1, path2)][candidate_key].update(
+                    #                         all_pair_result[(path1, p)][candidate_key])
+                    #         elif (p, path1) in all_pair_result.keys():
+                    #             if candidate_key in all_pair_result[(p, path1)].keys():
+                    #                 if len(all_pair_result[(p, path1)][candidate_key]) > 0:
+                    #                     have_contradiction = True
+                    #                     all_pair_result[(path1, path2)][candidate_key].update(
+                    #                         all_pair_result[(p, path1)][candidate_key])
+                    #         if have_contradiction:
+                    #             # print("in")
+                    #             break
+                    #
+                    # if have_contradiction:
+                    #     already_processed_pairs.add((path1, path2))
+                    #     already_processed_pairs.add((path2, path1))
+                    # if skip:
+                    #     continue
+
+                    if not find_all_contradictions:
+                        # if path1 in to_be_removed or path2 in to_be_removed:
+                        #     continue
+                        if (path1, path2) in already_classified_as_contradictory:
+                            continue
+
                     if path1 in to_be_removed or path2 in to_be_removed:
                         continue
 
-                    if not find_all_contradictions:
-                        if (path1, path2) in already_classified_as_contradictory:
-                            continue
                     # complementary_keys1 = set()
                     # complementary_keys2 = set()
                     # contradictory_keys = set()
                     # all_pair_result[(path1, path2)][candidate_key] = None
 
-                    if (df1.iloc[idx1].values == df2.iloc[idx2].values).all(axis=1):
+                    # print(df1.iloc[idx1].values)
+                    # print(df2.iloc[idx2].values)
+                    # print(df1.iloc[idx1].values == df2.iloc[idx2].values)
+
+                    if (df1.iloc[idx1].values == df2.iloc[idx2].values).all():
                         # print("in")
+                        clusters[path1].add(path2)
+                        # clusters[path2].add(path1)
+                        if path2 in clusters:
+                            del clusters[path2]
+
+                        # if not find_all_contradictions:
                         to_be_removed.add(path1)
                     else:
                         # contradictory_keys.add(key_value)
@@ -362,17 +433,66 @@ def identify_complementary_contradictory_views(path_to_df_dict,
                             already_classified_as_contradictory.add((path2, path1))
 
                         # if (path2, path1) in all_pair_result.keys():
+                        #     # print((path1, path2))
                         #     p1 = path1
                         #     path1 = path2
                         #     path2 = p1
+                        #     # print((path1, path2))
 
+                        new_contradictions.add((path1, path2))
+                        new_contradictions.add((path2, path1))
                         all_pair_result[(path1, path2)][candidate_key].add(key_value)
 
                     already_processed_pairs.add((path1, path2))
                     already_processed_pairs.add((path2, path1))
 
+            # print(candidate_key, key_value)
+            # print(clusters)
+
+            already_added = set()
+            for path1 in clusters.keys():
+                for path2, cluster in clusters.items():
+                    if path1 == path2:
+                        continue
+                    if (path1, path2) in already_added:
+                        continue
+                    # if not find_all_contradictions:
+                    #     if (path1, path2) in already_classified_as_contradictory:
+                    #         continue
+
+                    # if (path2, path1) in all_pair_result.keys() and candidate_key in all_pair_result[(path2, path1)]:
+                    #     all_pair_result[(path2, path1)][candidate_key].add(key_value)
+                    # else:
+                    #     all_pair_result[(path1, path2)][candidate_key].add(key_value)
+                    # already_added.add((path1, path2))
+                    # already_added.add((path2, path1))
+                    # if not find_all_contradictions:
+                    #     already_classified_as_contradictory.add((path1, path2))
+                    #     already_classified_as_contradictory.add((path2, path1))
+
+                    for p in cluster:
+                        if not find_all_contradictions:
+                            if (path1, p) in already_classified_as_contradictory:
+                                continue
+
+                        # if (p, path1) in all_pair_result.keys():# and candidate_key in all_pair_result[(p, path1)]:
+                        #     all_pair_result[(p, path1)][candidate_key].add(key_value)
+                        # else:
+                        #     all_pair_result[(path1, p)][candidate_key].add(key_value)
+                        if (path1, p) not in new_contradictions:
+                            all_pair_result[(path1, p)][candidate_key].add(key_value)
+
+                        already_added.add((path1, p))
+                        already_added.add((p, path1))
+
+                        if not find_all_contradictions:
+                            already_classified_as_contradictory.add((path1, p))
+                            already_classified_as_contradictory.add((p, path1))
 
     print(f"total_find_contradiction_time: {time.time() - start_time} s")
+
+    # print(all_pair_result[("test_dir/view_1.csv", "test_dir/view_2.csv")])
+    # print(all_pair_result)
 
     start_time = time.time()
     # processed_pairs = list(all_pair_result.keys())
@@ -457,7 +577,8 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=False):
         print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
 
         start_time = time.time()
-        compatible_views, largest_contained_views, removed_contained_views, candidate_complementary_contradictory_views = \
+        compatible_views, largest_contained_views, removed_contained_views, \
+        candidate_complementary_contradictory_views = \
             identify_compatible_contained_views(group_dfs)
         elapsed = time.time() - start_time
         print(f"identify_compatible_contained_views time: {elapsed} s")
@@ -487,7 +608,8 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=False):
         contradictory_groups.append(contradictory_pairs)
         all_pair_results.update(all_pair_result)
 
-    return path_to_df_dict, compatible_groups, contained_groups, removed_contained_groups, complementary_groups, contradictory_groups, \
+    return path_to_df_dict, compatible_groups, contained_groups, removed_contained_groups, complementary_groups, \
+           contradictory_groups, \
            all_pair_results
 
 

@@ -1,5 +1,6 @@
 import glob
 import os
+import pprint
 import shutil
 import time
 
@@ -16,7 +17,8 @@ def flatten(alist):
     return [x for l in alist for x in l]
 
 if __name__ == '__main__':
-    dir_path = "../experiments_chembl_5_13/chembl_gt3/high_noise/sample0/result3/"
+    # dir_path = "../experiments_chembl_5_13/chembl_gt3/high_noise/sample0/result3/"
+    dir_path = "toy_test/"
     new_dir_path = "test_dir/"
 
     original_view_files = glob.glob(dir_path + "view_*")
@@ -105,23 +107,25 @@ if __name__ == '__main__':
             print(contradiction1)
             exit()
 
-    # print(contradictory_views1)
-    # print(contradictory_views2)
-    print(len(set(contradictory_views2) - set(contradictory_views1)))
+    print("contradictory:")
+    print(contradictory_views1)
+    print(contradictory_views2)
+    # print(len(set(contradictory_views2) - set(contradictory_views1)))
 
 
     # print(numbers)
-    # complementary_views1 = set(results[0][3])
-    # complementary_views2 = set(results[1][3])
-    # print("complementary:")
-    # print(complementary_views1)
-    # print(complementary_views2)
+    complementary_views1 = set(results[0][3])
+    complementary_views2 = set(results[1][3])
+    print("complementary:")
+    pprint.pprint(complementary_views1)
+    pprint.pprint(complementary_views2)
+    # pprint.pprint(complementary_views2 - complementary_views1)
     #
-    # print("compatible:")
-    # compatible1 = results[1][0]
-    # compatible2 = results[0][0]
-    # print(compatible1)
-    # print(compatible2)
+    print("compatible:")
+    compatible1 = results[0][0]
+    compatible2 = results[1][0]
+    print(compatible1)
+    print(compatible2)
 
 
     # compatible1 = set([tuple(x) for x in results[1][0]])
@@ -154,11 +158,11 @@ if __name__ == '__main__':
     # # print(single1)
     # print(single2)
     #
-    # print("contained")
-    # contained1 = [results[0][1], results[0][2]]
-    # contained2 = [results[1][1], results[1][2]]
-    # print(contained1)
-    # print(contained2)
+    print("contained")
+    contained1 = [results[0][1], results[0][2]]
+    contained2 = [results[1][1], results[1][2]]
+    print(contained1)
+    print(contained2)
 
 
     # complementary_views1_dup = complementary_views1
