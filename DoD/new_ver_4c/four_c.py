@@ -106,7 +106,7 @@ def identify_compatible_contained_views(dfs):
                 # compatible
                 compatible_group.append(path2)
                 already_classified_as_compatible.add(path1)
-                already_classified_as_compatible.add(path2)
+                # already_classified_as_compatible.add(path2)
                 to_be_removed.add(path2)
             else:
                 hash_set1 = set(df1_hash)
