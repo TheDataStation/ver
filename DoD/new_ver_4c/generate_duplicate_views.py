@@ -88,19 +88,40 @@ if __name__ == '__main__':
                         flatten(complementary_groups_new), flatten(contradictory_groups_new)])
         times.append(elapsed_new)
 
+    print("-----------------------------------------------")
+
+    contradictory_views1 = results[0][4]
+    contradictory_views2 = results[1][4]
+    # print(contradictory_views1[:2])
+    # print(contradictory_views2[:2])
+    for contradiction1 in contradictory_views1:
+        # path11, path21, candidate_key1, contradictory_key_value1 = contradiction1
+        exist = False
+        for contradiction2 in contradictory_views1:
+            # path12, path22, candidate_key2, contradictory_key_value2 = contradiction2
+            if contradiction1 == contradiction2:
+                exist = True
+        if not exist:
+            print(contradiction1)
+            exit()
+
+    # print(contradictory_views1)
+    # print(contradictory_views2)
+    print(len(set(contradictory_views2) - set(contradictory_views1)))
+
 
     # print(numbers)
-    complementary_views1 = set(results[0][3])
-    complementary_views2 = set(results[1][3])
-    print("complementary:")
-    print(complementary_views1)
-    print(complementary_views2)
-
-    print("compatible:")
-    compatible1 = results[1][0]
-    compatible2 = results[0][0]
-    print(compatible1)
-    print(compatible2)
+    # complementary_views1 = set(results[0][3])
+    # complementary_views2 = set(results[1][3])
+    # print("complementary:")
+    # print(complementary_views1)
+    # print(complementary_views2)
+    #
+    # print("compatible:")
+    # compatible1 = results[1][0]
+    # compatible2 = results[0][0]
+    # print(compatible1)
+    # print(compatible2)
 
 
     # compatible1 = set([tuple(x) for x in results[1][0]])
@@ -119,25 +140,25 @@ if __name__ == '__main__':
     #     else:
     #         print(compatible_group)
     # print(count)
-    count = 0
-    single2 = set()
-    for compatible_group in results[1][0]:
-        if len(compatible_group) == 1:
-            # print(compatible_group)
-            count += 1
-            single2.add(compatible_group[0])
-        else:
-            print(compatible_group)
-    print(count)
+    # count = 0
+    # single2 = set()
+    # for compatible_group in results[1][0]:
+    #     if len(compatible_group) == 1:
+    #         # print(compatible_group)
+    #         count += 1
+    #         single2.add(compatible_group[0])
+    #     else:
+    #         print(compatible_group)
+    # print(count)
+    # #
+    # # print(single1)
+    # print(single2)
     #
-    # print(single1)
-    print(single2)
-
-    print("contained")
-    contained1 = [results[0][1], results[0][2]]
-    contained2 = [results[1][1], results[1][2]]
-    print(contained1)
-    print(contained2)
+    # print("contained")
+    # contained1 = [results[0][1], results[0][2]]
+    # contained2 = [results[1][1], results[1][2]]
+    # print(contained1)
+    # print(contained2)
 
 
     # complementary_views1_dup = complementary_views1

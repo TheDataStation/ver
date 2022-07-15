@@ -56,7 +56,6 @@ def identify_compatible_contained_views(dfs):
     total_identify_c1_c2_time = 0.0
 
     # dfs_sorted = sorted(dfs, key=lambda tup: len(tup[1]), reverse=True)
-    to_be_removed = set()
 
     for df1, path1 in dfs:
 
@@ -107,7 +106,7 @@ def identify_compatible_contained_views(dfs):
                 compatible_group.append(path2)
                 already_classified_as_compatible.add(path1)
                 # already_classified_as_compatible.add(path2)
-                to_be_removed.add(path2)
+                # to_be_removed.add(path2)
             else:
                 hash_set1 = set(df1_hash)
                 hash_set2 = set(df2_hash)
@@ -118,18 +117,20 @@ def identify_compatible_contained_views(dfs):
                         largest_contained_view = (df1, path1)
                     else:
                         if len(df1) > len(largest_contained_view[0]):
+                            already_classified_as_contained.add(largest_contained_view[1])
                             largest_contained_view = (df1, path1)
                     already_classified_as_contained.add(path2)
-                    to_be_removed.add(path2)
+                    # to_be_removed.add(path2)
                 elif hash_set1.issubset(hash_set2):
                     # view1 is contained in view2
                     if largest_contained_view is None:
                         largest_contained_view = (df2, path2)
                     else:
                         if len(df2) > len(largest_contained_view[0]):
+                            already_classified_as_contained.add(largest_contained_view[1])
                             largest_contained_view = (df2, path2)
                     already_classified_as_contained.add(path1)
-                    to_be_removed.add(path1)
+                    # to_be_removed.add(path1)
 
                 # else:
                 #
@@ -174,6 +175,8 @@ def identify_compatible_contained_views(dfs):
 
         if largest_contained_view is not None:
             largest_contained_views.add(largest_contained_view[1])
+
+    to_be_removed = already_classified_as_compatible.union(already_classified_as_contained)
 
     for df, path in dfs:
         if path not in to_be_removed:
@@ -322,6 +325,7 @@ def identify_complementary_contradictory_views(path_to_df_dict,
         for key_value, dfs in tqdm(inverted_index.items()):
 
             to_be_removed = set()
+            already_processed_pairs = set()
 
             if len(dfs) <= 1:
                 # only one view for this key value, no need to compare
@@ -330,7 +334,13 @@ def identify_complementary_contradictory_views(path_to_df_dict,
             for df1, path1, idx1 in dfs:
                 for df2, path2, idx2 in dfs:
 
-                    if path1 == path2 or path1 in to_be_removed or path2 in to_be_removed:
+                    if path1 == path2:
+                        continue
+
+                    if (path1, path2) in already_processed_pairs:
+                        continue
+
+                    if path1 in to_be_removed or path2 in to_be_removed:
                         continue
 
                     if not find_all_contradictions:
@@ -346,10 +356,21 @@ def identify_complementary_contradictory_views(path_to_df_dict,
                         to_be_removed.add(path1)
                     else:
                         # contradictory_keys.add(key_value)
-                        all_pair_result[(path1, path2)][candidate_key].add(key_value)
+
                         if not find_all_contradictions:
                             already_classified_as_contradictory.add((path1, path2))
                             already_classified_as_contradictory.add((path2, path1))
+
+                        # if (path2, path1) in all_pair_result.keys():
+                        #     p1 = path1
+                        #     path1 = path2
+                        #     path2 = p1
+
+                        all_pair_result[(path1, path2)][candidate_key].add(key_value)
+
+                    already_processed_pairs.add((path1, path2))
+                    already_processed_pairs.add((path2, path1))
+
 
     print(f"total_find_contradiction_time: {time.time() - start_time} s")
 
