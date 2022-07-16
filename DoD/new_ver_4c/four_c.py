@@ -39,6 +39,155 @@ def classify_per_table_schema(dataframes):
     return schema_to_dataframes, schema_id_info
 
 
+def identify_compatible_contained_views_optimized(dfs):
+    # already_classified_as_compatible = set()
+    already_classified_as_contained = set()
+    already_classified_as_compl_or_contr = set()
+    already_processed_pair = set()
+
+    compatible_groups = []
+    largest_contained_views = set()
+    candidate_complementary_contradictory_views = []
+    # compl_contra_relation_graph = defaultdict(lambda: defaultdict(tuple))
+
+    hash_dict = {}
+
+    total_hash_time = 0.0
+    total_identify_c1_c2_time = 0.0
+
+    compatible_clusters = defaultdict(set)
+
+    for df, path in dfs:
+
+        start_time = time.time()
+
+        df_hash = hash_pandas_object(df, index=False)
+
+        hash_sum = df_hash.sum()
+
+        total_hash_time += time.time() - start_time
+
+        hash_dict[path] = df_hash
+
+        compatible_clusters[hash_sum].add(path)
+
+    # compatible_count = len(compatible_clusters.keys())
+
+    compatible_views_to_remove = set()
+    for k, cluster in compatible_clusters.items():
+        compatible_groups.append(cluster.copy())
+        # only keep the first compatible view
+        cluster.pop()
+        compatible_views_to_remove.update(cluster)
+
+    for df1, path1 in dfs:
+
+        if path1 in compatible_views_to_remove \
+                or path1 in already_classified_as_contained:
+            continue
+
+        # compatible_group = [path1]
+        # contained_group = [path1]
+        largest_contained_view = None
+
+        for df2, path2 in dfs:
+
+            if path2 in compatible_views_to_remove \
+                    or path2 in already_classified_as_contained:
+                continue
+
+            if (path1, path2) in already_processed_pair:
+                continue
+
+            if path1 == path2:
+                continue
+
+            df1_hash = hash_dict[path1]
+
+            df2_hash = hash_dict[path2]
+
+            start_time = time.time()
+
+            hash_set1 = set(df1_hash)
+            hash_set2 = set(df2_hash)
+
+            if hash_set2.issubset(hash_set1):
+                # view2 is contained in view1
+                if largest_contained_view is None:
+                    largest_contained_view = (df1, path1)
+                else:
+                    if len(df1) > len(largest_contained_view[0]):
+                        already_classified_as_contained.add(largest_contained_view[1])
+                        largest_contained_view = (df1, path1)
+                already_classified_as_contained.add(path2)
+            elif hash_set1.issubset(hash_set2):
+                # view1 is contained in view2
+                if largest_contained_view is None:
+                    largest_contained_view = (df2, path2)
+                else:
+                    if len(df2) > len(largest_contained_view[0]):
+                        already_classified_as_contained.add(largest_contained_view[1])
+                        largest_contained_view = (df2, path2)
+                already_classified_as_contained.add(path1)
+
+                # else:
+                #
+                #     if path1 not in already_classified_as_compl_or_contr:
+                #         candidate_complementary_contradictory_views.append((df1, path1))
+                #         already_classified_as_compl_or_contr.add(path1)
+                #     if path2 not in already_classified_as_compl_or_contr:
+                #         candidate_complementary_contradictory_views.append((df2, path2))
+                #         already_classified_as_compl_or_contr.add(path2)
+
+                # # Verify that views are potentially complementary
+                # s12 = (hash_set1 - hash_set2)
+                # s1_complement = set()
+                # if len(s12) > 0:
+                #     s1_complement.update((s12))
+                # s21 = (hash_set2 - hash_set1)
+                # s2_complement = set()
+                # if len(s21) > 0:
+                #     s2_complement.update((s21))
+                #
+                # if len(s1_complement) > 0 and len(s2_complement) > 0:  # and, otherwise it's a containment rel
+                #
+                #     # idx1 = [idx for idx, value in enumerate(hash_set1) if value in s1_complement]
+                #     # idx2 = [idx for idx, value in enumerate(hash_set2) if value in s2_complement]
+                #
+                #     if path1 not in already_classified_as_compl_or_contr:
+                #         candidate_complementary_contradictory_views.append((df1, path1))
+                #         already_classified_as_compl_or_contr.add(path1)
+                #     if path2 not in already_classified_as_compl_or_contr:
+                #         candidate_complementary_contradictory_views.append((df2, path2))
+                #         already_classified_as_compl_or_contr.add(path2)
+
+            already_processed_pair.add((path1, path2))
+            already_processed_pair.add((path2, path1))
+
+            total_identify_c1_c2_time += time.time() - start_time
+
+        # if len(compatible_group) > 1:
+        # compatible_groups.append(compatible_group)
+        # compatible_groups.add(path1)
+        # compatible_groups.append(compatible_group)
+
+        if largest_contained_view is not None:
+            largest_contained_views.add(largest_contained_view[1])
+
+    to_be_removed = compatible_views_to_remove.union(already_classified_as_contained)
+
+    for df, path in dfs:
+        if path not in to_be_removed:
+            candidate_complementary_contradictory_views.append((df, path))
+
+    print(f"total_hash_time: {total_hash_time}")
+    print(f"total_identify_c1_c2_time: {total_identify_c1_c2_time}")
+
+    return compatible_groups, largest_contained_views, already_classified_as_contained, \
+           candidate_complementary_contradictory_views  # ,
+    # compl_contra_relation_graph
+
+
 def identify_compatible_contained_views(dfs):
     already_classified_as_compatible = set()
     already_classified_as_contained = set()
@@ -304,7 +453,7 @@ def build_inverted_index(dfs, candidate_key_size=2):
 def identify_complementary_contradictory_views(path_to_df_dict,
                                                candidate_complementary_contradictory_views,
                                                candidate_key_size=2,
-                                               find_all_contradictions=False):
+                                               find_all_contradictions=True):
     candidate_key_to_inverted_index, view_to_candidate_keys_dict = \
         build_inverted_index(
             candidate_complementary_contradictory_views,
@@ -338,6 +487,9 @@ def identify_complementary_contradictory_views(path_to_df_dict,
                 clusters[path].add(path)
 
             for df1, path1, idx1 in dfs:
+
+                if path1 in to_be_removed:
+                    continue
 
                 for df2, path2, idx2 in dfs:
 
@@ -404,7 +556,7 @@ def identify_complementary_contradictory_views(path_to_df_dict,
                         if (path1, path2) in already_classified_as_contradictory:
                             continue
 
-                    if path1 in to_be_removed or path2 in to_be_removed:
+                    if path2 in to_be_removed:
                         continue
 
                     # complementary_keys1 = set()
@@ -553,6 +705,130 @@ def identify_complementary_contradictory_views(path_to_df_dict,
     return complementary_pairs, contradictory_pairs, all_pair_result
 
 
+def identify_complementary_contradictory_views_optimized(path_to_df_dict,
+                                               candidate_complementary_contradictory_views,
+                                               candidate_key_size=2,
+                                               find_all_contradictions=True):
+    candidate_key_to_inverted_index, view_to_candidate_keys_dict = \
+        build_inverted_index(
+            candidate_complementary_contradictory_views,
+            candidate_key_size)
+
+    start_time = time.time()
+
+    all_pair_result = defaultdict(lambda: defaultdict(set))
+
+    # print(candidate_key_to_inverted_index[tuple("a")][(2,)])
+
+    for candidate_key, inverted_index in tqdm(candidate_key_to_inverted_index.items()):
+
+        already_classified_as_contradictory = set()
+
+        for key_value, dfs in tqdm(inverted_index.items()):
+
+            if len(dfs) <= 1:
+                # only one view for this key value, no need to compare
+                continue
+
+            clusters = defaultdict(set)
+
+            for df, path, idx in dfs:
+                row = tuple(df.iloc[idx])
+                clusters[row].add(path)
+
+            already_added = set()
+            for row1, cluster1 in clusters.items():
+
+                for row2, cluster2 in clusters.items():
+
+                    if row1 == row2:
+                        continue
+
+                    for path1 in cluster1:
+                        for path2 in cluster2:
+
+                            if path1 == path2:
+                                continue
+                            if (path1, path2) in already_added:
+                                continue
+                            if not find_all_contradictions:
+                                if (path1, path2) in already_classified_as_contradictory:
+                                    continue
+
+                            all_pair_result[(path1, path2)][candidate_key].add(key_value)
+
+                            already_added.add((path1, path2))
+                            already_added.add((path2, path1))
+
+                            if not find_all_contradictions:
+                                already_classified_as_contradictory.add((path1, path2))
+                                already_classified_as_contradictory.add((path2, path1))
+
+
+    print(f"total_find_contradiction_time: {time.time() - start_time} s")
+
+    # print(all_pair_result[("test_dir/view_1.csv", "test_dir/view_2.csv")])
+    # print(all_pair_result)
+
+    start_time = time.time()
+    # processed_pairs = list(all_pair_result.keys())
+    processed_pairs = set()
+    for pair in all_pair_result.keys():
+        path1, path2 = pair
+        processed_pairs.add((path1, path2))
+        processed_pairs.add((path2, path1))
+
+    complementary_contradictory_view_paths = [path for df, path in candidate_complementary_contradictory_views]
+    complementary_pairs_dup = set(itertools.product(complementary_contradictory_view_paths, repeat=2)) - processed_pairs
+    complementary_pairs_dedup = set()
+    complementary_pairs = []
+    for pair in tqdm(complementary_pairs_dup):
+
+        path1, path2 = pair
+        if path1 == path2:
+            continue
+
+        if pair not in complementary_pairs_dedup:
+
+            complementary_pairs_dedup.add((path1, path2))
+            complementary_pairs_dedup.add((path2, path1))
+
+            candidate_keys1 = view_to_candidate_keys_dict[path1]
+            candidate_keys2 = view_to_candidate_keys_dict[path2]
+
+            if len(candidate_keys1) == 0 and len(candidate_keys2) == 0:
+                continue
+
+            candidate_keys = set(candidate_keys1).intersection(set(candidate_keys2))
+
+            for candidate_key in candidate_keys:
+                # complementary only if the key values from two views have some overlap
+                df1 = path_to_df_dict[path1]
+                df2 = path_to_df_dict[path2]
+                key_values1 = set(tuple(r) for r in df1[list(candidate_key)].to_numpy())
+                key_values2 = set(tuple(r) for r in df2[list(candidate_key)].to_numpy())
+                # print("key_values1", key_values1)
+                # print("key_values2", key_values2)
+                if not key_values1.isdisjoint(key_values2):
+                    complementary_pairs.append((path1, path2, candidate_key))
+                # else:
+                #     print("in")
+
+    contradictory_pairs = []
+    for path, v1 in all_pair_result.items():
+        path1, path2 = path
+        for candidate_key, contradictory_key_values in v1.items():
+            if len(contradictory_key_values) == 0:
+                complementary_pairs.append((path1, path2, candidate_key))
+            else:
+                for contradictory_key_value in contradictory_key_values:
+                    contradictory_pairs.append((path1, path2, candidate_key, contradictory_key_value))
+
+    print(f"total_find_complementary_time: {time.time() - start_time} s")
+
+    return complementary_pairs, contradictory_pairs, all_pair_result
+
+
 def main(input_path, candidate_key_size=2, find_all_contradictions=False):
     start_time = time.time()
     dfs, path_to_df_dict = get_dataframes(input_path)
@@ -579,7 +855,7 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=False):
         start_time = time.time()
         compatible_views, largest_contained_views, removed_contained_views, \
         candidate_complementary_contradictory_views = \
-            identify_compatible_contained_views(group_dfs)
+            identify_compatible_contained_views_optimized(group_dfs)
         elapsed = time.time() - start_time
         print(f"identify_compatible_contained_views time: {elapsed} s")
 
@@ -590,7 +866,7 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=False):
 
         start_time = time.time()
         complementary_pairs, contradictory_pairs, all_pair_result = \
-            identify_complementary_contradictory_views(path_to_df_dict,
+            identify_complementary_contradictory_views_optimized(path_to_df_dict,
                                                        candidate_complementary_contradictory_views,
                                                        candidate_key_size=candidate_key_size,
                                                        find_all_contradictions=find_all_contradictions)
