@@ -32,7 +32,7 @@ if __name__ == '__main__':
     results = []
     times = []
 
-    for duplicate in [1, 3]:
+    for duplicate in [12]:
 
         clear_dir(new_dir_path)
 
