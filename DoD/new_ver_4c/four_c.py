@@ -65,7 +65,7 @@ def identify_compatible_contained_views_optimized(dfs):
 
         hash_sum = df_hash.sum()
 
-        hash_dict[path] = df_hash
+        hash_dict[path] = set(df_hash)
 
         compatible_clusters[hash_sum].add(path)
 
@@ -104,12 +104,12 @@ def identify_compatible_contained_views_optimized(dfs):
             if path1 == path2:
                 continue
 
-            df1_hash = hash_dict[path1]
+            hash_set1 = hash_dict[path1]
 
-            df2_hash = hash_dict[path2]
+            hash_set2 = hash_dict[path2]
 
-            hash_set1 = set(df1_hash)
-            hash_set2 = set(df2_hash)
+            # hash_set1 = set(df1_hash)
+            # hash_set2 = set(df2_hash)
 
             if hash_set2.issubset(hash_set1):
                 # view2 is contained in view1
