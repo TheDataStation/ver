@@ -77,7 +77,11 @@ if __name__ == '__main__':
 
                 original_view_files = set(glob.glob(dir_path + "/view_*"))
 
-                path_to_df_dict, compatible_groups, contained_groups, removed_contained_groups, complementary_groups, contradictory_groups, \
+                path_to_df_dict, \
+                compatible_groups, removed_compatible_views, \
+                contained_groups, removed_contained_views, \
+                complementary_groups, \
+                contradictory_groups, \
                 all_pair_results = \
                     v4c.main(dir_path, candidate_key_size, find_all_contradictions=True)
 
@@ -91,12 +95,13 @@ if __name__ == '__main__':
 
                 # print(compatible_groups)
 
-                view_files = prune_compatible_views(original_view_files, compatible_groups)
+                # view_files = prune_compatible_views(original_view_files, compatible_groups)
+                view_files = original_view_files - set(removed_compatible_views)
                 print("After pruning compatible views: ", len(view_files))
                 num_views_after_prune_compatible = len(view_files)
                 eval_file.write(str(num_views_after_prune_compatible) + ",")
 
-                view_files = view_files - set(removed_contained_groups)
+                view_files = view_files - set(removed_contained_views)
                 print("After pruning contained views: ", len(view_files))
                 eval_file.write(str(len(view_files)) + ",")
 

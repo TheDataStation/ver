@@ -18,7 +18,7 @@ def flatten(alist):
 
 if __name__ == '__main__':
     dir_path = "../experiments_chembl_5_13/chembl_gt3/high_noise/sample0/result3/"
-    # dir_path = "toy_test/"
+    # dir_path = "toytest/"
     new_dir_path = "test_dir/"
 
     original_view_files = glob.glob(dir_path + "view_*")
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     results = []
     times = []
 
-    for duplicate in [12]:
+    for duplicate in [1, 2]:
 
         clear_dir(new_dir_path)
 
@@ -67,8 +67,12 @@ if __name__ == '__main__':
         # elapsed = time.time() - start_time
         #
         start_time = time.time()
-        _, compatible_groups_new, contained_groups_new, removed_contained_groups, complementary_groups_new, contradictory_groups_new, _ = \
-            v4c.main(new_dir_path, find_all_contradictions=True)
+        path_to_df_dict, \
+        compatible_groups, removed_compatible_groups, \
+        contained_groups, removed_contained_groups, \
+        complementary_groups, \
+        contradictory_groups, \
+        all_pair_results = v4c.main(new_dir_path, find_all_contradictions=True)
         elapsed_new = time.time() - start_time
 
         # print("-----------------------------------------------")
@@ -80,14 +84,14 @@ if __name__ == '__main__':
         # print(f"time: {elapsed}")
 
         print("-----------------------------------------------")
-        print(f"num compatible groups: {len(compatible_groups_new)}")
-        print(f"num contained views: {len(contained_groups_new)}")
-        print(f"num complementary pairs: {len(flatten(complementary_groups_new))}")
-        print(f"num contradictions: {len(flatten(contradictory_groups_new))}")
+        print(f"num compatible groups: {len(compatible_groups)}")
+        print(f"num contained views: {len(contained_groups)}")
+        print(f"num complementary pairs: {len(flatten(complementary_groups))}")
+        print(f"num contradictions: {len(flatten(contradictory_groups))}")
         print(f"time: {elapsed_new}")
 
-        results.append([compatible_groups_new, contained_groups_new, removed_contained_groups,
-                        flatten(complementary_groups_new), flatten(contradictory_groups_new)])
+        results.append([compatible_groups, contained_groups, removed_contained_groups,
+                        flatten(complementary_groups), flatten(contradictory_groups)])
         times.append(elapsed_new)
 
     print("-----------------------------------------------")

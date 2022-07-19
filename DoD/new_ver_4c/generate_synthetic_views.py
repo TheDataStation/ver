@@ -14,8 +14,8 @@ def clear_dir(path):
 
 if __name__ == "__main__":
 
-    num_views_list = [1000]
-    num_rows = 1000
+    num_views_list = [500, 1000]
+    num_rows = 10000
 
     key_col = np.arange(num_rows)
     other_col = np.zeros(num_rows, dtype=int)
@@ -96,7 +96,7 @@ if __name__ == "__main__":
             input_path = f"{root_dir}/synthetic_views/{group}/"
 
             start_time = time.time()
-            four_c.main(input_path)
+            four_c.main(input_path, find_all_contradictions=True)
             elapsed = time.time() - start_time
 
             print(f"total 4c time for {group}: {elapsed} s")

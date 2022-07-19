@@ -2,6 +2,11 @@
 .ipynb_checkpoints/
 .python-version
 synthetic_views/
+test_dir/
+toytest/
+output_views_test/
+jp710_full/
+log*.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
