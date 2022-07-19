@@ -23,13 +23,12 @@ if __name__ == "__main__":
     base_view = pd.DataFrame({"key": key_col, "other": other_col})
     # print(base_view)
 
-    # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/synthetic_views"
-    # root_dir = "/home/cc/aurum-dod-staging/DoD/new_ver_4c"
-    root_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c"
+    root_dir = "/home/cc/aurum-dod-staging/DoD/new_ver_4c"
+    # root_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c"
     data_dir = f"{root_dir}/synthetic_views"
 
     # log = open("/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/log.txt", "w")
-    log = open(f"{root_dir}/log.txt", "w")
+    log = open(f"{root_dir}/synth.log", "w")
     times = defaultdict(list)
 
     for num_views in num_views_list:

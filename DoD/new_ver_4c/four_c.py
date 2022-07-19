@@ -42,7 +42,7 @@ def classify_per_table_schema(dataframes):
 def identify_compatible_contained_views_optimized(dfs):
     # already_classified_as_compatible = set()
     already_classified_as_contained = set()
-    already_classified_as_compl_or_contr = set()
+    # already_classified_as_compl_or_contr = set()
     already_processed_pair = set()
 
     compatible_groups = []
@@ -52,20 +52,18 @@ def identify_compatible_contained_views_optimized(dfs):
 
     hash_dict = {}
 
-    total_hash_time = 0.0
-    total_identify_c1_c2_time = 0.0
+    total_identify_c1_time = 0.0
+    total_identify_c2_time = 0.0
+
+    start_time = time.time()
 
     compatible_clusters = defaultdict(set)
 
     for df, path in dfs:
 
-        start_time = time.time()
-
         df_hash = hash_pandas_object(df, index=False)
 
         hash_sum = df_hash.sum()
-
-        total_hash_time += time.time() - start_time
 
         hash_dict[path] = df_hash
 
@@ -79,6 +77,10 @@ def identify_compatible_contained_views_optimized(dfs):
         # only keep the first compatible view
         cluster.pop()
         compatible_views_to_remove.update(cluster)
+
+    total_identify_c1_time += time.time() - start_time
+
+    start_time = time.time()
 
     for df1, path1 in dfs:
 
@@ -105,8 +107,6 @@ def identify_compatible_contained_views_optimized(dfs):
             df1_hash = hash_dict[path1]
 
             df2_hash = hash_dict[path2]
-
-            start_time = time.time()
 
             hash_set1 = set(df1_hash)
             hash_set2 = set(df2_hash)
@@ -163,8 +163,6 @@ def identify_compatible_contained_views_optimized(dfs):
             already_processed_pair.add((path1, path2))
             already_processed_pair.add((path2, path1))
 
-            total_identify_c1_c2_time += time.time() - start_time
-
         # if len(compatible_group) > 1:
         # compatible_groups.append(compatible_group)
         # compatible_groups.add(path1)
@@ -179,8 +177,10 @@ def identify_compatible_contained_views_optimized(dfs):
         if path not in to_be_removed:
             candidate_complementary_contradictory_views.append((df, path))
 
-    print(f"total_hash_time: {total_hash_time}")
-    print(f"total_identify_c1_c2_time: {total_identify_c1_c2_time}")
+    total_identify_c2_time += time.time() - start_time
+
+    print(f"total_identify_c1_time: {total_identify_c1_time}")
+    print(f"total_identify_c2_time: {total_identify_c2_time}")
 
     return compatible_groups, compatible_views_to_remove, \
            largest_contained_views, already_classified_as_contained, \
@@ -868,7 +868,7 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True):
 
         start_time = time.time()
         compatible_views, compatible_views_to_remove, \
-        largest_contained_views, removed_contained_views, \
+        largest_contained_views, contained_views_to_remove, \
         candidate_complementary_contradictory_views = \
             identify_compatible_contained_views_optimized(group_dfs)
         elapsed = time.time() - start_time
@@ -895,7 +895,7 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True):
         compatible_groups += compatible_views
         removed_compatible_views += list(compatible_views_to_remove)
         contained_groups += list(largest_contained_views)
-        removed_contained_views += list(removed_contained_views)
+        removed_contained_views += list(contained_views_to_remove)
         complementary_groups.append(complementary_pairs)
         contradictory_groups.append(contradictory_pairs)
         all_pair_results.update(all_pair_result)
