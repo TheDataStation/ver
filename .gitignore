@@ -5,8 +5,9 @@ synthetic_views/
 test_dir/
 toytest/
 output_views_test/
-jp710_full/
+data/
 log*.txt
+*.npy
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

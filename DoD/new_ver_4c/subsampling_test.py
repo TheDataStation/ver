@@ -21,8 +21,10 @@ def flatten(alist):
 
 
 if __name__ == '__main__':
-    data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
-    new_dir_path = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
+    # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
+    # new_dir_path = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
+    data_dir = "/home/cc/output_views2"
+    new_dir_path = "/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
     sample_portion_list = [0.25, 0.5, 0.75, 1.0]
 
     all_tables = []
@@ -33,9 +35,9 @@ if __name__ == '__main__':
     print(f"num table: {len(all_tables)}")
     # print(all_tables)
 
-    # result_dirs = [f"{dir_path}/jp710_full", f"{dir_path}/jp_1204", f"{dir_path}/jp_1572"]
-    result_dirs = [os.path.join(data_dir, name) for name in os.listdir(data_dir)
-                   if os.path.isdir(os.path.join(data_dir, name))]
+    result_dirs = [f"{data_dir}/jp710_full", f"{data_dir}/jp_1204", f"{data_dir}/jp_1572"]
+    # result_dirs = [os.path.join(data_dir, name) for name in os.listdir(data_dir)
+    #                if os.path.isdir(os.path.join(data_dir, name))]
     # print(result_dirs)
 
     times = np.zeros((len(result_dirs), len(sample_portion_list)))
