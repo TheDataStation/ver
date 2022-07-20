@@ -6,6 +6,9 @@ import shutil
 import time
 from collections import defaultdict
 import re
+
+import numpy as np
+
 import four_c as v4c
 
 
@@ -18,89 +21,116 @@ def flatten(alist):
 
 
 if __name__ == '__main__':
-    dir_path = "jp710_full"
-    new_dir_path = "test_dir/"
+    data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
+    new_dir_path = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
+    sample_portion_list = [0.25, 0.5, 0.75, 1.0]
 
-    view_files = glob.glob(dir_path + "view_*")
-
-    provenance = {}
-    with open(f"{dir_path}/log.txt", "r") as log:
-        lines = log.readlines()
-        chunks = [lines[x:x + 3] for x in range(0, len(lines), 3)]
-        for i, chunk in enumerate(chunks):
-            line = chunk[1].strip()
-            tables = set(re.split(pattern=", .+ JOIN |, .+", string=line))
-            if '' in tables:
-                tables.remove('')
-            view_name = f"{dir_path}/view_{i}.csv"
-            provenance[view_name] = tables
-
-    # pprint.pprint(provenance)
     all_tables = []
-    with open("all_tables.txt", "r") as f:
+    with open(f"{data_dir}/all_tables.txt", "r") as f:
         lines = f.readlines()
         for line in lines:
             all_tables.append(line.strip())
     print(f"num table: {len(all_tables)}")
     # print(all_tables)
 
-    times = []
-    results = []
+    # result_dirs = [f"{dir_path}/jp710_full", f"{dir_path}/jp_1204", f"{dir_path}/jp_1572"]
+    result_dirs = [os.path.join(data_dir, name) for name in os.listdir(data_dir)
+                   if os.path.isdir(os.path.join(data_dir, name))]
+    # print(result_dirs)
 
-    sample_portion_list = [0.25, 0.5, 0.75, 1.0]
+    times = np.zeros((len(result_dirs), len(sample_portion_list)))
+    results = np.zeros((len(result_dirs), len(sample_portion_list), 5))
 
-    base_sample_size = int(sample_portion_list[0] * len(all_tables))
-    base_sample = random.sample(all_tables, base_sample_size)
-    num_views = []
+    for i, dir in enumerate(result_dirs):
 
-    for sample_portion in sample_portion_list:
+        print(f"dir name: {dir}")
 
-        sample_size = int(sample_portion * len(all_tables))
-        rest_of_tables = set(all_tables) - set(base_sample)
-        sampled_tables = random.sample(list(rest_of_tables), sample_size - base_sample_size) + base_sample
+        view_files = glob.glob(f"{dir}/view_*")
 
-        views = []
-        for view, tables in provenance.items():
-            if tables.issubset(sampled_tables):
-                views.append(view)
+        provenance = {}
+        with open(f"{dir}/log.txt", "r") as log:
+            lines = log.readlines()
+            chunk_size = 4
+            if "jp710_full" in dir:
+                chunk_size = 3
+            chunks = [lines[x:x + chunk_size] for x in range(0, len(lines), chunk_size)]
+            for chunk in chunks:
+                line = chunk[1].strip()
+                tables = set(re.split(pattern=", .+ JOIN |, .+", string=line))
+                if '' in tables:
+                    tables.remove('')
+                view_name = f"{dir}/{chunk[0].strip()}"
+                provenance[view_name] = tables
 
-        clear_dir(new_dir_path)
-        for view in views:
-            shutil.copy(view, new_dir_path)
+        # pprint.pprint(provenance)
 
-        num_views.append(len(views))
+        base_sample_size = int(sample_portion_list[0] * len(all_tables))
+        base_sample = random.sample(all_tables, base_sample_size)
+        # num_views = []
 
-        start_time = time.time()
+        for j, sample_portion in enumerate(sample_portion_list):
 
-        path_to_df_dict, \
-        compatible_groups, removed_compatible_groups, \
-        contained_groups, removed_contained_groups, \
-        complementary_groups, \
-        contradictory_groups, \
-        all_pair_results = \
-            v4c.main(new_dir_path, find_all_contradictions=True)
+            print(f"sample portion = {sample_portion}")
 
-        elapsed_new = time.time() - start_time
-        times.append(elapsed_new)
+            sample_size = int(sample_portion * len(all_tables))
+            rest_of_tables = set(all_tables) - set(base_sample)
+            sampled_tables = random.sample(list(rest_of_tables), sample_size - base_sample_size) + base_sample
 
-        print("-----------------------------------------------")
-        print(f"num compatible groups: {len(compatible_groups)}")
-        print(f"num contained views: {len(contained_groups)}")
-        print(f"num complementary pairs: {len(flatten(complementary_groups))}")
-        print(f"num contradictions: {len(flatten(contradictory_groups))}")
-        print(f"time: {elapsed_new}")
+            views = []
+            for view, tables in provenance.items():
+                if tables.issubset(sampled_tables):
+                    views.append(view)
 
-        results.append([len(views), len(compatible_groups), len(contained_groups),
-                        len(flatten(complementary_groups)), len(flatten(contradictory_groups))])
+            clear_dir(new_dir_path)
+            for view in views:
+                shutil.copy(view, new_dir_path)
+
+            # num_views.append(len(views))
+
+            start_time = time.time()
+
+            path_to_df_dict, \
+            compatible_groups, removed_compatible_views, \
+            contained_groups, removed_contained_views, \
+            complementary_groups, \
+            contradictory_groups, \
+            all_pair_results = \
+                v4c.main(new_dir_path, find_all_contradictions=True)
+
+            elapsed = time.time() - start_time
+            # print(i, j)
+            times[i][j] = elapsed
+
+            num_views_after_pruning_compatible = len(views) - len(removed_compatible_views)
+            num_views_after_pruning_contained = num_views_after_pruning_compatible - len(removed_contained_views)
+
+            print("-----------------------------------------------")
+            # print(f"num compatible groups: {len(compatible_groups)}")
+            # print(f"num contained views: {len(contained_groups)}")
+            print(f"num_views_after_pruning_compatible: {num_views_after_pruning_compatible}")
+            print(f"num_views_after_pruning_contained: {num_views_after_pruning_contained}")
+            print(f"num complementary pairs: {len(flatten(complementary_groups))}")
+            print(f"num contradictions: {len(flatten(contradictory_groups))}")
+            print(f"time: {elapsed}")
+
+            # results.append([len(views), len(compatible_groups), len(contained_groups),
+            #                 len(flatten(complementary_groups)), len(flatten(contradictory_groups))])
+            results[i][j] = [len(views), num_views_after_pruning_compatible, num_views_after_pruning_contained,
+                             len(flatten(complementary_groups)), len(flatten(contradictory_groups))]
 
     print(times)
-    with open("times.log", "w") as f:
-        for time in times:
-            f.write(str(time) + "\n")
+    np.save("times.npy", times)
+
+    # with open("times.log", "w") as f:
+    #     for time in times:
+    #         f.write(str(time) + "\n")
 
     print(results)
-    with open("results.log", "w") as f:
-        for result in results:
-            for num in result:
-                f.write(str(num) + " ")
-            f.write("\n")
+    np.save("results.npy", results)
+    # with open("results.log", "w") as f:
+    #     for result in results:
+    #         for num in result:
+    #             f.write(str(num) + " ")
+    #         f.write("\n")
+    clear_dir(new_dir_path)
+
