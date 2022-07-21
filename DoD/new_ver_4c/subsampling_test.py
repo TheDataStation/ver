@@ -17,6 +17,7 @@ def clear_dir(path):
     for f in os.listdir(path):
         os.remove(os.path.join(path, f))
 
+
 def flatten(alist):
     return [x for l in alist for x in l]
 
@@ -27,7 +28,8 @@ if __name__ == '__main__':
 
     # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
     # new_dir_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
-
+    # results_dir = "results"
+    # #
     data_dir = "/home/cc/output_views_small"
     provenance_dir = "/home/cc/output_views_join_paths"
     new_dir_path = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
@@ -36,7 +38,7 @@ if __name__ == '__main__':
     random_seed = 0
     random.seed(a=random_seed)
 
-    sample_portion_list = [0.25, 0.5, 0.75, 1.0]
+    sample_portion_list = [0.25, 0.50, 0.75, 1.0]
     find_all_contradictions = True
 
     all_tables = []
@@ -81,11 +83,14 @@ if __name__ == '__main__':
 
         df = pd.read_csv(f"{provenance_dir}/{view_dir}/join_paths.csv")
         provenance_tables = df[["tbl1", "tbl2"]].values.tolist()
-        for view_num, tables in enumerate(provenance_tables):
-            view_name = f"{data_dir}/{view_dir}/view_{view_num}.csv"
+
+        for view in view_files:
+            result = re.search('view_(\d*).csv', view)
+            view_num = int(result.group(1))
+            tables = provenance_tables[view_num]
             if np.nan in tables:
                 tables.remove(np.nan)
-            provenance[view_name] = set(tables)
+            provenance[view] = set(tables)
 
         # pprint.pprint(provenance)
 
@@ -132,7 +137,6 @@ if __name__ == '__main__':
             elapsed = time.time() - start_time
             # print(i, j)
 
-
             num_views_after_pruning_compatible = len(views) - len(removed_compatible_views)
             num_views_after_pruning_contained = num_views_after_pruning_compatible - len(removed_contained_views)
 
@@ -147,8 +151,6 @@ if __name__ == '__main__':
             print(f"num contradictory pairs: {len(all_contradictory_pair_results)}")
             print(f"total num contradictions: {len(flatten(contradictory_groups))}")
 
-
-
             print(f"time: {elapsed}")
             print(f"total_identify_c1_time: {total_identify_c1_time}")
             print(f"total_identify_c2_time: {total_identify_c2_time}")
@@ -157,14 +159,14 @@ if __name__ == '__main__':
             print(f"find_complementary_contradictory_time_total: {find_complementary_contradictory_time_total}")
             print("-----------------------------------------------")
 
-
             # results.append([len(views), len(compatible_groups), len(contained_groups),
             #                 len(flatten(complementary_groups)), len(flatten(contradictory_groups))])
             results[i][j] = [len(views), total_num_rows,
                              num_views_after_pruning_compatible, num_views_after_pruning_contained,
                              len(flatten(complementary_groups)), len(all_contradictory_pair_results),
                              len(flatten(contradictory_groups))]
-            times[i][j] = [elapsed, total_identify_c1_time, total_identify_c2_time, find_complementary_contradictory_time_total]
+            times[i][j] = [elapsed, total_identify_c1_time, total_identify_c2_time,
+                           find_complementary_contradictory_time_total]
             schema_groups.append(schema_group)
 
     print(times)
@@ -189,4 +191,3 @@ if __name__ == '__main__':
             f.write("\n")
 
     clear_dir(new_dir_path)
-
