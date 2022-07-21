@@ -34,7 +34,7 @@ if __name__ == '__main__':
     data_dir = "/home/cc/output_views_small"
     provenance_dir = "/home/cc/output_views_join_paths"
     new_dir_path = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
-    results_dir = "/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results"
+    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results{experiment_num}"
 
     random_seed = 0
     random.seed(a=random_seed)
