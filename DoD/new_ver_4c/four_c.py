@@ -13,14 +13,16 @@ def get_dataframes(path):
     files = [path + f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store' and f != "log.txt"]
     dfs = []
     path_to_df_dict = {}
+    total_num_rows = 0
     for f in files:
         df = pd.read_csv(f, encoding='latin1', thousands=',')  # .replace('"','', regex=True)
         df = curate_view(df)
         df = normalize(df)
         if len(df) > 0:  # only append valid df
             dfs.append((df, f))
+            total_num_rows += len(df)
         path_to_df_dict[f] = df
-    return dfs, path_to_df_dict
+    return dfs, path_to_df_dict, total_num_rows
 
 
 def classify_per_table_schema(dataframes):
@@ -183,7 +185,8 @@ def identify_compatible_contained_views_optimized(dfs):
 
     return compatible_groups, compatible_views_to_remove, \
            largest_contained_views, already_classified_as_contained, \
-           candidate_complementary_contradictory_views  # ,
+           candidate_complementary_contradictory_views, \
+           total_identify_c1_time, total_identify_c2_time  # ,
     # compl_contra_relation_graph
 
 
@@ -1031,7 +1034,7 @@ def identify_complementary_contradictory_views_optimized(path_to_df_dict,
 
 def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniqueness_threshold=0.9):
     start_time = time.time()
-    dfs, path_to_df_dict = get_dataframes(input_path)
+    dfs, path_to_df_dict, total_num_rows = get_dataframes(input_path)
     get_df_time = time.time() - start_time
     print(f"get_dataframes time: {get_df_time} s")
     print("Found " + str(len(dfs)) + " valid views")
@@ -1051,18 +1054,25 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
     all_contradictory_pair_results = {}
     find_compatible_contained_time_total = 0.0
     find_complementary_contradictory_time_total = 0.0
+    schema_group = []
+    total_identify_c1_time = 0.0
+    total_identify_c2_time = 0.0
 
     for key, group_dfs in dfs_per_schema.items():
         print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
+        schema_group.append(len(group_dfs))
 
         start_time = time.time()
         compatible_views, compatible_views_to_remove, \
         largest_contained_views, contained_views_to_remove, \
-        candidate_complementary_contradictory_views = \
-            identify_compatible_contained_views_new(group_dfs)
+        candidate_complementary_contradictory_views, \
+        identify_c1_time, identify_c2_time = \
+            identify_compatible_contained_views_optimized(group_dfs)
         find_compatible_contained_time = time.time() - start_time
         print(f"identify_compatible_contained_views time: {find_compatible_contained_time} s")
         find_compatible_contained_time_total += find_compatible_contained_time
+        total_identify_c1_time += identify_c1_time
+        total_identify_c2_time += identify_c2_time
 
         # print(f"number of compatible groups: {len(compatible_views)}")
         # print(compatible_views)
@@ -1078,7 +1088,7 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
                                                                  uniqueness_threshold=uniqueness_threshold)
         find_complementary_contradictory_time = time.time() - start_time
         print(f"identify_complementary_contradictory_views time: {find_complementary_contradictory_time} s")
-        find_complementary_contradictory_time_total += find_compatible_contained_time
+        find_complementary_contradictory_time_total += find_complementary_contradictory_time
         # print(f"number of contradictory pairs: {len(contradictory_pairs)}")
         # print(f"number of complementary pairs: {len(complementary_pairs)}")
         # pprint.pprint(complementary_pairs)
@@ -1098,8 +1108,9 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
            complementary_groups, \
            contradictory_groups, \
            all_contradictory_pair_results, \
-           find_compatible_contained_time_total, find_complementary_contradictory_time_total
-
+           find_compatible_contained_time_total, total_identify_c1_time, total_identify_c2_time, \
+           find_complementary_contradictory_time_total, \
+           schema_group, total_num_rows
 
 
 if __name__ == "__main__":

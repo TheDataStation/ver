@@ -8,6 +8,7 @@ from collections import defaultdict
 import re
 
 import numpy as np
+import pandas as pd
 
 import four_c as v4c
 
@@ -22,13 +23,19 @@ def flatten(alist):
 
 if __name__ == '__main__':
 
+    experiment_num = ""
 
+    # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
+    # new_dir_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
 
-    data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
-    new_dir_path = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
-    # data_dir = "/home/cc/output_views2"
-    # new_dir_path = "/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir1/"
-    sample_portion_list = [0.25]
+    data_dir = "/home/cc/output_views_small"
+    provenance_dir = "/home/cc/output_views_join_paths"
+    new_dir_path = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
+
+    random_seed = 0
+    random.seed(a=random_seed)
+
+    sample_portion_list = [0.25, 0.5, 0.75, 1.0]
     find_all_contradictions = True
 
     all_tables = []
@@ -36,39 +43,48 @@ if __name__ == '__main__':
         lines = f.readlines()
         for line in lines:
             all_tables.append(line.strip())
-    print(f"num table: {len(all_tables)}")
+    print(f"num tables: {len(all_tables)}")
     # print(all_tables)
 
     # result_dirs = [f"{data_dir}/jp710_full", f"{data_dir}/jp_1204", f"{data_dir}/jp_1572"]
-    result_dirs = [f"{data_dir}/jp_1572"]
+    # result_dirs = [f"{data_dir}/jp_1572"]
 
-    # result_dirs = [os.path.join(data_dir, name) for name in os.listdir(data_dir)
-    #                if os.path.isdir(os.path.join(data_dir, name))]
+    result_dirs = [name for name in os.listdir(data_dir)
+                   if os.path.isdir(os.path.join(data_dir, name))]
     # print(result_dirs)
 
-    times = np.zeros((len(result_dirs), len(sample_portion_list)))
-    results = np.zeros((len(result_dirs), len(sample_portion_list), 5))
+    times = np.zeros((len(result_dirs), len(sample_portion_list), 4))
+    results = np.zeros((len(result_dirs), len(sample_portion_list), 7))
+    schema_groups = []
 
-    for i, dir in enumerate(result_dirs):
+    for i, view_dir in enumerate(result_dirs):
 
-        print(f"dir name: {dir}")
+        print(f"view dir name: {view_dir}")
 
-        view_files = glob.glob(f"{dir}/view_*")
+        view_files = glob.glob(f"{data_dir}/{view_dir}/view_*")
 
         provenance = {}
-        with open(f"{dir}/log.txt", "r") as log:
-            lines = log.readlines()
-            chunk_size = 4
-            if "jp710_full" in dir:
-                chunk_size = 3
-            chunks = [lines[x:x + chunk_size] for x in range(0, len(lines), chunk_size)]
-            for chunk in chunks:
-                line = chunk[1].strip()
-                tables = set(re.split(pattern=", .+ JOIN |, .+", string=line))
-                if '' in tables:
-                    tables.remove('')
-                view_name = f"{dir}/{chunk[0].strip()}"
-                provenance[view_name] = tables
+        # with open(f"{view_dir}/log.txt", "r") as log:
+        #     lines = log.readlines()
+        #     chunk_size = 4
+        #     if "jp710_full" in view_dir:
+        #         chunk_size = 3
+        #     chunks = [lines[x:x + chunk_size] for x in range(0, len(lines), chunk_size)]
+        #     for chunk in chunks:
+        #         line = chunk[1].strip()
+        #         tables = set(re.split(pattern=", .+ JOIN |, .+", string=line))
+        #         if '' in tables:
+        #             tables.remove('')
+        #         view_name = f"{view_dir}/{chunk[0].strip()}"
+        #         provenance[view_name] = tables
+
+        df = pd.read_csv(f"{provenance_dir}/{view_dir}/join_paths.csv")
+        provenance_tables = df[["tbl1", "tbl2"]].values.tolist()
+        for i, tables in enumerate(provenance_tables):
+            view_name = f"{data_dir}/{view_dir}/view_{i}.csv"
+            if np.nan in tables:
+                tables.remove(np.nan)
+            provenance[view_name] = tables
 
         # pprint.pprint(provenance)
 
@@ -78,7 +94,7 @@ if __name__ == '__main__':
 
         for j, sample_portion in enumerate(sample_portion_list):
 
-            print(f"dir name: {dir}")
+            print(f"dir name: {view_dir}")
             print(f"sample portion = {sample_portion}")
 
             sample_size = int(sample_portion * len(all_tables))
@@ -106,12 +122,14 @@ if __name__ == '__main__':
             complementary_groups, \
             contradictory_groups, \
             all_contradictory_pair_results, \
-            find_compatible_contained_time_total, find_complementary_contradictory_time_total = \
+            find_compatible_contained_time_total, total_identify_c1_time, total_identify_c2_time, \
+            find_complementary_contradictory_time_total, \
+            schema_group, total_num_rows = \
                 v4c.main(new_dir_path, find_all_contradictions=find_all_contradictions)
 
             elapsed = time.time() - start_time
             # print(i, j)
-            times[i][j] = elapsed
+
 
             num_views_after_pruning_compatible = len(views) - len(removed_compatible_views)
             num_views_after_pruning_contained = num_views_after_pruning_compatible - len(removed_contained_views)
@@ -120,11 +138,18 @@ if __name__ == '__main__':
             # print(f"num compatible groups: {len(compatible_groups)}")
             # print(f"num contained views: {len(contained_groups)}")
             print(f"original num views: {len(views)}")
+            print(f"total_num_rows: {total_num_rows}")
             print(f"num_views_after_pruning_compatible: {num_views_after_pruning_compatible}")
             print(f"num_views_after_pruning_contained: {num_views_after_pruning_contained}")
             print(f"num complementary pairs: {len(flatten(complementary_groups))}")
             print(f"num contradictory pairs: {len(all_contradictory_pair_results)}")
+            print(f"total num contradictions: {len(flatten(contradictory_groups))}")
+
+
+
             print(f"time: {elapsed}")
+            print(f"total_identify_c1_time: {total_identify_c1_time}")
+            print(f"total_identify_c2_time: {total_identify_c2_time}")
             print(f"find_compatible_contained_time_total: {find_compatible_contained_time_total}")
             print(f"find_complementary_contradictory_time_total: {find_complementary_contradictory_time_total}")
             print("-----------------------------------------------")
@@ -132,22 +157,33 @@ if __name__ == '__main__':
 
             # results.append([len(views), len(compatible_groups), len(contained_groups),
             #                 len(flatten(complementary_groups)), len(flatten(contradictory_groups))])
-            results[i][j] = [len(views), num_views_after_pruning_compatible, num_views_after_pruning_contained,
-                             len(flatten(complementary_groups)), len(flatten(contradictory_groups))]
+            results[i][j] = [len(views), total_num_rows,
+                             num_views_after_pruning_compatible, num_views_after_pruning_contained,
+                             len(flatten(complementary_groups)), len(all_contradictory_pair_results),
+                             len(flatten(contradictory_groups))]
+            times[i][j] = [elapsed, total_identify_c1_time, total_identify_c2_time, find_complementary_contradictory_time_total]
+            schema_groups.append(schema_group)
 
     print(times)
-    np.save("times1.npy", times)
+    np.save(f"results/times{experiment_num}.npy", times)
 
     # with open("times.log", "w") as f:
     #     for time in times:
     #         f.write(str(time) + "\n")
 
     print(results)
-    np.save("results1.npy", results)
+    np.save(f"results/results{experiment_num}.npy", results)
     # with open("results.log", "w") as f:
     #     for result in results:
     #         for num in result:
     #             f.write(str(num) + " ")
     #         f.write("\n")
+
+    with open("schema_groups.txt", "w") as f:
+        for schema_group in schema_groups:
+            for num in schema_group:
+                f.write(str(num) + " ")
+            f.write("\n")
+
     clear_dir(new_dir_path)
 
