@@ -39,7 +39,7 @@ if __name__ == '__main__':
     find_all_contradictions = True
 
     all_tables = []
-    with open(f"{data_dir}/all_tables.txt", "r") as f:
+    with open(f"/home/cc/all_tables.txt", "r") as f:
         lines = f.readlines()
         for line in lines:
             all_tables.append(line.strip())
