@@ -24,8 +24,9 @@ if __name__ == '__main__':
     # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
     # new_dir_path = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
     data_dir = "/home/cc/output_views2"
-    new_dir_path = "/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
+    new_dir_path = "/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir1/"
     sample_portion_list = [0.25, 0.5, 0.75, 1.0]
+    find_all_contradictions = False
 
     all_tables = []
     with open(f"{data_dir}/all_tables.txt", "r") as f:
@@ -36,6 +37,8 @@ if __name__ == '__main__':
     # print(all_tables)
 
     result_dirs = [f"{data_dir}/jp710_full", f"{data_dir}/jp_1204", f"{data_dir}/jp_1572"]
+    # result_dirs = [f"{data_dir}/jp_1572"]
+
     # result_dirs = [os.path.join(data_dir, name) for name in os.listdir(data_dir)
     #                if os.path.isdir(os.path.join(data_dir, name))]
     # print(result_dirs)
@@ -72,6 +75,7 @@ if __name__ == '__main__':
 
         for j, sample_portion in enumerate(sample_portion_list):
 
+            print(f"dir name: {dir}")
             print(f"sample portion = {sample_portion}")
 
             sample_size = int(sample_portion * len(all_tables))
@@ -97,7 +101,7 @@ if __name__ == '__main__':
             complementary_groups, \
             contradictory_groups, \
             all_pair_results = \
-                v4c.main(new_dir_path, find_all_contradictions=True)
+                v4c.main(new_dir_path, find_all_contradictions=find_all_contradictions)
 
             elapsed = time.time() - start_time
             # print(i, j)
@@ -109,11 +113,14 @@ if __name__ == '__main__':
             print("-----------------------------------------------")
             # print(f"num compatible groups: {len(compatible_groups)}")
             # print(f"num contained views: {len(contained_groups)}")
+            print(f"original num views: {len(views)}")
             print(f"num_views_after_pruning_compatible: {num_views_after_pruning_compatible}")
             print(f"num_views_after_pruning_contained: {num_views_after_pruning_contained}")
             print(f"num complementary pairs: {len(flatten(complementary_groups))}")
             print(f"num contradictions: {len(flatten(contradictory_groups))}")
             print(f"time: {elapsed}")
+            print("-----------------------------------------------")
+
 
             # results.append([len(views), len(compatible_groups), len(contained_groups),
             #                 len(flatten(complementary_groups)), len(flatten(contradictory_groups))])
@@ -121,14 +128,14 @@ if __name__ == '__main__':
                              len(flatten(complementary_groups)), len(flatten(contradictory_groups))]
 
     print(times)
-    np.save("times.npy", times)
+    np.save("times1.npy", times)
 
     # with open("times.log", "w") as f:
     #     for time in times:
     #         f.write(str(time) + "\n")
 
     print(results)
-    np.save("results.npy", results)
+    np.save("results1.npy", results)
     # with open("results.log", "w") as f:
     #     for result in results:
     #         for num in result:

@@ -32,7 +32,7 @@ if __name__ == '__main__':
     results = []
     times = []
 
-    for duplicate in [1, 2]:
+    for duplicate in [1, 3]:
 
         clear_dir(new_dir_path)
 
@@ -125,11 +125,11 @@ if __name__ == '__main__':
     # pprint.pprint(complementary_views2)
     # pprint.pprint(complementary_views2 - complementary_views1)
     #
-    print("compatible:")
-    compatible1 = results[0][0]
-    compatible2 = results[1][0]
-    print(compatible1)
-    print(compatible2)
+    # print("compatible:")
+    # compatible1 = results[0][0]
+    # compatible2 = results[1][0]
+    # print(compatible1)
+    # print(compatible2)
 
 
     # compatible1 = set([tuple(x) for x in results[1][0]])
@@ -162,11 +162,11 @@ if __name__ == '__main__':
     # # print(single1)
     # print(single2)
     #
-    print("contained")
-    contained1 = [results[0][1], results[0][2]]
-    contained2 = [results[1][1], results[1][2]]
-    print(contained1)
-    print(contained2)
+    # print("contained")
+    # contained1 = [results[0][1], results[0][2]]
+    # contained2 = [results[1][1], results[1][2]]
+    # print(contained1)
+    # print(contained2)
 
 
     # complementary_views1_dup = complementary_views1
