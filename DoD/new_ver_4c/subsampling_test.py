@@ -24,7 +24,8 @@ def flatten(alist):
 
 if __name__ == '__main__':
 
-    experiment_num = ""
+    partition_num = 1
+    experiment_num = str(partition_num)
 
     # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
     # new_dir_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
@@ -52,15 +53,18 @@ if __name__ == '__main__':
     # result_dirs = [f"{data_dir}/jp710_full", f"{data_dir}/jp_1204", f"{data_dir}/jp_1572"]
     # result_dirs = [f"jp_1572"]
 
-    result_dirs = [name for name in os.listdir(data_dir)
-                   if os.path.isdir(os.path.join(data_dir, name))]
+    view_dirs = [name for name in os.listdir(data_dir)
+                 if os.path.isdir(os.path.join(data_dir, name))]
+
+    # view_dirs.sort()
+    # view_dirs = view_dirs[10*(partition_num-1):10*partition_num]
     # print(result_dirs)
 
-    times = np.zeros((len(result_dirs), len(sample_portion_list), 4))
-    results = np.zeros((len(result_dirs), len(sample_portion_list), 7))
+    times = np.zeros((len(view_dirs), len(sample_portion_list), 4))
+    results = np.zeros((len(view_dirs), len(sample_portion_list), 7))
     schema_groups = []
 
-    for i, view_dir in enumerate(result_dirs):
+    for i, view_dir in enumerate(view_dirs):
 
         print(f"view dir name: {view_dir}")
 
@@ -114,9 +118,9 @@ if __name__ == '__main__':
                 if tables.issubset(sampled_tables):
                     views.append(view)
 
-            clear_dir(new_dir_path)
-            for view in views:
-                shutil.copy(view, new_dir_path)
+            # clear_dir(new_dir_path)
+            # for view in views:
+            #     shutil.copy(view, new_dir_path)
 
             # num_views.append(len(views))
 
@@ -132,7 +136,7 @@ if __name__ == '__main__':
             total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
             find_complementary_contradictory_time_total, \
             schema_group, total_num_rows = \
-                v4c.main(new_dir_path, find_all_contradictions=find_all_contradictions)
+                v4c.main(input_path="", view_paths=views, find_all_contradictions=find_all_contradictions)
 
             elapsed = time.time() - start_time
             # print(i, j)
@@ -190,4 +194,4 @@ if __name__ == '__main__':
                 f.write(str(num) + " ")
             f.write("\n")
 
-    clear_dir(new_dir_path)
+    # clear_dir(new_dir_path)

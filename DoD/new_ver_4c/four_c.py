@@ -9,8 +9,11 @@ from itertools import chain, combinations
 from utils import *
 
 
-def get_dataframes(path):
-    files = [path + f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store' and f != "log.txt"]
+def get_dataframes(path, view_paths):
+    if view_paths is not None:
+        files = view_paths
+    else:
+        files = [path + f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store' and f != "log.txt"]
     dfs = []
     path_to_df_dict = {}
     total_num_rows = 0
@@ -1035,9 +1038,9 @@ def identify_complementary_contradictory_views_optimized(path_to_df_dict,
     return complementary_pairs, contradictory_pairs, all_contradictory_pair_result
 
 
-def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniqueness_threshold=0.9):
+def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradictions=True, uniqueness_threshold=0.9):
     start_time = time.time()
-    dfs, path_to_df_dict, total_num_rows = get_dataframes(input_path)
+    dfs, path_to_df_dict, total_num_rows = get_dataframes(input_path, view_paths)
     get_df_time = time.time() - start_time
     print(f"get_dataframes time: {get_df_time} s")
     print("Found " + str(len(dfs)) + " valid views")
