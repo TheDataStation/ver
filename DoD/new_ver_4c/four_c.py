@@ -577,6 +577,8 @@ def find_candidate_keys(df, sampling=False, max_num_attr_in_composite_key=2, uni
         num_groups = sample.groupby(key).ngroups
         strength = num_groups / sample_size
 
+        # print(f"candidate key: {key}, uniqueness: {strength}")
+
         if strength < uniqueness_threshold:
             continue
 
@@ -902,7 +904,7 @@ def identify_complementary_contradictory_views_optimized(path_to_df_dict,
 
     start_time = time.time()
 
-    all_pair_result = defaultdict(lambda: defaultdict(set))
+    all_contradictory_pair_result = defaultdict(lambda: defaultdict(set))
 
     # print(candidate_key_to_inverted_index[tuple("a")][(2,)])
 
@@ -941,7 +943,7 @@ def identify_complementary_contradictory_views_optimized(path_to_df_dict,
                             if (path1, path2) in already_added:
                                 continue
 
-                            all_pair_result[(path1, path2)][candidate_key].add(key_value)
+                            all_contradictory_pair_result[(path1, path2)][candidate_key].add(key_value)
 
                             already_added.add((path1, path2))
                             already_added.add((path2, path1))
@@ -952,13 +954,13 @@ def identify_complementary_contradictory_views_optimized(path_to_df_dict,
 
     print(f"total_find_contradiction_time: {time.time() - start_time} s")
 
-    # print(all_pair_result[("test_dir/view_1.csv", "test_dir/view_2.csv")])
-    # print(all_pair_result)
+    # print(all_contradictory_pair_result[("test_dir/view_1.csv", "test_dir/view_2.csv")])
+    # print(all_contradictory_pair_result)
 
     start_time = time.time()
-    # processed_pairs = list(all_pair_result.keys())
+    # processed_pairs = list(all_contradictory_pair_result.keys())
     processed_pairs = set()
-    for pair in all_pair_result.keys():
+    for pair in all_contradictory_pair_result.keys():
         path1, path2 = pair
         processed_pairs.add((path1, path2))
         processed_pairs.add((path2, path1))
@@ -1013,7 +1015,7 @@ def identify_complementary_contradictory_views_optimized(path_to_df_dict,
                 #     print("in")
 
     contradictory_pairs = []
-    for path, v1 in all_pair_result.items():
+    for path, v1 in all_contradictory_pair_result.items():
         path1, path2 = path
         for candidate_key, contradictory_key_values in v1.items():
             if len(contradictory_key_values) == 0:
@@ -1024,20 +1026,20 @@ def identify_complementary_contradictory_views_optimized(path_to_df_dict,
 
     print(f"total_find_complementary_time: {time.time() - start_time} s")
 
-    return complementary_pairs, contradictory_pairs, all_pair_result
+    return complementary_pairs, contradictory_pairs, all_contradictory_pair_result
 
 
 def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniqueness_threshold=0.9):
     start_time = time.time()
     dfs, path_to_df_dict = get_dataframes(input_path)
-    elapsed = time.time() - start_time
-    print(f"get_dataframes time: {elapsed} s")
-    print("Found " + str(len(dfs)) + " valid tables")
+    get_df_time = time.time() - start_time
+    print(f"get_dataframes time: {get_df_time} s")
+    print("Found " + str(len(dfs)) + " valid views")
 
     start_time = time.time()
     dfs_per_schema, schema_id_info = classify_per_table_schema(dfs)
-    elapsed = time.time() - start_time
-    print(f"classify_per_table_schema time: {elapsed} s")
+    find_compatible_contained_time = time.time() - start_time
+    print(f"classify_per_table_schema time: {find_compatible_contained_time} s")
     print("View candidates classify into " + str(len(dfs_per_schema)) + " groups based on schema")
 
     compatible_groups = []
@@ -1046,7 +1048,9 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
     removed_contained_views = []
     complementary_groups = []
     contradictory_groups = []
-    all_pair_results = {}
+    all_contradictory_pair_results = {}
+    find_compatible_contained_time_total = 0.0
+    find_complementary_contradictory_time_total = 0.0
 
     for key, group_dfs in dfs_per_schema.items():
         print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
@@ -1056,8 +1060,9 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
         largest_contained_views, contained_views_to_remove, \
         candidate_complementary_contradictory_views = \
             identify_compatible_contained_views_new(group_dfs)
-        elapsed = time.time() - start_time
-        print(f"identify_compatible_contained_views time: {elapsed} s")
+        find_compatible_contained_time = time.time() - start_time
+        print(f"identify_compatible_contained_views time: {find_compatible_contained_time} s")
+        find_compatible_contained_time_total += find_compatible_contained_time
 
         # print(f"number of compatible groups: {len(compatible_views)}")
         # print(compatible_views)
@@ -1065,14 +1070,15 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
         # print(contained_views)
 
         start_time = time.time()
-        complementary_pairs, contradictory_pairs, all_pair_result = \
+        complementary_pairs, contradictory_pairs, all_contradictory_pair_result = \
             identify_complementary_contradictory_views_optimized(path_to_df_dict,
                                                                  candidate_complementary_contradictory_views,
                                                                  candidate_key_size=candidate_key_size,
                                                                  find_all_contradictions=find_all_contradictions,
                                                                  uniqueness_threshold=uniqueness_threshold)
-        elapsed = time.time() - start_time
-        print(f"identify_complementary_contradictory_views time: {elapsed} s")
+        find_complementary_contradictory_time = time.time() - start_time
+        print(f"identify_complementary_contradictory_views time: {find_complementary_contradictory_time} s")
+        find_complementary_contradictory_time_total += find_compatible_contained_time
         # print(f"number of contradictory pairs: {len(contradictory_pairs)}")
         # print(f"number of complementary pairs: {len(complementary_pairs)}")
         # pprint.pprint(complementary_pairs)
@@ -1084,14 +1090,16 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
         removed_contained_views += list(contained_views_to_remove)
         complementary_groups.append(complementary_pairs)
         contradictory_groups.append(contradictory_pairs)
-        all_pair_results.update(all_pair_result)
+        all_contradictory_pair_results.update(all_contradictory_pair_result)
 
     return path_to_df_dict, \
            compatible_groups, removed_compatible_views, \
            contained_groups, removed_contained_views, \
            complementary_groups, \
            contradictory_groups, \
-           all_pair_results
+           all_contradictory_pair_results, \
+           find_compatible_contained_time_total, find_complementary_contradictory_time_total
+
 
 
 if __name__ == "__main__":

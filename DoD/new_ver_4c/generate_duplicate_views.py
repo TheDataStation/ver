@@ -68,11 +68,13 @@ if __name__ == '__main__':
         #
         start_time = time.time()
         path_to_df_dict, \
-        compatible_groups, removed_compatible_groups, \
-        contained_groups, removed_contained_groups, \
+        compatible_groups, removed_compatible_views, \
+        contained_groups, removed_contained_views, \
         complementary_groups, \
         contradictory_groups, \
-        all_pair_results = v4c.main(new_dir_path, find_all_contradictions=True)
+        all_contradictory_pair_results, \
+        find_compatible_contained_time_total, find_complementary_contradictory_time_total\
+            = v4c.main(new_dir_path, find_all_contradictions=True)
         elapsed_new = time.time() - start_time
 
         # print("-----------------------------------------------")

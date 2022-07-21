@@ -14,7 +14,7 @@ def clear_dir(path):
 
 if __name__ == "__main__":
 
-    num_views_list = [500, 1000]
+    num_views_list = [1000]
     num_rows = 10000
 
     key_col = np.arange(num_rows)
@@ -56,40 +56,40 @@ if __name__ == "__main__":
             base_contained.to_csv(f"{data_dir}/contained/{i}.csv", index=False)
 
 
-        # Complementary
-        # Max = n
-        # For i in n:
-        # Change 1 of random key value in base view to some other value (while still maintaining uniqueness and not causing contradiction)
-        # random number = m
-        # For j in range(m):
-        # Change the key value to max + j
-        # Max = n + m
-        # Add the new view to the list
-        clear_dir(f"{data_dir}/complementary/")
-        max_key_value = num_views - 1
-        for i in range(num_views):
-            random_index = np.random.choice(base_view.index)
-            new_view = base_view.copy()
-            new_view.iloc[random_index]["key"] = max_key_value + 1
-            max_key_value += 1
-            new_view.to_csv(f"{data_dir}/complementary/{i}.csv", index=False)
+        # # Complementary
+        # # Max = n
+        # # For i in n:
+        # # Change 1 of random key value in base view to some other value (while still maintaining uniqueness and not causing contradiction)
+        # # random number = m
+        # # For j in range(m):
+        # # Change the key value to max + j
+        # # Max = n + m
+        # # Add the new view to the list
+        # clear_dir(f"{data_dir}/complementary/")
+        # max_key_value = num_views - 1
+        # for i in range(num_views):
+        #     random_index = np.random.choice(base_view.index)
+        #     new_view = base_view.copy()
+        #     new_view.iloc[random_index]["key"] = max_key_value + 1
+        #     max_key_value += 1
+        #     new_view.to_csv(f"{data_dir}/complementary/{i}.csv", index=False)
+        #
+        #
+        # # Contradictory
+        # # For i in n:
+        # # Choose 1 random row in base view and change the non-key column value to some other value
+        # # Add the new view to the list
+        # clear_dir(f"{data_dir}/contradictory/")
+        # max_other_value = 0
+        # for i in range(num_views):
+        #     random_index = np.random.choice(base_view.index)
+        #     new_view = base_view.copy()
+        #     new_view.iloc[random_index]["other"] = max_other_value + 1
+        #     max_other_value += 1
+        #     new_view.to_csv(f"{data_dir}/contradictory/{i}.csv", index=False)
 
 
-        # Contradictory
-        # For i in n:
-        # Choose 1 random row in base view and change the non-key column value to some other value
-        # Add the new view to the list
-        clear_dir(f"{data_dir}/contradictory/")
-        max_other_value = 0
-        for i in range(num_views):
-            random_index = np.random.choice(base_view.index)
-            new_view = base_view.copy()
-            new_view.iloc[random_index]["other"] = max_other_value + 1
-            max_other_value += 1
-            new_view.to_csv(f"{data_dir}/contradictory/{i}.csv", index=False)
-
-
-        groups = ["compatible", "contained", "contradictory", "complementary"]
+        groups = ["compatible", "contained"]#, "contradictory", "complementary"]
 
         for group in groups:
             input_path = f"{root_dir}/synthetic_views/{group}/"

@@ -21,12 +21,15 @@ def flatten(alist):
 
 
 if __name__ == '__main__':
-    # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
-    # new_dir_path = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
-    data_dir = "/home/cc/output_views2"
-    new_dir_path = "/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir1/"
-    sample_portion_list = [0.25, 0.5, 0.75, 1.0]
-    find_all_contradictions = False
+
+
+
+    data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
+    new_dir_path = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir/"
+    # data_dir = "/home/cc/output_views2"
+    # new_dir_path = "/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir1/"
+    sample_portion_list = [0.25]
+    find_all_contradictions = True
 
     all_tables = []
     with open(f"{data_dir}/all_tables.txt", "r") as f:
@@ -36,8 +39,8 @@ if __name__ == '__main__':
     print(f"num table: {len(all_tables)}")
     # print(all_tables)
 
-    result_dirs = [f"{data_dir}/jp710_full", f"{data_dir}/jp_1204", f"{data_dir}/jp_1572"]
-    # result_dirs = [f"{data_dir}/jp_1572"]
+    # result_dirs = [f"{data_dir}/jp710_full", f"{data_dir}/jp_1204", f"{data_dir}/jp_1572"]
+    result_dirs = [f"{data_dir}/jp_1572"]
 
     # result_dirs = [os.path.join(data_dir, name) for name in os.listdir(data_dir)
     #                if os.path.isdir(os.path.join(data_dir, name))]
@@ -82,6 +85,8 @@ if __name__ == '__main__':
             rest_of_tables = set(all_tables) - set(base_sample)
             sampled_tables = random.sample(list(rest_of_tables), sample_size - base_sample_size) + base_sample
 
+            # print(len(sampled_tables))
+
             views = []
             for view, tables in provenance.items():
                 if tables.issubset(sampled_tables):
@@ -100,7 +105,8 @@ if __name__ == '__main__':
             contained_groups, removed_contained_views, \
             complementary_groups, \
             contradictory_groups, \
-            all_pair_results = \
+            all_contradictory_pair_results, \
+            find_compatible_contained_time_total, find_complementary_contradictory_time_total = \
                 v4c.main(new_dir_path, find_all_contradictions=find_all_contradictions)
 
             elapsed = time.time() - start_time
@@ -117,8 +123,10 @@ if __name__ == '__main__':
             print(f"num_views_after_pruning_compatible: {num_views_after_pruning_compatible}")
             print(f"num_views_after_pruning_contained: {num_views_after_pruning_contained}")
             print(f"num complementary pairs: {len(flatten(complementary_groups))}")
-            print(f"num contradictions: {len(flatten(contradictory_groups))}")
+            print(f"num contradictory pairs: {len(all_contradictory_pair_results)}")
             print(f"time: {elapsed}")
+            print(f"find_compatible_contained_time_total: {find_compatible_contained_time_total}")
+            print(f"find_complementary_contradictory_time_total: {find_complementary_contradictory_time_total}")
             print("-----------------------------------------------")
 
 

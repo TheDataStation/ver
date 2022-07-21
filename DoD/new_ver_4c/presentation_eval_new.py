@@ -82,7 +82,8 @@ if __name__ == '__main__':
                 contained_groups, removed_contained_views, \
                 complementary_groups, \
                 contradictory_groups, \
-                all_pair_results = \
+                all_contradictory_pair_results, \
+                find_compatible_contained_time_total, find_complementary_contradictory_time_total = \
                     v4c.main(dir_path, candidate_key_size, find_all_contradictions=True)
 
                 print()
