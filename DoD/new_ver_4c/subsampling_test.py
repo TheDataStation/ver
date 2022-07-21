@@ -33,8 +33,8 @@ if __name__ == '__main__':
     # #
     data_dir = "/home/cc/output_views_small"
     provenance_dir = "/home/cc/output_views_join_paths"
-    new_dir_path = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
-    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results{experiment_num}"
+    # new_dir_path = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
+    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results2"
 
     random_seed = 0
     random.seed(a=random_seed)
@@ -56,8 +56,8 @@ if __name__ == '__main__':
     view_dirs = [name for name in os.listdir(data_dir)
                  if os.path.isdir(os.path.join(data_dir, name))]
 
-    # view_dirs.sort()
-    # view_dirs = view_dirs[10*(partition_num-1):10*partition_num]
+    view_dirs.sort()
+    view_dirs = view_dirs[10*(partition_num-1):10*partition_num]
     # print(result_dirs)
 
     times = np.zeros((len(view_dirs), len(sample_portion_list), 4))
