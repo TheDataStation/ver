@@ -31,6 +31,7 @@ if __name__ == '__main__':
     data_dir = "/home/cc/output_views_small"
     provenance_dir = "/home/cc/output_views_join_paths"
     new_dir_path = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
+    results_dir = "/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results"
 
     random_seed = 0
     random.seed(a=random_seed)
@@ -167,21 +168,21 @@ if __name__ == '__main__':
             schema_groups.append(schema_group)
 
     print(times)
-    np.save(f"results/times{experiment_num}.npy", times)
+    np.save(f"{results_dir}/times{experiment_num}.npy", times)
 
     # with open("times.log", "w") as f:
     #     for time in times:
     #         f.write(str(time) + "\n")
 
     print(results)
-    np.save(f"results/results{experiment_num}.npy", results)
+    np.save(f"{results_dir}/results{experiment_num}.npy", results)
     # with open("results.log", "w") as f:
     #     for result in results:
     #         for num in result:
     #             f.write(str(num) + " ")
     #         f.write("\n")
 
-    with open("schema_groups.txt", "w") as f:
+    with open(f"{results_dir}/schema_groups{experiment_num}.txt", "w") as f:
         for schema_group in schema_groups:
             for num in schema_group:
                 f.write(str(num) + " ")
