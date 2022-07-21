@@ -83,6 +83,8 @@ def identify_compatible_contained_views_optimized(dfs):
 
     start_time = time.time()
 
+    num_comparisons = 0
+
     for df1, path1 in dfs:
 
         if path1 in compatible_views_to_remove \
@@ -111,7 +113,7 @@ def identify_compatible_contained_views_optimized(dfs):
 
             # hash_set1 = set(df1_hash)
             # hash_set2 = set(df2_hash)
-
+            num_comparisons += 1
             if hash_set2.issubset(hash_set1):
                 # view2 is contained in view1
                 if largest_contained_view is None:
@@ -186,7 +188,8 @@ def identify_compatible_contained_views_optimized(dfs):
     return compatible_groups, compatible_views_to_remove, \
            largest_contained_views, already_classified_as_contained, \
            candidate_complementary_contradictory_views, \
-           total_identify_c1_time, total_identify_c2_time  # ,
+           total_identify_c1_time, total_identify_c2_time, \
+           num_comparisons  # ,
     # compl_contra_relation_graph
 
 
@@ -1057,6 +1060,7 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
     schema_group = []
     total_identify_c1_time = 0.0
     total_identify_c2_time = 0.0
+    total_num_comparisons_c2 = 0
 
     for key, group_dfs in dfs_per_schema.items():
         print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
@@ -1066,13 +1070,14 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
         compatible_views, compatible_views_to_remove, \
         largest_contained_views, contained_views_to_remove, \
         candidate_complementary_contradictory_views, \
-        identify_c1_time, identify_c2_time = \
+        identify_c1_time, identify_c2_time, num_comparisons = \
             identify_compatible_contained_views_optimized(group_dfs)
         find_compatible_contained_time = time.time() - start_time
         print(f"identify_compatible_contained_views time: {find_compatible_contained_time} s")
         find_compatible_contained_time_total += find_compatible_contained_time
         total_identify_c1_time += identify_c1_time
         total_identify_c2_time += identify_c2_time
+        total_num_comparisons_c2 += num_comparisons
 
         # print(f"number of compatible groups: {len(compatible_views)}")
         # print(compatible_views)
@@ -1108,7 +1113,8 @@ def main(input_path, candidate_key_size=2, find_all_contradictions=True, uniquen
            complementary_groups, \
            contradictory_groups, \
            all_contradictory_pair_results, \
-           find_compatible_contained_time_total, total_identify_c1_time, total_identify_c2_time, \
+           find_compatible_contained_time_total, \
+           total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
            find_complementary_contradictory_time_total, \
            schema_group, total_num_rows
 

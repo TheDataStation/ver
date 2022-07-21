@@ -39,7 +39,7 @@ if __name__ == '__main__':
     find_all_contradictions = True
 
     all_tables = []
-    with open(f"/home/cc/all_tables.txt", "r") as f:
+    with open(f"{data_dir}/all_tables.txt", "r") as f:
         lines = f.readlines()
         for line in lines:
             all_tables.append(line.strip())
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     # print(all_tables)
 
     # result_dirs = [f"{data_dir}/jp710_full", f"{data_dir}/jp_1204", f"{data_dir}/jp_1572"]
-    # result_dirs = [f"{data_dir}/jp_1572"]
+    # result_dirs = [f"jp_1572"]
 
     result_dirs = [name for name in os.listdir(data_dir)
                    if os.path.isdir(os.path.join(data_dir, name))]
@@ -64,7 +64,7 @@ if __name__ == '__main__':
         view_files = glob.glob(f"{data_dir}/{view_dir}/view_*")
 
         provenance = {}
-        # with open(f"{view_dir}/log.txt", "r") as log:
+        # with open(f"{data_dir}/{view_dir}/log.txt", "r") as log:
         #     lines = log.readlines()
         #     chunk_size = 4
         #     if "jp710_full" in view_dir:
@@ -75,7 +75,7 @@ if __name__ == '__main__':
         #         tables = set(re.split(pattern=", .+ JOIN |, .+", string=line))
         #         if '' in tables:
         #             tables.remove('')
-        #         view_name = f"{view_dir}/{chunk[0].strip()}"
+        #         view_name = f"{data_dir}/{view_dir}/{chunk[0].strip()}"
         #         provenance[view_name] = tables
 
         df = pd.read_csv(f"{provenance_dir}/{view_dir}/join_paths.csv")
@@ -84,7 +84,7 @@ if __name__ == '__main__':
             view_name = f"{data_dir}/{view_dir}/view_{i}.csv"
             if np.nan in tables:
                 tables.remove(np.nan)
-            provenance[view_name] = tables
+            provenance[view_name] = set(tables)
 
         # pprint.pprint(provenance)
 
@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
         for j, sample_portion in enumerate(sample_portion_list):
 
-            print(f"dir name: {view_dir}")
+            print(f"view dir name: {view_dir}")
             print(f"sample portion = {sample_portion}")
 
             sample_size = int(sample_portion * len(all_tables))
@@ -122,7 +122,8 @@ if __name__ == '__main__':
             complementary_groups, \
             contradictory_groups, \
             all_contradictory_pair_results, \
-            find_compatible_contained_time_total, total_identify_c1_time, total_identify_c2_time, \
+            find_compatible_contained_time_total, \
+            total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
             find_complementary_contradictory_time_total, \
             schema_group, total_num_rows = \
                 v4c.main(new_dir_path, find_all_contradictions=find_all_contradictions)
@@ -150,6 +151,7 @@ if __name__ == '__main__':
             print(f"time: {elapsed}")
             print(f"total_identify_c1_time: {total_identify_c1_time}")
             print(f"total_identify_c2_time: {total_identify_c2_time}")
+            print(f"total_num_comparisons_c2: {total_num_comparisons_c2}")
             print(f"find_compatible_contained_time_total: {find_compatible_contained_time_total}")
             print(f"find_complementary_contradictory_time_total: {find_complementary_contradictory_time_total}")
             print("-----------------------------------------------")
