@@ -80,8 +80,8 @@ if __name__ == '__main__':
 
         df = pd.read_csv(f"{provenance_dir}/{view_dir}/join_paths.csv")
         provenance_tables = df[["tbl1", "tbl2"]].values.tolist()
-        for i, tables in enumerate(provenance_tables):
-            view_name = f"{data_dir}/{view_dir}/view_{i}.csv"
+        for view_num, tables in enumerate(provenance_tables):
+            view_name = f"{data_dir}/{view_dir}/view_{view_num}.csv"
             if np.nan in tables:
                 tables.remove(np.nan)
             provenance[view_name] = set(tables)
