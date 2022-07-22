@@ -66,6 +66,7 @@ if __name__ == '__main__':
 
         view_dirs = [name for name in os.listdir(data_dir)
                      if os.path.isdir(os.path.join(data_dir, name))]
+        view_dirs.sort()
 
         for i, view_dir in enumerate(view_dirs):
 

@@ -186,9 +186,11 @@ def identify_compatible_contained_views_optimized(dfs):
 
     to_be_removed = compatible_views_to_remove.union(already_classified_as_contained)
 
+    candidate_complementary_contradictory_view_paths = []
     for df, path in dfs:
         if path not in to_be_removed:
             candidate_complementary_contradictory_views.append((df, path))
+            candidate_complementary_contradictory_view_paths.append(path)
 
     total_identify_c2_time += time.time() - start_time
 
@@ -197,7 +199,7 @@ def identify_compatible_contained_views_optimized(dfs):
 
     return compatible_groups, compatible_views_to_remove, \
            largest_contained_views, already_classified_as_contained, \
-           candidate_complementary_contradictory_views, \
+           candidate_complementary_contradictory_view_paths, \
            total_identify_c1_time, total_identify_c2_time, \
            num_comparisons  # ,
     # compl_contra_relation_graph
