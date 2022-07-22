@@ -67,13 +67,15 @@ if __name__ == '__main__':
         # elapsed = time.time() - start_time
         #
         start_time = time.time()
-        path_to_df_dict, \
         compatible_groups, removed_compatible_views, \
         contained_groups, removed_contained_views, \
         complementary_groups, \
-        contradictory_groups, \
-        all_contradictory_pair_results, \
-        find_compatible_contained_time_total, find_complementary_contradictory_time_total\
+        contradictory_groups, total_num_contradictory_pairs, \
+        find_compatible_contained_time_total, \
+        get_df_time, classify_per_table_schema_time, \
+        total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
+        find_complementary_contradictory_time_total, \
+        schema_group, total_num_rows \
             = v4c.main(new_dir_path, find_all_contradictions=True)
         elapsed_new = time.time() - start_time
 
@@ -92,7 +94,7 @@ if __name__ == '__main__':
         print(f"num contradictions: {len(flatten(contradictory_groups))}")
         print(f"time: {elapsed_new}")
 
-        results.append([compatible_groups, contained_groups, removed_contained_groups,
+        results.append([compatible_groups, contained_groups, removed_contained_views,
                         flatten(complementary_groups), flatten(contradictory_groups)])
         times.append(elapsed_new)
 

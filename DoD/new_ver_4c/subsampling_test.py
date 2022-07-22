@@ -24,8 +24,8 @@ def flatten(alist):
 
 if __name__ == '__main__':
 
-    partition_num = 5
-    experiment_num = str(partition_num)
+    # partition_num = 5
+    experiment_num = ""
 
     # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
     # new_dir_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     data_dir = "/home/cc/output_views_small"
     provenance_dir = "/home/cc/output_views_join_paths"
     # new_dir_path = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
-    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results2"
+    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results{experiment_num}"
 
     random_seed = 0
     random.seed(a=random_seed)
@@ -56,18 +56,14 @@ if __name__ == '__main__':
     view_dirs = [name for name in os.listdir(data_dir)
                  if os.path.isdir(os.path.join(data_dir, name))]
 
-    view_dirs.sort()
-    view_dirs = view_dirs[10*(partition_num-1):10*partition_num]
+    # view_dirs.sort()
+    # view_dirs = view_dirs[10*(partition_num-1):10*partition_num]
     # print(result_dirs)
-
-    times = np.zeros((len(view_dirs), len(sample_portion_list), 4))
-    results = np.zeros((len(view_dirs), len(sample_portion_list), 7))
-    schema_groups = []
 
     for i, view_dir in enumerate(view_dirs):
 
-        print(f"view dir name: {view_dir}")
-        if view_dir == "jp_313":
+        # print(f"view dir name: {view_dir}")
+        if view_dir == "jp_313" or view_dir == "jp_356":
             continue
 
         view_files = glob.glob(f"{data_dir}/{view_dir}/view_*")
@@ -104,6 +100,10 @@ if __name__ == '__main__':
         base_sample = random.sample(all_tables, base_sample_size)
         # num_views = []
 
+        times = np.zeros((len(view_dirs), len(sample_portion_list), 7))
+        results = np.zeros((len(view_dirs), len(sample_portion_list), 8))
+        schema_groups = []
+
         for j, sample_portion in enumerate(sample_portion_list):
 
             print(f"view dir name: {view_dir}")
@@ -128,13 +128,12 @@ if __name__ == '__main__':
 
             start_time = time.time()
 
-            path_to_df_dict, \
             compatible_groups, removed_compatible_views, \
             contained_groups, removed_contained_views, \
             complementary_groups, \
-            contradictory_groups, \
-            all_contradictory_pair_results, \
+            contradictory_groups, total_num_contradictory_pairs, \
             find_compatible_contained_time_total, \
+            get_df_time, classify_per_table_schema_time, \
             total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
             find_complementary_contradictory_time_total, \
             schema_group, total_num_rows = \
@@ -153,14 +152,19 @@ if __name__ == '__main__':
             print(f"total_num_rows: {total_num_rows}")
             print(f"num_views_after_pruning_compatible: {num_views_after_pruning_compatible}")
             print(f"num_views_after_pruning_contained: {num_views_after_pruning_contained}")
-            print(f"num complementary pairs: {len(flatten(complementary_groups))}")
-            print(f"num contradictory pairs: {len(all_contradictory_pair_results)}")
-            print(f"total num contradictions: {len(flatten(contradictory_groups))}")
+            print(f"total_num_comparisons_c2: {total_num_comparisons_c2}")
+            num_complementary_pairs = len(flatten(complementary_groups))
+            print(f"num complementary pairs: {num_complementary_pairs}")
+            print(f"num contradictory pairs: {total_num_contradictory_pairs}")
+            total_num_contradictions = len(flatten(contradictory_groups))
+            print(f"total num contradictions: {total_num_contradictions}")
+            print()
 
-            print(f"time: {elapsed}")
+            print(f"total time: {elapsed}")
+            print(f"get_df_time: {get_df_time}")
+            print(f"classify_per_table_schema_time: {classify_per_table_schema_time}")
             print(f"total_identify_c1_time: {total_identify_c1_time}")
             print(f"total_identify_c2_time: {total_identify_c2_time}")
-            print(f"total_num_comparisons_c2: {total_num_comparisons_c2}")
             print(f"find_compatible_contained_time_total: {find_compatible_contained_time_total}")
             print(f"find_complementary_contradictory_time_total: {find_complementary_contradictory_time_total}")
             print("-----------------------------------------------")
@@ -169,10 +173,11 @@ if __name__ == '__main__':
             #                 len(flatten(complementary_groups)), len(flatten(contradictory_groups))])
             results[i][j] = [len(views), total_num_rows,
                              num_views_after_pruning_compatible, num_views_after_pruning_contained,
-                             len(flatten(complementary_groups)), len(all_contradictory_pair_results),
-                             len(flatten(contradictory_groups))]
-            times[i][j] = [elapsed, total_identify_c1_time, total_identify_c2_time,
-                           find_complementary_contradictory_time_total]
+                             num_complementary_pairs, total_num_contradictory_pairs,
+                             total_num_contradictions, total_num_comparisons_c2]
+            times[i][j] = [elapsed, get_df_time, classify_per_table_schema_time,
+                           total_identify_c1_time, total_identify_c2_time,
+                           find_compatible_contained_time_total, find_complementary_contradictory_time_total]
             schema_groups.append(schema_group)
 
     print(times)
