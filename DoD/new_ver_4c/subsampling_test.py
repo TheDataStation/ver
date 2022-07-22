@@ -69,6 +69,8 @@ if __name__ == '__main__':
 
         for i, view_dir in enumerate(view_dirs):
 
+            print(f"query num: {i * k + i}")
+
             # print(f"view dir name: {view_dir}")
             if view_dir == "jp_313" or view_dir == "jp_356":
                 continue
@@ -113,7 +115,6 @@ if __name__ == '__main__':
 
             for j, sample_portion in enumerate(sample_portion_list):
 
-                print()
                 print(f"view dir name: {view_dir}")
                 print(f"sample portion = {sample_portion}")
 
