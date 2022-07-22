@@ -24,7 +24,7 @@ def flatten(alist):
 
 if __name__ == '__main__':
 
-    partition_num = 1
+    partition_num = 5
     experiment_num = str(partition_num)
 
     # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
@@ -67,6 +67,8 @@ if __name__ == '__main__':
     for i, view_dir in enumerate(view_dirs):
 
         print(f"view dir name: {view_dir}")
+        if view_dir == "jp_313":
+            continue
 
         view_files = glob.glob(f"{data_dir}/{view_dir}/view_*")
 
