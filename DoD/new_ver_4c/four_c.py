@@ -58,8 +58,8 @@ def identify_compatible_contained_views_optimized(dfs):
 
     hash_dict = {}
 
-    total_identify_c1_time = 0.0
-    total_identify_c2_time = 0.0
+    identify_c1_time = 0.0
+    identify_c2_time = 0.0
 
     start_time = time.time()
 
@@ -83,7 +83,7 @@ def identify_compatible_contained_views_optimized(dfs):
         cluster.pop()
         compatible_views_to_remove.update(cluster)
 
-    total_identify_c1_time += time.time() - start_time
+    identify_c1_time += time.time() - start_time
 
     start_time = time.time()
 
@@ -192,15 +192,16 @@ def identify_compatible_contained_views_optimized(dfs):
             candidate_complementary_contradictory_views.append((df, path))
             candidate_complementary_contradictory_view_paths.append(path)
 
-    total_identify_c2_time += time.time() - start_time
+    identify_c2_time += time.time() - start_time
 
-    print(f"total_identify_c1_time: {total_identify_c1_time}")
-    print(f"total_identify_c2_time: {total_identify_c2_time}")
+    print(f"identify_c1_time: {identify_c1_time}")
+    print(f"identify_c2_time: {identify_c2_time}")
 
     return compatible_groups, compatible_views_to_remove, \
            largest_contained_views, already_classified_as_contained, \
+           candidate_complementary_contradictory_views, \
            candidate_complementary_contradictory_view_paths, \
-           total_identify_c1_time, total_identify_c2_time, \
+           identify_c1_time, identify_c2_time, \
            num_comparisons  # ,
     # compl_contra_relation_graph
 
@@ -1099,7 +1100,9 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
         compatible_views, compatible_views_to_remove, \
         largest_contained_views, contained_views_to_remove, \
         candidate_complementary_contradictory_views, \
-        identify_c1_time, identify_c2_time, num_comparisons = \
+        candidate_complementary_contradictory_view_paths, \
+        identify_c1_time, identify_c2_time, \
+        num_comparisons = \
             identify_compatible_contained_views_optimized(group_dfs)
         find_compatible_contained_time = time.time() - start_time
         print(f"identify_compatible_contained_views time: {find_compatible_contained_time} s")
@@ -1132,7 +1135,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
         removed_compatible_views += list(compatible_views_to_remove)
         contained_groups += list(largest_contained_views)
         removed_contained_views += list(contained_views_to_remove)
-        total_candidate_complementary_contradictory_views += candidate_complementary_contradictory_views
+        total_candidate_complementary_contradictory_views += candidate_complementary_contradictory_view_paths
         complementary_groups.append(complementary_pairs)
         contradictory_groups.append(contradictory_pairs)
         # all_contradictory_pair_results.update(all_contradictory_pair_result)
