@@ -1077,6 +1077,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
     removed_compatible_views = []
     contained_groups = []
     removed_contained_views = []
+    total_candidate_complementary_contradictory_views = []
     complementary_groups = []
     contradictory_groups = []
     # all_contradictory_pair_results = {}
@@ -1129,6 +1130,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
         removed_compatible_views += list(compatible_views_to_remove)
         contained_groups += list(largest_contained_views)
         removed_contained_views += list(contained_views_to_remove)
+        total_candidate_complementary_contradictory_views += candidate_complementary_contradictory_views
         complementary_groups.append(complementary_pairs)
         contradictory_groups.append(contradictory_pairs)
         # all_contradictory_pair_results.update(all_contradictory_pair_result)
@@ -1136,6 +1138,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
 
     return compatible_groups, removed_compatible_views, \
            contained_groups, removed_contained_views, \
+           total_candidate_complementary_contradictory_views, \
            complementary_groups, \
            contradictory_groups, total_num_contradictory_pairs, \
            find_compatible_contained_time_total, \
