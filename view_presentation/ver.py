@@ -11,7 +11,6 @@ import warnings
 warnings.filterwarnings('ignore')
 import tqdm
 from Ver_DataFrame import Ver_DataFrame
-# In[2]:
 
 
 import ipywidgets as widgets
@@ -118,7 +117,7 @@ def read_df(candidate_path,data_id):
                     attr_to_val[attr]=val_lst
         #
         except:
-            j=i#print (i)
+            j=i
         i+=1
     return attr_map,attr_to_val,attr_lst,df_lst,df_name_lst,s4_score,candidate_name_to_id
 
