@@ -87,6 +87,13 @@ if __name__ == '__main__':
         complementary_pairs = flatten(complementary_groups)
         contradictory_pairs = flatten(contradictory_groups)
 
+        with open(f"{results_dir}/sainyam/pruned_compatible_views_{view_dir}.txt", "w") as f:
+            for view in removed_compatible_views:
+                f.write(view + "\n")
+
+        with open(f"{results_dir}/sainyam/pruned_contained_views_{view_dir}.txt", "w") as f:
+            for view in removed_contained_views:
+                f.write(view + "\n")
 
         with open(f"{results_dir}/sainyam/candidate_compl_views_{view_dir}.txt", "w") as f:
             for view in total_candidate_complementary_contradictory_views:
