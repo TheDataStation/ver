@@ -596,10 +596,8 @@ def find_candidate_keys(df, sampling=False, max_num_attr_in_composite_key=2, uni
         num_groups = sample.groupby(key).ngroups
         strength = num_groups / sample_size
 
-        # print(f"candidate key: {key}, uniqueness: {strength}")
-
         if strength < uniqueness_threshold:
-            continue
+           continue
 
         if abs(strength - max_strength) < epsilon:
             candidate_keys.append(tuple(key))
@@ -627,11 +625,11 @@ def build_inverted_index(dfs, candidate_key_size=2, uniqueness_threshold=0.9):
         candidate_keys = find_candidate_keys(df, sampling=False,
                                              max_num_attr_in_composite_key=candidate_key_size,
                                              uniqueness_threshold=uniqueness_threshold)
-        view_to_candidate_keys_dict[path] = candidate_keys
-
         total_find_candidate_keys_time += time.time() - start_time
 
         start_time = time.time()
+
+        view_to_candidate_keys_dict[path] = candidate_keys
 
         # if we didn't find any key (ex. all the columns are float), then we don't classify any
         # contradictory or complementary groups
@@ -652,7 +650,8 @@ def build_inverted_index(dfs, candidate_key_size=2, uniqueness_threshold=0.9):
     print(f"total_find_candidate_keys_time: {total_find_candidate_keys_time} s")
     print(f"total_create_inverted_index_time: {total_create_inverted_index_time} s")
 
-    return candidate_key_to_inverted_index, view_to_candidate_keys_dict
+    return candidate_key_to_inverted_index, view_to_candidate_keys_dict, \
+           total_find_candidate_keys_time
 
 
 def identify_complementary_contradictory_views(path_to_df_dict,
@@ -914,7 +913,7 @@ def identify_complementary_contradictory_views_optimized(candidate_complementary
                                                          candidate_key_size=2,
                                                          find_all_contradictions=True,
                                                          uniqueness_threshold=0.9):
-    candidate_key_to_inverted_index, view_to_candidate_keys_dict = \
+    candidate_key_to_inverted_index, view_to_candidate_keys_dict, find_candidate_keys_time = \
         build_inverted_index(
             candidate_complementary_contradictory_views,
             candidate_key_size,
@@ -955,6 +954,7 @@ def identify_complementary_contradictory_views_optimized(candidate_complementary
                             complementary_pairs.add((path1, path2, candidate_key))
                         j += 1
                     i += 1
+
             already_added = set()
             for row1, cluster1 in clusters.items():
 
@@ -1060,7 +1060,7 @@ def identify_complementary_contradictory_views_optimized(candidate_complementary
 
     print(f"total_find_contradiction_time: {time.time() - start_time} s")
 
-    return complementary_pairs, contradictory_pairs, num_contradictory_pairs  # , all_contradictory_pair_result
+    return complementary_pairs, contradictory_pairs, num_contradictory_pairs, find_candidate_keys_time  # , all_contradictory_pair_result
 
 
 def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradictions=True, uniqueness_threshold=0.9):
@@ -1091,6 +1091,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
     total_identify_c1_time = 0.0
     total_identify_c2_time = 0.0
     total_num_comparisons_c2 = 0
+    total_find_candidate_keys_time = 0.0
 
     for key, group_dfs in dfs_per_schema.items():
         print("Num elements with schema " + str(key) + " is: " + str(len(group_dfs)))
@@ -1118,7 +1119,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
 
         start_time = time.time()
         # all_contradictory_pair_result
-        complementary_pairs, contradictory_pairs, num_contradictory_pairs = \
+        complementary_pairs, contradictory_pairs, num_contradictory_pairs, find_candidate_keys_time = \
             identify_complementary_contradictory_views_optimized(candidate_complementary_contradictory_views,
                                                                  candidate_key_size=candidate_key_size,
                                                                  find_all_contradictions=find_all_contradictions,
@@ -1140,6 +1141,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
         contradictory_groups.append(contradictory_pairs)
         # all_contradictory_pair_results.update(all_contradictory_pair_result)
         total_num_contradictory_pairs += num_contradictory_pairs
+        total_find_candidate_keys_time += find_candidate_keys_time
 
     return compatible_groups, removed_compatible_views, \
            contained_groups, removed_contained_views, \
@@ -1149,7 +1151,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
            find_compatible_contained_time_total, \
            get_df_time, classify_per_table_schema_time, \
            total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
-           find_complementary_contradictory_time_total, \
+           find_complementary_contradictory_time_total, total_find_candidate_keys_time, \
            schema_group, total_num_rows
 
 

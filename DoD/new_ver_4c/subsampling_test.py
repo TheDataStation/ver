@@ -25,7 +25,7 @@ def flatten(alist):
 if __name__ == '__main__':
 
     # partition_num = 5
-    experiment_num = ""
+    experiment_num = "_new"
 
     # data_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/data"
     # new_dir_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
@@ -110,7 +110,7 @@ if __name__ == '__main__':
             base_sample = random.sample(all_tables, base_sample_size)
             # num_views = []
 
-            times = np.zeros((len(sample_portion_list), 7))
+            times = np.zeros((len(sample_portion_list), 8))
             results = np.zeros((len(sample_portion_list), 8))
             schema_groups = []
 
@@ -146,7 +146,7 @@ if __name__ == '__main__':
                 find_compatible_contained_time_total, \
                 get_df_time, classify_per_table_schema_time, \
                 total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
-                find_complementary_contradictory_time_total, \
+                find_complementary_contradictory_time_total, total_find_candidate_keys_time, \
                 schema_group, total_num_rows = \
                     v4c.main(input_path="", view_paths=views, find_all_contradictions=find_all_contradictions)
 
@@ -194,33 +194,35 @@ if __name__ == '__main__':
                 print(f"total_identify_c2_time: {total_identify_c2_time}")
                 print(f"find_compatible_contained_time_total: {find_compatible_contained_time_total}")
                 print(f"find_complementary_contradictory_time_total: {find_complementary_contradictory_time_total}")
+                print(f"total_find_candidate_keys_time: {total_find_candidate_keys_time}")
                 print("-----------------------------------------------")
 
                 # results.append([len(views), len(compatible_groups), len(contained_groups),
                 #                 len(flatten(complementary_groups)), len(flatten(contradictory_groups))])
                 results[j] = [len(views), total_num_rows,
-                                 num_views_after_pruning_compatible, num_views_after_pruning_contained,
-                                 num_complementary_pairs, total_num_contradictory_pairs,
-                                 total_num_contradictions, total_num_comparisons_c2]
+                              num_views_after_pruning_compatible, num_views_after_pruning_contained,
+                              num_complementary_pairs, total_num_contradictory_pairs,
+                              total_num_contradictions, total_num_comparisons_c2]
                 times[j] = [elapsed, get_df_time, classify_per_table_schema_time,
-                               total_identify_c1_time, total_identify_c2_time,
-                               find_compatible_contained_time_total, find_complementary_contradictory_time_total]
+                            total_identify_c1_time, total_identify_c2_time,
+                            find_compatible_contained_time_total, find_complementary_contradictory_time_total,
+                            total_find_candidate_keys_time]
                 schema_groups.append(schema_group)
 
-        # print(times)
+            # print(times)
             np.save(f"{results_dir}/times_{view_dir}.npy", times)
 
-        # with open("times.log", "w") as f:
-        #     for time in times:
-        #         f.write(str(time) + "\n")
+            # with open("times.log", "w") as f:
+            #     for time in times:
+            #         f.write(str(time) + "\n")
 
-        # print(results)
+            # print(results)
             np.save(f"{results_dir}/results_{view_dir}.npy", results)
-        # with open("results.log", "w") as f:
-        #     for result in results:
-        #         for num in result:
-        #             f.write(str(num) + " ")
-        #         f.write("\n")
+            # with open("results.log", "w") as f:
+            #     for result in results:
+            #         for num in result:
+            #             f.write(str(num) + " ")
+            #         f.write("\n")
 
             with open(f"{results_dir}/schema_groups_{view_dir}.txt", "w") as f:
                 for schema_group in schema_groups:
