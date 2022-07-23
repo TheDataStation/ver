@@ -27,7 +27,7 @@ import sys
 
 
 data_id=sys.argv[1]#'jp_1020'
-query_path='/home/cc/queries1/'
+query_path='/home/cc/generality_experiment/queries_keyword/'#'/home/cc/queries1/'
 #root_path='/home/cc/user_study'
 candidate_path='/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results_old/sainyam'#'/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results/sainyam'
 gt_path='/home/cc/generality_experiment/views_keyword/'#'/home/cc/view_presentation/ground_truth_qbe/'
@@ -47,6 +47,8 @@ def read_query(query_path,data_id):
     query=''
     f=open(query_path+data_id+'.csv')
     for line in f:
+        if "keywords" in line:
+            continue
         line=line.strip()
         line=line.split(',')
         query+=' '.join(line)
@@ -159,7 +161,7 @@ for path in candidate_name_to_id.keys():
 
 
 print ("gt id is ",gt_id)
-fjaskl
+
 read_time = timeit.default_timer()-start
 
 
@@ -264,7 +266,7 @@ def cluster(attr_lst,attr_to_val,attr_val_lst,option):
         i+=1
     iter=0
     pred_map={}
-    for attr in attr_val_lst:
+    for attr in attrs:
         pred_map[attr] = center_val[pred[iter]]
         iter+=1
     return centers,center_val,pred,max_dist,pred_map
@@ -1625,8 +1627,10 @@ ver_int=interface()
 i=0
 total=0
 
-#TODO: Read from ground truth file
-ground_truth=0
+options=list(candidate_name_to_id.values())
+
+print (options)
+
 
 while i<100:
     start = timeit.default_timer()
@@ -1639,10 +1643,12 @@ while i<100:
     ver_int.asked[itype]+=1
 
     #user response from simulation
-    user_response=ver_user(ground_truth,ques,question_coverage)#False
+    user_response=ver_user(gt_id,ques,question_coverage)#False
     if 'wordcloud' in itype:
         lst=list(ques.keys())
-        if not user_response:
+        if user_response=='Skip':
+            print ("No response from the user")
+        elif user_response=="No":
             ver_int.discarded_attr.extend(lst)
             for attr in lst:
                 pruned_lst.extend(attribute_to_dataset[attr])
