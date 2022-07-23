@@ -29,12 +29,20 @@ import sys
 data_id=sys.argv[1]#'jp_1020'
 query_path='/home/cc/queries1/'
 #root_path='/home/cc/user_study'
-root_path='/home/cc/output_views_small/'+data_id#/Users/sainyam/Documents/XMind'#'/home/cc/user_study'
-data_path=root_path+'/home/cc/output_views_small/'+data_id#jp_1020'
-candidate_path='/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results/sainyam'
+candidate_path='/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results_old/sainyam'#'/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results/sainyam'
+gt_path='/home/cc/generality_experiment/views_keyword/'#'/home/cc/view_presentation/ground_truth_qbe/'
 
 
+def read_gt(gt_path,data_id):
+    f=open(gt_path+data_id+'/gt_log.txt')
+    for line in f:
+        line=line.strip()
+        print (line)
+        if 'groud truth' in line:
+            line=line.split(':')[-1]
+            return line.strip()
 
+gt_file='view_'+(read_gt(gt_path,data_id))+'.csv'
 def read_query(query_path,data_id):
     query=''
     f=open(query_path+data_id+'.csv')
@@ -142,6 +150,16 @@ def read_df(candidate_path,data_id):
 (attr_map,attr_to_val,attr_lst,df_lst,df_name_lst,s4_score,candidate_name_to_id)=read_df(candidate_path,data_id)
 c_dic=get_4c_pairs(candidate_name_to_id,candidate_path,data_id)
 
+gt_id=-1
+for path in candidate_name_to_id.keys():
+    print(path)
+    if gt_file in path:
+        gt_id=candidate_name_to_id[path]
+        break
+
+
+print ("gt id is ",gt_id)
+fjaskl
 read_time = timeit.default_timer()-start
 
 
@@ -903,7 +921,7 @@ class interface:
         ques_score=1
         if interface=='4c':
             #use c_dic
-            return 0,None
+            return 0,None,2
         if 'wordcloud' in interface:
             coverage=[]
             if interface=='wordcloud':
@@ -951,9 +969,9 @@ class interface:
                         final_lst[l]=1
                         coverage.extend(attribute_to_dataset[l])
             if len(list(final_lst.keys()))==0:
-                return 0,None
+                return 0,None,[]
             #word_lst=get_top_k(candidate_lst)
-            return len(list(set(coverage))),final_lst#word_lst
+            return len(list(set(coverage))),final_lst,coverage#word_lst
             #Pick top 10 attributes and their frequencies
         if 'attribute' in interface:
             coverage=[]
@@ -964,7 +982,7 @@ class interface:
                     #print (d,sc)
                     self.queried_attributes.append(d)
                     coverage.extend(attribute_to_dataset[d])
-                    return len(coverage),d
+                    return len(coverage),d,coverage
             else:
                 for(d,sc) in distance_lst_attribute_content:
                     if d in self.queried_attributes:
@@ -972,8 +990,8 @@ class interface:
                     #print (d,sc)
                     coverage.extend(attribute_to_dataset[d])
                     self.queried_attributes.append(d)
-                    return len(coverage),d
-            return 0,None
+                    return len(coverage),d,coverage
+            return 0,None,[]
            
         if 'dataset' in interface:
             if interface=='dataset':
@@ -998,8 +1016,8 @@ class interface:
                 self.queried_datasets.append(return_d)
                 #print ("this",return_d,options,maxval)
                 if len(options)==0:
-                    return 0,None
-                return 1,[df_lst[return_d],return_d]
+                    return 0,None,[]
+                return 1,[df_lst[return_d],return_d],[return_d]
             else:
                 min_sc=100
                 options=[]
@@ -1022,8 +1040,8 @@ class interface:
                 self.queried_datasets.append(return_d)
                 #print ("this",return_d,options,maxval)
                 if len(options)==0:
-                    return 0,None
-                return 1,[df_lst[return_d],return_d]
+                    return 0,None,[]
+                return 1,[df_lst[return_d],return_d],[return_d]
             
            
             
@@ -1044,7 +1062,7 @@ class interface:
             #Get reduction in score and corresponding question for each interface
             #score: \chi(I)
             #print ("interface is ",interface)
-            score,ques=self.get_question(self.interface_options[iter])
+            score,ques,coverage=self.get_question(self.interface_options[iter])
 
 
             answer_prob=1
@@ -1612,8 +1630,7 @@ ground_truth=0
 
 while i<100:
     start = timeit.default_timer()
-    (ques,itype)= (ver_int.choose_interface())
-    question_coverage=1#TODO: Update
+    (ques,itype,coverage)= (ver_int.choose_interface())
     end_time = timeit.default_timer()
     total+=(end_time-start)
     if ques==None:
