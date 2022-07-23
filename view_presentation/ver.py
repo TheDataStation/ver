@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-
-
-
+import copy
 import timeit
+import numpy as np
+from collections import Counter
 
 import math
 import warnings
@@ -55,6 +54,26 @@ def get_4c_pairs(data_dic,candidate_path,data_id):
         v2=data_dic[line[1].strip()]
         c_dic[(v1,v2)]=line[2:]
     return c_dic
+def clean_attr(attr_lst,attribute_to_dataset):
+    lst=[]
+    for attr in attr_lst:
+        orig=copy.deepcopy(attr)
+        attr=attr.replace('_',' ')
+        attr=attr.replace(',',' ')
+        attr=attr.replace('/',' ')
+        lst.append(attr)
+        attribute_to_dataset[attr]=attribute_to_dataset[orig]
+    
+    attr_lst=lst
+    newlst=[]
+    for attr in attr_lst:
+        if len(get_mean_vector(model,attr))==0:
+            continue
+        else:
+            newlst.append(attr)
+    attr_lst=newlst
+    return attr_lst,attribute_to_dataset
+
 
 fout=open("log-file-systema.txt",'a')
 query=read_query(query_path,data_id)
@@ -99,62 +118,43 @@ def read_df(candidate_path,data_id):
             candidate_name_to_id[d]=len(df_lst)
             df_str= (df.to_string().lower())
             df_name_lst.append(d)
-            if True:#"connecticut" in df_str or "georgia" in df_str or "virginia" in df_str or "illinois" in df_str or "indiana" in df_str:
-                attr_lst.extend(list(df.columns))
-                df_lst.append(df)
-                s4_score[len(df_lst)-1]=1#nonzero[d]
-                for attr in list(df.columns):
-                    if len(attr)<3:
-                        continue
-                    l=[]
-                    val_lst=[]
-                    if attr in attr_map.keys():
-                        l=attr_map[attr]
-                        val_lst=attr_to_val[attr]
-                    val_lst.extend(list(df[attr]))
-                    l.append(len(df_lst)-1)
-                    attr_map[attr]=l
-                    attr_to_val[attr]=val_lst
+            attr_lst.extend(list(df.columns))
+            df_lst.append(df)
+            s4_score[len(df_lst)-1]=1#nonzero[d]
+            for attr in list(df.columns):
+                if len(attr)<3:
+                    continue
+                l=[]
+                val_lst=[]
+                if attr in attr_map.keys():
+                    l=attr_map[attr]
+                    val_lst=attr_to_val[attr]
+                val_lst.extend(list(df[attr]))
+                l.append(len(df_lst)-1)
+                attr_map[attr]=l
+                attr_to_val[attr]=val_lst
         #
         except:
-            j=i
+            j=i#print (i)
         i+=1
     return attr_map,attr_to_val,attr_lst,df_lst,df_name_lst,s4_score,candidate_name_to_id
 
 (attr_map,attr_to_val,attr_lst,df_lst,df_name_lst,s4_score,candidate_name_to_id)=read_df(candidate_path,data_id)
-print (candidate_name_to_id)
 c_dic=get_4c_pairs(candidate_name_to_id,candidate_path,data_id)
+
 read_time = timeit.default_timer()-start
+
+
 candidate_lst=df_lst
 
 candidate_attributes=attr_lst
 attribute_to_dataset=attr_map
 wordcloud_lst=[]
-#print (attribute_to_dataset)
-import copy
-import numpy as np
 attr_lst=list(attr_map.keys())
 attr_lst=list(set(attr_lst))
 
+(attr_lst,attribute_to_dataset)=clean_attr(attr_lst,attribute_to_dataset)
 
-lst=[]
-for attr in attr_lst:
-    orig=copy.deepcopy(attr)
-    attr=attr.replace('_',' ')
-    attr=attr.replace(',',' ')
-    attr=attr.replace('/',' ')
-    lst.append(attr)
-    attribute_to_dataset[attr]=attribute_to_dataset[orig]
-    
-attr_lst=lst
-newlst=[]
-for attr in attr_lst:
-    if len(get_mean_vector(model,attr))==0:
-        continue
-    else:
-        newlst.append(attr)
-attr_lst=newlst
-from collections import Counter
 original_attr_to_val={}
 for attr in attr_to_val.keys():
     lst=attr_to_val[attr]
@@ -182,11 +182,9 @@ for attr in attr_to_val.keys():
         attr_val_lst.append(attr)
 
 
-# In[8]:
 
 
 import random
-#random.seed(1)
 def cluster(attr_lst,attr_to_val,attr_val_lst,option):
     if option==0:
         attrs=attr_lst
@@ -481,7 +479,6 @@ def get_es_results(query_str,searchtype):
         #print (len(df_lst))
         return (data_lst,header_lst,header_string,df_lst,df_text)
     elif searchtype=='Content':  
-        #TODO: 
         data_lst=[]
         header_lst=[]
         header_string=''
@@ -546,7 +543,6 @@ def get_es_results(query_str,searchtype):
         return (data_lst,[],'',df_lst,df_text)
 
     else:
-        #TODO:
         res = es.search(index="nyc-df-index", query= {"bool":{"must":{"query_string": {'query': "*"+query_str+"*" }}}})
         data_lst = get_datasets(res)
         
@@ -1291,9 +1287,6 @@ class interface:
         
 
         
-        #TODO: Show that interface and other output
-
-        #TODO: Create different tabs of interfaces
         
         turn_on_wordcloud=self.wordcloud.value
         
@@ -1313,7 +1306,7 @@ class interface:
             #display(self.querybox,self.button)
         elif interface_type=='cluster':
             #Shows a wordcloud
-            text='hi i am sainyam i am here i am going to here here here'
+            text=''
             wordcloud = WordCloud(background_color="white",stopwords=STOPWORDS).generate(text)
             #print (wordcloud)
             def update():
@@ -1321,13 +1314,9 @@ class interface:
 
             wc_widget=widgets.interact(update)
             display(widgets.HBox([wc_widget]))
-            #TODO: Give a drop down to ignore this cluster
-            # Select a cluster
-            #Rank
         elif interface_type=='attribute_lst':
             #User can choose specific attributes that seem useful
             #We can choose how many attributes user wants to see!!!!!
-            #TODO: Choose attributes to show
             options_lst=['borough','state','city']
             print ("Choose attributes that you want in the dataset")
             w_lst=[]
@@ -1378,8 +1367,8 @@ class interface:
         elif interface_type=='wordcloud_pair':
             #Two sets of dataframes and we want to generate different statistics to show
             print ("Which topics would you prefer?")
-            text1='hi i am sainyam i am here i am going to here here here'
-            text2='hi i am sainyam i am here i am going to here here here'
+            text1='a ab aa a a a'
+            text2='a b a a a a a a'#
             
             wordcloud1 = WordCloud(background_color="white",stopwords=STOPWORDS).generate(text1)
             wordcloud2 = WordCloud(background_color="white",stopwords=STOPWORDS).generate(text2)
@@ -1475,13 +1464,6 @@ class interface:
             #Give pattern and some attributes as example
             
             
-        #elif interface_type=='topic cluster':
-        #elif interface_type=='ranklist':
-        
-        #elif interface_type=='niffler':
-            #As user to enter tokens that are definitely present
-            #maybe present
-            #should not be present
         display(HTML('<hr size="8" color="black">'))
         display(HTML(
          "Could not find any dataset:"))
@@ -1489,7 +1471,6 @@ class interface:
         display(HTML('<hr size="8" color="black">'))
         self.display_ranking()  
             
-        #TODO: Blow code shows the output on the screen
                 
         
         #Write code to display a set of datframes and allow user to remove certain dataframes from the list
@@ -1613,27 +1594,26 @@ class interface:
                 #keyword_search=widgets.HBox([self.querybox,self.button,setup_ui(display_dfs(output))])
                 #display(keyword_search)
 
+def ver_user(ground_truth,ques, question_coverage):
 
-
-    #Todo:
-    #1. indexing (Done but need to integrate with Aurum! and show join paths)
-    #2: [Done] Remove stop words, numerical columns and -,. 
-    #3: Add a tab with shortlisted options
-    #Todo: Show top10 instead of wordcloud
-
+    return "Skip"
 
 
 #Implement a user that answers everything correctly!
 #Go over shortlisted list and if one element is left then we are done
 #Initially all datasets are the search space and after shortlisted is non empty they become the search space.
-#TODO: Implement a mechanism to show questions from shortlisted datasets too!!!!!
 setup_time=timeit.default_timer()-start
 ver_int=interface()
 i=0
 total=0
+
+#TODO: Read from ground truth file
+ground_truth=0
+
 while i<100:
     start = timeit.default_timer()
     (ques,itype)= (ver_int.choose_interface())
+    question_coverage=1#TODO: Update
     end_time = timeit.default_timer()
     total+=(end_time-start)
     if ques==None:
@@ -1642,7 +1622,7 @@ while i<100:
     ver_int.asked[itype]+=1
 
     #user response from simulation
-    user_response=False
+    user_response=ver_user(ground_truth,ques,question_coverage)#False
     if 'wordcloud' in itype:
         lst=list(ques.keys())
         if not user_response:
