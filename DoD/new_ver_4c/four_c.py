@@ -618,6 +618,10 @@ def build_inverted_index(dfs, candidate_key_size=2, uniqueness_threshold=0.9):
 
     view_to_candidate_keys_dict = {}
 
+    if len(dfs) <= 1:
+        return candidate_key_to_inverted_index, view_to_candidate_keys_dict, \
+               total_find_candidate_keys_time
+
     for df, path in tqdm(dfs):
 
         start_time = time.time()
