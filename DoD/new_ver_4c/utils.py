@@ -18,11 +18,12 @@ def normalize(df):
     return df
 
 
-def curate_view(df, drop_duplicates=True):
+def curate_view(df, drop_duplicates=True, dropna=True):
     # df.columns = df.iloc[0]
     # df = df.drop(index=0).reset_index(drop=True)
 
-    df = df.dropna()  # drop nan
+    if dropna:
+        df = df.dropna()  # drop nan
     if drop_duplicates:
         df = df.drop_duplicates()
     # this may tweak indexes, so need to reset that

@@ -9,7 +9,7 @@ from itertools import chain, combinations
 from utils import *
 
 
-def get_dataframes(path, view_paths, save_df=False):
+def get_dataframes(path, view_paths, save_df=False, dropna=True):
     if view_paths is not None:
         files = view_paths
     else:
@@ -19,7 +19,7 @@ def get_dataframes(path, view_paths, save_df=False):
     total_num_rows = 0
     for f in files:
         df = pd.read_csv(f, encoding='latin1', thousands=',')  # .replace('"','', regex=True)
-        df = curate_view(df)
+        df = curate_view(df, dropna=dropna)
         df = normalize(df)
         if len(df) > 0:  # only append valid df
             dfs.append((df, f))
@@ -1065,7 +1065,7 @@ def identify_complementary_contradictory_views_optimized(candidate_complementary
 
 def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradictions=True, uniqueness_threshold=0.9):
     start_time = time.time()
-    dfs, path_to_df_dict, total_num_rows = get_dataframes(input_path, view_paths)
+    dfs, path_to_df_dict, total_num_rows = get_dataframes(input_path, view_paths, dropna=False)
     get_df_time = time.time() - start_time
     print(f"get_dataframes time: {get_df_time} s")
     print("Found " + str(len(dfs)) + " valid views")
