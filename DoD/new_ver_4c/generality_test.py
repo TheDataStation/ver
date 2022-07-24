@@ -31,9 +31,9 @@ if __name__ == '__main__':
     # new_dir_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
     # results_dir = "results"
     # #
-    data_dir = "/home/cc/generality_experiment/views_keyword"
+    data_dir = "/home/cc/output_views_small"
     # provenance_dir = "/home/cc/output_views_join_paths"
-    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results"
+    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/s4_4c_results"
 
     random_seed = 0
     random.seed(a=random_seed)
@@ -58,17 +58,24 @@ if __name__ == '__main__':
     # view_dirs = view_dirs[10*(partition_num-1):10*partition_num]
     # print(result_dirs)
 
-    view_dirs = [name for name in os.listdir(data_dir)
-                 if os.path.isdir(os.path.join(data_dir, name))]
+    # view_dirs = [name for name in os.listdir(data_dir)
+    #              if os.path.isdir(os.path.join(data_dir, name))]
+    # view_dirs.sort()
+
+#jp_1325.csv  jp_1504.csv  jp_1577.csv  jp_1618.csv  jp_1824.csv  jp_1863.csv  jp_340.csv  jp_42.csv  jp_679.csv  jp_859.csv
+    view_dirs = ["jp_1325", "jp_1504", "jp_1577", "jp_1618", "jp_1824", "jp_1863", "jp_340", "jp_42", "jp_679", "jp_859"]
     view_dirs.sort()
 
     for i, view_dir in enumerate(view_dirs):
+
+        # if view_dir not in selected:
+        #     continue
 
         print(f"query num: {i}")
 
         print(f"view dir name: {view_dir}")
 
-        views = glob.glob(f"{data_dir}/{view_dir}/views/view_*")
+        views = glob.glob(f"{data_dir}/{view_dir}/view_*")
 
         start_time = time.time()
 
