@@ -89,6 +89,8 @@ def identify_compatible_contained_views_optimized(dfs):
 
     start_time = time.time()
 
+    contained_groups = defaultdict(set)
+
     num_comparisons = 0
     i1 = 0
     while i1 < len(dfs):
@@ -134,6 +136,7 @@ def identify_compatible_contained_views_optimized(dfs):
                         already_classified_as_contained.add(largest_contained_view[1])
                         largest_contained_view = (df1, path1)
                 already_classified_as_contained.add(path2)
+                contained_groups[path1].add(path2)
             elif hash_set1.issubset(hash_set2):
                 # view1 is contained in view2
                 if largest_contained_view is None:
@@ -143,6 +146,7 @@ def identify_compatible_contained_views_optimized(dfs):
                         already_classified_as_contained.add(largest_contained_view[1])
                         largest_contained_view = (df2, path2)
                 already_classified_as_contained.add(path1)
+                contained_groups[path2].add(path1)
             j1 += 1
 
             # else:
@@ -200,7 +204,7 @@ def identify_compatible_contained_views_optimized(dfs):
     print(f"identify_c2_time: {identify_c2_time}")
 
     return compatible_groups, compatible_views_to_remove, \
-           largest_contained_views, already_classified_as_contained, \
+           largest_contained_views, already_classified_as_contained, contained_groups, \
            candidate_complementary_contradictory_views, \
            candidate_complementary_contradictory_view_paths, \
            identify_c1_time, identify_c2_time, \
@@ -599,7 +603,7 @@ def find_candidate_keys(df, sampling=False, max_num_attr_in_composite_key=2, uni
         strength = num_groups / sample_size
 
         if strength < uniqueness_threshold:
-           continue
+            continue
 
         if abs(strength - max_strength) < epsilon:
             candidate_keys.append(tuple(key))
@@ -1069,12 +1073,17 @@ def identify_complementary_contradictory_views_optimized(candidate_complementary
 
     print(f"total_find_contradiction_time: {time.time() - start_time} s")
 
-    return complementary_pairs, contradictory_pairs, num_contradictory_pairs, find_candidate_keys_time  # , all_contradictory_pair_result
+    return complementary_pairs, contradictory_pairs, num_contradictory_pairs, find_candidate_keys_time  # ,
+    # all_contradictory_pair_result
 
 
-def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradictions=True, uniqueness_threshold=0.9):
+def main(input_path, view_paths=None,
+         candidate_key_size=2,
+         find_all_contradictions=True,
+         uniqueness_threshold=0.9,
+         dropna=True):
     start_time = time.time()
-    dfs, path_to_df_dict, total_num_rows = get_dataframes(input_path, view_paths, dropna=False)
+    dfs, path_to_df_dict, total_num_rows = get_dataframes(input_path, view_paths, dropna=dropna)
     get_df_time = time.time() - start_time
     print(f"get_dataframes time: {get_df_time} s")
     print("Found " + str(len(dfs)) + " valid views")
@@ -1087,8 +1096,9 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
 
     compatible_groups = []
     removed_compatible_views = []
-    contained_groups = []
+    largest_contained_views = []
     removed_contained_views = []
+    contained_groups = defaultdict(set)
     total_candidate_complementary_contradictory_views = []
     complementary_groups = []
     contradictory_groups = []
@@ -1107,8 +1117,8 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
         schema_group.append(len(group_dfs))
 
         start_time = time.time()
-        compatible_views, compatible_views_to_remove, \
-        largest_contained_views, contained_views_to_remove, \
+        cur_compatible_groups, cur_compatible_views_to_remove, \
+        cur_largest_contained_views, cur_already_classified_as_contained, cur_contained_groups, \
         candidate_complementary_contradictory_views, \
         candidate_complementary_contradictory_view_paths, \
         identify_c1_time, identify_c2_time, \
@@ -1141,10 +1151,11 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
         # pprint.pprint(complementary_pairs)
         # pprint.pprint(result)
 
-        compatible_groups += compatible_views
-        removed_compatible_views += list(compatible_views_to_remove)
-        contained_groups += list(largest_contained_views)
-        removed_contained_views += list(contained_views_to_remove)
+        compatible_groups += cur_compatible_groups
+        removed_compatible_views += list(cur_compatible_views_to_remove)
+        largest_contained_views += list(cur_largest_contained_views)
+        removed_contained_views += list(cur_already_classified_as_contained)
+        contained_groups.update(cur_contained_groups)
         total_candidate_complementary_contradictory_views += candidate_complementary_contradictory_view_paths
         complementary_groups.append(complementary_pairs)
         contradictory_groups.append(contradictory_pairs)
@@ -1153,7 +1164,7 @@ def main(input_path, view_paths=None, candidate_key_size=2, find_all_contradicti
         total_find_candidate_keys_time += find_candidate_keys_time
 
     return compatible_groups, removed_compatible_views, \
-           contained_groups, removed_contained_views, \
+           largest_contained_views, removed_contained_views, \
            total_candidate_complementary_contradictory_views, \
            complementary_groups, \
            contradictory_groups, total_num_contradictory_pairs, \

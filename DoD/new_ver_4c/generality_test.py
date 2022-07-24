@@ -40,6 +40,8 @@ if __name__ == '__main__':
 
     # sample_portion_list = [0.25, 0.50, 0.75, 1.0]
     find_all_contradictions = True
+    dropna = False
+    candidate_key_size=1
 
     # all_tables = []
     # with open(f"/home/cc/all_tables.txt", "r") as f:
@@ -80,7 +82,10 @@ if __name__ == '__main__':
         total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
         find_complementary_contradictory_time_total, total_find_candidate_keys_time, \
         schema_group, total_num_rows = \
-            v4c.main(input_path="", view_paths=views, find_all_contradictions=find_all_contradictions)
+            v4c.main(input_path="", view_paths=views,
+                     find_all_contradictions=find_all_contradictions,
+                     dropna=dropna,
+                     candidate_key_size=candidate_key_size)
 
         elapsed = time.time() - start_time
 
