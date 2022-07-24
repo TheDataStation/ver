@@ -31,9 +31,9 @@ if __name__ == '__main__':
     # new_dir_path = f"/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/new_ver_4c/test_dir{experiment_num}/"
     # results_dir = "results"
     # #
-    data_dir = "/home/cc/generality_experiment/views_attr"
+    data_dir = "/home/cc/generality_experiment/views_keyword"
     # provenance_dir = "/home/cc/output_views_join_paths"
-    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/attr_4c_results"
+    results_dir = f"/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results"
 
     random_seed = 0
     random.seed(a=random_seed)
