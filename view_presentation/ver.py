@@ -25,8 +25,11 @@ import gensim
 import sys
 
 
-
+import random
 data_id=sys.argv[1]#'jp_1020'
+seed=int(sys.argv[2])
+
+random.seed(seed)
 query_path='/home/cc/generality_experiment/queries_keyword/'#'/home/cc/queries1/'
 #root_path='/home/cc/user_study'
 candidate_path='/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results_old/sainyam'#'/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results/sainyam'
@@ -204,8 +207,8 @@ for attr in attr_to_val.keys():
 
 
 
-import random
 def cluster(attr_lst,attr_to_val,attr_val_lst,option):
+
     if option==0:
         attrs=attr_lst
     else:
@@ -215,6 +218,8 @@ def cluster(attr_lst,attr_to_val,attr_val_lst,option):
     k=30
     centers=[]
     center_val=[]
+    if len(attrs)==0:
+        return centers,center_val,[],0,{}
     nr_points=len(attrs)
     max_dist_ind=random.randint(0,len(attrs)-1)
     pred = [None] * len(attrs)#nr_points
@@ -668,7 +673,7 @@ class interface:
         self.initial_prob=[1.0,1.0,1.0,1.0,1.0,1.0]
         self.answered={}
         self.asked={}
-        global pruned_lst,shortlisted_lst,wordcloud_lst,distance_lst_dataset_attribute,cluster_attr,original_attr_to_val
+        global c_dic,pruned_lst,shortlisted_lst,wordcloud_lst,distance_lst_dataset_attribute,cluster_attr,original_attr_to_val
         pruned_lst=[]
         self.queried_centers=[]
         shortlisted_lst=[]
@@ -921,9 +926,21 @@ class interface:
 
     def get_question(self,interface):
         ques_score=1
+        global c_dic
         if interface=='4c':
             #use c_dic
-            return 0,None,2
+            new_dic={}
+            for v in c_dic.keys():
+                if v[0] in self.queried_datasets or v[1] in self.queried_datasets:
+                    continue
+                else:
+                    new_dic[v]=c_dic[v]
+            c_dic=new_dic
+            lst=list(c_dic.keys())
+            if len(lst)==0:
+                return 0,None,[]
+            ind=random.randint(0,len(lst)-1)
+            return 2,lst[ind],list(lst[ind])
         if 'wordcloud' in interface:
             coverage=[]
             if interface=='wordcloud':
@@ -934,7 +951,6 @@ class interface:
                     if c in self.queried_centers:
                         continue
                     else:
-                        self.queried_centers.append(c)
                         lst.append(c)
 
                         lst.extend(cluster_attr[c])
@@ -947,7 +963,6 @@ class interface:
                         continue
                     else:
                         final_lst[l]=1
-                        print (l,"l is ")
                         coverage.extend(attribute_to_dataset[l])
             else:
                 lst=[]
@@ -957,7 +972,6 @@ class interface:
                     if c in self.queried_centers:
                         continue
                     else:
-                        self.queried_centers.append(c)
                         lst.append(c)
 
                         lst.extend(cluster_content[c])
@@ -982,7 +996,6 @@ class interface:
                     if d in self.queried_attributes:
                         continue
                     #print (d,sc)
-                    self.queried_attributes.append(d)
                     coverage.extend(attribute_to_dataset[d])
                     return len(coverage),d,coverage
             else:
@@ -991,13 +1004,12 @@ class interface:
                         continue
                     #print (d,sc)
                     coverage.extend(attribute_to_dataset[d])
-                    self.queried_attributes.append(d)
                     return len(coverage),d,coverage
             return 0,None,[]
            
         if 'dataset' in interface:
             if interface=='dataset':
-                min_sc=100
+                min_sc=100000000
                 options=[]
                 for(d,sc) in distance_lst_dataset_attribute:
                     if d in self.queried_datasets:
@@ -1015,13 +1027,12 @@ class interface:
                     if s4_score[d]>maxval:
                         return_d=d
                         maxval=s4_score[d]
-                self.queried_datasets.append(return_d)
                 #print ("this",return_d,options,maxval)
                 if len(options)==0:
                     return 0,None,[]
                 return 1,[df_lst[return_d],return_d],[return_d]
             else:
-                min_sc=100
+                min_sc=100000000
                 options=[]
                 for(d,sc) in distance_lst_dataset_content:
                     if d in self.queried_datasets:
@@ -1039,7 +1050,6 @@ class interface:
                     if s4_score[d]>maxval:
                         return_d=d
                         maxval=s4_score[d]
-                self.queried_datasets.append(return_d)
                 #print ("this",return_d,options,maxval)
                 if len(options)==0:
                     return 0,None,[]
@@ -1060,32 +1070,30 @@ class interface:
         iter=0
         choose_random=False
         valid_interfaces=[]
+        coverage_lst=[]
         for interface in self.interface_options:
             #Get reduction in score and corresponding question for each interface
             #score: \chi(I)
             #print ("interface is ",interface)
             score,ques,coverage=self.get_question(self.interface_options[iter])
 
-
             answer_prob=1
-            if self.asked[interface]<threshold:
+            if ques is not None and  self.asked[interface]<threshold:
                 choose_random=True
-            else:
+            elif ques is not None:
                 answer_prob=self.answered[interface]*1.0/self.asked[interface]
-            print ("interface",interface,answer_prob,score)
             #this is w(I)
             if ques is not None:
                 answer_prob=0
                 valid_interfaces.append(interface)
                 scores.append(answer_prob*score)
                 corresponding_ques.append(ques)
+                coverage_lst.append(coverage)
             iter+=1
-        print ("choosing",scores,self.interface_options,choose_random,self.asked,threshold)
         if len(valid_interfaces)==0:
-            return None,None
+            return None,None,None
         if choose_random:
             max_index=random.randint(0,len(scores)-1)#scores.index(max(scores))
-            print (max_index,len(scores))
         else:
             #Toss a coin with prob. TODO
             total_score=sum(scores)
@@ -1099,8 +1107,16 @@ class interface:
                 randval-=scores[i]
                 i+=1
             max_index=i
-        print (valid_interfaces,len(valid_interfaces)) 
-        return corresponding_ques[max_index],valid_interfaces[max_index]
+        print ("valid",valid_interfaces,len(valid_interfaces))
+        if "wordcloud" in valid_interfaces[max_index]:
+            self.queried_centers.append(list(corresponding_ques[max_index].keys()))
+        elif "attribute" in valid_interfaces[max_index]:
+            self.queried_attributes.append(corresponding_ques[max_index])
+        elif "dataset" in valid_interfaces[max_index]:
+            self.queried_datasets.append(corresponding_ques[max_index][1])
+        elif "4c" in valid_interfaces[max_index]:
+            self.queried_datasets.extend(coverage_lst[max_index])
+        return corresponding_ques[max_index],valid_interfaces[max_index],coverage_lst[max_index]
     
     def update(self,wc):
         plt.imshow(wc,cmap='Greys', interpolation='bilinear')
@@ -1614,7 +1630,12 @@ class interface:
                 #keyword_search=widgets.HBox([self.querybox,self.button,setup_ui(display_dfs(output))])
                 #display(keyword_search)
 
-def ver_user(ground_truth,ques, question_coverage):
+def ver_user(ground_truth,ques, question_coverage):#,options):
+    print ("ques is ",question_coverage)
+    if ground_truth in question_coverage:
+        return "Yes"
+    else:
+        return "No"
 
     return "Skip"
 
@@ -1631,31 +1652,87 @@ options=list(candidate_name_to_id.values())
 
 print (options)
 
+query_cache={}
 
 while i<100:
     start = timeit.default_timer()
     (ques,itype,coverage)= (ver_int.choose_interface())
+    coverage=list(set(coverage))
+    coverage.sort()
+    if tuple(coverage) in query_cache.keys():
+        continue
+    query_cache[tuple(coverage)]=1
+
     end_time = timeit.default_timer()
     total+=(end_time-start)
     if ques==None:
         break
+    print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     print (i,ques,itype)
     ver_int.asked[itype]+=1
 
     #user response from simulation
-    user_response=ver_user(gt_id,ques,question_coverage)#False
+    user_response=ver_user(gt_id,ques,coverage)#False
+    print (user_response)
+    print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     if 'wordcloud' in itype:
         lst=list(ques.keys())
         if user_response=='Skip':
             print ("No response from the user")
         elif user_response=="No":
+            ver_int.answered[itype]+=1
             ver_int.discarded_attr.extend(lst)
             for attr in lst:
                 pruned_lst.extend(attribute_to_dataset[attr])
+            shortlisted_lst=list(set(shortlisted_lst)-set(pruned_lst))
         else:
+            ver_int.answered[itype]+=1
             ver_int.shortlisted_attr.extend(lst)
-            for attr in lst:
-                shortlisted_lst.extend(attribute_to_dataset[attr])
+            if len(shortlisted_lst)==0:
+                shortlisted_lst=coverage
+            else:
+                shortlisted_lst=list(set(shortlisted_lst)&set(coverage))
+                pruned_lst=list(set(options)-set(shortlisted_lst))
+            #shortlisted_lst.extend(attribute_to_dataset[attr])
+    if 'attribute' in itype:
+        if user_response== 'No':
+            ver_int.answered[itype]+=1# in self.attribute_yesno.value:
+            pruned_lst.extend(coverage)
+            ver_int.discarded_attr.append(ques)#[-1])
+            shortlisted_lst=list(set(shortlisted_lst)-set(pruned_lst))
+        elif 'Yes' in user_response:#self.attribute_yesno.value:
+            ver_int.answered[itype]+=1
+            if len(shortlisted_lst)==0:
+                shortlisted_lst=coverage
+            else:
+                shortlisted_lst=list(set(shortlisted_lst)&set(coverage))
+                pruned_lst=list(set(options)-set(shortlisted_lst))
+            ver_int.shortlisted_attr.append(ques)#self.query_sequence[-1][-1])
+    elif 'dataset' in itype:
+        if user_response=="No":
+            ver_int.answered[itype]+=1
+            pruned_lst.extend(coverage)
+            shortlisted_lst=list(set(shortlisted_lst)-set(pruned_lst))
+        else:
+            ver_int.answered[itype]+=1
+            print ("Found ground truth",i)
+            break
+    elif '4c' in itype:
+        if user_response=="No":
+            ver_int.answered[itype]+=1
+            pruned_lst.extend(coverage)
+            shortlisted_lst=list(set(shortlisted_lst)-set(pruned_lst))
+        else:
+            ver_int.answered[itype]+=1
+            print ("Found ground truth",i)
+            break
+    if len(shortlisted_lst)==1:
+        print ("Found ground truth",i)
+        break
+    print (coverage)
+    pruned_lst=list(set(pruned_lst))
+    print ("Shortlist************",shortlisted_lst)
+    print ("Pruned list************",pruned_lst)
     i+=1
 print (setup_time,read_time)
 print ("Averaage time per query",total*1.0/i)
