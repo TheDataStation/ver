@@ -73,7 +73,7 @@ if __name__ == '__main__':
         start_time = time.time()
 
         compatible_groups, removed_compatible_views, \
-        contained_groups, removed_contained_views, \
+        largest_contained_views, removed_contained_views, contained_groups, \
         total_candidate_complementary_contradictory_views, \
         complementary_groups, \
         contradictory_groups, total_num_contradictory_pairs, \
@@ -92,17 +92,30 @@ if __name__ == '__main__':
         complementary_pairs = flatten(complementary_groups)
         contradictory_pairs = flatten(contradictory_groups)
 
-        with open(f"{results_dir}/sainyam/pruned_compatible_views_{view_dir}.txt", "w") as f:
-            for view in removed_compatible_views:
-                f.write(view + "\n")
+        # with open(f"{results_dir}/sainyam/pruned_compatible_views_{view_dir}.txt", "w") as f:
+        #     for view in removed_compatible_views:
+        #         f.write(view + "\n")
 
-        with open(f"{results_dir}/sainyam/pruned_contained_views_{view_dir}.txt", "w") as f:
-            for view in removed_contained_views:
-                f.write(view + "\n")
+        # with open(f"{results_dir}/sainyam/pruned_contained_views_{view_dir}.txt", "w") as f:
+        #     for view in removed_contained_views:
+        #         f.write(view + "\n")
 
         with open(f"{results_dir}/sainyam/candidate_compl_views_{view_dir}.txt", "w") as f:
             for view in total_candidate_complementary_contradictory_views:
                 f.write(view + "\n")
+
+        with open(f"{results_dir}/sainyam/contained_groups_{view_dir}.txt", "w") as f:
+            for path1, group in contained_groups.items():
+                f.write(f"{path1}: ")
+                for path2 in group:
+                    f.write(f"{path2} ")
+                f.write("\n")
+
+        with open(f"{results_dir}/sainyam/compatible_groups_{view_dir}.txt", "w") as f:
+            for group in compatible_groups:
+                for path in group:
+                    f.write(f"{path} ")
+                f.write("\n")
 
         with open(f"{results_dir}/sainyam/compl_contra_pairs_{view_dir}.txt", "w") as f:
             for path1, path2, candidate_key in complementary_pairs:
