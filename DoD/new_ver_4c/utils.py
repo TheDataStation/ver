@@ -1,5 +1,7 @@
 import random
 from collections import namedtuple, defaultdict
+
+import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
@@ -24,6 +26,9 @@ def curate_view(df, drop_duplicates=True, dropna=True):
 
     if dropna:
         df = df.dropna()  # drop nan
+    else:
+        df = df.fillna("nan")
+
     if drop_duplicates:
         df = df.drop_duplicates()
     # this may tweak indexes, so need to reset that

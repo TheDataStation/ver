@@ -18,7 +18,7 @@ def flatten(alist):
 
 if __name__ == '__main__':
     # dir_path = "../experiments_chembl_5_13/chembl_gt3/high_noise/sample0/result3/"
-    dir_path = "/home/cc/output_views_small/jp_639/"
+    dir_path = "toytest/"
     # new_dir_path = "test_dir/"
 
     original_view_files = glob.glob(dir_path + "view_*")

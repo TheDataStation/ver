@@ -3,6 +3,8 @@ import pprint
 import time
 from os import listdir
 from os.path import isfile, join
+
+import numpy as np
 from pandas.util import hash_pandas_object
 
 from itertools import chain, combinations
@@ -963,6 +965,9 @@ def identify_complementary_contradictory_views_optimized(candidate_complementary
             for row1, cluster1 in clusters.items():
 
                 for row2, cluster2 in clusters.items():
+
+                    # print(row1)
+                    # print(row2)
 
                     if row1 == row2:
                         continue
