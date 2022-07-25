@@ -66,7 +66,7 @@ class StoreHandler:
         :return: a list of all fields with the form (id, source_name, field_name)
         """
         body = {"query": {"match_all": {}}}
-        res = client.search(index='profile', body=body, scroll="10m",
+        res = client.search(index='profile', body=body, scroll="10m", size=10000,
                             filter_path=['_scroll_id',
                                          'hits.hits._id',
                                          'hits.total',
@@ -78,10 +78,12 @@ class StoreHandler:
                                          'hits.hits._source.nonEmptyValues',
                                          'hits.hits._source.dataType']
                             )
-        print(res)
         scroll_id = res['_scroll_id']
         remaining = res['hits']['total']
         while remaining > 0:
+            print("remaining:", remaining)
+            # if remaining < 2800000:
+            #     break
             hits = res['hits']['hits']
             for h in hits:
                 id_source_and_file_name = (h['_id'], h['_source']['dbName'], h['_source']['sourceName'],
@@ -89,7 +91,7 @@ class StoreHandler:
                                            h['_source']['uniqueValues'], h['_source']['nonEmptyValues'], h['_source']['dataType'])
                 yield id_source_and_file_name
                 remaining -= 1
-            res = client.scroll(scroll="5m", scroll_id=scroll_id,
+            res = client.scroll(scroll="5m", scroll_id=scroll_id, 
                                 filter_path=['_scroll_id',
                                              'hits.hits._id',
                                              'hits.hits._source.dbName',
@@ -154,7 +156,9 @@ class StoreHandler:
         """
         index = None
         query_body = None
-        filter_path = ['hits.hits._source.id',
+        filter_path = [
+                        '_scroll_id',
+                        'hits.hits._source.id',
                        'hits.hits._score',
                        'hits.total',
                        'hits.hits._source.dbName',
@@ -163,18 +167,13 @@ class StoreHandler:
                        'hits.hits.highlight.text']
         if elasticfieldname == KWType.KW_CONTENT:
             index = "text"
-            query_body = {"from": 0, "size": max_hits,
+            query_body = {
                           "query": {
                               "match_phrase": {
                                   "text": keywords
                               }
-                          },
-                          "highlight": {
-                              "fields": {
-                                  "text": {}
-                              }
                           }
-                          }
+                        }
         elif elasticfieldname == KWType.KW_SCHEMA:
             index = "profile"
             query_body = {"from": 0, "size": max_hits,
@@ -187,17 +186,33 @@ class StoreHandler:
             index = "profile"
             query_body = {"from": 0, "size": max_hits,
                           "query": {"term": {"sourceNameNA": keywords}}}
-        res = client.search(index=index, body=query_body,
+        
+        res = client.search(index=index, body=query_body, size=10000, scroll="10m",
                             filter_path=filter_path)
-        if res['hits']['total'] == 0:
-            return []
-        for el in res['hits']['hits']:
-            matched_text = []
-            if elasticfieldname == KWType.KW_CONTENT:
-                matched_text = el['highlight']['text']
-            data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
-                       el['_source']['columnName'], el['_score'], matched_text)
-            yield data
+        scroll_id = res['_scroll_id']
+        remaining = res['hits']['total']
+
+        while remaining > 0:
+            print("remaining:", remaining)
+            hits = res['hits']['hits']
+            for el in res['hits']['hits']:
+                data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
+                        el['_source']['columnName'], el['_score'], [])
+                remaining -= 1
+                yield data
+            
+            res = client.scroll(scroll="5m", scroll_id=scroll_id,filter_path=filter_path)
+            scroll_id = res['_scroll_id']
+        client.clear_scroll(scroll_id=scroll_id)
+        # if res['hits']['total'] == 0:
+        #     return []
+        # for el in res['hits']['hits']:
+        #     matched_text = []
+        #     if elasticfieldname == KWType.KW_CONTENT:
+        #         matched_text = el['highlight']['text']
+        #     data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
+        #                el['_source']['columnName'], el['_score'], matched_text)
+        #     yield data
 
     def search_keywords(self, keywords, elasticfieldname, max_hits=15):
         """
@@ -217,22 +232,23 @@ class StoreHandler:
                        'hits.hits.highlight.text']
         if elasticfieldname == KWType.KW_CONTENT:
             index = "text"
-            query_body = {"from": 0, "size": max_hits,
+            query_body = {
                           "query":
                               {
                                   "match_phrase": {
                                       "text": keywords
                                   }
-                              },
-                          "highlight": {
-                                "fields": {
-                                    "text": {}
-                                }
-                          }}
+                              }
+                        }
         elif elasticfieldname == KWType.KW_SCHEMA:
             index = "profile"
             query_body = {"from": 0, "size": max_hits,
-                          "query": {"match": {"columnName": keywords}}}
+                          "query": {
+                                "match": {
+                                    "columnNameNA": keywords
+                                    }
+                                }
+                            }
         elif elasticfieldname == KWType.KW_ENTITIES:
             index = "profile"
             query_body = {"from": 0, "size": max_hits,
@@ -435,7 +451,7 @@ class StoreHandler:
         """
         query_body = {
             "query": {"bool": {"filter": [{"term": {"dataType": "T"}}]}}}
-        res = client.search(index='profile', body=query_body, scroll="10m",
+        res = client.search(index='profile', body=query_body, scroll="10m", size=10000,
                             filter_path=['_scroll_id',
                                          'hits.hits._id',
                                          'hits.total',
@@ -446,6 +462,9 @@ class StoreHandler:
 
         id_sig = []
         while remaining > 0:
+            print("remaining:", remaining)
+            # if remaining < 2000000:
+            #     break
             hits = res['hits']['hits']
             for h in hits:
                 data = (h['_id'], h['_source']['minhash'])

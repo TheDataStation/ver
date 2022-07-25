@@ -1,13 +1,12 @@
+from cgitb import reset
 from algebra import API
 from DoD.utils import FilterType
 from DoD import data_processing_utils as dpu
 from api.apiutils import DRS, Operation, OP
 from DoD import view_search_4c as v4c
 from collections import defaultdict
-from tabulate import tabulate
-from DoD.colors import Colors
-import ipywidgets as widgets
-from IPython.display import display, clear_output, HTML
+import os
+import time
 
 class ClusterItem:
     nid = ""
@@ -33,9 +32,8 @@ class ColumnInfer:
 
     def __init__(self, network, store_client, csv_separator=","):
         self.aurum_api = API(network=network, store_client=store_client)
-        self.paths_cache = dict()
         dpu.configure_csv_separator(csv_separator)
-        self.topk = 1000  # magic top k number
+        self.topk = 300  # magic top k number
 
     """
         Get candidate columns for one attr
@@ -44,11 +42,12 @@ class ColumnInfer:
         example_hit_dict: A dictionary of one attr and its sample hit number
         hit_type_dict: A dictionary of one attr and its hit type {CELL, ATTR, CELL_AND_ATTR}
     """
-    def infer_candidate_columns(self, attrs, values):
+    def infer_candidate_columns(self, attrs, values, topk):
+        self.topk = topk
         spread_sheet = []
         for i in range(len(attrs)):
             spread_sheet.append((attrs[i], [row[i] for row in values]))
-
+        print(spread_sheet)
         column_candidates = dict()  # candidate columns for one attr
         column_id = 0
         empty_str = ''
@@ -78,25 +77,30 @@ class ColumnInfer:
                 # if user provides samples
                 drs_union_candidate = []
                 for sample in samples:
+                    print(sample)
                     if sample == "":
                         continue
-                    drs_sample = self.aurum_api.search_exact_content(sample, max_results=self.topk*3)
+                    drs_sample = self.aurum_api.search_exact_content(sample, max_results=self.topk)
+                    # print(drs_sample.data)
                     if len(drs_sample.data) == 0:
-                        drs_sample = self.aurum_api.search_content(sample, max_results=self.topk*3)
+                        drs_sample = self.aurum_api.search_content(sample, max_results=self.topk)
+                        # print (drs_sample.data)
+                    print("number of columns before removing redundant:", len(drs_sample.data))
                     drs_sample_col = self.remove_redundant(drs_sample, sample)
                     for x in drs_sample_col:
                         k = (x.source_name, x.field_name)
                         key_hit_dict[k] = x
                         hit_example = set()
                         max_containment = 0
-                        for h in x.highlight:
-                            h = h.replace("<em>", "").replace("</em>", "")
-                            c_score = min(len(sample)/len(h), len(h)/len(sample))
-                            max_containment = max(max_containment, c_score)
-                            hit_example.add(h)
-                        if max_containment < 0.5:
-                            continue
-                        column_example_hit[k] += max_containment
+                        # for h in x.highlight:
+                        #     h = h.replace("<em>", "").replace("</em>", "")
+                        #     c_score = min(len(sample)/len(h), len(h)/len(sample))
+                        #     max_containment = max(max_containment, c_score)
+                        #     hit_example.add(h)
+                        # if max_containment < 0.5:
+                        #     continue
+                        # column_example_hit[k] += max_containment
+                        column_example_hit[k] += 1
                         example_match[(x.source_name, x.field_name)].extend(list(hit_example))
                         if hit_type[k] == FilterType.ATTR:
                             hit_type[k] = FilterType.ATTR_CELL
@@ -129,6 +133,7 @@ class ColumnInfer:
 
     def view_spec_benchmark(self, example_hit_dict):
         # select columns with highest containment scores
+        print(example_hit_dict)
         final_result = []
         for _, candidates in example_hit_dict.items():
             candidate_score = list(candidates.items())
@@ -140,6 +145,7 @@ class ColumnInfer:
                     break
                 result.append(x[0])
             final_result.append(result)
+        print(final_result)
         return final_result
 
     def view_spec_cluster(self, all_candidates, example_hit_dict):
@@ -165,12 +171,96 @@ class ColumnInfer:
             results_hits.append(result_hit)
         return results, results_hits
 
-    def view_spec_cluster2(self, all_candidates, example_hit_dict):
+    def view_spec_cluster_union_find(self, all_candidates, example_hit_dict, output_path):
+        log_path = output_path + "/log_col_sel.txt"
+        log = open(log_path, "w", buffering=1)
+
         results = []
         results_all = []
-        results_hits = []
+        results_hits = {}
+
+        print("start")
+        start = time.time()
+        edge_cnt = 0
         for col, sample_scores in example_hit_dict.items():
             candidates = all_candidates[col]
+            log.write(str(col) + "\n")
+            log.write("column number before:" + str(len(candidates.data)) + "\n")
+            roots = {}
+            nid_to_candidate = {}
+            cluster = defaultdict(list)
+            cluster_score = defaultdict(int)
+            for candidate in candidates:
+                roots[candidate.nid] = candidate.nid
+                nid_to_candidate[candidate.nid] = candidate
+
+            for idx, candidate in enumerate(candidates):
+                if idx % 1000 == 0:
+                    print("edge cnt:", edge_cnt)
+                get_neighbor = time.time()
+                neighbors = self.aurum_api.content_similar_to(candidate)
+                print("neighor time:", time.time() - get_neighbor)
+                # print("neighbor size:", len(neighbors.data))
+                for neighbor in neighbors.data:
+                    edge_cnt += 1
+                    if neighbor.nid not in nid_to_candidate:
+                        continue
+                    self.merge_root(roots, candidate.nid, neighbor.nid)
+            
+            print("union find costs", time.time() - start)
+            print("begin making clusters")
+            global_max_score = 0
+
+            for candidate in candidates:
+                k = (candidate.source_name, candidate.field_name)
+                score = sample_scores[k]
+                cluster_id = self.find_root(roots, candidate.nid)
+                cluster[cluster_id].append(candidate)
+                cluster_score[cluster_id] = max(cluster_score[cluster_id], score)
+                global_max_score = max(global_max_score, score)
+            
+            result = []
+            for cluster_id, score in cluster_score.items():
+                if score == global_max_score:
+                    result.extend(cluster[cluster_id])
+            
+            results_hits[col] = result
+            log.write("column number after:" + str(len(result)) + "\n")
+        return None, None, results_hits
+    
+    def find_root(self, roots, nid):
+        nids = [nid]
+        cur = nid
+        while roots[cur] != cur:
+            cur = roots[cur]
+            nids.append(cur)
+        for id in nids:
+            roots[id] = cur
+        return cur
+    
+    def merge_root(self, roots, nid1, nid2):
+        roots[self.find_root(roots, nid1)] = self.find_root(roots, nid2)
+
+    def view_spec_cluster2(self, all_candidates, example_hit_dict, output_path):
+        if not os.path.exists(os.path.dirname(output_path)):
+            try:
+                os.makedirs(os.path.dirname(output_path))
+            except OSError as exc:  # Guard against race condition
+                if exc.errno != errno.EEXIST:
+                    raise
+        log_path = output_path + "/log2.txt"
+        log = open(log_path, "w", buffering=1)
+        results = []
+        results_all = []
+        results_hits = {}
+        print("start")
+        no = 0
+        for col, sample_scores in example_hit_dict.items():
+            candidates = all_candidates[col]
+            log.write(str(col) + "\n")
+            log.write("column number before:" + str(len(candidates.data)) + "\n")
+            no += 1
+
             visited = defaultdict(bool)
             column_cluster = defaultdict(int)
             idx = 0
@@ -180,7 +270,10 @@ class ColumnInfer:
                     cluster = [candidate]
                     target_idx = idx
                     neighbors = self.aurum_api.content_similar_to(candidate)
+                    # print("neighbor size:", len(neighbors.data))
                     for neighbor in neighbors.data:
+                        if neighbor not in candidates.data:
+                            continue
                         if neighbor.nid in visited:
                             # merge into the previous cluster
                             target_idx = column_cluster[neighbor]
@@ -201,42 +294,31 @@ class ColumnInfer:
                 clusters[cluster_idx].append(k)
                 clusters_hit[cluster_idx].append(column)
                 clusters_score[cluster_idx].append(sample_score)
-            with open('result.txt', 'a') as f:
-                f.write(str(len(candidates.data)) + " " + str(len(clusters)) + "\n")
+           
+            log.write("number of clusters:" + str(len(clusters)) + "\n")
+            log.write("max score:" + str(max_score) + "\n")
             final_cluster = []
             final_cluster_all = []
             result_hit = []
-            for idx, columns in clusters.items():
-                final_cluster_all.append(columns)
-                if max(clusters_score[idx]) == max_score:
-                    final_cluster.extend(columns)
+
+            selected = 0
+            # for idx, columns in clusters.items():
+            #     final_cluster_all.append(columns)
+            #     if max(clusters_score[idx]) == max_score:
+            #         final_cluster.extend(columns)
+
             for idx, columns in clusters_hit.items():
                 if max(clusters_score[idx]) == max_score:
+                    selected += 1
                     result_hit.extend(columns)
+            log.write("number of clusters selected:" + str(selected) + "\n")
+            log.write("number of columns after:" + str(len(result_hit)) + "\n")
 
             results.append(final_cluster)
-            results_all.append(final_cluster_all)
-            results_hits.append(result_hit)
+            # results_all.append(final_cluster_all)
+            results_hits[col] = result_hit
         return results, results_all, results_hits
 
-
-    def view_spec(self, all_candidates, example_hit_dict):
-        # select columns with highest containment scores and its neighbors
-        results = {}
-        for col, sample_scores in example_hit_dict.items():
-            max_score = max(sample_scores.values())
-            candidates = all_candidates[col]
-            result = set()
-            for c in candidates:
-                k = (c.source_name, c.field_name)
-                if sample_scores[k] != max_score:
-                    continue
-                result.add(c)
-                neighbors = self.aurum_api.content_similar_to(c)
-                for neighbor in neighbors:
-                    result.add(neighbor)
-            results[col] = list(result)
-        return results
 
     def view_spec_cluster_exploration(self, all_candidates, example_hit_dict):
         # select columns with highest containment scores and its neighbors
@@ -360,6 +442,7 @@ class ColumnInfer:
                 visited[candidate.nid] = True
                 cluster = [candidate]
                 target_idx = idx
+                print(candidate)
                 neighbors = self.aurum_api.content_similar_to(candidate)
                 for neighbor in neighbors.data:
                     if neighbor.nid in visited:
@@ -407,30 +490,6 @@ class ColumnInfer:
             attr_clusters.append(sorted_list)
             idx += 1
         return attr_clusters
-    
-    def show_clusters(self, clusters, filter_drs, viewSearch, column_idx):
-        def on_button_confirm(b):
-            selected_data = []
-            for i in range(0, len(checkboxes)):
-                if checkboxes[i].value == True:
-                    selected_data.append(i)
-            hits = viewSearch.clusters2Hits(clusters, selected_data)
-            filter_drs[(clusters[0]["name"], FilterType.ATTR, column_idx)] = hits
-        def on_button_all(b):
-            for checkbox in checkboxes:
-                checkbox.value = True
-
-        print(Colors.OKBLUE + "NAME: " + clusters[0]["name"] + Colors.CEND)
-        checkboxes = [widgets.Checkbox(value=False, description="Cluster "+str(idx)) for idx in range(len(clusters))]
-        for idx, cluster in enumerate(clusters):
-            display(checkboxes[idx])
-            display(HTML(tabulate(cluster["data"], headers=['id', 'Table Name', 'Attribute Name', 'Sample Score', 'Highlight'], tablefmt='html')))
-            print('\n')
-        button_confirm = widgets.Button(description="Confirm")
-        button_all = widgets.Button(description="Select All")
-        button_confirm.on_click(on_button_confirm)
-        button_all.on_click(on_button_all)
-        display(widgets.HBox([button_confirm, button_all]))
 
     def evaluation(self, attrs, values, gt_path):
         candidate_columns, sample_score, hit_type_dict, match_dict = self.infer_candidate_columns(attrs, values)

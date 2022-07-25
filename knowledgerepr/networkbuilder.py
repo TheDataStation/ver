@@ -232,6 +232,68 @@ def build_content_sim_relation_text(network, signatures):
     nid_gen = get_nid_gen(signatures)
     create_sim_graph_text(nid_gen, network, text_engine, tfidf, Relation.CONTENT_SIM)
 
+'''
+    main edge linking function for Ver
+'''
+def build_content_sim_mh_text(network, mh_signatures, t, log, network_writer):
+    def connect(nid1, nid2):
+        network.add_relation(nid1, nid2, Relation.CONTENT_SIM)
+
+    # Materialize signatures for convenience
+    mh_sig_obj = []
+
+    content_index = MinHashLSH(threshold=t, num_perm=512)
+
+    count = 0
+    objects = []
+    
+    print("begin to create minhash objects and index")
+    start_gen_mh = time.time()
+    # Create minhash objects and index
+    mh_cnt = 0
+    for nid, mh_sig in mh_signatures:
+        st = time.time()
+        mh_obj = MinHash(num_perm=512)
+        mh_array = np.asarray(mh_sig, dtype=int)
+        mh_obj.hashvalues = mh_array
+        content_index.insert(nid, mh_obj)
+        mh_sig_obj.append((nid, mh_obj))
+        et = time.time()
+        print("time used to create minhash obj {}\n".format(et - st))
+        mh_cnt += 1
+        print("count: {}".format(mh_cnt))
+    end_gen_mh = time.time()
+    print("time to generate minhash: {}".format(end_gen_mh - start_gen_mh))
+    log.write("time to generate minhash: {}\n".format(end_gen_mh - start_gen_mh))
+    empty_header_cnt = 0
+    edges_cnt = 0
+    failed_cnt = 0 
+    
+    # Query objects
+    cur = 0
+    for nid, mh_obj in mh_sig_obj:
+        cur += 1
+        print("{}/{}".format(cur, mh_cnt))
+        (_, _, sn1, fn1) = network.get_info_for([nid])[0]
+        # if the column is empty, do not query its neighbors.
+        if network.get_size_of(nid) < 5:
+            print("card too small: ", network.get_size_of(nid))
+            continue
+        if network.get_non_empty_values_of(nid) == 0:
+            continue
+        res = content_index.query(mh_obj)
+        for r_nid in res:
+            if r_nid > nid:
+                (_, _, sn2, fn2) = network.get_info_for([r_nid])[0]
+                if sn1 == sn2:
+                    continue
+                connect(nid, r_nid)
+                connect(r_nid, nid)
+                edges_cnt += 1
+                network_writer.writerow([sn1, fn1, sn2, fn2])
+                print("{}.{} and {}.{} connected".format(sn1, fn1, sn2, fn2))
+                print("edges_cnt:", edges_cnt)
+    return content_index, edges_cnt
 
 def build_content_sim_mh_text_js(network, mh_signatures, t, table_path):
 

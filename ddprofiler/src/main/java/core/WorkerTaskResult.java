@@ -128,14 +128,23 @@ public class WorkerTaskResult {
 	}
 
 	public float getMinValue() {
+		if (Double.isNaN(minValue) || Double.isInfinite(minValue)) {
+			return 0;
+		}
 		return minValue;
 	}
 
 	public float getMaxValue() {
+		if (Double.isNaN(maxValue) || Double.isInfinite(maxValue)) {
+			return 0;
+		}
 		return maxValue;
 	}
 
 	public float getAvgValue() {
+		if (Double.isNaN(avgValue) || Double.isInfinite(avgValue)) {
+			return 0;
+		}
 		return avgValue;
 	}
 	

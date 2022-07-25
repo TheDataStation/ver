@@ -306,7 +306,6 @@ public class NativeElasticStore implements Store {
 	    }
 
 	    builder.endArray()
-
 		    .field("minValue", wtr.getMinValue()).field("maxValue", wtr.getMaxValue())
 		    .field("avgValue", wtr.getAvgValue()).field("median", wtr.getMedian()).field("iqr", wtr.getIQR())
 		    .endObject();
