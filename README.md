@@ -67,3 +67,9 @@ For example:
 $ python networkbuildercoordinator.py --opath test/testmodel/network --tpath table_path
 ```
 Once the model is built, it will be serialized and stored in the provided path.
+
+## Run Example
+
+```
+python3 examples/example.py
+```
