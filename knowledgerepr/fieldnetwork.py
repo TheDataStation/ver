@@ -120,14 +120,17 @@ class FieldNetwork:
         :return:
         """
         print("Building schema relation...")
+        cnt = 0
         for (nid, db_name, sn_name, fn_name, total_values, unique_values, non_empty_values, data_type) in fields:
+            cnt += 1
             self.__id_names[nid] = (db_name, sn_name, fn_name, data_type)
             self.__source_ids[sn_name].append(nid)
-            cardinality_ratio = None
-            if float(total_values) > 0:
-                cardinality_ratio = float(unique_values) / float(total_values)
-            self.add_field(nid, cardinality_ratio, unique_values, non_empty_values)
+            # cardinality_ratio = None
+            # if float(total_values) > 0:
+            #     cardinality_ratio = float(unique_values) / float(total_values)
+            self.add_field(nid, 0, unique_values, non_empty_values)
         print("Building schema relation...OK")
+        return cnt
 
     def add_field(self, nid, cardinality=None, size=0, non_empty_values=0):
         """

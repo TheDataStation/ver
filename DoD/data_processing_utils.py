@@ -245,47 +245,34 @@ def join_ab_on_key(a: pd.DataFrame, b: pd.DataFrame, a_key: str, b_key: str, suf
 #         cache[relation_path] = df
 
 
-def read_relation(relation_path, log):
-    print("reading", relation_path)
+def read_relation(relation_path):
     if relation_path in cache:
         df = cache[relation_path]
     else:
-        try:
-            df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator, error_bad_lines=False)
-            cache[relation_path] = df
-        except UnicodeDecodeError:
-            try:
-                df = pd.read_csv(relation_path, encoding='latin-1', sep=data_separator, error_bad_lines=False)
-                cache[relation_path] = df
-            except pd.errors.ParserError:
-                print("broken csv file")
-                log.write(relation_path + " is broken")
-                return None
-        except pd.errors.EmptyDataError:
-            print(relation_path, " is empty and has been skipped.")
-            log.write(relation_path + " is empty and has been skipped.")
-            return None
-        except pd.errors.ParserError:
-            print("broken csv file")
-            log.write(relation_path + " is broken")
-            return None
+        # df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator)
+        df = pd.read_csv(relation_path, encoding='utf-8', sep=data_separator, dtype=str)
+        cache[relation_path] = df
     return df
 
 
 def read_column(relation_path, col):
-    df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator, usecols=[col])
+    # df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col])
+    df = pd.read_csv(relation_path, encoding='utf-8', sep=data_separator, usecols=[col], dtype=str)
     return df.copy()
 
 
 def read_column(relation_path, col, offset=0):
     if offset == 0:
-        df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator, usecols=[col])
+        # df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col])
+        df = pd.read_csv(relation_path, encoding='utf-8', sep=data_separator, usecols=[col], dtype=str)
     else:
-        df = pd.read_csv(relation_path, encoding='utf8', sep=data_separator, usecols=[col], nrows=offset)
+        # df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=[col], nrows=offset)
+        df = pd.read_csv(relation_path, encoding='utf-8', sep=data_separator, usecols=[col], nrows=offset, dtype=str)
     return df.copy()
 
 def read_columns(relation_path, cols):
-    df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=cols)
+    # df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator, usecols=cols)
+    df = pd.read_csv(relation_path, encoding='utf-8', sep=data_separator, usecols=cols, dtype=str)
     return df.copy()
 
 
@@ -298,7 +285,8 @@ def read_relation_on_copy(relation_path):
     if relation_path in cache:
         df = cache[relation_path]
     else:
-        df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator)
+        # df = pd.read_csv(relation_path, encoding='latin1', sep=data_separator)
+        df = pd.read_csv(relation_path, encoding='utf-8', sep=data_separator, dtype=str)
         cache[relation_path] = df
     return df.copy()
 
@@ -311,7 +299,8 @@ def read_relation_on_copy2(relation_path, separator):
     if relation_path in cache:
         df = cache[relation_path]
     else:
-        df = pd.read_csv(relation_path, encoding='latin1', sep=separator)
+        # df = pd.read_csv(relation_path, encoding='latin1', sep=separator)
+        df = pd.read_csv(relation_path, encoding='utf-8', sep=data_separator, dtype=str)
         cache[relation_path] = df
     return df.copy()
 
@@ -435,8 +424,7 @@ def _obtain_attributes_to_project(jp_with_filters):
 
 def project(df, attributes_to_project):
     # print("Project: " + str(attributes_to_project))
-    df = df[list(attributes_to_project)]
-    return df
+    return df[list(attributes_to_project)]
 
 
 class InTreeNode:

@@ -6,61 +6,60 @@ from inputoutput import inputoutput as io
 
 import sys
 import time
+import csv
 
 
 def main(output_path=None, table_path=None):
     start_all = time.time()
     network = FieldNetwork()
     store = StoreHandler()
+    log = open('log_05.txt', 'w', buffering=1)
+    network_file = open('network_05.csv', 'w', encoding='UTF8', buffering=1)
+    csv_writer = csv.writer(network_file)
+    csv_writer.writerow(['tbl1', 'col1', 'tbl2', 'col2'])
 
+    start_fields_gen = time.time()
     # Get all fields from store
     fields_gen = store.get_all_fields()
+    end_fields_gen = time.time()
+    log.write("time to gen fields: {}\n".format(end_fields_gen-start_fields_gen))
 
     # Network skeleton and hierarchical relations (table - field), etc
     start_schema = time.time()
-    network.init_meta_schema(fields_gen)
+    col_cnt = network.init_meta_schema(fields_gen)
+    print("number of columns:", col_cnt)
+    log.write("number of columns: {}\n".format(col_cnt))
     end_schema = time.time()
     print("Total skeleton: {0}".format(str(end_schema - start_schema)))
     print("!!1 " + str(end_schema - start_schema))
+    log.write("time to get schema: " + str(end_schema - start_schema) + '\n')
 
-    # # Schema_sim relation
-    # start_schema_sim = time.time()
-    # schema_sim_index = networkbuilder.build_schema_sim_relation(network)
-    # end_schema_sim = time.time()
-    # print("Total schema-sim: {0}".format(str(end_schema_sim - start_schema_sim)))
-    # print("!!2 " + str(end_schema_sim - start_schema_sim))
-
-    # # Entity_sim relation
-    # start_entity_sim = time.time()
-    # #fields, entities = store.get_all_fields_entities()
-    # #networkbuilder.build_entity_sim_relation(network, fields, entities)
-    # end_entity_sim = time.time()
-    # print("Total entity-sim: {0}".format(str(end_entity_sim - start_entity_sim)))
-
-    # Content_sim text relation (minhash-based)
+    print("begin to extract minhash signature")
     start_text_sig_sim = time.time()
-    st = time.time()
     mh_signatures = store.get_all_mh_text_signatures()
-    et = time.time()
-    print("Time to extract minhash signatures from store: {0}".format(str(et - st)))
-    print("!!3 " + str(et - st))
-
-    print("Begin to extract text-sim")
-    lsh_threshold = 0.4
-    content_sim_index, empty_cnt, edges_cnt, failed_cnt = networkbuilder.build_content_sim_mh_text_js(network, mh_signatures, lsh_threshold, table_path)
     end_text_sig_sim = time.time()
-    print("Total text-sig-sim (minhash): {0}; empty column names: {1}; edges count: {2}; failed count: {3}".format(str(end_text_sig_sim - start_text_sig_sim), str(empty_cnt), str(edges_cnt), str(failed_cnt)))
-    print("!!4 " + str(end_text_sig_sim - start_text_sig_sim))
+    print("!!3 " + str(end_text_sig_sim - start_text_sig_sim))
+    log.write("time to extract minhash signatures: " + str(end_text_sig_sim - start_text_sig_sim) + '\n')
+    
+    print("Begin to build graph")
+    lsh_threshold = 0.5
+    start_build_graph = time.time()
+    content_sim_index, edges_cnt = networkbuilder.build_content_sim_mh_text(network, mh_signatures, lsh_threshold, log, csv_writer)
+    end_build_graph = time.time()
+    print("Total text-sig-sim (minhash): {0}; edges count: {1};".format(str(end_text_sig_sim - start_text_sig_sim), str(edges_cnt)))
+    print("!!4 " + str(end_build_graph - start_build_graph))
+    log.write("time to build graph: " + str(end_build_graph - start_build_graph) + '\n')
+    log.write("edge count: {}\n".format(edges_cnt))
 
     # Content_sim num relation
-    start_num_sig_sim = time.time()
-    id_sig = store.get_all_fields_num_signatures()
-    #networkbuilder.build_content_sim_relation_num(network, id_sig)
-    networkbuilder.build_content_sim_relation_num_overlap_distr(network, id_sig, table_path)
-    #networkbuilder.build_content_sim_relation_num_overlap_distr_indexed(network, id_sig)
-    end_num_sig_sim = time.time()
-    print("Total num-sig-sim: {0}".format(str(end_num_sig_sim - start_num_sig_sim)))
-    print("!!5 " + str(end_num_sig_sim - start_num_sig_sim))
+    # start_num_sig_sim = time.time()
+    # id_sig = store.get_all_fields_num_signatures()
+    # #networkbuilder.build_content_sim_relation_num(network, id_sig)
+    # networkbuilder.build_content_sim_relation_num_overlap_distr(network, id_sig, table_path)
+    # #networkbuilder.build_content_sim_relation_num_overlap_distr_indexed(network, id_sig)
+    # end_num_sig_sim = time.time()
+    # print("Total num-sig-sim: {0}".format(str(end_num_sig_sim - start_num_sig_sim)))
+    # print("!!5 " + str(end_num_sig_sim - start_num_sig_sim))
 
     # Primary Key / Foreign key relation
     # start_pkfk = time.time()
@@ -69,9 +68,9 @@ def main(output_path=None, table_path=None):
     # print("Total PKFK: {0}".format(str(end_pkfk - start_pkfk)))
     # print("!!6 " + str(end_pkfk - start_pkfk))
 
-    end_all = time.time()
-    print("Total time: {0}".format(str(end_all - start_all)))
-    print("!!7 " + str(end_all - start_all))
+    # end_all = time.time()
+    # print("Total time: {0}".format(str(end_all - start_all)))
+    # print("!!7 " + str(end_all - start_all))
 
     path = "test/datagov/"
     if output_path is not None:

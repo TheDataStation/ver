@@ -144,8 +144,8 @@ public class PreAnalyzer implements PreAnalysis, IO {
 	    if (aType == null) {
 		continue; // Means that data was dirty/anomaly, so skip value
 	    }
-	    // a.setColumnType(aType);
-	    a.setColumnType(AttributeType.STRING);
+	    a.setColumnType(aType);
+	    // a.setColumnType(AttributeType.STRING);
 	}
     }
 

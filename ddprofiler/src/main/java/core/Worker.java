@@ -104,14 +104,16 @@ public class Worker implements Runnable {
 
 		Map<Attribute, Values> initData = pa.readRows(numRecordChunk);
 		if (initData == null) {
-		    LOG.warn("No data read from: {}", task.getSourceConfig().getRelationName());
+		    LOG.warn("No data read from: {}", task.getRelationName());
 		    task.close();
 		}
 
 		// Read initial records to figure out attribute types etc
 		// FIXME: readFirstRecords(initData, analyzers);
+		LOG.info("read first records");
 		readFirstRecords(task.getSourceConfig().getSourceName(), path, initData, analyzers, indexer);
 
+		LOG.info("read rows");
 		// Consume all remaining records from the connector
 		Map<Attribute, Values> data = pa.readRows(numRecordChunk);
 		int records = 0;
@@ -126,7 +128,7 @@ public class Worker implements Runnable {
 		    // Read next chunk of data
 		    data = pa.readRows(numRecordChunk);
 		}
-
+		LOG.info("finish read rows");
 		// Get results and wrap them in a Result object
 		// FIXME: WorkerTaskResultHolder wtrf = new
 		// WorkerTaskResultHolder(c.getSourceName(), c.getAttributes(),

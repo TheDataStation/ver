@@ -39,8 +39,9 @@ class RelationType(Enum):
 
 class ViewSearchPruning:
 
-    def __init__(self, network, store_client, csv_separator=","):
+    def __init__(self, network, store_client, base_path, csv_separator=","):
         self.aurum_api = API(network=network, store_client=store_client)
+        self.base_path = base_path
         self.paths_cache = dict()
         self.view_cache = dict()
         dpu.configure_csv_separator(csv_separator)
@@ -218,8 +219,117 @@ class ViewSearchPruning:
         print(num_candidate_groups, len(all_join_graphs))
         return num_candidate_groups, len(all_join_graphs)
 
-    def search_views(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False, offset=10):
+    def count_joins(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False, offset=10, dod_rank=False, materialize=True):
         st_stage2 = time.time()
+        start = time.time()
+        # We group now into groups that convey multiple filters.
+        # Obtain list of tables ordered from more to fewer filters.
+        table_fulfilled_filters = defaultdict(list)
+        filter_fulfilled_tables = defaultdict(list)
+        table_nid = dict()  # collect nids -- used later to obtain an access path to the tables
+
+        for filter, hits in filter_drs.items():
+            for hit in hits:
+                table = hit.source_name
+                nid = hit.nid
+                table_nid[table] = nid
+                filter_fulfilled_tables[filter].append((table, hit.field_name))
+                if filter[2] not in [id for _, _, id in table_fulfilled_filters[table]]:
+                    table_fulfilled_filters[table].append(((filter[0], hit.field_name), FilterType.ATTR, filter[2]))
+
+        table_path = obtain_table_paths(table_nid, self)
+
+        # sort by value len -> # fulfilling filters
+        table_fulfilled_filters = OrderedDict(
+            sorted(table_fulfilled_filters.items(), key=lambda el:
+            (len({filter_id for _, _, filter_id in el[1]}), el[0]), reverse=True))  # len of unique filters, then lexico
+
+        # Ordering filters for more determinism
+        for k, v in table_fulfilled_filters.items():
+            v = sorted(v, key=lambda el: (el[2], el[0][0]), reverse=True)  # sort by id, then filter_name
+            table_fulfilled_filters[k] = v
+
+        def eager_candidate_exploration():
+            print("start eager exploration")
+            candidate_table_groups = filter_fulfilled_tables.values()
+            filters = list(filter_drs.keys())
+            import itertools
+            # print(list(itertools.product(*candidate_table_groups)))
+            for group in list(itertools.product(*candidate_table_groups)):
+                candidate_group_unordered = []
+                candidate_group_filters_covered = []
+                for idx, item in enumerate(group):
+                    if item[0] not in candidate_group_unordered:
+                        candidate_group_unordered.append(item[0])
+                    f = ((filters[idx][0], item[1]), FilterType.ATTR, filters[idx][2])
+                    if f not in candidate_group_filters_covered:
+                        candidate_group_filters_covered.append(f)
+                yield (list(candidate_group_unordered), candidate_group_filters_covered)
+
+        et_stage2 = time.time()
+        perf_stats['t_stage2'] = (et_stage2 - st_stage2)
+        # Find ways of joining together each group
+        cache_unjoinable_pairs = defaultdict(int)
+        perf_stats['time_joinable'] = 0
+        perf_stats['time_is_materializable'] = 0
+        perf_stats['time_materialize'] = 0
+        num_candidate_groups = 0
+        all_join_graphs = []
+        all_filters = []
+        unique_all_join_graphs = set()
+        unique_all_candidate_groups = set()
+        for candidate_group, candidate_group_filters_covered in eager_candidate_exploration():
+            unique_all_candidate_groups.add(tuple(candidate_group))
+            num_candidate_groups += 1
+            print("Candidate group: " + str(candidate_group))
+            num_unique_filters = len({f_id for _, _, f_id in candidate_group_filters_covered})
+            print("Covers #Filters: " + str(num_unique_filters))
+
+            if len(candidate_group) == 1:
+                continue  # to go to the next group
+
+            max_hops = max_hops
+            # We find the different join graphs that would join the candidate_group
+            st_joinable = time.time()
+            join_graphs = self.joinable(candidate_group, cache_unjoinable_pairs, max_hops)
+            et_joinable = time.time()
+            print("Total join graphs:", len(join_graphs))
+
+            # if not graphs skip next
+            if len(join_graphs) == 0:
+                if 'unjoinable_candidate_group' not in perf_stats:
+                    perf_stats['unjoinable_candidate_group'] = 0
+                perf_stats['unjoinable_candidate_group'] += 1
+                print("Group: " + str(candidate_group) + " is Non-Joinable with max_hops=" + str(max_hops))
+                continue
+            if 'joinable_candidate_group' not in perf_stats:
+                perf_stats['joinable_candidate_group'] = 0
+            perf_stats['joinable_candidate_group'] += 1
+            if 'num_join_graphs_per_candidate_group' not in perf_stats:
+                perf_stats['num_join_graphs_per_candidate_group'] = []
+            perf_stats['num_join_graphs_per_candidate_group'].append(len(join_graphs))
+
+            # Now we need to check every join graph individually and see if it's materializable. Only once we've
+            # exhausted these join graphs we move on to the next candidate group. We know already that each of the
+            # join graphs covers all tables in candidate_group, so if they're materializable we're good.
+            total_materializable_join_graphs = 0
+            materializable_join_graphs = []
+            filters = candidate_group_filters_covered
+            for jpg in join_graphs:
+                total_materializable_join_graphs += 1
+                materializable_join_graphs.append((jpg, filters))
+                all_join_graphs.append(jpg)
+                unique_all_join_graphs.add(tuple(jpg))
+                all_filters.append(filters)
+
+        perf_stats["num_candidate_groups"] = len(unique_all_candidate_groups)
+        perf_stats["num_join_graphs"] = len(unique_all_join_graphs)
+        print("Finished enumerating groups")
+        return len(unique_all_candidate_groups), len(unique_all_join_graphs)
+
+    def search_views(self, list_samples, filter_drs, perf_stats, max_hops=2, debug_enumerate_all_jps=False, offset=10, dod_rank=False, materialize=True):
+        st_stage2 = time.time()
+        start = time.time()
         # We group now into groups that convey multiple filters.
         # Obtain list of tables ordered from more to fewer filters.
         table_fulfilled_filters = defaultdict(list)
@@ -249,9 +359,11 @@ class ViewSearchPruning:
             table_fulfilled_filters[k] = v
 
         def eager_candidate_exploration():
+            print("start eager exploration")
             candidate_table_groups = filter_fulfilled_tables.values()
             filters = list(filter_drs.keys())
             import itertools
+            # print(list(itertools.product(*candidate_table_groups)))
             for group in list(itertools.product(*candidate_table_groups)):
                 candidate_group_unordered = []
                 candidate_group_filters_covered = []
@@ -302,7 +414,7 @@ class ViewSearchPruning:
                 if 'single_relation_group' not in perf_stats:
                     perf_stats['single_relation_group'] = 0
                 perf_stats['single_relation_group'] += 1
-                yield materialized_virtual_schema, attrs_to_project, view_metadata, table, 1
+                yield materialized_virtual_schema, attrs_to_project, view_metadata, table, 1, 1
                 continue  # to go to the next group
 
             # Pre-check
@@ -354,49 +466,79 @@ class ViewSearchPruning:
         perf_stats["num_join_graphs"] = len(unique_all_join_graphs)
         print("Finished enumerating groups")
 
+        if not materialize:
+            return perf_stats
         # Rate all join paths after pruning
         # print("total join graphs", len(all_join_graphs))
 
-        table_paths = {}
-        # build inverted index candidate tables -> [indexes of corresponding join paths]
-        for idx, jpg in enumerate(all_join_graphs):
-            table_list = []
-            table_hash = {}
-            for l, r in jpg:
-                if l.source_name not in table_hash.keys():
-                    table_list.append(l.source_name)
-                    table_hash[l.source_name] = True
-                if r.source_name not in table_hash.keys():
-                    table_list.append(r.source_name)
-                    table_hash[r.source_name] = True
-            if tuple(table_list) not in table_paths.keys():
-                table_paths[tuple(table_list)] = [idx]
-            else:
-                table_paths[tuple(table_list)].append(idx)
+        # table_paths = {}
+        # # build inverted index candidate tables -> [indexes of corresponding join paths]
+        # for idx, jpg in enumerate(all_join_graphs):
+        #     table_list = []
+        #     table_hash = {}
+        #     for l, r in jpg:
+        #         if l.source_name not in table_hash.keys():
+        #             table_list.append(l.source_name)
+        #             table_hash[l.source_name] = True
+        #         if r.source_name not in table_hash.keys():
+        #             table_list.append(r.source_name)
+        #             table_hash[r.source_name] = True
+        #     if tuple(table_list) not in table_paths.keys():
+        #         table_paths[tuple(table_list)] = [idx]
+        #     else:
+        #         table_paths[tuple(table_list)].append(idx)
         '''
         main scoring logic
         '''
-        score_list = []
-        for idx, path in enumerate(all_join_graphs):
-            score = 0
-            threshold = 0.8
-            relations = set()
-            for l, r in path:
-                relations.add(l.source_name)
-                relations.add(r.source_name)
-                unique_score = max(self.aurum_api.helper.get_uniqueness_score(l.nid),
-                                   self.aurum_api.helper.get_uniqueness_score(r.nid))
-                if unique_score > threshold:
-                    score += 1
-            score = score / len(path) / (1 + np.log(1 + np.log(len(relations))))  # add a penalty to the number of involved relations
-            score_list.append((score, idx))
-        score_list.sort(reverse=True)
-        sorted_all_graphs = [(all_join_graphs[x[1]], all_filters[x[1]]) for x in score_list]
-
-        paths_to_materialize = sorted_all_graphs[0: offset]
+        if dod_rank:
+            ranking_start = time.time()
+            score_list = []
+            for idx, path in enumerate(all_join_graphs):
+                score = 0
+                # threshold = 0.8
+                relations = set()
+                for l, r in path:
+                    relations.add(l.source_name)
+                    relations.add(r.source_name)
+                    unique_score = max(self.aurum_api.helper.get_uniqueness_score(l.nid),
+                                       self.aurum_api.helper.get_uniqueness_score(r.nid))
+                    score += unique_score
+                    # if unique_score > threshold:
+                    #     score += 1
+                score = score / len(path) / (1 + np.log(1 + np.log(len(relations))))  # add a penalty to the number of involved relations
+                score_list.append((score, idx))
+            score_list.sort(reverse=True)
+            sorted_all_graphs = [(all_join_graphs[x[1]], all_filters[x[1]], x[0]) for x in score_list]
+            paths_to_materialize = sorted_all_graphs[0: offset]
+            perf_stats["ranking_time"] = time.time() - ranking_start
+        else:
+            paths_to_materialize = [(all_join_graphs[idx], all_filters[idx], 0) for idx in range(len(all_join_graphs))]
         to_return = self.materialize_join_graphs(list_samples, paths_to_materialize)
+        perf_stats["search_time"] = time.time() - start
         for el in to_return:
             yield el
+
+    def not_zero_view(self, join_path):
+        '''
+        if this join path will produce a view that has more than 0 row
+        :param join_path:
+        :return:
+        '''
+        if len(join_path) < 2:
+            # we have guaranteed that a pair of joinable columns has overlap
+            return True
+        join_keys = []
+        for l, r in path:
+            join_keys.append((l.source_name, l.field_name))
+            join_keys.append((r.source_name, r.field_name))
+
+        df_l = dpu.read_column(self.base_path + join_keys[0][0], join_keys[0][1])[join_keys[0][1]].dropna().drop_duplicates().values.tolist()
+        df_r = dpu.read_column(self.base_path + join_keys[-1][0], join_keys[-1][1])[join_keys[-1][1]].dropna().drop_duplicates().values.tolist()
+        lookup_l = set(df_l)
+        lookup_r = set(df_r)
+        df_mid = dpu.read_columns(self.base_path + join_keys[1][0], [join_keys[1][1], join_keys[2][1]])
+
+        return True
 
     def get_relation(self, df, join_key, target_cols, sampling_fraction):
         df.dropna()
@@ -535,7 +677,7 @@ class ViewSearchPruning:
     def materialize_join_graphs(self, samples, materializable_join_graphs):
         to_return = []
         idx = 0
-        for mjg, filters in materializable_join_graphs:
+        for mjg, filters, jp_score in materializable_join_graphs:
             # if is_join_graph_valid:
             attrs_to_project = dpu.obtain_attributes_to_project(filters)
 
@@ -546,7 +688,7 @@ class ViewSearchPruning:
                 print("HIT Cached View")
             else:
                 materialized_virtual_schema = dpu.materialize_join_graph_sample(mjg, samples, filters, self, idx,
-                                                                                sample_size=10000)
+                                                                                sample_size=2000)
                 self.view_cache[tuple(mjg)] = materialized_virtual_schema
             join_path = ""
             relations = set()
@@ -563,7 +705,7 @@ class ViewSearchPruning:
             view_metadata["#join_graphs"] = len(materializable_join_graphs)
             # view_metadata["join_graph"] = self.format_join_paths_pairhops(jpg)
             view_metadata["join_graph"] = self.format_join_graph_into_nodes_edges(mjg)
-            to_return.append((materialized_virtual_schema, attrs_to_project, view_metadata, join_path[:-2], len(relations)))
+            to_return.append((materialized_virtual_schema, attrs_to_project, view_metadata, join_path[:-2], len(relations), jp_score))
             # yield materialized_virtual_schema, attrs_to_project, view_metadata
         return to_return
 
