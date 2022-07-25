@@ -47,7 +47,7 @@ sources:
   type: csv
   config:
     # path indicates where the CSV files live
-    path: "/home/cc/datasets/nyc_open_data/"
+    path: "/home/cc/nyc_cleaned/"
     # separator used in the CSV files
     separator: ','
   

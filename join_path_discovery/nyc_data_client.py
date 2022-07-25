@@ -27,7 +27,7 @@ def output_correlations(api, table):
     api = Join_Path_API(model_path)
 
     jps = get_join_paths_from(api, table, 1, 100)
-
+    print(jps)
     f = open(table + '_jp_corr.csv', 'w')
     get_correlations(jps, data_path, f)
 
