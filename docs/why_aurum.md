@@ -1,3 +1,0 @@
-# What is the data discovery problem? How can Aurum help?
-
-TODO...
