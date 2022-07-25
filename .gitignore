@@ -8,6 +8,8 @@ output_views_test/
 data/
 log*.txt
 *.npy
+*result*/
+figures/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
