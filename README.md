@@ -8,6 +8,8 @@ navigating a large number of results) problems of view discovery.
 
 ## Architecture
 
+![Architecture](https://raw.githubusercontent.com/TheDataStation/ver/main/architecture.jpeg)
+
 Ver implements a reference architecture consisting of the following components:
 
 ### Discovery Engine and Index Creation
