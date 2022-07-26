@@ -144,7 +144,7 @@ python3 examples/example.py
 The View Presentation component will use the output of View Distillation component,
 which is stored in `vd_results_dir`, to ask questions and interact with the user until the user finds a view.
 
-## Future Works
+## Future Work
 
 This project is currently a work in progress, and we expect to have all documentation, test and a full demo 
 done by the 2nd quarter of 2023.
