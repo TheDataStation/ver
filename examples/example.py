@@ -72,6 +72,8 @@ def flatten(alist):
 
 if __name__ == '__main__':
 
+    ########### Set parameters ###########
+
     model_path = ''  # path to the network index
     base_path = ''  # path to the source tables
     output_path = ''  # path to output the views
@@ -79,10 +81,16 @@ if __name__ == '__main__':
     vd_results_dir = "" # result path for view distillation
     query_id = "0"
 
+    ########### View Specification ###########
+
     attrs = ["", ""]
     values = [["example1", "example1"], ["example2", "example2"]]
 
+    ########### Query by Examples ###########
+
     query_examples(attrs, values)
+
+    ########### View Distillation ###########
 
     compatible_groups, removed_compatible_views, \
     largest_contained_views, removed_contained_views, contained_groups, \
@@ -122,6 +130,8 @@ if __name__ == '__main__':
         for path1, path2, candidate_key, contradictory_key_value in contradictory_pairs:
             f.write(f"{path1}, {path2}, {candidate_key}, {contradictory_key_value}\n")
 
+    ########### View Presentation ###########
+
     query_path = vd_results_dir
 
     with open(f"/{vd_results_dir}/{query_id}.csv", "w") as f:
@@ -135,4 +145,4 @@ if __name__ == '__main__':
                 line_to_write += value + ","
             f.write(line_to_write[:-1] + "\n")
 
-    vp.interface(query_path, vd_results_dir,'', query_id)
+    vp.interface(query_path, vd_results_dir, '', query_id)
