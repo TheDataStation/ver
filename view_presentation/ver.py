@@ -26,14 +26,7 @@ import sys
 
 
 import random
-data_id=sys.argv[1]#'jp_1020'
-seed=int(sys.argv[2])
-
-random.seed(seed)
-query_path='/home/cc/generality_experiment/queries_keyword/'#'/home/cc/queries1/'
-#root_path='/home/cc/user_study'
-candidate_path='/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results_old/sainyam'#'/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results/sainyam'
-gt_path='/home/cc/generality_experiment/views_keyword/'#'/home/cc/view_presentation/ground_truth_qbe/'
+turn_on_wordcloud=False
 
 
 def read_gt(gt_path,data_id):
@@ -44,8 +37,6 @@ def read_gt(gt_path,data_id):
         if 'groud truth' in line:
             line=line.split(':')[-1]
             return line.strip()
-
-gt_file='view_'+(read_gt(gt_path,data_id))+'.csv'
 def read_query(query_path,data_id):
     query=''
     f=open(query_path+data_id+'.csv')
@@ -88,13 +79,6 @@ def clean_attr(attr_lst,attribute_to_dataset):
     return attr_lst,attribute_to_dataset
 
 
-fout=open("log-file-systema.txt",'a')
-query=read_query(query_path,data_id)
-
-
-start = timeit.default_timer()
-model = gensim.models.KeyedVectors.load_word2vec_format('./GoogleNews-vectors-negative300.bin', binary=True)
-
 def get_mean_vector(word2vec_model, words):
     # remove out-of-vocabulary words
     words=words.split()
@@ -125,6 +109,7 @@ def read_df(candidate_path,data_id):
     s4_score={}
     i=1
     for d in nonzero_lst:# i<3500:
+        print (i)
         try:
             df=Ver_DataFrame(pd.read_csv(d))
             df.set_name(d)
@@ -149,62 +134,10 @@ def read_df(candidate_path,data_id):
         #
         except:
             j=i#print (i)
+        if i>520:
+            break
         i+=1
     return attr_map,attr_to_val,attr_lst,df_lst,df_name_lst,s4_score,candidate_name_to_id
-
-(attr_map,attr_to_val,attr_lst,df_lst,df_name_lst,s4_score,candidate_name_to_id)=read_df(candidate_path,data_id)
-c_dic=get_4c_pairs(candidate_name_to_id,candidate_path,data_id)
-
-gt_id=-1
-for path in candidate_name_to_id.keys():
-    print(path)
-    if gt_file in path:
-        gt_id=candidate_name_to_id[path]
-        break
-
-
-print ("gt id is ",gt_id)
-
-read_time = timeit.default_timer()-start
-
-
-candidate_lst=df_lst
-
-candidate_attributes=attr_lst
-attribute_to_dataset=attr_map
-wordcloud_lst=[]
-attr_lst=list(attr_map.keys())
-attr_lst=list(set(attr_lst))
-
-(attr_lst,attribute_to_dataset)=clean_attr(attr_lst,attribute_to_dataset)
-
-original_attr_to_val={}
-for attr in attr_to_val.keys():
-    lst=attr_to_val[attr]
-    string=''
-    for v in lst:
-        string+=str(v)+" "
-    string=string.replace('-',' ')
-    string=string.replace(',',' ')
-    string=string.replace('_',' ')
-    string=string.replace('/',' ')
-    original_attr_to_val[attr]=string
-    split_it = string.split()
-    Ctr = Counter(split_it)
-    most_occur = Ctr.most_common(50)
-    new_str=''
-    for (u,v) in most_occur:
-        new_str+=u+' '
-    attr_to_val[attr]=new_str
-    
-attr_val_lst=[]
-for attr in attr_to_val.keys():
-    if len(get_mean_vector(model,attr_to_val[attr]))==0:
-        continue
-    else:
-        attr_val_lst.append(attr)
-
-
 
 
 def cluster(attr_lst,attr_to_val,attr_val_lst,option):
@@ -227,13 +160,16 @@ def cluster(attr_lst,attr_to_val,attr_val_lst,option):
     distance_to_sln = [None] * nr_points
     new_point_dist=0
     max_dist=0
+    dontrun=False#True
+    if dontrun==True:
+        return centers,center_val,pred,-1,{}
     while i<k:
 
         centers.append(max_dist_ind)
         center_val.append(attrs[max_dist_ind])
         #print (max_dist, centers[i],attrs[centers[i]])    
 
-
+        #print ("cluster i",i,k,len(attrs))
         max_dist = 0
         max_dist_ind = 0
         #print (i)
@@ -346,60 +282,6 @@ def get_distance_df_header(query,df_lst):
     return sorted_sc
 
 
-print (attr_lst)
-print (attr_to_val)
-print (attr_val_lst)
-
-centers_content,center_content,pred1,max_dist,pred_map_content=cluster(attr_lst,attr_to_val,attr_val_lst,1)
-cluster_content={}
-for attr in pred_map_content.keys():
-    l=[]
-    if pred_map_content[attr] in cluster_content.keys():
-        l=cluster_content[pred_map_content[attr]]
-    l.append(attr)
-    cluster_content[pred_map_content[attr]]=l
-    
-
-
-centers_attr,center_attr,pred,max_dist,pred_map_attr=cluster(attr_lst,attr_to_val,attr_val_lst,0)
-cluster_attr={}
-for attr in pred_map_attr.keys():
-    l=[]
-    if pred_map_attr[attr] in cluster_attr.keys():
-        l=cluster_attr[pred_map_attr[attr]]
-    l.append(attr)
-    cluster_attr[pred_map_attr[attr]]=l
-    
-
-distance_lst_dataset_attribute=get_distance_df_header(query,df_lst)
-distance_lst_dataset_content=get_distance_df(query,df_lst)
-#Ranking of attributes using content
-distance_lst_attribute_content=get_distance(query,attr_to_val)
-#Ranking of attributes
-distance_lst_attribute_header=get_distance_attribute(query,attr_to_val)
-
-# In[10]:
-
-
-#print (pred_map_content)
-
-
-# In[11]:
-
-
-pruned_lst=[]
-shortlisted_lst=[]
-
-
-# In[ ]:
-
-
-
-
-
-# In[12]:
-
-
 from collections import Counter
 import numpy as np
 def get_top_k(lst):
@@ -432,14 +314,10 @@ import random,pickle
 
 
 #with open('candidates.pickle', 'rb') as handle:
-#    [candidate_lst,candidate_attributes,attribute_to_dataset] = pickle.load(handle)
+#    [candidate_lst,self.candidate_attributes,self.attribute_to_dataset] = pickle.load(handle)
 
 
 # In[15]:
-
-
-
-shown_df_dic={}
 
 def get_es_results(query_str,searchtype):
     
@@ -634,16 +512,6 @@ def process_text(text):
 
 # In[17]:
 
-
-attribute_size={}
-for attr in attribute_to_dataset.keys():
-    attribute_size[attr]=len(attribute_to_dataset[attr])
-
-
-# In[18]:
-
-
-
 from tqdm import tqdm
 
 from ipywidgets import interactive
@@ -657,14 +525,130 @@ from IPython.display import HTML
 
 HTML('<style> .widget { width: -10; } </style>')
 
-#List of candidates
-original_lst=[]
+random.seed(1)
 
-turn_on_wordcloud=False
+model = gensim.models.KeyedVectors.load_word2vec_format('./GoogleNews-vectors-negative300.bin', binary=True)
 
 class interface:
-    def __init__(self):
-        global fout
+    def __init__(self,qpath,cpath,gtpath,dataid):
+        global query,fout,gt_file
+        global query_path,candidate_path,gt_path
+        query_path=qpath#'/home/cc/generality_experiment/queries_keyword/'#'/home/cc/queries1/'
+        candidate_path=cpath#'/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results/sainyam'#'/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results/sainyam'
+        gt_path=gtpath#'/home/cc/generality_experiment/views_keyword/'#'/home/cc/view_presentation/ground_truth_qbe/'
+
+        data_id=dataid#'jp_1863'#1577'#sys.argv[1]#'jp_1020'
+        gt_file='view_'+(read_gt(gt_path,data_id))+'.csv'
+        fout=open("log-file-systema.txt",'a')
+
+        query=read_query(query_path,data_id)
+        start = timeit.default_timer()
+
+        (attr_map,attr_to_val,attr_lst,self.df_lst,df_name_lst,self.s4_score,self.candidate_name_to_id)=read_df(candidate_path,data_id)
+
+        self.c_dic=get_4c_pairs(self.candidate_name_to_id,candidate_path,data_id)
+
+        self.gt_id=-1
+        for path in self.candidate_name_to_id.keys():
+            print(path)
+            if gt_file in path:
+                self.gt_id=self.candidate_name_to_id[path]
+                break
+
+
+        #print ("gt id is ",self.gt_id)
+
+        self.read_time = timeit.default_timer()-start
+
+
+        candidate_lst=self.df_lst
+
+        self.candidate_attributes=attr_lst
+        self.attribute_to_dataset=attr_map
+        self.wordcloud_lst=[]
+        attr_lst=list(attr_map.keys())
+        attr_lst=list(set(attr_lst))
+
+        (attr_lst,self.attribute_to_dataset)=clean_attr(attr_lst,self.attribute_to_dataset)
+
+        self.original_attr_to_val={}
+        for attr in attr_to_val.keys():
+            lst=attr_to_val[attr]
+            string=''
+            for v in lst:
+                string+=str(v)+" "
+            string=string.replace('-',' ')
+            string=string.replace(',',' ')
+            string=string.replace('_',' ')
+            string=string.replace('/',' ')
+            self.original_attr_to_val[attr]=string
+            split_it = string.split()
+            Ctr = Counter(split_it)
+            most_occur = Ctr.most_common(50)
+            new_str=''
+            for (u,v) in most_occur:
+                new_str+=u+' '
+            attr_to_val[attr]=new_str
+    
+        attr_val_lst=[]
+        for attr in attr_to_val.keys():
+            if len(get_mean_vector(model,attr_to_val[attr]))==0:
+                continue
+            else:
+                attr_val_lst.append(attr)
+
+
+
+        #print (attr_lst)
+        #print (attr_to_val)
+        #print (attr_val_lst)
+
+        centers_content,self.center_content,pred1,max_dist,pred_map_content=cluster(attr_lst,attr_to_val,attr_val_lst,1)
+        self.cluster_content={}
+        for attr in pred_map_content.keys():
+            l=[]
+            if pred_map_content[attr] in self.cluster_content.keys():
+                l=self.cluster_content[pred_map_content[attr]]
+            l.append(attr)
+            self.cluster_content[pred_map_content[attr]]=l
+    
+
+        print ("clustering attributes done")
+        centers_attr,self.center_attr,pred,max_dist,pred_map_attr=cluster(attr_lst,attr_to_val,attr_val_lst,0)
+        print ("clustering attributes done")
+        self.cluster_attr={}
+        for attr in pred_map_attr.keys():
+            l=[]
+            if pred_map_attr[attr] in self.cluster_attr.keys():
+                l=self.cluster_attr[pred_map_attr[attr]]
+            l.append(attr)
+            self.cluster_attr[pred_map_attr[attr]]=l
+    
+
+        self.distance_lst_dataset_attribute=get_distance_df_header(query,self.df_lst)
+        self.distance_lst_dataset_content=get_distance_df(query,self.df_lst)
+        #Ranking of attributes using content
+        self.distance_lst_attribute_content=get_distance(query,attr_to_val)
+        #Ranking of attributes
+        self.distance_lst_attribute_header=get_distance_attribute(query,attr_to_val)
+
+        self.pruned_lst=[]
+        self.shortlisted_lst=[]
+
+        shown_df_dic={}
+
+
+        attribute_size={}
+        for attr in self.attribute_to_dataset.keys():
+            attribute_size[attr]=len(self.attribute_to_dataset[attr])
+
+
+        original_lst=[]
+
+
+        self.setup_time=timeit.default_timer()-start
+
+
         start = timeit.default_timer()
         fout.write("logging-started"+str(start)+"\n")
         
@@ -673,10 +657,10 @@ class interface:
         self.initial_prob=[1.0,1.0,1.0,1.0,1.0,1.0]
         self.answered={}
         self.asked={}
-        global c_dic,pruned_lst,shortlisted_lst,wordcloud_lst,distance_lst_dataset_attribute,cluster_attr,original_attr_to_val
-        pruned_lst=[]
+        #global self.cluster_attr,self.original_attr_to_val
+        self.pruned_lst=[]
         self.queried_centers=[]
-        shortlisted_lst=[]
+        self.shortlisted_lst=[]
         self.queried_datasets=[]
         self.shortlisted_attr=[]
         self.discarded_attr=[]
@@ -807,8 +791,101 @@ class interface:
         self.response_lst=[]
         self.start_study('')
         self.prev_output=''
-        
+        self.run_simulated_user()        
         return
+
+
+
+    def run_simulated_user(self):
+
+        i=0
+        total=0
+
+        options=list(self.candidate_name_to_id.values())
+
+        print (options)
+
+        query_cache={}
+
+        while i<1000:
+            start = timeit.default_timer()
+            (ques,itype,coverage)= (self.choose_interface())
+            coverage=list(set(coverage))
+            coverage.sort()
+            if tuple(coverage) in query_cache.keys():
+                continue
+            query_cache[tuple(coverage)]=1
+
+            end_time = timeit.default_timer()
+            total+=(end_time-start)
+            if ques==None:
+                break
+            self.asked[itype]+=1
+
+            user_response=ver_user(self.gt_id,ques,coverage)#False
+            print (user_response)
+            print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+            if 'wordcloud' in itype:
+                lst=list(ques.keys())
+                if user_response=='Skip':
+                    print ("No response from the user")
+                elif user_response=="No":
+                    self.answered[itype]+=1
+                    self.discarded_attr.extend(lst)
+                    for attr in lst:
+                        self.pruned_lst.extend(self.attribute_to_dataset[attr])
+                    self.shortlisted_lst=list(set(self.shortlisted_lst)-set(self.pruned_lst))
+                else:
+                    self.answered[itype]+=1
+                    self.shortlisted_attr.extend(lst)
+                    if len(self.shortlisted_lst)==0:
+                        self.shortlisted_lst=coverage
+                    else:
+                        self.shortlisted_lst=list(set(self.shortlisted_lst)&set(coverage))
+                        self.pruned_lst=list(set(options)-set(self.shortlisted_lst))
+                    #self.shortlisted_lst.extend(self.attribute_to_dataset[attr])
+            if 'attribute' in itype:
+                if user_response== 'No':
+                    self.answered[itype]+=1# in self.attribute_yesno.value:
+                    self.pruned_lst.extend(coverage)
+                    self.discarded_attr.append(ques)#[-1])
+                    self.shortlisted_lst=list(set(self.shortlisted_lst)-set(self.pruned_lst))
+                elif 'Yes' in user_response:#self.attribute_yesno.value:
+                    self.answered[itype]+=1
+                    if len(self.shortlisted_lst)==0:
+                        self.shortlisted_lst=coverage
+                    else:
+                        self.shortlisted_lst=list(set(self.shortlisted_lst)&set(coverage))
+                        self.pruned_lst=list(set(options)-set(self.shortlisted_lst))
+                    self.shortlisted_attr.append(ques)#self.query_sequence[-1][-1])
+            elif 'dataset' in itype:
+                if user_response=="No":
+                    self.answered[itype]+=1
+                    self.pruned_lst.extend(coverage)
+                    self.shortlisted_lst=list(set(self.shortlisted_lst)-set(self.pruned_lst))
+                else:
+                    self.answered[itype]+=1
+                    print ("Found ground truth",i)
+                    break
+            elif '4c' in itype:
+                if user_response=="No":
+                    self.answered[itype]+=1
+                    self.pruned_lst.extend(coverage)
+                    self.shortlisted_lst=list(set(self.shortlisted_lst)-set(self.pruned_lst))
+                else:
+                    self.answered[itype]+=1
+                    print ("Found ground truth",i)
+                    break
+            if len(self.shortlisted_lst)==1:
+                print ("Found ground truth",i)
+                break
+            print (coverage)
+            self.pruned_lst=list(set(self.pruned_lst))
+            print ("Shortlist************",self.shortlisted_lst)
+            print ("Pruned list************",self.pruned_lst)
+            i+=1
+        print (self.setup_time,self.read_time)
+        print ("Averaage time per query",total*1.0/(i+1))
     def endtask(self,b):
         clear_output()
         print ("You have completed the task")
@@ -826,16 +903,16 @@ class interface:
         self.display_output(b)
     def shortlist(self,b):
         
-        others_lst=list(candidate_name_to_id.keys())
+        others_lst=list(self.candidate_name_to_id.keys())
         for df in self.prev_output[1]:
-            shortlisted_lst.append(candidate_name_to_id[df._name])
+            self.shortlisted_lst.append(self.candidate_name_to_id[df._name])
             try:
-                others_lst.remove(candidate_name_to_id[df._name])
+                others_lst.remove(self.candidate_name_to_id[df._name])
             except:
                 continue
 
-        pruned_lst.extend(others_lst)
-        #print (len(shortlisted_lst),len(pruned_lst))
+        self.pruned_lst.extend(others_lst)
+        #print (len(self.shortlisted_lst),len(self.pruned_lst))
         self.display_button(b)
     def get_attribute(self,attr_dic):
         sorted_size = sorted(attribute_size.items(), key=operator.itemgetter(1),reverse=True)
@@ -859,7 +936,7 @@ class interface:
         
         df_widget_lst=[]
         iter=0
-        for data_id in shortlisted_lst[:20]:
+        for data_id in self.shortlisted_lst[:20]:
             #print (data_id)
             df=candidate_lst[data_id]
             
@@ -926,17 +1003,16 @@ class interface:
 
     def get_question(self,interface):
         ques_score=1
-        global c_dic
         if interface=='4c':
             #use c_dic
             new_dic={}
-            for v in c_dic.keys():
+            for v in self.c_dic.keys():
                 if v[0] in self.queried_datasets or v[1] in self.queried_datasets:
                     continue
                 else:
-                    new_dic[v]=c_dic[v]
-            c_dic=new_dic
-            lst=list(c_dic.keys())
+                    new_dic[v]=self.c_dic[v]
+            self.c_dic=new_dic
+            lst=list(self.c_dic.keys())
             if len(lst)==0:
                 return 0,None,[]
             ind=random.randint(0,len(lst)-1)
@@ -945,15 +1021,15 @@ class interface:
             coverage=[]
             if interface=='wordcloud':
                 lst=[]
-                for c in center_attr:
-                    if not c in cluster_attr.keys():
+                for c in self.center_attr:
+                    if not c in self.cluster_attr.keys():
                         continue
                     if c in self.queried_centers:
                         continue
                     else:
                         lst.append(c)
 
-                        lst.extend(cluster_attr[c])
+                        lst.extend(self.cluster_attr[c])
                         break
                 final_lst={}
                 coverage=[]
@@ -963,18 +1039,18 @@ class interface:
                         continue
                     else:
                         final_lst[l]=1
-                        coverage.extend(attribute_to_dataset[l])
+                        coverage.extend(self.attribute_to_dataset[l])
             else:
                 lst=[]
-                for c in center_content:
-                    if not c in cluster_content.keys():
+                for c in self.center_content:
+                    if not c in self.cluster_content.keys():
                         continue
                     if c in self.queried_centers:
                         continue
                     else:
                         lst.append(c)
 
-                        lst.extend(cluster_content[c])
+                        lst.extend(self.cluster_content[c])
                         break
                 final_lst={}
                 for l in lst:
@@ -983,7 +1059,7 @@ class interface:
                         continue
                     else:
                         final_lst[l]=1
-                        coverage.extend(attribute_to_dataset[l])
+                        coverage.extend(self.attribute_to_dataset[l])
             if len(list(final_lst.keys()))==0:
                 return 0,None,[]
             #word_lst=get_top_k(candidate_lst)
@@ -992,18 +1068,18 @@ class interface:
         if 'attribute' in interface:
             coverage=[]
             if interface=='attribute':
-                for(d,sc) in distance_lst_attribute_header:
+                for(d,sc) in self.distance_lst_attribute_header:
                     if d in self.queried_attributes:
                         continue
                     #print (d,sc)
-                    coverage.extend(attribute_to_dataset[d])
+                    coverage.extend(self.attribute_to_dataset[d])
                     return len(coverage),d,coverage
             else:
-                for(d,sc) in distance_lst_attribute_content:
+                for(d,sc) in self.distance_lst_attribute_content:
                     if d in self.queried_attributes:
                         continue
                     #print (d,sc)
-                    coverage.extend(attribute_to_dataset[d])
+                    coverage.extend(self.attribute_to_dataset[d])
                     return len(coverage),d,coverage
             return 0,None,[]
            
@@ -1011,8 +1087,8 @@ class interface:
             if interface=='dataset':
                 min_sc=100000000
                 options=[]
-                for(d,sc) in distance_lst_dataset_attribute:
-                    if d in self.queried_datasets:
+                for(d,sc) in self.distance_lst_dataset_attribute:
+                    if d in self.pruned_lst or d in self.queried_datasets:
                         continue
                     else:
                         if sc < min_sc:
@@ -1024,18 +1100,18 @@ class interface:
                 return_d=0
                 random.shuffle(options)
                 for d in options:
-                    if s4_score[d]>maxval:
+                    if self.s4_score[d]>maxval:
                         return_d=d
-                        maxval=s4_score[d]
+                        maxval=self.s4_score[d]
                 #print ("this",return_d,options,maxval)
                 if len(options)==0:
                     return 0,None,[]
-                return 1,[df_lst[return_d],return_d],[return_d]
+                return 1,[self.df_lst[return_d],return_d],[return_d]
             else:
                 min_sc=100000000
                 options=[]
-                for(d,sc) in distance_lst_dataset_content:
-                    if d in self.queried_datasets:
+                for(d,sc) in self.distance_lst_dataset_content:
+                    if d in self.queried_datasets or d in self.pruned_lst:
                         continue
                     else:
                         if sc < min_sc:
@@ -1047,13 +1123,13 @@ class interface:
                 return_d=0
                 random.shuffle(options)
                 for d in options:
-                    if s4_score[d]>maxval:
+                    if self.s4_score[d]>maxval:
                         return_d=d
-                        maxval=s4_score[d]
+                        maxval=self.s4_score[d]
                 #print ("this",return_d,options,maxval)
                 if len(options)==0:
                     return 0,None,[]
-                return 1,[df_lst[return_d],return_d],[return_d]
+                return 1,[self.df_lst[return_d],return_d],[return_d]
             
            
             
@@ -1101,7 +1177,10 @@ class interface:
             randval=random.random()
 
             for interface in valid_interfaces:
-                scores[i]=(1-gamma)*scores[i]*1.0/total_score + gamma*1.0/len(valid_interfaces)
+                if total_score>0:
+                    scores[i]=(1-gamma)*scores[i]*1.0/total_score + gamma*1.0/len(valid_interfaces)
+                else:
+                    scores[i]=1.0/len(valid_interfaces)
                 if randval<scores[i]:
                     break
                 randval-=scores[i]
@@ -1137,7 +1216,6 @@ class interface:
     def submit_ques(self,b):
         start = timeit.default_timer()
         fout.write("submit is hit:"+str(start)+"\n")
-        global shortlisted_lst,pruned_lst
         self.response_lst.append("submit")
         
         if len(self.query_sequence)>0:
@@ -1149,7 +1227,7 @@ class interface:
                 fout.write("prev output:"+str(self.yesno.value)+"\n")
                 if self.yesno.value=='no':
                     data_id=self.query_sequence[-1][-1][-1]
-                    pruned_lst.append(data_id)
+                    self.pruned_lst.append(data_id)
                     if data_id in self.ranking_score.keys():
                         self.ranking_score[data_id]-=1
                     else:
@@ -1160,7 +1238,7 @@ class interface:
                         self.ranking_score[data_id]+=1
                     else:
                         self.ranking_score[data_id]=1
-                    shortlisted_lst.append(data_id)
+                    self.shortlisted_lst.append(data_id)
                 else:
                     self.response_lst[-1]="skip"
                 
@@ -1168,16 +1246,16 @@ class interface:
             if 'attribute' in itype:
                 fout.write("prev output:"+str(self.attribute_yesno.value)+"\n")
                 if 'No' in self.attribute_yesno.value:
-                    pruned_lst.extend(attribute_to_dataset[self.query_sequence[-1][-1]])
-                    for data_id in attribute_to_dataset[self.query_sequence[-1][-1]]:
+                    self.pruned_lst.extend(self.attribute_to_dataset[self.query_sequence[-1][-1]])
+                    for data_id in self.attribute_to_dataset[self.query_sequence[-1][-1]]:
                         if data_id in self.ranking_score.keys():
                             self.ranking_score[data_id]-=1
                         else:
                             self.ranking_score[data_id]=-1
                     self.discarded_attr.append(self.query_sequence[-1][-1])
                 elif 'Yes' in self.attribute_yesno.value:
-                    shortlisted_lst.extend(attribute_to_dataset[self.query_sequence[-1][-1]])
-                    for data_id in attribute_to_dataset[self.query_sequence[-1][-1]]:
+                    self.shortlisted_lst.extend(self.attribute_to_dataset[self.query_sequence[-1][-1]])
+                    for data_id in self.attribute_to_dataset[self.query_sequence[-1][-1]]:
                         if data_id in self.ranking_score.keys():
                             self.ranking_score[data_id]+=1
                         else:
@@ -1194,8 +1272,8 @@ class interface:
                     lst=list(self.query_sequence[-1][-1].keys())
                     self.discarded_attr.extend(lst)
                     for attr in lst:
-                        pruned_lst.extend(attribute_to_dataset[attr])
-                        for data_id in attribute_to_dataset[attr]:
+                        self.pruned_lst.extend(self.attribute_to_dataset[attr])
+                        for data_id in self.attribute_to_dataset[attr]:
                             if data_id in self.ranking_score.keys():
                                 self.ranking_score[data_id]-=1
                             else:
@@ -1204,8 +1282,8 @@ class interface:
                     lst=list(self.query_sequence[-1][-1].keys())
                     self.shortlisted_attr.extend(lst)
                     for attr in lst:
-                        shortlisted_lst.extend(attribute_to_dataset[attr])
-                        for data_id in attribute_to_dataset[attr]:
+                        self.shortlisted_lst.extend(self.attribute_to_dataset[attr])
+                        for data_id in self.attribute_to_dataset[attr]:
                             if data_id in self.ranking_score.keys():
                                 self.ranking_score[data_id]-=1
                             else:
@@ -1222,12 +1300,12 @@ class interface:
         display(self.refresh)
         df_widget_lst=[]
         iter=0
-        #print (len(shortlisted_lst))
+        #print (len(self.shortlisted_lst))
         #print (self.ranking_score)
         sorted_sc = sorted(self.ranking_score.items(), key=operator.itemgetter(1),reverse=True)
         for data_id,sc in tqdm(sorted_sc):
             #print (data_id)
-            if data_id not in shortlisted_lst:
+            if data_id not in self.shortlisted_lst:
                 continue
             df=candidate_lst[data_id]
             
@@ -1249,7 +1327,7 @@ class interface:
                     **kwargs):
                     return "hsl(0, 0%%, %d%%)" % random.randint(0, 1)
 
-                #wordcloud = wordcloud_lst[data_id]#
+                #wordcloud = self.wordcloud_lst[data_id]#
                 df_string=df_string.replace('NaN','')
                 df_string=df_string.replace('NoNe','')
                 wordcloud=WordCloud(background_color="white",stopwords=STOPWORDS,collocations=True).generate(df_string)
@@ -1300,7 +1378,7 @@ class interface:
 
 
     def display_output(self,b):
-        global candidate_lst,candidate_attributes,attribute_to_dataset,shortlisted_lst,pruned_lst
+        global candidate_lst#,self.candidate_attributes#,self.attribute_to_dataset#,self.shortlisted_lst,self.pruned_lst
         clear_output()
         start = timeit.default_timer()
         #print ("Input Examples: Connecticut, Georgia, Virginia, Illinois, Indiana")
@@ -1436,9 +1514,9 @@ class interface:
         elif interface_type=='attribute':
             print ("Do you want to shortlist datasets containing the attribute:'"+ques+"'?")
             
-            #print (attribute_to_dataset[ques][:5])
+            #print (self.attribute_to_dataset[ques][:5])
             fout.write(" :"+str(ques)+"\n")
-            string=original_attr_to_val[ques].split()
+            string=self.original_attr_to_val[ques].split()
             count=Counter(string)
             sorted_size = sorted(count.items(), key=operator.itemgetter(1),reverse=True)
             final_lst={}
@@ -1518,8 +1596,8 @@ class interface:
                     found=True
 
             if found:
-                print ("Number of shortlisted datasets",len(shortlisted_lst))
-                print ("Number of removed datasets",len(pruned_lst))
+                print ("Number of shortlisted datasets",len(self.shortlisted_lst))
+                print ("Number of removed datasets",len(self.pruned_lst))
                 widget_lst=[]
                 [df_widget_lst,df_lst]=self.prev_output
                 iter=0
@@ -1613,8 +1691,8 @@ class interface:
                 wc_widget=widgets.interactive_output(update,{})
                 df_widget_lst.append(wc_widget)
                 '''
-                print ("Number of shortlisted datasets",len(shortlisted_lst))
-                print ("Number of removed datasets",len(pruned_lst))
+                print ("Number of shortlisted datasets",len(self.shortlisted_lst))
+                print ("Number of removed datasets",len(self.pruned_lst))
                 display(widgets.VBox([self.shortlist_all,self.refresh,widgets.VBox(children=df_widget_lst[:10],layout=Layout(
                     overflow='scroll hidden',
                     border='3px solid black',
@@ -1639,100 +1717,164 @@ def ver_user(ground_truth,ques, question_coverage):#,options):
 
     return "Skip"
 
+'''
 
+data_id=sys.argv[1]#'jp_1020'
+seed=int(sys.argv[2])
+
+random.seed(seed)
+query_path='/home/cc/generality_experiment/queries_keyword/'#'/home/cc/queries1/'
+candidate_path='/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results/sainyam'#'/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results/sainyam'
+gt_path='/home/cc/generality_experiment/views_keyword/'#'/home/cc/view_presentation/ground_truth_qbe/'
+
+
+gt_file='view_'+(read_gt(gt_path,data_id))+'.csv'
+fout=open("log-file-systema.txt",'a')
+
+query=read_query(query_path,data_id)
+
+
+start = timeit.default_timer()
+
+model = gensim.models.KeyedVectors.load_word2vec_format('./GoogleNews-vectors-negative300.bin', binary=True)
+
+
+(attr_map,attr_to_val,attr_lst,df_lst,df_name_lst,self.s4_score,candidate_name_to_id)=read_df(candidate_path,data_id)
+c_dic=get_4c_pairs(candidate_name_to_id,candidate_path,data_id)
+
+gt_id=-1
+for path in candidate_name_to_id.keys():
+    print(path)
+    if gt_file in path:
+        gt_id=candidate_name_to_id[path]
+        break
+
+
+print ("gt id is ",gt_id)
+
+read_time = timeit.default_timer()-start
+
+
+candidate_lst=df_lst
+
+self.candidate_attributes=attr_lst
+self.attribute_to_dataset=attr_map
+self.wordcloud_lst=[]
+attr_lst=list(attr_map.keys())
+attr_lst=list(set(attr_lst))
+
+(attr_lst,self.attribute_to_dataset)=clean_attr(attr_lst,self.attribute_to_dataset)
+
+self.original_attr_to_val={}
+for attr in attr_to_val.keys():
+    lst=attr_to_val[attr]
+    string=''
+    for v in lst:
+        string+=str(v)+" "
+    string=string.replace('-',' ')
+    string=string.replace(',',' ')
+    string=string.replace('_',' ')
+    string=string.replace('/',' ')
+    self.original_attr_to_val[attr]=string
+    split_it = string.split()
+    Ctr = Counter(split_it)
+    most_occur = Ctr.most_common(50)
+    new_str=''
+    for (u,v) in most_occur:
+        new_str+=u+' '
+    attr_to_val[attr]=new_str
+    
+attr_val_lst=[]
+for attr in attr_to_val.keys():
+    if len(get_mean_vector(model,attr_to_val[attr]))==0:
+        continue
+    else:
+        attr_val_lst.append(attr)
+
+
+
+print (attr_lst)
+print (attr_to_val)
+print (attr_val_lst)
+
+centers_content,center_content,pred1,max_dist,pred_map_content=cluster(attr_lst,attr_to_val,attr_val_lst,1)
+cluster_content={}
+for attr in pred_map_content.keys():
+    l=[]
+    if pred_map_content[attr] in cluster_content.keys():
+        l=cluster_content[pred_map_content[attr]]
+    l.append(attr)
+    cluster_content[pred_map_content[attr]]=l
+    
+
+print ("clustering attributes done")
+centers_attr,self.center_attr,pred,max_dist,pred_map_attr=cluster(attr_lst,attr_to_val,attr_val_lst,0)
+print ("clustering attributes done")
+self.cluster_attr={}
+for attr in pred_map_attr.keys():
+    l=[]
+    if pred_map_attr[attr] in self.cluster_attr.keys():
+        l=self.cluster_attr[pred_map_attr[attr]]
+    l.append(attr)
+    self.cluster_attr[pred_map_attr[attr]]=l
+    
+
+self.distance_lst_dataset_attribute=get_distance_df_header(query,df_lst)
+distance_lst_dataset_content=get_distance_df(query,df_lst)
+#Ranking of attributes using content
+distance_lst_attribute_content=get_distance(query,attr_to_val)
+#Ranking of attributes
+self.distance_lst_attribute_header=get_distance_attribute(query,attr_to_val)
+
+# In[10]:
+
+
+#print (pred_map_content)
+
+
+# In[11]:
+
+
+self.pruned_lst=[]
+self.shortlisted_lst=[]
+
+
+# In[ ]:
+
+
+
+
+
+# In[12]:
+
+
+
+shown_df_dic={}
+
+
+
+attribute_size={}
+for attr in self.attribute_to_dataset.keys():
+    attribute_size[attr]=len(self.attribute_to_dataset[attr])
+
+
+# In[18]:
+
+
+#List of candidates
+original_lst=[]
+
+turn_on_wordcloud=False
+'''
 #Implement a user that answers everything correctly!
 #Go over shortlisted list and if one element is left then we are done
 #Initially all datasets are the search space and after shortlisted is non empty they become the search space.
-setup_time=timeit.default_timer()-start
-ver_int=interface()
-i=0
-total=0
 
-options=list(candidate_name_to_id.values())
+if __name__ == "__main__":
 
-print (options)
+    query_path='/home/cc/generality_experiment/queries_keyword/'#'/home/cc/queries1/'
+    candidate_path='/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/keyword_4c_results/sainyam'#'/home/cc/zhiru/aurum-dod-staging/DoD/new_ver_4c/results/sainyam'
+    gt_path='/home/cc/generality_experiment/views_keyword/'#'/home/cc/view_presentation/ground_truth_qbe/'
 
-query_cache={}
-
-while i<100:
-    start = timeit.default_timer()
-    (ques,itype,coverage)= (ver_int.choose_interface())
-    coverage=list(set(coverage))
-    coverage.sort()
-    if tuple(coverage) in query_cache.keys():
-        continue
-    query_cache[tuple(coverage)]=1
-
-    end_time = timeit.default_timer()
-    total+=(end_time-start)
-    if ques==None:
-        break
-    print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-    print (i,ques,itype)
-    ver_int.asked[itype]+=1
-
-    #user response from simulation
-    user_response=ver_user(gt_id,ques,coverage)#False
-    print (user_response)
-    print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-    if 'wordcloud' in itype:
-        lst=list(ques.keys())
-        if user_response=='Skip':
-            print ("No response from the user")
-        elif user_response=="No":
-            ver_int.answered[itype]+=1
-            ver_int.discarded_attr.extend(lst)
-            for attr in lst:
-                pruned_lst.extend(attribute_to_dataset[attr])
-            shortlisted_lst=list(set(shortlisted_lst)-set(pruned_lst))
-        else:
-            ver_int.answered[itype]+=1
-            ver_int.shortlisted_attr.extend(lst)
-            if len(shortlisted_lst)==0:
-                shortlisted_lst=coverage
-            else:
-                shortlisted_lst=list(set(shortlisted_lst)&set(coverage))
-                pruned_lst=list(set(options)-set(shortlisted_lst))
-            #shortlisted_lst.extend(attribute_to_dataset[attr])
-    if 'attribute' in itype:
-        if user_response== 'No':
-            ver_int.answered[itype]+=1# in self.attribute_yesno.value:
-            pruned_lst.extend(coverage)
-            ver_int.discarded_attr.append(ques)#[-1])
-            shortlisted_lst=list(set(shortlisted_lst)-set(pruned_lst))
-        elif 'Yes' in user_response:#self.attribute_yesno.value:
-            ver_int.answered[itype]+=1
-            if len(shortlisted_lst)==0:
-                shortlisted_lst=coverage
-            else:
-                shortlisted_lst=list(set(shortlisted_lst)&set(coverage))
-                pruned_lst=list(set(options)-set(shortlisted_lst))
-            ver_int.shortlisted_attr.append(ques)#self.query_sequence[-1][-1])
-    elif 'dataset' in itype:
-        if user_response=="No":
-            ver_int.answered[itype]+=1
-            pruned_lst.extend(coverage)
-            shortlisted_lst=list(set(shortlisted_lst)-set(pruned_lst))
-        else:
-            ver_int.answered[itype]+=1
-            print ("Found ground truth",i)
-            break
-    elif '4c' in itype:
-        if user_response=="No":
-            ver_int.answered[itype]+=1
-            pruned_lst.extend(coverage)
-            shortlisted_lst=list(set(shortlisted_lst)-set(pruned_lst))
-        else:
-            ver_int.answered[itype]+=1
-            print ("Found ground truth",i)
-            break
-    if len(shortlisted_lst)==1:
-        print ("Found ground truth",i)
-        break
-    print (coverage)
-    pruned_lst=list(set(pruned_lst))
-    print ("Shortlist************",shortlisted_lst)
-    print ("Pruned list************",pruned_lst)
-    i+=1
-print (setup_time,read_time)
-print ("Averaage time per query",total*1.0/i)
+    data_id='jp_1863'#1577'#sys.argv[1]#'jp_1020'
+    ver_int=interface(query_path,candidate_path,gt_path,data_id)
