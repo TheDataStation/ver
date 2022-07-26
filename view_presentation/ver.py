@@ -527,7 +527,7 @@ HTML('<style> .widget { width: -10; } </style>')
 
 random.seed(1)
 
-model = gensim.models.KeyedVectors.load_word2vec_format('./GoogleNews-vectors-negative300.bin', binary=True)
+model = gensim.models.KeyedVectors.load_word2vec_format('../GoogleNews-vectors-negative300.bin', binary=True)
 
 class interface:
     def __init__(self,qpath,cpath,gtpath,dataid):
