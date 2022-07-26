@@ -1,4 +1,5 @@
 from view_distillation import four_c
+import view_presentation.ver as vp
 
 from DoD import column_infer
 from DoD.utils import FilterType
@@ -76,9 +77,7 @@ if __name__ == '__main__':
     output_path = ''  # path to output the views
     sep = ','  # seperator used for csv files
     vd_results_dir = "" # result path for view distillation
-    query_path = "" # path to query
-    gt_path = "" # optional, path to ground truth
-    query_id = ""
+    query_id = "0"
 
     attrs = ["", ""]
     values = [["example1", "example1"], ["example2", "example2"]]
@@ -100,29 +99,40 @@ if __name__ == '__main__':
     complementary_pairs = flatten(complementary_groups)
     contradictory_pairs = flatten(contradictory_groups)
 
-    with open(f"{vd_results_dir}/candidate_compl_views_jp_{query_id}.txt", "w") as f:
+    with open(f"{vd_results_dir}/candidate_compl_views_{query_id}.txt", "w") as f:
         for view in total_candidate_complementary_contradictory_views:
             f.write(view + "\n")
 
-    with open(f"{vd_results_dir}/contained_groups_jp_{query_id}.txt", "w") as f:
+    with open(f"{vd_results_dir}/contained_groups_{query_id}.txt", "w") as f:
         for path1, group in contained_groups.items():
             f.write(f"{path1}: ")
             for path2 in group:
                 f.write(f"{path2} ")
             f.write("\n")
 
-    with open(f"{vd_results_dir}/compatible_groups_jp_{query_id}.txt", "w") as f:
+    with open(f"{vd_results_dir}/compatible_groups_{query_id}.txt", "w") as f:
         for group in compatible_groups:
             for path in group:
                 f.write(f"{path} ")
             f.write("\n")
 
-    with open(f"{vd_results_dir}/compl_contra_pairs_jp_{query_id}.txt", "w") as f:
+    with open(f"{vd_results_dir}/compl_contra_pairs_{query_id}.txt", "w") as f:
         for path1, path2, candidate_key in complementary_pairs:
             f.write(f"{path1}, {path2}, {candidate_key}\n")
         for path1, path2, candidate_key, contradictory_key_value in contradictory_pairs:
             f.write(f"{path1}, {path2}, {candidate_key}, {contradictory_key_value}\n")
 
-    import view_presentation.ver as vp
+    query_path = vd_results_dir
 
-    vp.interface(query_path, vd_results_dir, gt_path)
+    with open(f"/{vd_results_dir}/{query_id}.csv", "w") as f:
+        line_to_write = ""
+        for attr in attrs:
+            line_to_write += attr + ","
+        f.write(line_to_write[:-1])
+        for list in values:
+            line_to_write = ""
+            for value in list:
+                line_to_write += value + ","
+            f.write(line_to_write[:-1] + "\n")
+
+    vp.interface(query_path, vd_results_dir, query_id)
