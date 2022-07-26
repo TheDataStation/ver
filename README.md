@@ -123,6 +123,10 @@ $ python networkbuildercoordinator.py --opath test/testmodel/network --tpath tab
 ```
 Once the model is built, it will be serialized and stored in the provided path.
 
+Download word2vec
+$ wget -c "https://s3.amazonaws.com/dl4j-distribution/GoogleNews-vectors-negative300.bin.gz"
+$ gzip -d GoogleNews-vectors-negative300.bin.gz
+
 ## Run Example
 
 Once you have the graph model, you can try running the end-to-end pipeline in `examples/example.py`
