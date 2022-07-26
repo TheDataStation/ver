@@ -135,4 +135,4 @@ if __name__ == '__main__':
                 line_to_write += value + ","
             f.write(line_to_write[:-1] + "\n")
 
-    vp.interface(query_path, vd_results_dir, query_id)
+    vp.interface(query_path, vd_results_dir,'', query_id)
