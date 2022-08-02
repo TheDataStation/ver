@@ -109,7 +109,6 @@ def read_df(candidate_path,data_id):
     s4_score={}
     i=1
     for d in nonzero_lst:# i<3500:
-        print (i)
         try:
             df=Ver_DataFrame(pd.read_csv(d))
             df.set_name(d)
@@ -167,9 +166,7 @@ def cluster(attr_lst,attr_to_val,attr_val_lst,option):
 
         centers.append(max_dist_ind)
         center_val.append(attrs[max_dist_ind])
-        #print (max_dist, centers[i],attrs[centers[i]])    
 
-        #print ("cluster i",i,k,len(attrs))
         max_dist = 0
         max_dist_ind = 0
         #print (i)
