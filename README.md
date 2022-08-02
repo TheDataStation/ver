@@ -124,6 +124,7 @@ $ python networkbuildercoordinator.py --opath test/testmodel/network --tpath tab
 Once the model is built, it will be serialized and stored in the provided path.
 
 Download word2vec
+
 ```shell
 $ wget -c "https://s3.amazonaws.com/dl4j-distribution/GoogleNews-vectors-negative300.bin.gz"
 $ gzip -d GoogleNews-vectors-negative300.bin.gz
