@@ -123,6 +123,13 @@ $ python networkbuildercoordinator.py --opath test/testmodel/network --tpath tab
 ```
 Once the model is built, it will be serialized and stored in the provided path.
 
+Download word2vec
+
+```shell
+$ wget -c "https://s3.amazonaws.com/dl4j-distribution/GoogleNews-vectors-negative300.bin.gz"
+$ gzip -d GoogleNews-vectors-negative300.bin.gz
+```
+
 ## Run Example
 
 Once you have the graph model, you can try running the end-to-end pipeline in `examples/example.py`
@@ -146,7 +153,7 @@ python3 examples/example.py
 The View Presentation component will use the output of View Distillation component,
 which is stored in `vd_results_dir`, to ask questions and interact with the user until the user finds a view.
 
-## Future Works
+## Future Work
 
 This project is currently a work in progress, and we expect to have all documentation, test and a full demo 
 done by the 2nd quarter of 2023.

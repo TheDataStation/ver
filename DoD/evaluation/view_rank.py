@@ -59,6 +59,17 @@ def get_S4_score(view_path, es, relations):
     score = (0.5 * row_score + 0.5 * col_score) / 1 + np.log(1 + np.log(relations))
     return score
 
+def get_S4_score_direct(df, es, relations):
+    view_rows = []
+    view_cols = []
+    for i, row in df.iterrows():
+        view_rows.append(row.values.tolist())
+    for col in df:
+        view_cols.append(df[col].values.tolist())
+    row_score = row_wise_score(es, view_rows)
+    col_score = column_wise_score(es, view_cols)
+    score = (0.5 * row_score + 0.5 * col_score) / 1 + np.log(1 + np.log(relations))
+    return score
 
 if __name__ == '__main__':
     es = [['Homo sapiens', 'Doxorubicin'], ['Mus musculus', 'Ciprofloxacin'], ['Rattus norvegicus', 'Chloroquine']]
