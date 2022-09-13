@@ -4,6 +4,7 @@ from utils import *
 import four_c as v4c
 from DoD.colors import Colors
 import random
+random.seed(0)
 import glob
 from collections import defaultdict
 from tabulate import tabulate
@@ -31,12 +32,12 @@ def prune_compatible_views(views, compatible_groups):
 if __name__ == '__main__':
 
     # root_dir = "/home/cc/experiments_chembl_5_13/"
-    root_dir = "../experiments_chembl_5_13/"
-    eval_file = open(root_dir + "eval_test.txt", "w")
+    root_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/experiments_chembl_5_13/"
+    eval_file = open("chembl_eval.txt", "w")
 
-    for query in range(1, 2):
+    for query in range(5):
         query_dir = root_dir + "chembl_gt" + str(query) + "/"
-        for noise in ["zero_noise"]:  # , "mid_noise", "high_noise"]:
+        for noise in ["zero_noise", "mid_noise", "high_noise"]:
             noise_dir = query_dir + noise + "/"
             sample_dir = noise_dir + "sample0/"
             for pipeline in range(1, 4):
@@ -77,14 +78,21 @@ if __name__ == '__main__':
 
                 original_view_files = set(glob.glob(dir_path + "/view_*"))
 
-                path_to_df_dict, \
                 compatible_groups, removed_compatible_views, \
-                contained_groups, removed_contained_views, \
+                largest_contained_views, removed_contained_views, contained_groups, \
+                total_candidate_complementary_contradictory_views, \
                 complementary_groups, \
-                contradictory_groups, \
-                all_contradictory_pair_results, \
-                find_compatible_contained_time_total, find_complementary_contradictory_time_total = \
-                    v4c.main(dir_path, candidate_key_size, find_all_contradictions=True)
+                contradictory_groups, total_num_contradictory_pairs, \
+                find_compatible_contained_time_total, \
+                get_df_time, classify_per_table_schema_time, \
+                total_identify_c1_time, total_identify_c2_time, total_num_comparisons_c2, \
+                find_complementary_contradictory_time_total, total_find_candidate_keys_time, \
+                schema_group, total_num_rows, \
+                path_to_df_dict, all_contradictory_pair_results= \
+                    v4c.main(input_path=dir_path,
+                             find_all_contradictions=True,
+                             dropna=False,
+                             candidate_key_size=candidate_key_size)
 
                 print()
                 print(
@@ -97,6 +105,9 @@ if __name__ == '__main__':
                 # print(compatible_groups)
 
                 # view_files = prune_compatible_views(original_view_files, compatible_groups)
+                # num_views_after_pruning_compatible = len(original_view_files) - len(removed_compatible_views)
+                # num_views_after_pruning_contained = num_views_after_pruning_compatible - len(removed_contained_views)
+
                 view_files = original_view_files - set(removed_compatible_views)
                 print("After pruning compatible views: ", len(view_files))
                 num_views_after_prune_compatible = len(view_files)
@@ -200,13 +211,13 @@ if __name__ == '__main__':
                                 break
                             signals, candidate_keys = create_contradictory_signals_multi_row(path_to_df_dict,
                                                                                              cur_min_views,
-                                                                                             all_pair_results)
+                                                                                             all_contradictory_pair_results)
                         else:
                             if len(cur_max_views) == 0:
                                 break
                             signals, candidate_keys = create_contradictory_signals_multi_row(path_to_df_dict,
                                                                                              cur_max_views,
-                                                                                             all_pair_results)
+                                                                                             all_contradictory_pair_results)
                         num_interactions += 1
 
                         best_signal = pick_best_signal_eval(signals)
