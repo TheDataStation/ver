@@ -154,7 +154,7 @@ def query(jp_name, jp_num):
     gt_jp = (gt_tbl1, gt_col1, gt_tbl2, gt_col2)
     start = time.time()
     column_selection(attrs, values, profile, output_path)
-    # query_examples(jp_name, attrs, values, profile, output_path, gt_jp, csv_writer)
+    query_examples(jp_name, attrs, values, profile, output_path, gt_jp, csv_writer)
     profile["total"] = time.time() - start
     print("total time:", time.time() - start)
     with open('{}/run_time.json'.format(output_path), 'w') as json_file:

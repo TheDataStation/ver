@@ -216,9 +216,6 @@ def get_ground_truth(jp_num):
     return row['tbl1'], row['col1'], row['tbl2'], row['col2']
 
 def query(jp_name, jp_num):
-    # if jp_num == 235 or jp_num == 709:
-    #     print("skip 235 and 709")
-    #     return 
     output_path = "{}/{}".format(output_base_path, jp_name[:-4])
     if not os.path.exists(output_path):
         os.makedirs(output_path)

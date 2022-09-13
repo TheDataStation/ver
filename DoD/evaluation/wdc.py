@@ -67,121 +67,120 @@ def test_different_sample_size():
             evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "sample" + str(idx) + "/")
 
 if __name__ == '__main__':
-    test_different_sample_size()
-    # for num in range(0, 5):
-    #     zero_noise_samples, mid_noise_samples, high_noise_samples, gt_cols, gt_path = loadData("/home/cc/tests_wdc4/wdc_gt" + str(num) + ".json")
-    #
-    #     found = dict()
-    #     found["method1"] = 0
-    #     found["method2"] = 0
-    #     found["method3"] = 0
-    #     name = "wdc_gt" + str(num) + "/"
-    #     for (idx, values) in enumerate(zero_noise_samples):
-    #         print("Processing zero noise samples no.", idx)
-    #         attrs = ["", ""]
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 200)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result1/"):
-    #             found["method1"] += 1
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 300)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result2/"):
-    #             found["method2"] += 1
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 200)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result3/"):
-    #             found["method3"] += 1
-    #     f = open(base_outpath + name + "zero_noise" + "/hit.txt", "a+")
-    #     f.write(str(found))
-    #
-    #     found["method1"] = 0
-    #     found["method2"] = 0
-    #     found["method3"] = 0
-    #     for (idx, values) in enumerate(mid_noise_samples):
-    #         print("Processing mid noise samples no.", idx)
-    #         attrs = ["", ""]
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values,300)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result1/"):
-    #             found["method1"] += 1
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 300)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result2/"):
-    #             found["method2"] += 1
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 300)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result3/"):
-    #             found["method3"] += 1
-    #     f = open(base_outpath + name + "mid_noise" + "/hit.txt", "a+")
-    #     f.write(str(found))
-    #
-    #     found["method1"] = 0
-    #     found["method2"] = 0
-    #     found["method3"] = 0
-    #     for (idx, values) in enumerate(high_noise_samples):
-    #         print("Processing high noise samples no.", idx)
-    #         attrs = ["", ""]
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 200)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result1/"):
-    #             found["method1"] += 1
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 300)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result2/"):
-    #             found["method2"] += 1
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 200)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result3/"):
-    #             found["method3"] += 1
-    #     f = open(base_outpath + name + "high_noise" + "/hit.txt", "a+")
-    #     f.write(str(found))
-    # base = "/home/cc/wdc_10000/"
-    # attrs, values, gt_cols, gt_path = query_3()
-    # df1 = dpu.read_column(base + gt_cols[0][0], "state")
-    # df2 = dpu.read_column(base + gt_cols[1][0], "State")
-    #
-    # x1 = df1["state"].dropna().drop_duplicates().values.tolist()
-    # x2 = df2["State"].dropna().drop_duplicates().values.tolist()
-    #
-    # # attrs, values, gt_cols, gt_path = query_3()
-    # # df1 = dpu.read_column(base + "1438042988061.16_20150728002308-00001-ip-10-236-191-2_876256027_0.json.csv", "Artist")
-    # # df2 = dpu.read_column(base + "1438042988061.16_20150728002308-00003-ip-10-236-191-2_131833501_0.json.csv", "Artist")
-    # #
-    # # x1 = df1["Artist!"].dropna().drop_duplicates().values.tolist()
-    # # x2 = df2["Artist!"].dropna().drop_duplicates().values.tolist()
-    # print(len(set(x1).intersection(set(x2))))
-    # print(min(len(x1), len(x2)))
-    # overlap = len(set(x1).intersection(set(x2))) / min(len(x1), len(x2))
-    # print(overlap)
+    for num in range(0, 5):
+        zero_noise_samples, mid_noise_samples, high_noise_samples, gt_cols, gt_path = loadData("/home/cc/tests_wdc4/wdc_gt" + str(num) + ".json")
 
-    # found = dict()
-    # found["method1"] = 0
-    # found["method2"] = 0
-    # found["method3"] = 0
-    # attrs, values, gt_cols, gt_path = query_1()
-    # name = "query_1/"
-    # es_start = time.time()
-    # candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 50)
-    # es_time = time.time() - es_start
-    # print("finished es")
-    # if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 10000,
-    #                      base_outpath + name + "result1/"):
-    #     found["method1"] += 1
-    # if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 10000,
-    #                      base_outpath + name + "result2/"):
-    #     found["method2"] += 1
-    # if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 10000,
-    #                      base_outpath + name + "result3/"):
-    #     found["method3"] += 1
-    # f = open(base_outpath + name + "/hit.txt", "w")
-    # f.write(str(found))
+        found = dict()
+        found["method1"] = 0
+        found["method2"] = 0
+        found["method3"] = 0
+        name = "wdc_gt" + str(num) + "/"
+        for (idx, values) in enumerate(zero_noise_samples):
+            print("Processing zero noise samples no.", idx)
+            attrs = ["", ""]
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 200)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result1/"):
+                found["method1"] += 1
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 300)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result2/"):
+                found["method2"] += 1
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 200)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result3/"):
+                found["method3"] += 1
+        f = open(base_outpath + name + "zero_noise" + "/hit.txt", "a+")
+        f.write(str(found))
+
+        found["method1"] = 0
+        found["method2"] = 0
+        found["method3"] = 0
+        for (idx, values) in enumerate(mid_noise_samples):
+            print("Processing mid noise samples no.", idx)
+            attrs = ["", ""]
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values,300)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result1/"):
+                found["method1"] += 1
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 300)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result2/"):
+                found["method2"] += 1
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 300)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result3/"):
+                found["method3"] += 1
+        f = open(base_outpath + name + "mid_noise" + "/hit.txt", "a+")
+        f.write(str(found))
+
+        found["method1"] = 0
+        found["method2"] = 0
+        found["method3"] = 0
+        for (idx, values) in enumerate(high_noise_samples):
+            print("Processing high noise samples no.", idx)
+            attrs = ["", ""]
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 200)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result1/"):
+                found["method1"] += 1
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 300)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result2/"):
+                found["method2"] += 1
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 200)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result3/"):
+                found["method3"] += 1
+        f = open(base_outpath + name + "high_noise" + "/hit.txt", "a+")
+        f.write(str(found))
+    base = "/home/cc/wdc_10000/"
+    attrs, values, gt_cols, gt_path = query_3()
+    df1 = dpu.read_column(base + gt_cols[0][0], "state")
+    df2 = dpu.read_column(base + gt_cols[1][0], "State")
+
+    x1 = df1["state"].dropna().drop_duplicates().values.tolist()
+    x2 = df2["State"].dropna().drop_duplicates().values.tolist()
+
+    # attrs, values, gt_cols, gt_path = query_3()
+    # df1 = dpu.read_column(base + "1438042988061.16_20150728002308-00001-ip-10-236-191-2_876256027_0.json.csv", "Artist")
+    # df2 = dpu.read_column(base + "1438042988061.16_20150728002308-00003-ip-10-236-191-2_131833501_0.json.csv", "Artist")
+    #
+    # x1 = df1["Artist!"].dropna().drop_duplicates().values.tolist()
+    # x2 = df2["Artist!"].dropna().drop_duplicates().values.tolist()
+    print(len(set(x1).intersection(set(x2))))
+    print(min(len(x1), len(x2)))
+    overlap = len(set(x1).intersection(set(x2))) / min(len(x1), len(x2))
+    print(overlap)
+
+    found = dict()
+    found["method1"] = 0
+    found["method2"] = 0
+    found["method3"] = 0
+    attrs, values, gt_cols, gt_path = query_1()
+    name = "query_1/"
+    es_start = time.time()
+    candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 50)
+    es_time = time.time() - es_start
+    print("finished es")
+    if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 10000,
+                         base_outpath + name + "result1/"):
+        found["method1"] += 1
+    if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 10000,
+                         base_outpath + name + "result2/"):
+        found["method2"] += 1
+    if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 10000,
+                         base_outpath + name + "result3/"):
+        found["method3"] += 1
+    f = open(base_outpath + name + "/hit.txt", "w")
+    f.write(str(found))
 

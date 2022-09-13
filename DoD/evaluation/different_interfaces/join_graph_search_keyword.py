@@ -12,7 +12,7 @@ import errno
 import time
 from ddapi import API
 from api.apiutils import Relation
-from join_path_discovery import view_rank
+from DoD.evaluation import view_rank
 import csv
 
 model_path = '/home/cc/models_opendata_05/'

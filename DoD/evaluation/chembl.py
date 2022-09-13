@@ -204,63 +204,62 @@ def test_different_col_size():
                              [], "", 1000, base_outpath + "sample" + str(idx) + "/")
 
 if __name__ == '__main__':
-    test_different_sample_size()
-    # for num in range(3,4):
-    #     zero_noise_samples, mid_noise_samples, high_noise_samples, gt_cols, gt_path = loadData("/home/cc/tests_chembl_5_4/chembl_gt" + str(num) + ".json")
-    #     found = dict()
-    #     found["method1"] = 0
-    #     found["method2"] = 0
-    #     found["method3"] = 0
-    #     name = "chembl_gt" + str(num) + "/"
-    #     for (idx, values) in enumerate(zero_noise_samples):
-    #         print("Processing zero noise samples no.", idx)
-    #         attrs = ["", ""]
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 600)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result1/"):
-    #             found["method1"] += 1
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result2/"):
-    #             found["method2"] += 1
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result3/"):
-    #             found["method3"] += 1
-    #     f = open(base_outpath + name + "zero_noise" + "/hit.txt", "w")
-    #     f.write(str(found))
-    #
-    #     found["method1"] = 0
-    #     found["method2"] = 0
-    #     found["method3"] = 0
-    #     for (idx, values) in enumerate(mid_noise_samples):
-    #         if idx != 3:
-    #             continue
-    #         print("Processing mid noise samples no.", idx)
-    #         attrs = ["", ""]
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 600)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result1/"):
-    #             found["method1"] += 1
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result2/"):
-    #             found["method2"] += 1
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result3/"):
-    #             found["method3"] += 1
-    #     f = open(base_outpath + name + "mid_noise" + "/hit.txt", "w")
-    #     f.write(str(found))
-    #
-    #     found["method1"] = 0
-    #     found["method2"] = 0
-    #     found["method3"] = 0
-    #     for (idx, values) in enumerate(high_noise_samples):
-    #         print("Processing high noise samples no.", idx)
-    #         attrs = ["", ""]
-    #         es_start = time.time()
-    #         candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 600)
-    #         es_time = time.time() - es_start
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result1/"):
-    #             found["method1"] += 1
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result2/"):
-    #             found["method2"] += 1
-    #         if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result3/"):
-    #             found["method3"] += 1
-    #     f = open(base_outpath + name + "high_noise" + "/hit.txt", "w")
-    #     f.write(str(found))
+    for num in range(5):
+        zero_noise_samples, mid_noise_samples, high_noise_samples, gt_cols, gt_path = loadData("/home/cc/tests_chembl_5_4/chembl_gt" + str(num) + ".json")
+        found = dict()
+        found["method1"] = 0
+        found["method2"] = 0
+        found["method3"] = 0
+        name = "chembl_gt" + str(num) + "/"
+        for (idx, values) in enumerate(zero_noise_samples):
+            print("Processing zero noise samples no.", idx)
+            attrs = ["", ""]
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 600)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result1/"):
+                found["method1"] += 1
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result2/"):
+                found["method2"] += 1
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "zero_noise/" + "sample" + str(idx) + "/result3/"):
+                found["method3"] += 1
+        f = open(base_outpath + name + "zero_noise" + "/hit.txt", "w")
+        f.write(str(found))
+
+        found["method1"] = 0
+        found["method2"] = 0
+        found["method3"] = 0
+        for (idx, values) in enumerate(mid_noise_samples):
+            if idx != 3:
+                continue
+            print("Processing mid noise samples no.", idx)
+            attrs = ["", ""]
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 600)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result1/"):
+                found["method1"] += 1
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result2/"):
+                found["method2"] += 1
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "mid_noise/" + "sample" + str(idx) + "/result3/"):
+                found["method3"] += 1
+        f = open(base_outpath + name + "mid_noise" + "/hit.txt", "w")
+        f.write(str(found))
+
+        found["method1"] = 0
+        found["method2"] = 0
+        found["method3"] = 0
+        for (idx, values) in enumerate(high_noise_samples):
+            print("Processing high noise samples no.", idx)
+            attrs = ["", ""]
+            es_start = time.time()
+            candidate_columns, sample_score, hit_type_dict, match_dict, hit_dict = columnInfer.infer_candidate_columns(attrs, values, 600)
+            es_time = time.time() - es_start
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 1, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result1/"):
+                found["method1"] += 1
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 2, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result2/"):
+                found["method2"] += 1
+            if evaluate_view_search(es_time, values, viewSearch, columnInfer, candidate_columns, sample_score, hit_dict, 3, gt_cols, gt_path, 1000, base_outpath + name + "high_noise/" + "sample" + str(idx) + "/result3/"):
+                found["method3"] += 1
+        f = open(base_outpath + name + "high_noise" + "/hit.txt", "w")
+        f.write(str(found))
