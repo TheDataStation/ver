@@ -1,0 +1,7 @@
+time to gen fields: 1.430511474609375e-06
+number of columns: 2955305
+time to get schema: 258.86674404144287
+time to extract minhash signatures: 606.3878242969513
+time to generate minhash: 8502.706090450287
+time to build graph: 10379.510550022125
+edge count: 45096082

@@ -1,5 +1,12 @@
 .idea
 .DS_Store
+.ipynb_checkpoints/
+*.ipynb
+.python-version
+*.txt
+*.csv
+DoD/ui/node_modules/
+DoD2/
 figures/
 
 # Byte-compiled / optimized / DLL files
@@ -157,8 +164,34 @@ dmypy.json
 cython_debug/
 
 # PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+.idea
+
+# vim swap files
+*.swp
+
+# java related stuff
+ddprofiler/.classpath
+# ddprofiler/.gitignore
+ddprofiler/.gradle/
+ddprofiler/.project
+ddprofiler/.settings/
+
+# Notes
+notes.sh
+
+# Index Pickle Files
+/test/testmodel/*.pickle
+/test/
+
+/venv/*
+# Frontend node modules
+DoD/ui/node_modules/
+
+data/*
+
+*.pkl
+*.pickle
+
+# Store for models and glove
+models/
+ontomatch/glove/
