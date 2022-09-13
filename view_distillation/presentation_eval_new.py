@@ -32,11 +32,11 @@ def prune_compatible_views(views, compatible_groups):
 if __name__ == '__main__':
 
     # root_dir = "/home/cc/experiments_chembl_5_13/"
-    root_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/experiments_chembl_5_13/"
-    eval_file = open("chembl_eval.txt", "w")
+    root_dir = "/Users/zhiruzhu/Desktop/Niffler/aurum-dod-staging/DoD/experiments_wdc_5_13/"
+    eval_file = open("wdc_eval.txt", "w")
 
-    for query in range(5):
-        query_dir = root_dir + "chembl_gt" + str(query) + "/"
+    for query in range(1, 3):
+        query_dir = root_dir + "wdc_gt" + str(query) + "/"
         for noise in ["zero_noise", "mid_noise", "high_noise"]:
             noise_dir = query_dir + noise + "/"
             sample_dir = noise_dir + "sample0/"
@@ -91,7 +91,7 @@ if __name__ == '__main__':
                 path_to_df_dict, all_contradictory_pair_results= \
                     v4c.main(input_path=dir_path,
                              find_all_contradictions=True,
-                             dropna=False,
+                             dropna=True,
                              candidate_key_size=candidate_key_size)
 
                 print()

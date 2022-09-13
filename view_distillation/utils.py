@@ -1,4 +1,6 @@
 import random
+random.seed(0)
+
 from collections import namedtuple, defaultdict
 
 import numpy as np
