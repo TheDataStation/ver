@@ -2,7 +2,7 @@ package ddprofiler.store;
 
 import java.util.List;
 
-import ddprofiler.core.WorkerTaskResult;
+import ddprofiler.core.Profile;
 
 public class NullStore implements Store {
 
@@ -19,7 +19,7 @@ public class NullStore implements Store {
     }
 
     @Override
-    public boolean storeDocument(WorkerTaskResult wtr) {
+    public boolean storeDocument(Profile wtr) {
         // TODO Auto-generated method stub
         return false;
     }

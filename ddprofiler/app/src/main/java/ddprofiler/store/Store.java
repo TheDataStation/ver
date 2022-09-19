@@ -2,16 +2,16 @@ package ddprofiler.store;
 
 import java.util.List;
 
-import ddprofiler.core.WorkerTaskResult;
+import ddprofiler.core.Profile;
 
 public interface Store {
 
-    public void initStore();
+    void initStore();
 
-    public boolean indexData(long id, String dbName, String path, String sourceName, String columnName,
-                             List<String> values);
+    boolean indexData(long id, String dbName, String path, String sourceName, String columnName,
+                      List<String> values);
 
-    public boolean storeDocument(WorkerTaskResult wtr);
+    boolean storeDocument(Profile wtr);
 
-    public void tearDownStore();
+    void tearDownStore();
 }

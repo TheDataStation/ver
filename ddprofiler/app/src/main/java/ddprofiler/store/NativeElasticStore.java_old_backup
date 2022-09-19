@@ -25,7 +25,7 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ddprofiler.core.WorkerTaskResult;
+import ddprofiler.core.Profile;
 import ddprofiler.core.config.ProfilerConfig;
 
 public class NativeElasticStore implements Store {

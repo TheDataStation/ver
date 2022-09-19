@@ -133,7 +133,7 @@ public class Worker implements Runnable {
                 // FIXME: WorkerTaskResultHolder wtrf = new
                 // WorkerTaskResultHolder(c.getSourceName(), c.getAttributes(),
                 // analyzers);
-                WorkerTaskResultHolder wtrf = new WorkerTaskResultHolder(task.getSourceConfig().getSourceName(), path,
+                ProfileHolder wtrf = new ProfileHolder(task.getSourceConfig().getSourceName(), path,
                         task.getRelationName(), task.getAttributes(), analyzers);
 
                 // List<WorkerTaskResult> rs =
@@ -142,9 +142,9 @@ public class Worker implements Runnable {
 
                 // // FIXME: indexer.flushAndClose();
                 task.close();
-                List<WorkerTaskResult> results = wtrf.get();
+                List<Profile> results = wtrf.get();
 
-                for (WorkerTaskResult wtr : results) {
+                for (Profile wtr : results) {
                     store.storeDocument(wtr);
                 }
 

@@ -37,8 +37,6 @@ public class Main {
 
         long start = System.nanoTime();
 
-        // Default is elastic, if we have more in the future, just pass a
-        // property to configure this
         Store s = null;
         try {
             s = StoreFactory.makeStoreOfType(pc.getInt(ProfilerConfig.STORE_TYPE), pc);

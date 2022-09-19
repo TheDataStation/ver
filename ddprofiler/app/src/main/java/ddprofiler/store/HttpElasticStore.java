@@ -2,7 +2,7 @@ package ddprofiler.store;
 
 import java.util.List;
 
-import ddprofiler.core.WorkerTaskResult;
+import ddprofiler.core.Profile;
 import ddprofiler.core.config.ProfilerConfig;
 
 public class HttpElasticStore implements Store {
@@ -30,7 +30,7 @@ public class HttpElasticStore implements Store {
     }
 
     @Override
-    public boolean storeDocument(WorkerTaskResult wtr) {
+    public boolean storeDocument(Profile wtr) {
         // TODO:
         return true;
     }

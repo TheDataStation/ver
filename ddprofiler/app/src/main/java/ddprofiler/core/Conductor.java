@@ -36,7 +36,7 @@ public class Conductor {
     private BlockingQueue<Source> taskQueue;
     private List<Worker> activeWorkers;
     private List<Thread> workerPool;
-    private BlockingQueue<WorkerTaskResult> results;
+    private BlockingQueue<Profile> results;
     private BlockingQueue<ErrorPackage> errorQueue;
 
     private Store store;
@@ -120,9 +120,9 @@ public class Conductor {
         return this.totalProcessedTasks.get() < this.totalTasksSubmitted;
     }
 
-    public List<WorkerTaskResult> consumeResults() {
-        List<WorkerTaskResult> availableResults = new ArrayList<>();
-        WorkerTaskResult wtr = null;
+    public List<Profile> consumeResults() {
+        List<Profile> availableResults = new ArrayList<>();
+        Profile wtr = null;
         do {
             try {
                 wtr = results.poll(500, TimeUnit.MILLISECONDS);

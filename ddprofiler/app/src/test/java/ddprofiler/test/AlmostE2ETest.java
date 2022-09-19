@@ -3,13 +3,13 @@ package ddprofiler;
 import java.util.List;
 import java.util.Properties;
 
+import ddprofiler.core.Profile;
 import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ddprofiler.core.Conductor;
-import ddprofiler.core.WorkerTaskResult;
 import ddprofiler.core.config.ProfilerConfig;
 import ddprofiler.store.Store;
 import ddprofiler.store.StoreFactory;
@@ -33,13 +33,13 @@ public class AlmostE2ETest {
     private ObjectMapper om = new ObjectMapper();
 
     public void finishTasks(Conductor c) {
-        List<WorkerTaskResult> results = null;
+        List<Profile> results = null;
         do {
             results = c.consumeResults(); // we know there is only one set of
             // results
         } while (results.isEmpty());
 
-        for (WorkerTaskResult wtr : results) {
+        for (Profile wtr : results) {
             String textual = null;
             try {
                 textual = om.writeValueAsString(wtr);

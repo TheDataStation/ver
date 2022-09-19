@@ -11,36 +11,38 @@ import ddprofiler.analysis.modules.Entities;
 import ddprofiler.sources.deprecated.Attribute;
 import ddprofiler.sources.deprecated.Attribute.AttributeType;
 
-public class WorkerTaskResultHolder {
+public class ProfileHolder {
 
-    private List<WorkerTaskResult> results;
+    private List<Profile> results;
 
     /**
      * Used mostly for testing/profiling
      *
      * @return
      */
-    public static List<WorkerTaskResult> makeFakeOne() {
-        List<WorkerTaskResult> rs = new ArrayList<>();
-        WorkerTaskResult wtr = new WorkerTaskResult(
-                -1, "none", "none", "none", "none", "N", 100, 100, 100, 0, 100, 50, 50, 50);
+    public static List<Profile> makeFakeOne() {
+        List<Profile> rs = new ArrayList<>();
+        Profile wtr = new Profile(
+                -1, "none", "none", "none", "none",
+                "N", 100, 100, 100, "entities",
+                new long[2], 50, 50, 50, 0, 0);
         rs.add(wtr);
         return rs;
     }
 
-    public WorkerTaskResultHolder(List<WorkerTaskResult> results) {
+    public ProfileHolder(List<Profile> results) {
         this.results = results;
     }
 
-    public WorkerTaskResultHolder(String dbName, String path, String sourceName, List<Attribute> attributes, Map<String, Analysis> analyzers) {
-        List<WorkerTaskResult> rs = new ArrayList<>();
+    public ProfileHolder(String dbName, String path, String sourceName, List<Attribute> attributes, Map<String, Analysis> analyzers) {
+        List<Profile> rs = new ArrayList<>();
         for (Attribute a : attributes) {
             AttributeType at = a.getColumnType();
             Analysis an = analyzers.get(a.getColumnName());
             long id = Utils.computeAttrId(dbName, sourceName, a.getColumnName());
             if (at.equals(AttributeType.FLOAT)) {
                 NumericalAnalysis na = ((NumericalAnalysis) an);
-                WorkerTaskResult wtr = new WorkerTaskResult(
+                Profile wtr = new Profile(
                         id,
                         dbName,
                         path,
@@ -50,6 +52,8 @@ public class WorkerTaskResultHolder {
                         (int) na.getCardinality().getTotalRecords(),
                         (int) na.getCardinality().getUniqueElements(),
                         (int) na.getCardinality().getNonEmptyValues(),
+                        "",
+                        null,
                         na.getNumericalRange(AttributeType.FLOAT).getMinF(),
                         na.getNumericalRange(AttributeType.FLOAT).getMaxF(),
                         na.getNumericalRange(AttributeType.FLOAT).getAvg(),
@@ -58,7 +62,7 @@ public class WorkerTaskResultHolder {
                 rs.add(wtr);
             } else if (at.equals(AttributeType.INT)) {
                 NumericalAnalysis na = ((NumericalAnalysis) an);
-                WorkerTaskResult wtr = new WorkerTaskResult(
+                Profile wtr = new Profile(
                         id,
                         dbName,
                         path,
@@ -68,6 +72,8 @@ public class WorkerTaskResultHolder {
                         (int) na.getCardinality().getTotalRecords(),
                         (int) na.getCardinality().getUniqueElements(),
                         (int) na.getCardinality().getNonEmptyValues(),
+                        "",
+                        null,
                         na.getNumericalRange(AttributeType.INT).getMin(),
                         na.getNumericalRange(AttributeType.INT).getMax(),
                         na.getNumericalRange(AttributeType.INT).getAvg(),
@@ -86,7 +92,7 @@ public class WorkerTaskResultHolder {
                 }
                 String entities = sb.toString();
 
-                WorkerTaskResult wtr = new WorkerTaskResult(
+                Profile wtr = new Profile(
                         id,
                         dbName,
                         path,
@@ -97,14 +103,19 @@ public class WorkerTaskResultHolder {
                         (int) ta.getCardinality().getUniqueElements(),
                         (int) ta.getCardinality().getNonEmptyValues(),
                         entities,
-                        mh);
+                        mh,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0);
                 rs.add(wtr);
             }
         }
         this.results = rs;
     }
 
-    public List<WorkerTaskResult> get() {
+    public List<Profile> get() {
         return results;
     }
 

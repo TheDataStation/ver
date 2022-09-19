@@ -6,10 +6,10 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Properties;
 
+import ddprofiler.core.Profile;
 import org.junit.Test;
 
 import ddprofiler.core.Conductor;
-import ddprofiler.core.WorkerTaskResult;
 import ddprofiler.core.config.ProfilerConfig;
 import ddprofiler.store.Store;
 import ddprofiler.store.StoreFactory;
@@ -55,13 +55,13 @@ public class StoreLoadingTest {
 
         long start = System.currentTimeMillis();
         while (c.isTherePendingWork()) {
-            List<WorkerTaskResult> results = null;
+            List<Profile> results = null;
             do {
                 results = c.consumeResults(); // we know there is only one set
                 // of results
             } while (results.isEmpty());
 
-            for (WorkerTaskResult wtr : results) {
+            for (Profile wtr : results) {
                 elasticStore.storeDocument(wtr);
             }
         }
