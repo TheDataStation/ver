@@ -30,7 +30,7 @@ public class HttpElasticStore implements Store {
     }
 
     @Override
-    public boolean storeDocument(Profile wtr) {
+    public boolean storeProfile(Profile wtr) {
         // TODO:
         return true;
     }

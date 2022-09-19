@@ -1,4 +1,4 @@
-package ddprofiler;
+package ddprofiler.test;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -62,7 +62,7 @@ public class StoreLoadingTest {
             } while (results.isEmpty());
 
             for (Profile wtr : results) {
-                elasticStore.storeDocument(wtr);
+                elasticStore.storeProfile(wtr);
             }
         }
         long end = System.currentTimeMillis();

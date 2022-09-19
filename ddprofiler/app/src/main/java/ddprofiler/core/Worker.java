@@ -145,7 +145,7 @@ public class Worker implements Runnable {
                 List<Profile> results = wtrf.get();
 
                 for (Profile wtr : results) {
-                    store.storeDocument(wtr);
+                    store.storeProfile(wtr);
                 }
 
                 conductor.notifyProcessedTask(results.size());

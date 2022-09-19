@@ -11,7 +11,7 @@ public interface Store {
     boolean indexData(long id, String dbName, String path, String sourceName, String columnName,
                       List<String> values);
 
-    boolean storeDocument(Profile wtr);
+    boolean storeProfile(Profile wtr);
 
     void tearDownStore();
 }

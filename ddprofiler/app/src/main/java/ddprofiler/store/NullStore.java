@@ -19,7 +19,7 @@ public class NullStore implements Store {
     }
 
     @Override
-    public boolean storeDocument(Profile wtr) {
+    public boolean storeProfile(Profile wtr) {
         // TODO Auto-generated method stub
         return false;
     }

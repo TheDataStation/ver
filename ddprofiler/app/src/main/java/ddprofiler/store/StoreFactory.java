@@ -9,9 +9,14 @@ public class StoreFactory {
         return new HttpElasticStore(pc);
     }
 
-    public static Store makeNativeElasticStore(ProfilerConfig pc) throws Exception {
-        throw new Exception("NativeElasticStore is not implemented");
-//        return new NativeElasticStore(pc);
+//
+//    public static Store makeNativeElasticStore(ProfilerConfig pc) throws Exception {
+//        throw new Exception("NativeElasticStore is not implemented");
+////        return new NativeElasticStore(pc);
+//    }
+
+    public static Store makeJSONFilesStore(ProfilerConfig pc) throws Exception {
+        return new JSONFilesStore(pc);
     }
 
     public static Store makeNullStore(ProfilerConfig pc) {
@@ -23,11 +28,14 @@ public class StoreFactory {
         Store s = null;
         if (type == StoreType.NULL.ofType()) {
             s = StoreFactory.makeNullStore(pc);
-        } else if (type == StoreType.ELASTIC_HTTP.ofType()) {
-            s = StoreFactory.makeHttpElasticStore(pc);
-        } else if (type == StoreType.ELASTIC_NATIVE.ofType()) {
-            s = StoreFactory.makeNativeElasticStore(pc);
+        } else if (type == StoreType.JSON_FILES.ofType()) {
+            s = StoreFactory.makeJSONFilesStore(pc);
         }
+//        } else if (type == StoreType.ELASTIC_HTTP.ofType()) {
+//            s = StoreFactory.makeHttpElasticStore(pc);
+//        } else if (type == StoreType.ELASTIC_NATIVE.ofType()) {
+//            s = StoreFactory.makeNativeElasticStore(pc);
+//        }
         return s;
     }
 }

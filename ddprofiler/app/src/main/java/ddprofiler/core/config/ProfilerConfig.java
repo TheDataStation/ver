@@ -47,6 +47,9 @@ public class ProfilerConfig extends Config {
     public static final String STORE_PORT = "store.port";
     private static final String STORE_PORT_DOC = "Port where the store listens";
 
+    public static final String STORE_TYPE_JSON_OUTPUT_FOLDER = "store.json.output.folder";
+    private static final String STORE_TYPE_JSON_OUTPUT_FOLDER_DOC = "Folder to store all JSON file output";
+
     public static final String ERROR_LOG_FILE_NAME = "error.logfile.name";
     private static final String ERROR_LOG_FILE_NAME_DOC = "Name of log file "
             + "that records the errors while profiling data";
@@ -56,20 +59,21 @@ public class ProfilerConfig extends Config {
 
     static {
         config = new ConfigDef()
-
-                .define(SOURCE_CONFIG_FILE, Type.STRING, "", Importance.HIGH, SOURCE_CONFIG_FILE_DOC)
-                .define(EXECUTION_MODE, Type.INT, 0, Importance.HIGH, EXECUTION_MODE_DOC)
-                .define(WEB_SERVER_PORT, Type.INT, 8080, Importance.MEDIUM, WEB_SERVER_PORT_DOC)
-                .define(NUM_POOL_THREADS, Type.INT, 8, Importance.LOW, NUM_POOL_THREADS_DOC)
-                .define(NUM_RECORD_READ, Type.INT, 1000, Importance.MEDIUM, NUM_RECORD_READ_DOC)
-                .define(STORE_TYPE, Type.INT, 2, Importance.MEDIUM, STORE_TYPE_DOC)
-                .define(STORE_SERVER, Type.STRING, "127.0.0.1", Importance.HIGH, STORE_SERVER_DOC)
-                .define(STORE_HTTP_PORT, Type.INT, 9200, Importance.HIGH, STORE_HTTP_PORT_DOC)
-                .define(STORE_PORT, Type.INT, 9300, Importance.HIGH, STORE_PORT_DOC)
-                .define(ERROR_LOG_FILE_NAME, Type.STRING, "error_profiler.log", Importance.MEDIUM,
-                        ERROR_LOG_FILE_NAME_DOC)
-                .define(REPORT_METRICS_CONSOLE, Type.INT, -1, Importance.HIGH, REPORT_METRICS_CONSOLE_DOC)
-                .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC);
+            .define(SOURCE_CONFIG_FILE, Type.STRING, "", Importance.HIGH, SOURCE_CONFIG_FILE_DOC)
+            .define(EXECUTION_MODE, Type.INT, 0, Importance.HIGH, EXECUTION_MODE_DOC)
+            .define(WEB_SERVER_PORT, Type.INT, 8080, Importance.MEDIUM, WEB_SERVER_PORT_DOC)
+            .define(NUM_POOL_THREADS, Type.INT, 8, Importance.LOW, NUM_POOL_THREADS_DOC)
+            .define(NUM_RECORD_READ, Type.INT, 1000, Importance.MEDIUM, NUM_RECORD_READ_DOC)
+            .define(STORE_TYPE, Type.INT, 2, Importance.MEDIUM, STORE_TYPE_DOC)
+            .define(STORE_SERVER, Type.STRING, "127.0.0.1", Importance.HIGH, STORE_SERVER_DOC)
+            .define(STORE_HTTP_PORT, Type.INT, 9200, Importance.HIGH, STORE_HTTP_PORT_DOC)
+            .define(STORE_TYPE_JSON_OUTPUT_FOLDER, Type.STRING, "./output_profiles_json",
+                    Importance.MEDIUM, STORE_TYPE_JSON_OUTPUT_FOLDER_DOC)
+            .define(STORE_PORT, Type.INT, 9300, Importance.HIGH, STORE_PORT_DOC)
+            .define(ERROR_LOG_FILE_NAME, Type.STRING, "error_profiler.log", Importance.MEDIUM,
+                    ERROR_LOG_FILE_NAME_DOC)
+            .define(REPORT_METRICS_CONSOLE, Type.INT, -1, Importance.HIGH, REPORT_METRICS_CONSOLE_DOC)
+            .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC);
     }
 
     public ProfilerConfig(Map<? extends Object, ? extends Object> originals) {

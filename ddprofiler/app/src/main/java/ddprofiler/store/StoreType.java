@@ -2,8 +2,9 @@ package ddprofiler.store;
 
 public enum StoreType {
     NULL(0),
-    ELASTIC_HTTP(1),
-    ELASTIC_NATIVE(2);
+    JSON_FILES(1);
+//    ELASTIC_HTTP(1),
+//    ELASTIC_NATIVE(2);
 
     private int type;
 
