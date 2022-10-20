@@ -1,7 +1,6 @@
 package ddprofiler;
 
-import static org.junit.Assert.*;
-
+import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
@@ -33,7 +32,11 @@ public class TestOfflineMode {
 
         // Start main
         Main m = new Main();
-        m.startProfiler(pc);
+        try {
+            m.startProfiler(pc, parser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

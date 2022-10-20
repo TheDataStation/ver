@@ -29,8 +29,7 @@ public class YAMLParser {
             srcs = mapper.readValue(file, Sources.class);
         } catch (Exception e) {
             LOG.error("While parsing {} file to read sources", file.toPath());
-            e.printStackTrace();
-            System.exit(0);
+            throw e;
         }
         int apiVersion = srcs.getApi_version();
         assert (apiVersion == 0); // to support api evolution

@@ -1,5 +1,6 @@
 package ddprofiler.core;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class Main {
         }
     }
 
-    public void startProfiler(ProfilerConfig pc) {
+    public void startProfiler(ProfilerConfig pc, OptionParser parser) throws IOException {
 
         long start = System.nanoTime();
 
@@ -62,7 +63,12 @@ public class Main {
         List<SourceConfig> sourceConfigs = null;
         try {
             sourceConfigs = YAMLParser.processSourceConfig(sourceConfigFile);
-        } catch (Exception e) {
+        } catch (FileNotFoundException fnfe) {
+            LOG.error("Need to indicate valid sourceConfigFile via --sources; see help");
+            parser.printHelpOn(System.out);
+            System.exit(0);
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -128,7 +134,11 @@ public class Main {
         configLog();
 
         Main m = new Main();
-        m.startProfiler(pc);
+        try {
+            m.startProfiler(pc, parser);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
