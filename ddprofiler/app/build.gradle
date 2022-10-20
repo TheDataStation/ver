@@ -41,6 +41,10 @@ dependencies {
 
     implementation 'com.zaxxer:HikariCP:5.0.1'
 
+    // logging
+    implementation 'org.slf4j:slf4j-simple:2.0.3'
+
+
 //    implementation 'co.elastic.clients:elasticsearch-java:8.4.1'
 
     // This dependency is used by the application.
