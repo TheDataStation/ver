@@ -10,13 +10,13 @@ public class AnalyzerFactory {
     }
 
     public static TextualAnalysis makeTextualAnalyzer(EntityAnalyzer ea, int pseudoRandomSeed) {
-        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(ea, pseudoRandomSeed);
+        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pseudoRandomSeed);
         return ta;
     }
 
     public static TextualAnalysis makeTextualAnalyzer(int pseudoRandomSeed) {
-        EntityAnalyzer ea = new EntityAnalyzer();
-        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(ea, pseudoRandomSeed);
+//        EntityAnalyzer ea = new EntityAnalyzer();
+        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pseudoRandomSeed);
         return ta;
     }
 }

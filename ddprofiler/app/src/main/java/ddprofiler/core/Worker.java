@@ -188,7 +188,7 @@ public class Worker implements Runnable {
                 analysis = AnalyzerFactory.makeNumericalAnalyzer();
                 ((NumericalAnalysis) analysis).feedIntegerData(entry.getValue().getIntegers());
             } else if (at.equals(AttributeType.STRING)) {
-                analysis = AnalyzerFactory.makeTextualAnalyzer(ea, pseudoRandomSeed);
+                analysis = AnalyzerFactory.makeTextualAnalyzer(pseudoRandomSeed);
                 ((TextualAnalysis) analysis).feedTextData(entry.getValue().getStrings());
             }
             analyzers.put(a.getColumnName(), analysis);

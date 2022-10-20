@@ -82,15 +82,15 @@ public class ProfileHolder {
                 rs.add(wtr);
             } else if (at.equals(AttributeType.STRING)) {
                 TextualAnalysis ta = ((TextualAnalysis) an);
-                Entities e = ta.getEntities();
+//                Entities e = ta.getEntities();
                 long[] mh = ta.getMH();
-                List<String> ents = e.getEntities();
-                StringBuffer sb = new StringBuffer();
-                for (String str : ents) {
-                    sb.append(str);
-                    sb.append(" ");
-                }
-                String entities = sb.toString();
+//                List<String> ents = e.getEntities();
+//                StringBuffer sb = new StringBuffer();
+//                for (String str : ents) {
+//                    sb.append(str);
+//                    sb.append(" ");
+//                }
+//                String entities = sb.toString();
 
                 Profile wtr = new Profile(
                         id,
@@ -102,7 +102,7 @@ public class ProfileHolder {
                         (int) ta.getCardinality().getTotalRecords(),
                         (int) ta.getCardinality().getUniqueElements(),
                         (int) ta.getCardinality().getNonEmptyValues(),
-                        entities,
+                        "entities_removed_on_modernize_ddprofiler",
                         mh,
                         0,
                         0,

@@ -8,19 +8,28 @@ import ddprofiler.core.config.ProfilerConfig;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class JSONFilesStore implements Store {
-    
+
+    private static final SimpleDateFormat tsPattern = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss-SSSXXX");
     private String outputPath;
 
     public JSONFilesStore(ProfilerConfig pc) throws Exception {
+        Timestamp ts = new Timestamp(System.currentTimeMillis());
+        String timestamp = tsPattern.format(ts);
         String outputFolder = pc.getString(ProfilerConfig.STORE_TYPE_JSON_OUTPUT_FOLDER);
-        File f = new File(outputFolder);
-        if (! f.canWrite()) {
-            throw new Exception("Can't write to target output folder");
-        }
-        this.outputPath = f.getPath();
+        String outputFolderName = outputFolder + "_" + timestamp;
+        Files.createDirectories(Paths.get(outputFolderName));
+//        File f = new File(outputFolder);
+//        if (! f.canWrite()) {
+//            throw new Exception("Can't write to target output folder");
+//        }
+        this.outputPath = outputFolderName;
     }
 
     @Override
@@ -52,7 +61,9 @@ public class JSONFilesStore implements Store {
 
         String fileName = wtr.dbName() + "." + wtr.sourceName() + "." + wtr.columnName() + "." + wtr.id() + ".json";
 
-        try (PrintWriter out = new PrintWriter(new FileWriter(this.outputPath + "/" + fileName))) {
+        String filePath = this.outputPath + "/" + fileName;
+        System.out.println("filepath: " + filePath);
+        try (PrintWriter out = new PrintWriter(new FileWriter(filePath))) {
             assert json != null;
             out.write(json);
         } catch (Exception e) {

@@ -7,7 +7,7 @@ import ddprofiler.analysis.modules.Entities;
  */
 public interface TextualAnalysis extends Analysis, TextualDataConsumer {
 
-    public Entities getEntities();
+//    public Entities getEntities();
 
     public long[] getMH();
 

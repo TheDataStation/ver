@@ -69,15 +69,15 @@ public class Conductor {
         int numWorkers = pc.getInt(ProfilerConfig.NUM_POOL_THREADS);
         this.workerPool = new ArrayList<>();
         this.activeWorkers = new ArrayList<>();
-        List<TokenNameFinderModel> modelList = new ArrayList<>();
-        List<String> modelNameList = new ArrayList<>();
-        EntityAnalyzer first = new EntityAnalyzer();
-        modelList = first.getCachedModelList();
-        modelNameList = first.getCachedModelNameList();
+//        List<TokenNameFinderModel> modelList = new ArrayList<>();
+//        List<String> modelNameList = new ArrayList<>();
+//        EntityAnalyzer first = new EntityAnalyzer();
+//        modelList = first.getCachedModelList();
+//        modelNameList = first.getCachedModelNameList();
         for (int i = 0; i < numWorkers; i++) {
             String name = "Worker-" + Integer.valueOf(i).toString();
-            EntityAnalyzer cached = new EntityAnalyzer(modelList, modelNameList);
-            Worker w = new Worker(this, pc, name, taskQueue, errorQueue, store, cached);
+//            EntityAnalyzer cached = new EntityAnalyzer(modelList, modelNameList);
+            Worker w = new Worker(this, pc, name, taskQueue, errorQueue, store, null);
             Thread t = new Thread(w, name);
             workerPool.add(t);
             activeWorkers.add(w);
