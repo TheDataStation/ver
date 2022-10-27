@@ -4,16 +4,10 @@ import ddprofiler.core.config.ProfilerConfig;
 
 public class StoreFactory {
 
-    public static Store makeHttpElasticStore(ProfilerConfig pc) {
 
-        return new HttpElasticStore(pc);
+    public static Store makeElasticStore(ProfilerConfig pc) throws Exception {
+        return new ElasticStore(pc);
     }
-
-//
-//    public static Store makeNativeElasticStore(ProfilerConfig pc) throws Exception {
-//        throw new Exception("NativeElasticStore is not implemented");
-////        return new NativeElasticStore(pc);
-//    }
 
     public static Store makeJSONFilesStore(ProfilerConfig pc) throws Exception {
         return new JSONFilesStore(pc);
@@ -31,6 +25,9 @@ public class StoreFactory {
         } else if (type == StoreType.JSON_FILES.ofType()) {
             s = StoreFactory.makeJSONFilesStore(pc);
         }
+        else if(type == StoreType.ELASTIC_STORE.ofType()) {
+            s = StoreFactory.makeElasticStore(pc);
+        }
 //        } else if (type == StoreType.ELASTIC_HTTP.ofType()) {
 //            s = StoreFactory.makeHttpElasticStore(pc);
 //        } else if (type == StoreType.ELASTIC_NATIVE.ofType()) {
@@ -38,4 +35,5 @@ public class StoreFactory {
 //        }
         return s;
     }
+
 }
