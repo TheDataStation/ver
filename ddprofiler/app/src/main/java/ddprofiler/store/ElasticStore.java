@@ -1,19 +1,15 @@
 package ddprofiler.store;
 
-
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch.core.IndexResponse;
 import co.elastic.clients.elasticsearch.indices.PutMappingRequest;
 import co.elastic.clients.elasticsearch.indices.PutMappingResponse;
-import co.elastic.clients.json.JsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
-import co.elastic.clients.transport.endpoints.BooleanResponse;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import ddprofiler.core.Profile;
 import ddprofiler.core.config.ProfilerConfig;
 
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
-import jakarta.json.stream.JsonParser;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.slf4j.Logger;
@@ -21,20 +17,15 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class ElasticStore implements Store {
 
     final private Logger LOG = LoggerFactory.getLogger(ElasticStore.class.getName());
 
-    private String serverUrl;
-    private String storeServer;
-    private int storePort;
-
-//    private String textMappingFile;
-//    private String profileMappingFile;
+    private final String serverUrl;
+    private final String storeServer;
+    private final int storePort;
 
     private ElasticsearchClient client;
 
@@ -42,14 +33,11 @@ public class ElasticStore implements Store {
         String storeServer = pc.getString(ProfilerConfig.STORE_SERVER);
         int storePort = pc.getInt(ProfilerConfig.STORE_PORT);
         int storeHttpPort = pc.getInt(ProfilerConfig.STORE_HTTP_PORT);
-//        String textMappingFile = pc.getString(ProfilerConfig.ELASTIC_TEXT_MAPPING_FILE);
-//        String profileMappingFile = pc.getString(ProfilerConfig.ELASTIC_PROFILE_MAPPING_FILE);
 
         this.storeServer = storeServer;
         this.storePort = storePort;
-        this.serverUrl = "http://" + storeServer + ":" + storeHttpPort;
-//        this.textMappingFile = textMappingFile;
-//        this.profileMappingFile = profileMappingFile;
+        // note https instead of http as in elastic version > 8 security is enabled by default
+        this.serverUrl = "https://" + storeServer + ":" + storeHttpPort;
     }
 
     private void createTextIndexAndMapping() {
@@ -238,12 +226,47 @@ public class ElasticStore implements Store {
 
     @Override
     public boolean indexData(long id, String dbName, String path, String sourceName, String columnName, List<String> values) {
-        return false;
+
+        class Wrapper {
+            public long id;
+            public String dbName;
+            public String path;
+            public String sourceName;
+            public String columnName;
+            public List<String> values;
+            public Wrapper(long id, String dbName, String path, String sourceName, String columnName, List<String> values){
+                this.id = id;
+                this.dbName = dbName;
+                this.path = path;
+                this.sourceName = sourceName;
+                this.columnName = columnName;
+                this.values = values;
+            }
+        }
+
+        Wrapper document = new Wrapper(id, dbName, path, sourceName, columnName, values);
+        IndexResponse indexResponse = null;
+        try {
+            indexResponse = client.index(i -> i.index("text").id(String.valueOf(id)).document(document));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // if there was no exception earlier this worked
+        return true;
     }
 
     @Override
     public boolean storeProfile(Profile wtr) {
-        return false;
+
+        IndexResponse indexResponse = null;
+        try {
+            indexResponse = client.index(i -> i.index("profile").id(String.valueOf(wtr.id())).document(wtr));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // if there was no exception earlier this worked
+        return true;
+
     }
 
     @Override
