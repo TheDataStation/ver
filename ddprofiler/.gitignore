@@ -6,3 +6,6 @@
 
 # Ignore Gradle build output directory
 build
+
+# sources yaml file local example
+my_data_config.yml
