@@ -6,6 +6,7 @@ import co.elastic.clients.elasticsearch.indices.PutMappingRequest;
 import co.elastic.clients.elasticsearch.indices.PutMappingResponse;
 import co.elastic.clients.json.JsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
+import co.elastic.clients.transport.endpoints.BooleanResponse;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import ddprofiler.core.Profile;
 import ddprofiler.core.config.ProfilerConfig;
@@ -54,7 +55,10 @@ public class ElasticStore implements Store {
     private void createTextIndexAndMapping() {
         LOG.info("Creating text index...");
         try {
-            client.indices().create(c -> c.index("text"));
+            boolean exists = client.indices().exists(c -> c.index("text")).value();
+            if(!exists) {
+                client.indices().create(c -> c.index("text"));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,10 +115,14 @@ public class ElasticStore implements Store {
     private void createProfileIndexAndMapping() {
         LOG.info("Creating profile index...");
         try {
-            client.indices().create(c -> c.index("profile"));
+            boolean exists = client.indices().exists(c -> c.index("profile")).value();
+            if(!exists) {
+                client.indices().create(c -> c.index("profile"));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         PutMappingRequest.Builder putProfileMappingRequestBuilder = new PutMappingRequest.Builder();
         putProfileMappingRequestBuilder.index("profile");
 
