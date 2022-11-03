@@ -96,7 +96,8 @@ $ sudo apt-get install \
      libblas-dev liblapack-dev `#(speeding up linear algebra operations)` \
      lib32ncurses5-dev
 ```
-Now install requirements for running `networkbuildercoordinator.py` (Requires Python 3 (tested with 3.4, 3.5 and 3.6))
+Now install requirements for running `networkbuildercoordinator.py` (Requires
+Python >=3.8)
 ```shell
 # create virtual environment
 $ pip install virtualenv
