@@ -25,11 +25,12 @@ class StoreHandler:
 
     def __init__(self):
         """
-            Uses the configuration file to create a connection to the store
-            :return:
-            """
+        Uses the configuration file to create a connection to the store
+        :return:
+        """
         global client
-        client = Elasticsearch([{'host': c.db_host, 'port': c.db_port}], timeout=60)
+        # client = Elasticsearch([{'host': c.db_host, 'port': c.db_port}], timeout=60)
+        client = Elasticsearch("http://" + c.db_host + ":" + c.db_port, timeout=60)
 
     def close(self):
         print("TODO")
@@ -79,7 +80,8 @@ class StoreHandler:
                                          'hits.hits._source.dataType']
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
+        print(str(remaining))
         while remaining > 0:
             print("remaining:", remaining)
             # if remaining < 2800000:
@@ -458,7 +460,7 @@ class StoreHandler:
                                          'hits.hits._source.minhash']
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
 
         id_sig = []
         while remaining > 0:

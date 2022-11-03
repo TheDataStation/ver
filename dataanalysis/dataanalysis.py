@@ -1,4 +1,4 @@
-from sklearn.neighbors.kde import KernelDensity
+from sklearn.neighbors import KernelDensity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn import svm
@@ -115,9 +115,9 @@ def compare_pair_text_columns(col1, col2):
 
 
 def compare_num_columns_dist(columnA, columnB, method):
-    if method is "ks":
+    if method == "ks":
         return compare_num_columns_dist_ks(columnA, columnB)
-    if method is "odsvm":
+    if method == "odsvm":
         return compare_num_columns_dist_odsvm(columnA, columnB)
 
 
@@ -187,7 +187,7 @@ def get_textual_dist(data, method):
     the provided method
     '''
     sig = None
-    if method is "vector":
+    if method == "vector":
         try:
             sig = ' '.join(data)
         except TypeError:
@@ -308,7 +308,7 @@ def get_sim_vector_text(column, tcol_dist):
     value_to_compare = tcol_dist[column]
     vt = dict()
     for key, value in tcol_dist.items():
-        if value_to_compare is not "" and value is not "":
+        if value_to_compare != "" and value != "":
             try:
                 sim = compare_text_columns_dist(
                     [value_to_compare, value]

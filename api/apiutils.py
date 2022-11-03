@@ -14,8 +14,7 @@ python_version = (sys.version_info[0], sys.version_info[1], sys.version_info[2])
 
 global_origin_id = 0
 
-BaseHit = namedtuple(
-    'Hit', 'nid, db_name, source_name, field_name, metadata, highlight', verbose=False)
+BaseHit = namedtuple('Hit', 'nid, db_name, source_name, field_name, metadata, highlight')
 
 
 class Hit(BaseHit):
