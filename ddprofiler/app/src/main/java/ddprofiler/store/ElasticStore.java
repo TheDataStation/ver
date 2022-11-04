@@ -233,14 +233,14 @@ public class ElasticStore implements Store {
             public String path;
             public String sourceName;
             public String columnName;
-            public List<String> values;
+            public List<String> text;
             public Wrapper(long id, String dbName, String path, String sourceName, String columnName, List<String> values){
                 this.id = id;
                 this.dbName = dbName;
                 this.path = path;
                 this.sourceName = sourceName;
                 this.columnName = columnName;
-                this.values = values;
+                this.text = values;
             }
         }
 

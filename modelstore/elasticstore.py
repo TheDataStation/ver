@@ -259,14 +259,12 @@ class StoreHandler:
             query_body = {"from": 0, "size": max_hits,
                           "query": {"match": {"sourceName": keywords}}}
         res = client.search(index=index, body=query_body, filter_path=filter_path)
-        # print(res)
-        print(res['hits']['total']['value'])
         if res['hits']['total']['value'] == 0:
             return []
         for el in res['hits']['hits']:
             matched_text = []
-            if elasticfieldname == KWType.KW_CONTENT:
-                matched_text = el['highlight']['text']
+            # if elasticfieldname == KWType.KW_CONTENT:
+            #     matched_text = el['highlight']['text']  # removed in modernize-ddprofiler -> no highlight
             data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
                            el['_source']['columnName'], el['_score'], matched_text)
             yield data
