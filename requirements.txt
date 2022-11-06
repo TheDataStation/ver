@@ -11,7 +11,6 @@ charset-normalizer==2.0.6
 click==8.0.1
 colorama==0.3.7
 cycler==0.10.0
-# dataclasses==0.8
 datasketch==1.5.3
 decorator==5.1.0
 defusedxml==0.7.1
@@ -26,7 +25,6 @@ importlib-metadata==4.8.1
 ipykernel==5.5.6
 ipython==7.16.3
 ipython-genutils==0.2.0
-ipywidgets==7.6.5
 isodate==0.6.0
 itables==0.4.5
 itsdangerous==2.0.1
@@ -83,7 +81,7 @@ rdflib-jsonld==0.6.2
 redis==3.5.3
 regex==2021.8.28
 requests==2.26.0
-scikit-learn==0.19.1
+# scikit-learn==0.19.1
 scipy==1.5.4
 Send2Trash==1.8.0
 six==1.16.0
@@ -104,6 +102,7 @@ Werkzeug==2.0.1
 widgetsnbextension==3.5.2
 zipp==3.5.0
 ipywidgets==7.7.1
-wordcloud==1.8.2
+wordcloud==1.8.2.2
 gensim==4.2.0
 pyemd==0.5.1
+duckdb==0.5.1

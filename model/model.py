@@ -6,7 +6,7 @@ import duckdb
 import numpy as np
 from datasketch import MinHash, MinHashLSH
 
-class KnowledgeGraph:
+class DiscoveryGraph:
     def __init__(self, directory: str):
         self.conn = duckdb.connect()
         self.conn.execute(
@@ -43,9 +43,9 @@ class KnowledgeGraph:
                     column = json.load(f)
                     self.add_node(column)
         
-        self.make_edges()
+        self.make_similarity_edges()
 
-    def make_edges(self, threshold: int=0.5):
+    def make_similarity_edges(self, threshold: int=0.5):
         ''''
         Construct the graph (edges) based on minHash signatures of the nodes
         '''
@@ -72,6 +72,12 @@ class KnowledgeGraph:
             for neighbor in neighbors:
                 # TODO: Need to check that they are not from the same source
                 self.add_undirected_edge(row['id'], neighbor)
+
+    def make_pkfk_edges(self):
+        pass
+
+    def make_neighbor_edges(self):
+        pass
 
     def add_node(self, column: dict):
         '''
@@ -103,7 +109,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
                     prog = 'Network Builder',
                     description = 'Builds the Entreprise Knowledge Graph')
-    parser.add_argument('-p', '--path')
+    parser.add_argument('-p', '--path',
+                        help='the directory that stores column profiles in JSON'
+                             'format')
     
     args = parser.parse_args()
-    knowledge_graph = KnowledgeGraph(args.path)
+    discovery_graph = DiscoveryGraph(args.path)
