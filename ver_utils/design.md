@@ -38,18 +38,40 @@ def cluster_columns(candidate_columns: List[(column, score)]):
     return clusters
 ```
 
+## Join Path Search
+Compute all join paths having lengths smaller than a threshold starting from a column.
+
+`input`:
+
+column: a column
+
+max_hop: maximum length of a join path from the input column
+
+`output`:
+
+join_paths: a list of join paths starting from the input column
+
+```python
+def join_path_search(column, max_hop):
+    return join_paths
+```
+
 
 ## Join Graph Search
 Compute the join graphs between a set columns.
 
 `input`:
+
 columns: a list of columns
 
+max_hop: maximum length of a join path between every pair of columns. 
+
 `output`:
+
 join_graphs: a list of join graphs between columns
 
 ```python
-def join_graph_search(columns: List[column]):
+def join_graph_search(columns: List[column], max_hop: int):
     return join_graphs
 ```
 
