@@ -5,11 +5,16 @@ import embedding_distance
 
 #Ranks attributes based on their content
 class AttributeContentInterface(AttributeNameInterface):
+    def process_text(self, text):
+        text=text.replace(':',' ')
+        text=text.replace('-',' ')
+        text=text.replace('_',' ')
+        return text
 
     def get_content(self, attr_val_lst):
         content_lst=[]
         for val in attr_val_lst:
-            content_lst.append(val)    
+            content_lst.append(self.process_text(val))
         return ' '.join(content_lst)
     def generate_candidates (self, df_lst):
         self.attr_content_dic={}
