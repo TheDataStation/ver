@@ -1,5 +1,5 @@
 # API Design Document
-This is the front-end of **Ver** that takes an example table as input and output a set of views.
+The front end of **Ver** takes an example table as input and outputs a set of views. In this document, I define the APIs needed to construct views from user-given examples.
 
 ## Column Retrieval
 Given a set of keywords, returns a list of candidate columns and their corresponding scores.
@@ -58,7 +58,7 @@ def join_path_search(column, max_hop):
 
 
 ## Join Graph Search
-Compute the join graphs between a set columns.
+Compute the join graphs between a set of columns.
 
 `input`:
 
