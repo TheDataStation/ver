@@ -22,23 +22,23 @@ This will return a list of lists, each inner list contains the views that are id
 
 ### Prune compatible views
 
-`result = vd.prune_compatible_views()`
+`result = vd.reduce_compatible_views_to_one()`
 
 This will prune all compatible views and leave one, any future API calls will operate on the rest of views.
 It will also return the list of views left after pruning.
 
 ### Find contained views
 
-`result = vd.find_compatible_views()`
+`result = vd.find_contained_views()`
 
-This will return a list of lists, each inner list contains the set of views in sorted order (descending by view size) 
-where each view contains all the following views.
+This will return a list of lists, each inner list contains views in sorted order (descending by view size) 
+where each view contains all the views that are smaller.
 
 ### Prune contained views
 
-`result = vd.prune_contained_views()`
+`result = vd.prune_contained_views(keep_largest=True)`
 
-This will prune all contained views and only keep the largest view in each group, 
+If the parameter `keep_largest` is True, it will prune all contained views and only keep the largest view in each group, 
 any future API calls will operate on the rest of views. It will also return the list of views left after pruning.
 
 (note: we may want to allow different pruning strategies that users can set)
