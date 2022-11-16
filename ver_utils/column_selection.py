@@ -23,7 +23,7 @@ class ColumnSelection:
                 drs_attr = self.aurum_api.search_attribute(attr, max_results=self.topk)
             for x in drs_attr:
                 if col.key() not in candidate_columns:
-                    col = Column(x.nid, x.source_name, x.field_name)
+                    col = Column(x)
                     col.hit_type = FilterType.ATTR
                     candidate_columns[col.key()] = col
 
@@ -42,7 +42,7 @@ class ColumnSelection:
                 drs_example = self.remove_redundant(drs_example, example)
                 for x in drs_example:
                     if col.key() not in candidate_columns:
-                        col = Column(x.nid, x.source_name, x.field_name)
+                        col = Column(x)
                     else:
                         col = candidate_columns.get(col.key())
                     col.examples_set.append(x)

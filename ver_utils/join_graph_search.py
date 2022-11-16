@@ -1,7 +1,7 @@
 from ver_utils.column import Column
 
 
-class ViewSearch:
+class JoinGraphSearch:
     def find_join_graphs(columns: list[Column]):
         pass
     
