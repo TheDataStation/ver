@@ -9,15 +9,23 @@ import view_presentation.interface as int_folder
 
 random.seed(config.seed)
 
+#Todo implement a function to use shortlisted and ignored datasets and rank the options
+#Right now, same question can be asked by multiple interfaces. Ignored candidates of different interfaces do not share information.
+#Sharing that info can improve complexity
 
 class ViewPresentation:
-    def __init__(self,df_lst):
+    def __init__(self,query, df_lst):
         self.interface_options=[]
         self.asked={}
         self.answered={}
 
-        embedding_obj = embedding_distance.EmbeddingModel()
-        initialize_candidates()
+        self.query = query
+        self.embedding_obj = embedding_distance.EmbeddingModel()
+        self.initialize_candidates(df_lst)
+
+        #dataframe index is the key and value denotes the number of times it is ignored/shortlisted
+        self.ignored_datasets={}
+        self.shortlisted_datasets={}
         
         for interface in self.interface_options:
             self.answered[interface]=0
@@ -25,12 +33,15 @@ class ViewPresentation:
         
 
     #Add a function to initialize the candidates for each interface
-    def initialize_candidates():
+    def initialize_candidates(self,df_lst):
+        iter=0
+        self.df_lst=df_lst
         for curr_interface in interface_lst.interface_options:
-            aci = curr_interface("ainterface")
-            aci.generate_candidates(df_lst)
-            aci.rank_candidates("new york city",embedding_obj)
+            aci = curr_interface(str(iter))
+            aci.generate_candidates(self.df_lst)
+            aci.rank_candidates(self.query,self.embedding_obj)
             self.interface_options.append(aci)
+            iter+=1
     
         
 
@@ -52,8 +63,8 @@ class ViewPresentation:
 
         for interface in self.interface_options:#move to config.py
             
-            score,ques,coverage=interface.get_question()
-
+            score,ques,coverage=interface.get_question(list(self.ignored_datasets.keys()))
+            print (interface.name,score,ques,coverage)
             answer_prob=1
             if ques is not None and  self.asked[interface]<threshold:
                 choose_random=True
@@ -88,20 +99,30 @@ class ViewPresentation:
                 randval-=scores[i]
                 i+=1
             max_index=i
-        print ("valid",valid_interfaces,len(valid_interfaces))
-        #TODO: update asked question for the interface
+        print ("Current question",max_index)
 
-        '''
-        if "wordcloud" in valid_interfaces[max_index]:
-            self.queried_centers.append(list(corresponding_ques[max_index].keys()))
-        elif "attribute" in valid_interfaces[max_index]:
-            self.queried_attributes.append(corresponding_ques[max_index])
-        elif "dataset" in valid_interfaces[max_index]:
-            self.queried_datasets.append(corresponding_ques[max_index][1])
-        elif "4c" in valid_interfaces[max_index]:
-            self.queried_datasets.extend(coverage_lst[max_index])
-        '''
-        return corresponding_ques[max_index],valid_interfaces[max_index],coverage_lst[max_index]
+        result = valid_interfaces[max_index].ask_question(corresponding_ques[max_index],self.df_lst)
+        if result==1:
+            for df_iter in coverage_lst[max_index]:
+                if df_iter in self.shortlisted_datasets.keys():
+                    self.shortlisted_datasets[df_iter]+=1
+                else:
+                    self.shortlisted_datasets[df_iter]=1
+        elif result==2:
+            for df_iter in coverage_lst[max_index]:
+                if df_iter in self.ignored_datasets.keys():
+                    self.ignored_datasets[df_iter]+=1
+                else:
+                    self.ignored_datasets[df_iter]=1
+
+
+        print (self.shortlisted_datasets,self.ignored_datasets)
+        #Use responses to update shortlisted and ignored ones
+
+
+
+      
+        return valid_interfaces[max_index], corresponding_ques[max_index], coverage_lst[max_index]
     
 
 
@@ -114,42 +135,16 @@ if __name__ == '__main__':
     data2 = ["Paris","Copenhagen","Delhi","Sydney"]
     df2 = pd.DataFrame(data2, columns=['international city'])
 
-    df_lst=[df1,df2]
 
-    vp = ViewPresentation(df_lst)
-    vp.choose_interface()
+    data3 = ["Paris","Copenhagen","Delhi","Sydney"]
+    df3 = pd.DataFrame(data2, columns=['international city'])
 
-    '''
-    attr_inf=AttributeNameInterface("header interface")
-    attr_inf.generate_candidates(df_lst)
-    print(attr_inf.attr_dic)
+    df_lst=[df1, df2, df3]
 
-    embedding_obj = embedding_distance.EmbeddingModel()
-    print(attr_inf.rank_candidates("new york city",embedding_obj))
-    print(attr_inf.get_question())
+    query = "new york city datasets"
+    vp = ViewPresentation(query, df_lst)
+    iter=0
+    while iter<5:
+        vp.choose_interface()
+        iter+=1
 
-
-    print ("Content interface")
-    attr_inf=AttributeContentInterface("header content interface")
-    attr_inf.generate_candidates(df_lst)
-    print(attr_inf.attr_dic)
-
-    embedding_obj = embedding_distance.EmbeddingModel()
-    print(attr_inf.rank_candidates("USA cities",embedding_obj))
-
-
-    print(attr_inf.get_question())
-
-
-    print ("Dataset Interface")
-    attr_inf=DatasetInterfaceAttributeSim("header content interface")
-    attr_inf.generate_candidates(df_lst)
-    print(attr_inf.attr_dic)
-
-    embedding_obj = embedding_distance.EmbeddingModel()
-    print(attr_inf.rank_candidates("new york city",embedding_obj))
-
-
-    print(attr_inf.get_question())
-
-    '''

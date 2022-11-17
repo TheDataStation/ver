@@ -34,23 +34,40 @@ class DatasetInterfaceContentSim(interface):
         return self.sorted_sc
 
     #Returns the data frame with the highest score
-    def get_question(self, ignore_questions=[]):
+    def get_question(self,ignored_datasets,ignore_questions=[]):
         iter=self.curr_question_iter
         while iter<len(self.sorted_sc):
-            if self.sorted_sc[iter][0] in ignore_questions:
+            if self.sorted_sc[iter][0] in ignore_questions or self.sorted_sc[iter][0] in ignored_datasets :
                 iter+=1
                 continue
             else:
                 break
-        curr_question =self.sorted_sc[iter][0]
-        self.curr_question_iter = iter
-        #returns the location of chosen df 
-        return (iter, curr_question)
+        if iter <len(self.sorted_sc):
+            curr_question =self.sorted_sc[iter][0]
+            self.curr_question_iter = iter
+            #returns the location of chosen df 
+            return (1, curr_question,[curr_question])
+        else:
+            return None
 
     #TODO: Change the value of dictionary to the answer from the user
-    def ask_question(self, iter, question):
-        self.curr_question_iter=iter+1
-        self.asked_questions[question] = 1
+    def ask_question(self, question, df_lst):
+        self.curr_question_iter +=1
+        print ("Does the required dataset contain this dataset: ",df_lst[question])
+        print ("Enter your option:")
+        print ("1: Always present")
+        print ("2: Never present")
+        print ("3: May be present")
+        while True:
+            option=int(input("Enter your option "))
+            try:
+                if option in [1,2,3]:
+                    self.asked_questions[question] = option
+                    break
+            except:
+                print ("invalid option")
+
+        return option
 
 
 #example usage of the interface
