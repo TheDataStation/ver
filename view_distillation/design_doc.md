@@ -48,7 +48,8 @@ any future API calls will operate on the rest of views. It will also return the 
 `result = vd.find_contradictory_views()`
 
 This will return a `dict`. The key is a tuple `(view1, view2, key)` and the corresponding value
-is a `set` of key values where `view1` and `view2` contradict on.
+is a `set` of key values where `view1` and `view2` contradict on. The `key` is a `tuple` since it 
+can be a composite key containing more than one attributes, and each key value is also a `tuple`.
 
 For example, if the `key` is the `id` column in `view1` and `view2`, and the key value is `123`, this means
 `view1` and `view2` both contains the row with `id = 123` but the rest of values in the row differ.
