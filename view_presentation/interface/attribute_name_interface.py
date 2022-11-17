@@ -1,6 +1,6 @@
-from interface import interface
+from view_presentation.interface.interface import interface
 import pandas as pd
-import embedding_distance
+import view_presentation.interface.embedding_distance as embedding_distance
 
 class AttributeNameInterface(interface):
     def __init__(self,name):

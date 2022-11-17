@@ -1,5 +1,4 @@
 import pandas as pd
-import embedding_distance
 
 class interface:
     def __init__(self,name):

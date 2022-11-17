@@ -1,6 +1,6 @@
 import pandas as pd
-from interface import interface
-import embedding_distance
+from view_presentation.interface.interface import interface
+import view_presentation.interface.embedding_distance as embedding_distance
 
 class DatasetInterfaceContentSim(interface):
     def __init__(self,name):

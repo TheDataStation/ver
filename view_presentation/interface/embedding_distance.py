@@ -1,5 +1,5 @@
 import gensim
-import config
+import view_presentation.config as config
 
 
 #Class to calculate embedding based distance between text
