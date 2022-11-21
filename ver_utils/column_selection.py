@@ -8,8 +8,8 @@ from ver_utils.column import Column
 
 
 class ColumnSelection:
-    def __init__(self, network, store_client, csv_separator=","):
-        self.aurum_api = API(network=network, store_client=store_client)
+    def __init__(self, aurum_api: API, csv_separator: str =','):
+        self.aurum_api = aurum_api
         dpu.configure_csv_separator(csv_separator)
         self.topk = 300  # limit the number of columns returned from keyword search
 

@@ -1,33 +1,61 @@
+from collections import deque, defaultdict
 from ddapi import API
 from api.apiutils import DRS, Relation
 from modelstore.elasticstore import StoreHandler
-from knowledgerepr.fieldnetwork import deserialize_network
 from join_path import JoinPath
 import sys
 
 
 class JoinPathSearch:
-    def __init__(self, model_path):
-        self.network = deserialize_network(model_path)
-        self.api = API(self.network)
-        self.api.init_store()
+    def __init__(self, aurum_api: API):
+        self.api = aurum_api
     
-    def find_join_path_from_col(self, col: DRS, rel: Relation, max_hop: int, result: list[JoinPath], cur_path: JoinPath):
-        if max_hop == 0:
-            return
-        if not self.is_column_nan(col):
-            neighbors = self.network.neighbors_id(col, rel)
-            for nei in neighbors:
-                cur_path.append(nei)
-                result.append(JoinPath(cur_path[:]))
-                self.find_join_path_from_col(nei, max_hop - 1, result, cur_path)
-                cur_path.pop()
+    def is_visited(self, x: DRS, path: list[DRS]) -> bool:
+        for node in path:
+            if node == x:
+                return True
+        return False
 
-    def find_join_paths_from_tbl(self, start: str, max_hop:int, result: list[JoinPath]):
-        columns = self.api.drs_from_table(start)
-        for col in columns:
-            self.find_join_path_from_col(col, max_hop, result, [col])
-    
+    def find_join_paths_from_col(self, src: DRS, rel: Relation, max_hop: int):
+        q = deque()
+        path = [src]
+        q.append(path.copy())
+
+        result = []
+        for _ in range(max_hop):
+            result.append(defaultdict(list))
+        while q:
+            cur_path = q.popleft()
+            if len(cur_path) == max_hop:
+                break
+            cur_last = cur_path[-1]
+            neighbors = self.api.neighbors(cur_last, rel)
+            for nei in neighbors:
+                if not self.is_visited(nei, cur_path):
+                    newpath = cur_path.copy()
+                    newpath.append(nei)
+                    q.append(newpath)
+                    result_map = result[len(newpath)-1]
+                    result_map[newpath[-1]].append(newpath)
+                    
+        return result
+
+    def find_join_paths(self, src: DRS, tgt: DRS, rel: Relation, max_hop: int):
+        src_paths = self.find_join_paths_from_col(src, rel, max_hop//2)
+        tgt_paths = self.find_join_paths_from_col(tgt, rel, max_hop-max_hop//2)
+        result = []
+
+        for src_map in src_paths:
+            for tgt_map in tgt_paths:
+                for src_key in src_map.keys():
+                    if src_key in tgt_map:
+                        for src_path in src_map[src_key]:
+                            for tgt_path in tgt_map[src_key]:
+                                path = src_path + tgt_path.reverse()
+                                result.append(path)
+        
+        return result
+
     def is_column_nan(self, col: DRS):
         non_empty = self.network.get_non_empty_values_of(col.nid)
         if non_empty == 0:

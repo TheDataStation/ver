@@ -121,6 +121,9 @@ class Algebra:
     TC API
     """
 
+    def neighbors(self, drs: DRS, relation):
+        return self._network.neighbors_id(drs, relation)
+
     def paths(self, drs_a: DRS, drs_b: DRS, relation=Relation.PKFK, max_hops=2, lean_search=False) -> DRS:
         """
         Is there a transitive relationship between any element in a with any
