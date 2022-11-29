@@ -101,8 +101,75 @@ class DiscoveryGraph:
         edges_table.insert([node_1, node_2, weight])
         edges_table.insert([node_2, node_1, weight])
 
+    # TODO: Test implementation
+    def find_neighborhood(self, node, hops):
+        '''
+        Find the n-hop neighborhood of a node
+        '''
+        return self.conn.execute(
+        f'''
+        WITH RECURSIVE paths(startNode, endNode, path) AS (
+            SELECT
+                    from_node AS startNode,
+                    to_node AS endNode,
+                    [from_node, to_node] AS path
+                FROM edges
+                WHERE startNode = {node}
+            UNION ALL
+            SELECT
+                    paths.startNode AS startNode,
+                    to_node AS endNode,
+                    array_append(path, to_node) AS path
+                FROM paths
+                JOIN edges ON paths.endNode = from_node
+                WHERE NOT EXISTS (SELECT 1
+                                  FROM paths previous_paths
+                                  WHERE list_contains(previous_paths.path, to_node))
+                AND length(paths.path) <= {hops}
+        )
+        SELECT startNode, endNode, path
+        FROM paths
+        ORDER BY length(path), path;
+        '''
+        ).fetch_df()
+
+    def find_path(self, start, end):
+        '''
+        Find a path between the start to the end
+        '''
+        return self.conn.execute(
+        f'''
+        WITH RECURSIVE paths(startNode, endNode, path, endReached) AS (
+            SELECT
+                    from_node AS startNode,
+                    to_node AS endNode,
+                    [from_node, to_node] AS path,
+                    (to_node = {end}) AS endReached
+                FROM edges
+                WHERE startNode = {start}
+            UNION ALL
+            SELECT
+                    paths.startNode AS startNode,
+                    to_node AS endNode,
+                    array_append(path, to_node) AS path,
+                    max(CASE WHEN to_node = {end} THEN 1 ELSE 0 END)
+                        OVER (ROWS BETWEEN UNBOUNDED PRECEDING
+                                    AND UNBOUNDED FOLLOWING) AS endReached
+                FROM paths
+                JOIN edges ON paths.endNode = from_node
+                WHERE NOT EXISTS (SELECT 1
+                                FROM paths previous_paths
+                                WHERE list_contains(previous_paths.path, to_node))
+                AND paths.endReached = 0
+        )
+        SELECT startNode, endNode, path
+        FROM paths
+        WHERE endNode = {end}
+        '''
+        ).fetch_df()
+
     def print_nodes(self):
-        # TODO: this function exists only for debugging purposes
+        # FIXME: this function exists only for debugging purposes
         print(self.conn.table('nodes').create_view('test_nodes_view'))
 
 if __name__ == '__main__':
