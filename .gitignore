@@ -3,7 +3,6 @@
 .ipynb_checkpoints/
 *.ipynb
 .python-version
-*.txt
 *.csv
 DoD/ui/node_modules/
 DoD2/
