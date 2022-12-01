@@ -55,6 +55,12 @@ RDBMS, you will need to run ddprofiler two times, each one configured to read
 the data from each source. All data summaries will be created and stored in
 elasticsearch. Only make sure to edit the YAML file appropriately each time.
 
+### Test datasets
+
+We include a (growing) list of links to datasets you can download to test the
+ddprofiler. You can find the list in the test_data/ directory, from the root
+folder.
+
 ## Outputting profiles as JSON files
 
 If you run the software like this:
