@@ -1,13 +1,16 @@
 import os
 import time
+import random
 import json
 import argparse
 import duckdb
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 from datasketch import MinHash, MinHashLSH
 
 class DiscoveryGraph:
-    def __init__(self, directory: str):
+    def __init__(self, directory: str='', testing: bool=False):
         self.conn = duckdb.connect()
         self.conn.execute(
         '''CREATE TABLE nodes (
@@ -30,10 +33,14 @@ class DiscoveryGraph:
         )''')
         self.conn.execute('''CREATE TABLE edges
         (
-            from_node DECIMAL(18, 0) REFERENCES nodes(id),
-            to_node   DECIMAL(18, 0) REFERENCES nodes(id),
+            from_node DECIMAL(18, 0),
+            to_node   DECIMAL(18, 0),
             weight    DECIMAL(10, 4)
         ) ''')
+
+        if testing:
+            return
+
         self.minhash_perm = None
         # Populate the nodes table with JSON files under the specified path
         for filename in os.listdir(directory):
@@ -172,6 +179,59 @@ class DiscoveryGraph:
         # FIXME: this function exists only for debugging purposes
         print(self.conn.table('nodes').create_view('test_nodes_view'))
 
+def test_graph(num_nodes, sparsity):
+    '''
+    Generate a random graph with given number of nodes and sparsity
+    '''
+    graph = DiscoveryGraph(testing=True)
+
+    # Generate a random set of edges
+    for i in range(num_nodes):
+        for j in range(i + 1, num_nodes):
+            if random.random() < sparsity:
+                graph.add_undirected_edge(i, j)
+
+    print(f"The 2-hop neighborhood of 0 in a {num_nodes} node, {sparsity} "
+           "sparsity graph is")
+    nbhd_start = time.time()
+    print(graph.find_neighborhood(0, 2))
+    nbhd_end = time.time()
+
+    print(f"All paths between node 0 and node 2 in a {num_nodes} node, "
+          f"{sparsity} sparsity graph are")
+    path_start = time.time()
+    print(graph.find_path(0, 2))
+    path_end = time.time()
+    return nbhd_end - nbhd_start, path_end - path_start
+
+def test_scalability():
+    '''
+    Testing the scalability of finding the 2-hop neighborhood of a node as well 
+    as finding paths between 2-nodes
+    '''
+    nodes = [100, 200, 400, 800, 1600]
+    sparsity = [0.1, 0.2]
+    nbhd_result = []
+    path_result = []
+    titles = ['2-hop Neighborhood Search', 'Path Finding']
+
+    for n in nodes:
+        for s in sparsity:
+            # nbhd_time, path_time = np.mean([test_graph(n, s) for i in range(3)], axis=0)
+            nbhd_time, path_time = test_graph(n, s)
+            nbhd_result.append([n, s, nbhd_time])
+            path_result.append([n, s, path_time])
+
+    for result, title in zip([nbhd_result, path_result], titles):
+        df = pd.DataFrame(result, columns = ['No. of Nodes', 'Sparsity', 'Time'])
+        df = df.pivot(index='No. of Nodes', columns='Sparsity', values='Time')
+        plt.figure()
+        df.plot(title=f'{title} Scalability')
+        plt.xticks(nodes)
+        plt.xlabel('No. of Nodes')
+        plt.ylabel('Time')
+        plt.savefig(f'{title}.png')
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
                     prog = 'Network Builder',
@@ -181,4 +241,4 @@ if __name__ == '__main__':
                              'format')
     
     args = parser.parse_args()
-    discovery_graph = DiscoveryGraph(args.path)
+    test_scalability()
