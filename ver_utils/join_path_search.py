@@ -5,7 +5,8 @@ from modelstore.elasticstore import StoreHandler
 from join_path import JoinPath
 import sys
 
-
+# todo:
+# use join path class, write comments
 class JoinPathSearch:
     def __init__(self, aurum_api: API):
         self.api = aurum_api
