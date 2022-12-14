@@ -5,6 +5,7 @@ from collections import defaultdict
 
 from api.apiutils import DRS, Operation, OP
 from ver_utils.column import Column
+from typing import List
 
 
 class ColumnSelection:
@@ -13,7 +14,7 @@ class ColumnSelection:
         dpu.configure_csv_separator(csv_separator)
         self.topk = 300  # limit the number of columns returned from keyword search
 
-    def column_retreival(self, attr: str, examples: list[str]):
+    def column_retreival(self, attr: str, examples: List[str]):
         candidate_columns = {}
         # if attr is given
         if attr != "":
@@ -22,10 +23,11 @@ class ColumnSelection:
                 # if no result is returned, try fuzzy keyword search
                 drs_attr = self.aurum_api.search_attribute(attr, max_results=self.topk)
             for x in drs_attr:
-                if col.key() not in candidate_columns:
+                if x.nid not in candidate_columns:
                     col = Column(x)
                     col.hit_type = FilterType.ATTR
-                    candidate_columns[col.key()] = col
+                    candidate_columns[col.nid] = col
+                
 
         # if examples are given
         if len(examples) != 0:
@@ -38,20 +40,20 @@ class ColumnSelection:
                 if len(drs_example.data) == 0:
                     drs_example = self.aurum_api.search_content(example, max_results=self.topk)
                   
-                # 
                 drs_example = self.remove_redundant(drs_example, example)
                 for x in drs_example:
-                    if col.key() not in candidate_columns:
+                    if x.nid not in candidate_columns:
                         col = Column(x)
+                        candidate_columns[col.nid] = col
                     else:
-                        col = candidate_columns.get(col.key())
-                    col.examples_set.append(x)
-                    col.examples_num += 1
+                        col = candidate_columns.get(col.nid)
+                    col.examples_set.add(x)
+                
                     if col.hit_type == FilterType.ATTR:
                         col.hit_type = FilterType.ATTR_CELL
                     else:
                         col.hit_type = FilterType.CELL
-                    candidate_columns[col.key()] = col 
+                    candidate_columns[x.nid] = col 
         return candidate_columns
 
     def cluster_columns(self, candidate_columns):
@@ -75,7 +77,7 @@ class ColumnSelection:
         global_max_score = 0
 
         for candidate in candidates:
-            score = candidate.example_num
+            score = len(candidate.examples_set)
             cluster_id = self.find_root(roots, candidate.nid)
             cluster[cluster_id].append(candidate)
             cluster_score[cluster_id] = max(cluster_score[cluster_id], score)
