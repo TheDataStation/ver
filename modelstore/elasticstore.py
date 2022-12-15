@@ -192,9 +192,10 @@ class StoreHandler:
         res = client.search(index=index, body=query_body, size=10000, scroll="10m",
                             filter_path=filter_path)
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
 
         while remaining > 0:
+            print("remaining:", remaining)
             hits = res['hits']['hits']
             for el in res['hits']['hits']:
                 data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
