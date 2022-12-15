@@ -5,14 +5,36 @@ from IPython.display import display, clear_output
 from itables import init_notebook_mode
 import pandas as pd
 from itables import show
+from ver_utils.query_by_example import QueryByExample, ExampleColumn
+from IPython.display import display, clear_output, HTML
+from tabulate import tabulate
+
+class Colors:
+    CGREYBG = '\33[100m'
+    CREDBG2 = '\33[101m'
+    CGREENBG2 = '\33[102m'
+    CYELLOWBG2 = '\33[103m'
+    CBLUEBG2 = '\33[104m'
+    CVIOLETBG2 = '\33[105m'
+    CBEIGEBG2 = '\33[106m'
+    CWHITEBG2 = '\33[107m'
+    CGREENBG = '\33[42m'
+    CBEIGEBG = '\33[46m'
+    CBOLD = '\33[1m'
+    CEND = '\33[0m'
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 class Demo:
-    def __init__(self, columnInfer, viewSearch, aurum_api):
-        self.columnInfer = columnInfer
-        self.viewSearch = viewSearch
-        self.col_values = {}
-        self.filter_drs = {}
+    def __init__(self, aurum_api):
         self.aurum_api = aurum_api
+        self.qbe = QueryByExample(aurum_api)
 
     def keyword_search(self):
         init_notebook_mode(all_interactive=True)
@@ -74,25 +96,11 @@ class Demo:
         global col_num
         row_num = 3
         col_num = 2
-        # default_values1 = [["", ""], ['Homo sapiens', 'Doxorubicin'], ['Mus musculus', 'Ciprofloxacin']]
 
-        # default_values1 = [["", ""],
-        #                    ["Amy", "F"],
-        #                    ["Ryan", "M"],
-        #                    ["Gary", "M"],
-        #                    ["Ken", "M"],
-        #                    ["Terri", "F"]]
-        #
+        default_values = [["", ""], ["United States", "USD"], ["China", "CNY"]]
 
-        default_values1 = [["", ""], ["Randall's Island Park", "Carroll Park"], ["Rockaway Beach Boardwalk", "Cooper Park"]]
-
-        default_values2 = [
-            ["", "", ""],
-            ["Amy", "Alberts", "European Sales Manager"],
-            ["Ryan", "Cornelsen", "Production Technician - WC40"],
-            ["Gary", "Altman", "Facilities Manager"]]
         attr_style = "<style>.attr input { background-color:#D0F0D0 !important; }</style>"
-        x = [[widgets.Text(value=default_values1[i][j]) for j in range(col_num)] for i in range(row_num)]
+        x = [[widgets.Text(value=default_values[i][j]) for j in range(col_num)] for i in range(row_num)]
 
         out = widgets.Output()
 
@@ -160,7 +168,13 @@ class Demo:
                         row.append(x[i][j].value)
                 if i != 0:
                     values.append(row)
-            self.get_relevant_columns()
+            
+            example_columns = []
+            for i, attr in enumerate(attrs):
+                example_col = ExampleColumn(attr, [values[j][i] for j in range(row_num-1)])
+                example_columns.append(example_col)
+
+            self.get_relevant_columns(example_columns)
 
 
         button1 = widgets.Button(description="Add Column")
@@ -179,13 +193,13 @@ class Demo:
         display(out)
         display(button5)
 
-    def get_relevant_columns(self):
-        from DoD.utils import FilterType
-        column_clusters = self.columnInfer.get_clusters(attrs, values, types=[])
-
-        # col_values = {}
-        for (idx, clusters) in enumerate(column_clusters):
-            self.col_values[clusters[0]["name"]] = [row[idx] for row in values]
+    def get_relevant_columns(self, example_columns):
+        for example_column in example_columns:
+            print(example_column.attr, example_column.examples)
+        candidate_list = self.qbe.find_candidate_columns(example_columns)
+        column_clusters = self.qbe.get_column_clusters(candidate_list)
+        column_clusters = self.prepare_clusters(column_clusters)
+     
 
         output = widgets.Output()
         global c_id
@@ -194,21 +208,21 @@ class Demo:
 
         @output.capture()
         def initial_show():
-            self.columnInfer.show_clusters(column_clusters[0], self.filter_drs, self.viewSearch, 0)
+            self.show_clusters(column_clusters[0])
 
         @output.capture()
         def on_button_next(b):
             global c_id
             clear_output()
             c_id = min(len(column_clusters) - 1, c_id + 1)
-            self.columnInfer.show_clusters(column_clusters[c_id], self.filter_drs, self.viewSearch, c_id)
+            self.show_clusters(column_clusters[c_id])
 
         @output.capture()
         def on_button_prev(b):
             global c_id
             clear_output()
             c_id = max(0, c_id - 1)
-            self.columnInfer.show_clusters(column_clusters[c_id], self.filter_drs, self.viewSearch, c_id)
+            self.show_clusters(column_clusters[c_id])
         
         def on_button_show_views(b):
             if len(self.filter_drs.keys()) < len(column_clusters):
@@ -225,6 +239,51 @@ class Demo:
         initial_show()
         display(output)
         display(button_show_views)
+
+    def prepare_clusters(self, column_clusters_list):
+        attr_clusters = []
+        idx = 0
+        for i, clusters in enumerate(column_clusters_list):
+            clusters_list = []
+            for cluster in clusters.values():
+                tmp = dict()
+               
+                tmp["name"] = 'Column' + str(i+1)
+
+                tmp["sample_score"] = len(cluster[0].examples_set)
+              
+                tmp["data"] = list(map(lambda x: (x.nid, x.tbl_name, x.attr_name, len(x.examples_set)), cluster))
+              
+                tmp["type"] = "object"
+               
+                clusters_list.append(tmp)
+            sorted_list = sorted(clusters_list, key=lambda e: e.__getitem__('sample_score'), reverse=True)
+            attr_clusters.append(sorted_list)
+            idx += 1
+        return attr_clusters
+
+    def show_clusters(self, clusters):
+        def on_button_confirm(b):
+            selected_data = []
+            for i in range(0, len(checkboxes)):
+                if checkboxes[i].value == True:
+                    selected_data.append(i)
+           
+        def on_button_all(b):
+            for checkbox in checkboxes:
+                checkbox.value = True
+
+        print(Colors.OKBLUE + "NAME: " + clusters[0]["name"] + Colors.CEND)
+        checkboxes = [widgets.Checkbox(value=False, description="Cluster "+str(idx)) for idx in range(len(clusters))]
+        for idx, cluster in enumerate(clusters):
+            display(checkboxes[idx])
+            display(HTML(tabulate(cluster["data"], headers=['id', 'Table Name', 'Attribute Name', 'Sample Score'], tablefmt='html')))
+            print('\n')
+        button_confirm = widgets.Button(description="Confirm")
+        button_all = widgets.Button(description="Select All")
+        button_confirm.on_click(on_button_confirm)
+        button_all.on_click(on_button_all)
+        display(widgets.HBox([button_confirm, button_all]))
 
     def show_views(self):
         init_notebook_mode(all_interactive=False)

@@ -283,6 +283,12 @@ class Algebra:
         drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]), lean_drs=True)
         return drs
 
+    def drs_expand_to_table(self, drs: DRS) -> DRS:
+        table = drs.source_name
+        hits = self._network.get_hits_from_table(table)
+        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[drs]))
+        return drs
+
     def drs_from_table_hit(self, hit: Hit) -> DRS:
         # TODO: migrated from old ddapi as there's no good swap
         table = hit.source_name

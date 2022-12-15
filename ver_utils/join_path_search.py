@@ -1,33 +1,33 @@
 from collections import deque, defaultdict
-from ddapi import API
+from algebra import API
 from api.apiutils import DRS, Relation
-from modelstore.elasticstore import StoreHandler
-from join_path import JoinPath
-import sys
+from typing import List
+from ver_utils.column_selection import Column
 
 # todo:
 # use join path class, write comments
+class JoinPath:
+    pass
+
 class JoinPathSearch:
     def __init__(self, aurum_api: API):
         self.api = aurum_api
     
-    def is_visited(self, x: DRS, path: list[DRS]) -> bool:
+    def is_visited(self, x: DRS, path: List[DRS]) -> bool:
         for node in path:
             if node == x:
                 return True
         return False
-
-    def find_join_paths_from_col(self, src: DRS, rel: Relation, max_hop: int):
+    
+    def find_join_paths_from_col(self, src: DRS, rel: Relation=Relation.CONTENT_SIM, max_hop: int=2):
         q = deque()
         path = [src]
         q.append(path.copy())
 
         result = []
-        for _ in range(max_hop):
-            result.append(defaultdict(list))
         while q:
             cur_path = q.popleft()
-            if len(cur_path) == max_hop:
+            if len(cur_path)-1 == max_hop:
                 break
             cur_last = cur_path[-1]
             neighbors = self.api.neighbors(cur_last, rel)
@@ -36,24 +36,31 @@ class JoinPathSearch:
                     newpath = cur_path.copy()
                     newpath.append(nei)
                     q.append(newpath)
-                    result_map = result[len(newpath)-1]
-                    result_map[newpath[-1]].append(newpath)
+                    result.append(newpath)
                     
         return result
 
-    def find_join_paths(self, src: DRS, tgt: DRS, rel: Relation, max_hop: int):
-        src_paths = self.find_join_paths_from_col(src, rel, max_hop//2)
-        tgt_paths = self.find_join_paths_from_col(tgt, rel, max_hop-max_hop//2)
+    def find_join_paths_between_two_cols(self, src: Column, tgts: List[Column], rel: Relation=Relation.CONTENT_SIM, max_hop: int=2):
+        tgt_tbls = defaultdict(list)
         result = []
 
-        for src_map in src_paths:
-            for tgt_map in tgt_paths:
-                for src_key in src_map.keys():
-                    if src_key in tgt_map:
-                        for src_path in src_map[src_key]:
-                            for tgt_path in tgt_map[src_key]:
-                                path = src_path + tgt_path.reverse()
-                                result.append(path)
+        for tgt in tgts:
+            tgt_tbls[tgt.tbl_name].append(tgt)
+
+        if src.tbl_name in tgt_tbls:
+            for tgt in tgt_tbls[src.tbl_name]:
+                result.append(([src.drs], [src.key(), tgt.key()]))
+        
+        
+        src_tbl = self.api.drs_expand_to_table(src.drs)
+        for src_col in src_tbl:
+            src_paths = self.find_join_paths_from_col(src_col, rel, max_hop)
+            for src_path in src_paths:
+                if src_col.field_name == 'CountryRegionCode':
+                    print(src_path[-1])
+                if src_path[-1].source_name in tgt_tbls:
+                    for tgt in tgt_tbls[src_path[-1].source_name]:
+                        result.append((src_path, [src.key(), tgt.key()]))
         
         return result
 
@@ -62,22 +69,3 @@ class JoinPathSearch:
         if non_empty == 0:
             return True
         return False
-
-
-if __name__ == '__main__':
-    # create store handler
-    store_client = StoreHandler()
-    # read command line arguments
-    model_path = sys.argv[1]  # path = '../models/adventureWorks/'
-    table = sys.argv[2]     # Employee.csv
-    max_hop = int(sys.argv[3])   # max_hop of join paths
-
-    jp_client = JoinPathSearch(model_path)
-
-    # find join paths
-    result = []
-    jp_client.find_join_paths_from(table, max_hop, result)
-    print("# join paths:", len(result))
-    for jp in result:
-        jp.to_str()
-        print("------------------------")

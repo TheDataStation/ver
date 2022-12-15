@@ -12,7 +12,7 @@ class ColumnSelection:
     def __init__(self, aurum_api: API, csv_separator: str =','):
         self.aurum_api = aurum_api
         dpu.configure_csv_separator(csv_separator)
-        self.topk = 300  # limit the number of columns returned from keyword search
+        self.topk = 1000  # limit the number of columns returned from keyword search
 
     def column_retreival(self, attr: str, examples: List[str]):
         candidate_columns = {}
@@ -46,9 +46,8 @@ class ColumnSelection:
                         col = Column(x)
                         candidate_columns[col.nid] = col
                     else:
-                        col = candidate_columns.get(col.nid)
-                    col.examples_set.add(x)
-                
+                        col = candidate_columns.get(x.nid)
+                    col.examples_set.add(example)
                     if col.hit_type == FilterType.ATTR:
                         col.hit_type = FilterType.ATTR_CELL
                     else:
@@ -56,9 +55,7 @@ class ColumnSelection:
                     candidate_columns[x.nid] = col 
         return candidate_columns
 
-    def cluster_columns(self, candidate_columns):
-        candidates = list(candidate_columns.values())
-        
+    def cluster_columns(self, candidates: List[Column], prune=True):
         roots = {}
         nid_to_candidate = {}
         cluster = defaultdict(list)
@@ -68,7 +65,7 @@ class ColumnSelection:
             nid_to_candidate[candidate.nid] = candidate
 
         for _, candidate in enumerate(candidates):
-            neighbors = self.aurum_api.content_similar_to(candidate)
+            neighbors = self.aurum_api.content_similar_to(candidate.drs)
             for neighbor in neighbors.data:
                 if neighbor.nid not in nid_to_candidate:
                     continue
@@ -83,12 +80,15 @@ class ColumnSelection:
             cluster_score[cluster_id] = max(cluster_score[cluster_id], score)
             global_max_score = max(global_max_score, score)
         
-        result = []
-        for cluster_id, score in cluster_score.items():
-            if score == global_max_score:
-                result.extend(cluster[cluster_id])
+        if prune:
+            result = []
+            for cluster_id, score in cluster_score.items():
+                if score == global_max_score:
+                    result.extend(cluster[cluster_id])
 
-        return result
+            return result
+        else:
+            return cluster
     
     def find_root(self, roots, nid):
         nids = [nid]
