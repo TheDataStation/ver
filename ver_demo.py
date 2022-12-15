@@ -314,7 +314,7 @@ class Demo:
         join_paths = self.qbe.find_joins_between_candidate_columns(self.candidate_list)
         materializer = Materializer(self.tbl_path, self.sample_size)
         for join_path in join_paths:
-            view = materializer.materialize(join_path)
+            view = materializer.materialize_join_path(join_path)
             views.append(view)
 
         @output.capture()
