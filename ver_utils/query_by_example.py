@@ -7,11 +7,12 @@ class ExampleColumn:
     def __init__(self, attr: str, examples: List[str]) -> None:
         self.attr = attr
         self.examples = examples
-
+       
 class QueryByExample:
     def __init__(self, aurum_api: API):
         self.column_selection = ColumnSelection(aurum_api)
         self.join_path_search = JoinPathSearch(aurum_api)
+
     
     def find_candidate_columns(self, columns: List[ExampleColumn]):
         self.columns = columns

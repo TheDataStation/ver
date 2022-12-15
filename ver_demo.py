@@ -5,7 +5,9 @@ from IPython.display import display, clear_output
 from itables import init_notebook_mode
 import pandas as pd
 from itables import show
+from ver_utils.column import Column
 from ver_utils.query_by_example import QueryByExample, ExampleColumn
+from ver_utils.materializer import Materializer
 from IPython.display import display, clear_output, HTML
 from tabulate import tabulate
 
@@ -35,6 +37,9 @@ class Demo:
     def __init__(self, aurum_api):
         self.aurum_api = aurum_api
         self.qbe = QueryByExample(aurum_api)
+        self.candidate_list = []
+        self.tbl_path = '/home/cc/adventureWork/'
+        self.sample_size = 200
 
     def keyword_search(self):
         init_notebook_mode(all_interactive=True)
@@ -91,7 +96,7 @@ class Demo:
         display(tab)
         display(output)
 
-    def start(self):
+    def qbe_interface(self):
         global row_num
         global col_num
         row_num = 3
@@ -159,6 +164,7 @@ class Demo:
             global attrs
             values = []
             attrs = []
+            self.candidate_list = [[] for _ in range(col_num)]
             for i in range(row_num):
                 row = []
                 for j in range(col_num):
@@ -208,25 +214,26 @@ class Demo:
 
         @output.capture()
         def initial_show():
-            self.show_clusters(column_clusters[0])
+            self.show_clusters(column_clusters[0], 0)
 
         @output.capture()
         def on_button_next(b):
             global c_id
             clear_output()
             c_id = min(len(column_clusters) - 1, c_id + 1)
-            self.show_clusters(column_clusters[c_id])
+            self.show_clusters(column_clusters[c_id], c_id)
 
         @output.capture()
         def on_button_prev(b):
             global c_id
             clear_output()
             c_id = max(0, c_id - 1)
-            self.show_clusters(column_clusters[c_id])
+            self.show_clusters(column_clusters[c_id], c_id)
         
         def on_button_show_views(b):
-            if len(self.filter_drs.keys()) < len(column_clusters):
-                print("please finish selection for all columns")
+            for candidate in self.candidate_list:
+                if len(candidate) == 0:
+                    print("please finish selection for all columns")
             self.show_views()
 
         button_next = widgets.Button(description="Next")
@@ -262,12 +269,15 @@ class Demo:
             idx += 1
         return attr_clusters
 
-    def show_clusters(self, clusters):
+    def show_clusters(self, clusters, column_index):
         def on_button_confirm(b):
             selected_data = []
             for i in range(0, len(checkboxes)):
                 if checkboxes[i].value == True:
                     selected_data.append(i)
+            columns = self.clusters2Columns(clusters, selected_data)
+            self.candidate_list[column_index] = columns
+          
            
         def on_button_all(b):
             for checkbox in checkboxes:
@@ -284,31 +294,34 @@ class Demo:
         button_confirm.on_click(on_button_confirm)
         button_all.on_click(on_button_all)
         display(widgets.HBox([button_confirm, button_all]))
+     
+    def clusters2Columns(self, clusters, selected_indices):
+        columns = []
+        for idx in selected_indices:
+            for row in clusters[idx]["data"]:
+                hit = self.aurum_api._nid_to_hit(int(row[0]))
+                columns.append(Column(hit))
+        return columns
 
     def show_views(self):
         init_notebook_mode(all_interactive=False)
-        from DoD import data_processing_utils as dpu
         
-        view_metadata_mapping = dict()
         global view_id
         view_id = 0
-        perf_stats = dict()
-        k = 10
         output = widgets.Output()
 
         views = []
-        for mjp, attrs_project, metadata, jp in self.viewSearch.virtual_schema_iterative_search(self.col_values, self.filter_drs,
-                                                                                        perf_stats, max_hops=2,
-                                                                                        debug_enumerate_all_jps=False,
-                                                                                        offset=k):
-            proj_view = dpu.project(mjp, attrs_project)
-            views.append((proj_view, jp))
+        join_paths = self.qbe.find_joins_between_candidate_columns(self.candidate_list)
+        materializer = Materializer(self.tbl_path, self.sample_size)
+        for join_path in join_paths:
+            view = materializer.materialize(join_path)
+            views.append(view)
 
         @output.capture()
         def initial_show_view():
             print("view", 0)
-            display(views[0][0])
-            print(views[0][1])
+            display(views[0])
+            print(join_paths[0].to_str())
 
         @output.capture()
         def on_button_next_view(b):
@@ -316,8 +329,8 @@ class Demo:
             clear_output()
             view_id = min(len(views) - 1, view_id + 1)
             print("view", view_id)
-            display(views[view_id][0])
-            print(views[view_id][1])
+            display(views[view_id])
+            print(join_paths[view_id].to_str())
 
         @output.capture()
         def on_button_prev_view(b):
@@ -325,13 +338,13 @@ class Demo:
             clear_output()
             view_id = max(0, view_id - 1)
             print("view", view_id)
-            display(views[view_id][0])
-            print(views[view_id][1])
+            display(views[view_id])
+            print(join_paths[view_id].to_str())
 
         @output.capture()
         def on_button_download(b):
             global view_id
-            proj_view.to_csv(self.output_path + "view_" + str(view_id) + ".csv", encoding='latin1', index=False)
+            views[view_id].to_csv(self.output_path + "view_" + str(view_id) + ".csv", encoding='latin1', index=False)
             print("Download Success!")
 
         button_next_2 = widgets.Button(description="Next")
