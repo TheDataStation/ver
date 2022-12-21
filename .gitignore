@@ -9,6 +9,7 @@ DoD/ui/node_modules/
 DoD2/
 figures/
 *result*/
+view_distillation/dataset
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

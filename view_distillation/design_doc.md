@@ -59,8 +59,7 @@ For example, if the `key` is the `id` column in `view1` and `view2`, and the key
 `result = vd.find_complementary_views()`
 
 This will return a list of tuples. Each tuple `(view1, view2, key)` means `view1` and `view2` are complementary on `key`,
-in other words, `view1` and `view2` don't have any contradictions on `key`, and they are neither compatible nor contained.
-
+in other words, `view1` and `view2` don't have any contradictions on `key`.
 
 
 

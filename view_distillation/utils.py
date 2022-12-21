@@ -1,3 +1,4 @@
+import os.path
 import random
 import time
 from collections import namedtuple, defaultdict
@@ -44,12 +45,12 @@ def curate_view(df, drop_duplicates=True, dropna=True):
 
 
 def get_dataframes(path, dropna=True):
-    files = [path + f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store' and f != "log.txt"]
+    files = [f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store' and f != "log.txt"]
     dfs = []
     path_to_df_dict = {}
 
     for f in files:
-        df = pd.read_csv(f, encoding='latin1', thousands=',')  # .replace('"','', regex=True)
+        df = pd.read_csv(os.path.join(path, f), encoding='latin1', thousands=',')  # .replace('"','', regex=True)
         df = curate_view(df, dropna=dropna)
         df = normalize(df)
         if len(df) > 0:  # only append valid df
@@ -192,3 +193,40 @@ def build_inverted_index(dfs, candidate_key_size=2, uniqueness_threshold=0.9):
 
     return candidate_key_to_inverted_index, view_to_candidate_keys_dict, \
            total_find_candidate_keys_time
+
+
+def get_row_from_key(df, key_name, key_value):
+    # select row based on multiple composite keys
+    assert len(key_value) == len(key_name)
+
+    condition = (df[key_name[0]] == key_value[0])
+    for i in range(1, len(key_name)):
+        condition = (condition & (df[key_name[i]] == key_value[i]))
+
+    # there may be multiple rows satisfying the same condition
+    row = df.loc[condition]
+    return row
+
+
+def row_df_to_string(row_df):
+    # there may be multiple rows satisfying the same condition
+    df_str = row_df.to_string(header=False, index=False, index_names=False).split('\n')
+    row_strs = [','.join(row.split()) for row in df_str]
+
+    # row_strs = []
+    # for i in range(len(row_df)):
+    #     row = row_df.iloc[[i]]
+    #     row_str = row.to_string(header=False, index=False, index_names=False)
+    #     row_strs.append(row_str)
+    # print(row_strs)
+    return row_strs
+
+def highlight_diff(df1, df2, color='pink'):
+    # Define html attribute
+    attr = 'background-color: {}'.format(color)
+    # Where df1 != df2 set attribute
+    return pd.DataFrame(np.where(df1.ne(df2), attr, ''), index=df1.index, columns=df1.columns)
+
+
+def highlight_cols(s, color='lightgreen'):
+    return 'background-color: %s' % color

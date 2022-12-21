@@ -1,3 +1,4 @@
+import os.path
 import time
 
 from pandas.core.util.hashing import hash_pandas_object
@@ -23,7 +24,10 @@ class ViewDistillation:
 
         self.found_contradictory_views = False
 
-        self.complementary_pairs = set()
+        self.contradictions = {}
+
+        self.wrong_keys = set()
+        self.pruned_contradictory_views = set()
 
     def find_compatible_views(self):
 
@@ -196,9 +200,23 @@ class ViewDistillation:
             for path in lst:
                 len_dict[path] = len(self.path_to_df_dict[path])
             sorted_lst = sorted(lst, key=lambda path: len_dict[path], reverse=True)
+
             contained_lists.append(sorted_lst)
 
             self.contained_views_to_remove.update(set(sorted_lst[1:]))
+
+        idx_to_remove = set()
+        for i in range(len(contained_lists)):
+            lst1 = contained_lists[i]
+            for j in range(len(contained_lists)):
+                if i != j:
+                    lst2 = contained_lists[j]
+                    if set(lst1).issubset(lst2):
+                        idx_to_remove.add(i)
+                    elif set(lst2).issubset(lst1):
+                        idx_to_remove.add(j)
+        for idx in sorted(idx_to_remove, reverse=True):
+            del contained_lists[idx]
 
         return contained_lists
 
@@ -229,6 +247,8 @@ class ViewDistillation:
             cur_contradictions = self._find_contradictory_views(dfs)
             contradictions.update(cur_contradictions)
 
+        self.contradictions = contradictions
+
         return contradictions
 
     def _find_contradictory_views(self, dfs):
@@ -248,7 +268,7 @@ class ViewDistillation:
         # contradictions = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
 
         already_classified_as_contradictory = set()
-        # complementary_pairs = set()
+        complementary_pairs = set()
 
         for candidate_key, inverted_index in tqdm(candidate_key_to_inverted_index.items()):
 
@@ -273,9 +293,9 @@ class ViewDistillation:
                         while j < len(lst):
                             # for path2 in cluster:
                             path2 = lst[j]
-                            if (path1, path2, candidate_key) not in self.complementary_pairs and \
-                                    (path2, path1, candidate_key) not in self.complementary_pairs:
-                                self.complementary_pairs.add((path1, path2, candidate_key))
+                            if (path1, path2, candidate_key) not in complementary_pairs and \
+                                    (path2, path1, candidate_key) not in complementary_pairs:
+                                complementary_pairs.add((path1, path2, candidate_key))
                             j += 1
                         i += 1
 
@@ -310,7 +330,7 @@ class ViewDistillation:
                                 already_classified_as_contradictory.add((path1, path2, candidate_key))
                                 already_classified_as_contradictory.add((path2, path1, candidate_key))
 
-        self.complementary_pairs = self.complementary_pairs - already_classified_as_contradictory
+        self.complementary_pairs = list(complementary_pairs - already_classified_as_contradictory)
 
 
         # complementary_pairs = []
@@ -333,14 +353,199 @@ class ViewDistillation:
         if not self.found_contradictory_views:
             self.find_contradictory_views()
 
+        idx_to_remove = []
+        for i in range(len(self.complementary_pairs)):
+            path1, path2, candidate_key = self.complementary_pairs[i]
+            if path1 in self.pruned_contradictory_views or path2 in self.pruned_contradictory_views or candidate_key in self.wrong_keys:
+                idx_to_remove.append(i)
+
+        for idx in sorted(idx_to_remove, reverse=True):
+            del self.complementary_pairs[idx]
+
         return self.complementary_pairs
 
+    def present_contradictory_views_demo(self):
+
+        from ipywidgets import Output, Button, ToggleButtons, interact, fixed, HBox
+        from IPython.display import display, clear_output, HTML
+
+        import asyncio
+
+        if not self.found_contradictory_views:
+            self.find_contradictory_views()
+
+        # sort by the number of contradictions
+        # self.contradictions = {k: v for k, v in sorted(self.contradictions.items(),
+        #                                                key=lambda item: len(item[1]),
+        #                                                reverse=True)}
+        l = list(self.contradictions.items())
+        random.shuffle(l)
+        self.contradictions = dict(l)
+
+        def wait_for_change(buttons):
+            future = asyncio.Future()
+
+            def getvalue(change):
+                future.set_result(change.description)
+                for button in buttons:
+                    button.on_click(getvalue, remove=True)
+                # we need to free up the binding to getvalue to avoid an InvalidState error
+                # buttons don't support unobserve
+                # so use `remove=True`
+
+            for button in buttons:
+                button.on_click(getvalue)
+            return future
+
+        out = Output()
+        skip_button = Button(description="Skip")
+        stop_button = Button(description="Stop")
+        wrong_key_button = Button(description="Wrong key")
+
+        @out.capture()
+        def print_option(desc, html, buttons):
+            # print(Colors.CWHITEBG + "Option " + str(option_num) + Colors.CEND)
+            button = Button(description=desc)
+            display(button)
+            buttons.append(button)
+            display(HTML(html))
+
+        async def f():
+            num_interactions = 0
+            views_pruned = set()
+            views_selected = set()
+            wrong_keys = set()
+
+            for k, key_values in self.contradictions.items():
+
+                path1, path2, key_tuple = k
+
+                # clear_output()
+                out.clear_output()
+
+                skip = False
+                if path1 in views_pruned or path2 in views_pruned or key_tuple in wrong_keys:
+                    num_interactions += 1
+                    skip = True
+
+                if num_interactions >= len(self.contradictions):
+                    # we have explored all the contradictory / complementary view pairs and single views at least once
+                    with out:
+                        print("You have explored all contradictory views")
+                    break
+
+                if skip:
+                    continue
+
+                num_interactions += 1
+
+                buttons = [skip_button, stop_button, wrong_key_button]
+
+                with out:
+                    display(HBox([skip_button, stop_button, wrong_key_button]))
+
+                with out:
+                    print()
+                    print(path1 + " - " + path2)
+                    if len(key_tuple) == 1:
+                        print("Key:", key_tuple[0])
+                    else:
+                        print("Key:", str(key_tuple))
+
+
+                # print(contr_or_compl_df_list)
+                row1_dfs = []
+                row2_dfs = []
+
+                df1 = self.path_to_df_dict[path1]
+                df2 = self.path_to_df_dict[path2]
+
+                for key_value in key_values:
+
+                    row1_df = get_row_from_key(df1, key_tuple, key_value)
+                    row2_df = get_row_from_key(df2, key_tuple, key_value)
+
+                    row1_dfs.append(row1_df)
+                    row2_dfs.append(row2_df)
+
+                # concatenate all contradictory rows in both side
+                if len(row1_dfs) > 0 and len(row2_dfs) > 0:
+
+                    contradictory_rows1 = pd.concat(row1_dfs).reset_index(drop=True)
+                    contradictory_rows2 = pd.concat(row2_dfs).reset_index(drop=True)
+
+                    html1 = contradictory_rows1.style \
+                        .applymap(highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
+                                  color='lightyellow') \
+                        .apply(highlight_diff, axis=None, df2=contradictory_rows2) \
+                        .to_html()
+
+                    html2 = contradictory_rows2.style \
+                        .applymap(highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
+                                  color='lightyellow') \
+                        .apply(highlight_diff, axis=None, df2=contradictory_rows1) \
+                        .to_html()
+
+                    # view_filename1 = os.path.basename(path1)
+                    print_option(path1, html1, buttons)
+                    # option_dict[1] = (key_tuple, row1_dfs, path1)
+
+                    # view_filename2 = os.path.basename(path2)
+                    print_option(path2, html2, buttons)
+                    # option_dict[2] = (key_tuple, row2_dfs, path2)
+
+                # if len(option_dict) > 0:
+
+                    option_picked = await wait_for_change(buttons)
+
+                    if option_picked == "Stop":
+                        with out:
+                            print("Stopped interaction")
+                        break
+
+                    if option_picked == "Wrong key":
+                        with out:
+                            print("Wrong key")
+                        wrong_keys.add(key_tuple)
+
+                    elif option_picked != "Skip":
+
+                        views_selected.add(option_picked)
+                        views_pruned.add(option_picked)
+
+                        with out:
+                            print(f"You picked {option_picked}")
+
+
+            out.clear_output()
+            with out:
+                print("End")
+
+            views_left = []
+
+            for key, dfs in self.dfs_per_schema.items():
+                new_dfs = []
+                for df, path in dfs:
+                    if path not in views_pruned:
+                        new_dfs.append((df, path))
+                        views_left.append(path)
+                self.dfs_per_schema[key] = new_dfs
+
+            self.wrong_keys = wrong_keys
+            self.pruned_contradictory_views = views_pruned
+
+            return views_pruned, views_selected, views_left
+
+        task = asyncio.ensure_future(f())
+        display(out)
+
+        return task
 
 if __name__ == "__main__":
     vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/toytest/")
     res = vd.find_contained_views()
     print(res)
-    res = vd.prune_contained_views()
+    res = vd.prune_contained_views(keep_largest=True)
     print(res)
     # print(vd.dfs_per_schema)
     res = vd.find_contradictory_views()
