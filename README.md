@@ -17,7 +17,7 @@ WIP
 
 ## Ver Architecture
 
-![Architecture](docs/img/architecture.jpeg)
+<img src="docs/img/architecture.jpeg" width="500">
 
 The picture shows a high-level architectural view of Ver, including each of its
 components. We give a brief description of each component below. In-depth
