@@ -9,7 +9,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datasketch import MinHash, MinHashLSH
 
+
 class DiscoveryGraph:
+
     def __init__(self, directory: str='', testing: bool=False):
         self.conn = duckdb.connect()
         self.conn.execute(
@@ -31,6 +33,7 @@ class DiscoveryGraph:
             median         DECIMAL(18, 0),
             iqr            DECIMAL(18, 0)
         )''')
+
         self.conn.execute('''CREATE TABLE edges
         (
             from_node DECIMAL(18, 0),
@@ -58,20 +61,23 @@ class DiscoveryGraph:
         '''
         content_index = MinHashLSH(threshold, num_perm=self.minhash_perm)
         relation = self.conn.table('nodes')
-        
-        # Get all nodes with minhash
-        start_time = time.time()
-        df = relation.filter('minhash IS NOT NULL') \
-                     .project('id, decode(minhash)') \
-                     .to_df() \
-                     .rename(columns={'decode(minhash)' : 'minhash'})
 
-        df['minhash'] = df['minhash']. \
-            map(lambda x : MinHash(num_perm=self.minhash_perm,
-                                   hashvalues=np.array(x.split(','))))
+        df = self.get_minhashes(relation)
+        
+        # # Get all nodes with minhash
+        # start_time = time.time()
+        # df = relation.filter('minhash IS NOT NULL') \
+        #              .project('id, decode(minhash)') \
+        #              .to_df() \
+        #              .rename(columns={'decode(minhash)' : 'minhash'})
+        #
+        # df['minhash'] = df['minhash']. \
+        #     map(lambda x : MinHash(num_perm=self.minhash_perm,
+        #                            hashvalues=np.array(x.split(','))))
+
         df.apply(lambda row : content_index.insert(row['id'],
                                                    row['minhash']), axis=1)
-        spent_time = time.time() - start_time
+        # spent_time = time.time() - start_time
         print(f'Indexed all minHash signatures: Took {spent_time}')
 
         for _, row in df.iterrows():
@@ -85,6 +91,10 @@ class DiscoveryGraph:
 
     def make_neighbor_edges(self):
         pass
+
+    """
+    Population functions
+    """
 
     def add_node(self, column: dict):
         '''
@@ -107,6 +117,26 @@ class DiscoveryGraph:
         edges_table = self.conn.table('edges')
         edges_table.insert([node_1, node_2, weight])
         edges_table.insert([node_2, node_1, weight])
+
+    """
+    Read functions
+    """
+
+    def get_minhashes(self, relation) -> pd.DataFrame:
+        # Get all nodes with minhash
+
+        start_time = time.time()
+        df = relation.filter('minhash IS NOT NULL') \
+            .project('id, decode(minhash)') \
+            .to_df() \
+            .rename(columns={'decode(minhash)': 'minhash'})
+
+        df['minhash'] = df['minhash']. \
+            map(lambda x: MinHash(num_perm=self.minhash_perm,
+                                  hashvalues=np.array(x.split(','))))
+
+        return df
+
 
     # TODO: Test implementation
     def find_neighborhood(self, node, hops):
@@ -179,7 +209,8 @@ class DiscoveryGraph:
         # FIXME: this function exists only for debugging purposes
         print(self.conn.table('nodes').create_view('test_nodes_view'))
 
-def test_graph(num_nodes, sparsity):
+
+def _test_graph(num_nodes, sparsity):
     '''
     Generate a random graph with given number of nodes and sparsity
     '''
@@ -204,7 +235,7 @@ def test_graph(num_nodes, sparsity):
     path_end = time.time()
     return nbhd_end - nbhd_start, path_end - path_start
 
-def test_scalability():
+def _test_scalability():
     '''
     Testing the scalability of finding the 2-hop neighborhood of a node as well 
     as finding paths between 2-nodes
@@ -232,6 +263,7 @@ def test_scalability():
         plt.ylabel('Time')
         plt.savefig(f'{title}.png')
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
                     prog = 'Network Builder',
@@ -241,4 +273,4 @@ if __name__ == '__main__':
                              'format')
     
     args = parser.parse_args()
-    test_scalability()
+    _test_scalability()
