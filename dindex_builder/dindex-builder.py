@@ -13,10 +13,11 @@ def main(output_path=None, table_path=None):
     start_all = time.time()
     network = FieldNetwork()
     store = StoreHandler()
+
     log = open('log_05.txt', 'w', buffering=1)
-    network_file = open('network_05.csv', 'w', encoding='UTF8', buffering=1)
-    csv_writer = csv.writer(network_file)
-    csv_writer.writerow(['tbl1', 'col1', 'tbl2', 'col2'])
+    # network_file = open('network_05.csv', 'w', encoding='UTF8', buffering=1)
+    # csv_writer = csv.writer(network_file)
+    # csv_writer.writerow(['tbl1', 'col1', 'tbl2', 'col2'])
 
     start_fields_gen = time.time()
     # Get all fields from store

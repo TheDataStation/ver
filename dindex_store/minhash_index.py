@@ -17,9 +17,5 @@ class MHIndex(MinHashIndex):
         })
 
 
-
-
-
-
 if __name__ == "__main__":
     print("Non volatile MinHash Index")
