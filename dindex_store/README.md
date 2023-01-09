@@ -10,19 +10,19 @@ index.
 
 Brief description of what's to be found in this module.
 
-##### common.py
+#### common.py
 
 Contains common definitions, including the abstract class for DiscoveryIndex. This is the class
 that any implementation of the dindex-store must implement.
 
 It also includes other definitions, such as EdgeType.
 
-##### json_data_loader.py
+#### json_data_loader.py
 
 Trivial. Takes JSON files (that correspond to columns of input data) and represents them as
 nodes in the discovery index
 
-##### dindex-store-XXX.py
+#### dindex-store-XXX.py
 
 These correspond to different implementations of the dindex-store. Different implementations
 correspond to different backends.
