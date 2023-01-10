@@ -1,13 +1,18 @@
 import os.path
 import time
 
+import pandas as pd
 from pandas.core.util.hashing import hash_pandas_object
 
 from utils import *
 
+
 class ViewDistillation:
 
     def __init__(self, path_to_views):
+
+        self.path_to_views = path_to_views
+
         self.candidate_key_size = 2
         self.uniqueness_threshold = 0.9
 
@@ -28,6 +33,28 @@ class ViewDistillation:
 
         self.wrong_keys = set()
         self.pruned_contradictory_views = set()
+
+    def get_current_views(self):
+
+        current_views = []
+        for key, dfs in self.dfs_per_schema.items():
+            current_views += [path for df, path in dfs]
+        return current_views
+
+    def distill_views(self, remove_identical_views=True,
+                      remove_contained_views=True,
+                      union_complementary_views=True):
+
+        if remove_identical_views:
+            self.reduce_compatible_views_to_one()
+
+        if remove_contained_views:
+            self.prune_contained_views(keep_largest=True)
+
+        if union_complementary_views:
+            self.union_complementary_views()
+
+        return self.get_current_views()
 
     def find_compatible_views(self):
 
@@ -99,7 +126,6 @@ class ViewDistillation:
             contained_groups += cur_contained_groups
 
         return contained_groups
-
 
     def _find_contained_views(self, dfs):
 
@@ -230,13 +256,16 @@ class ViewDistillation:
         for key, dfs in self.dfs_per_schema.items():
             new_dfs = []
             for df, path in dfs:
-                if path not in self.contained_views_to_remove:
+                if keep_largest:
+                    if path not in self.contained_views_to_remove:
+                        new_dfs.append((df, path))
+                        views_left.append(path)
+                else:
                     new_dfs.append((df, path))
                     views_left.append(path)
             self.dfs_per_schema[key] = new_dfs
 
         return views_left
-
 
     def find_contradictory_views(self):
 
@@ -332,7 +361,6 @@ class ViewDistillation:
 
         self.complementary_pairs = list(complementary_pairs - already_classified_as_contradictory)
 
-
         # complementary_pairs = []
         # contradictory_pairs = []
         # for path, v1 in all_contradictory_pair_result.items():
@@ -356,13 +384,59 @@ class ViewDistillation:
         idx_to_remove = []
         for i in range(len(self.complementary_pairs)):
             path1, path2, candidate_key = self.complementary_pairs[i]
-            if path1 in self.pruned_contradictory_views or path2 in self.pruned_contradictory_views or candidate_key in self.wrong_keys:
+            if path1 in self.pruned_contradictory_views or path2 in self.pruned_contradictory_views or candidate_key \
+                    in self.wrong_keys:
                 idx_to_remove.append(i)
 
         for idx in sorted(idx_to_remove, reverse=True):
             del self.complementary_pairs[idx]
 
         return self.complementary_pairs
+
+    def union_complementary_views(self):
+
+        self.find_complementary_views()
+
+        already_processed = set()
+        views_to_remove = set()
+        new_views = []
+
+        for path1, path2, candidate_key in self.complementary_pairs:
+
+            if (path1, path2) in already_processed:
+                continue
+
+            df1 = self.path_to_df_dict[path1]
+            df2 = self.path_to_df_dict[path2]
+
+            new_df = pd.concat([df1, df2]).drop_duplicates().reset_index(drop=True)
+            file_name = f"{os.path.splitext(path1)[0]}_union_{path2}"
+            new_path = os.path.join(self.path_to_views, file_name)
+            new_df.to_csv(new_path)
+
+            already_processed.add((path1, path2))
+            views_to_remove.add(path1)
+            views_to_remove.add(path2)
+            new_views.append((new_path, new_df))
+
+        views_left = []
+        for key, dfs in self.dfs_per_schema.items():
+            new_dfs = []
+            for df, path in dfs:
+                if path not in views_to_remove:
+                    new_dfs.append((df, path))
+                    views_left.append(path)
+
+            self.dfs_per_schema[key] = new_dfs
+
+        for path, df in new_views:
+            the_hashes = [hash(el) for el in df.columns]
+            schema_id = sum(the_hashes)
+            self.dfs_per_schema[schema_id].append((df, path))
+
+            views_left.append(path)
+
+        return views_left
 
     def present_contradictory_views_demo(self):
 
@@ -452,7 +526,6 @@ class ViewDistillation:
                     else:
                         print("Key:", str(key_tuple))
 
-
                 # print(contr_or_compl_df_list)
                 row1_dfs = []
                 row2_dfs = []
@@ -461,7 +534,6 @@ class ViewDistillation:
                 df2 = self.path_to_df_dict[path2]
 
                 for key_value in key_values:
-
                     row1_df = get_row_from_key(df1, key_tuple, key_value)
                     row2_df = get_row_from_key(df2, key_tuple, key_value)
 
@@ -494,7 +566,7 @@ class ViewDistillation:
                     print_option(path2, html2, buttons)
                     # option_dict[2] = (key_tuple, row2_dfs, path2)
 
-                # if len(option_dict) > 0:
+                    # if len(option_dict) > 0:
 
                     option_picked = await wait_for_change(buttons)
 
@@ -515,7 +587,6 @@ class ViewDistillation:
 
                         with out:
                             print(f"You picked {option_picked}")
-
 
             out.clear_output()
             with out:
@@ -541,12 +612,15 @@ class ViewDistillation:
 
         return task
 
+
 if __name__ == "__main__":
-    vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/toytest/")
-    res = vd.find_contained_views()
-    print(res)
-    res = vd.prune_contained_views(keep_largest=True)
-    print(res)
-    # print(vd.dfs_per_schema)
-    res = vd.find_contradictory_views()
+    vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
+    # res = vd.find_contained_views()
+    # print(res)
+    # res = vd.prune_contained_views(keep_largest=True)
+    # print(res)
+    # res = vd.find_contradictory_views()
+    # print(res)
+
+    res = vd.distill_views()
     print(res)

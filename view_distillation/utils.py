@@ -45,7 +45,7 @@ def curate_view(df, drop_duplicates=True, dropna=True):
 
 
 def get_dataframes(path, dropna=True):
-    files = [f for f in listdir(path) if isfile(join(path, f)) and f != '.DS_Store' and f != "log.txt"]
+    files = [f for f in listdir(path) if isfile(os.path.join(path, f)) and f != '.DS_Store']# and f != "log.txt"]
     dfs = []
     path_to_df_dict = {}
 
