@@ -612,6 +612,10 @@ class ViewDistillation:
 
         return task
 
+    def get_row_from_key(self, df:pd.DataFrame, key:tuple, key_value:tuple):
+
+        return get_row_from_key(df, key, key_value)
+
 
 if __name__ == "__main__":
     vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")

@@ -133,6 +133,19 @@ union each pair of views and materialize the new view in the input directory.
 The complementary views used to union are removed.
 
 
+## Helper Functions
+
+```python
+vd.get_row_from_key(df, key, key_value)
+```
+ 
+The input are `df`, a pandas Dataframe where the row will be extracted,
+`key`, the key column name, it should be a `tuple` since 
+the key can be composite and contain multiple columns,
+and `key_value`, the corresponding key value, also a `tuple`.
+
+This will return the row as a Dataframe based on the provided `key` and `key_value` in `df`.
+
 
 
 
