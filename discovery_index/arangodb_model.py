@@ -3,10 +3,12 @@ import time
 import random
 import json
 import argparse
+import tracemalloc
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from arango import ArangoClient
+from docker import DockerClient
 from datasketch import MinHash, MinHashLSH
 
 class ArangoDiscoveryGraph:
@@ -141,26 +143,35 @@ def test_graph(num_nodes, sparsity):
     graph = ArangoDiscoveryGraph(testing=True)
 
     print(f"Populating a {num_nodes} node, {sparsity} sparsity graph")
+    tracemalloc.start()
     pop_start = time.time()
     graph.populate_scalability_test(num_nodes, sparsity)
     pop_end = time.time()
+    pop_mem = tracemalloc.get_traced_memory()[1] / 10**6
+    tracemalloc.stop()
 
     print(f"The 2-hop neighborhood of 0 in a {num_nodes} node, {sparsity} "
            "sparsity graph is")
+    tracemalloc.start()
     nbhd_start = time.time()
     print(graph.find_neighborhood(0, 2))
     nbhd_end = time.time()
+    nbhd_mem = tracemalloc.get_traced_memory()[1] / 10**6
+    tracemalloc.stop()
 
     print(f"All paths between node 0 and node 2 in a {num_nodes} node, "
           f"{sparsity} sparsity graph are")
+    tracemalloc.start()
     path_start = time.time()
     print(graph.find_path(0, 2))
     path_end = time.time()
+    path_mem = tracemalloc.get_traced_memory()[1] / 10**6
+    tracemalloc.stop()
 
     graph.delete_database()
-    return pop_end - pop_start, nbhd_end - nbhd_start, path_end - path_start
+    return pop_end - pop_start, nbhd_end - nbhd_start, path_end - path_start, pop_mem, nbhd_mem, path_mem
 
-def test_scalability():
+def test_scalability(docker=None):
     '''
     Testing the scalability of finding the 2-hop neighborhood of a node as well 
     as finding paths between 2-nodes
@@ -170,17 +181,28 @@ def test_scalability():
     pop_result = []
     nbhd_result = []
     path_result = []
-    titles = ['Populate Graph', '2-hop Neighborhood Search', 'Path Finding']
+    pop_result_mem = []
+    nbhd_result_mem = []
+    path_result_mem = []
+    titles = ['Populate Graph',
+              '2-hop Neighborhood Search',
+              'Path Finding',
+              'Populate Graph Memory',
+              '2-hop Neighborhood Search Memory',
+              'Path Finding Memory']
 
     for n in nodes:
         for s in sparsity:
             # nbhd_time, path_time = np.mean([test_graph(n, s) for i in range(3)], axis=0)
-            pop_time, nbhd_time, path_time = test_graph(n, s)
+            pop_time, nbhd_time, path_time, pop_mem, nbhd_mem, path_mem = test_graph(n, s)
             pop_result.append([n, s, pop_time])
             nbhd_result.append([n, s, nbhd_time])
             path_result.append([n, s, path_time])
+            pop_result_mem.append([n, s, pop_mem])
+            nbhd_result_mem.append([n, s, nbhd_mem])
+            path_result_mem.append([n, s, path_mem])
 
-    for result, title in zip([pop_result, nbhd_result, path_result], titles):
+    for result, title in zip([pop_result, nbhd_result, path_result, pop_result_mem, nbhd_result_mem, path_result_mem], titles):
         df = pd.DataFrame(result, columns = ['No. of Nodes', 'Sparsity', 'Time'])
         df = df.pivot(index='No. of Nodes', columns='Sparsity', values='Time')
         plt.figure()
@@ -189,6 +211,14 @@ def test_scalability():
         plt.xlabel('No. of Nodes')
         plt.ylabel('Time')
         plt.savefig(f'{title}.png')
+    
+    # Get the memory usage of the Docker container
+    if docker:
+        docker_client = DockerClient(base_url='tcp://localhost:2375', version='auto')
+        for container in docker_client.containers.list():
+            if container.name == docker:
+                print(f"Docker max memory usage: {container.stats(stream=False)['memory_stats']['max_usage'] / 10**6} MB")
+                break
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -197,7 +227,9 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--path',
                         help='the directory that stores column profiles in JSON'
                              'format')
-    parser.add_argument('-t', '--test', action='store_true')
+    parser.add_argument('-d', '--docker',
+                        help='the name of the Docker container that serve the'
+                             'database')
 
     args = parser.parse_args()
-    test_scalability()
+    test_scalability(args.docker)
