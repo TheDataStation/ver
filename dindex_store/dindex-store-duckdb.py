@@ -48,7 +48,7 @@ class DiscoveryIndexDuckDB(DiscoveryIndex):
     def add_edge(self, source: int, target: int, type: EdgeType, properties: Dict) -> bool:
         pass
 
-    def add_undirected_edge(self, source: int, target: int, type: EdgeType, weigth: float) -> bool:
+    def add_undirected_edge(self, source: int, target: int, type: EdgeType, weight: float) -> bool:
         pass
 
 

@@ -38,7 +38,7 @@ class DiscoveryIndex(ABC):
         pass
 
     @abstractmethod
-    def add_undirected_edge(self, source: int, target: int, type: EdgeType, weigth: float) -> bool:
+    def add_undirected_edge(self, source: int, target: int, type: EdgeType, weight: float) -> bool:
         """
         Syntactic sugar over add_edge. Adding an undirected edge between A and B amounts to adding an edge
         between A and B and another edge between B and A.
@@ -47,6 +47,26 @@ class DiscoveryIndex(ABC):
         :param type:
         :param weigth:
         :return:
+        """
+        pass
+    
+    @abstractmethod
+    def find_neighborhood(self, node, hops=2):
+        """
+        Find a n-hop neighborhood around the node in the graph.
+        :param node:
+        :param hops:
+        :return: 
+        """
+        pass
+
+    @abstractmethod
+    def find_path(self, source: int, target: int):
+        """
+        Find paths that are no longer than 5 hops between source node and target node
+        :param source:
+        :param target:
+        :return: 
         """
         pass
 
