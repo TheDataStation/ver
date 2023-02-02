@@ -1,6 +1,7 @@
 from typing import List
 from ver_utils.column_selection import ColumnSelection, Column
 from ver_utils.join_path_search import JoinPathSearch
+from ver_utils.join_graph_search import JoinGraphSearch
 from algebra import API
 
 class ExampleColumn:
@@ -12,6 +13,7 @@ class QueryByExample:
     def __init__(self, aurum_api: API):
         self.column_selection = ColumnSelection(aurum_api)
         self.join_path_search = JoinPathSearch(aurum_api)
+        self.join_graph_search = JoinGraphSearch(self.join_path_search)
 
     
     def find_candidate_columns(self, columns: List[ExampleColumn]):
@@ -28,6 +30,9 @@ class QueryByExample:
             column_cluster = self.column_selection.cluster_columns(candidate, prune)
             column_clusters.append(column_cluster)
         return column_clusters
+
+    def find_join_graphs_between_candidate_columns(self, candidate_list: List[List[Column]]):
+        return self.join_graph_search.find_join_graphs(candidate_list)
 
     def find_joins_between_candidate_columns(self, candidate_list: List[List[Column]]):
         src_cols = candidate_list[0]

@@ -100,9 +100,9 @@ class Demo:
         global row_num
         global col_num
         row_num = 3
-        col_num = 2
+        col_num = 3
 
-        default_values = [["", ""], ["United States", "USD"], ["China", "CNY"]]
+        default_values = [["", "", ""], ["United States", "USD", "US Dollar"], ["China", "CNY", "Yuan Renminbi"]]
 
         attr_style = "<style>.attr input { background-color:#D0F0D0 !important; }</style>"
         x = [[widgets.Text(value=default_values[i][j]) for j in range(col_num)] for i in range(row_num)]

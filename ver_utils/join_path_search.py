@@ -3,13 +3,14 @@ from algebra import API
 from api.apiutils import DRS, Hit, Relation
 from typing import List
 from ver_utils.column_selection import Column
-
+from copy import deepcopy
 
 class JoinPath:
     def __init__(self, path: List, attrs_to_project: List):
         # join path is a list of key pairs: [join_key1, join_key2], [join_key3, join_key4]
         self.path = path
         # a map between table and the attributes needs to be projected in that table
+        # tbl -> attributes to project
         self.tbl_proj_attrs = defaultdict(list)
         for obj in attrs_to_project:
             self.tbl_proj_attrs[obj[0]].append(obj[1])
@@ -36,7 +37,7 @@ class JoinPathSearch:
     def find_join_paths_from_col(self, src: DRS, rel: Relation=Relation.CONTENT_SIM, max_hop: int=2):
         q = deque()
         path = [[src, None]]
-        q.append(path.copy())
+        q.append(deepcopy(path))
 
         result = []
         while q:
@@ -45,7 +46,7 @@ class JoinPathSearch:
             neighbors = self.api.neighbors(cur_last, rel)
             for nei in neighbors:
                 if not self.is_visited(nei, cur_path):
-                    new_path = cur_path.copy()
+                    new_path = deepcopy(cur_path)
                     new_path[-1][1] = nei
                     result.append(new_path)
                     if len(new_path) == max_hop:
@@ -53,7 +54,7 @@ class JoinPathSearch:
                     nei_tbl = self.api.drs_expand_to_table(nei)
                     # search next hop
                     for next_src in nei_tbl:
-                        next_path = new_path.copy()
+                        next_path = deepcopy(new_path)
                         next_path.append([next_src, None])
                         q.append(next_path)
                     
@@ -68,7 +69,7 @@ class JoinPathSearch:
 
         if src.tbl_name in tgt_tbls:
             for tgt in tgt_tbls[src.tbl_name]:
-                result.append(JoinPath([src.drs, src.drs], [src.key(), tgt.key()]))
+                result.append(JoinPath([[src.drs, src.drs]], [src.key(), tgt.key()]))
         
         
         src_tbl = self.api.drs_expand_to_table(src.drs)
