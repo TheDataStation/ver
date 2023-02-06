@@ -12,14 +12,12 @@ from os.path import isfile, join
 
 
 def normalize(df):
-
     df = df.convert_dtypes()
     df = df.apply(lambda x: x.astype(str).str.strip().str.lower() if (x.dtype == 'object') else x)
     return df
 
 
 def curate_view(df, drop_duplicates=True, dropna=True):
-
     if dropna:
         df = df.dropna()  # drop nan
     else:
@@ -36,7 +34,7 @@ def curate_view(df, drop_duplicates=True, dropna=True):
 
 
 def get_dataframes(path, dropna=True):
-    files = [f for f in listdir(path) if isfile(os.path.join(path, f)) and f != '.DS_Store']# and f != "log.txt"]
+    files = [f for f in listdir(path) if isfile(os.path.join(path, f)) and f != '.DS_Store']  # and f != "log.txt"]
     dfs = []
     path_to_df_dict = {}
 
@@ -50,6 +48,7 @@ def get_dataframes(path, dropna=True):
 
     return dfs, path_to_df_dict
 
+
 def classify_per_table_schema(dataframes):
     """
     Two schemas are the same if they have the exact same number and type of columns
@@ -61,7 +60,7 @@ def classify_per_table_schema(dataframes):
         the_hashes = [hash(el) for el in df.columns]
         schema_id = sum(the_hashes)
         schema_to_dataframes[schema_id].append((df, path))
-    return schema_to_dataframes #, schema_id_info
+    return schema_to_dataframes  # , schema_id_info
 
 
 def power_set(iterable, size_range):
@@ -185,6 +184,7 @@ def row_df_to_string(row_df):
     row_strs = [','.join(row.split()) for row in df_str]
 
     return row_strs
+
 
 def highlight_diff(df1, df2, color='pink'):
     # Define html attribute

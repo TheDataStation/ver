@@ -534,7 +534,7 @@ class ViewDistillation:
 
         return task
 
-    def get_row_from_key(self, df:pd.DataFrame, key:tuple, key_value:tuple):
+    def get_row_from_key(self, df: pd.DataFrame, key: tuple, key_value: tuple):
 
         return get_row_from_key(df, key, key_value)
 
