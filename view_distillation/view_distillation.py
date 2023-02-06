@@ -145,35 +145,15 @@ class ViewDistillation:
 
             (df1, path1) = dfs[i]
 
-            # if path1 in compatible_views_to_remove \
-            #         or path1 in already_classified_as_contained:
-            #     i += 1
-            #     continue
-
-            # largest_contained_view = None
             j = i + 1
 
             while j < len(dfs):
                 (df2, path2) = dfs[j]
 
-                # if path2 in compatible_views_to_remove \
-                #         or path2 in already_classified_as_contained:
-                #     j += 1
-                #     continue
-
                 hash_set1 = self.hash_dict[path1]
                 hash_set2 = self.hash_dict[path2]
 
-                # num_comparisons += 1
                 if hash_set2.issubset(hash_set1):
-                    # view2 is contained in view1
-                    # if largest_contained_view is None:
-                    #     largest_contained_view = (df1, path1)
-                    # else:
-                    #     if len(df1) > len(largest_contained_view[0]):
-                    #         already_classified_as_contained.add(largest_contained_view[1])
-                    #         largest_contained_view = (df1, path1)
-                    # already_classified_as_contained.add(path2)
 
                     already_contained = False
                     for k, v in contained_groups.items():
@@ -185,14 +165,6 @@ class ViewDistillation:
                         contained_groups[path1].add(path2)
 
                 elif hash_set1.issubset(hash_set2):
-                    # view1 is contained in view2
-                    # if largest_contained_view is None:
-                    #     largest_contained_view = (df2, path2)
-                    # else:
-                    #     if len(df2) > len(largest_contained_view[0]):
-                    #         already_classified_as_contained.add(largest_contained_view[1])
-                    #         largest_contained_view = (df2, path2)
-                    # already_classified_as_contained.add(path1)
 
                     already_contained = False
                     for k, v in contained_groups.items():
@@ -206,17 +178,6 @@ class ViewDistillation:
                 j += 1
 
             i += 1
-
-            # if largest_contained_view is not None:
-            #     largest_contained_views.add(largest_contained_view[1])
-
-        # to_be_removed = compatible_views_to_remove.union(already_classified_as_contained)
-
-        # candidate_complementary_contradictory_view_paths = []
-        # for df, path in dfs:
-        #     if path not in to_be_removed:
-        #         candidate_complementary_contradictory_views.append((df, path))
-        #         candidate_complementary_contradictory_view_paths.append(path)
 
         contained_lists = []
         for path1, paths in contained_groups.items():
@@ -290,11 +251,7 @@ class ViewDistillation:
 
         start_time = time.time()
 
-        # all_contradictory_pair_result = defaultdict(lambda: defaultdict(set))
         contractions = defaultdict(set)
-
-        # map[key][key_value][(rowA, rowB)]=[views with rowA, views with rowB]
-        # contradictions = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
 
         already_classified_as_contradictory = set()
         complementary_pairs = set()
@@ -313,14 +270,12 @@ class ViewDistillation:
                     clusters[row].add(path)
 
                 for row, cluster in clusters.items():
-                    # for path1 in cluster:
                     lst = list(cluster)
                     i = 0
                     while i < len(lst):
                         path1 = lst[i]
                         j = i + 1
                         while j < len(lst):
-                            # for path2 in cluster:
                             path2 = lst[j]
                             if (path1, path2, candidate_key) not in complementary_pairs and \
                                     (path2, path1, candidate_key) not in complementary_pairs:
@@ -333,24 +288,17 @@ class ViewDistillation:
 
                     for row2, cluster2 in clusters.items():
 
-                        # print(row1)
-                        # print(row2)
-
                         if row1 == row2:
                             continue
 
                         for path1 in cluster1:
                             for path2 in cluster2:
 
-                                # if not find_all_contradictions:
-                                #     if (path1, path2, candidate_key) in already_classified_as_contradictory:
-                                #         continue
                                 if path1 == path2:
                                     continue
                                 if (path1, path2) in already_added:
                                     continue
 
-                                # all_contradictory_pair_result[(path1, path2)][candidate_key].add(key_value)
                                 contractions[(path1, path2, candidate_key)].add(key_value)
 
                                 already_added.add((path1, path2))
@@ -360,19 +308,6 @@ class ViewDistillation:
                                 already_classified_as_contradictory.add((path2, path1, candidate_key))
 
         self.complementary_pairs = list(complementary_pairs - already_classified_as_contradictory)
-
-        # complementary_pairs = []
-        # contradictory_pairs = []
-        # for path, v1 in all_contradictory_pair_result.items():
-        #     path1, path2 = path
-        #     for candidate_key, contradictory_key_values in v1.items():
-        #         if len(contradictory_key_values) > 0:
-        #             for contradictory_key_value in contradictory_key_values:
-        #                 contradictory_pairs.append((path1, path2, candidate_key, contradictory_key_value))
-
-        # print(f"total_find_complementary_time: {time.time() - start_time} s")
-
-        # num_contradictory_pairs = len(all_contradictory_pair_result)
 
         return contractions
 
@@ -448,10 +383,6 @@ class ViewDistillation:
         if not self.found_contradictory_views:
             self.find_contradictory_views()
 
-        # sort by the number of contradictions
-        # self.contradictions = {k: v for k, v in sorted(self.contradictions.items(),
-        #                                                key=lambda item: len(item[1]),
-        #                                                reverse=True)}
         l = list(self.contradictions.items())
         random.shuffle(l)
         self.contradictions = dict(l)
@@ -478,7 +409,6 @@ class ViewDistillation:
 
         @out.capture()
         def print_option(desc, html, buttons):
-            # print(Colors.CWHITEBG + "Option " + str(option_num) + Colors.CEND)
             button = Button(description=desc)
             display(button)
             buttons.append(button)
@@ -494,7 +424,6 @@ class ViewDistillation:
 
                 path1, path2, key_tuple = k
 
-                # clear_output()
                 out.clear_output()
 
                 skip = False
@@ -526,7 +455,6 @@ class ViewDistillation:
                     else:
                         print("Key:", str(key_tuple))
 
-                # print(contr_or_compl_df_list)
                 row1_dfs = []
                 row2_dfs = []
 
@@ -558,15 +486,9 @@ class ViewDistillation:
                         .apply(highlight_diff, axis=None, df2=contradictory_rows1) \
                         .to_html()
 
-                    # view_filename1 = os.path.basename(path1)
                     print_option(path1, html1, buttons)
-                    # option_dict[1] = (key_tuple, row1_dfs, path1)
 
-                    # view_filename2 = os.path.basename(path2)
                     print_option(path2, html2, buttons)
-                    # option_dict[2] = (key_tuple, row2_dfs, path2)
-
-                    # if len(option_dict) > 0:
 
                     option_picked = await wait_for_change(buttons)
 
@@ -619,12 +541,6 @@ class ViewDistillation:
 
 if __name__ == "__main__":
     vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
-    # res = vd.find_contained_views()
-    # print(res)
-    # res = vd.prune_contained_views(keep_largest=True)
-    # print(res)
-    # res = vd.find_contradictory_views()
-    # print(res)
 
     res = vd.distill_views()
     print(res)

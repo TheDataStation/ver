@@ -12,22 +12,13 @@ from os.path import isfile, join
 
 
 def normalize(df):
-    # df = df.astype(str).apply(lambda x: x.str.strip().str.lower())
-    # infer and convert types (originally all columns have 'object' type)
-    # print(df.infer_objects().dtypes)
-    # df = df.convert_dtypes(convert_string=False, convert_integer=False)
+
     df = df.convert_dtypes()
-    # print(df.dtypes)
     df = df.apply(lambda x: x.astype(str).str.strip().str.lower() if (x.dtype == 'object') else x)
-    # df = df.convert_dtypes()
-    # print(df.columns.dtype)
-    # print(df)
     return df
 
 
 def curate_view(df, drop_duplicates=True, dropna=True):
-    # df.columns = df.iloc[0]
-    # df = df.drop(index=0).reset_index(drop=True)
 
     if dropna:
         df = df.dropna()  # drop nan
@@ -65,12 +56,10 @@ def classify_per_table_schema(dataframes):
     :param dataframes:
     :return:
     """
-    # schema_id_info = dict()
     schema_to_dataframes = defaultdict(list)
     for df, path in dataframes:
         the_hashes = [hash(el) for el in df.columns]
         schema_id = sum(the_hashes)
-        # schema_id_info[schema_id] = len(the_hashes)
         schema_to_dataframes[schema_id].append((df, path))
     return schema_to_dataframes #, schema_id_info
 
@@ -85,20 +74,9 @@ def find_candidate_keys(df, sampling=False, max_num_attr_in_composite_key=2, uni
     candidate_keys = []
 
     # infer and convert types (originally all columns have 'object' type)
-    # print(df.infer_objects().dtypes)
-    # df = df.convert_dtypes()
-    # df = mva.curate_view(df)
-    # for col in df.columns:
-    #     try:
-    #         print(df[col])
-    #         df[col] = pd.to_numeric(df[col])
-    #     except:
-    #         pass
-    # print(df.dtypes)
 
     # drop float-type columns
     df = df.select_dtypes(exclude=['float'])
-    # print(df.dtypes)
     total_rows, total_cols = df.shape
 
     sample = df
@@ -142,8 +120,6 @@ def find_candidate_keys(df, sampling=False, max_num_attr_in_composite_key=2, uni
             candidate_keys = [tuple(key)]
             max_strength = strength
 
-    # print("candidate keys:", candidate_keys)
-
     return candidate_keys
 
 
@@ -180,16 +156,11 @@ def build_inverted_index(dfs, candidate_key_size=2, uniqueness_threshold=0.9):
         for candidate_key in candidate_keys:
 
             key_values = df[list(candidate_key)].values.tolist()
-            # print(key_values)
 
             for i, key_value in enumerate(key_values):
-                # print(tuple(key_value))
                 candidate_key_to_inverted_index[candidate_key][tuple(key_value)].append((df, path, i))
 
         total_create_inverted_index_time += time.time() - start_time
-
-    # print(f"total_find_candidate_keys_time: {total_find_candidate_keys_time} s")
-    # print(f"total_create_inverted_index_time: {total_create_inverted_index_time} s")
 
     return candidate_key_to_inverted_index, view_to_candidate_keys_dict, \
            total_find_candidate_keys_time
@@ -213,12 +184,6 @@ def row_df_to_string(row_df):
     df_str = row_df.to_string(header=False, index=False, index_names=False).split('\n')
     row_strs = [','.join(row.split()) for row in df_str]
 
-    # row_strs = []
-    # for i in range(len(row_df)):
-    #     row = row_df.iloc[[i]]
-    #     row_str = row.to_string(header=False, index=False, index_names=False)
-    #     row_strs.append(row_str)
-    # print(row_strs)
     return row_strs
 
 def highlight_diff(df1, df2, color='pink'):
