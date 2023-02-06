@@ -38,7 +38,7 @@ class DiscoveryIndex(ABC):
         pass
 
     @abstractmethod
-    def add_undirected_edge(self, source: int, target: int, type: EdgeType, weight: float) -> bool:
+    def add_undirected_edge(self, source: int, target: int, type: EdgeType, properties: Dict) -> bool:
         """
         Syntactic sugar over add_edge. Adding an undirected edge between A and B amounts to adding an edge
         between A and B and another edge between B and A.
@@ -51,7 +51,7 @@ class DiscoveryIndex(ABC):
         pass
     
     @abstractmethod
-    def find_neighborhood(self, node, hops=2):
+    def find_neighborhood(self, node_id, hops=2):
         """
         Find a n-hop neighborhood around the node in the graph.
         :param node:
@@ -61,7 +61,7 @@ class DiscoveryIndex(ABC):
         pass
 
     @abstractmethod
-    def find_path(self, source: int, target: int):
+    def find_path(self, source_id: int, target_id: int):
         """
         Find paths that are no longer than 5 hops between source node and target node
         :param source:
@@ -70,20 +70,15 @@ class DiscoveryIndex(ABC):
         """
         pass
 
-    # TODO: extend with other functions that any DiscoveryIndex impl must implement, e.g., find-path, neighborhood, etc
-
-
 class FullTextSearchIndex(ABC):
 
     def init(self):
         return
 
-
 class MinHashIndex(ABC):
 
     def init(self):
         return
-
 
 if __name__ == "__main__":
     print("dindex-store : common")
