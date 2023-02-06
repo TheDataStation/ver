@@ -1,7 +1,7 @@
 from typing import List
 from ver_utils.join_path_search import JoinPathSearch
 import itertools
-from collections import defaultdict
+from collections import defaultdict, deque
 from copy import deepcopy
 
 class JoinGraph:
@@ -15,7 +15,7 @@ class JoinGraph:
         self.graph_dict = graph_dict
     
     def get_attrs_needed(self):
-        tbl_attrs_proj_map = defaultdict(list)
+        tbl_attrs_proj_map = defaultdict(set)
         tbl_attrs_join_key_map = defaultdict(list)
         for path in self.paths:
             for join_pair in path.path:
@@ -23,7 +23,8 @@ class JoinGraph:
                 tbl_attrs_join_key_map[join_pair[1].source_name].append(join_pair[1].field_name)
             proj_map = path.tbl_proj_attrs
             for tbl, attr_list in proj_map.items():
-                tbl_attrs_proj_map[tbl].extend(attr_list)
+                for attr in attr_list:
+                    tbl_attrs_proj_map[tbl].add(attr)
         return tbl_attrs_proj_map, tbl_attrs_join_key_map
         
 
@@ -41,14 +42,17 @@ class JoinGraphSearch:
             for j in range(i+1, self.col_num):
                 src_columns = candidate_lists[i]
                 tgt_columns = candidate_lists[j]
-                all_paths = []
+                # all_paths = []
+                all_paths = defaultdict(list)
                 
                 for src_column in src_columns:
                     paths = self.join_path_search.find_join_paths_between_two_cols(src_column, tgt_columns)
-                    all_paths.extend(paths)
+                    # all_paths.extend(paths)
+                    all_paths[src_column.tbl_name].extend(paths)
                     
                 if len(all_paths) != 0:
                     join_path_map[(i, j)] = all_paths
+                   
         return join_path_map
 
     def find_join_graphs(self, candidate_lists: List):
@@ -66,15 +70,75 @@ class JoinGraphSearch:
             new_dict = {}
             for edge in valid_graph:
                new_dict[edge] = join_path_map[edge]
-            keys, values = zip(*new_dict.items())
-            join_graphs = [dict(zip(keys, v)) for v in itertools.product(*values)]
-
+               new_dict[(edge[1], edge[0])] = join_path_map[edge]
+           
+            join_graphs = self.dfs_graph(valid_graph, new_dict)
             for join_graph in join_graphs:
-                if not self.is_join_graph_valid(join_graph):
-                    continue
                 join_graph = JoinGraph(join_graph)
                 all_join_graphs.append(join_graph)
+            # keys, values = zip(*new_dict.items())
+            # join_graphs = [dict(zip(keys, v)) for v in itertools.product(*values)]
+
+            # for join_graph in join_graphs:
+            #     if not self.is_join_graph_valid(join_graph):
+            #         continue
+            #     join_graph = JoinGraph(join_graph)
+            #     all_join_graphs.append(join_graph)
         return all_join_graphs
+
+    def get_join_graphs(self, graph, edges):
+        for idx_edge in graph:
+            cur_edges = edges[idx_edge]
+
+    def dfs(self, cur_graph, visited, res, adj_list, edges_dict, path_order, idx):
+        if idx == len(path_order):
+            res.append(deepcopy(cur_graph))
+            return
+
+        cur_edge = path_order[idx]
+        for start_tbl, edge_list in edges_dict[cur_edge].items():
+            if (cur_edge[0] in visited) and (visited[cur_edge[0]] != start_tbl):
+                continue
+            for edge in edge_list:
+                end_tbl = edge.path[-1][-1].source_name
+                cur_graph[cur_edge] = edge
+                visited[cur_edge[1]] = end_tbl
+                self.dfs(cur_graph, visited, res, adj_list, edges_dict, path_order, idx+1)
+                cur_graph.pop(cur_edge)
+                visited.pop(cur_edge[1])
+
+    
+    def dfs_graph(self, graph, edges_dict):
+        adj_list = defaultdict(list)
+        deg_list = defaultdict(int)
+        for edge in graph:
+            adj_list[edge[0]].append(edge[1])
+            deg_list[edge[0]] += 1
+            adj_list[edge[1]].append(edge[0])
+            deg_list[edge[1]] += 1
+
+        start = -1
+        for node, deg in deg_list.items():
+            if deg == 1:
+                start = node
+                break
+
+        path_order = []
+
+        self.dfs_graph_structure(adj_list, {start}, path_order, start)
+
+        res = []
+
+        self.dfs({}, {}, res, adj_list, edges_dict, path_order, 0)
+        return res
+
+    def dfs_graph_structure(self, adj_list, visited, path_order, start):
+        for nei in adj_list[start]:
+            if not nei in visited:
+                next_edge = (start, nei)
+                path_order.append(next_edge)
+                visited.add(nei)
+                self.dfs_graph_structure(adj_list, visited, path_order, nei)
 
     def is_join_graph_valid(self, join_graph):
         joints = defaultdict(list)

@@ -29,19 +29,23 @@ class Materializer:
                 if nei in visited:
                     continue
                 q.append(nei)
+                visited.add(nei)
                 last = nei
                 edge = (cur, nei)
                 join_path = graph_dict[edge]
-                if start in node_to_df:
-                    init_df = node_to_df[start]
+                if cur in node_to_df:
+                    init_df = node_to_df[cur]
                     df = self.materialize_join_path(join_path, init_df, proj_map, join_key_map)
                 else:
                     df = self.materialize_join_path(join_path, None, proj_map, join_key_map)
-                node_to_df[start] = df
+                node_to_df[cur] = df
                 node_to_df[nei] = df
         
         df = node_to_df[last]
-        return df[proj_map.values()]
+        final_attrs_project = []
+        for attrs in proj_map.values():
+            final_attrs_project.extend(list(attrs))
+        return df[final_attrs_project]
 
     def materialize_join_path(self, join_path: JoinPath, init_df=None, tbl_attrs_proj_map=None, tbl_attrs_join_key_map=None):
         path = join_path.path
@@ -59,9 +63,12 @@ class Materializer:
             tbl1, tbl2 = key1.source_name, key2.source_name
 
             if key1 == key2:
-                attrs_needs = tbl_attrs_proj_map[tbl1]
-                return read_csv_columns_with_sampling(self.table_path + tbl1, list(attrs_needs), self.sample_size)
-           
+                if prv_df is not None:
+                    return prv_df
+                else:
+                    attrs_needs = tbl_attrs_proj_map[tbl1]
+                    return read_csv_columns_with_sampling(self.table_path + tbl1, list(attrs_needs), self.sample_size)
+            
             if prv_df is None:
                 attrs_needs1 = set(tbl_attrs_join_key_map[tbl1]).union(tbl_attrs_proj_map[tbl1])
                 df1 = read_csv_columns_with_sampling(self.table_path + tbl1, list(attrs_needs1), self.sample_size)
