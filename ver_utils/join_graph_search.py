@@ -1,7 +1,7 @@
 from typing import List
 from ver_utils.join_path_search import JoinPathSearch
 import itertools
-from collections import defaultdict, deque
+from collections import defaultdict
 from copy import deepcopy
 
 class JoinGraph:
@@ -76,19 +76,8 @@ class JoinGraphSearch:
             for join_graph in join_graphs:
                 join_graph = JoinGraph(join_graph)
                 all_join_graphs.append(join_graph)
-            # keys, values = zip(*new_dict.items())
-            # join_graphs = [dict(zip(keys, v)) for v in itertools.product(*values)]
-
-            # for join_graph in join_graphs:
-            #     if not self.is_join_graph_valid(join_graph):
-            #         continue
-            #     join_graph = JoinGraph(join_graph)
-            #     all_join_graphs.append(join_graph)
+           
         return all_join_graphs
-
-    def get_join_graphs(self, graph, edges):
-        for idx_edge in graph:
-            cur_edges = edges[idx_edge]
 
     def dfs(self, cur_graph, visited, res, adj_list, edges_dict, path_order, idx):
         if idx == len(path_order):
@@ -139,35 +128,6 @@ class JoinGraphSearch:
                 path_order.append(next_edge)
                 visited.add(nei)
                 self.dfs_graph_structure(adj_list, visited, path_order, nei)
-
-    def is_join_graph_valid(self, join_graph):
-        joints = defaultdict(list)
-        for k, join_path in join_graph.items():
-            src, tgt = join_path.path[0][0], join_path.path[-1][-1]
-            joints[k[0]].append(src)
-            joints[k[1]].append(tgt)
-        
-        for k, v in joints.items():
-            if len(v) > 1:
-                v_set = set()
-                for _v in v:
-                    v_set.add(_v.source_name)
-
-                if len(v_set) > 1:
-                    return False
-
-        # check if there is cycle in a join graph
-        visited = set()
-        # get all join_paths in a join graph
-        join_paths = list(join_graph.values())
-
-        for join_path in join_paths:
-            for path in join_path.path:
-                src, tgt = path[0], path[1]
-                if (src, tgt) in visited:
-                    return False
-                visited.add((src, tgt))
-        return True
 
     def is_graph_valid(self, graph, col_num):
         visited = set()
