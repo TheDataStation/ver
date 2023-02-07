@@ -25,10 +25,6 @@ public class JSONFilesStore implements Store {
         String outputFolder = pc.getString(ProfilerConfig.STORE_TYPE_JSON_OUTPUT_FOLDER);
         String outputFolderName = outputFolder + "_" + timestamp;
         Files.createDirectories(Paths.get(outputFolderName));
-//        File f = new File(outputFolder);
-//        if (! f.canWrite()) {
-//            throw new Exception("Can't write to target output folder");
-//        }
         this.outputPath = outputFolderName;
     }
 

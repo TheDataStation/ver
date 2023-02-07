@@ -26,6 +26,8 @@ dependencies {
 
     implementation 'org.apache.opennlp:opennlp-tools:2.0.0'
     implementation 'au.com.bytecode:opencsv:2.4'
+    // read and write csv
+    implementation 'com.opencsv:opencsv:5.7.1'
 
     // jackson
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4'
