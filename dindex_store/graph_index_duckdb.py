@@ -11,7 +11,7 @@ class GraphIndexDuckDB(GraphIndex):
     def __init__(self, config: Dict) -> None:
         GraphIndexDuckDB._validate_config(config)
         self.config = config
-        self.conn = duckdb.connect()
+        self.conn = duckdb.connect(database=config["duckdb_database"])
         self.schema = ""
 
         with open(config["graph_schema_path"]) as f:

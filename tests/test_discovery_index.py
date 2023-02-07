@@ -45,7 +45,7 @@ def test_chain_graph_kuzu(clean_up):
         GraphIndexKuzu(config))
 
     for i in range(5):
-        discovery_graph.add_node({"id": i, "attr": 1})
+        discovery_graph.add_profile({"id": i, "attr": 1})
     for i in range(4):
         discovery_graph.add_undirected_edge(
             i, i + 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"similar": 1})
@@ -62,7 +62,7 @@ def test_chain_graph_duckdb():
         GraphIndexDuckDB(config))
 
     for i in range(5):
-        discovery_graph.add_node({"id": i, "attr": 1})
+        discovery_graph.add_profile({"id": i, "attr": 1})
     for i in range(4):
         discovery_graph.add_undirected_edge(
             i, i + 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})

@@ -28,7 +28,7 @@ class DiscoveryIndex:
     # ----------------------------------------------------------------------
     # Modify Methods
 
-    def add_node(self, node: Dict) -> bool:
+    def add_profile(self, node: Dict) -> bool:
         node_id = node["id"]
         if not self.__profile_index.add_profile(node):
             return False
@@ -55,7 +55,7 @@ class DiscoveryIndex:
     # ----------------------------------------------------------------------
     # Query Methods
 
-    def get_node(self, node_id: int) -> Dict:
+    def get_profile(self, node_id: int) -> Dict:
         return self.__profile_index.get_node(node_id)
 
     def find_neighborhood(self, node_id: int, hops: int = 1):
