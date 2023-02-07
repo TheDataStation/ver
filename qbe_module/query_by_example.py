@@ -1,7 +1,7 @@
 from typing import List
-from ver_utils.column_selection import ColumnSelection, Column
-from ver_utils.join_path_search import JoinPathSearch
-from ver_utils.join_graph_search import JoinGraphSearch
+from qbe_module.column_selection import ColumnSelection, Column
+from qbe_module.join_path_search import JoinPathSearch
+from qbe_module.join_graph_search import JoinGraphSearch
 from algebra import API
 
 class ExampleColumn:

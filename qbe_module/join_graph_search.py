@@ -1,5 +1,5 @@
 from typing import List
-from ver_utils.join_path_search import JoinPathSearch
+from qbe_module.join_path_search import JoinPathSearch
 import itertools
 from collections import defaultdict
 from copy import deepcopy
