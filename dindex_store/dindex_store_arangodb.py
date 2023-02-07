@@ -1,18 +1,12 @@
-import os
-import time
-import random
-import json
-import argparse
-import tracemalloc
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from arango import ArangoClient
-from docker import DockerClient
-from datasketch import MinHash, MinHashLSH
+import numpy
 
-class ArangoDiscoveryGraph:
-    def __init__(self, directory: str='', testing: bool=False):
+from typing import Dict
+from arango import ArangoClient
+
+from dindex_store.common import DiscoveryIndex, EdgeType
+
+class DiscoveryIndexArangoDB(DiscoveryIndex):
+    def __init__(self):
         client = ArangoClient()
         self.sys_db = client.db('_system', username='root', password='password')
 
@@ -52,184 +46,60 @@ class ArangoDiscoveryGraph:
 
         self.edges = self.graph.edge_collection('edges')
 
-        if testing:
-            return
+    def add_node(self, node: Dict) -> bool:
+        try:
+            if 'id' in node:
+                node['_key'] = str(node['id'])
 
-        self.minhash_perm = None
-        # Populate the nodes table with JSON files under the specified path
-        for filename in os.listdir(directory):
-            filepath = os.path.join(directory, filename)
-            if os.path.isfile(filepath):
-                with open(filepath) as f:
-                    column = json.load(f)
-                    self.add_node(column)
-        
-        self.make_similarity_edges()
+            self.nodes.insert(node)
+            return True
+        except:
+            print("Error when creating the node")
+            return False
 
-    # TODO: Implement
-    def make_similarity_edges(self, threshold: int=0.5):
-        ''''
-        Construct the graph (edges) based on minHash signatures of the nodes
-        '''
-        pass
-
-    def make_pkfk_edges(self):
-        pass
-
-    def make_neighbor_edges(self):
-        pass
-
-    def add_node(self, column: dict):
-        '''
-        Adds a single node, representing a column, into the nodes graph
-        '''
-        if 'id' in column:
-            column['_key'] = str(column['id'])
-        
-        self.nodes.insert(column)
+    def add_edge(self, source: int, target: int, type: EdgeType, properties: Dict) -> bool:
+        try:
+            properties.update({'_from': f'nodes/{source}', '_to': f'nodes/{target}'})
+            self.edges.insert(properties)
+            return True
+        except:
+            print("Error when creating the edge")
+            return False
     
-    # FIXME: Range of node id might not fit in a float
-    def add_undirected_edge(self, node_1: float, node_2: float, weight: int=1):
-        '''
-        Add a single undirected edge into the edges table
-        '''
-        self.edges.insert({'_from': f'nodes/{node_1}', '_to': f'nodes/{node_2}', 'weight': weight})
+    def add_undirected_edge(self, source: int, target: int, type: EdgeType, properties: Dict) -> bool:
+        # Undirected edges will be stored as directed edges and the query will use undirected mode
+        return self.add_edge(source, target, type, properties)
 
-    # TODO: Test implementation
-    def find_neighborhood(self, node, hops):
+    def delete_graph(self):
+        self.sys_db.delete_database('graph')
+
+    """
+    Read functions
+    """
+
+    def find_neighborhood(self, node_id: int, hops=1):
         '''
         Find the n-hop neighborhood of a node
         '''
-        # BFS on average is faster than DFS
-        # uniqueVertices "global" is faster than "path"
-        query = f'''FOR v, e, p IN 1..{hops} ANY \'nodes/{node}\' GRAPH \'graph\'
-                        OPTIONS {{ order: "bfs", uniqueVertices: "global" }}
-                        RETURN p.vertices[*]._key'''
-        cursor = self.db.aql.execute(query)
-        return [doc for doc in cursor]
+        try:
+            query = f'''FOR v, e, p IN 1..{hops} ANY \'nodes/{node_id}\' GRAPH \'graph\'
+                            OPTIONS {{ order: "bfs", uniqueVertices: "path" }}
+                            RETURN p.vertices[*]._key'''
+            cursor = self.db.aql.execute(query)
+            return numpy.array([doc for doc in cursor])
+        except:
+            print(f"Error when trying to find a {hops}-hop neighborhood")
 
-    def find_path(self, start, end):
+    def find_path(self, source_id: int, target_id: int):
         '''
         Find a path between the start to the end
         '''
-        query = f'FOR p IN ANY ALL_SHORTEST_PATHS \'nodes/{start}\' TO \'nodes/{end}\' GRAPH \'graph\' RETURN p.vertices[*]._key'
-        cursor = self.db.aql.execute(query)
-        return [doc for doc in cursor]
+        try:
+            query = f'FOR p IN ANY ALL_SHORTEST_PATHS \'nodes/{source_id}\' TO \'nodes/{target_id}\' GRAPH \'graph\' RETURN p.vertices[*]._key'
+            cursor = self.db.aql.execute(query)
+            return numpy.array([doc for doc in cursor])
+        except:
+            print(f"Error when trying to find paths between {source_id} to {target_id}")
 
-    def print_nodes(self):
-        # FIXME: this function exists only for debugging purposes
-        pass
-
-    def delete_database(self):
-        self.sys_db.delete_database('graph')
-
-    def populate_scalability_test(self, num_nodes, sparsity):
-        '''
-        Populate the nodes collection with random nodes
-        '''
-        nodes_query = f'FOR i IN 0..{num_nodes - 1} INSERT {{\'_key\': TO_STRING(i)}} INTO nodes'
-        cursor = self.db.aql.execute(nodes_query)
-
-        edges_query = f'''FOR i IN 0..{num_nodes - 1}
-                            FOR j IN i+1..{num_nodes - 1}
-                              FILTER RAND() < {sparsity}
-                                INSERT {{\'_from\': CONCAT(\'nodes/\', TO_STRING(i)), \'_to\': CONCAT(\'nodes/\', TO_STRING(j))}} INTO edges'''
-        cursor = self.db.aql.execute(edges_query)
-
-def test_graph(num_nodes, sparsity):
-    '''
-    Generate a random graph with given number of nodes and sparsity
-    '''
-    graph = ArangoDiscoveryGraph(testing=True)
-
-    print(f"Populating a {num_nodes} node, {sparsity} sparsity graph")
-    tracemalloc.start()
-    pop_start = time.time()
-    graph.populate_scalability_test(num_nodes, sparsity)
-    pop_end = time.time()
-    pop_mem = tracemalloc.get_traced_memory()[1] / 10**6
-    tracemalloc.stop()
-
-    print(f"The 2-hop neighborhood of 0 in a {num_nodes} node, {sparsity} "
-           "sparsity graph is")
-    tracemalloc.start()
-    nbhd_start = time.time()
-    print(graph.find_neighborhood(0, 2))
-    nbhd_end = time.time()
-    nbhd_mem = tracemalloc.get_traced_memory()[1] / 10**6
-    tracemalloc.stop()
-
-    print(f"All paths between node 0 and node 2 in a {num_nodes} node, "
-          f"{sparsity} sparsity graph are")
-    tracemalloc.start()
-    path_start = time.time()
-    print(graph.find_path(0, 2))
-    path_end = time.time()
-    path_mem = tracemalloc.get_traced_memory()[1] / 10**6
-    tracemalloc.stop()
-
-    graph.delete_database()
-    return pop_end - pop_start, nbhd_end - nbhd_start, path_end - path_start, pop_mem, nbhd_mem, path_mem
-
-def test_scalability(docker=None):
-    '''
-    Testing the scalability of finding the 2-hop neighborhood of a node as well 
-    as finding paths between 2-nodes
-    '''
-    nodes = [100, 200, 400, 800, 1600]
-    sparsity = [0.1, 0.2]
-    pop_result = []
-    nbhd_result = []
-    path_result = []
-    pop_result_mem = []
-    nbhd_result_mem = []
-    path_result_mem = []
-    titles = ['Populate Graph',
-              '2-hop Neighborhood Search',
-              'Path Finding',
-              'Populate Graph Memory',
-              '2-hop Neighborhood Search Memory',
-              'Path Finding Memory']
-
-    for n in nodes:
-        for s in sparsity:
-            # nbhd_time, path_time = np.mean([test_graph(n, s) for i in range(3)], axis=0)
-            pop_time, nbhd_time, path_time, pop_mem, nbhd_mem, path_mem = test_graph(n, s)
-            pop_result.append([n, s, pop_time])
-            nbhd_result.append([n, s, nbhd_time])
-            path_result.append([n, s, path_time])
-            pop_result_mem.append([n, s, pop_mem])
-            nbhd_result_mem.append([n, s, nbhd_mem])
-            path_result_mem.append([n, s, path_mem])
-
-    for result, title in zip([pop_result, nbhd_result, path_result, pop_result_mem, nbhd_result_mem, path_result_mem], titles):
-        df = pd.DataFrame(result, columns = ['No. of Nodes', 'Sparsity', 'Time'])
-        df = df.pivot(index='No. of Nodes', columns='Sparsity', values='Time')
-        plt.figure()
-        df.plot(title=f'{title} Scalability')
-        plt.xticks(nodes)
-        plt.xlabel('No. of Nodes')
-        plt.ylabel('Time')
-        plt.savefig(f'{title}.png')
-    
-    # Get the memory usage of the Docker container
-    if docker:
-        docker_client = DockerClient(base_url='tcp://localhost:2375', version='auto')
-        for container in docker_client.containers.list():
-            if container.name == docker:
-                print(f"Docker max memory usage: {container.stats(stream=False)['memory_stats']['max_usage'] / 10**6} MB")
-                break
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-                    prog = 'Network Builder',
-                    description = 'Builds the Entreprise Knowledge Graph')
-    parser.add_argument('-p', '--path',
-                        help='the directory that stores column profiles in JSON'
-                             'format')
-    parser.add_argument('-d', '--docker',
-                        help='the name of the Docker container that serve the'
-                             'database')
-
-    args = parser.parse_args()
-    test_scalability(args.docker)
+if __name__ == "__main__":
+    print("Discovery Index using a ArangoDB backend")
