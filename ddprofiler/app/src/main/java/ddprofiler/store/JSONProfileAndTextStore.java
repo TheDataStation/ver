@@ -4,7 +4,10 @@ import au.com.bytecode.opencsv.CSVWriter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ddprofiler.core.Profile;
+import ddprofiler.core.Worker;
 import ddprofiler.core.config.ProfilerConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -15,6 +18,7 @@ import java.util.List;
 
 public class JSONProfileAndTextStore implements Store {
 
+    final private Logger LOG = LoggerFactory.getLogger(JSONProfileAndTextStore.class.getName());
     private static final SimpleDateFormat tsPattern = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss-SSSXXX");
     private final String profileOutputPath;
     private final String textOutputPath;
@@ -90,6 +94,7 @@ public class JSONProfileAndTextStore implements Store {
             e.printStackTrace();
         }
         this.currentFileIndex += 1; // if successful, we update the index
+        LOG.info("Rolled new text file: " + newFile.getAbsolutePath());
     }
 
     @Override
