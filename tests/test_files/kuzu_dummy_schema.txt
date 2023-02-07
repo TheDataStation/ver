@@ -1,0 +1,2 @@
+CREATE NODE TABLE Column(id INT64, attr INT64, PRIMARY KEY (id));
+CREATE REL TABLE Edge(FROM Column TO Column, similar INT64)
