@@ -1,0 +1,4 @@
+CREATE TABLE edges (
+    from_node DECIMAL(18, 0),
+    to_node   DECIMAL(18, 0),
+    weight    DECIMAL(10, 4))

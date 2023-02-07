@@ -1,7 +1,7 @@
 import os
 import json
 
-from dindex_store.common import DiscoveryIndex
+from dindex_store.discovery_index import DiscoveryIndex
 
 
 def load_data(path, graph: DiscoveryIndex):
