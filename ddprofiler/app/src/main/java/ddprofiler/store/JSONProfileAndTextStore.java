@@ -98,7 +98,7 @@ public class JSONProfileAndTextStore implements Store {
     }
 
     @Override
-    public boolean indexData(long id, String dbName, String path, String sourceName, String columnName, List<String> values) {
+    public synchronized boolean indexData(long id, String dbName, String path, String sourceName, String columnName, List<String> values) {
         // if csvWriter is null this is the first call, so we roll out a file
         if (csvWriter == null) {
             this.rollFile();
@@ -108,8 +108,7 @@ public class JSONProfileAndTextStore implements Store {
 
         // write data
         String data = String.join(" ", values);
-        String line = id + ", " + dbName + ", " + path + ", " +
-                sourceName + ", " + columnName + ", " + data;
+        String[] line = {Long.toString(id), dbName, path, sourceName, columnName, data};
         this.csvWriter.writeNext(line);
 
         // check if we crossed the file lenght limit
@@ -118,6 +117,11 @@ public class JSONProfileAndTextStore implements Store {
         this.currentFileSizeEstimate += recordSize;
         // if we cross the threshold, we roll a new file
         if (this.currentFileSizeEstimate > this.MAX_CSV_SIZE) {
+            try {
+                this.csvWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             this.rollFile();
             this.currentFileSizeEstimate = 0;
         }
