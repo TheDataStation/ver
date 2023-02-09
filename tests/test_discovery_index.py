@@ -6,7 +6,7 @@ import yaml
 
 sys.path.append('../')
 
-from dindex_store.json_data_loader import load_data
+from dindex_builder.json_data_loader import load_data
 from dindex_store.graph_index_duckdb import GraphIndexDuckDB
 from dindex_store.graph_index_kuzu import GraphIndexKuzu
 from dindex_store.profile_index_duckdb import ProfileIndexDuckDB

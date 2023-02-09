@@ -50,6 +50,18 @@ def create_fts_index(con, table_name, index_column):
     query = "PRAGMA create_fts_index('{}', '{}', '*', stopwords='english')".format(table_name, index_column)
     con.execute(query)
 
+    prepare_query = """
+        PREPARE fts_query AS (
+            WITH scored_docs AS (
+                SELECT *, fts_main_documents.match_bm25(profile_id, ?) AS score FROM documents)
+            SELECT profile_id, score
+            FROM scored_docs
+            WHERE score IS NOT NULL
+            ORDER BY score DESC
+            LIMIT 100)
+        """
+    con.execute(prepare_query)
+
 
 if __name__ == "__main__":
     print("Text processor and data loader ")

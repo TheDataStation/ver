@@ -165,8 +165,10 @@ class GraphIndex(ABC):
 
 
 class FullTextSearchIndex(ABC):
-    def init(self):
-        return
+
+    @abstractmethod
+    def query(self, kw) -> List:
+        pass
 
 
 class MinHashIndex(ABC):
