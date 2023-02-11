@@ -1,0 +1,3 @@
+CREATE TABLE profiles (
+    id          DECIMAL(18, 0) NOT NULL PRIMARY KEY,
+    attr        INT)
