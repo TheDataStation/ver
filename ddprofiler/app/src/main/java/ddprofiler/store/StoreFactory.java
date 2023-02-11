@@ -13,6 +13,10 @@ public class StoreFactory {
         return new JSONFilesStore(pc);
     }
 
+    public static Store makeJSONAndTextFilesStore(ProfilerConfig pc) throws Exception {
+        return new JSONProfileAndTextStore(pc);
+    }
+
     public static Store makeNullStore(ProfilerConfig pc) {
 
         return new NullStore();
@@ -28,6 +32,9 @@ public class StoreFactory {
         else if(type == StoreType.ELASTIC_STORE.ofType()) {
             s = StoreFactory.makeElasticStore(pc);
         }
+        else if(type == StoreType.JSON_AND_TEXT_FILES.ofType()) {
+            s = StoreFactory.makeJSONAndTextFilesStore(pc);
+        }
 //        } else if (type == StoreType.ELASTIC_HTTP.ofType()) {
 //            s = StoreFactory.makeHttpElasticStore(pc);
 //        } else if (type == StoreType.ELASTIC_NATIVE.ofType()) {
@@ -35,5 +42,6 @@ public class StoreFactory {
 //        }
         return s;
     }
+
 
 }

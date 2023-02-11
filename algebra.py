@@ -121,6 +121,9 @@ class Algebra:
     TC API
     """
 
+    def neighbors(self, drs: DRS, relation):
+        return self._network.neighbors_id(drs, relation)
+
     def paths(self, drs_a: DRS, drs_b: DRS, relation=Relation.PKFK, max_hops=2, lean_search=False) -> DRS:
         """
         Is there a transitive relationship between any element in a with any
@@ -278,6 +281,12 @@ class Algebra:
         table = hit.source_name
         hits = self._network.get_hits_from_table(table)
         drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]), lean_drs=True)
+        return drs
+
+    def drs_expand_to_table(self, drs: DRS) -> DRS:
+        table = drs.source_name
+        hits = self._network.get_hits_from_table(table)
+        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[drs]))
         return drs
 
     def drs_from_table_hit(self, hit: Hit) -> DRS:

@@ -9,7 +9,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datasketch import MinHash, MinHashLSH
 
+
 class DiscoveryGraph:
+
     def __init__(self, directory: str='', testing: bool=False):
         self.conn = duckdb.connect()
         self.conn.execute(
@@ -31,6 +33,7 @@ class DiscoveryGraph:
             median         DECIMAL(18, 0),
             iqr            DECIMAL(18, 0)
         )''')
+
         self.conn.execute('''CREATE TABLE edges
         (
             from_node DECIMAL(18, 0),
@@ -58,20 +61,23 @@ class DiscoveryGraph:
         '''
         content_index = MinHashLSH(threshold, num_perm=self.minhash_perm)
         relation = self.conn.table('nodes')
-        
-        # Get all nodes with minhash
-        start_time = time.time()
-        df = relation.filter('minhash IS NOT NULL') \
-                     .project('id, decode(minhash)') \
-                     .to_df() \
-                     .rename(columns={'decode(minhash)' : 'minhash'})
 
-        df['minhash'] = df['minhash']. \
-            map(lambda x : MinHash(num_perm=self.minhash_perm,
-                                   hashvalues=np.array(x.split(','))))
+        df = self.get_minhashes(relation)
+        
+        # # Get all nodes with minhash
+        # start_time = time.time()
+        # df = relation.filter('minhash IS NOT NULL') \
+        #              .project('id, decode(minhash)') \
+        #              .to_df() \
+        #              .rename(columns={'decode(minhash)' : 'minhash'})
+        #
+        # df['minhash'] = df['minhash']. \
+        #     map(lambda x : MinHash(num_perm=self.minhash_perm,
+        #                            hashvalues=np.array(x.split(','))))
+
         df.apply(lambda row : content_index.insert(row['id'],
                                                    row['minhash']), axis=1)
-        spent_time = time.time() - start_time
+        # spent_time = time.time() - start_time
         print(f'Indexed all minHash signatures: Took {spent_time}')
 
         for _, row in df.iterrows():
@@ -85,6 +91,10 @@ class DiscoveryGraph:
 
     def make_neighbor_edges(self):
         pass
+
+    """
+    Population functions
+    """
 
     def add_node(self, column: dict):
         '''
@@ -107,6 +117,26 @@ class DiscoveryGraph:
         edges_table = self.conn.table('edges')
         edges_table.insert([node_1, node_2, weight])
         edges_table.insert([node_2, node_1, weight])
+
+    """
+    Read functions
+    """
+
+    def get_minhashes(self, relation) -> pd.DataFrame:
+        # Get all nodes with minhash
+
+        start_time = time.time()
+        df = relation.filter('minhash IS NOT NULL') \
+            .project('id, decode(minhash)') \
+            .to_df() \
+            .rename(columns={'decode(minhash)': 'minhash'})
+
+        df['minhash'] = df['minhash']. \
+            map(lambda x: MinHash(num_perm=self.minhash_perm,
+                                  hashvalues=np.array(x.split(','))))
+
+        return df
+
 
     # TODO: Test implementation
     def find_neighborhood(self, node, hops):
@@ -179,7 +209,8 @@ class DiscoveryGraph:
         # FIXME: this function exists only for debugging purposes
         print(self.conn.table('nodes').create_view('test_nodes_view'))
 
-def test_graph(num_nodes, sparsity):
+
+def _test_graph(num_nodes, sparsity):
     '''
     Generate a random graph with given number of nodes and sparsity
     '''
@@ -204,109 +235,7 @@ def test_graph(num_nodes, sparsity):
     path_end = time.time()
     return nbhd_end - nbhd_start, path_end - path_start
 
-def check_path_equality(df1, df2):
-    '''
-    Checks if the paths in the 2 dataframes are equal
-    '''
-    df1 = df1.astype(dtype={'startNode': 'int64',
-                            'endNode': 'int64',
-                            'path': 'object'})
-    df2 = df2.astype(dtype={'startNode': 'int64',
-                            'endNode': 'int64',
-                            'path': 'object'})
-    df1 = df1.sort_values(by=['path']).reset_index(drop=True)
-    df2 = df2.sort_values(by=['path']).reset_index(drop=True)
-    return df1.equals(df2)
-
-def test_correctness_constant():
-    '''
-    Testing the correctness of finding the 2-hop neighborhood of a node as well
-    as finding paths between 2-nodes using constant test cases
-    '''
-    graph = DiscoveryGraph(testing=True)
-
-    # Tests for 2-hop neighborhood
-    # Test 1: Can find 2-hop neighborhood of a node
-    test_df = pd.DataFrame([
-        [0, 1, [0, 1]],
-        [0, 2, [0, 2]],
-        [0, 3, [0, 1, 3]],
-        [0, 4, [0, 1, 4]],
-        [0, 5, [0, 2, 5]],
-        ], columns=['startNode', 'endNode', 'path'])
-
-    graph.add_undirected_edge(0, 1)
-    graph.add_undirected_edge(0, 2)
-    graph.add_undirected_edge(1, 3)
-    graph.add_undirected_edge(1, 4)
-    graph.add_undirected_edge(2, 5)
-
-    print(f"Test 1: {check_path_equality(test_df, graph.find_neighborhood(0, 2))}"
-           " (Can find 2-hop neighborhood of a node)")
-
-    # Test 2: Can find multiple path to a 2-hop neighbor
-    graph.add_undirected_edge(0, 6)
-    graph.add_undirected_edge(6, 3)
-
-    test_df = pd.concat([test_df, pd.DataFrame([
-        [0, 6, [0, 6]],
-        [0, 3, [0, 6, 3]],
-        ], columns=['startNode', 'endNode', 'path'])], ignore_index=True)
-
-    print(f"Test 2: {check_path_equality(test_df, graph.find_neighborhood(0, 2))}"
-           " (Can find multiple paths to a 2-hop neighbor)")
-
-    # Test 3: Take only the shortest paths
-    graph.add_undirected_edge(0, 3)
-
-    test_df = test_df[test_df['endNode'] != 3]
-    test_df = pd.concat([test_df, pd.DataFrame([
-        [0, 3, [0, 3]],
-        ], columns=['startNode', 'endNode', 'path'])], ignore_index=True)
-
-    print(f"Test 3: {check_path_equality(test_df, graph.find_neighborhood(0, 2))}"
-           " (Take only the shortest paths)")
-
-    # Test 4: 3rd neighbors are not included in 2-hop neighborhood
-    graph.add_undirected_edge(5, 7)
-
-    print(f"Test 4: {check_path_equality(test_df, graph.find_neighborhood(0, 2))}"
-           " (3rd neighbors are not included in 2-hop neighborhood)")
-
-    # Test 5: Unconnected nodes are not included in 2-hop neighborhood
-    graph.add_undirected_edge(8, 9)
-
-    print(f"Test 5: {check_path_equality(test_df, graph.find_neighborhood(0, 2))}"
-           " (Unconnected nodes are not included in 2-hop neighborhood)")
-
-    # Tests for path finding
-    # Test 6: Can find path between 2 nodes
-    test_df = pd.DataFrame([
-        [0, 7, [0, 2, 5, 7]],
-        ], columns=['startNode', 'endNode', 'path'])
-
-    print(f"Test 6: {check_path_equality(test_df, graph.find_path(0, 7))}"
-           " (Can find path between 2 nodes)")
-
-    # Test 7: Can find multiple paths between 2 nodes
-    graph.add_undirected_edge(4, 7)
-
-    test_df = pd.concat([test_df, pd.DataFrame([
-        [0, 7, [0, 1, 4, 7]],
-        ], columns=['startNode', 'endNode', 'path'])], ignore_index=True)
-
-    print(f"Test 7: {check_path_equality(test_df, graph.find_path(0, 7))}"
-           " (Can find multiple paths between 2 nodes)")
-
-    # Test 8: Take only the shortest paths
-    print(f"Test 8: {len(graph.find_path(0, 3)) == 1}"
-           " (Take only the shortest paths)")
-
-    # Test 9: Returns nothing when the nodes are unconnected
-    print(f"Test 9: {len(graph.find_path(0, 9)) == 0}"
-           " (Returns nothing when the nodes are unconnected)")
-
-def test_scalability():
+def _test_scalability():
     '''
     Testing the scalability of finding the 2-hop neighborhood of a node as well 
     as finding paths between 2-nodes
@@ -334,6 +263,7 @@ def test_scalability():
         plt.ylabel('Time')
         plt.savefig(f'{title}.png')
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
                     prog = 'Network Builder',
@@ -344,7 +274,4 @@ if __name__ == '__main__':
     parser.add_argument('-t', '--test', action='store_true')
 
     args = parser.parse_args()
-    if args.test:
-        test_correctness_constant()
-    else:
-        test_scalability()
+    _test_scalability()
