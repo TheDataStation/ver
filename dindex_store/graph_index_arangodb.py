@@ -1,11 +1,11 @@
 import numpy
 
-from typing import Dict
+from typing import Dict, List
 from arango import ArangoClient
 
-from dindex_store.common import DiscoveryIndex, EdgeType
+from dindex_store.discovery_index import GraphIndex, EdgeType
 
-class DiscoveryIndexArangoDB(DiscoveryIndex):
+class GraphIndexArangoDB(GraphIndex):
     def __init__(self):
         client = ArangoClient()
         self.sys_db = client.db('_system', username='root', password='password')
@@ -46,6 +46,9 @@ class DiscoveryIndexArangoDB(DiscoveryIndex):
 
         self.edges = self.graph.edge_collection('edges')
 
+    # ----------------------------------------------------------------------
+    # Modify Methods
+
     def add_node(self, node: Dict) -> bool:
         try:
             if 'id' in node:
@@ -73,31 +76,28 @@ class DiscoveryIndexArangoDB(DiscoveryIndex):
     def delete_graph(self):
         self.sys_db.delete_database('graph')
 
-    """
-    Read functions
-    """
+    # ----------------------------------------------------------------------
+    # Query Methods
 
-    def find_neighborhood(self, node_id: int, hops=1):
-        '''
-        Find the n-hop neighborhood of a node
-        '''
+    def find_neighborhood(self, node_id: int, hops=1) -> List:
         try:
             query = f'''FOR v, e, p IN 1..{hops} ANY \'nodes/{node_id}\' GRAPH \'graph\'
                             OPTIONS {{ order: "bfs", uniqueVertices: "path" }}
                             RETURN p.vertices[*]._key'''
             cursor = self.db.aql.execute(query)
-            return numpy.array([doc for doc in cursor])
+            return numpy.array([doc[1] for doc in cursor])
         except:
             print(f"Error when trying to find a {hops}-hop neighborhood")
 
-    def find_path(self, source_id: int, target_id: int):
-        '''
-        Find a path between the start to the end
-        '''
+    def find_path(
+            self,
+            source_id: int,
+            target_id: int,
+            max_len: int) -> List:
         try:
             query = f'FOR p IN ANY ALL_SHORTEST_PATHS \'nodes/{source_id}\' TO \'nodes/{target_id}\' GRAPH \'graph\' RETURN p.vertices[*]._key'
             cursor = self.db.aql.execute(query)
-            return numpy.array([doc for doc in cursor])
+            return numpy.array([doc for doc in cursor if len(doc) <= max_len])
         except:
             print(f"Error when trying to find paths between {source_id} to {target_id}")
 
