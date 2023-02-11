@@ -1,14 +1,14 @@
-# Summary of discovery graph backend choices
+# Summary of Discovery Graph Backend Choices
 
-> Workload  
-> * We use pair combinations of number of nodes [100, 200, 400, 800, 1600] and edge sparsity [0.1, 0.2].  
-> * Workload are measured by execution time and memory usage on data loading, 2-hop neighborhood, and path finding queries  
-> * Memory usage calculated from 2 sides: client side (query runner) and server side (database). For file based and/or runtime databases, we measured the memory usage only on the client side. For a detached database, we measured the server side maximum memory usage from the docker container that host said database.  
+Workload  
+* We use pair combinations of number of nodes [100, 200, 400, 800, 1600] and edge sparsity [0.1, 0.2].  
+* Workload are measured by execution time and memory usage on data loading, 2-hop neighborhood, and path finding queries  
+* Memory usage calculated from 2 sides: client side (query runner) and server side (database). For file based and/or runtime databases, we measured the memory usage only on the client side. For a detached database, we measured the server side maximum memory usage from the docker container that host said database.  
 
 ---
 
 ## DuckDB
-Link: [GitHub - duckdb/duckdb: DuckDB is an in-process SQL OLAP Database Management System](https://github.com/duckdb/duckdb)
+Link: https://github.com/duckdb/duckdb
 
 Pros:
 * Mature Community - constantly updated
@@ -90,14 +90,15 @@ Pros:
 * Easy to use and easy to setup.
 
 Cons:
-* The graph is stored in the memory, can create headache with large datasets.
-* I think it has a poor performance for finding neighborhood
+* The graph is stored in the memory, large dataset will consume a lot of memory.
+* Not so good performance for finding neighborhood
 
 License:
 LGPLv3
 
 Notes:
-We can reduce the memory workload by moving unnecessary part of the vertex property to disk by using conventional database (i’m currently trying to do it in sqlite and postgres). Only leaving the essential part of the properties to enable graph method (path finding, n-hop neighborhood).
+* We can reduce the memory workload by moving unnecessary part of the vertex property to disk by using conventional database. Only leaving the essential part of the properties to enable faster graph query (path finding, n-hop neighborhood).
+* But by doing so, we increase the complexity of our backend, and implementing it on graph-tool have been quite a challenge.
 
 ---
 
@@ -106,7 +107,7 @@ Link:
 https://networkit.github.io
 
 Pros:
-* Almost the same speed as graph-tool for finding path, pretty fast.
+* Almost the same speed as graph-tool for finding path, very fast
 * Far quicker for finding neighborhood
 
 Cons:
@@ -117,7 +118,10 @@ License:
 MIT License
 
 Notes:
-Same workaround for graph-tool can be done for NetworKit.
+* Because of the in-memory storage, we can't just store all of the graph properties. The backend memory will be bloated for very large datasets.
+* The workaround: We use NetworKit as main graph storage, storing the nodes and the relationship between the nodes. We use RDBMS as the node properties storage.
+* We already combine a few RDBMS (postgres, etc.) as a properties storage with NetworKit as the graph backend. The initial performance results have been quite good. The combined implementation performs better than DuckDB on pathfinding and neighborhood queries with relatively low memory usage while indexing the TPC-H dataset.
+* But because of the added complexity, writing modular code with easy-to-use API is very challenging. Not only that, every RDBMS is different. Some features on one might not exist on another, thus complicating the backend development to maintain compatibility with various RDBMS.
 
 ---
 
