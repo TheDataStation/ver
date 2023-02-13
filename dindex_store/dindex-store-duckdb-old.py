@@ -271,6 +271,6 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--path',
                         help='the directory that stores column profiles in JSON'
                              'format')
-    
+
     args = parser.parse_args()
     _test_scalability()

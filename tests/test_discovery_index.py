@@ -69,3 +69,183 @@ def test_chain_graph_duckdb():
 
     result = discovery_graph.find_neighborhood(1)
     assert len(result) == 2
+
+
+def test_two_hop_single_path_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    discovery_graph.add_undirected_edge(
+        0, 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        0, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        1, 3, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+
+    result = discovery_graph.find_neighborhood(0, 2)
+    assert len(result) == 3
+
+
+def test_two_hop_multiple_path_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    discovery_graph.add_undirected_edge(
+        0, 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        0, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        1, 3, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        2, 3, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+
+    result = discovery_graph.find_neighborhood(0, 2)
+    assert len(result) == 4
+
+
+def test_two_hop_shortest_path_only_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    discovery_graph.add_undirected_edge(
+        0, 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        0, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        1, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+
+    result = discovery_graph.find_neighborhood(0, 2)
+    assert len(result) == 2
+
+
+def test_correct_amount_of_hops_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    discovery_graph.add_undirected_edge(
+        0, 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        1, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+
+    result = discovery_graph.find_neighborhood(0, 1)
+    assert len(result) == 1
+
+
+def test_unconnected_neighbor_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    discovery_graph.add_undirected_edge(
+        0, 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        2, 3, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+
+    result = discovery_graph.find_neighborhood(0, 2)
+    assert len(result) == 1
+
+
+def test_path_find_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    discovery_graph.add_undirected_edge(
+        0, 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        1, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+
+    result = discovery_graph.find_path(0, 2)
+    assert len(result) == 1
+
+
+def test_path_find_multiple_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    discovery_graph.add_undirected_edge(
+        0, 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        0, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        1, 3, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        2, 3, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+
+    result = discovery_graph.find_path(0, 3)
+    assert len(result) == 2
+
+
+def test_path_find_shortest_only_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    discovery_graph.add_undirected_edge(
+        0, 1, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        1, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+    discovery_graph.add_undirected_edge(
+        0, 2, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {"weight": 1})
+
+    result = discovery_graph.find_path(0, 2)
+    assert len(result) == 1
+
+
+def test_path_find_unconnected_duckdb():
+    config = read_config("test_files/dindex_config.yml")
+    config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
+    discovery_graph = DiscoveryIndex(
+        ProfileIndexDuckDB(config),
+        GraphIndexDuckDB(config))
+
+    for i in range(5):
+        discovery_graph.add_profile({"id": i, "attr": 1})
+
+    result = discovery_graph.find_path(0, 1)
+    assert len(result) == 0
