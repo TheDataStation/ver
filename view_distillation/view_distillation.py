@@ -86,7 +86,9 @@ class ViewDistillation:
             self.G.add_edge(view1, view2, c="complementary", complementary_keys=keys)
             self.G.add_edge(view2, view1, c="complementary", complementary_keys=keys)
 
+        print("nodes")
         pprint(list(self.G.nodes.data()))
+        print("edges")
         pprint(list(self.G.edges.data()))
 
         self.draw_graph("graph")
@@ -113,7 +115,9 @@ class ViewDistillation:
             self.G.remove_nodes_from(self.complementary_views_to_remove)
             self.G.add_nodes_from([path for path, df in self.unioned_complementary_views])
 
+        print("nodes")
         pprint(list(self.G.nodes.data()))
+        print("edges")
         pprint(list(self.G.edges.data()))
 
         self.draw_graph("pruned_graph")
