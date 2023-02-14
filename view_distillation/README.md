@@ -181,6 +181,8 @@ vd.prune_graph(remove_identical_views=True,
 Similar functionality as `distill_views`, and returns the pruned graph. 
 The nodes and edges will be pruned based on the given options, and unioned complementary views will be added to the graph as new nodes.
 
+Pruned graph:
+
 ![Pruned graph:](pruned_graph.png)
 
 
