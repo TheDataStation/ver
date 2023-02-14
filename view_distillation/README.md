@@ -37,8 +37,8 @@ each other, keep one of the view and remove the rest.
 If `remove_contained_views` is `True`, it will find all views that are contained in some larger view
 and remove them.
 
-If `union_complementary_views` is `True`, it will union each pair of complementary views that *do not have any contradictions with any other views on any key*,
-and materialize the new view in the input directory, since the contradictions cannot be resolved automatically.
+If `union_complementary_views` is `True`, it will union each pair of complementary views that *do not have any contradictions with any other views on any key* since the contradictions cannot be resolved automatically,
+and materialize the new view in the input directory.
 The complementary views used to union are removed.
 
 This API will return the list of views left after distillation.
