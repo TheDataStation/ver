@@ -1,10 +1,14 @@
 import os.path
 import time
 
+import networkx
 import pandas as pd
 from pandas.core.util.hashing import hash_pandas_object
+import networkx as nx
 
 from utils import *
+import itertools
+from pprint import pprint
 
 
 class ViewDistillation:
@@ -28,11 +32,105 @@ class ViewDistillation:
         self.contained_views_to_remove = set()
 
         self.found_contradictory_views = False
-
         self.contradictions = {}
+
+        self.complementary_views_to_remove = set()
+        self.unioned_complementary_views = []
 
         self.wrong_keys = set()
         self.pruned_contradictory_views = set()
+
+        self.G = None
+
+    def generate_graph(self):
+
+        self.G = nx.DiGraph()
+
+        compatible_groups = self.find_compatible_views()
+        for group in compatible_groups:
+            self.G.add_nodes_from(group)
+            edges = itertools.permutations(group, r=2)
+            self.G.add_edges_from(edges, c="compatible")
+
+        contained_groups = self.find_contained_views()
+        for view1, lst in contained_groups.items():
+            for view2 in lst:
+                self.G.add_edge(view2, view1, c="contained")
+
+        contradictions = self.find_contradictory_views()
+        for view_pair, d in contradictions.items():
+            view1, view2 = view_pair
+            self.G.add_edge(view1, view2, c="contradictory", contradictory_key_values=d)
+            self.G.add_edge(view2, view1, c="contradictory", contradictory_key_values=d)
+
+        complementary_pairs = self.find_complementary_views()
+        for view_pair, keys in complementary_pairs.items():
+            view1, view2 = view_pair
+
+            if self.G.has_edge(view1, view2) or self.G.has_edge(view2, view1):
+                v1, v2 = view1, view2
+                if self.G.has_edge(view2, view1):
+                    v2, v1 = view1, view2
+                if self.G[v1][v2]["c"] == "contained" or self.G[v1][v2]["c"] == "compatible":
+                    # if the views are either compatible or contained, skip
+                    # alternatively, can also label them as both compatible/contained and complementary
+                    continue
+                elif self.G[v1][v2]["c"] == "contradictory":
+                    # contradictory for one key, complementary for other key
+                    self.G[v1][v2]["c"] = "contradictory/complementary"
+                    self.G[v2][v1]["c"] = "contradictory/complementary"
+                    self.G[v1][v2]["complementary_keys"] = keys
+                    self.G[v2][v1]["complementary_keys"] = keys
+                    continue
+
+            self.G.add_edge(view1, view2, c="complementary", complementary_keys=keys)
+            self.G.add_edge(view2, view1, c="complementary", complementary_keys=keys)
+
+        pprint(list(self.G.nodes.data()))
+        pprint(list(self.G.edges.data()))
+
+        self.draw_graph("graph")
+
+        return self.G
+
+    def prune_graph(self, remove_identical_views=True,
+                      remove_contained_views=True,
+                      union_complementary_views=True):
+
+        if self.G is None:
+            self.generate_graph()
+
+        if remove_identical_views:
+            self.reduce_compatible_views_to_one()
+            self.G.remove_nodes_from(self.compatible_views_to_remove)
+
+        if remove_contained_views:
+            self.prune_contained_views(keep_largest=True)
+            self.G.remove_nodes_from(self.contained_views_to_remove)
+
+        if union_complementary_views:
+            self.union_complementary_views()
+            self.G.remove_nodes_from(self.complementary_views_to_remove)
+            self.G.add_nodes_from([path for path, df in self.unioned_complementary_views])
+
+        pprint(list(self.G.nodes.data()))
+        pprint(list(self.G.edges.data()))
+
+        self.draw_graph("pruned_graph")
+
+        return self.G
+
+    def draw_graph(self, filename):
+
+        import matplotlib.pyplot as plt
+        pos = nx.spring_layout(self.G)
+        nx.draw(self.G, with_labels=True, pos=pos)
+        edge_labels = nx.get_edge_attributes(self.G, 'c')
+        formatted_edge_labels = {(elem[0], elem[1]): edge_labels[elem] for elem in
+                                 edge_labels}  # use this to modify the tuple keyed dict if it has > 2 elements,
+        nx.draw_networkx_edge_labels(self.G, pos, edge_labels=formatted_edge_labels)
+        plt.savefig(filename, dpi=300)
+        plt.close()
 
     def get_current_views(self):
 
@@ -113,17 +211,19 @@ class ViewDistillation:
                     views_left.append(path)
             self.dfs_per_schema[key] = new_dfs
 
+        self._remove_from_contra_compl(self.compatible_views_to_remove)
+
         return views_left
 
     def find_contained_views(self):
 
         self.found_contained_views = True
 
-        contained_groups = []
+        contained_groups = defaultdict(set)
 
         for key, dfs in self.dfs_per_schema.items():
             cur_contained_groups = self._find_contained_views(dfs)
-            contained_groups += cur_contained_groups
+            contained_groups.update(cur_contained_groups)
 
         return contained_groups
 
@@ -150,8 +250,13 @@ class ViewDistillation:
             while j < len(dfs):
                 (df2, path2) = dfs[j]
 
+                j += 1
+
                 hash_set1 = self.hash_dict[path1]
                 hash_set2 = self.hash_dict[path2]
+
+                if hash_set1 == hash_set2:
+                    continue
 
                 if hash_set2.issubset(hash_set1):
 
@@ -164,6 +269,8 @@ class ViewDistillation:
                     if not already_contained:
                         contained_groups[path1].add(path2)
 
+                    self.contained_views_to_remove.add(path2)
+
                 elif hash_set1.issubset(hash_set2):
 
                     already_contained = False
@@ -175,37 +282,45 @@ class ViewDistillation:
                     if not already_contained:
                         contained_groups[path2].add(path1)
 
-                j += 1
+                    self.contained_views_to_remove.add(path1)
 
             i += 1
 
-        contained_lists = []
-        for path1, paths in contained_groups.items():
-            paths.add(path1)
-            lst = list(paths)
-            len_dict = {}
-            for path in lst:
-                len_dict[path] = len(self.path_to_df_dict[path])
-            sorted_lst = sorted(lst, key=lambda path: len_dict[path], reverse=True)
+        return contained_groups
 
-            contained_lists.append(sorted_lst)
+        # print(contained_groups)
 
-            self.contained_views_to_remove.update(set(sorted_lst[1:]))
+        # contained_lists = []
+        # for path1, paths in contained_groups.items():
+        #     paths.add(path1)
+        #     lst = list(paths)
+        #     len_dict = {}
+        #     for path in lst:
+        #         len_dict[path] = len(self.path_to_df_dict[path])
+        #     sorted_lst = sorted(lst, key=lambda path: len_dict[path], reverse=True)
+        #
+        #     contained_lists.append(sorted_lst)
+        #
+        #     self.contained_views_to_remove.update(set(sorted_lst[1:]))
 
-        idx_to_remove = set()
-        for i in range(len(contained_lists)):
-            lst1 = contained_lists[i]
-            for j in range(len(contained_lists)):
-                if i != j:
-                    lst2 = contained_lists[j]
-                    if set(lst1).issubset(lst2):
-                        idx_to_remove.add(i)
-                    elif set(lst2).issubset(lst1):
-                        idx_to_remove.add(j)
-        for idx in sorted(idx_to_remove, reverse=True):
-            del contained_lists[idx]
+        # print(contained_lists)
 
-        return contained_lists
+        # idx_to_remove = set()
+        # for i in range(len(contained_lists)):
+        #     lst1 = contained_lists[i]
+        #     for j in range(len(contained_lists)):
+        #         if i != j:
+        #             lst2 = contained_lists[j]
+        #             if set(lst1).issubset(lst2):
+        #                 idx_to_remove.add(i)
+        #             elif set(lst2).issubset(lst1):
+        #                 idx_to_remove.add(j)
+        # for idx in sorted(idx_to_remove, reverse=True):
+        #     del contained_lists[idx]
+
+        # print(contained_lists)
+
+        # return contained_lists
 
     def prune_contained_views(self, keep_largest=True):
 
@@ -226,17 +341,44 @@ class ViewDistillation:
                     views_left.append(path)
             self.dfs_per_schema[key] = new_dfs
 
+        self._remove_from_contra_compl(self.contained_views_to_remove)
+
         return views_left
+
+    def _remove_from_contra_compl(self, lst):
+
+        contradictions_to_remove = []
+        complementary_idx_to_remove = []
+
+        for path in lst:
+            for path1, path2 in self.contradictions.keys():
+                if path == path1 or path == path2:
+                    contradictions_to_remove.append((path1, path2))
+            for i in range(len(self.complementary_pairs)):
+                path1, path2, key = self.complementary_pairs[i]
+                if path == path1 or path == path2:
+                    complementary_idx_to_remove.append(i)
+
+        for path1, path2 in contradictions_to_remove:
+            del self.contradictions[(path1, path2)]
+        for i in sorted(complementary_idx_to_remove, reverse=True):
+            del self.complementary_pairs[i]
 
     def find_contradictory_views(self):
 
         self.found_contradictory_views = True
 
-        contradictions = {}
+        contradictions = defaultdict(lambda: defaultdict(set))
         for key, dfs in self.dfs_per_schema.items():
             cur_contradictions = self._find_contradictory_views(dfs)
             contradictions.update(cur_contradictions)
 
+        def default_to_regular(d):
+            if isinstance(d, defaultdict):
+                d = {k: default_to_regular(v) for k, v in d.items()}
+            return d
+
+        contradictions = default_to_regular(contradictions)
         self.contradictions = contradictions
 
         return contradictions
@@ -251,7 +393,7 @@ class ViewDistillation:
 
         start_time = time.time()
 
-        contractions = defaultdict(set)
+        contractions = defaultdict(lambda: defaultdict(set))
 
         already_classified_as_contradictory = set()
         complementary_pairs = set()
@@ -299,7 +441,7 @@ class ViewDistillation:
                                 if (path1, path2) in already_added:
                                     continue
 
-                                contractions[(path1, path2, candidate_key)].add(key_value)
+                                contractions[(path1, path2)][candidate_key].add(key_value)
 
                                 already_added.add((path1, path2))
                                 already_added.add((path2, path1))
@@ -319,6 +461,7 @@ class ViewDistillation:
         idx_to_remove = []
         for i in range(len(self.complementary_pairs)):
             path1, path2, candidate_key = self.complementary_pairs[i]
+
             if path1 in self.pruned_contradictory_views or path2 in self.pruned_contradictory_views or candidate_key \
                     in self.wrong_keys:
                 idx_to_remove.append(i)
@@ -326,17 +469,31 @@ class ViewDistillation:
         for idx in sorted(idx_to_remove, reverse=True):
             del self.complementary_pairs[idx]
 
-        return self.complementary_pairs
+        d = defaultdict(set)
+        for view1, view2, key in self.complementary_pairs:
+            d[(view1, view2)].add(key)
+
+        return d
 
     def union_complementary_views(self):
 
         self.find_complementary_views()
 
         already_processed = set()
-        views_to_remove = set()
-        new_views = []
 
         for path1, path2, candidate_key in self.complementary_pairs:
+
+            skip = False
+            for pair in self.contradictions.keys():
+                if path1 in pair or path2 in pair:
+                    # only union when neither of the views have ANY contradiction with any other views
+                    skip = True
+            if skip:
+                continue
+
+            # if (path1, path2) in self.contradictions.keys() or (path2, path1) in self.contradictions.keys():
+                # only union the two views when there is no contradiction for ANY key
+                # continue
 
             if (path1, path2) in already_processed:
                 continue
@@ -350,21 +507,21 @@ class ViewDistillation:
             new_df.to_csv(new_path)
 
             already_processed.add((path1, path2))
-            views_to_remove.add(path1)
-            views_to_remove.add(path2)
-            new_views.append((new_path, new_df))
+            self.complementary_views_to_remove.add(path1)
+            self.complementary_views_to_remove.add(path2)
+            self.unioned_complementary_views.append((file_name, new_df))
 
         views_left = []
         for key, dfs in self.dfs_per_schema.items():
             new_dfs = []
             for df, path in dfs:
-                if path not in views_to_remove:
+                if path not in self.complementary_views_to_remove:
                     new_dfs.append((df, path))
                     views_left.append(path)
 
             self.dfs_per_schema[key] = new_dfs
 
-        for path, df in new_views:
+        for path, df in self.unioned_complementary_views:
             the_hashes = [hash(el) for el in df.columns]
             schema_id = sum(the_hashes)
             self.dfs_per_schema[schema_id].append((df, path))
@@ -542,5 +699,7 @@ class ViewDistillation:
 if __name__ == "__main__":
     vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
 
-    res = vd.distill_views()
-    print(res)
+    # res = vd.distill_views()
+    # print(res)
+    vd.generate_graph()
+    vd.prune_graph()

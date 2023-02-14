@@ -37,9 +37,8 @@ each other, keep one of the view and remove the rest.
 If `remove_contained_views` is `True`, it will find all views that are contained in some larger view
 and remove them.
 
-If `union_complementary_views` is `True`, it will find all pair of views 
-that are complementary with each other without any contradictions, 
-union each pair of views and materialize the new view in the input directory.
+If `union_complementary_views` is `True`, it will union each pair of complementary views that *do not have any contradictions with any other views on any key*,
+and materialize the new view in the input directory.
 The complementary views used to union are removed.
 
 This API will return the list of views left after distillation.
@@ -86,8 +85,8 @@ It will also return the list of views left after pruning.
 vd.find_contained_views()
 ```
 
-This will return a list of lists, each inner list contains views in sorted order (descending by view size) 
-where each view contains all the views that are smaller.
+[//]: # (This will return a list of lists, each inner list contains views in sorted order &#40;descending by view size&#41; where each view contains all the views that are smaller.)
+This will return a `dict`, where the key is a view and the value is the set of views that are contained in the key view. 
 
 ### Prune contained views
 
@@ -106,9 +105,9 @@ any future API calls will operate on the rest of views. It will also return the 
 vd.find_contradictory_views()
 ```
 
-This will return a `dict`. The key is a tuple `(view1, view2, key)` and the corresponding value
-is a `set` of key values where `view1` and `view2` contradict on. The `key` is a `tuple` since it 
-can be a composite key containing more than one attributes, and each key value is also a `tuple`.
+This will return a `dict` of `dict`. The outer key is a tuple `(view1, view2)`, and the corresponding `dict`'s inner
+key is the `key` column, and the corresponding value is a set of key values where `view1` and `view2` contradict on. 
+The `key` is a `tuple` since it can be a composite key containing more than one attributes, and each key value is also a `tuple`.
 
 For example, if the `key` is the `id` column in `view1` and `view2`, and the key value is `123`, this means
 `view1` and `view2` both contains the row with `id = 123` but the rest of values in the row differ.
@@ -119,8 +118,11 @@ For example, if the `key` is the `id` column in `view1` and `view2`, and the key
 vd.find_complementary_views()
 ```
 
-This will return a list of tuples. Each tuple `(view1, view2, key)` means `view1` and `view2` are complementary on `key`,
-in other words, `view1` and `view2` don't have any contradictions on `key`.
+[//]: # (This will return a list of tuples. Each tuple `&#40;view1, view2, key&#41;` means `view1` and `view2` are complementary on `key`,)
+[//]: # (in other words, `view1` and `view2` don't have any contradictions on `key`.)
+
+This return a `dict`, where the key is a tuple `(view1, view2)`, and the corresponding value is the set of key columns on which
+`view1` and `view2` are complementary.
 
 ### Union complementary views
 
@@ -128,8 +130,8 @@ in other words, `view1` and `view2` don't have any contradictions on `key`.
 vd.union_complementary_views()
 ```
 
-This will find all pair of views that are complementary with each other without any contradictions, 
-union each pair of views and materialize the new view in the input directory.
+This will find union each pair of complementary views that *do not have any contradictions with any other views on any key*,
+and materialize the new view in the input directory.
 The complementary views used to union are removed.
 
 
@@ -146,8 +148,39 @@ and `key_value`, the corresponding key value, also a `tuple`.
 
 This will return the row as a Dataframe based on the provided `key` and `key_value` in `df`.
 
+## Graph
 
+### Generate Graph
 
+```python
+vd.generate_graph()
+```
+Gnerates a `networkx` `Digraph` and returns the graph. Each node is a view, and each edge denotes the 4C
+relationship between the two views, labeled as `c`. 
+`c` can be `compatible`, `contained`, `contradictory`, `complementary`, or `contradictory/complementary`; the last one denotes
+when the two views are contradictory on some key, but complementary on some other key. All the labeled edges are bi-directional, except for `contained`, in which case view1 -> view2 means view1 is contained in view2.
 
+When the edge labels as `contradictory`, there wil be an associated `contradictory_key_values` attribute, which is a `dict` where the key is the key column (a tuple), and the corresponding value is the set of contradictory key values.
+
+When the edge is labels as `complementary`, there will be an associated `complementary_keys` attribute, which is the set of key columns where the views are complementary on.
+
+If it is labels as `contradictory/complementary`, both attributes will exist.
+
+Example graph:
+
+![Example graph:](graph.png)
+
+### Prune Graph
+
+```python
+vd.prune_graph(remove_identical_views=True, 
+               remove_contained_views=True,
+               union_complementary_views=True)
+```
+
+Similar functionality as `distill_views`, and returns the pruned graph. 
+The nodes and edges will be pruned based on the given options, and unioned complementary views will be added to the graph as new nodes.
+
+![Pruned graph:](pruned_graph.png)
 
 
