@@ -704,7 +704,7 @@ class ViewDistillation:
 
 
 if __name__ == "__main__":
-    vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/test/")
+    vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
 
     # res = vd.distill_views()
     # print(res)
