@@ -10,6 +10,7 @@ DoD2/
 figures/
 *result*/
 view_distillation/dataset
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

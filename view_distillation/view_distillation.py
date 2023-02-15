@@ -249,12 +249,19 @@ class ViewDistillation:
 
             (df1, path1) = dfs[i]
 
+            if path1 in self.contained_views_to_remove:
+                i += 1
+                continue
+
             j = i + 1
 
             while j < len(dfs):
                 (df2, path2) = dfs[j]
 
                 j += 1
+
+                if path2 in self.contained_views_to_remove:
+                    continue
 
                 hash_set1 = self.hash_dict[path1]
                 hash_set2 = self.hash_dict[path2]
@@ -264,29 +271,25 @@ class ViewDistillation:
 
                 if hash_set2.issubset(hash_set1):
 
-                    already_contained = False
-                    for k, v in contained_groups.items():
-                        if path1 in v:
-                            # view k contains path1, so it also contains path2, since path1 contains path2
-                            contained_groups[k].add(path2)
-                            already_contained = True
-                    if not already_contained:
-                        contained_groups[path1].add(path2)
+                    contained_groups[path1].add(path2)
 
                     self.contained_views_to_remove.add(path2)
 
                 elif hash_set1.issubset(hash_set2):
 
-                    already_contained = False
-                    for k, v in contained_groups.items():
-                        if path2 in v:
-                            # view k contains path2, so it also contains path1, since path2 contains path1
-                            contained_groups[k].add(path1)
-                            already_contained = True
-                    if not already_contained:
-                        contained_groups[path2].add(path1)
+                    contained_groups[path2].add(path1)
 
                     self.contained_views_to_remove.add(path1)
+
+                for k, v in contained_groups.items():
+                    if path1 in v:
+                        # view k contains view1, so it also contains any view that's contained in view1
+                        if path1 in contained_groups.keys():
+                            contained_groups[k].update(contained_groups[path1])
+                    if path2 in v:
+                        # view k contains view2, so it also contains any view that's contained in view2
+                        if path2 in contained_groups.keys():
+                            contained_groups[k].update(contained_groups[path2])
 
             i += 1
 
@@ -352,7 +355,7 @@ class ViewDistillation:
     def _remove_from_contra_compl(self, lst):
 
         contradictions_to_remove = []
-        complementary_idx_to_remove = []
+        complementary_idx_to_remove = set()
 
         for path in lst:
             for path1, path2 in self.contradictions.keys():
@@ -361,7 +364,7 @@ class ViewDistillation:
             for i in range(len(self.complementary_pairs)):
                 path1, path2, key = self.complementary_pairs[i]
                 if path == path1 or path == path2:
-                    complementary_idx_to_remove.append(i)
+                    complementary_idx_to_remove.add(i)
 
         for path1, path2 in contradictions_to_remove:
             del self.contradictions[(path1, path2)]
@@ -701,7 +704,7 @@ class ViewDistillation:
 
 
 if __name__ == "__main__":
-    vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
+    vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/test/")
 
     # res = vd.distill_views()
     # print(res)
