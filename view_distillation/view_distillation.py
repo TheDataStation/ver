@@ -136,6 +136,26 @@ class ViewDistillation:
         plt.savefig(filename, dpi=300)
         plt.close()
 
+    def get_attributes(self, view1, view2):
+
+        if not self.G.has_node(os.path.basename(view1)):
+            print(f"node {view1} does not exist")
+            return None
+        if not self.G.has_node(os.path.basename(view2)):
+            print(f"node {view2} does not exist")
+            return None
+
+        if not self.G.has_edge(view1, view2):
+            if not self.G.has_edge(view2, view1):
+                return None
+            else:
+                assert self.G[view2][view1]["c"] == "contained"
+                print(f"{view2} is contained in {view1}")
+                return None
+        else:
+            return self.G[view1][view2]
+
+
     def get_current_views(self):
 
         current_views = []
@@ -710,3 +730,5 @@ if __name__ == "__main__":
     # print(res)
     vd.generate_graph()
     vd.prune_graph()
+
+    print("view3 -> view4:", vd.get_label("view3.csv", "view4.csv"))

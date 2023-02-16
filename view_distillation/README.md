@@ -185,4 +185,11 @@ Pruned graph:
 
 ![Pruned graph:](pruned_graph.png)
 
+## Get attributes
 
+```python
+vd.get_attributes(path_to_view_1, path_to_view_2)
+```
+
+This returns a `dict` of attributes associated with the edge from view1 to view2. 
+The `dict` includes `c`, and optionally `contradictory_key_values` and `complementary_keys` if exist.
