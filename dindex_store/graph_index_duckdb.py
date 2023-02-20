@@ -3,7 +3,7 @@ from typing import Dict, List
 import duckdb
 import pandas as pd
 
-from dindex_store.discovery_index import GraphIndex, EdgeType
+from dindex_store.common import GraphIndex, EdgeType
 
 
 class GraphIndexDuckDB(GraphIndex):

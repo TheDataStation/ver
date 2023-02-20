@@ -1,4 +1,4 @@
-from dindex_store.discovery_index import FullTextSearchIndex
+from dindex_store.common import FullTextSearchIndex
 
 import duckdb
 

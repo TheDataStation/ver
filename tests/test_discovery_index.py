@@ -4,9 +4,10 @@ import pytest
 import subprocess
 import yaml
 
+# TODO: Remove once we have better folder organization
 sys.path.append('../')
 
-from dindex_builder.json_data_loader import load_data
+from dindex_builder.dindex_builder import load_json_data, dindex_builder
 from dindex_store.graph_index_duckdb import GraphIndexDuckDB
 from dindex_store.graph_index_kuzu import GraphIndexKuzu
 from dindex_store.profile_index_duckdb import ProfileIndexDuckDB
@@ -31,18 +32,20 @@ def test_load_data(clean_up):
     config = read_config("test_files/dindex_config.yml")
     config["profile_schema_path"] = "test_files/profile_index_schema_duckdb.txt"
     config["kuzu_folder"] = kuzu_folder
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexKuzu(config))
-    load_data("test_files/data/", discovery_graph)
 
+    discovery_graph = DiscoveryIndex(config)
+    load_json_data("test_files/data/", discovery_graph)
+
+def test_dindex_builder(clean_up):
+    config = read_config("test_files/dindex_config.yml")
+    config["kuzu_folder"] = kuzu_folder
+    config["profile_schema_path"] = "test_files/profile_index_schema_duckdb.txt"
+    discovery_graph = dindex_builder(config)
 
 def test_chain_graph_kuzu(clean_up):
     config = read_config("test_files/dindex_config.yml")
     config["kuzu_folder"] = kuzu_folder
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexKuzu(config))
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -57,9 +60,8 @@ def test_chain_graph_kuzu(clean_up):
 def test_chain_graph_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -74,9 +76,8 @@ def test_chain_graph_duckdb():
 def test_two_hop_single_path_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -95,9 +96,8 @@ def test_two_hop_single_path_duckdb():
 def test_two_hop_multiple_path_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -118,9 +118,8 @@ def test_two_hop_multiple_path_duckdb():
 def test_two_hop_shortest_path_only_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -139,9 +138,8 @@ def test_two_hop_shortest_path_only_duckdb():
 def test_correct_amount_of_hops_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -158,9 +156,8 @@ def test_correct_amount_of_hops_duckdb():
 def test_unconnected_neighbor_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -177,9 +174,8 @@ def test_unconnected_neighbor_duckdb():
 def test_path_find_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -196,9 +192,8 @@ def test_path_find_duckdb():
 def test_path_find_multiple_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -219,9 +214,8 @@ def test_path_find_multiple_duckdb():
 def test_path_find_shortest_only_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})
@@ -240,9 +234,8 @@ def test_path_find_shortest_only_duckdb():
 def test_path_find_unconnected_duckdb():
     config = read_config("test_files/dindex_config.yml")
     config["graph_schema_path"] = "test_files/graph_index_schema_duckdb.txt"
-    discovery_graph = DiscoveryIndex(
-        ProfileIndexDuckDB(config),
-        GraphIndexDuckDB(config))
+    config["graph_index"] = "duckdb"
+    discovery_graph = DiscoveryIndex(config)
 
     for i in range(5):
         discovery_graph.add_profile({"id": i, "attr": 1})

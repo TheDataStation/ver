@@ -3,7 +3,7 @@ import numpy
 from typing import Dict, List
 from arango import ArangoClient
 
-from dindex_store.discovery_index import GraphIndex, EdgeType
+from dindex_store.common import GraphIndex, EdgeType
 
 class GraphIndexArangoDB(GraphIndex):
     def __init__(self):
