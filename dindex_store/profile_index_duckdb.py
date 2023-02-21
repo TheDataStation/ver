@@ -3,7 +3,7 @@ import duckdb
 
 from typing import Dict
 
-from dindex_store.discovery_index import ProfileIndex
+from dindex_store.common import ProfileIndex
 
 
 class ProfileIndexDuckDB(ProfileIndex):
@@ -45,6 +45,15 @@ class ProfileIndexDuckDB(ProfileIndex):
         except:
             print("An error has occured when trying to get profile")
             return False
+
+    def get_minhashes(self) -> Dict:
+        # Get all profiles with minhash
+        profile_table = self.conn.table(self.config["profile_table_name"])
+        return profile_table.filter('minhash IS NOT NULL') \
+            .project('id, decode(minhash)') \
+            .to_df() \
+            .rename(columns={'decode(minhash)': 'minhash'}) \
+            .to_dict(orient='records')
 
     @classmethod
     def _validate_config(cls, config):

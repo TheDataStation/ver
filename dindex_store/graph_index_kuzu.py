@@ -2,7 +2,7 @@ from typing import Dict, List
 
 import kuzu
 
-from dindex_store.discovery_index import GraphIndex, EdgeType
+from dindex_store.common import GraphIndex, EdgeType
 
 
 class GraphIndexKuzu(GraphIndex):
