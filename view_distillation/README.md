@@ -160,7 +160,7 @@ relationship between the two views, labeled as `c`.
 `c` can be `compatible`, `contained`, `contradictory`, `complementary`, or `contradictory/complementary`; the last one denotes
 when the two views are contradictory on some key, but complementary on some other key. All the labeled edges are bi-directional, except for `contained`, in which case view1 -> view2 means view1 is contained in view2.
 
-When the edge labels as `contradictory`, there wil be an associated `contradictory_key_values` attribute, which is a `dict` where the key is the key column (a tuple), and the corresponding value is the set of contradictory key values.
+When the edge labels as `contradictory`, there wil be an associated `contradictory_key_values` attribute, which is a `dict` where the key is the key column (a tuple), and the corresponding value is the set of contradictory key values (also tuples).
 
 When the edge is labels as `complementary`, there will be an associated `complementary_keys` attribute, which is the set of key columns where the views are complementary on.
 
