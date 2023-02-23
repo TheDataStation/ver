@@ -49,7 +49,10 @@ class JoinGraph:
         for edge, path in self.graph_dict.items():
             print(edge)
             print(path.to_str())
-            print(path.tbl_proj_attrs)
+            print("attributes to project")
+            for i, attrs in enumerate(path.tbl_proj_attrs):
+                print("column {} candidates".format(edge[i]))
+                print([attr.to_str() for attr in attrs])
         
 
 class JoinGraphSearch:
@@ -91,7 +94,7 @@ class JoinGraphSearch:
         join_path_map = self.get_join_path_map(candidate_lists)
         edges = list(join_path_map.keys())
         valid_graphs = []
-       
+        
         for subset in itertools.combinations(edges, len(edges)-1):
             if self.is_graph_valid(subset, self.col_num):
                 valid_graphs.append(subset)

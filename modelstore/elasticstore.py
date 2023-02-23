@@ -49,7 +49,7 @@ class StoreHandler:
                                          'hits.hits._source.path'
                                          ]
                             )
-        if res['hits']['total']['value'] == 0:
+        if res['hits']['total'] == 0:
             print("!!!")
             print("nid not found in store: are you using the right EKG and store?")
             print("!!!")
@@ -80,10 +80,9 @@ class StoreHandler:
                                          'hits.hits._source.dataType']
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']['value']
-        print(str(remaining))
+        remaining = res['hits']['total']
+       
         while remaining > 0:
-            print("remaining:", remaining)
             # if remaining < 2800000:
             #     break
             hits = res['hits']['hits']
@@ -129,7 +128,7 @@ class StoreHandler:
                             filter_path=filter_path
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']['value']
+        remaining = res['hits']['total']
         while remaining > 0:
             hits = res['hits']['hits']
             for h in hits:
@@ -192,10 +191,9 @@ class StoreHandler:
         res = client.search(index=index, body=query_body, size=10000, scroll="10m",
                             filter_path=filter_path)
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']['value']
+        remaining = res['hits']['total']
 
         while remaining > 0:
-            print("remaining:", remaining)
             hits = res['hits']['hits']
             for el in res['hits']['hits']:
                 data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
@@ -236,8 +234,11 @@ class StoreHandler:
             index = "text"
             query_body = {
                 "query": {
-                  "match_phrase": {
-                      "text": keywords
+                  "match": {
+                     "text": {
+                            "query": keywords,
+                            "fuzziness": "AUTO"
+                        }
                   }
                 }
             }
@@ -259,7 +260,7 @@ class StoreHandler:
             query_body = {"from": 0, "size": max_hits,
                           "query": {"match": {"sourceName": keywords}}}
         res = client.search(index=index, body=query_body, filter_path=filter_path)
-        if res['hits']['total']['value'] == 0:
+        if res['hits']['total'] == 0:
             return []
         for el in res['hits']['hits']:
             matched_text = []
@@ -296,7 +297,7 @@ class StoreHandler:
             }
         res = client.search(index=index, body=query_body,
                             filter_path=filter_path)
-        if res['hits']['total']['value'] == 0:
+        if res['hits']['total'] == 0:
             return []
         for el in res['hits']['hits']:
             data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
@@ -376,7 +377,7 @@ class StoreHandler:
                                          ]
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']['value']
+        remaining = res['hits']['total']
         while remaining > 0:
             hits = res['hits']['hits']
             for h in hits:
@@ -459,7 +460,7 @@ class StoreHandler:
                                          'hits.hits._source.minhash']
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']['value']
+        remaining = res['hits']['total']
 
         id_sig = []
         while remaining > 0:
@@ -497,7 +498,7 @@ class StoreHandler:
                                          'hits.hits._source.maxValue']
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']['value']
+        remaining = res['hits']['total']
 
         id_sig = []
         while remaining > 0:
@@ -613,7 +614,7 @@ class StoreHandler:
                        'hits.hits._source.text']
 
         res = client.search(index=index, body=body, filter_path=filter_path)
-        if res['hits']['total']['value'] == 0:
+        if res['hits']['total'] == 0:
             return []
 
         for el in res['hits']['hits']:
