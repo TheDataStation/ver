@@ -4,7 +4,7 @@ from DoD import data_processing_utils as dpu
 from collections import defaultdict
 
 from api.apiutils import DRS, Operation, OP
-from ver_utils.column import Column
+from qbe_module.column import Column
 from typing import List
 
 
@@ -12,7 +12,7 @@ class ColumnSelection:
     def __init__(self, aurum_api: API, csv_separator: str =','):
         self.aurum_api = aurum_api
         dpu.configure_csv_separator(csv_separator)
-        self.topk = 1000  # limit the number of columns returned from keyword search
+        self.topk = 2000  # limit the number of columns returned from keyword search
 
     def column_retreival(self, attr: str, examples: List[str]):
         candidate_columns = {}

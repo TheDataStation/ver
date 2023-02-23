@@ -15,40 +15,72 @@ class JoinGraph:
         self.graph_dict = graph_dict
     
     def get_attrs_needed(self):
-        tbl_attrs_proj_map = defaultdict(set)
-        tbl_attrs_join_key_map = defaultdict(list)
+        # attrs needed in the materialization process {tbl -> [attrs needed]}
+        attrs_needed = defaultdict(set)
+        columns_to_project_dict = defaultdict(list)
+
+        for edge, path in self.graph_dict.items():
+            start, end = edge[0], edge[1]
+            proj_attrs = path.tbl_proj_attrs
+            columns_to_project_dict[start] = proj_attrs[0]
+            columns_to_project_dict[end] = proj_attrs[1]
+
+        columns_to_proj = [(k, v) for k, v in columns_to_project_dict.items()]
+
+        columns_to_proj = sorted(columns_to_proj, key=lambda x: x[0])
+
+        columns_to_proj = [columns_to_proj_pair[1] for columns_to_proj_pair in columns_to_proj]
+
         for path in self.paths:
             for join_pair in path.path:
-                tbl_attrs_join_key_map[join_pair[0].source_name].append(join_pair[0].field_name)
-                tbl_attrs_join_key_map[join_pair[1].source_name].append(join_pair[1].field_name)
-            proj_map = path.tbl_proj_attrs
-            for tbl, attr_list in proj_map.items():
+                if len(join_pair[0].field_name):
+                    attrs_needed[join_pair[0].source_name].add(join_pair[0].field_name)
+                if len(join_pair[1].field_name):
+                    attrs_needed[join_pair[1].source_name].add(join_pair[1].field_name)
+            
+            for attr_list in path.tbl_proj_attrs:
                 for attr in attr_list:
-                    tbl_attrs_proj_map[tbl].add(attr)
-        return tbl_attrs_proj_map, tbl_attrs_join_key_map
+                    attrs_needed[attr.tbl_name].add(attr.attr_name)
+         
+        return attrs_needed, columns_to_proj
+    
+    def to_str(self):
+        i = 0
+        for edge, path in self.graph_dict.items():
+            print(edge)
+            print(path.to_str())
+            print(path.tbl_proj_attrs)
         
 
 class JoinGraphSearch:
     def __init__(self, join_path_search: JoinPathSearch):
         self.join_path_search = join_path_search
 
-    """
-    a map from candidate column pair to paths between them
-    """
     def get_join_path_map(self, candidate_lists: List):
         self.col_num = len(candidate_lists)
         join_path_map = {}
+        # group candidate columns by their table {tbl -> [columns]}
+        cand_dict_list = []
+        for cand_list in candidate_lists:
+            # cand_list is a list of candidates w.r.t. an example column
+            # we reorganize cand_list into a cand_dict {tbl_name -> (columns)}
+            cand_dict = defaultdict(list)
+            for cand in cand_list:
+                cand_dict[cand.tbl_name].append(cand)
+            cand_dict_list.append(cand_dict)
+        
         for i in range(self.col_num):
             for j in range(i+1, self.col_num):
-                src_columns = candidate_lists[i]
-                tgt_columns = candidate_lists[j]
-                # all_paths = []
+                src_dict = cand_dict_list[i]
+                src_tbls = list(src_dict.keys())
+                tgt_dict = cand_dict_list[j]
+                tgt_tbls = list(tgt_dict.keys())
+                
                 all_paths = defaultdict(list)
                 
-                for src_column in src_columns:
-                    paths = self.join_path_search.find_join_paths_between_two_cols(src_column, tgt_columns)
-                    # all_paths.extend(paths)
-                    all_paths[src_column.tbl_name].extend(paths)
+                for src_tbl in src_tbls:
+                    paths = self.join_path_search.find_join_paths_between_two_tbls(src_tbl, tgt_tbls, src_dict, tgt_dict)
+                    all_paths[src_tbl].extend(paths)
                     
                 if len(all_paths) != 0:
                     join_path_map[(i, j)] = all_paths
@@ -59,8 +91,7 @@ class JoinGraphSearch:
         join_path_map = self.get_join_path_map(candidate_lists)
         edges = list(join_path_map.keys())
         valid_graphs = []
-
-        # n-1 edges form a tree (n is the number of total edges)
+       
         for subset in itertools.combinations(edges, len(edges)-1):
             if self.is_graph_valid(subset, self.col_num):
                 valid_graphs.append(subset)

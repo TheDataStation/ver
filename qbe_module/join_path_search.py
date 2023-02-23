@@ -2,18 +2,14 @@ from collections import deque, defaultdict
 from algebra import API
 from api.apiutils import DRS, Hit, Relation
 from typing import List
-from ver_utils.column_selection import Column
+from qbe_module.column_selection import Column
 from copy import deepcopy
 
 class JoinPath:
-    def __init__(self, path: List, attrs_to_project: List):
+    def __init__(self, path: List, tbl_proj_attrs):
         # join path is a list of key pairs: [join_key1, join_key2], [join_key3, join_key4]
         self.path = path
-        # a map between table and the attributes needs to be projected in that table
-        # tbl -> attributes to project
-        self.tbl_proj_attrs = defaultdict(list)
-        for obj in attrs_to_project:
-            self.tbl_proj_attrs[obj[0]].append(obj[1])
+        self.tbl_proj_attrs = tbl_proj_attrs
     
     def to_str(self):
         output = ""
@@ -34,7 +30,7 @@ class JoinPathSearch:
                 return True
         return False
       
-    def find_join_paths_from_col(self, src: DRS, rel: Relation=Relation.CONTENT_SIM, max_hop: int=2):
+    def find_join_paths_from_col(self, src: DRS, rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):
         q = deque()
         path = [[src, None]]
         q.append(deepcopy(path))
@@ -60,7 +56,22 @@ class JoinPathSearch:
                     
         return result
 
-    def find_join_paths_between_two_cols(self, src: Column, tgts: List[Column], rel: Relation=Relation.CONTENT_SIM, max_hop: int=2):
+    def find_join_paths_between_two_tbls(self, src_tbl, tgt_tbls, src_dict, tgt_dict, rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):
+        result = []
+        if src_tbl in tgt_tbls:
+            src_tbl_drs = self.api.table_to_hit(src_tbl)
+           
+            result.append(JoinPath([[src_tbl_drs, src_tbl_drs]], [src_dict[src_tbl], tgt_dict[src_tbl]]))
+
+        for src_col in self.api.table_to_drs(src_tbl):
+            src_paths = self.find_join_paths_from_col(src_col, rel, max_hop)
+            for src_path in src_paths:
+                end_tbl = src_path[-1][1].source_name
+                if end_tbl in tgt_tbls:
+                    result.append(JoinPath(src_path, [src_dict[src_tbl], tgt_dict[end_tbl]]))
+        return result
+                
+    def find_join_paths_between_two_cols(self, src: Column, tgts: List[Column], rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):
         tgt_tbls = defaultdict(list)
         result = []
 
@@ -70,7 +81,7 @@ class JoinPathSearch:
         if src.tbl_name in tgt_tbls:
             for tgt in tgt_tbls[src.tbl_name]:
                 result.append(JoinPath([[src.drs, src.drs]], [src.key(), tgt.key()]))
-        
+
         
         src_tbl = self.api.drs_expand_to_table(src.drs)
         for src_col in src_tbl:
