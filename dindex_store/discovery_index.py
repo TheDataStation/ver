@@ -2,6 +2,7 @@ from dindex_store.common import EdgeType
 from dindex_store.profile_index_duckdb import ProfileIndexDuckDB
 from dindex_store.graph_index_duckdb import GraphIndexDuckDB
 from dindex_store.graph_index_kuzu import GraphIndexKuzu
+from dindex_store.fulltext_index_duckdb import FTSIndexDuckDB
 # from dindex_store.graph_index_arangodb import GraphIndexArangoDB
 from typing import Dict, List
 
@@ -26,13 +27,18 @@ class DiscoveryIndex:
         # "arangodb": GraphIndexArangoDB,
     }
 
+    fts_index_mapping = {
+        "duckdb": FTSIndexDuckDB,
+    }
+
     def __init__(self, config: Dict) -> None:
         # TODO: Validate config in a consistent way
         self.__profile_index = DiscoveryIndex.profile_index_mapping[config["profile_index"]](
             config)
         self.__graph_index = DiscoveryIndex.graph_index_mapping[config["graph_index"]](
             config)
-        self.__fts_index = None
+        self.__fts_index = DiscoveryIndex.fts_index_mapping[config["fts_index"]](
+            config)
 
     # ----------------------------------------------------------------------
     # Modify Methods
@@ -61,6 +67,9 @@ class DiscoveryIndex:
         return self.__graph_index.add_undirected_edge(
             source_node_id, target_node_id, type, properties)
 
+    def create_fts_index(self, table_name, index_column):
+        return self.__fts_index.create_fts_index(table_name, index_column)
+
     # ----------------------------------------------------------------------
     # Query Methods
 
@@ -80,3 +89,6 @@ class DiscoveryIndex:
             max_len: int = 3):
         return self.__graph_index.find_path(
             source_node_id, target_node_id, max_len)
+
+    def fts_query(self, keyword) -> List:
+        return self.__fts_index.fts_query(keyword)
