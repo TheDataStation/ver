@@ -2,10 +2,12 @@
 
 import subprocess
 from dataclasses import dataclass
+import os
 from os import environ
 from pathlib import Path
 from warnings import warn
 # from knowledgerepr.ekgstore.neo4j_store import Neo4jExporter
+
 from fire import Fire
 import IPython
 from main import init_system
@@ -18,6 +20,8 @@ get_env = environ.get
 AURUM_SRC_HOME_ENV = "AURUM_SRC_HOME"
 DDPROFILER_NAME = "ddprofiler"
 DDPROFILER_RUN = "run.sh"
+DDPROFILER_JSON_OUTPUT = "/json/"
+DDPROFILER_TEXT_OUTPUT = "/text/"
 AURUM_HOME_ENV = "AURUM_HOME"
 SOURCES_FILE_STARTING_TEMPLATE = """#######
                         # This file is specified as input to the ddprofiler, which uses it to extract a list of
@@ -52,7 +56,7 @@ class DataSourceNotConfigured(BaseAurumException):
     pass
 
 
-class ModelNotFoundError(BaseAurumException):
+class DIndexConfigurationError(BaseAurumException):
     pass
 
 
@@ -166,25 +170,31 @@ class AurumWrapper(object):
         except FileExistsError:
             pass
 
-        self.models_dir = self.aurum_home.joinpath('models')
-        try:
-            self.models_dir.mkdir(parents=True)
-        except FileExistsError:
-            pass
+        # self.models_dir = self.aurum_home.joinpath('models')
+        # try:
+        #     self.models_dir.mkdir(parents=True)
+        # except FileExistsError:
+        #     pass
 
     def _make_data_source_path(self, ds_name):
         return self.sources_dir.joinpath(ds_name + '.yml')
 
-    def _make_model_path(self, model_name):
-        return self.models_dir.joinpath(model_name)
+    # def _make_model_path(self, model_name):
+    #     return self.models_dir.joinpath(model_name)
 
     @property
-    def sources(self):
+    def list_sources_files(self):
         return [f.name.replace('.yml', '') for f in self.sources_dir.iterdir()]
 
-    @property
-    def models(self):
-        return [f.name for f in self.models_dir.iterdir()]
+    # @property
+    # def list_dindexes(self):
+    #     return [f.name for f in self.models_dir.iterdir()]
+
+    def get_source_path(self, source_name):
+        name = source_name
+        if not source_name[-4:] == ".yml":
+            name = source_name + ".yml"
+        return self.sources_dir.joinpath(name)
 
     def _make_csv_data_source(self, name, fp, separator=','):
         return {
@@ -209,37 +219,55 @@ class AurumCLI(AurumWrapper):
     # ----------------------------------------------------------------------
     # Configure sources functions
 
-    def show_sources(self, source_path):
+    def inspect_source_file(self, source_name):
         """
         Shows every source configured in the input source_path YAML file
-        :param source_path: the input source.yml file
-        :return: prints the list of configured sources
+        :param source_name: the name of the sources file
+        :return: prints the list of configured sources in source_name
         """
-        with open(source_path) as f:
+        path = super().get_source_path(source_name)
+        with open(path) as f:
             print(f.read())
 
-    def create_sources(self, sources_name) -> bool:
+    def create_sources(self, sources_file_name) -> bool:
         """
         Creates a new sources file to be configured with sources
-        :param sources_name: the name of the sources file
+        :param sources_file_name: the name of the sources file
         :return: boolean
         """
-        with open(self._make_data_source_path(sources_name), 'w') as f:
+        path = self._make_data_source_path(sources_file_name)
+        if os.path.exists(path):
+            print("Error: File {} already exists".format(path))
+            return False
+        with open(path, 'w') as f:
             f.write(SOURCES_FILE_STARTING_TEMPLATE)
+        return True
 
     @property
-    def sources(self):
-        return super().sources
+    def list_sources_files(self):
+        return super().list_sources_files
 
-    def add_csv_data_source(self, name, path, sep=','):
+    def add_csv_data_source(self, sources_file_name, csv_source_name, path_to_csv_files, sep=',') -> bool:
         ds = CSVDataSource()
-        ds.name = name
-        ds.path = path
+        ds.name = csv_source_name
+        ds.path = path_to_csv_files
         ds.separator = sep
-        super()._store_data_source(ds)
+
+        # super()._store_data_source(ds)
+        # Verify the sources_file_name exist
+        path = self._make_data_source_path(sources_file_name)
+        if not os.path.exists(path):
+            print("Error: Sources file {} does not exist".format(path))
+            return False
+        # Append the source to the file
+        with open(path, 'a') as f:
+            yaml_data = ds.to_yml()
+            f.write(yaml_data)
+        return True
 
     def add_db_data_source(self, name, db_type, host, port, db_name, username, password):
         # TODO check if `db_type` is supported
+        # TODO give better names to the below variables
         ds = DBDataSource()
         ds.name = name
         ds.type = db_type
@@ -248,89 +276,69 @@ class AurumCLI(AurumWrapper):
         ds.db_name = db_name
         ds.db_user = username
         ds.db_password = password
-        super()._store_data_source(ds)
+
+        # super()._store_data_source(ds)
+        # TODO: follow add_csv_data_source to complete this function
 
     # ----------------------------------------------------------------------
     # Profile Functions
 
-    def profile(self, data_source_name):
-        ds_fp = super()._make_data_source_path(data_source_name)
-        if not ds_fp.exists():
-            raise DataSourceNotConfigured(f"Data Source {data_source_name} not configured!")
-        profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', ds_fp]
+    def profile(self, sources_file_name, output_path):
+        path = super()._make_data_source_path(sources_file_name)
+        if not path.exists():
+            raise DataSourceNotConfigured(f"Data Source {sources_file_name} not configured!")
+        profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', path, '--store.json.output.folder', output_path]
         run_cmd(profile_cmd, cwd=self.ddprofiler_home)
 
     # ----------------------------------------------------------------------
     # DIndex Functions
 
-    def build_model(self, name):
-        model_dir_path = self._make_model_path(name)
+    def build_dindex(self, input_data_path, output_dindex_path):
         try:
-            model_dir_path.mkdir(parents=True)
+            p = Path(output_dindex_path)
+            p.mkdir(parents=True)
         except FileExistsError:
-            warn(f'Model with the same name ({name}) already exists!')
+            # warn(f'Model with the same name ({output_dindex_path}) already exists!')
+            raise DIndexConfigurationError(f"path {output_dindex_path} already exists!")
 
-        run_cmd(['python', 'networkbuildercoordinator.py', '--opath', model_dir_path])
+        run_cmd(['python', 'build_dindex.py', '--input_data_path', input_data_path, '--output_path', output_dindex_path])
 
-    # def export_model(self, model_name, to='neo4j', neo4j_host='localhost', neo4j_port=7687, neo4j_user='neo4j',
-    #                  neo4j_pass='n304j'):
-    #     supported_destionations = ['neo4j']
-    #
-    #     if to not in supported_destionations:
-    #         raise NotImplementedError(f"Model destination not supported. Only {supported_destionations} are supported")
-    #
-    #     model_dir_path = self._make_model_path(model_name)
-    #
-    #     # Check if model exists
-    #     # TODO refactor to separate method
-    #     if not model_dir_path.exists():
-    #         available_models = '\n'.join(self.models)
-    #         raise ModelNotFoundError(
-    #             f"Model {model_name} not found!\nHere are the available ones:\n{available_models}")
-    #
-    #     # Hacky way. The underlying `fieldnetwork.py:deserialize_network` should be changed
-    #     model_path_str = model_dir_path.__str__() + '/'
-    #     if to == 'neo4j':
-    #         exporter = Neo4jExporter(host=neo4j_host, port=neo4j_port, user=neo4j_user, pwd=neo4j_pass)
-    #     exporter.export(model_path_str)
+    # def clear_store(self):
+    #     """
+    #     γφ
+    #     """
+    #     from elasticsearch import Elasticsearch
+    #     # TODO extract AURUM_ES_HOST
+    #     es = Elasticsearch()
+    #     es.indices.delete('profile')
+    #     es.indices.delete('text')
 
-    def clear_store(self):
-        """
-        γφ
-        """
-        from elasticsearch import Elasticsearch
-        # TODO extract AURUM_ES_HOST
-        es = Elasticsearch()
-        es.indices.delete('profile')
-        es.indices.delete('text')
-
-    def explore_model(self, model_name):
+    def start_aurum_api_session(self, dindex_path):
         """
         Initiates an interactive IPython session to run discovery queries.
 
         :param model_name:
         :return:
         """
-        api, reporting = init_system(self._make_model_path(model_name).__str__() + '/', create_reporting=True)
+        #FIXME: check dindex_path exists and so on...
+        api, reporting = init_system(dindex_path + '/', create_reporting=True)
         IPython.embed()
 
 
 if __name__ == '__main__':
     aurum_cli = AurumCLI()
     Fire({
-        'show-sources': aurum_cli.show_sources,
-        'create-sources': aurum_cli.create_sources,
+        'create-sources-file': aurum_cli.create_sources,
+        'list-sources-files': aurum_cli.list_sources_files,
+        'inspect-sources': aurum_cli.inspect_source_file,
         'add-csv': aurum_cli.add_csv_data_source,
         'add-db': aurum_cli.add_db_data_source,
-        'list-sources': aurum_cli.sources,
-
 
         'profile': aurum_cli.profile,
 
-        'build-model': aurum_cli.build_model,
-        'list-models': aurum_cli.models,
-        'export-model': aurum_cli.export_model,
-        'clear-store': aurum_cli.clear_store,
+        'build-model': aurum_cli.build_dindex,
 
-        'explore-model': aurum_cli.explore_model
+        # 'clear-store': aurum_cli.clear_store,
+
+        'explore-model': aurum_cli.start_aurum_api_session
     })

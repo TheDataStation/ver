@@ -19,7 +19,7 @@ import java.util.List;
 public class JSONProfileAndTextStore implements Store {
 
     final private Logger LOG = LoggerFactory.getLogger(JSONProfileAndTextStore.class.getName());
-    private static final SimpleDateFormat tsPattern = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss-SSSXXX");
+//     private static final SimpleDateFormat tsPattern = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss-SSSXXX");
     private final String profileOutputPath;
     private final String textOutputPath;
     private final int MAX_CSV_SIZE = 200 * 1024 * 1024; // 200 MB
@@ -29,15 +29,17 @@ public class JSONProfileAndTextStore implements Store {
     private CSVWriter csvWriter;
 
     public JSONProfileAndTextStore(ProfilerConfig pc) throws Exception {
-        Timestamp ts = new Timestamp(System.currentTimeMillis());
-        String timestamp = tsPattern.format(ts);
+//         Timestamp ts = new Timestamp(System.currentTimeMillis());
+//         String timestamp = tsPattern.format(ts);
         String outputFolder = pc.getString(ProfilerConfig.STORE_TYPE_JSON_OUTPUT_FOLDER);
         // folder for storing json files representing profiles
-        String outputJSONFolderName = outputFolder + "_" + timestamp + "/json/";
+//         String outputJSONFolderName = outputFolder + "_" + timestamp + "/json/";
+        String outputJSONFolderName = outputFolder + "/json/";
         Files.createDirectories(Paths.get(outputJSONFolderName));
         this.profileOutputPath = outputJSONFolderName;
         // folder for storing text files
-        String outputTextFolderName = outputFolder + "_" + timestamp + "/text/";
+//         String outputTextFolderName = outputFolder + "_" + timestamp + "/text/";
+        String outputTextFolderName = outputFolder + "/text/";
         Files.createDirectories(Paths.get(outputTextFolderName));
         this.textOutputPath = outputTextFolderName;
     }

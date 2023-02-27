@@ -16,14 +16,15 @@ import java.util.List;
 
 public class JSONFilesStore implements Store {
 
-    private static final SimpleDateFormat tsPattern = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss-SSSXXX");
+//     private static final SimpleDateFormat tsPattern = new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss-SSSXXX");
     private String outputPath;
 
     public JSONFilesStore(ProfilerConfig pc) throws Exception {
-        Timestamp ts = new Timestamp(System.currentTimeMillis());
-        String timestamp = tsPattern.format(ts);
+//         Timestamp ts = new Timestamp(System.currentTimeMillis());
+//         String timestamp = tsPattern.format(ts);
         String outputFolder = pc.getString(ProfilerConfig.STORE_TYPE_JSON_OUTPUT_FOLDER);
-        String outputFolderName = outputFolder + "_" + timestamp;
+//         String outputFolderName = outputFolder + "_" + timestamp;
+        String outputFolderName = outputFolder;
         Files.createDirectories(Paths.get(outputFolderName));
         this.outputPath = outputFolderName;
     }
