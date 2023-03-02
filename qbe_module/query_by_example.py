@@ -38,9 +38,9 @@ class QueryByExample:
         src_cols = candidate_list[0]
         results = []
         for src in src_cols:
-            print(src)
+            # print(src)
             result = self.join_path_search.find_join_paths_between_two_cols(src, candidate_list[1])
-            print(result)
+            # print(result)
             results.extend(result)
         return results
         

@@ -24,6 +24,7 @@ class Materializer:
         q = deque()
         q.append(start)
         visited = set()
+        visited_tbl = set()
         visited.add(start)
         while q:
             cur = q.popleft()
@@ -36,14 +37,18 @@ class Materializer:
                 edge = (cur, nei)
                 join_path = graph_dict[edge]
                 if cur in node_to_df:
+                    # print("last df {}".format(cur), node_to_df[cur].columns)
                     init_df = node_to_df[cur]
-                    df = self.materialize_join_path(join_path, init_df, attrs_needed_map)
+                    df = self.materialize_join_path(join_path, init_df, attrs_needed_map, visited_tbl)
                 else:
-                    df = self.materialize_join_path(join_path, None, attrs_needed_map)
+                    df = self.materialize_join_path(join_path, None, attrs_needed_map, visited_tbl)
                 node_to_df[cur] = df
                 node_to_df[nei] = df
+                
         
         df = node_to_df[last]
+        if len(df) == 0:
+            return []
         
         final_attrs_project = list(itertools.product(*columns_to_project))
         
@@ -56,9 +61,8 @@ class Materializer:
     def get_col_name(self, col):
         return "{}.{}".format(col.source_name, col.field_name)
 
-    def materialize_join_path(self, join_path: JoinPath, init_df, attr_needed_map):
+    def materialize_join_path(self, join_path: JoinPath, init_df, attr_needed_map, visited_tbl):
         path = join_path.path
-        proj_attrs_list = join_path.tbl_proj_attrs
         
         prv_df = init_df
         for join_pair in path:
@@ -70,6 +74,7 @@ class Materializer:
                     return prv_df
                 else:
                     attrs_needs = attr_needed_map[tbl1]
+                    visited_tbl.add(tbl1)
                     return read_csv_columns_with_sampling(self.table_path + tbl1, tbl1, list(attrs_needs), self.sample_size)
             
             if prv_df is None:
@@ -78,14 +83,17 @@ class Materializer:
                 attrs_needs2 = attr_needed_map[tbl2]
                 df2 = read_csv_columns_with_sampling(self.table_path + tbl2, tbl2, list(attrs_needs2), self.sample_size)
                 prv_df = pd.merge(df1, df2, left_on=self.get_col_name(key1), right_on=self.get_col_name(key2), how='inner')
+                visited_tbl.add(tbl1)
+                visited_tbl.add(tbl2)
             else:
                 if len(prv_df) == 0:
-                    break
+                    return prv_df
+                
+                if tbl2 in visited_tbl:
+                    continue
                 attrs_needs2 = attr_needed_map[tbl2]
                 df = read_csv_columns_with_sampling(self.table_path + tbl2, tbl2, list(attrs_needs2), self.sample_size)
                 prv_df = pd.merge(prv_df, df, left_on=self.get_col_name(key1), right_on=self.get_col_name(key2), how='inner')
-                
-        if len(prv_df) == 0:
-            return prv_df
-       
+                visited_tbl.add(tbl2)
+
         return prv_df

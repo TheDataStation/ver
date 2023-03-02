@@ -44,7 +44,7 @@ class JoinGraph:
          
         return attrs_needed, columns_to_proj
     
-    def to_str(self):
+    def display(self):
         i = 0
         for edge, path in self.graph_dict.items():
             print(edge)
@@ -92,6 +92,7 @@ class JoinGraphSearch:
 
     def find_join_graphs(self, candidate_lists: List):
         join_path_map = self.get_join_path_map(candidate_lists)
+        # print(join_path_map)
         edges = list(join_path_map.keys())
         valid_graphs = []
         
@@ -101,6 +102,7 @@ class JoinGraphSearch:
 
         all_join_graphs = []
         for valid_graph in valid_graphs:
+            print(valid_graph)
             new_dict = {}
             for edge in valid_graph:
                new_dict[edge] = join_path_map[edge]

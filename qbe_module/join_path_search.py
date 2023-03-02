@@ -40,13 +40,14 @@ class JoinPathSearch:
             cur_path = q.popleft()
             cur_last = cur_path[-1][0]
             neighbors = self.api.neighbors(cur_last, rel)
+           
             for nei in neighbors:
                 if not self.is_visited(nei, cur_path):
                     new_path = deepcopy(cur_path)
                     new_path[-1][1] = nei
                     result.append(new_path)
                     if len(new_path) == max_hop:
-                        break
+                        continue
                     nei_tbl = self.api.drs_expand_to_table(nei)
                     # search next hop
                     for next_src in nei_tbl:
@@ -62,13 +63,16 @@ class JoinPathSearch:
             src_tbl_drs = self.api.table_to_hit(src_tbl)
            
             result.append(JoinPath([[src_tbl_drs, src_tbl_drs]], [src_dict[src_tbl], tgt_dict[src_tbl]]))
-
+        
         for src_col in self.api.table_to_drs(src_tbl):
             src_paths = self.find_join_paths_from_col(src_col, rel, max_hop)
             for src_path in src_paths:
                 end_tbl = src_path[-1][1].source_name
                 if end_tbl in tgt_tbls:
                     result.append(JoinPath(src_path, [src_dict[src_tbl], tgt_dict[end_tbl]]))
+        # if src_tbl == 'Affordable Rental Housing Developments.csv':
+        #     for path in result:
+        #         print(path.to_str())
         return result
                 
     def find_join_paths_between_two_cols(self, src: Column, tgts: List[Column], rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):
