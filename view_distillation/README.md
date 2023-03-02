@@ -137,6 +137,16 @@ The complementary views used to union are removed.
 
 ## Helper Functions
 
+### Get Dataframe
+
+```python
+vd.get_df(view)
+```
+
+Get the corresponding Dataframe from the given `view` path.
+
+### Get row from key
+
 ```python
 vd.get_row_from_key(df, key, key_value)
 ```

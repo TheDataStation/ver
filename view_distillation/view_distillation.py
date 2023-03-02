@@ -168,6 +168,16 @@ class ViewDistillation:
             current_views += [path for df, path in dfs]
         return current_views
 
+    def get_df(self, view):
+
+        file_name = os.path.basename(view)
+
+        if file_name not in self.path_to_df_dict.keys():
+            print(f"view does not exist")
+            return None
+
+        return self.path_to_df_dict[file_name]
+
     def distill_views(self, remove_identical_views=True,
                       remove_contained_views=True,
                       union_complementary_views=True):
@@ -738,7 +748,7 @@ class ViewDistillation:
 
 if __name__ == "__main__":
     # vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
-    vd = ViewDistillation("./test_views/")
+    vd = ViewDistillation("/Users/zhiruzhu/Downloads/test_views/")
 
     res = vd.distill_views()
     print(res)
