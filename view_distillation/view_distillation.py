@@ -23,6 +23,10 @@ class ViewDistillation:
         dfs, self.path_to_df_dict = get_dataframes(path_to_views)
         self.dfs_per_schema = classify_per_table_schema(dfs)
 
+        print(f"original num views: {len(dfs)}")
+        print(f"num schema groups: {len(self.dfs_per_schema)}")
+
+
         self.hash_dict = {}
 
         self.found_compatible_views = False
@@ -167,8 +171,6 @@ class ViewDistillation:
     def distill_views(self, remove_identical_views=True,
                       remove_contained_views=True,
                       union_complementary_views=True):
-
-        print(f"original num views: {len(self.get_current_views())}")
 
         if remove_identical_views:
             self.reduce_compatible_views_to_one()
