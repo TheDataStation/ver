@@ -731,4 +731,4 @@ if __name__ == "__main__":
     vd.generate_graph()
     vd.prune_graph()
 
-    print("view3 -> view4:", vd.get_label("view3.csv", "view4.csv"))
+    print("view3 -> view4:", vd.get_attributes("view3.csv", "view4.csv"))
