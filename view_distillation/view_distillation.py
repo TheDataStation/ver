@@ -34,6 +34,7 @@ class ViewDistillation:
         self.found_contradictory_views = False
         self.contradictions = {}
 
+        self.complementary_pairs = None
         self.complementary_views_to_remove = set()
         self.unioned_complementary_views = []
 
@@ -167,14 +168,23 @@ class ViewDistillation:
                       remove_contained_views=True,
                       union_complementary_views=True):
 
+        print(f"original num views: {len(self.get_current_views())}")
+
         if remove_identical_views:
             self.reduce_compatible_views_to_one()
+
+        print(f"num views after compatible: {len(self.get_current_views())}")
 
         if remove_contained_views:
             self.prune_contained_views(keep_largest=True)
 
+        print(f"num views after contained: {len(self.get_current_views())}")
+
         if union_complementary_views:
             self.union_complementary_views()
+
+        print(f"num views after complementary: {len(self.get_current_views())}")
+
 
         return self.get_current_views()
 
@@ -235,7 +245,8 @@ class ViewDistillation:
                     views_left.append(path)
             self.dfs_per_schema[key] = new_dfs
 
-        self._remove_from_contra_compl(self.compatible_views_to_remove)
+        if self.found_contradictory_views:
+            self._remove_from_contra_compl(self.compatible_views_to_remove)
 
         return views_left
 
@@ -724,11 +735,15 @@ class ViewDistillation:
 
 
 if __name__ == "__main__":
-    vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
+    # vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
+    vd = ViewDistillation("./test_views/")
 
-    # res = vd.distill_views()
-    # print(res)
-    vd.generate_graph()
-    vd.prune_graph()
+    res = vd.distill_views()
+    print(res)
 
-    print("view3 -> view4:", vd.get_attributes("view3.csv", "view4.csv"))
+    # vd.generate_graph()
+    # vd.prune_graph()
+
+    # print("view3 -> view4:", vd.get_attributes("view3.csv", "view4.csv"))
+
+
