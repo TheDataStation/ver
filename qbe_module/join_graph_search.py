@@ -90,23 +90,33 @@ class JoinGraphSearch:
                    
         return join_path_map
 
-    def find_join_graphs(self, candidate_lists: List):
+    def find_join_graphs(self, candidate_lists: List, order_chain_only=False):
         join_path_map = self.get_join_path_map(candidate_lists)
         # print(join_path_map)
         edges = list(join_path_map.keys())
         valid_graphs = []
         
-        for subset in itertools.combinations(edges, len(edges)-1):
-            if self.is_graph_valid(subset, self.col_num):
-                valid_graphs.append(subset)
+        if not order_chain_only:
+            for subset in itertools.combinations(edges, len(candidate_lists)-1):
+                if self.is_graph_valid(subset, self.col_num):
+                    valid_graphs.append(subset)
+        else:
+            valid_graphs.append([(i, i+1) for i in range(len(candidate_lists)-1)])
 
         all_join_graphs = []
         for valid_graph in valid_graphs:
             print(valid_graph)
             new_dict = {}
             for edge in valid_graph:
-               new_dict[edge] = join_path_map[edge]
-               new_dict[(edge[1], edge[0])] = join_path_map[edge]
+                new_dict[edge] = join_path_map[edge]
+                cnt = 0
+                for k, v in new_dict[edge].items():
+                    # print("src_tbl", k)
+                    # for path in v:
+                    #     print(path.to_str())
+                    cnt += len(v)
+                print(edge, cnt)
+                new_dict[(edge[1], edge[0])] = join_path_map[edge]
            
             join_graphs = self.dfs_graph(valid_graph, new_dict)
             for join_graph in join_graphs:
@@ -118,6 +128,8 @@ class JoinGraphSearch:
     def dfs(self, cur_graph, visited, res, adj_list, edges_dict, path_order, idx):
         if idx == len(path_order):
             res.append(deepcopy(cur_graph))
+            if len(res) % 10000 == 0:
+                print("num join paths:", len(res))
             return
 
         cur_edge = path_order[idx]

@@ -122,6 +122,8 @@ class Algebra:
     """
 
     def neighbors(self, drs: DRS, relation):
+        if not self._network.is_nid_in_graph(drs.nid):
+            return []
         return self._network.neighbors_id(drs, relation)
 
     def paths(self, drs_a: DRS, drs_b: DRS, relation=Relation.PKFK, max_hops=2, lean_search=False) -> DRS:

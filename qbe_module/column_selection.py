@@ -6,6 +6,7 @@ from collections import defaultdict
 from api.apiutils import DRS, Operation, OP
 from qbe_module.column import Column
 from typing import List
+from api.apiutils import Relation
 
 
 class ColumnSelection:
@@ -65,8 +66,8 @@ class ColumnSelection:
             nid_to_candidate[candidate.nid] = candidate
 
         for _, candidate in enumerate(candidates):
-            neighbors = self.aurum_api.content_similar_to(candidate.drs)
-            for neighbor in neighbors.data:
+            neighbors = self.aurum_api.neighbors(candidate.drs, Relation.CONTENT_SIM)
+            for neighbor in neighbors:
                 if neighbor.nid not in nid_to_candidate:
                     continue
                 self.merge_root(roots, candidate.nid, neighbor.nid)
