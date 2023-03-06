@@ -1,20 +1,34 @@
-from dindex_store.common import FullTextSearchIndex
-
 import duckdb
+
+from typing import List
+from dindex_store.common import FullTextSearchIndex
 
 
 class FTSIndexDuckDB(FullTextSearchIndex):
 
-    def __init__(self):
-        # FIXME: take DB name from config file
-        self.con = duckdb.connect()
+    def __init__(self, config):
+        # FIXME: Validate Config Name
+        self.config = config
+        self.conn = duckdb.connect(database=config["duckdb_database"])
 
-    def query(self, kw):
-        kw = "household"
-        res = self.con.execute("EXECUTE fts_query('" + kw + "')")
-        results = res.fetchall()
-        return results
+    def create_fts_index(self, table_name, index_column):
+        # Create fts index over all, *, attributes
+        query = "PRAGMA create_fts_index('{}', '{}', '*', stopwords='english')".format(
+            table_name, index_column)
+        self.conn.execute(query)
 
+        prepare_query = """
+            PREPARE fts_query AS (
+                WITH scored_docs AS (
+                    SELECT *, fts_main_documents.match_bm25(profile_id, ?) AS score FROM documents)
+                SELECT profile_id, score
+                FROM scored_docs
+                WHERE score IS NOT NULL
+                ORDER BY score DESC
+                LIMIT 100)
+            """
+        self.conn.execute(prepare_query)
 
-if __name__ == "__main__":
-    print("FTS index implementation on DuckDB")
+    def fts_query(self, keyword) -> List:
+        res = self.conn.execute("EXECUTE fts_query('" + keyword + "')")
+        return res.fetchall()
