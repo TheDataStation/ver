@@ -1,10 +1,12 @@
+from typing import Dict, List
+
 from dindex_store.common import EdgeType
 from dindex_store.profile_index_duckdb import ProfileIndexDuckDB
 from dindex_store.graph_index_duckdb import GraphIndexDuckDB
 from dindex_store.graph_index_kuzu import GraphIndexKuzu
 from dindex_store.fulltext_index_duckdb import FTSIndexDuckDB
-# from dindex_store.graph_index_arangodb import GraphIndexArangoDB
-from typing import Dict, List
+from dindex_store.content_similarity_index_minhash import SimpleMHIndex
+from dindex_store.content_similarity_index_minhash import MHIndex
 
 
 class DiscoveryIndex:
@@ -17,37 +19,93 @@ class DiscoveryIndex:
     :param fts_index: FullTextSearchIndex
     """
 
+    """
+    Mapping of index type and implementations
+    """
     profile_index_mapping = {
         "duckdb": ProfileIndexDuckDB,
-    }
-
-    graph_index_mapping = {
-        "duckdb": GraphIndexDuckDB,
-        "kuzu": GraphIndexKuzu,
-        # "arangodb": GraphIndexArangoDB,
     }
 
     fts_index_mapping = {
         "duckdb": FTSIndexDuckDB,
     }
 
+    content_similarity_index_mapping = {
+        "simpleminhash": SimpleMHIndex,
+        "minhash": MHIndex
+    }
+
+    graph_index_mapping = {
+        "duckdb": GraphIndexDuckDB,
+        "kuzu": GraphIndexKuzu,
+    }
+
     def __init__(self, config: Dict) -> None:
         # TODO: Validate config in a consistent way
-        self.__profile_index = DiscoveryIndex.profile_index_mapping[config["profile_index"]](
-            config)
-        self.__graph_index = DiscoveryIndex.graph_index_mapping[config["graph_index"]](
-            config)
-        self.__fts_index = DiscoveryIndex.fts_index_mapping[config["fts_index"]](
-            config)
+        self.__profile_index = DiscoveryIndex.profile_index_mapping[config["profile_index"]](config)
+        self.__content_similarity_index = DiscoveryIndex.content_similarity_index_mapping[config["content_index"]](config)
+        self.__fts_index = DiscoveryIndex.fts_index_mapping[config["fts_index"]](config)
+        self.__graph_index = DiscoveryIndex.graph_index_mapping[config["graph_index"]](config)
+
+    def initialize(self, config: Dict):
+        # Initialize profile index
+        self.__profile_index.initialize(config)
+        # Initialize text index
+        self.__fts_index.initialize(config)
+        # Initialize content index
+        self.__content_similarity_index.initialize(config)
+        # Initialize graph index
+        self.__graph_index.initialize(config)
+
+    def get_content_similarity_index(self):
+        return self.__content_similarity_index
+
+    # def create_index(self, input_data_path, config: Dict):
+    #
+    #     if config["input_data_type"] != "json":
+    #         # TODO
+    #         print("Error: only json profiles supported")
+    #         return
+    #
+    #     profile_path = input_data_path + "/json/"
+    #     text_path = input_data_path + "/text/"
+    #
+    #     # Populate profile and content indexes
+    #     # TODO: integrate content index here
+    #     for file_path in os.listdir(profile_path):
+    #         if os.path.isfile(file_path):
+    #             with open(file_path) as f:
+    #                 profile = json.load(f)
+    #                 self.add_profile(profile)
+    #
+    #     # Populate text index
+    #     self.__fts_index.initialize(config)
+    #     table_name = config["fts_data_table_name"]
+    #     # insert content
+    #     onlyfiles = [f for f in listdir(text_path) if isfile(join(text_path, f))]
+    #     for file in tqdm(onlyfiles):
+    #         csv_delimiter = config["TEXT_CSV_DELIMITER"]
+    #         self.__load_text_csv(table_name, file, csv_delimiter)
 
     # ----------------------------------------------------------------------
     # Modify Methods
 
-    def add_profile(self, node: Dict) -> bool:
-        node_id = node["id"]
-        if not self.__profile_index.add_profile(node):
+    def add_profile(self, profile: Dict) -> bool:
+        profile_id = profile["id"]
+
+        success_profile = self.__profile_index.add_profile(profile)
+        if not success_profile:
             return False
-        return self.__graph_index.add_node(node_id)
+        success_graph = self.__graph_index.add_node(profile_id)
+        if not success_graph:
+            return False
+        success_content_similarity = self.__content_similarity_index.add_profile(profile_id, profile['minhash'])
+        if not success_content_similarity:
+            return False
+        return True
+
+    def add_text_content(self, profile_id, dbName, path, sourceName, columnName, data):
+        self.__fts_index.insert(profile_id, dbName, path, sourceName, columnName, data)
 
     def add_edge(
             self,
@@ -67,14 +125,14 @@ class DiscoveryIndex:
         return self.__graph_index.add_undirected_edge(
             source_node_id, target_node_id, type, properties)
 
-    def create_fts_index(self, table_name, index_column):
-        return self.__fts_index.create_fts_index(table_name, index_column)
+    # def create_fts_index(self, table_name, index_column):
+    #     return self.__fts_index.create_fts_index(table_name, index_column)
 
     # ----------------------------------------------------------------------
     # Query Methods
 
     def get_profile(self, node_id: int) -> Dict:
-        return self.__profile_index.get_node(node_id)
+        return self.__profile_index.get_profile(node_id)
 
     def get_minhashes(self) -> Dict:
         return self.__profile_index.get_minhashes()

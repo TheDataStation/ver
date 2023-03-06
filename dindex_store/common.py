@@ -118,7 +118,7 @@ class FullTextSearchIndex(ABC):
         pass
 
 
-class MinHashIndex(ABC):
+class ContentSimilarityIndex(ABC):
     def init(self):
         return
 

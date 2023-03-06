@@ -336,7 +336,7 @@ if __name__ == '__main__':
 
         'profile': aurum_cli.profile,
 
-        'build-model': aurum_cli.build_dindex,
+        'build-dindex': aurum_cli.build_dindex,
 
         # 'clear-store': aurum_cli.clear_store,
 

@@ -23,10 +23,14 @@ class ProfileIndexDuckDB(ProfileIndex):
             print("An error has occurred when reading the schema")
             raise
 
+    def initialize(self, config):
+        # TODO: index creation, others
+        return
+
     def add_profile(self, node: Dict) -> bool:
-        if "minhash" in node and node["minhash"]:
-            node["minhash"] = ",".join(map(str, node["minhash"]))
-        
+        # if "minhash" in node and node["minhash"]:
+        #     node["minhash"] = ",".join(map(str, node["minhash"]))
+
         try:
             profile_table = self.conn.table(self.config["profile_table_name"])
             profile_table.insert(node.values())
@@ -62,3 +66,14 @@ class ProfileIndexDuckDB(ProfileIndex):
             raise ValueError("The path does not exist, or is not a file")
         
         assert "profile_table_name" in config
+
+
+if __name__ == "__main__":
+    print("ProfileIndexDuckDB")
+
+    import config
+
+    cnf = dict(config)
+    index = ProfileIndexDuckDB(cnf)
+
+    # FIXME: what to do if this file is invoked individually?

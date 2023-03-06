@@ -23,6 +23,9 @@ class GraphIndexKuzu(GraphIndex):
             print("An error has occurred when reading the schema")
             raise
 
+    def initialize(self, config):
+        return
+
     # ----------------------------------------------------------------------
     # Modify Methods
 
