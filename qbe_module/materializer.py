@@ -44,6 +44,8 @@ class Materializer:
                     df = self.materialize_join_path(join_path, None, attrs_needed_map, visited_tbl)
                 node_to_df[cur] = df
                 node_to_df[nei] = df
+                # print("cur", cur)
+                # print(df)
                 
         
         df = node_to_df[last]
