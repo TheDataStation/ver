@@ -2,6 +2,7 @@ import json
 import os
 import time
 import numpy as np
+import pandas as pd
 
 from typing import Dict
 from datasketch import MinHash, MinHashLSH
@@ -9,15 +10,28 @@ from datasketch import MinHash, MinHashLSH
 from dindex_store.discovery_index import DiscoveryIndex
 from dindex_store.common import EdgeType
 
+CSV_DELIMITER = ','
 
-def load_json_data(path, discovery_graph: DiscoveryIndex):
-    # Populate the nodes table with JSON files under the specified path
+
+def load_data(path, file_type, discovery_graph: DiscoveryIndex):
+    # Populate the nodes table with files under the specified path
+
+    if file_type != 'json' and file_type != 'csv':
+        print(f'File type {file_type} currently not supported')
+        return
+
     for filename in os.listdir(path):
         filepath = os.path.join(path, filename)
         if os.path.isfile(filepath):
-            with open(filepath) as f:
-                profile = json.load(f)
-                discovery_graph.add_profile(profile)
+            if file_type == 'json':
+                with open(filepath) as f:
+                    profile = json.load(f)
+                    discovery_graph.add_profile(profile)
+            elif file_type == 'csv':
+                df = pd.read_csv(
+                    filepath, delimiter=CSV_DELIMITER).to_dict('records')
+                for profile in df:
+                    discovery_graph.add_profile(profile)
 
 
 def build_minhash(discovery_graph, minhash_perm, threshold=0.5):
@@ -40,12 +54,11 @@ def build_minhash(discovery_graph, minhash_perm, threshold=0.5):
             # TODO: Need to check that they are not from the same source
             # TODO: Replace with actual attributes
             discovery_graph.add_undirected_edge(
-                profile['id'], neighbor, EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {
-                    "similar": 1})
-
+                profile['id'], neighbor, 
+                EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {'similar': 1})
 
 def dindex_builder(config: Dict):
     discovery_graph = DiscoveryIndex(config)
-    load_json_data(config["data_path"], discovery_graph)
-    build_minhash(discovery_graph, config["minhash_perm"])
+    load_data(config['data_path'], config['file_type'], discovery_graph)
+    build_minhash(discovery_graph, config['minhash_perm'])
     return discovery_graph
