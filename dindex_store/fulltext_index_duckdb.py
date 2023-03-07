@@ -7,7 +7,7 @@ from dindex_store.common import FullTextSearchIndex
 
 class FTSIndexDuckDB(FullTextSearchIndex):
 
-    def __init__(self, config):
+    def __init__(self, config, load=False):
         # FIXME: Validate Config Name
         self.config = config
         self.conn = duckdb.connect(database=config["fts_duckdb_database_name"])

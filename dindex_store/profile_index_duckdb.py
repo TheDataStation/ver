@@ -8,20 +8,21 @@ from dindex_store.common import ProfileIndex
 
 class ProfileIndexDuckDB(ProfileIndex):
 
-    def __init__(self, config: Dict) -> None:
+    def __init__(self, config: Dict, load=False) -> None:
         ProfileIndexDuckDB._validate_config(config)
         self.config = config
         self.conn = duckdb.connect(database=config["profile_duckdb_database_name"])
         self.schema = ""
 
-        with open(config["profile_schema_path"]) as f:
-            self.schema = f.read()
-        try:
-            for statement in self.schema.split(";"):
-                self.conn.execute(statement)
-        except:
-            print("An error has occurred when reading the schema")
-            raise
+        if not load:
+            with open(config["profile_schema_path"]) as f:
+                self.schema = f.read()
+            try:
+                for statement in self.schema.split(";"):
+                    self.conn.execute(statement)
+            except:
+                print("An error has occurred when reading the schema")
+                raise
 
     def initialize(self, config):
         # TODO: index creation, others

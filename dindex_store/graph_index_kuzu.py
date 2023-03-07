@@ -7,21 +7,22 @@ from dindex_store.common import GraphIndex, EdgeType
 
 class GraphIndexKuzu(GraphIndex):
 
-    def __init__(self, config: Dict):
+    def __init__(self, config: Dict, load=False):
         GraphIndexKuzu._validate_config(config)
         self.config = config
         self.db = kuzu.database(config["kuzu_database_name"])
         self.conn = kuzu.connection(self.db)
         self.schema = ""
 
-        with open(config["graph_schema_path"]) as f:
-            self.schema = f.read()
-        try:
-            for statement in self.schema.split(";"):
-                self.conn.execute(statement)
-        except:
-            print("An error has occurred when reading the schema")
-            raise
+        if not load:
+            with open(config["graph_schema_path"]) as f:
+                self.schema = f.read()
+            try:
+                for statement in self.schema.split(";"):
+                    self.conn.execute(statement)
+            except:
+                print("An error has occurred when reading the schema")
+                raise
 
     def initialize(self, config):
         return

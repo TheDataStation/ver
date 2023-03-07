@@ -6,10 +6,12 @@ import numpy as np
 
 class SimpleMHIndex(ContentSimilarityIndex):
 
-    def __init__(self, config):
+    def __init__(self, config, load=False):
         self.threshold = config["minhash_lsh_threshold"]
         self.num_perm = config["minhash_lsh_num_perm"]
         self.index = MinHashLSH(self.threshold, num_perm=self.num_perm)
+        if load:
+            print("Note that SimpleMHIndex is volatile and so it's not available after loading...")
 
     def initialize(self, config):
         return
