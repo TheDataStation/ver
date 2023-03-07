@@ -1,12 +1,16 @@
 import pandas as pd
 from view_presentation.interface.interface import interface
 import view_presentation.interface.embedding_distance as embedding_distance
+import ipywidgets as widgets
+
+from IPython.display import clear_output
 
 class DatasetInterfaceContentSim(interface):
-    def __init__(self,name):
+    def __init__(self,name,embedding_obj=None):
         self.name=name
         self.asked_questions={}
         self.curr_question_iter=0
+        self.embedding_obj=embedding_obj
 
     def generate_candidates (self, df_lst):
         self.content_dic={}
@@ -25,16 +29,16 @@ class DatasetInterfaceContentSim(interface):
                 iter+=1
                 continue
 
-    def rank_candidates (self, query, embedding_obj): 
+    def rank_candidates (self, query): 
         self.scores={}
         for df_iter in self.content_dic.keys():
-            dist=embedding_obj.get_distance(self.content_dic[df_iter],query)#model.wmdistance(attr.split(),query.split())
+            dist=self.embedding_obj.get_distance(self.content_dic[df_iter],query)#model.wmdistance(attr.split(),query.split())
             self.scores[df_iter]=dist
         self.sorted_sc=sorted(self.scores.items(), key=lambda item: item[1],reverse=False)
         return self.sorted_sc
 
     #Returns the data frame with the highest score
-    def get_question(self,ignored_datasets,ignore_questions=[]):
+    def get_question(self,ignored_datasets=[],ignore_questions=[]):
         iter=self.curr_question_iter
         while iter<len(self.sorted_sc):
             if self.sorted_sc[iter][0] in ignore_questions or self.sorted_sc[iter][0] in ignored_datasets :
@@ -49,10 +53,38 @@ class DatasetInterfaceContentSim(interface):
             return (1, curr_question,[curr_question])
         else:
             return None
+    def ask_question_gui(self, question, df_lst):
+        print ("Would you shortlist this dataset for the query?")
+        display(df_lst[question])
+        self.curr_question_iter += 1
+        self.attribute_yesno=widgets.RadioButtons(
+            options=['Yes, my data must contain this dataset', 'No, my data should not contain this dataset','Does not matter'],
+            value='Does not matter', # Defaults to 'pineapple'
+            description='',
+            disabled=False
+        )
+        self.submit = widgets.Button(
+                description='Submit',
+                disabled=False,
+                button_style='', # 'success', 'info', 'warning', 'danger' or ''
+                tooltip='Submit',
+                icon='' # (FontAwesome names without the `fa-` prefix)
+            )
 
-    #TODO: Change the value of dictionary to the answer from the user
+        self.submit.on_click(self.returnval)
+        display(self.attribute_yesno)
+        display(self.submit)
+
+        return [['Yes, my data must contain this dataset', 'No, my data should not contain this dataset','Does not matter'],self.attribute_yesno,self.submit]
+
+    def returnval(self,b):
+        return self.attribute_yesno.value
     def ask_question(self, question, df_lst):
-        self.curr_question_iter +=1
+        return self.ask_question_gui(question, df_lst)
+    #TODO: Change the value of dictionary to the answer from the user
+    #def ask_question(self, question, df_lst):
+        self.curr_question_iter += 1
+        '''
         print ("Does the required dataset contain this dataset: ",df_lst[question])
         print ("Enter your option:")
         print ("1: Always present")
@@ -68,6 +100,7 @@ class DatasetInterfaceContentSim(interface):
                 print ("invalid option")
 
         return option
+        '''
 
 
 #example usage of the interface
@@ -81,14 +114,13 @@ if __name__ == '__main__':
 
     df_lst=[df1,df2]
 
-   
+    embedding_obj = embedding_distance.EmbeddingModel()
     print ("Dataset Interface")
-    attr_inf=DatasetInterfaceContentSim("header content interface")
+    attr_inf=DatasetInterfaceContentSim("header content interface",embedding_obj)
     attr_inf.generate_candidates(df_lst)
     print(attr_inf.content_dic)
 
-    embedding_obj = embedding_distance.EmbeddingModel()
-    print(attr_inf.rank_candidates("new york city",embedding_obj))
+    print(attr_inf.rank_candidates("new york city"))
 
 
     print(attr_inf.get_question())

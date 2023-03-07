@@ -41,10 +41,10 @@ class AttributeContentInterface(AttributeNameInterface):
                 iter+=1
                 continue
 
-    def rank_candidates (self, query, embedding_obj): 
+    def rank_candidates (self, query): 
         self.scores={}
         for attr in self.attr_dic.keys():
-            dist=embedding_obj.get_distance(self.attr_content_dic[attr],query)#model.wmdistance(attr.split(),query.split())
+            dist=self.embedding_obj.get_distance(self.attr_content_dic[attr],query)#model.wmdistance(attr.split(),query.split())
             self.scores[attr]=dist
         self.sorted_sc=sorted(self.scores.items(), key=lambda item: item[1],reverse=False)
         return self.sorted_sc
@@ -61,12 +61,13 @@ if __name__ == '__main__':
 
    
     print ("Content interface")
-    attr_inf=AttributeContentInterface("header content interface")
+    embedding_obj = embedding_distance.EmbeddingModel()
+    attr_inf=AttributeContentInterface("header content interface",embedding_obj)
     attr_inf.generate_candidates(df_lst)
     print(attr_inf.attr_dic)
 
-    embedding_obj = embedding_distance.EmbeddingModel()
-    print(attr_inf.rank_candidates("USA cities",embedding_obj))
+    
+    print(attr_inf.rank_candidates("USA cities"))
 
 
     print(attr_inf.get_question())
