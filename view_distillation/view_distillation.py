@@ -54,8 +54,9 @@ class ViewDistillation:
         compatible_groups = self.find_compatible_views()
         for group in compatible_groups:
             self.G.add_nodes_from(group)
-            edges = itertools.permutations(group, r=2)
-            self.G.add_edges_from(edges, c="compatible")
+            if len(group) > 1:
+                edges = itertools.permutations(group, r=2)
+                self.G.add_edges_from(edges, c="compatible")
 
         contained_groups = self.find_contained_views()
         for view1, lst in contained_groups.items():
@@ -185,18 +186,19 @@ class ViewDistillation:
         if remove_identical_views:
             self.reduce_compatible_views_to_one()
 
-        print(f"num views after compatible: {len(self.get_current_views())}")
+        print(f"num views after pruning compatible: {len(self.get_current_views())}")
 
         if remove_contained_views:
             self.prune_contained_views(keep_largest=True)
 
-        print(f"num views after contained: {len(self.get_current_views())}")
+        print(f"num views after pruning contained: {len(self.get_current_views())}")
 
         if union_complementary_views:
             self.union_complementary_views()
 
-        print(f"num views after complementary: {len(self.get_current_views())}")
+        print(f"num views after union complementary: {len(self.get_current_views())}")
 
+        print(f"num of contradictory view paris: {len(self.contradictions)}")
 
         return self.get_current_views()
 
@@ -391,7 +393,8 @@ class ViewDistillation:
                     views_left.append(path)
             self.dfs_per_schema[key] = new_dfs
 
-        self._remove_from_contra_compl(self.contained_views_to_remove)
+        if self.found_contradictory_views:
+            self._remove_from_contra_compl(self.contained_views_to_remove)
 
         return views_left
 
@@ -752,6 +755,8 @@ if __name__ == "__main__":
 
     res = vd.distill_views()
     print(res)
+
+    print(vd.contradictions)
 
     # vd.generate_graph()
     # vd.prune_graph()
