@@ -38,7 +38,7 @@ class ViewDistillation:
         self.found_contradictory_views = False
         self.contradictions = {}
 
-        self.complementary_pairs = None
+        self.complementary_pairs = []
         self.complementary_views_to_remove = set()
         self.unioned_complementary_views = []
 
@@ -502,7 +502,7 @@ class ViewDistillation:
                                 already_classified_as_contradictory.add((path1, path2, candidate_key))
                                 already_classified_as_contradictory.add((path2, path1, candidate_key))
 
-        self.complementary_pairs = list(complementary_pairs - already_classified_as_contradictory)
+        self.complementary_pairs += list(complementary_pairs - already_classified_as_contradictory)
 
         return contractions
 
