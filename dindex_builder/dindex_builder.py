@@ -1,6 +1,7 @@
 import os
 from os import listdir
 from os.path import isfile, join
+import sys
 from typing import Dict
 import csv
 import json
@@ -11,66 +12,13 @@ from dindex_store.discovery_index import DiscoveryIndex
 from dindex_store.common import EdgeType
 
 
-# def load_data(path, file_type, discovery_graph: DiscoveryIndex):
-#     # Populate the nodes table with files under the specified path
-#
-#     if file_type != 'json' and file_type != 'csv':
-#         print(f'File type {file_type} currently not supported')
-#         return
-#
-#     for filename in os.listdir(path):
-#         filepath = os.path.join(path, filename)
-#         if os.path.isfile(filepath):
-#             if file_type == 'json':
-#                 with open(filepath) as f:
-#                     profile = json.load(f)
-#                     discovery_graph.add_profile(profile)
-#             elif file_type == 'csv':
-#                 df = pd.read_csv(
-#                     filepath, delimiter=CSV_DELIMITER).to_dict('records')
-#                 for profile in df:
-#                     discovery_graph.add_profile(profile)
-#
-#
-# def build_minhash(discovery_graph, minhash_perm, threshold=0.5):
-#     # Construct the graph (edges) based on minHash signatures of the nodes
-#     start_time = time.time()
-#     content_index = MinHashLSH(threshold, num_perm=minhash_perm)
-#     profiles = discovery_graph.get_minhashes()
-#     for profile in profiles:
-#         profile['minhash'] = MinHash(
-#             num_perm=minhash_perm, hashvalues=np.array(
-#                 profile['minhash'].split(',')))
-#         content_index.insert(profile['id'], profile['minhash'])
-#
-#     spent_time = time.time() - start_time
-#     print(f'Indexed all minHash signatures: Took {spent_time}')
-#
-#     for profile in profiles:
-#         neighbors = content_index.query(profile['minhash'])
-#         for neighbor in neighbors:
-#             # TODO: Need to check that they are not from the same source
-#             # TODO: Replace with actual attributes
-#             discovery_graph.add_undirected_edge(
-#                 profile['id'], neighbor,
-#                 EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {'similar': 1})
-#
-#
-# def dindex_builder(config: Dict):
-#     discovery_graph = DiscoveryIndex(config)
-#     load_data(config['data_path'], config['file_type'], discovery_graph)
-#     build_minhash(discovery_graph, config['minhash_perm'])
-#     return discovery_graph
+def load_dindex(config: Dict):
+
+    dindex = DiscoveryIndex(config, load=True)
+    return dindex
 
 
-
-
-
-
-
-
-
-def main(input_data_path, config: Dict):
+def build_dindex(input_data_path, config: Dict):
 
     # Create an instance of the discovery index
     dindex = DiscoveryIndex(config)
@@ -101,7 +49,7 @@ def main(input_data_path, config: Dict):
     # Read text files and populate index
     onlyfiles = [f for f in listdir(text_path) if isfile(join(text_path, f))]
     for csv_file_path in tqdm(onlyfiles):
-        csv_delimiter = config["TEXT_CSV_DELIMITER"]
+        csv_delimiter = config["text_csv_delimiter"]
         with open(csv_file_path) as csvfile:
             csv_reader = csv.reader(csvfile, delimiter=csv_delimiter)
             line_count = 0
@@ -134,7 +82,32 @@ if __name__ == "__main__":
 
     import config
 
-    cnf = dict(config)
-    dindex = main(cnf)
+    cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+
+    def print_usage():
+        print("USAGE: ")
+        print("python dindex_builder.py load|build --input_path <path>")
+        print("where opath must be writable by the process")
+        exit()
+
+    build = False
+    load = False
+    input_path = None
+    if len(sys.argv) == 4 or len(sys.argv) == 2:
+        mode = sys.argv[1]
+        if mode == "load":
+            load = True
+        elif mode == "build":
+            input_path = sys.argv[3]
+            build = True
+        else:
+            print_usage()
+    else:
+        print_usage()
+
+    if build:
+        dindex = build_dindex(input_path, cnf)
+    elif load:
+        dindex = load_dindex(cnf)
 
     # TODO: notification

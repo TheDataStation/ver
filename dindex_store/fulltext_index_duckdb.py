@@ -10,7 +10,7 @@ class FTSIndexDuckDB(FullTextSearchIndex):
     def __init__(self, config):
         # FIXME: Validate Config Name
         self.config = config
-        self.conn = duckdb.connect(database=config["duckdb_database"])
+        self.conn = duckdb.connect(database=config["fts_duckdb_database_name"])
 
     def __create_schema_in_backend(self, table_name):
         # FIXME: pull this schema from config file

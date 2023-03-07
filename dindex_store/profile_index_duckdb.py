@@ -11,7 +11,7 @@ class ProfileIndexDuckDB(ProfileIndex):
     def __init__(self, config: Dict) -> None:
         ProfileIndexDuckDB._validate_config(config)
         self.config = config
-        self.conn = duckdb.connect(database=config["duckdb_database"])
+        self.conn = duckdb.connect(database=config["profile_duckdb_database_name"])
         self.schema = ""
 
         with open(config["profile_schema_path"]) as f:

@@ -301,7 +301,10 @@ class AurumCLI(AurumWrapper):
             # warn(f'Model with the same name ({output_dindex_path}) already exists!')
             raise DIndexConfigurationError(f"path {output_dindex_path} already exists!")
 
-        run_cmd(['python', 'build_dindex.py', '--input_data_path', input_data_path, '--output_path', output_dindex_path])
+        run_cmd(['python', 'build_dindex.py', 'build', '--input_path', input_data_path])
+
+    def load_dindex(self):
+        run_cmd(['python', 'build_dindex.py', 'load'])
 
     # def clear_store(self):
     #     """
@@ -337,6 +340,7 @@ if __name__ == '__main__':
         'profile': aurum_cli.profile,
 
         'build-dindex': aurum_cli.build_dindex,
+        'load-dindex': aurum_cli.build_dindex,
 
         # 'clear-store': aurum_cli.clear_store,
 

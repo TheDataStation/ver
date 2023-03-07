@@ -40,7 +40,7 @@ class DiscoveryIndex:
         "kuzu": GraphIndexKuzu,
     }
 
-    def __init__(self, config: Dict) -> None:
+    def __init__(self, config: Dict, load=False) -> None:
         # TODO: Validate config in a consistent way
         self.__profile_index = DiscoveryIndex.profile_index_mapping[config["profile_index"]](config)
         self.__content_similarity_index = DiscoveryIndex.content_similarity_index_mapping[config["content_index"]](config)
@@ -59,33 +59,6 @@ class DiscoveryIndex:
 
     def get_content_similarity_index(self):
         return self.__content_similarity_index
-
-    # def create_index(self, input_data_path, config: Dict):
-    #
-    #     if config["input_data_type"] != "json":
-    #         # TODO
-    #         print("Error: only json profiles supported")
-    #         return
-    #
-    #     profile_path = input_data_path + "/json/"
-    #     text_path = input_data_path + "/text/"
-    #
-    #     # Populate profile and content indexes
-    #     # TODO: integrate content index here
-    #     for file_path in os.listdir(profile_path):
-    #         if os.path.isfile(file_path):
-    #             with open(file_path) as f:
-    #                 profile = json.load(f)
-    #                 self.add_profile(profile)
-    #
-    #     # Populate text index
-    #     self.__fts_index.initialize(config)
-    #     table_name = config["fts_data_table_name"]
-    #     # insert content
-    #     onlyfiles = [f for f in listdir(text_path) if isfile(join(text_path, f))]
-    #     for file in tqdm(onlyfiles):
-    #         csv_delimiter = config["TEXT_CSV_DELIMITER"]
-    #         self.__load_text_csv(table_name, file, csv_delimiter)
 
     # ----------------------------------------------------------------------
     # Modify Methods
