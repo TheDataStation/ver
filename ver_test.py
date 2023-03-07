@@ -24,23 +24,26 @@ aurum_api = API(network=network, store_client=store_client)
 # example_columns = [ExampleColumn(attr='', examples=["Albany Park", "Austin", "Douglas"]),
 #                    ExampleColumn(attr='', examples=["Mayfair Commons", "Pine Central", "Lake Park LLC"]),
 #                    ExampleColumn(attr='', examples=["CHICAGO PRODUCE", "FOOD 4 LESS", "WALGREENS"])]
+# example_columns = [ExampleColumn(attr='', examples=["Hyde Park", "Douglas"]),
+#                    ExampleColumn(attr='', examples=["Vue53", "Lake Park"]),
+#                    ExampleColumn(attr='', examples=["Hyde Park PRODUCE", "WALGREENS"])]
 # example_columns = [ExampleColumn(attr='', examples=["Roosevelt High School", "George Washington High School"]),
 #                    ExampleColumn(attr='', examples=[319900, 219291]),
 #                    ExampleColumn(attr='', examples=[1927, 1956])]
 # example_columns = [ExampleColumn(attr='', examples=["Vue53", "City Hyde Park"]),
 #                    ExampleColumn(attr='', examples=["Commercial", "Residential"]),
 #                    ExampleColumn(attr='', examples=["> 250,000 Sq Ft", "> 250,000 Sq Ft"])]
-# example_columns = [ExampleColumn(attr='', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
-#                 #    ExampleColumn(attr='', examples=["9-12", "6-12"]),
-#                    ExampleColumn(attr='', examples=["International Baccalaureate (IB)", "General Education"]),
-#                     ExampleColumn(attr='', examples=["Level 1", "Level 2+"])]
-example_columns = [ExampleColumn(attr='', examples=["Vue53", "City Hyde Park"]),
-                   ExampleColumn(attr='', examples=["Peak Campus", "Mac Properties"]),
-                    ExampleColumn(attr='', examples=["81", "88"])]
+example_columns = [ExampleColumn(attr='', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
+                #    ExampleColumn(attr='', examples=["9-12", "6-12"]),
+                   ExampleColumn(attr='', examples=["International Baccalaureate (IB)", "General Education"]),
+                    ExampleColumn(attr='', examples=["Level 1", "Level 2+"])]
+# example_columns = [ExampleColumn(attr='', examples=["Vue53", "City Hyde Park"]),
+#                    ExampleColumn(attr='', examples=["Peak Campus", "Mac Properties"]),
+#                     ExampleColumn(attr='', examples=["81", "88"])]
 
 
 qbe = QueryByExample(aurum_api)
-candidate_list = qbe.find_candidate_columns(example_columns, cluster_prune=False)
+candidate_list = qbe.find_candidate_columns(example_columns, cluster_prune=True)
 for i, candidate in enumerate(candidate_list):
     print('column {}: found {} candidate columns'.format(format(i), len(candidate)))
     for c in candidate:
@@ -68,6 +71,8 @@ for join_graph in tqdm(join_graphs):
         # print(df.head(5))
         if len(df) != 0:
             j += 1
+            if j > 1000:
+                exit()
             print("non empty view", j)
             # result.append(df)
             new_cols = []
@@ -79,7 +84,7 @@ for join_graph in tqdm(join_graphs):
                     k += 1
                 new_cols.append(new_col)
             df.columns = new_cols
-            df.to_csv(f"./test_views3/view{j}.csv", index=False)
+            df.to_csv(f"./test_views2/view{j}.csv", index=False)
 
 
 
