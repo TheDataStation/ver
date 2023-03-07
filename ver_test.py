@@ -7,6 +7,8 @@ from qbe_module.materializer import Materializer
 from tqdm import tqdm
 
 graph_path = '/home/cc/opendata_large_graph/'
+# graph_path = '/home/cc/chicago_open_data_graph/'
+
 store_client = StoreHandler()
 network = fieldnetwork.deserialize_network(graph_path)
 aurum_api = API(network=network, store_client=store_client)
@@ -20,27 +22,25 @@ aurum_api = API(network=network, store_client=store_client)
 #                 #    ExampleColumn(attr='', examples=['Kenwood HS', 'Hyde Park HS']),
 #                    ExampleColumn(attr='', examples=['Blackstone', 'Coleman'])]
 # example_columns = [ExampleColumn(attr='', examples=["Albany Park", "Austin", "Douglas"]),
-                #    ExampleColumn(attr='', examples=["Mayfair Commons", "Pine Central", "Lake Park LLC"]),
-                #    ExampleColumn(attr='', examples=["CHICAGO PRODUCE", "FOOD 4 LESS", "WALGREENS"])]
+#                    ExampleColumn(attr='', examples=["Mayfair Commons", "Pine Central", "Lake Park LLC"]),
+#                    ExampleColumn(attr='', examples=["CHICAGO PRODUCE", "FOOD 4 LESS", "WALGREENS"])]
 # example_columns = [ExampleColumn(attr='', examples=["Roosevelt High School", "George Washington High School"]),
 #                    ExampleColumn(attr='', examples=[319900, 219291]),
 #                    ExampleColumn(attr='', examples=[1927, 1956])]
 # example_columns = [ExampleColumn(attr='', examples=["Vue53", "City Hyde Park"]),
 #                    ExampleColumn(attr='', examples=["Commercial", "Residential"]),
 #                    ExampleColumn(attr='', examples=["> 250,000 Sq Ft", "> 250,000 Sq Ft"])]
-example_columns = [ExampleColumn(attr='', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
-                #    ExampleColumn(attr='', examples=["9-12", "6-12"]),
-                   ExampleColumn(attr='', examples=["International Baccalaureate (IB)", "General Education"]),
-                    ExampleColumn(attr='', examples=["Level 1", "Level 2+"])]
-
-
-# long_name, grades_offered, program_group, administrator
-# Ogden International High School, 9-12, International Baccalaureate (IB), Devon Herrick
-# University of Chicago - Woodlawn, 6-12, General Education, Donald L Gordon
+# example_columns = [ExampleColumn(attr='', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
+#                 #    ExampleColumn(attr='', examples=["9-12", "6-12"]),
+#                    ExampleColumn(attr='', examples=["International Baccalaureate (IB)", "General Education"]),
+#                     ExampleColumn(attr='', examples=["Level 1", "Level 2+"])]
+example_columns = [ExampleColumn(attr='', examples=["Vue53", "City Hyde Park"]),
+                   ExampleColumn(attr='', examples=["Peak Campus", "Mac Properties"]),
+                    ExampleColumn(attr='', examples=["81", "88"])]
 
 
 qbe = QueryByExample(aurum_api)
-candidate_list = qbe.find_candidate_columns(example_columns, cluster_prune=True)
+candidate_list = qbe.find_candidate_columns(example_columns, cluster_prune=False)
 for i, candidate in enumerate(candidate_list):
     print('column {}: found {} candidate columns'.format(format(i), len(candidate)))
     for c in candidate:
@@ -53,7 +53,7 @@ for i, join_graph in enumerate(join_graphs[:10]):
     join_graph.display()
 
 # materializer = Materializer('/home/cc/chicago_open_data/', 200)
-materializer = Materializer('/home/cc/opendata_cleaned/', 1000)
+materializer = Materializer('/home/cc/opendata_cleaned/', 200)
 # df_list = materializer.materialize_join_graph(join_graphs[6])
 # print(len(df_list))
 
@@ -70,6 +70,18 @@ for join_graph in tqdm(join_graphs):
             j += 1
             print("non empty view", j)
             # result.append(df)
+            new_cols = []
+            k = 1
+            for col in df.columns:
+                new_col = col.split(".")[-1]
+                if new_col in new_cols:
+                    new_col += str(k)
+                    k += 1
+                new_cols.append(new_col)
+            df.columns = new_cols
+            df.to_csv(f"./test_views3/view{j}.csv", index=False)
+
+
 
 print("valid views", j)
 
