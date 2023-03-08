@@ -29,3 +29,9 @@ query denotes the input query by the user
 
 5. Run step 4 untill a useful dataset has been found.
 
+6. Check ranking of datasets
+
+```
+ vp.get_shortlisted_datasets()
+```
+It returns a ranklist of views in non-increasing order of preference, computed based on user's responses.
