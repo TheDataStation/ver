@@ -33,20 +33,29 @@ def curate_view(df, drop_duplicates=True, dropna=True):
     return df
 
 
-def get_dataframes(path, dropna=True):
-    files = [f for f in listdir(path) if isfile(os.path.join(path, f)) and f != '.DS_Store']  # and f != "log.txt"]
-    dfs = []
+def get_dataframes(path, dfs=None, dropna=True):
+
+    if dfs is not None:
+        files = [f"view{i}" for i in range(len(dfs))]
+    else:
+        files = [f for f in listdir(path) if isfile(os.path.join(path, f)) and f != '.DS_Store']  # and f != "log.txt"]
+
+    new_dfs = []
     path_to_df_dict = {}
 
-    for f in files:
-        df = pd.read_csv(os.path.join(path, f), encoding='latin1', thousands=',')  # .replace('"','', regex=True)
+    for i in range(len(files)):
+        f = files[i]
+        if dfs is not None:
+            df = dfs[i]
+        else:
+            df = pd.read_csv(os.path.join(path, f), encoding='latin1', thousands=',')  # .replace('"','', regex=True)
         df = curate_view(df, dropna=dropna)
         df = normalize(df)
         if len(df) > 0:  # only append valid df
-            dfs.append((df, f))
+            new_dfs.append((df, f))
         path_to_df_dict[f] = df
 
-    return dfs, path_to_df_dict
+    return new_dfs, path_to_df_dict
 
 
 def classify_per_table_schema(dataframes):

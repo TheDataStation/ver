@@ -3,6 +3,10 @@
 ## Input
 
 `path_to_views`: path to the directory containing views in csv format 
+
+or
+
+`dfs`: a list of dataframes. The module will assign a view name to each dataframe for easier access.
   
 ## Create an instance
 
@@ -20,8 +24,9 @@ vd = ViewDistillation(path_to_views)
 vd.get_current_views()
 ```
 
-This will return the list of current views. 
-Views that were pruned from any previous API calls will be excluded.
+This will return the list of current views (file names). Views that were pruned from any previous API calls will be excluded.
+
+You can call `get_df(view)` or `get_dfs(views)` to obtain the corresponding dataframe(s).
 
 ### Distill views
 
@@ -144,6 +149,16 @@ vd.get_df(view)
 ```
 
 Get the corresponding Dataframe from the given `view` path.
+
+
+### Get Dataframes
+
+```python
+vd.get_dfs(views)
+```
+
+Get the list of Dataframes from a list of views paths.
+
 
 ### Get row from key
 

@@ -13,19 +13,19 @@ from pprint import pprint
 
 class ViewDistillation:
 
-    def __init__(self, path_to_views):
+    def __init__(self, path_to_views=None, dfs=None):
 
         self.path_to_views = path_to_views
+        self.dfs = dfs
 
         self.candidate_key_size = 2
         self.uniqueness_threshold = 0.9
 
-        dfs, self.path_to_df_dict = get_dataframes(path_to_views)
+        dfs, self.path_to_df_dict = get_dataframes(path=path_to_views, dfs=dfs)
         self.dfs_per_schema = classify_per_table_schema(dfs)
 
         print(f"original num views: {len(dfs)}")
         print(f"num schema groups: {len(self.dfs_per_schema)}")
-
 
         self.hash_dict = {}
 
@@ -178,6 +178,21 @@ class ViewDistillation:
             return None
 
         return self.path_to_df_dict[file_name]
+
+    def get_dfs(self, views):
+
+        dfs = []
+
+        for view in views:
+            file_name = os.path.basename(view)
+
+            if file_name not in self.path_to_df_dict.keys():
+                print(f"view does not exist")
+                return None
+
+            dfs.append(self.path_to_df_dict[file_name])
+
+        return dfs
 
     def distill_views(self, remove_identical_views=True,
                       remove_contained_views=True,
@@ -556,8 +571,9 @@ class ViewDistillation:
 
             new_df = pd.concat([df1, df2]).drop_duplicates().reset_index(drop=True)
             file_name = f"{os.path.splitext(path1)[0]}_union_{path2}"
-            new_path = os.path.join(self.path_to_views, file_name)
-            new_df.to_csv(new_path)
+            if self.path_to_views is not None:
+                new_path = os.path.join(self.path_to_views, file_name)
+                new_df.to_csv(new_path)
 
             already_processed.add((path1, path2))
             self.complementary_views_to_remove.add(path1)
@@ -578,6 +594,8 @@ class ViewDistillation:
             the_hashes = [hash(el) for el in df.columns]
             schema_id = sum(the_hashes)
             self.dfs_per_schema[schema_id].append((df, path))
+
+            self.path_to_df_dict[path] = df
 
             views_left.append(path)
 
@@ -751,7 +769,7 @@ class ViewDistillation:
 
 if __name__ == "__main__":
     # vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
-    vd = ViewDistillation("/Users/zhiruzhu/Downloads/test_views/")
+    vd = ViewDistillation(path_to_views="/Users/zhiruzhu/Downloads/test_views/")
 
     res = vd.distill_views()
     print(res)
