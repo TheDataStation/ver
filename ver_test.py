@@ -46,8 +46,9 @@ qbe = QueryByExample(aurum_api)
 candidate_list = qbe.find_candidate_columns(example_columns, cluster_prune=True)
 for i, candidate in enumerate(candidate_list):
     print('column {}: found {} candidate columns'.format(format(i), len(candidate)))
-    for c in candidate:
-        print(c.to_str())
+    # for c in candidate:
+    #     print(c.to_str())
+exit()
 
 join_graphs = qbe.find_join_graphs_between_candidate_columns(candidate_list, order_chain_only=True)
 print("found {} join graphs".format(len(join_graphs)))
