@@ -16,6 +16,9 @@ class Column:
     def key(self):
         return (self.tbl_name, self.attr_name)
     
+    def to_str(self):
+        return "{}.{}".format(self.tbl_name, self.attr_name)
+    
     def __eq__(self, other):
         if type(other) is type(self):
             return (self.tbl_name == other.tbl_name) and (self.attr_name == other.attr_name)

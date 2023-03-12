@@ -5,9 +5,9 @@ from IPython.display import display, clear_output
 from itables import init_notebook_mode
 import pandas as pd
 from itables import show
-from ver_utils.column import Column
-from ver_utils.query_by_example import QueryByExample, ExampleColumn
-from ver_utils.materializer import Materializer
+from qbe_module.column import Column
+from qbe_module.query_by_example import QueryByExample, ExampleColumn
+from qbe_module.materializer import Materializer
 from IPython.display import display, clear_output, HTML
 from tabulate import tabulate
 
@@ -38,6 +38,7 @@ class Demo:
         self.aurum_api = aurum_api
         self.qbe = QueryByExample(aurum_api)
         self.candidate_list = []
+        self.example_columns = []
         self.tbl_path = '/home/cc/adventureWork/'
         self.sample_size = 200
 
@@ -102,7 +103,8 @@ class Demo:
         row_num = 3
         col_num = 3
 
-        default_values = [["", "", ""], ["United States", "USD", "US Dollar"], ["China", "CNY", "Yuan Renminbi"]]
+        # default_values = [["", "", ""], ["United States", "USD", "US Dollar"], ["China", "CNY", "Yuan Renminbi"]]
+        default_values = [["", "", ""], ["", "", ""], ["", "", ""]]
 
         attr_style = "<style>.attr input { background-color:#D0F0D0 !important; }</style>"
         x = [[widgets.Text(value=default_values[i][j]) for j in range(col_num)] for i in range(row_num)]
@@ -116,6 +118,7 @@ class Demo:
             attr_line.extend([item.add_class('attr') for item in x[0]])
             attrs = widgets.HBox(attr_line)
             display(widgets.VBox([attrs] + [widgets.HBox(x[i]) for i in range(1, row_num)]))
+            # display(widgets.VBox([widgets.HBox(x[i]) for i in range(1, row_num)]))
 
 
         @out.capture()
@@ -180,7 +183,9 @@ class Demo:
                 example_col = ExampleColumn(attr, [values[j][i] for j in range(row_num-1)])
                 example_columns.append(example_col)
 
-            self.get_relevant_columns(example_columns)
+            self.example_columns = example_columns
+            print("Confirmed")
+            # self.get_relevant_columns(example_columns)
 
 
         button1 = widgets.Button(description="Add Column")
