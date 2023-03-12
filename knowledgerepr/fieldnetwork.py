@@ -71,6 +71,9 @@ class FieldNetwork:
         hits = [Hit(nid, db_name, s_name, f_name, 0) for nid, db_name, s_name, f_name in info]
         return hits
 
+    def is_nid_in_graph(self, nid):
+        return nid in self.__G
+
     def get_hits_from_table(self, table) -> [Hit]:
         nids = self.get_fields_of_source(table)
         info = self.get_info_for(nids)
