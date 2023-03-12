@@ -1,4 +1,4 @@
-from algebra import API
+from aurum_api.algebra import API
 from api.apiutils import Relation
 from collections import defaultdict
 from collections import OrderedDict
@@ -8,7 +8,6 @@ from DoD import material_view_analysis as mva
 from DoD.utils import FilterType
 import numpy as np
 from functools import reduce
-import cProfile
 import operator
 import pickle
 from tqdm import tqdm
@@ -16,8 +15,6 @@ from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 import time
 from DoD import view_4c_analysis_baseline as v4c
-import os
-import pandas as pd
 import pprint
 
 

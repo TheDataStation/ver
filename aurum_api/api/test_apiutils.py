@@ -3,7 +3,7 @@ from api.apiutils import DRS
 from api.apiutils import Operation
 from api.apiutils import OP
 from api.apiutils import Hit
-from ddapi import API
+from aurum_api.ddapi import API
 
 
 class TestApiutils(unittest.TestCase):

@@ -4,10 +4,8 @@ import argparse
 import inspect
 from flask import Flask, jsonify
 from flask import request
-from flask_cors import CORS, cross_origin
-from flask import send_from_directory
+from flask_cors import CORS
 import json
-import pandas as pd
 from DoD.dod import DoD
 from DoD.column_infer import ColumnInfer
 from DoD import data_processing_utils as dpu
@@ -19,12 +17,8 @@ currentdir = os.path.dirname(
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
-from api.apiutils import Relation
 from modelstore.elasticstore import StoreHandler
 from knowledgerepr import fieldnetwork
-from algebra import API
-from modelstore.elasticstore import KWType
-
 
 path_to_serialized_model = C.path_model
 sep = C.separator

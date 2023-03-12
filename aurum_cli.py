@@ -5,12 +5,11 @@ from dataclasses import dataclass
 import os
 from os import environ
 from pathlib import Path
-from warnings import warn
 # from knowledgerepr.ekgstore.neo4j_store import Neo4jExporter
 
 from fire import Fire
 import IPython
-from main import init_system
+from aurum_api.main import init_system
 
 run_cmd = subprocess.call
 

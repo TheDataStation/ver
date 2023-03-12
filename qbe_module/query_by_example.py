@@ -2,7 +2,7 @@ from typing import List
 from qbe_module.column_selection import ColumnSelection, Column
 from qbe_module.join_path_search import JoinPathSearch
 from qbe_module.join_graph_search import JoinGraphSearch
-from algebra import API
+from aurum_api.algebra import API
 
 class ExampleColumn:
     def __init__(self, attr: str, examples: List[str]) -> None:

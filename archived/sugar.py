@@ -2,12 +2,11 @@
 # Exclude certain tables
 # keyword_search and neighbor_search, but on mutiple contexts
 
-import networkx as nx
-from api.apiutils import Relation
+from aurum_api.api.apiutils import Relation
 
 from modelstore.elasticstore import StoreHandler, KWType
 from knowledgerepr import fieldnetwork
-from algebra import API
+from aurum_api.algebra import API
 
 path_to_serialized_model = "/Users/arcarter/code/datadiscovery/test/testmodel/"
 network = fieldnetwork.deserialize_network(path_to_serialized_model)

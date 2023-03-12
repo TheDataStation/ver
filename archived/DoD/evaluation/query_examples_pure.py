@@ -10,7 +10,7 @@ import pandas as pd
 import os
 import errno
 import time
-from ddapi import API
+from aurum_api.ddapi import API
 from api.apiutils import Relation
 from view_rank import get_S4_score_direct
 

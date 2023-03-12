@@ -1,4 +1,4 @@
-from algebra import API
+from aurum_api.algebra import API
 from DoD.utils import FilterType
 from DoD import data_processing_utils as dpu
 from collections import defaultdict

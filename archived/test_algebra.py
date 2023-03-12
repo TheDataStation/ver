@@ -1,8 +1,6 @@
 import unittest
 from collections import namedtuple
-from modelstore.elasticstore import KWType
-from api.apiutils import Relation
-from algebra import API, DRS
+from aurum_api.algebra import API
 from mock import MagicMock, patch
 
 
@@ -252,7 +250,7 @@ if __name__ == '__main__':
     #unittest.main()
 
     print("HERE")
-    from main import init_system
+    from aurum_api.main import init_system
     from api.apiutils import Relation
 
     api, reporting = init_system("/Users/ra-mit/development/discovery_proto/models/dwh2/")

@@ -6,8 +6,8 @@ import time
 from api.reporting import Report
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
-from ddapi import API as oldAPI
-from algebra import API
+from aurum_api.ddapi import API as oldAPI
+from aurum_api.algebra import API
 
 init_banner = "Welcome to Aurum. \nYou can access the API via the object api"
 exit_banner = "Bye!"

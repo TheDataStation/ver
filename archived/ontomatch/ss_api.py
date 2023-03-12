@@ -1,5 +1,5 @@
 import sys
-from algebra import API
+from aurum_api.algebra import API
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 from ontomatch import ss_utils as SS

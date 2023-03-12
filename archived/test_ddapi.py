@@ -1,6 +1,6 @@
 import unittest
 from api.apiutils import Relation
-from ddapi import API
+from aurum_api.ddapi import API
 from modelstore.elasticstore import StoreHandler
 from knowledgerepr.fieldnetwork import deserialize_network
 
