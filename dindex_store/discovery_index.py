@@ -110,8 +110,8 @@ class DiscoveryIndex:
     def get_minhashes(self) -> Dict:
         return self.__profile_index.get_minhashes()
 
-    def find_neighborhood(self, node_id: int, hops: int = 1):
-        return self.__graph_index.find_neighborhood(node_id, hops)
+    def find_neighborhood(self, node_id: int, relation_type, hops: int = 1):
+        return self.__graph_index.find_neighborhood(node_id, relation_type, hops)
 
     def find_path(
             self,
@@ -121,5 +121,5 @@ class DiscoveryIndex:
         return self.__graph_index.find_path(
             source_node_id, target_node_id, max_len)
 
-    def fts_query(self, keyword) -> List:
-        return self.__fts_index.fts_query(keyword)
+    def fts_query(self, keywords, search_domain, max_results, exact_search=False) -> List:
+        return self.__fts_index.fts_query(keywords, search_domain, max_results, exact_search)

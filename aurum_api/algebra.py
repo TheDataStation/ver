@@ -1,6 +1,5 @@
 import itertools
-
-from modelstore.elasticstore import KWType
+from enum import Enum
 
 from aurum_api.api.apiutils import compute_field_id as id_from
 from aurum_api.api.apiutils import Operation
@@ -9,17 +8,30 @@ from aurum_api.api.apiutils import Relation
 from aurum_api.api.apiutils import DRS
 from aurum_api.api.apiutils import DRSMode
 from aurum_api.api.apiutils import Hit
-from aurum_api.api import MDClass
-from aurum_api.api import MDRelation
-from aurum_api.api import MRS
+from aurum_api.api.annotation import MDClass
+from aurum_api.api.annotation import MDRelation
+from aurum_api.api.annotation import MRS
+
+from dindex_store.discovery_index import DiscoveryIndex
+
+
+class KWType(Enum):
+    KW_CONTENT = 0
+    KW_SCHEMA = 1
+    KW_ENTITIES = 2
+    KW_TABLE = 3
+    KW_METADATA = 4
 
 
 class Algebra:
 
-    def __init__(self, network, store_client):
-        self._network = network
-        self._store_client = store_client
-        self.helper = Helper(network=network, store_client=store_client)
+    # def __init__(self, network, store_client):
+    #     self._network = network
+    #     self._store_client = store_client
+    #     self.helper = Helper(network=network, store_client=store_client)
+
+    def __init__(self, dindex: DiscoveryIndex):
+        self.dindex = dindex
 
     """
     Basic API
@@ -37,11 +49,13 @@ class Algebra:
         :return: returns a DRS
         """
 
-        hits = self._store_client.search_keywords(
-            keywords=kw, elasticfieldname=kw_type, max_hits=max_results)
+        results = self.dindex.fts_query(keywords=kw, search_domain=kw_type, max_results=max_results, exact_search=False)
+
+        # hits = self._store_client.search_keywords(
+        #     keywords=kw, elasticfieldname=kw_type, max_hits=max_results)
 
         # materialize generator
-        drs = DRS([x for x in hits], Operation(OP.KW_LOOKUP, params=[kw]))
+        drs = DRS([x for x in results], Operation(OP.KW_LOOKUP, params=[kw]))
         return drs
 
     def exact_search(self, kw: str, kw_type: KWType, max_results=10):
@@ -49,11 +63,13 @@ class Algebra:
         See 'search'. This only returns exact matches.
         """
 
-        hits = self._store_client.exact_search_keywords(
-            keywords=kw, elasticfieldname=kw_type, max_hits=max_results)
+        results = self.dindex.fts_query(keywords=kw, search_domain=kw_type, max_results=max_results, exact_search=True)
+
+        # hits = self._store_client.exact_search_keywords(
+        #     keywords=kw, elasticfieldname=kw_type, max_hits=max_results)
 
         # materialize generator
-        drs = DRS([x for x in hits], Operation(OP.KW_LOOKUP, params=[kw]))
+        drs = DRS([x for x in results], Operation(OP.KW_LOOKUP, params=[kw]))
         return drs
 
     def search_content(self, kw: str, max_results=10) -> DRS:
@@ -72,7 +88,9 @@ class Algebra:
         return self.search(kw, kw_type=KWType.KW_TABLE, max_results=max_results)
 
     def suggest_schema(self, kw: str, max_results=5):
-        return self._store_client.suggest_schema(kw, max_hits=max_results)
+        # TODO: suggest_schema, when implemented on elastic, used to solve 'autocompletion'. This is lost on duckdb
+        # return self._store_client.suggest_schema(kw, max_hits=max_results)
+        raise NotImplementedError
 
     def __neighbor_search(self,
                         input_data,
@@ -96,14 +114,20 @@ class Algebra:
         # Check neighbors
         if not relation.from_metadata():
             for h in i_drs:
+                results = self.dindex.find_neighborhood(h, relation, hops=1)
+
+                # FIXME: adapt results from index to API consumable DRS objects
                 hits_drs = self._network.neighbors_id(h, relation)
+
                 o_drs = o_drs.absorb(hits_drs)
         else:
-            md_relation = self._relation_to_mdrelation(relation)
-            for h in i_drs:
-                neighbors = self.md_search(h, md_relation)
-                hits_drs = self._network.md_neighbors_id(h, neighbors, relation)
-                o_drs = o_drs.absorb(hits_drs)
+            # TODO: refactor/redesign metadata as needed (factor it out of algebra)
+            raise NotImplementedError
+            # md_relation = self._relation_to_mdrelation(relation)
+            # for h in i_drs:
+            #     neighbors = self.md_search(h, md_relation)
+            #     hits_drs = self._network.md_neighbors_id(h, neighbors, relation)
+            #     o_drs = o_drs.absorb(hits_drs)
         return o_drs
 
     def content_similar_to(self, general_input):
@@ -120,9 +144,12 @@ class Algebra:
     """
 
     def neighbors(self, drs: DRS, relation):
-        if not self._network.is_nid_in_graph(drs.nid):
-            return []
-        return self._network.neighbors_id(drs, relation)
+        return self.__neighbor_search(drs, relation)
+
+    # def neighbors(self, drs: DRS, relation):
+    #     if not self._network.is_nid_in_graph(drs.nid):
+    #         return []
+    #     return self._network.neighbors_id(drs, relation)
 
     def paths(self, drs_a: DRS, drs_b: DRS, relation=Relation.PKFK, max_hops=2, lean_search=False) -> DRS:
         """
@@ -164,31 +191,32 @@ class Algebra:
 
         return o_drs
 
-    def __traverse(self, a: DRS, primitive, max_hops=2) -> DRS:
-        """
-        Conduct a breadth first search of nodes matching a primitive, starting
-        with an initial DRS.
-        :param a: a nid, node, tuple, or DRS
-        :param primitive: The element to search
-        :max_hops: maximum number of rounds on the graph
-        """
-        a = self._general_to_drs(a)
-
-        o_drs = DRS([], Operation(OP.NONE))
-
-        if a.mode == DRSMode.TABLE:
-            raise ValueError(
-                'input mode DRSMode.TABLE not supported')
-
-        fringe = a
-        o_drs.absorb_provenance(a)
-        while max_hops > 0:
-            max_hops = max_hops - 1
-            for h in fringe:
-                hits_drs = self._network.neighbors_id(h, primitive)
-                o_drs = self.union(o_drs, hits_drs)
-            fringe = o_drs  # grow the initial input
-        return o_drs
+    # def __traverse(self, a: DRS, primitive, max_hops=2) -> DRS:
+    #     # FIXME: removing this from algebra until we have a good reason to include it back
+    #     """
+    #     Conduct a breadth first search of nodes matching a primitive, starting
+    #     with an initial DRS.
+    #     :param a: a nid, node, tuple, or DRS
+    #     :param primitive: The element to search
+    #     :max_hops: maximum number of rounds on the graph
+    #     """
+    #     a = self._general_to_drs(a)
+    #
+    #     o_drs = DRS([], Operation(OP.NONE))
+    #
+    #     if a.mode == DRSMode.TABLE:
+    #         raise ValueError(
+    #             'input mode DRSMode.TABLE not supported')
+    #
+    #     fringe = a
+    #     o_drs.absorb_provenance(a)
+    #     while max_hops > 0:
+    #         max_hops = max_hops - 1
+    #         for h in fringe:
+    #             hits_drs = self._network.neighbors_id(h, primitive)
+    #             o_drs = self.union(o_drs, hits_drs)
+    #         fringe = o_drs  # grow the initial input
+    #     return o_drs
 
     """
     Combiner API
@@ -276,12 +304,12 @@ class Algebra:
                 '\ne.g.:\n\tmake_drs(1600820766)')
             print(msg)
 
-    def _drs_from_table_hit_lean_no_provenance(self, hit: Hit) -> DRS:
-        # TODO: migrated from old ddapi as there's no good swap
-        table = hit.source_name
-        hits = self._network.get_hits_from_table(table)
-        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]), lean_drs=True)
-        return drs
+    # def _drs_from_table_hit_lean_no_provenance(self, hit: Hit) -> DRS:
+    #     # TODO: migrated from old ddapi as there's no good swap
+    #     table = hit.source_name
+    #     hits = self._network.get_hits_from_table(table)
+    #     drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]), lean_drs=True)
+    #     return drs
 
     def drs_expand_to_table(self, drs: DRS) -> DRS:
         table = drs.source_name
@@ -579,12 +607,9 @@ class Algebra:
         mrs = MRS([x for x in hits])
         return mrs
 
-
-class Helper:
-
-    def __init__(self, network, store_client):
-        self._network = network
-        self._store_client = store_client
+    """
+    Helper API
+    """
 
     def reverse_lookup(self, nid) -> [str]:
         info = self._network.get_info_for([nid])

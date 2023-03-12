@@ -56,6 +56,7 @@ class FTSIndexDuckDB(FullTextSearchIndex):
 
         self.conn.execute(query)
 
-    def fts_query(self, keyword) -> List:
+    def fts_query(self, keyword, search_domain, max_results, exact_search) -> List:
+        # TODO: search over "search_domain", return top-"max_results", and switch between exact/approx search ("exact_search")
         res = self.conn.execute("EXECUTE fts_query('" + keyword + "')")
         return res.fetchall()

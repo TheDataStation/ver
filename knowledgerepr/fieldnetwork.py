@@ -11,7 +11,7 @@ from aurum_api.api.apiutils import OP
 from aurum_api.api.apiutils import Hit
 from aurum_api.api.apiutils import Relation
 from aurum_api.api.apiutils import compute_field_id
-from aurum_api.api import MRS
+from aurum_api.api.annotation import MRS
 
 
 def build_hit(sn, fn):

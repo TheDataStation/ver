@@ -35,22 +35,6 @@ class Hit(BaseHit):
             return True
         return False
 
-    def __eq__2(self, other):
-        """
-        XXX: probably safe to remove
-        :param other:
-        :return:
-        """
-        if isinstance(other, int):  # cover the case when id is provided directly
-            if self.nid == other:
-                return True
-        elif isinstance(other, Hit):  # cover the case of comparing a Node with a Hit
-            if self.nid == other.nid:
-                return True
-        elif other != None and self.nid == other.nid:  # cover the case of comparing two nodes
-            return True
-        return False
-
     def __dict__(self):
         if python_version == (3, 5, 0):
             return OrderedDict(zip(self._fields, self))
