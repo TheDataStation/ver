@@ -70,9 +70,6 @@ class JoinPathSearch:
                 end_tbl = src_path[-1][1].source_name
                 if end_tbl in tgt_tbls:
                     result.append(JoinPath(src_path, [src_dict[src_tbl], tgt_dict[end_tbl]]))
-        # if src_tbl == 'Affordable Rental Housing Developments.csv':
-        #     for path in result:
-        #         print(path.to_str())
         return result
                 
     def find_join_paths_between_two_cols(self, src: Column, tgts: List[Column], rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):

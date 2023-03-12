@@ -15,7 +15,6 @@ class Materializer:
         graph_dict = join_graph.graph_dict
         attrs_needed_map, columns_to_project = join_graph.get_attrs_needed()
 
-        # start = 0
         start = list(join_graph.graph_dict.keys())[0][0]
         last = start
         node_to_df = {}
@@ -37,16 +36,12 @@ class Materializer:
                 edge = (cur, nei)
                 join_path = graph_dict[edge]
                 if cur in node_to_df:
-                    # print("last df {}".format(cur), node_to_df[cur].columns)
                     init_df = node_to_df[cur]
                     df = self.materialize_join_path(join_path, init_df, attrs_needed_map, visited_tbl)
                 else:
                     df = self.materialize_join_path(join_path, None, attrs_needed_map, visited_tbl)
                 node_to_df[cur] = df
                 node_to_df[nei] = df
-                # print("cur", cur)
-                # print(df)
-                
         
         df = node_to_df[last]
         if len(df) == 0:
