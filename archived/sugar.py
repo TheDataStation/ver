@@ -6,13 +6,13 @@ from aurum_api.api.apiutils import Relation
 
 from modelstore.elasticstore import StoreHandler, KWType
 from knowledgerepr import fieldnetwork
-from aurum_api.algebra import API
+from aurum_api.algebra import AurumAPI
 
 path_to_serialized_model = "/Users/arcarter/code/datadiscovery/test/testmodel/"
 network = fieldnetwork.deserialize_network(path_to_serialized_model)
 store_client = StoreHandler()
 
-api = API(network, store_client)
+api = AurumAPI(network, store_client)
 
 
 # short variables for Scope

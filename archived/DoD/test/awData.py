@@ -1,8 +1,8 @@
 import unittest
 
 import server_config as config
-from DoD import column_infer
-from DoD.view_search_pruning import ViewSearchPruning, start
+from archived.DoD import column_infer
+from archived.DoD import ViewSearchPruning, start
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 

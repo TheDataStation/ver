@@ -17,7 +17,7 @@ Input: a list of signals, views
 '''
 from abc import ABC, abstractmethod
 import random
-from DoD import view_4c_analysis_baseline as v4c
+from archived.DoD import view_4c_analysis_baseline as v4c
 
 
 class Signal(ABC):

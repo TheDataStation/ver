@@ -6,9 +6,8 @@ from flask import Flask, jsonify
 from flask import request
 from flask_cors import CORS
 import json
-from DoD.dod import DoD
-from DoD.column_infer import ColumnInfer
-from DoD import data_processing_utils as dpu
+from archived.DoD import DoD, data_processing_utils as dpu
+from archived.DoD import ColumnInfer
 import server_config as C
 
 # move to top level and import some more things

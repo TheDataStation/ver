@@ -1,9 +1,9 @@
-from DoD import view_4c_analysis_baseline as v4c
-from DoD import material_view_analysis as mva
+from archived.DoD import view_4c_analysis_baseline as v4c
+from archived.DoD import material_view_analysis as mva
 from tqdm import tqdm
 import random
 
-from DoD.colors import Colors
+from archived.DoD.colors import Colors
 
 import server_config as config
 
@@ -150,8 +150,6 @@ if __name__ == '__main__':
             else:
                 contr_or_compl_row_to_path_dict[row].add(path)
 
-
-    import time
 
     # sampling contradictory and complementary rows
     sample_size = 5

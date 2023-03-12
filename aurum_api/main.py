@@ -3,11 +3,11 @@ from IPython.display import Markdown, display
 import sys
 import time
 
-from api.reporting import Report
+from aurum_api.api.reporting import Report
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
-from aurum_api.ddapi import API as oldAPI
-from aurum_api.algebra import API
+# from aurum_api.ddapi import API as oldAPI
+from aurum_api.algebra import AurumAPI
 
 init_banner = "Welcome to Aurum. \nYou can access the API via the object api"
 exit_banner = "Bye!"
@@ -17,19 +17,19 @@ def print_md(string):
     display(Markdown(string))
 
 
-#@DeprecationWarning
-def __init_system(path_to_serialized_model, create_reporting=True):
-    print_md('Loading: *' + str(path_to_serialized_model) + "*")
-    sl = time.time()
-    network = fieldnetwork.deserialize_network(path_to_serialized_model)
-    api = oldAPI(network)
-    if create_reporting:
-        reporting = Report(network)
-    api.init_store()
-    api.help()
-    el = time.time()
-    print("Took " + str(el - sl) + " to load all data")
-    return api, reporting
+# #@DeprecationWarning
+# def __init_system(path_to_serialized_model, create_reporting=True):
+#     print_md('Loading: *' + str(path_to_serialized_model) + "*")
+#     sl = time.time()
+#     network = fieldnetwork.deserialize_network(path_to_serialized_model)
+#     api = oldAPI(network)
+#     if create_reporting:
+#         reporting = Report(network)
+#     api.init_store()
+#     api.help()
+#     el = time.time()
+#     print("Took " + str(el - sl) + " to load all data")
+#     return api, reporting
 
 
 def init_system(path_to_serialized_model, create_reporting=False):
@@ -37,7 +37,7 @@ def init_system(path_to_serialized_model, create_reporting=False):
     sl = time.time()
     network = fieldnetwork.deserialize_network(path_to_serialized_model)
     store_client = StoreHandler()
-    api = API(network=network, store_client=store_client)
+    api = AurumAPI(network=network, store_client=store_client)
     if create_reporting:
         reporting = Report(network)
     else:
@@ -53,7 +53,7 @@ def main(path_to_serialized_model):
     print('Loading: ' + str(path_to_serialized_model))
     network = fieldnetwork.deserialize_network(path_to_serialized_model)
     store_client = StoreHandler()
-    api = API(network, store_client)
+    api = AurumAPI(network, store_client)
     ip_shell = InteractiveShellEmbed(banner1=init_banner, exit_msg=exit_banner)
     ip_shell()
 

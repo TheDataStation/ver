@@ -1,13 +1,12 @@
 import json
 import server_config as config
-from DoD import column_infer
-from DoD.utils import FilterType
-from DoD.view_search_pruning import ViewSearchPruning
+from archived.DoD import column_infer
+from archived.DoD import FilterType
+from archived.DoD import ViewSearchPruning
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
-from DoD import data_processing_utils as dpu
+from archived.DoD import data_processing_utils as dpu
 from view_rank import get_S4_score_direct
-import pandas as pd
 import os
 import errno
 import time

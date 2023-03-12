@@ -1,11 +1,11 @@
-from aurum_api.algebra import API
-from api.apiutils import Relation
+from aurum_api.algebra import AurumAPI
+from aurum_api.api.apiutils import Relation
 from collections import defaultdict
 from collections import OrderedDict
 import itertools
-from DoD import data_processing_utils as dpu
-from DoD import material_view_analysis as mva
-from DoD.utils import FilterType
+from archived.DoD import data_processing_utils as dpu
+from archived.DoD import material_view_analysis as mva
+from archived.DoD import FilterType
 import numpy as np
 from functools import reduce
 import operator
@@ -14,7 +14,7 @@ from tqdm import tqdm
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 import time
-from DoD import view_4c_analysis_baseline as v4c
+from archived.DoD import view_4c_analysis_baseline as v4c
 import pprint
 
 
@@ -24,7 +24,7 @@ pp = pprint.PrettyPrinter(indent=4)
 class DoD:
 
     def __init__(self, network, store_client, csv_separator=","):
-        self.aurum_api = API(network=network, store_client=store_client)
+        self.aurum_api = AurumAPI(network=network, store_client=store_client)
         self.paths_cache = dict()
         dpu.configure_csv_separator(csv_separator)
 

@@ -1,9 +1,8 @@
 from knowledgerepr import syn_network_generator as syn
-from api.apiutils import Relation
+from aurum_api.api.apiutils import Relation
 import numpy as np
 from aurum_api.ddapi import API
 
-import timeit
 import time
 
 

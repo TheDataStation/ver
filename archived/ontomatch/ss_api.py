@@ -1,5 +1,5 @@
 import sys
-from aurum_api.algebra import API
+from aurum_api.algebra import AurumAPI
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 from ontomatch import ss_utils as SS
@@ -27,7 +27,7 @@ class SSAPI:
         self.store_client = store_client
         self.schema_sim_index = schema_sim_index
         self.content_sim_index = content_sim_index
-        self.srql = API(self.network, self.store_client)
+        self.srql = AurumAPI(self.network, self.store_client)
         self.krs = []
         self.kr_handlers = dict()
 

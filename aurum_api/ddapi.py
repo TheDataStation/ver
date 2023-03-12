@@ -1,12 +1,12 @@
 from modelstore.elasticstore import StoreHandler
 from modelstore.elasticstore import KWType
-from api.apiutils import Operation
-from api.apiutils import OP
-from api.apiutils import Relation
-from api.apiutils import DRS
-from api.apiutils import DRSMode
-from api.apiutils import Hit
-from api.apiutils import compute_field_id as id_from
+from aurum_api.api.apiutils import Operation
+from aurum_api.api.apiutils import OP
+from aurum_api.api.apiutils import Relation
+from aurum_api.api.apiutils import DRS
+from aurum_api.api.apiutils import DRSMode
+from aurum_api.api.apiutils import Hit
+from aurum_api.api.apiutils import compute_field_id as id_from
 
 store_client = None
 

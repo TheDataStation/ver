@@ -1,6 +1,6 @@
 import unittest
 from collections import namedtuple
-from aurum_api.algebra import API
+from aurum_api.algebra import AurumAPI
 from mock import MagicMock, patch
 
 
@@ -11,7 +11,7 @@ class TestAPI(unittest.TestCase):
         self.m_store_client = MagicMock()
 
     def test_initialization(self, *args):
-        api = API(self.m_network, self.m_store_client)
+        api = AurumAPI(self.m_network, self.m_store_client)
 
         self.assertEqual(api._network, self.m_network)
         self.assertEqual(api._store_client, self.m_store_client)
@@ -23,7 +23,7 @@ class testAlgebra(unittest.TestCase):
     def setUp(self):
         self.m_network = MagicMock()
         self.m_store_client = MagicMock()
-        self.api = API(self.m_network, self.m_store_client)
+        self.api = AurumAPI(self.m_network, self.m_store_client)
 
     def test_keyword_search_db(self):
         # not implemented
@@ -156,7 +156,7 @@ class TestAlgebraHelpers(unittest.TestCase):
     def setUp(self):
         self.m_network = MagicMock()
         self.m_store_client = MagicMock()
-        self.api = API(self.m_network, self.m_store_client)
+        self.api = AurumAPI(self.m_network, self.m_store_client)
 
     @patch('algebra.Hit', MagicMock(return_value='result_hit'))
     def test_nid_to_node(self):
@@ -251,7 +251,7 @@ if __name__ == '__main__':
 
     print("HERE")
     from aurum_api.main import init_system
-    from api.apiutils import Relation
+    from aurum_api.api.apiutils import Relation
 
     api, reporting = init_system("/Users/ra-mit/development/discovery_proto/models/dwh2/")
 

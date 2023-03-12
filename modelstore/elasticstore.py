@@ -5,8 +5,8 @@ from elasticsearch import Elasticsearch
 from enum import Enum
 from collections import defaultdict
 
-from api.apiutils import Hit
-from api.annotation import MDHit, MDComment
+from aurum_api.api.apiutils import Hit
+from aurum_api.api import MDHit, MDComment
 import config as c
 
 

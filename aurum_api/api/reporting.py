@@ -1,7 +1,5 @@
-import networkx as nx
-from collections import defaultdict
 from knowledgerepr.fieldnetwork import FieldNetwork
-from api.apiutils import Relation
+from aurum_api.api.apiutils import Relation
 
 
 class Report:

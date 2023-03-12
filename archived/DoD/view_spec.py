@@ -1,11 +1,11 @@
 from collections import defaultdict
 
-from aurum_api.algebra import API
-from DoD import data_processing_utils as dpu
+from aurum_api.algebra import AurumAPI
+from archived.DoD import data_processing_utils as dpu
 
 class ViewSpec:
     def __init__(self, network, store_client, csv_separator=","):
-        self.aurum_api = API(network=network, store_client=store_client)
+        self.aurum_api = AurumAPI(network=network, store_client=store_client)
         self.paths_cache = dict()
         dpu.configure_csv_separator(csv_separator)
 

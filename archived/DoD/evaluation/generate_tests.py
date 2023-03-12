@@ -1,5 +1,5 @@
-from DoD import data_processing_utils as dpu
-from DoD.evaluation.groundTruth import GroundTruth, GroundTruth_extend, getGroundTruths_Chembl, getGroundTruths_WDC, getGroudTruths_Chembl_Extend
+from archived.DoD import data_processing_utils as dpu
+from archived.DoD import GroundTruth, GroundTruth_extend, getGroundTruths_Chembl, getGroudTruths_Chembl_Extend
 import random
 import json
 

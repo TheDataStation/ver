@@ -2,18 +2,16 @@ import itertools
 
 from modelstore.elasticstore import KWType
 
-from api.apiutils import compute_field_id as id_from
-from api.apiutils import Operation
-from api.apiutils import OP
-from api.apiutils import Relation
-from api.apiutils import DRS
-from api.apiutils import DRSMode
-from api.apiutils import Hit
-from api.annotation import MDClass
-from api.annotation import MDRelation
-from api.annotation import MDHit
-from api.annotation import MDComment
-from api.annotation import MRS
+from aurum_api.api.apiutils import compute_field_id as id_from
+from aurum_api.api.apiutils import Operation
+from aurum_api.api.apiutils import OP
+from aurum_api.api.apiutils import Relation
+from aurum_api.api.apiutils import DRS
+from aurum_api.api.apiutils import DRSMode
+from aurum_api.api.apiutils import Hit
+from aurum_api.api import MDClass
+from aurum_api.api import MDRelation
+from aurum_api.api import MRS
 
 
 class Algebra:
@@ -634,11 +632,9 @@ class Helper:
             "field = ('Employee', 'year') # field = [<source_name>, <field_name>)")
 
 
-class API(Algebra):
+class AurumAPI(Algebra):
     def __init__(self, *args, **kwargs):
-        # print(str(type(API)))
-        # print(str(type(self)))
-        super(API, self).__init__(*args, **kwargs)
+        super(AurumAPI, self).__init__(*args, **kwargs)
 
 
 if __name__ == '__main__':

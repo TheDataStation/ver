@@ -2,16 +2,13 @@ import pandas as pd
 from collections import defaultdict
 import math
 
-from DoD.utils import FilterType
+from archived.DoD import FilterType
 import config as C
 import os
 import psutil
 import heapq
-from tqdm import tqdm
 import time
 import pprint
-import cProfile
-
 
 pp = pprint.PrettyPrinter(indent=4)
 # Cache reading and transformation of DFs

@@ -1,8 +1,8 @@
-from api.apiutils import DRS
-from api.apiutils import Relation
-from api.apiutils import OP
-from api.apiutils import Hit
-from api.annotation import MRS
+from aurum_api.api.apiutils import DRS
+from aurum_api.api.apiutils import Relation
+from aurum_api.api.apiutils import OP
+from aurum_api.api.apiutils import Hit
+from aurum_api.api import MRS
 from knowledgerepr.inmemoryekg import InMemoryEKG
 from knowledgerepr.gindexekg import GIndexEKG
 

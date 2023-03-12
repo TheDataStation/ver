@@ -1,15 +1,12 @@
-import math
-
 from utils import *
 import four_c as v4c
-from DoD.colors import Colors
+from archived.DoD.colors import Colors
 import random
 random.seed(0)
 import glob
 from collections import defaultdict
 from tabulate import tabulate
 
-import time
 import matplotlib.pyplot as plt
 
 plt.rcParams['figure.figsize'] = [12, 8]

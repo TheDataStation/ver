@@ -1,4 +1,4 @@
-from api.apiutils import DRS
+from aurum_api.api.apiutils import DRS
 
 class Column:
     nid = None

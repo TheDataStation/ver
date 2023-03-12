@@ -1,5 +1,5 @@
 import argparse
-from DoD import dod
+from archived.DoD import dod
 
 if __name__ == "__main__":
     print("Run DoD")

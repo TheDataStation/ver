@@ -1,16 +1,16 @@
 import json
-from DoD import column_infer
-from DoD.view_search_pruning import ViewSearchPruning
+from archived.DoD import column_infer
+from archived.DoD import ViewSearchPruning
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 import pandas as pd
 import os
 import time
 from aurum_api.ddapi import API as DDAPI
-from aurum_api.algebra import API as AurumAPI
-from api.apiutils import Relation
+from aurum_api.algebra import AurumAPI as AurumAPI
+from aurum_api.api.apiutils import Relation
 import csv
-from api.apiutils import DRS, Operation, OP
+from aurum_api.api.apiutils import DRS, Operation, OP
 
 model_path = '/home/cc/models_opendata_05/'
 base_path = '/home/cc/opendata_cleaned/'

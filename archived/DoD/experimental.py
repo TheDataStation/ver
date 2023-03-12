@@ -1,7 +1,7 @@
 from collections import defaultdict
 from collections import OrderedDict
 import itertools
-from DoD.utils import FilterType
+from archived.DoD import FilterType
 
 
 def virtual_schema_exhaustive_search(self, list_attributes: [str], list_samples: [str]):

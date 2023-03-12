@@ -1,12 +1,12 @@
-from aurum_api.algebra import API
-from api.apiutils import Relation
+from aurum_api.algebra import AurumAPI
+from aurum_api.api.apiutils import Relation
 from collections import defaultdict
 from collections import OrderedDict
 import itertools
-from DoD.colors import Colors
-from DoD import data_processing_utils as dpu
-from DoD import material_view_analysis as mva
-from DoD.utils import FilterType
+from archived.DoD.colors import Colors
+from archived.DoD import data_processing_utils as dpu
+from archived.DoD import material_view_analysis as mva
+from archived.DoD import FilterType
 import numpy as np
 from functools import reduce
 import operator
@@ -14,10 +14,10 @@ import pickle
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 import time
-from DoD import view_search_4c as v4c
+from archived.DoD import view_search_4c as v4c
 import pprint
 import server_config as config
-from DoD import column_infer
+from archived.DoD import column_infer
 from enum import Enum
 
 from tabulate import tabulate
@@ -36,7 +36,7 @@ class RelationType(Enum):
 class ViewSearchPruning:
 
     def __init__(self, network, store_client, base_path, csv_separator=","):
-        self.aurum_api = API(network=network, store_client=store_client)
+        self.aurum_api = AurumAPI(network=network, store_client=store_client)
         self.base_path = base_path
         self.paths_cache = dict()
         self.view_cache = dict()

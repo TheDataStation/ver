@@ -1,12 +1,12 @@
 import unittest
 
 import server_config as config
-from DoD import column_infer
-from DoD.view_search_pruning import ViewSearchPruning, start, evaluate_view_search, found_view_eval
+from archived.DoD import column_infer
+from archived.DoD import ViewSearchPruning, start, evaluate_view_search, found_view_eval
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
-from DoD import data_processing_utils as dpu
-from DoD.evaluation.generate_tests import generate_tests
+from archived.DoD import data_processing_utils as dpu
+from archived.DoD import generate_tests
 
 '''
 Test cases for adventureWork Dataset
