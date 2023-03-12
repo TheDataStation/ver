@@ -122,6 +122,8 @@ class Algebra:
     """
 
     def neighbors(self, drs: DRS, relation):
+        if not self._network.is_nid_in_graph(drs.nid):
+            return []
         return self._network.neighbors_id(drs, relation)
 
     def paths(self, drs_a: DRS, drs_b: DRS, relation=Relation.PKFK, max_hops=2, lean_search=False) -> DRS:
@@ -289,6 +291,15 @@ class Algebra:
         drs = DRS([x for x in hits], Operation(OP.TABLE, params=[drs]))
         return drs
 
+    def table_to_drs(self, tbl) -> DRS:
+        hits = self._network.get_hits_from_table(tbl)
+        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[tbl]))
+        return drs
+
+    def table_to_hit(self, tbl):
+        hit = Hit(None, None, tbl, '', None,[])
+        return hit
+    
     def drs_from_table_hit(self, hit: Hit) -> DRS:
         # TODO: migrated from old ddapi as there's no good swap
         table = hit.source_name

@@ -4,15 +4,16 @@ from DoD import data_processing_utils as dpu
 from collections import defaultdict
 
 from api.apiutils import DRS, Operation, OP
-from ver_utils.column import Column
+from qbe_module.column import Column
 from typing import List
+from api.apiutils import Relation
 
 
 class ColumnSelection:
     def __init__(self, aurum_api: API, csv_separator: str =','):
         self.aurum_api = aurum_api
         dpu.configure_csv_separator(csv_separator)
-        self.topk = 1000  # limit the number of columns returned from keyword search
+        self.topk = 2000  # limit the number of columns returned from keyword search
 
     def column_retreival(self, attr: str, examples: List[str]):
         candidate_columns = {}
@@ -65,8 +66,8 @@ class ColumnSelection:
             nid_to_candidate[candidate.nid] = candidate
 
         for _, candidate in enumerate(candidates):
-            neighbors = self.aurum_api.content_similar_to(candidate.drs)
-            for neighbor in neighbors.data:
+            neighbors = self.aurum_api.neighbors(candidate.drs, Relation.CONTENT_SIM)
+            for neighbor in neighbors:
                 if neighbor.nid not in nid_to_candidate:
                     continue
                 self.merge_root(roots, candidate.nid, neighbor.nid)
