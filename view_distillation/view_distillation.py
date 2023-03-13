@@ -648,95 +648,97 @@ class ViewDistillation:
             views_selected = set()
             wrong_keys = set()
 
-            for k, key_values in self.contradictions.items():
+            for k1, k2 in self.contradictions.items():
 
-                path1, path2, key_tuple = k
+                for key_tuple, key_values in self.contradictions[k1].items():
 
-                out.clear_output()
+                    path1, path2 = k1
 
-                skip = False
-                if path1 in views_pruned or path2 in views_pruned or key_tuple in wrong_keys:
-                    num_interactions += 1
-                    skip = True
+                    out.clear_output()
 
-                if num_interactions >= len(self.contradictions):
-                    # we have explored all the contradictory / complementary view pairs and single views at least once
-                    with out:
-                        print("You have explored all contradictory views")
-                    break
+                    skip = False
+                    if path1 in views_pruned or path2 in views_pruned or key_tuple in wrong_keys:
+                        num_interactions += 1
+                        skip = True
 
-                if skip:
-                    continue
-
-                num_interactions += 1
-
-                buttons = [skip_button, stop_button, wrong_key_button]
-
-                with out:
-                    display(HBox([skip_button, stop_button, wrong_key_button]))
-
-                with out:
-                    print()
-                    print(path1 + " - " + path2)
-                    if len(key_tuple) == 1:
-                        print("Key:", key_tuple[0])
-                    else:
-                        print("Key:", str(key_tuple))
-
-                row1_dfs = []
-                row2_dfs = []
-
-                df1 = self.path_to_df_dict[path1]
-                df2 = self.path_to_df_dict[path2]
-
-                for key_value in key_values:
-                    row1_df = get_row_from_key(df1, key_tuple, key_value)
-                    row2_df = get_row_from_key(df2, key_tuple, key_value)
-
-                    row1_dfs.append(row1_df)
-                    row2_dfs.append(row2_df)
-
-                # concatenate all contradictory rows in both side
-                if len(row1_dfs) > 0 and len(row2_dfs) > 0:
-
-                    contradictory_rows1 = pd.concat(row1_dfs).reset_index(drop=True)
-                    contradictory_rows2 = pd.concat(row2_dfs).reset_index(drop=True)
-
-                    html1 = contradictory_rows1.style \
-                        .applymap(highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
-                                  color='lightyellow') \
-                        .apply(highlight_diff, axis=None, df2=contradictory_rows2) \
-                        .to_html()
-
-                    html2 = contradictory_rows2.style \
-                        .applymap(highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
-                                  color='lightyellow') \
-                        .apply(highlight_diff, axis=None, df2=contradictory_rows1) \
-                        .to_html()
-
-                    print_option(path1, html1, buttons)
-
-                    print_option(path2, html2, buttons)
-
-                    option_picked = await wait_for_change(buttons)
-
-                    if option_picked == "Stop":
+                    if num_interactions >= len(self.contradictions):
+                        # we have explored all the contradictory / complementary view pairs and single views at least once
                         with out:
-                            print("Stopped interaction")
+                            print("You have explored all contradictory views")
                         break
 
-                    if option_picked == "Wrong key":
-                        with out:
-                            print("Wrong key")
-                        wrong_keys.add(key_tuple)
+                    if skip:
+                        continue
 
-                    elif option_picked != "Skip":
+                    num_interactions += 1
 
-                        views_selected.add(option_picked)
-                        views_pruned.add(option_picked)
+                    buttons = [skip_button, stop_button, wrong_key_button]
 
-                        with out:
-                            print(f"You picked {option_picked}")
+                    with out:
+                        display(HBox([skip_button, stop_button, wrong_key_button]))
+
+                    with out:
+                        print()
+                        print(path1 + " - " + path2)
+                        if len(key_tuple) == 1:
+                            print("Key:", key_tuple[0])
+                        else:
+                            print("Key:", str(key_tuple))
+
+                    row1_dfs = []
+                    row2_dfs = []
+
+                    df1 = self.path_to_df_dict[path1]
+                    df2 = self.path_to_df_dict[path2]
+
+                    for key_value in key_values:
+                        row1_df = get_row_from_key(df1, key_tuple, key_value)
+                        row2_df = get_row_from_key(df2, key_tuple, key_value)
+
+                        row1_dfs.append(row1_df)
+                        row2_dfs.append(row2_df)
+
+                    # concatenate all contradictory rows in both side
+                    if len(row1_dfs) > 0 and len(row2_dfs) > 0:
+
+                        contradictory_rows1 = pd.concat(row1_dfs).reset_index(drop=True)
+                        contradictory_rows2 = pd.concat(row2_dfs).reset_index(drop=True)
+
+                        html1 = contradictory_rows1.style \
+                            .applymap(highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
+                                      color='lightyellow') \
+                            .apply(highlight_diff, axis=None, df2=contradictory_rows2) \
+                            .to_html()
+
+                        html2 = contradictory_rows2.style \
+                            .applymap(highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
+                                      color='lightyellow') \
+                            .apply(highlight_diff, axis=None, df2=contradictory_rows1) \
+                            .to_html()
+
+                        print_option(path1, html1, buttons)
+
+                        print_option(path2, html2, buttons)
+
+                        option_picked = await wait_for_change(buttons)
+
+                        if option_picked == "Stop":
+                            with out:
+                                print("Stopped interaction")
+                            break
+
+                        if option_picked == "Wrong key":
+                            with out:
+                                print("Wrong key")
+                            wrong_keys.add(key_tuple)
+
+                        elif option_picked != "Skip":
+
+                            views_selected.add(option_picked)
+                            views_pruned.add(option_picked)
+
+                            with out:
+                                print(f"You picked {option_picked}")
 
             out.clear_output()
             with out:

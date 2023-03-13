@@ -13,7 +13,7 @@ or
 ```python
 from view_distillation import ViewDistillation
 
-vd = ViewDistillation(path_to_views)
+vd = ViewDistillation(path_to_views, dfs)
 ```
 
 ## High-level APIs
