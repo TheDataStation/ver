@@ -1,7 +1,7 @@
 from aurum_api.algebra import AurumAPI
 from archived.DoD import FilterType
 from archived.DoD import data_processing_utils as dpu
-from aurum_api.api.apiutils import DRS, Operation, OP
+from aurum_api.apiutils import DRS, Operation, OP
 from collections import defaultdict
 import os
 import time

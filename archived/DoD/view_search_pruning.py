@@ -1,5 +1,5 @@
 from aurum_api.algebra import AurumAPI
-from aurum_api.api.apiutils import Relation
+from aurum_api.apiutils import Relation
 from collections import defaultdict
 from collections import OrderedDict
 import itertools

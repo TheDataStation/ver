@@ -1,6 +1,6 @@
 from collections import deque, defaultdict
 from aurum_api.algebra import AurumAPI
-from aurum_api.api.apiutils import DRS, Relation
+from aurum_api.apiutils import DRS, Relation
 from typing import List
 from qbe_module.column_selection import Column
 from copy import deepcopy

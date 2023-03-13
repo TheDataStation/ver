@@ -2,7 +2,7 @@
 # Exclude certain tables
 # keyword_search and neighbor_search, but on mutiple contexts
 
-from aurum_api.api.apiutils import Relation
+from aurum_api.apiutils import Relation
 
 from modelstore.elasticstore import StoreHandler, KWType
 from knowledgerepr import fieldnetwork

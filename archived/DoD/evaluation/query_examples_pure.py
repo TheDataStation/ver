@@ -7,8 +7,8 @@ from archived.DoD import data_processing_utils as dpu
 import pandas as pd
 import os
 import time
-from aurum_api.ddapi import API
-from aurum_api.api.apiutils import Relation
+from archived.ddapi import API
+from aurum_api.apiutils import Relation
 
 model_path = '/home/cc/models_opendata_05/'
 base_path = '/home/cc/opendata_cleaned/'

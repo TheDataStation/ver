@@ -1,11 +1,12 @@
-from knowledgerepr.fieldnetwork import FieldNetwork
-from aurum_api.api.apiutils import Relation
+# from knowledgerepr.fieldnetwork import FieldNetwork
+from dindex_store.discovery_index import DiscoveryIndex
+from aurum_api.apiutils import Relation
 
 
 class Report:
 
-    def __init__(self, network: FieldNetwork):
-        self.__network = network
+    def __init__(self, dindex: DiscoveryIndex):
+        self.__dindex = dindex
         self.__num_tables = 0
         self.__num_columns = 0
         self.__num_schema_sim_relations = 0

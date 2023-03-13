@@ -1,9 +1,9 @@
 import unittest
-from aurum_api.api.apiutils import DRS
-from aurum_api.api.apiutils import Operation
-from aurum_api.api.apiutils import OP
-from aurum_api.api.apiutils import Hit
-from aurum_api.ddapi import API
+from aurum_api.apiutils import DRS
+from aurum_api.apiutils import Operation
+from aurum_api.apiutils import OP
+from aurum_api.apiutils import Hit
+from archived.ddapi import API
 
 
 class TestApiutils(unittest.TestCase):

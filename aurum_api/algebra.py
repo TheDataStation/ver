@@ -1,16 +1,15 @@
 import itertools
 from enum import Enum
+import argparse
 
-from aurum_api.api.apiutils import compute_field_id as id_from
-from aurum_api.api.apiutils import Operation
-from aurum_api.api.apiutils import OP
-from aurum_api.api.apiutils import Relation
-from aurum_api.api.apiutils import DRS
-from aurum_api.api.apiutils import DRSMode
-from aurum_api.api.apiutils import Hit
-from aurum_api.api.annotation import MDClass
-from aurum_api.api.annotation import MDRelation
-from aurum_api.api.annotation import MRS
+from aurum_api.apiutils import compute_field_id as id_from
+from aurum_api.apiutils import Operation
+from aurum_api.apiutils import OP
+from aurum_api.apiutils import Relation
+from aurum_api.apiutils import DRS
+from aurum_api.apiutils import DRSMode
+from aurum_api.apiutils import Hit
+
 
 from dindex_store.discovery_index import DiscoveryIndex
 
@@ -311,15 +310,21 @@ class Algebra:
     #     drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]), lean_drs=True)
     #     return drs
 
+    # FIXME
     def drs_expand_to_table(self, drs: DRS) -> DRS:
         table = drs.source_name
         hits = self._network.get_hits_from_table(table)
         drs = DRS([x for x in hits], Operation(OP.TABLE, params=[drs]))
         return drs
 
-    def table_to_drs(self, tbl) -> DRS:
-        hits = self._network.get_hits_from_table(tbl)
-        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[tbl]))
+    def table_to_drs(self, table_name) -> DRS:
+
+        # TODO: get these names (validate them) from (with) a schema
+        results = self.dindex.get_filtered_profiles_from_table(table_name, ['nid', 'db_name', 's_name', 'f_name'])
+        hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
+
+        # hits = self._network.get_hits_from_table(table_name)
+        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[table_name]))
         return drs
 
     def table_to_hit(self, tbl):
@@ -328,8 +333,9 @@ class Algebra:
     
     def drs_from_table_hit(self, hit: Hit) -> DRS:
         # TODO: migrated from old ddapi as there's no good swap
-        table = hit.source_name
-        hits = self._network.get_hits_from_table(table)
+        table_name = hit.source_name
+        results = self.dindex.get_filtered_profiles_from_table(table_name, ['nid', 'db_name', 's_name', 'f_name'])
+        hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
         drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]))
         return drs
 
@@ -355,7 +361,8 @@ class Algebra:
 
         # Test for strings that represent tables
         if isinstance(general_input, str):
-            hits = self._network.get_hits_from_table(general_input)
+            results = self.dindex.get_filtered_profiles_from_table(general_input, ['nid', 'db_name', 's_name', 'f_name'])
+            hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
             general_input = DRS([x for x in hits], Operation(OP.ORIGIN))
 
         # Test for tuples that are not Hits
@@ -387,8 +394,15 @@ class Algebra:
         """
         nid = str(nid)
         score = 0.0
-        nid, db, source, field = self._network.get_info_for([nid])[0]
-        hit = Hit(nid, db, source, field, score,[])
+
+        results = self.dindex.get_filtered_profiles_from_nids([nid], ['nid', 'db_name', 's_name', 'f_name'])
+
+        # FIXME; adapt results to hit
+        hit = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results[0]][0]
+
+        # nid, db, source, field = self._network.get_info_for([nid])[0]
+        # hit = Hit(nid, db, source, field, score,[])
+
         return hit
 
     def _node_to_hit(self, node: (str, str, str)) -> Hit:
@@ -416,8 +430,9 @@ class Algebra:
         """
         drs = None
         if table_mode:
-            table = hit.source_name
-            hits = self._network.get_hits_from_table(table)
+            table_name = hit.source_name
+            results = self.dindex.get_filtered_profiles_from_table(table_name, ['nid', 'db_name', 's_name', 'f_name'])
+            hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
             drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]))
             drs.set_table_mode()
         else:
@@ -435,42 +450,6 @@ class Algebra:
 
         return drs
 
-    def _mdclass_to_str(self, md_class: MDClass):
-        ref_table = {
-            MDClass.WARNING: "warning",
-            MDClass.INSIGHT: "insight",
-            MDClass.QUESTION: "question"
-        }
-        return ref_table[md_class]
-
-    def _mdrelation_to_str(self, md_relation: MDRelation):
-        """
-        :return: (str, nid_is_source)
-        """
-        ref_table = {
-            MDRelation.MEANS_SAME_AS: ("same", True),
-            MDRelation.MEANS_DIFF_FROM: ("different", True),
-            MDRelation.IS_SUBCLASS_OF: ("subclass", True),
-            MDRelation.IS_SUPERCLASS_OF: ("subclass", False),
-            MDRelation.IS_MEMBER_OF: ("member", True),
-            MDRelation.IS_CONTAINER_OF: ("member", False)
-        }
-        return ref_table[md_relation]
-
-    def _relation_to_mdrelation(self, relation):
-        if relation == Relation.MEANS_SAME:
-            return MDRelation.MEANS_SAME_AS
-        if relation == Relation.MEANS_DIFF:
-            return MDRelation.MEANS_DIFF_FROM
-        if relation == Relation.SUBCLASS:
-            return MDRelation.IS_SUBCLASS_OF
-        if relation == Relation.SUPERCLASS:
-            return MDRelation.IS_SUPERCLASS_OF
-        if relation == Relation.MEMBER:
-            return MDRelation.IS_MEMBER_OF
-        if relation == Relation.CONTAINER:
-            return MDRelation.IS_CONTAINER_OF
-
     def _assert_same_mode(self, a: DRS, b: DRS) -> None:
         error_text = ("Input parameters are not in the same mode ",
                       "(fields, table)")
@@ -482,130 +461,6 @@ class Algebra:
             return True
         except:
             return False
-
-    """
-    Metadata API
-    """
-
-    # Hide these for the time-being
-
-    def __annotate(self, author: str, text: str, md_class: MDClass,
-                 general_source, ref={"general_target": None, "type": None}) -> MRS:
-        """
-        Create a new annotation in the elasticsearch graph.
-        :param author: identifiable name of user or process
-        :param text: free text description
-        :param md_class: MDClass
-        :param general_source: nid, node tuple, Hit, or DRS
-        :param ref: (optional) {
-            "general_target": nid, node tuple, Hit, or DRS,
-            "type": MDRelation
-        }
-        :return: MRS of the new metadata
-        """
-        source = self._general_to_drs(general_source)
-        target = self._general_to_drs(ref["general_target"])
-
-        if source.mode != DRSMode.FIELDS or target.mode != DRSMode.FIELDS:
-            raise ValueError("source and targets must be columns")
-
-        md_class = self._mdclass_to_str(md_class)
-        md_hits = []
-
-        # non-relational metadata
-        if ref["type"] is None:
-            for hit_source in source:
-                res = self._store_client.add_annotation(
-                    author=author,
-                    text=text,
-                    md_class=md_class,
-                    source=hit_source.nid)
-                md_hits.append(res)
-            return MRS(md_hits)
-
-        # relational metadata
-        md_relation, nid_is_source = self._mdrelation_to_str(ref["type"])
-        if not nid_is_source:
-            source, target = target, source
-
-        for hit_source in source:
-            for hit_target in target:
-                res = self._store_client.add_annotation(
-                    author=author,
-                    text=text,
-                    md_class=md_class,
-                    source=hit_source.nid,
-                    target={"id": hit_target.nid, "type": md_relation})
-                md_hits.append(res)
-            return MRS(md_hits)
-
-    def __add_comments(self, author: str, comments: list, md_id: str) -> MRS:
-        """
-        Add comments to the annotation with the given md_id.
-        :param author: identifiable name of user or process
-        :param comments: list of free text comments
-        :param md_id: metadata id
-        """
-        md_comments = []
-        for comment in comments:
-            res = self._store_client.add_comment(
-                author=author, text=comment, md_id=md_id)
-            md_comments.append(res)
-        return MRS(md_comments)
-
-    def __add_tags(self, author: str, tags: list, md_id: str):
-        """
-        Add tags/keywords to metadata with the given md_id.
-        :param md_id: metadata id
-        :param tags: a list of tags to add
-        """
-        return self._store_client.add_tags(author, tags, md_id)
-
-    def __md_search(self, general_input=None,
-                  relation: MDRelation = None) -> MRS:
-        """
-        Searches for metadata that reference the nodes in the general
-        input. If a relation is given, searches for metadata that mention the
-        nodes as the source of the relation. If no parameters are given,
-        searches for all metadata.
-        :param general_input: nid, node tuple, Hit, or DRS
-        :param relation: an MDRelation
-        """
-        # return all metadata
-        if general_input is None:
-            return MRS([x for x in self._store_client.get_metadata()])
-
-        drs_nodes = self._general_to_drs(general_input)
-        if drs_nodes.mode != DRSMode.FIELDS:
-            raise ValueError("general_input must be columns")
-
-        # return metadata that reference the input
-        if relation is None:
-            md_hits = []
-            for node in drs_nodes:
-                md_hits.extend(self._store_client.get_metadata(nid=node.nid))
-            return MRS(md_hits)
-
-        # return metadata that reference the input with the given relation
-        md_hits = []
-        store_relation, nid_is_source = self._mdrelation_to_str(relation)
-        for node in drs_nodes:
-            md_hits.extend(self._store_client.get_metadata(nid=node.nid,
-                                                           relation=store_relation, nid_is_source=nid_is_source))
-        return MRS(md_hits)
-
-    def __md_keyword_search(self, kw: str, max_results=10) -> MRS:
-        """
-        Performs a keyword search over metadata annotations and comments.
-        :param kw: the keyword to search
-        :param max_results: maximum number of results to return
-        :return: returns a MRS
-        """
-        hits = self._store_client.search_keywords_md(
-            keywords=kw, max_hits=max_results)
-
-        mrs = MRS([x for x in hits])
-        return mrs
 
     """
     Helper API
@@ -662,5 +517,60 @@ class AurumAPI(Algebra):
         super(AurumAPI, self).__init__(*args, **kwargs)
 
 
+def main(args):
+    from IPython.display import Markdown, display
+    from IPython.terminal.embed import InteractiveShellEmbed
+
+    from aurum_api.reporting import Report
+
+    import time
+
+    def print_md(string):
+        display(Markdown(string))
+
+    print_md("Loading DIndex")
+    sl = time.time()
+
+    # network = fieldnetwork.deserialize_network(path_to_serialized_model)
+    # store_client = StoreHandler()
+
+    # TODO: create dindex
+    dindex = None
+
+    api = AurumAPI(dindex)
+    if args.create_reporting:
+        reporting = Report(dindex)
+        # TODO: need to refactor report to use dindex
+        raise NotImplementedError
+    else:
+        # Better always return a tuple even if second element is `None`
+        reporting = None
+    api.help()
+    el = time.time()
+    print("Took " + str(el - sl) + " to load model")
+    if args.embed:
+        init_banner = "Welcome to Ver (Aurum API). \nYou can access the API via the object api"
+        exit_banner = "Bye!"
+        ip_shell = InteractiveShellEmbed(banner1=init_banner, exit_msg=exit_banner)
+        ip_shell()
+    return api, reporting
+
+
 if __name__ == '__main__':
+
     print("Aurum API")
+
+    # FIXME: add correct list of params
+    # Argument parsing
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model_path', help='Path to Aurum model')
+    parser.add_argument('--separator', default=',', help='CSV separator')
+    parser.add_argument('--output_path', default=False, help='Path to store output views')
+    parser.add_argument('--interactive', default=True, help='Run DoD in interactive mode or not')
+    parser.add_argument('--full_view', default=False, help='Whether to output raw view or not')
+    parser.add_argument('--list_attributes', help='Schema of View')
+    parser.add_argument('--list_values', help='Values of View, leave "" if no value for a given attr is given')
+
+    args = parser.parse_args()
+
+    main(args)

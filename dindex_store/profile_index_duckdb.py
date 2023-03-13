@@ -41,12 +41,37 @@ class ProfileIndexDuckDB(ProfileIndex):
             return False
 
     def get_profile(self, node_id: int) -> Dict:
+        profile_table = self.config["profile_table_name"]
         try:
-            profile_table = self.config["profile_table_name"]
             result = self.conn.execute(
                 f"SELECT * FROM {profile_table} WHERE id = {node_id}") \
                 .to_dict(orient='records')[0]
             return True
+        except:
+            print("An error has occured when trying to get profile")
+            return False
+
+    def get_filtered_profiles_from_table(self, table_name, desired_attributes):
+        profile_table = self.config["profile_table_name"]
+        project_list = ",".join(desired_attributes)
+        try:
+            result = self.conn.execute(
+                f"SELECT {project_list} FROM {profile_table} WHERE s_name = {table_name}") \
+                .to_dict(orient='records')[0]
+            return result
+        except:
+            print("An error has occured when trying to get profile")
+            return False
+
+    def get_filtered_profiles_from_nids(self, nids, desired_attributes):
+        project_list = ",".join(desired_attributes)
+        predicate = "OR id = ".join(nids)
+        try:
+            profile_table = self.config["profile_table_name"]
+            result = self.conn.execute(
+                f"SELECT {project_list} FROM {profile_table} WHERE id = {predicate}") \
+                .to_dict(orient='records')[0]
+            return result
         except:
             print("An error has occured when trying to get profile")
             return False

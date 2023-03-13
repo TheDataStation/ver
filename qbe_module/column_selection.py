@@ -2,10 +2,10 @@ from aurum_api.algebra import AurumAPI
 from archived.DoD import FilterType, data_processing_utils as dpu
 from collections import defaultdict
 
-from aurum_api.api.apiutils import DRS, Operation, OP
+from aurum_api.apiutils import DRS, Operation, OP
 from qbe_module.column import Column
 from typing import List
-from aurum_api.api.apiutils import Relation
+from aurum_api.apiutils import Relation
 
 
 class ColumnSelection:

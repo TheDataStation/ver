@@ -251,7 +251,7 @@ if __name__ == '__main__':
 
     print("HERE")
     from aurum_api.main import init_system
-    from aurum_api.api.apiutils import Relation
+    from aurum_api.apiutils import Relation
 
     api, reporting = init_system("/Users/ra-mit/development/discovery_proto/models/dwh2/")
 

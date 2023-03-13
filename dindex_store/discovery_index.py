@@ -107,6 +107,14 @@ class DiscoveryIndex:
     def get_profile(self, node_id: int) -> Dict:
         return self.__profile_index.get_profile(node_id)
 
+    def get_filtered_profiles_from_table(self, table_name, desired_attributes):
+        results = self.__profile_index.get_filtered_profiles_from_table(table_name, desired_attributes)
+        return results
+
+    def get_filtered_profiles_from_nids(self, nids, desired_attributes):
+        results = self.__profile_index.get_filtered_profiles_from_nids(nids, desired_attributes)
+        return results
+
     def get_minhashes(self) -> Dict:
         return self.__profile_index.get_minhashes()
 

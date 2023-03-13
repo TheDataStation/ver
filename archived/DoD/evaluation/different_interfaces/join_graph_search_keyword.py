@@ -6,7 +6,7 @@ from modelstore.elasticstore import StoreHandler
 import pandas as pd
 import os
 import time
-from aurum_api.ddapi import API
+from archived.ddapi import API
 import csv
 
 model_path = '/home/cc/models_opendata_05/'

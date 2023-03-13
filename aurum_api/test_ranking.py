@@ -1,5 +1,5 @@
 import unittest
-from aurum_api.ddapi import API
+from archived.ddapi import API
 from modelstore.elasticstore import StoreHandler
 from knowledgerepr.fieldnetwork import deserialize_network
 from knowledgerepr.syn_network_generator import generate_network_with as GENSYN

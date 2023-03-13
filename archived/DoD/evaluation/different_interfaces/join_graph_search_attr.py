@@ -6,11 +6,11 @@ from modelstore.elasticstore import StoreHandler
 import pandas as pd
 import os
 import time
-from aurum_api.ddapi import API as DDAPI
+from archived.ddapi import API as DDAPI
 from aurum_api.algebra import AurumAPI as AurumAPI
-from aurum_api.api.apiutils import Relation
+from aurum_api.apiutils import Relation
 import csv
-from aurum_api.api.apiutils import DRS, Operation, OP
+from aurum_api.apiutils import DRS, Operation, OP
 
 model_path = '/home/cc/models_opendata_05/'
 base_path = '/home/cc/opendata_cleaned/'

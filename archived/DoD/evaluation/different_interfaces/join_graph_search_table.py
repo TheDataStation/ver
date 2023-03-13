@@ -4,8 +4,8 @@ from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
 import pandas as pd
 import os
-from aurum_api.ddapi import API
-from aurum_api.api.apiutils import Relation
+from archived.ddapi import API
+from aurum_api.apiutils import Relation
 import csv
 
 model_path = '/home/cc/models_opendata_05/'

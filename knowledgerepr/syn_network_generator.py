@@ -1,6 +1,6 @@
 from knowledgerepr.fieldnetwork import FieldNetwork
 from knowledgerepr.fieldnetwork import serialize_network
-from aurum_api.api.apiutils import Relation
+from aurum_api.apiutils import Relation
 
 
 def generate_network_with(num_nodes=10, num_nodes_per_table=2, num_schema_sim=5, num_content_sim=5, num_pkfk=2):
