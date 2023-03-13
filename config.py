@@ -29,3 +29,44 @@ k = 512
 separator = ','
 join_chunksize = 1000
 memory_limit_join_processing = 0.6  # 60% of total memory
+
+####################################
+## New, after refactoring, configs
+
+##########
+## Input Data
+##########
+
+input_data_type = "json"
+text_csv_delimiter = ','
+profile_schema_path = ""
+
+
+##########
+## DIndex
+##########
+
+profile_index = "duckdb"
+content_index = "simpleminhash"
+fts_index = "duckdb"
+graph_index = "kuzu"
+
+# Profile index config
+profile_table_name = "profiles"
+profile_duckdb_database_name = "profiles"
+
+# FTS index configs
+fts_data_table_name = "fts_data"
+fts_index_column = "data"
+fts_duckdb_database_name = "profiles"  # naming it the same as profile_duckdb_database_name places all in one instance
+
+# content index configs
+minhash_lsh_threshold = 0.7
+minhash_lsh_num_perm = 512
+
+# graph index configs
+graph_schema_path = ""
+kuzu_database_name = "graph_index"
+
+
+

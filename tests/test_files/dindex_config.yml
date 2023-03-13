@@ -1,0 +1,12 @@
+profile_schema_path: "test_files/profile_index_schema_dummy_duckdb.txt"
+graph_schema_path: "test_files/graph_index_schema_kuzu.txt"
+
+profile_table_name: "profiles"
+
+duckdb_database: ":memory:"
+
+profile_index: "duckdb"
+graph_index: "kuzu"
+
+data_path: "test_files/data/"
+minhash_perm: 512

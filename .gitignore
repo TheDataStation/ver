@@ -3,7 +3,6 @@
 .ipynb_checkpoints/
 *.ipynb
 .python-version
-*.txt
 *.csv
 DoD/ui/node_modules/
 DoD2/
@@ -11,9 +10,11 @@ figures/
 *result*/
 view_distillation/dataset
 *.png
+log*.txt
+example_queries.md
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 

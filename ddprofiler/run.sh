@@ -1,1 +1,2 @@
-./build/install/ddprofiler/bin/ddprofiler $@
+#!/bin/sh
+./app/build/install/app/bin/app $@

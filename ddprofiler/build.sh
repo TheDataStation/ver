@@ -1,1 +1,2 @@
-./gradlew clean build -x test installDist
+#!/bin/sh
+./gradlew build -x test installDist

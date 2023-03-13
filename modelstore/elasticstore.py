@@ -25,11 +25,12 @@ class StoreHandler:
 
     def __init__(self):
         """
-            Uses the configuration file to create a connection to the store
-            :return:
-            """
+        Uses the configuration file to create a connection to the store
+        :return:
+        """
         global client
-        client = Elasticsearch([{'host': c.db_host, 'port': c.db_port}], timeout=60)
+        # client = Elasticsearch([{'host': c.db_host, 'port': c.db_port}], timeout=60)
+        client = Elasticsearch("http://" + c.db_host + ":" + c.db_port, timeout=60)
 
     def close(self):
         print("TODO")
@@ -48,7 +49,7 @@ class StoreHandler:
                                          'hits.hits._source.path'
                                          ]
                             )
-        if res['hits']['total'] == 0:
+        if res['hits']['total']['value'] == 0:
             print("!!!")
             print("nid not found in store: are you using the right EKG and store?")
             print("!!!")
@@ -79,7 +80,8 @@ class StoreHandler:
                                          'hits.hits._source.dataType']
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
+        print(str(remaining))
         while remaining > 0:
             print("remaining:", remaining)
             # if remaining < 2800000:
@@ -127,7 +129,7 @@ class StoreHandler:
                             filter_path=filter_path
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
         while remaining > 0:
             hits = res['hits']['hits']
             for h in hits:
@@ -190,7 +192,7 @@ class StoreHandler:
         res = client.search(index=index, body=query_body, size=10000, scroll="10m",
                             filter_path=filter_path)
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
 
         while remaining > 0:
             print("remaining:", remaining)
@@ -233,13 +235,12 @@ class StoreHandler:
         if elasticfieldname == KWType.KW_CONTENT:
             index = "text"
             query_body = {
-                          "query":
-                              {
-                                  "match_phrase": {
-                                      "text": keywords
-                                  }
-                              }
-                        }
+                "query": {
+                  "match_phrase": {
+                      "text": keywords
+                  }
+                }
+            }
         elif elasticfieldname == KWType.KW_SCHEMA:
             index = "profile"
             query_body = {"from": 0, "size": max_hits,
@@ -258,12 +259,12 @@ class StoreHandler:
             query_body = {"from": 0, "size": max_hits,
                           "query": {"match": {"sourceName": keywords}}}
         res = client.search(index=index, body=query_body, filter_path=filter_path)
-        if res['hits']['total'] == 0:
+        if res['hits']['total']['value'] == 0:
             return []
         for el in res['hits']['hits']:
             matched_text = []
-            if elasticfieldname == KWType.KW_CONTENT:
-                matched_text = el['highlight']['text']
+            # if elasticfieldname == KWType.KW_CONTENT:
+            #     matched_text = el['highlight']['text']  # removed in modernize-ddprofiler -> no highlight
             data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
                            el['_source']['columnName'], el['_score'], matched_text)
             yield data
@@ -295,7 +296,7 @@ class StoreHandler:
             }
         res = client.search(index=index, body=query_body,
                             filter_path=filter_path)
-        if res['hits']['total'] == 0:
+        if res['hits']['total']['value'] == 0:
             return []
         for el in res['hits']['hits']:
             data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
@@ -375,7 +376,7 @@ class StoreHandler:
                                          ]
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
         while remaining > 0:
             hits = res['hits']['hits']
             for h in hits:
@@ -458,7 +459,7 @@ class StoreHandler:
                                          'hits.hits._source.minhash']
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
 
         id_sig = []
         while remaining > 0:
@@ -496,7 +497,7 @@ class StoreHandler:
                                          'hits.hits._source.maxValue']
                             )
         scroll_id = res['_scroll_id']
-        remaining = res['hits']['total']
+        remaining = res['hits']['total']['value']
 
         id_sig = []
         while remaining > 0:
@@ -612,7 +613,7 @@ class StoreHandler:
                        'hits.hits._source.text']
 
         res = client.search(index=index, body=body, filter_path=filter_path)
-        if res['hits']['total'] == 0:
+        if res['hits']['total']['value'] == 0:
             return []
 
         for el in res['hits']['hits']:

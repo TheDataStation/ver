@@ -1,2 +1,11 @@
 /bin/
 /drivers/
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# sources yaml file local example
+my_data_config.yml

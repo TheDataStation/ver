@@ -27,9 +27,9 @@ the master branch, unless you know exactly what you are doing :)
 
 ### Code of Conduct
 
-Check the code of conduct for Aurum here: 
+Check the code of conduct for Ver/Aurum here: 
 
 https://github.com/mitdbg/aurum-datadiscovery/blob/master/README.md
 
 Please, report violations of the code of conduct by sending an email to
-raulcf@csail.mit.edu
+raulcf@uchicago.edu
