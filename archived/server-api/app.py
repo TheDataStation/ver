@@ -16,7 +16,7 @@ currentdir = os.path.dirname(
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from knowledgerepr import fieldnetwork
 
 path_to_serialized_model = C.path_model

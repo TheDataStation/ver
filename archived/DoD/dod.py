@@ -12,7 +12,7 @@ import operator
 import pickle
 from tqdm import tqdm
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 import time
 from archived.DoD import view_4c_analysis_baseline as v4c
 import pprint

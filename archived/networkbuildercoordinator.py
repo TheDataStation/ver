@@ -1,4 +1,4 @@
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from knowledgerepr import fieldnetwork
 from knowledgerepr import networkbuilder
 from knowledgerepr.fieldnetwork import FieldNetwork

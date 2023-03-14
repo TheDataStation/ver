@@ -1,6 +1,6 @@
 from archived.ddapi import API
 from aurum_api.apiutils import Relation
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from knowledgerepr.fieldnetwork import deserialize_network
 from join_path import JoinKey, JoinPath
 import sys

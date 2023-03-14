@@ -1,4 +1,4 @@
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from archived.DoD import data_processing_utils as dpu
 from join_path_api import Join_Path_API, get_correlations
 import os

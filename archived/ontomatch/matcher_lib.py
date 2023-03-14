@@ -1552,7 +1552,7 @@ def _get_kr_classes_vectors(kr_handlers):
 def adhoc_test():
     from inputoutput import inputoutput as io
     from knowledgerepr import fieldnetwork
-    from modelstore.elasticstore import StoreHandler
+    from archived.modelstore import StoreHandler
     from ontomatch.ss_api import SSAPI
 
     s1 = "chembl_22 %%% assay_type %%% assay_desc ==>> efo %%% Motility Assay %%% [ < MatchingType.L5_CLASSNAME_ATTRNAME_SYN: 5 >]"
@@ -1616,7 +1616,7 @@ if __name__ == "__main__":
 
     from inputoutput import inputoutput as io
     from knowledgerepr import fieldnetwork
-    from modelstore.elasticstore import StoreHandler
+    from archived.modelstore import StoreHandler
     from ontomatch.ss_api import SSAPI
 
     matchings = []

@@ -1,7 +1,7 @@
 import sys
 from aurum_api.algebra import AurumAPI
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from ontomatch import ss_utils as SS
 from knowledgerepr.networkbuilder import LSHRandomProjectionsIndex
 from ontomatch import glove_api

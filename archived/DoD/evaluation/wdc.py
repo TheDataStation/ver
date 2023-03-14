@@ -2,7 +2,7 @@ import server_config as config
 from archived.DoD import column_infer
 from archived.DoD import ViewSearchPruning
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from chembl import evaluate_view_search, loadData2
 from archived.DoD import data_processing_utils as dpu
 import time

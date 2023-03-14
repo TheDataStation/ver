@@ -12,7 +12,7 @@ from functools import reduce
 import operator
 import pickle
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 import time
 from archived.DoD import view_search_4c as v4c
 import pprint

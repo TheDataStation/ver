@@ -4,7 +4,7 @@
 
 from aurum_api.apiutils import Relation
 
-from modelstore.elasticstore import StoreHandler, KWType
+from archived.modelstore import StoreHandler, KWType
 from knowledgerepr import fieldnetwork
 from aurum_api.algebra import AurumAPI
 

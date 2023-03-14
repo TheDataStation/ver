@@ -4,7 +4,7 @@ import server_config as config
 from archived.DoD import column_infer
 from archived.DoD import ViewSearchPruning, start, evaluate_view_search, found_view_eval
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from archived.DoD import data_processing_utils as dpu
 from archived.DoD import generate_tests
 

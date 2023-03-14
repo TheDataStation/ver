@@ -5,7 +5,7 @@ from archived.DoD import column_infer, data_processing_utils as dpu
 from archived.DoD import FilterType
 from archived.DoD import ViewSearchPruning
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 
 global model_path  # path to the network index
 global base_path  # path to the source tables

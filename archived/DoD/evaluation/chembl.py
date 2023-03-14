@@ -4,7 +4,7 @@ from archived.DoD import column_infer
 from archived.DoD import FilterType
 from archived.DoD import ViewSearchPruning
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from archived.DoD import data_processing_utils as dpu
 from view_rank import get_S4_score_direct
 import os

@@ -4,7 +4,7 @@ from ontomatch import glove_api
 from dataanalysis import nlp_utils as nlp
 from ontomatch.matcher_lib import get_ban_indexes, remove_banned_vectors
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from ontomatch import ss_utils as SS
 
 

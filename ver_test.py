@@ -1,5 +1,5 @@
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from aurum_api.algebra import AurumAPI
 from qbe_module.query_by_example import ExampleColumn, QueryByExample
 from qbe_module.materializer import Materializer

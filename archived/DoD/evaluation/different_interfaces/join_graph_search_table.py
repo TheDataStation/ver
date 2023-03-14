@@ -1,7 +1,7 @@
 from archived.DoD import column_infer
 from archived.DoD import ViewSearchPruning
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 import pandas as pd
 import os
 from archived.ddapi import API

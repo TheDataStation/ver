@@ -1,5 +1,5 @@
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from archived.DoD import DoD
 from archived.DoD import data_processing_utils as dpu
 from archived.DoD import view_4c_analysis_baseline as v4c

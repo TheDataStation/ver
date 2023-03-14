@@ -4,7 +4,7 @@ import server_config as config
 from archived.DoD import column_infer
 from archived.DoD import ViewSearchPruning, start
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 
 
 class MitDataTest(unittest.TestCase):

@@ -1,5 +1,5 @@
-from modelstore.elasticstore import StoreHandler
-from modelstore.elasticstore import KWType
+from archived.modelstore import StoreHandler
+from archived.modelstore import KWType
 from aurum_api.apiutils import Operation
 from aurum_api.apiutils import OP
 from aurum_api.apiutils import Relation
