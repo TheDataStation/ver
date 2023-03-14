@@ -5,6 +5,7 @@ from typing import List
 from qbe_module.column_selection import Column
 from copy import deepcopy
 
+
 class JoinPath:
     def __init__(self, path: List, tbl_proj_attrs):
         # join path is a list of key pairs: [join_key1, join_key2], [join_key3, join_key4]
@@ -19,6 +20,7 @@ class JoinPath:
             if i + 1 < len(self.path):
                 output += '\n'
         return output
+
 
 class JoinPathSearch:
     def __init__(self, aurum_api: AurumAPI):
@@ -48,7 +50,7 @@ class JoinPathSearch:
                     result.append(new_path)
                     if len(new_path) == max_hop:
                         continue
-                    nei_tbl = self.api.drs_expand_to_table(nei)
+                    nei_tbl = self.api._general_to_drs(nei.source_name)
                     # search next hop
                     for next_src in nei_tbl:
                         next_path = deepcopy(new_path)
@@ -60,11 +62,11 @@ class JoinPathSearch:
     def find_join_paths_between_two_tbls(self, src_tbl, tgt_tbls, src_dict, tgt_dict, rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):
         result = []
         if src_tbl in tgt_tbls:
-            src_tbl_drs = self.api.table_to_hit(src_tbl)
+            src_tbl_drs = self.api._general_to_drs(src_tbl).data[0]
            
             result.append(JoinPath([[src_tbl_drs, src_tbl_drs]], [src_dict[src_tbl], tgt_dict[src_tbl]]))
         
-        for src_col in self.api.table_to_drs(src_tbl):
+        for src_col in self.api._general_to_drs(src_tbl):
             src_paths = self.find_join_paths_from_col(src_col, rel, max_hop)
             for src_path in src_paths:
                 end_tbl = src_path[-1][1].source_name
@@ -84,7 +86,7 @@ class JoinPathSearch:
                 result.append(JoinPath([[src.drs, src.drs]], [src.key(), tgt.key()]))
 
         
-        src_tbl = self.api.drs_expand_to_table(src.drs)
+        src_tbl = self.api._general_to_drs(src.tbl_name)
         for src_col in src_tbl:
             src_paths = self.find_join_paths_from_col(src_col, rel, max_hop)
             for src_path in src_paths:

@@ -310,35 +310,6 @@ class Algebra:
     #     drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]), lean_drs=True)
     #     return drs
 
-    # FIXME
-    def drs_expand_to_table(self, drs: DRS) -> DRS:
-        table = drs.source_name
-        hits = self._network.get_hits_from_table(table)
-        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[drs]))
-        return drs
-
-    def table_to_drs(self, table_name) -> DRS:
-
-        # TODO: get these names (validate them) from (with) a schema
-        results = self.dindex.get_filtered_profiles_from_table(table_name, ['nid', 'db_name', 's_name', 'f_name'])
-        hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
-
-        # hits = self._network.get_hits_from_table(table_name)
-        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[table_name]))
-        return drs
-
-    def table_to_hit(self, tbl):
-        hit = Hit(None, None, tbl, '', None,[])
-        return hit
-    
-    def drs_from_table_hit(self, hit: Hit) -> DRS:
-        # TODO: migrated from old ddapi as there's no good swap
-        table_name = hit.source_name
-        results = self.dindex.get_filtered_profiles_from_table(table_name, ['nid', 'db_name', 's_name', 'f_name'])
-        hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
-        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]))
-        return drs
-
     def _general_to_drs(self, general_input) -> DRS:
         """
         Given an nid, node, hit, or DRS and convert it to a DRS.
