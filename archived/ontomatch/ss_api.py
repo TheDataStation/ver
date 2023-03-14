@@ -11,7 +11,7 @@ from inputoutput import inputoutput as io
 from datasketch import MinHash, MinHashLSH
 import numpy as np
 from nltk.corpus import stopwords
-from dataanalysis import nlp_utils as nlp
+from archived.dataanalysis import nlp_utils as nlp
 import time
 from ontomatch import matcher_lib as matcherlib
 from ontomatch.matcher_lib import MatchingType

@@ -1,7 +1,7 @@
 import time
 from nltk.corpus import stopwords
 from ontomatch import glove_api
-from dataanalysis import nlp_utils as nlp
+from archived.dataanalysis import nlp_utils as nlp
 from ontomatch.matcher_lib import get_ban_indexes, remove_banned_vectors
 from knowledgerepr import fieldnetwork
 from archived.modelstore import StoreHandler

@@ -2,12 +2,11 @@ from enum import Enum
 import time
 from collections import defaultdict
 from nltk.corpus import stopwords
-from dataanalysis import nlp_utils as nlp
+from archived.dataanalysis import nlp_utils as nlp, dataanalysis as da
 from ontomatch import glove_api
 from ontomatch import ss_utils as SS
 from datasketch import MinHash, MinHashLSH
 from knowledgerepr.networkbuilder import LSHRandomProjectionsIndex
-from dataanalysis import dataanalysis as da
 import operator
 from collections import namedtuple
 import numpy as np
