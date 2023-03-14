@@ -1,4 +1,3 @@
-# import matplotlib.pyplot as plt
 from collections import namedtuple
 from collections import defaultdict
 from collections import OrderedDict
@@ -6,7 +5,6 @@ from enum import Enum
 import binascii
 import networkx as nx
 import time
-import numpy as np
 from bitarray import bitarray
 import sys
 
@@ -76,6 +74,30 @@ class Relation(Enum):
             return True
         else:
             return False
+
+    def get_op_from_relation(self, relation):
+        if relation == Relation.CONTENT_SIM:
+            return OP.CONTENT_SIM
+        if relation == Relation.ENTITY_SIM:
+            return OP.ENTITY_SIM
+        if relation == Relation.PKFK:
+            return OP.PKFK
+        if relation == Relation.SCHEMA:
+            return OP.TABLE
+        if relation == Relation.SCHEMA_SIM:
+            return OP.SCHEMA_SIM
+        if relation == Relation.MEANS_SAME:
+            return OP.MEANS_SAME
+        if relation == Relation.MEANS_DIFF:
+            return OP.MEANS_DIFF
+        if relation == Relation.SUBCLASS:
+            return OP.SUBCLASS
+        if relation == Relation.SUPERCLASS:
+            return OP.SUPERCLASS
+        if relation == Relation.MEMBER:
+            return OP.MEMBER
+        if relation == Relation.CONTAINER:
+            return OP.CONTAINER
 
 
 class OP(Enum):

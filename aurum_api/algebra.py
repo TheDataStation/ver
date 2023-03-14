@@ -49,12 +49,15 @@ class Algebra:
         """
 
         results = self.dindex.fts_query(keywords=kw, search_domain=kw_type, max_results=max_results, exact_search=False)
+        hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
 
+        # data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
+        #            el['_source']['columnName'], el['_score'], matched_text)
         # hits = self._store_client.search_keywords(
         #     keywords=kw, elasticfieldname=kw_type, max_hits=max_results)
 
         # materialize generator
-        drs = DRS([x for x in results], Operation(OP.KW_LOOKUP, params=[kw]))
+        drs = DRS([x for x in hits], Operation(OP.KW_LOOKUP, params=[kw]))
         return drs
 
     def exact_search(self, kw: str, kw_type: KWType, max_results=10):
@@ -63,12 +66,13 @@ class Algebra:
         """
 
         results = self.dindex.fts_query(keywords=kw, search_domain=kw_type, max_results=max_results, exact_search=True)
+        hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
 
         # hits = self._store_client.exact_search_keywords(
         #     keywords=kw, elasticfieldname=kw_type, max_hits=max_results)
 
         # materialize generator
-        drs = DRS([x for x in results], Operation(OP.KW_LOOKUP, params=[kw]))
+        drs = DRS([x for x in hits], Operation(OP.KW_LOOKUP, params=[kw]))
         return drs
 
     def search_content(self, kw: str, max_results=10) -> DRS:
@@ -113,10 +117,15 @@ class Algebra:
         # Check neighbors
         if not relation.from_metadata():
             for h in i_drs:
-                results = self.dindex.find_neighborhood(h, relation, hops=1)
+                attrs = ["nid, dbName, sourceName, columnName"]
+                results = self.dindex.find_neighborhood(h.nid, relation, hops=1, desired_attributes=attrs)
+                hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
 
-                # FIXME: adapt results from index to API consumable DRS objects
-                hits_drs = self._network.neighbors_id(h, relation)
+                # # FIXME: adapt results from index to API consumable DRS objects
+                # hits_drs = self._network.neighbors_id(h, relation)
+
+                op = Relation.get_op_from_relation(relation)
+                hits_drs = DRS(hits, Operation(op, params=[h]))
 
                 o_drs = o_drs.absorb(hits_drs)
         else:
@@ -163,6 +172,8 @@ class Algebra:
         :param Relation: Relation
         :return:
         """
+        # FIXME: paths are not adapted to the new below-aurum; needs to be redesigned (march'23)
+        raise NotImplementedError
         # create b if it wasn't passed in.
         drs_a = self._general_to_drs(drs_a)
         drs_b = self._general_to_drs(drs_b)
@@ -188,34 +199,8 @@ class Algebra:
 
             o_drs = o_drs.absorb(res_drs)
 
-        return o_drs
 
-    # def __traverse(self, a: DRS, primitive, max_hops=2) -> DRS:
-    #     # FIXME: removing this from algebra until we have a good reason to include it back
-    #     """
-    #     Conduct a breadth first search of nodes matching a primitive, starting
-    #     with an initial DRS.
-    #     :param a: a nid, node, tuple, or DRS
-    #     :param primitive: The element to search
-    #     :max_hops: maximum number of rounds on the graph
-    #     """
-    #     a = self._general_to_drs(a)
-    #
-    #     o_drs = DRS([], Operation(OP.NONE))
-    #
-    #     if a.mode == DRSMode.TABLE:
-    #         raise ValueError(
-    #             'input mode DRSMode.TABLE not supported')
-    #
-    #     fringe = a
-    #     o_drs.absorb_provenance(a)
-    #     while max_hops > 0:
-    #         max_hops = max_hops - 1
-    #         for h in fringe:
-    #             hits_drs = self._network.neighbors_id(h, primitive)
-    #             o_drs = self.union(o_drs, hits_drs)
-    #         fringe = o_drs  # grow the initial input
-    #     return o_drs
+        return o_drs
 
     """
     Combiner API
@@ -303,13 +288,6 @@ class Algebra:
                 '\ne.g.:\n\tmake_drs(1600820766)')
             print(msg)
 
-    # def _drs_from_table_hit_lean_no_provenance(self, hit: Hit) -> DRS:
-    #     # TODO: migrated from old ddapi as there's no good swap
-    #     table = hit.source_name
-    #     hits = self._network.get_hits_from_table(table)
-    #     drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]), lean_drs=True)
-    #     return drs
-
     def _general_to_drs(self, general_input) -> DRS:
         """
         Given an nid, node, hit, or DRS and convert it to a DRS.
@@ -368,7 +346,6 @@ class Algebra:
 
         results = self.dindex.get_filtered_profiles_from_nids([nid], ['nid', 'db_name', 's_name', 'f_name'])
 
-        # FIXME; adapt results to hit
         hit = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results[0]][0]
 
         # nid, db, source, field = self._network.get_info_for([nid])[0]
@@ -385,7 +362,7 @@ class Algebra:
         """
         db, source, field = node
         nid = id_from(db, source, field)
-        hit = Hit(nid, db, source, field, 0)
+        hit = Hit(nid, db, source, field, 0, [])
         return hit
 
     def hits_to_drs(self, hits):
@@ -437,17 +414,6 @@ class Algebra:
     Helper API
     """
 
-    def reverse_lookup(self, nid) -> [str]:
-        info = self._network.get_info_for([nid])
-        return info
-
-    def get_path_nid(self, nid) -> str:
-        path_str = self._store_client.get_path_of(nid)
-        return path_str
-
-    def get_uniqueness_score(self, nid):
-        return self._network.get_cardinality_of(nid)
-
     def help(self):
         """
         Prints general help information, or specific usage information of a function if provided
@@ -488,11 +454,12 @@ class AurumAPI(Algebra):
         super(AurumAPI, self).__init__(*args, **kwargs)
 
 
-def main(args):
+def main(dindex_path, interactive=False, create_reporting=False):
     from IPython.display import Markdown, display
     from IPython.terminal.embed import InteractiveShellEmbed
 
     from aurum_api.reporting import Report
+    from dindex_builder.dindex_builder import load_dindex
 
     import time
 
@@ -502,14 +469,14 @@ def main(args):
     print_md("Loading DIndex")
     sl = time.time()
 
-    # network = fieldnetwork.deserialize_network(path_to_serialized_model)
-    # store_client = StoreHandler()
+    import config
+    cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
 
-    # TODO: create dindex
-    dindex = None
+    dindex = load_dindex(cnf)
+    print_md("Loading DIndex...OK")
 
     api = AurumAPI(dindex)
-    if args.create_reporting:
+    if create_reporting:
         reporting = Report(dindex)
         # TODO: need to refactor report to use dindex
         raise NotImplementedError
@@ -519,7 +486,7 @@ def main(args):
     api.help()
     el = time.time()
     print("Took " + str(el - sl) + " to load model")
-    if args.embed:
+    if interactive:
         init_banner = "Welcome to Ver (Aurum API). \nYou can access the API via the object api"
         exit_banner = "Bye!"
         ip_shell = InteractiveShellEmbed(banner1=init_banner, exit_msg=exit_banner)
@@ -534,14 +501,10 @@ if __name__ == '__main__':
     # FIXME: add correct list of params
     # Argument parsing
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model_path', help='Path to Aurum model')
-    parser.add_argument('--separator', default=',', help='CSV separator')
-    parser.add_argument('--output_path', default=False, help='Path to store output views')
-    parser.add_argument('--interactive', default=True, help='Run DoD in interactive mode or not')
-    parser.add_argument('--full_view', default=False, help='Whether to output raw view or not')
-    parser.add_argument('--list_attributes', help='Schema of View')
-    parser.add_argument('--list_values', help='Values of View, leave "" if no value for a given attr is given')
+    parser.add_argument('--dindex_path', help='Path to discovery index')
+    parser.add_argument('--interactive', default=False, help='embed api into an iPython session')
+    parser.add_argument('--create_reporting', default=False, help='create a reporting API (to inspect dindex)')
 
     args = parser.parse_args()
 
-    main(args)
+    main(args.dindex_path, interactive=args.interactive, create_reporting=args.create_reporting)
