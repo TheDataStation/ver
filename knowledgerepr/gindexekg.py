@@ -1,8 +1,7 @@
-from api.apiutils import DRS
-from api.annotation import MRS
-from api.apiutils import Operation
-from api.apiutils import Hit
-from api.apiutils import Relation
+from aurum_api.apiutils import DRS
+from aurum_api.api import MRS
+from aurum_api.apiutils import Hit
+from aurum_api.apiutils import Relation
 from knowledgerepr import EKGapi
 from knowledgerepr.ekgstore.pg_store import PGStore
 

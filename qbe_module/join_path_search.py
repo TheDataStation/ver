@@ -1,9 +1,10 @@
 from collections import deque, defaultdict
-from algebra import API
-from api.apiutils import DRS, Relation
+from aurum_api.algebra import AurumAPI
+from aurum_api.apiutils import DRS, Relation
 from typing import List
 from qbe_module.column_selection import Column
 from copy import deepcopy
+
 
 class JoinPath:
     def __init__(self, path: List, tbl_proj_attrs):
@@ -20,8 +21,9 @@ class JoinPath:
                 output += '\n'
         return output
 
+
 class JoinPathSearch:
-    def __init__(self, aurum_api: API):
+    def __init__(self, aurum_api: AurumAPI):
         self.api = aurum_api
     
     def is_visited(self, x: DRS, path: List) -> bool:

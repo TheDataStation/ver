@@ -2,7 +2,7 @@ from typing import List
 from qbe_module.column_selection import ColumnSelection, Column
 from qbe_module.join_path_search import JoinPathSearch
 from qbe_module.join_graph_search import JoinGraphSearch
-from algebra import API
+from aurum_api.algebra import AurumAPI
 
 class ExampleColumn:
     def __init__(self, attr: str, examples: List[str]) -> None:
@@ -10,7 +10,7 @@ class ExampleColumn:
         self.examples = examples
        
 class QueryByExample:
-    def __init__(self, aurum_api: API):
+    def __init__(self, aurum_api: AurumAPI):
         self.column_selection = ColumnSelection(aurum_api)
         self.join_path_search = JoinPathSearch(aurum_api)
         self.join_graph_search = JoinGraphSearch(self.join_path_search)

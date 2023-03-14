@@ -1,7 +1,7 @@
 from neo4j.v1 import GraphDatabase
 from tqdm import tqdm
 
-from api.apiutils import Relation
+from aurum_api.apiutils import Relation
 from knowledgerepr import fieldnetwork
 
 

@@ -5,12 +5,12 @@ from dataclasses import dataclass
 import os
 from os import environ
 from pathlib import Path
-from warnings import warn
 # from knowledgerepr.ekgstore.neo4j_store import Neo4jExporter
 
 from fire import Fire
 import IPython
-from main import init_system
+# from aurum_api.main import init_system
+from aurum_api import algebra
 
 run_cmd = subprocess.call
 
@@ -323,8 +323,9 @@ class AurumCLI(AurumWrapper):
         :param model_name:
         :return:
         """
-        #FIXME: check dindex_path exists and so on...
-        api, reporting = init_system(dindex_path + '/', create_reporting=True)
+        # interactive false, as it's already gonna be embedded here, and no reporting needed
+        api, reporting = algebra.main(dindex_path, interactive=False, create_reporting=False)
+        # api, reporting = init_system(dindex_path + '/', create_reporting=True)
         IPython.embed()
 
 
@@ -344,5 +345,5 @@ if __name__ == '__main__':
 
         # 'clear-store': aurum_cli.clear_store,
 
-        'explore-model': aurum_cli.start_aurum_api_session
+        'aurum-api': aurum_cli.start_aurum_api_session
     })

@@ -2,11 +2,24 @@ from modelstore.elasticstore import StoreHandler
 from knowledgerepr import fieldnetwork
 from knowledgerepr import networkbuilder
 from knowledgerepr.fieldnetwork import FieldNetwork
-from inputoutput import inputoutput as io
+# from inputoutput import inputoutput as io
 
+import pickle
 import sys
 import time
 import csv
+
+
+def serialize_object(obj, path):
+    f = open(path, 'wb')
+    pickle.dump(obj, f)
+    f.close()
+
+
+def deserialize_object(path):
+    f = open(path, 'rb')
+    obj = pickle.load(f)
+    return obj
 
 
 def main(output_path=None, table_path=None):
@@ -83,7 +96,7 @@ def main(output_path=None, table_path=None):
     # path_schsim = path + "/schema_sim_index.pkl"
     # io.serialize_object(schema_sim_index, path_schsim)
     path_cntsim = path + "/content_sim_index.pkl"
-    io.serialize_object(content_sim_index, path_cntsim)
+    serialize_object(content_sim_index, path_cntsim)
 
     print("DONE!")
 

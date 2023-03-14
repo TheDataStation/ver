@@ -1,4 +1,3 @@
-from demo.kw_search import search_attribute, search_content
 import ipywidgets as widgets
 from demo.kw_search import search_attribute, search_content
 from IPython.display import display, clear_output
@@ -180,7 +179,6 @@ class Demo:
         display(button5)
 
     def get_relevant_columns(self):
-        from DoD.utils import FilterType
         column_clusters = self.columnInfer.get_clusters(attrs, values, types=[])
 
         # col_values = {}
@@ -228,8 +226,8 @@ class Demo:
 
     def show_views(self):
         init_notebook_mode(all_interactive=False)
-        from DoD import data_processing_utils as dpu
-        
+        from archived.DoD import data_processing_utils as dpu
+
         view_metadata_mapping = dict()
         global view_id
         view_id = 0

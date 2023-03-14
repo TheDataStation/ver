@@ -1,7 +1,6 @@
 from knowledgerepr import fieldnetwork
 from modelstore.elasticstore import StoreHandler
-from algebra import API
-from qbe_module.column_selection import ColumnSelection
+from aurum_api.algebra import AurumAPI
 from qbe_module.query_by_example import ExampleColumn, QueryByExample
 from qbe_module.materializer import Materializer
 from tqdm import tqdm
@@ -20,7 +19,7 @@ data_path = '/home/cc/opendata_cleaned/'
 
 store_client = StoreHandler()
 network = fieldnetwork.deserialize_network(graph_path)
-aurum_api = API(network=network, store_client=store_client)
+aurum_api = AurumAPI(network=network, store_client=store_client)
 
 # QBE interface
 qbe = QueryByExample(aurum_api)

@@ -107,11 +107,24 @@ class DiscoveryIndex:
     def get_profile(self, node_id: int) -> Dict:
         return self.__profile_index.get_profile(node_id)
 
+    def get_filtered_profiles_from_table(self, table_name, desired_attributes):
+        results = self.__profile_index.get_filtered_profiles_from_table(table_name, desired_attributes)
+        return results
+
+    def get_filtered_profiles_from_nids(self, nids, desired_attributes):
+        results = self.__profile_index.get_filtered_profiles_from_nids(nids, desired_attributes)
+        return results
+
     def get_minhashes(self) -> Dict:
         return self.__profile_index.get_minhashes()
 
-    def find_neighborhood(self, node_id: int, hops: int = 1):
-        return self.__graph_index.find_neighborhood(node_id, hops)
+    def find_neighborhood(self, node_id: int, relation_type, hops: int = 1, desired_attributes=None):
+        neighbors_ids = self.__graph_index.find_neighborhood(node_id, relation_type, hops)
+        # now, for each neighbor_id, retrieve the desired attributes
+        if desired_attributes is not None:
+            return self.__profile_index.get_filtered_profiles_from_nids(neighbors_ids, desired_attributes)
+        else:
+            return self.__profile_index.get_profile(neighbors_ids)
 
     def find_path(
             self,
@@ -121,5 +134,5 @@ class DiscoveryIndex:
         return self.__graph_index.find_path(
             source_node_id, target_node_id, max_len)
 
-    def fts_query(self, keyword) -> List:
-        return self.__fts_index.fts_query(keyword)
+    def fts_query(self, keywords, search_domain, max_results, exact_search=False) -> List:
+        return self.__fts_index.fts_query(keywords, search_domain, max_results, exact_search)

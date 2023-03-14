@@ -4,7 +4,7 @@
 *.ipynb
 .python-version
 *.csv
-DoD/ui/node_modules/
+archived/DoD/ui/node_modules/
 DoD2/
 figures/
 *result*/
@@ -189,7 +189,7 @@ notes.sh
 
 /venv/*
 # Frontend node modules
-DoD/ui/node_modules/
+archived/DoD/ui/node_modules/
 
 data/*
 

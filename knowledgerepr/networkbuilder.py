@@ -7,16 +7,16 @@ from math import isinf
 from enum import Enum
 from knowledgerepr.fieldnetwork import Relation
 from nearpy import Engine
-from nearpy.hashes import RandomBinaryProjections, RandomBinaryProjectionTree
+from nearpy.hashes import RandomBinaryProjections
 from nearpy.hashes import RandomDiscretizedProjections
-from nearpy.distances import CosineDistance, EuclideanDistance, ManhattanDistance
+from nearpy.distances import CosineDistance
 from sklearn.decomposition import TruncatedSVD
 from datasketch import MinHash, MinHashLSH, MinHashLSHEnsemble
 
 from sklearn.cluster import DBSCAN
 import numpy as np
 
-from DoD import data_processing_utils as dpu
+from archived.DoD import data_processing_utils as dpu
 
 from collections import defaultdict
 

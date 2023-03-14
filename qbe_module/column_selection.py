@@ -1,16 +1,15 @@
-from algebra import API
-from DoD.utils import FilterType
-from DoD import data_processing_utils as dpu
+from aurum_api.algebra import AurumAPI
+from archived.DoD import FilterType, data_processing_utils as dpu
 from collections import defaultdict
 
-from api.apiutils import DRS, Operation, OP
+from aurum_api.apiutils import DRS, Operation, OP
 from qbe_module.column import Column
 from typing import List
-from api.apiutils import Relation
+from aurum_api.apiutils import Relation
 
 
 class ColumnSelection:
-    def __init__(self, aurum_api: API, csv_separator: str =','):
+    def __init__(self, aurum_api: AurumAPI, csv_separator: str = ','):
         self.aurum_api = aurum_api
         dpu.configure_csv_separator(csv_separator)
         self.topk = 2000  # limit the number of columns returned from keyword search

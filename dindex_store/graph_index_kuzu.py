@@ -73,7 +73,7 @@ class GraphIndexKuzu(GraphIndex):
     # ----------------------------------------------------------------------
     # Query Methods
 
-    def find_neighborhood(self, node_id, hops) -> List:
+    def find_neighborhood(self, node_id, relation_type, hops) -> List:
         try:
             results = self.conn.execute(
                 f'''MATCH

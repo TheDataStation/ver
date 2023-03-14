@@ -5,8 +5,8 @@ from elasticsearch import Elasticsearch
 from enum import Enum
 from collections import defaultdict
 
-from api.apiutils import Hit
-from api.annotation import MDHit, MDComment
+from aurum_api.apiutils import Hit
+from aurum_api.annotation import MDHit, MDComment
 import config as c
 
 
@@ -303,14 +303,7 @@ class StoreHandler:
                        el['_source']['columnName'], el['_score'])
             yield data
 
-
     def suggest_schema(self, suggestion_string, max_hits=5):
-        # filter_path = ['suggest.schema-suggest',
-        #                'hits.hits._score',
-        #                'hits.total',
-        #                'hits.hits._source.dbName',
-        #                'hits.hits._source.sourceName',
-        #                'hits.hits._source.columnName']
         filter_path = []
         index = "text"
         query_body = {
