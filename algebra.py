@@ -285,28 +285,6 @@ class Algebra:
         drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]), lean_drs=True)
         return drs
 
-    def drs_expand_to_table(self, drs: DRS) -> DRS:
-        table = drs.source_name
-        hits = self._network.get_hits_from_table(table)
-        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[drs]))
-        return drs
-
-    def table_to_drs(self, tbl) -> DRS:
-        hits = self._network.get_hits_from_table(tbl)
-        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[tbl]))
-        return drs
-
-    def table_to_hit(self, tbl):
-        hit = Hit(None, None, tbl, '', None,[])
-        return hit
-    
-    def drs_from_table_hit(self, hit: Hit) -> DRS:
-        # TODO: migrated from old ddapi as there's no good swap
-        table = hit.source_name
-        hits = self._network.get_hits_from_table(table)
-        drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]))
-        return drs
-
     def _general_to_drs(self, general_input) -> DRS:
         """
         Given an nid, node, hit, or DRS and convert it to a DRS.
