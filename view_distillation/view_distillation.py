@@ -6,7 +6,7 @@ import pandas as pd
 from pandas.core.util.hashing import hash_pandas_object
 import networkx as nx
 
-from utils import *
+from view_distillation.utils import *
 import itertools
 from pprint import pprint
 
@@ -92,12 +92,12 @@ class ViewDistillation:
             self.G.add_edge(view1, view2, c="complementary", complementary_keys=keys)
             self.G.add_edge(view2, view1, c="complementary", complementary_keys=keys)
 
-        print("nodes")
-        pprint(list(self.G.nodes.data()))
-        print("edges")
-        pprint(list(self.G.edges.data()))
+        # print("nodes")
+        # pprint(list(self.G.nodes.data()))
+        # print("edges")
+        # pprint(list(self.G.edges.data()))
 
-        self.draw_graph("graph")
+        # self.draw_graph("graph")
 
         return self.G
 
@@ -112,21 +112,29 @@ class ViewDistillation:
             self.reduce_compatible_views_to_one()
             self.G.remove_nodes_from(self.compatible_views_to_remove)
 
+            print(f"num views after pruning compatible: {len(self.get_current_views())}")
+            
         if remove_contained_views:
             self.prune_contained_views(keep_largest=True)
             self.G.remove_nodes_from(self.contained_views_to_remove)
+
+            print(f"num views after pruning contained: {len(self.get_current_views())}")
 
         if union_complementary_views:
             self.union_complementary_views()
             self.G.remove_nodes_from(self.complementary_views_to_remove)
             self.G.add_nodes_from([path for path, df in self.unioned_complementary_views])
 
-        print("nodes")
-        pprint(list(self.G.nodes.data()))
-        print("edges")
-        pprint(list(self.G.edges.data()))
+            print(f"num views after union complementary: {len(self.get_current_views())}")
 
-        self.draw_graph("pruned_graph")
+        print(f"num of contradictory view paris: {len(self.contradictions)}")
+
+        # print("nodes")
+        # pprint(list(self.G.nodes.data()))
+        # print("edges")
+        # pprint(list(self.G.edges.data()))
+
+        # self.draw_graph("pruned_graph")
 
         return self.G
 
@@ -201,17 +209,17 @@ class ViewDistillation:
         if remove_identical_views:
             self.reduce_compatible_views_to_one()
 
-        print(f"num views after pruning compatible: {len(self.get_current_views())}")
+            print(f"num views after pruning compatible: {len(self.get_current_views())}")
 
         if remove_contained_views:
             self.prune_contained_views(keep_largest=True)
 
-        print(f"num views after pruning contained: {len(self.get_current_views())}")
+            print(f"num views after pruning contained: {len(self.get_current_views())}")
 
         if union_complementary_views:
             self.union_complementary_views()
 
-        print(f"num views after union complementary: {len(self.get_current_views())}")
+            print(f"num views after union complementary: {len(self.get_current_views())}")
 
         print(f"num of contradictory view paris: {len(self.contradictions)}")
 
