@@ -8,6 +8,8 @@ DoD/ui/node_modules/
 DoD2/
 figures/
 *result*/
+view_distillation/dataset
+*.png
 log*.txt
 example_queries.md
 
