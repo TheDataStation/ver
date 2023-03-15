@@ -47,16 +47,6 @@ class DiscoveryIndex:
         self.__fts_index = DiscoveryIndex.fts_index_mapping[config["fts_index"]](config, load=load)
         self.__graph_index = DiscoveryIndex.graph_index_mapping[config["graph_index"]](config, load=load)
 
-    def initialize(self, config: Dict):
-        # Initialize profile index
-        self.__profile_index.initialize(config)
-        # Initialize text index
-        self.__fts_index.initialize(config)
-        # Initialize content index
-        self.__content_similarity_index.initialize(config)
-        # Initialize graph index
-        self.__graph_index.initialize(config)
-
     def get_content_similarity_index(self):
         return self.__content_similarity_index
 
@@ -77,8 +67,8 @@ class DiscoveryIndex:
             return False
         return True
 
-    def add_text_content(self, profile_id, dbName, path, sourceName, columnName, data):
-        self.__fts_index.insert(profile_id, dbName, path, sourceName, columnName, data)
+    def add_text_content(self, row: Dict) -> bool:
+        return self.__fts_index.insert(row)
 
     def add_edge(
             self,
@@ -97,9 +87,6 @@ class DiscoveryIndex:
             properties: Dict) -> bool:
         return self.__graph_index.add_undirected_edge(
             source_node_id, target_node_id, type, properties)
-
-    # def create_fts_index(self, table_name, index_column):
-    #     return self.__fts_index.create_fts_index(table_name, index_column)
 
     # ----------------------------------------------------------------------
     # Query Methods
@@ -134,5 +121,7 @@ class DiscoveryIndex:
         return self.__graph_index.find_path(
             source_node_id, target_node_id, max_len)
 
-    def fts_query(self, keywords, search_domain, max_results, exact_search=False) -> List:
-        return self.__fts_index.fts_query(keywords, search_domain, max_results, exact_search)
+    # TODO: search over "search_domain", return top-"max_results",
+    # and switch between exact/approx search ("exact_search")
+    def fts_query(self, keyword) -> List:
+        return self.__fts_index.query(keyword)

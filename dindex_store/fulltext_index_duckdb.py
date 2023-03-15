@@ -2,6 +2,7 @@ from typing import List
 
 import duckdb
 
+from typing import Dict
 from dindex_store.common import FullTextSearchIndex
 
 
@@ -11,23 +12,36 @@ class FTSIndexDuckDB(FullTextSearchIndex):
         # FIXME: Validate Config Name
         self.config = config
         self.conn = duckdb.connect(database=config["fts_duckdb_database_name"])
+        self.table_name = config["fts_data_table_name"]
+        self.index_column = config["fts_index_column"]
 
-    def __create_schema_in_backend(self, table_name):
-        # FIXME: pull this schema from config file
-        query = "CREATE TABLE {}(profile_id BIGINT, dbName VARCHAR, path VARCHAR, " \
-                "sourceName VARCHAR, columnName VARCHAR, data VARCHAR);".format(table_name)
-        self.conn.execute(query)
+        # FIXME: check if we need to create it or not
+        # Maybe check this before creating the class?
+        create_schema = True
+        if create_schema:
+            with open(config['fts_schema_path']) as f:
+                self.schema = f.read()
+            try:
+                self.conn.execute(self.schema)
+            except:
+                print("An error has occurred when reading the schema")
+                raise
+
+        # create fts index on index_column
+        self.__create_fts_index(self.table_name, self.index_column)
+
+    # ----------------------------------------------------------------------
+    # Modify Methods
 
     def __create_fts_index(self, table_name, index_column):
-        # Create fts index over all, *, attributes
-        query = "PRAGMA create_fts_index('{}', '{}', '*', stopwords='english')".format(
-            table_name, index_column)
+        # Create fts index over all attributes
+        query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='english')"
         self.conn.execute(query)
 
-        prepare_query = """
+        prepare_query = f"""
             PREPARE fts_query AS (
                 WITH scored_docs AS (
-                    SELECT *, fts_main_documents.match_bm25(profile_id, ?) AS score FROM documents)
+                    SELECT *, fts_main_{table_name}.match_bm25(profile_id, ?) AS score FROM {table_name})
                 SELECT profile_id, score
                 FROM scored_docs
                 WHERE score IS NOT NULL
@@ -36,27 +50,21 @@ class FTSIndexDuckDB(FullTextSearchIndex):
             """
         self.conn.execute(prepare_query)
 
-    def initialize(self, config):
-
-        self.table_name = config["fts_data_table_name"]
-        self.index_column = config["fts_index_column"]
-
-        # FIXME: check if we need to create it or not
-        create_schema = True
-        if create_schema:
-            self.__create_schema_in_backend(self.table_name)
-
-        # create fts index on index_column
-        self.__create_fts_index(self.table_name, self.index_column)
-
-    def insert(self, profile_id, dbName, path, sourceName, columnName, data):
+    def insert(self, row: Dict) -> bool:
         # prepare query and insert
-        query = "INSERT INTO {} VALUES ({}, '{}', '{}', '{}', '{}', '{}');".format(
-            self.table_name, profile_id, dbName, path, sourceName, columnName, data)
+        try:
+            fts_data_table = self.conn.table(self.table_name)
+            fts_data_table.insert(row.values())
+            return True
+        except:
+            print("An error has occured when trying to add text data")
+            return False
 
-        self.conn.execute(query)
+    # ----------------------------------------------------------------------
+    # Query Methods
 
-    def fts_query(self, keyword, search_domain, max_results, exact_search) -> List:
-        # TODO: search over "search_domain", return top-"max_results", and switch between exact/approx search ("exact_search")
+    def query(self, keyword) -> List:
+        # TODO: search over "search_domain", return top-"max_results",
+        # and switch between exact/approx search ("exact_search")
         res = self.conn.execute("EXECUTE fts_query('" + keyword + "')")
         return res.fetchall()

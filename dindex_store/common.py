@@ -112,9 +112,16 @@ class GraphIndex(ABC):
 
 
 class FullTextSearchIndex(ABC):
+    """
+    Base class for full text search index.
+    """
 
     @abstractmethod
-    def query(self, kw) -> List:
+    def insert(self, row: Dict) -> bool:
+        pass
+
+    @abstractmethod
+    def query(self, keyword) -> List:
         pass
 
 

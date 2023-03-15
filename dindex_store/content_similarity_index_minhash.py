@@ -11,10 +11,7 @@ class SimpleMHIndex(ContentSimilarityIndex):
         self.num_perm = config["minhash_lsh_num_perm"]
         self.index = MinHashLSH(self.threshold, num_perm=self.num_perm)
         if load:
-            print("Note that SimpleMHIndex is volatile and so it's not available after loading...")
-
-    def initialize(self, config):
-        return
+            print("SimpleMHIndex is volatile and is not available after loading...")
 
     def add_profile(self, profile_id, minhash):
         values = np.array(minhash.split(','))
@@ -22,6 +19,8 @@ class SimpleMHIndex(ContentSimilarityIndex):
         self.index.insert(profile_id, minhash)
 
     def query(self, minhash):
+        values = np.array(minhash.split(','))
+        minhash = MinHash(num_perm=self.num_perm, hashvalues=values)
         return self.index.query(minhash)
 
 

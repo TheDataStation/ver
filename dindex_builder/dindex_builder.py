@@ -1,11 +1,9 @@
 import os
-from os import listdir
-from os.path import isfile, join
 import sys
-from typing import Dict
-import csv
 import json
+import pandas as pd
 
+from typing import Dict
 from tqdm import tqdm
 
 from dindex_store.discovery_index import DiscoveryIndex
@@ -23,20 +21,17 @@ def build_dindex(config: Dict):
     # Create an instance of the discovery index
     dindex = DiscoveryIndex(config)
 
-    # Initialize index
-    dindex.initialize(config)
-
     # Check input data type
     if config["input_data_type"] != "json":
-        # TODO
         print("Error: only json profiles supported")
         return
 
     profile_path = config["input_data_path"] + "/json/"
     text_path = config["input_data_path"] + "/text/"
 
-    # Read profiles and populate index
+    # Read profiles and populate the Profile index
     for file_path in os.listdir(profile_path):
+        file_path = os.path.join(profile_path, file_path)
         if os.path.isfile(file_path):
             with open(file_path) as f:
                 profile = json.load(f)
@@ -46,23 +41,22 @@ def build_dindex(config: Dict):
                 # add profile
                 dindex.add_profile(profile)
 
-    # Read text files and populate index
-    # onlyfiles = [join(text_path, f) for f in listdir(text_path) if isfile(join(text_path, f))]
-    # for csv_file_path in tqdm(onlyfiles):
-    #     csv_delimiter = config["text_csv_delimiter"]
-    #     with open(csv_file_path) as csvfile:
-    #         csv_reader = csv.reader(csvfile, delimiter=csv_delimiter)
-    #         line_count = 0
-    #         for row in csv_reader:
-    #             if line_count == 0:
-    #                 line_count += 1
-    #                 continue
-    #             profile_id, dbName, path, sourceName, columnName, data = int(row[0]), row[1], row[2], row[3], row[4], row[5]
+    # Read text files and populate the FTS index
+    for csv_file_path in tqdm(os.listdir(text_path)):
+        csv_file_path = os.path.join(text_path, csv_file_path)
+        if not os.path.isfile(csv_file_path):
+            continue
+        # TODO: Bulk insert using duckdb's api
+        df = pd.read_csv(csv_file_path,
+                        names=['id', 'dbName', 'path', 'sourceName',
+                            'columnName', 'data'],
+                        skiprows=1)
+        for _, row in df.iterrows():
+            dindex.add_text_content(dict(row))
 
-    #             dindex.add_text_content(profile_id, dbName, path, sourceName, columnName, data)
-
-    # Create content_similarity edges
-    # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency
+    # Create content_similarity edges in the Graph Index
+    # TODO: this could be done incrementally, every time a new node is added,
+    # at a cost in efficiency
     profiles = dindex.get_minhashes()
     content_similarity_index = dindex.get_content_similarity_index()
     for profile in profiles:

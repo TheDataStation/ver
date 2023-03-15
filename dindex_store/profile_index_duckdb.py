@@ -24,10 +24,6 @@ class ProfileIndexDuckDB(ProfileIndex):
                 print("An error has occurred when reading the schema")
                 raise
 
-    def initialize(self, config):
-        # TODO: index creation, others
-        return
-
     def add_profile(self, node: Dict) -> bool:
         # if "minhash" in node and node["minhash"]:
         #     node["minhash"] = ",".join(map(str, node["minhash"]))
@@ -91,7 +87,7 @@ class ProfileIndexDuckDB(ProfileIndex):
         assert "profile_schema_path" in config, "Error: schema_path is missing"
         if not os.path.isfile(config["profile_schema_path"]):
             raise ValueError("The path does not exist, or is not a file")
-        
+
         assert "profile_table_name" in config
 
 

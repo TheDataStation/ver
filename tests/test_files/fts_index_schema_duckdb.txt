@@ -1,0 +1,7 @@
+CREATE TABLE fts_data (
+     profile_id BIGINT,
+     dbname     VARCHAR,
+     path       VARCHAR,
+     sourcename VARCHAR,
+     columnname VARCHAR,
+     data       VARCHAR)
