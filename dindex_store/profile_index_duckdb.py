@@ -1,7 +1,7 @@
 import os
 import duckdb
 
-from typing import Dict
+from typing import List, Dict
 
 from dindex_store.common import ProfileIndex
 
@@ -40,7 +40,7 @@ class ProfileIndexDuckDB(ProfileIndex):
             print("An error has occured when trying to add profile")
             return False
 
-    def get_profile(self, node_ids: [int]) -> Dict:
+    def get_profile(self, node_ids: List[int]) -> Dict:
         profile_table = self.config["profile_table_name"]
         predicate = "OR id = ".join([str(n) for n in node_ids])
         try:
