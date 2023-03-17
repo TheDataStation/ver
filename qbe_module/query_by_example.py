@@ -29,7 +29,7 @@ class QueryByExample:
     def get_column_clusters(self, candidate_list, prune=False):
         column_clusters = []
         for i, candidate in enumerate(candidate_list):
-            print("num", i, "column")
+            # print("num", i, "column")
             column_cluster = self.column_selection.cluster_columns(candidate, prune)
             column_clusters.append(column_cluster)
         return column_clusters

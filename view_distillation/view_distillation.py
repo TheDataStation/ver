@@ -195,8 +195,8 @@ class ViewDistillation:
             file_name = os.path.basename(view)
 
             if file_name not in self.path_to_df_dict.keys():
-                print(f"view does not exist")
-                return None
+                print(f"view {file_name} does not exist")
+                continue
 
             dfs.append(self.path_to_df_dict[file_name])
 
@@ -423,17 +423,24 @@ class ViewDistillation:
 
     def _remove_from_contra_compl(self, lst):
 
-        contradictions_to_remove = []
+        # print(self.contradictions)
+
+        contradictions_to_remove = set()
         complementary_idx_to_remove = set()
 
         for path in lst:
             for path1, path2 in self.contradictions.keys():
                 if path == path1 or path == path2:
-                    contradictions_to_remove.append((path1, path2))
+                    if (path1, path2) in self.contradictions.keys():
+                        contradictions_to_remove.add((path1, path2))
+                    elif (path2, path1) in self.contradictions.keys():
+                        contradictions_to_remove.add((path2, path1))
             for i in range(len(self.complementary_pairs)):
                 path1, path2, key = self.complementary_pairs[i]
                 if path == path1 or path == path2:
                     complementary_idx_to_remove.add(i)
+
+        # print(contradictions_to_remove)
 
         for path1, path2 in contradictions_to_remove:
             del self.contradictions[(path1, path2)]
@@ -474,9 +481,9 @@ class ViewDistillation:
         already_classified_as_contradictory = set()
         complementary_pairs = set()
 
-        for candidate_key, inverted_index in tqdm(candidate_key_to_inverted_index.items()):
+        for candidate_key, inverted_index in candidate_key_to_inverted_index.items():
 
-            for key_value, dfs in tqdm(inverted_index.items()):
+            for key_value, dfs in inverted_index.items():
                 if len(dfs) <= 1:
                     # only one view for this key value, no need to compare
                     continue

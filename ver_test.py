@@ -9,14 +9,14 @@ from tqdm import tqdm
 """
 path to store the aurum graph index
 """
-graph_path = '/home/cc/opendata_large_graph/'
-# graph_path = '/home/cc/chicago_open_data_graph/'
+# graph_path = '/home/cc/opendata_large_graph/'
+graph_path = '/home/cc/chicago_open_data_graph/'
 
 """
 path to store the raw data
 """
-data_path = '/home/cc/opendata_cleaned/'
-# data_path = '/home/cc/chicago_open_data/'
+# data_path = '/home/cc/opendata_cleaned/'
+data_path = '/home/cc/chicago_open_data/'
 
 store_client = StoreHandler()
 network = fieldnetwork.deserialize_network(graph_path)
