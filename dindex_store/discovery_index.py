@@ -42,10 +42,18 @@ class DiscoveryIndex:
 
     def __init__(self, config: Dict, load=False) -> None:
         # TODO: Validate config in a consistent way
-        self.__profile_index = DiscoveryIndex.profile_index_mapping[config["profile_index"]](config, load=load)
-        self.__content_similarity_index = DiscoveryIndex.content_similarity_index_mapping[config["content_index"]](config, load=load)
-        self.__fts_index = DiscoveryIndex.fts_index_mapping[config["fts_index"]](config, load=load)
-        self.__graph_index = DiscoveryIndex.graph_index_mapping[config["graph_index"]](config, load=load)
+        profile_index = config["profile_index"]
+        print(f"Initializing profile index: {profile_index}...")
+        self.__profile_index = DiscoveryIndex.profile_index_mapping[profile_index](config, load=load)
+        content_similarity_index = config["content_index"]
+        print(f"Initializing content similarity index: {content_similarity_index}...")
+        self.__content_similarity_index = DiscoveryIndex.content_similarity_index_mapping[content_similarity_index](config, load=load)
+        fts_index = config["fts_index"]
+        print(f"Initializing FTS index: {fts_index}...")
+        self.__fts_index = DiscoveryIndex.fts_index_mapping[fts_index](config, load=load)
+        graph_index = config["graph_index"]
+        print(f"Initializing Graph index: {graph_index}...")
+        self.__graph_index = DiscoveryIndex.graph_index_mapping[graph_index](config, load=load)
 
     def get_content_similarity_index(self):
         return self.__content_similarity_index

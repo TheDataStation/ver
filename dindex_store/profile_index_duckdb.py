@@ -25,9 +25,6 @@ class ProfileIndexDuckDB(ProfileIndex):
                 raise
 
     def add_profile(self, node: Dict) -> bool:
-        # if "minhash" in node and node["minhash"]:
-        #     node["minhash"] = ",".join(map(str, node["minhash"]))
-
         try:
             profile_table = self.conn.table(self.config["profile_table_name"])
             profile_table.insert(node.values())

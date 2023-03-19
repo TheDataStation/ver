@@ -267,7 +267,7 @@ class VerCLI:
     # ----------------------------------------------------------------------
     # DIndex Functions
 
-    def build_dindex(self, input_data_path):
+    def build_dindex(self, profile_data_path):
         # try:
         #     p = Path(output_dindex_path)
         #     p.mkdir(parents=True)
@@ -278,7 +278,7 @@ class VerCLI:
         import config
         cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
         # TODO: provide alternative way of configuring dindex build (other than config)
-        dindex_builder.build_dindex(input_data_path, cnf)
+        dindex_builder.build_dindex(profile_data_path, cnf)
         # subprocess.call(['python', 'dindex_builder/dindex_builder.py', 'build', '--input_path', input_data_path])
 
     def load_dindex(self):

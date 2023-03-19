@@ -17,7 +17,11 @@ def load_dindex(config: Dict):
     return dindex
 
 
-def build_dindex(input_data_path, config: Dict):
+def build_dindex(profile_data_path, config: Dict):
+    print(f"Building DIndex. profile_data_path: {profile_data_path}")
+
+    exit()
+
     # Create an instance of the discovery index
     dindex = DiscoveryIndex(config)
 
@@ -27,8 +31,8 @@ def build_dindex(input_data_path, config: Dict):
         print("Error: only json profiles supported")
         return
 
-    profile_path = input_data_path + "/json/"
-    text_path = input_data_path + "/text/"
+    profile_path = profile_data_path + "/json/"
+    text_path = profile_data_path + "/text/"
 
     # Read profiles and populate the Profile index
     for file_path in os.listdir(profile_path):
@@ -83,20 +87,20 @@ if __name__ == "__main__":
 
     def print_usage():
         print("USAGE: ")
-        print("python dindex_builder.py load|build --input_path <path>")
+        print("python dindex_builder.py [--load | --build] --profile_data_path <path>")
         exit()
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--profile_data_path', default=None, help='Path to profile data')
-    parser.add_argument('--build', default=False, help='build discovery index from profile_data_path')
-    parser.add_argument('--load', default=False, help='load existing discovery index')
+    parser.add_argument('--build', action='store_true', help='build discovery index from profile_data_path')
+    parser.add_argument('--load', action='store_true', help='load existing discovery index')
 
     args = parser.parse_args()
 
     if args.build:
         if not args.profile_data_path:
             print_usage()
-        dindex = build_dindex(args.input_path, cnf)
+        dindex = build_dindex(args.profile_data_path, cnf)
     elif args.load:
         dindex = load_dindex(cnf)
     else:
