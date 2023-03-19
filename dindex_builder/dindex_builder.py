@@ -13,18 +13,13 @@ from dindex_store.common import EdgeType
 
 
 def load_dindex(config: Dict):
-
     dindex = DiscoveryIndex(config, load=True)
     return dindex
 
 
 def build_dindex(input_data_path, config: Dict):
-
     # Create an instance of the discovery index
     dindex = DiscoveryIndex(config)
-
-    # Initialize index
-    dindex.initialize(config)
 
     # Check input data type
     if config["input_data_type"] != "json":
@@ -35,8 +30,9 @@ def build_dindex(input_data_path, config: Dict):
     profile_path = input_data_path + "/json/"
     text_path = input_data_path + "/text/"
 
-    # Read profiles and populate index
+    # Read profiles and populate the Profile index
     for file_path in os.listdir(profile_path):
+        file_path = os.path.join(profile_path, file_path)
         if os.path.isfile(file_path):
             with open(file_path) as f:
                 profile = json.load(f)
@@ -80,20 +76,8 @@ def build_dindex(input_data_path, config: Dict):
 if __name__ == "__main__":
     print("DIndex Builder")
 
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('--model_path', help='Path to Aurum model')
-    # parser.add_argument('--separator', default=',', help='CSV separator')
-    # parser.add_argument('--output_path', default=False, help='Path to store output views')
-    # parser.add_argument('--interactive', default=True, help='Run DoD in interactive mode or not')
-    # parser.add_argument('--full_view', default=False, help='Whether to output raw view or not')
-    # parser.add_argument('--list_attributes', help='Schema of View')
-    # parser.add_argument('--list_values', help='Values of View, leave "" if no value for a given attr is given')
-    #
-    # args = parser.parse_args()
-    #
-    # main(args)
-
     import config
+    import argparse
 
     cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
 
@@ -102,24 +86,20 @@ if __name__ == "__main__":
         print("python dindex_builder.py load|build --input_path <path>")
         exit()
 
-    build = False
-    load = False
-    input_path = None
-    if len(sys.argv) == 4 or len(sys.argv) == 2:
-        mode = sys.argv[1]
-        if mode == "load":
-            load = True
-        elif mode == "build":
-            input_path = sys.argv[3]
-            build = True
-        else:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--profile_data_path', default=None, help='Path to profile data')
+    parser.add_argument('--build', default=False, help='build discovery index from profile_data_path')
+    parser.add_argument('--load', default=False, help='load existing discovery index')
+
+    args = parser.parse_args()
+
+    if args.build:
+        if not args.profile_data_path:
             print_usage()
+        dindex = build_dindex(args.input_path, cnf)
+    elif args.load:
+        dindex = load_dindex(cnf)
     else:
         print_usage()
-
-    if build:
-        dindex = build_dindex(input_path, cnf)
-    elif load:
-        dindex = load_dindex(cnf)
 
     # TODO: notification

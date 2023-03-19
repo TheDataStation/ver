@@ -130,7 +130,7 @@ class VerCLI:
         self.ddprofiler_home = self.ver_home.joinpath(self.DDPROFILER_NAME)
         self.ddprofiler_run_sh = self.ddprofiler_home.joinpath(self.DDPROFILER_RUN)
         self.discovery_sessions_dir = Path(os.environ.get(self.VER_DISCOVERY_SESSIONS_PATH,
-                                                          Path.home().joinpath('.dsessions')))
+                                                          Path.cwd().joinpath('.dsessions')))
         try:
             self.discovery_sessions_dir.mkdir(parents=True)
         except FileExistsError:
@@ -167,13 +167,14 @@ class VerCLI:
                                         # Include a source for each data source to configure"""
 
     def _make_data_source_path(self, ds_name):
+        # FIXME: if the file already exists, then raise exception and ask for a different name
         return self.sources_dir.joinpath(ds_name + '.yml')
 
     @property
     def list_sources_files(self):
         return [f.name.replace('.yml', '') for f in self.sources_dir.iterdir()]
 
-    def get_source_path(self, source_name):
+    def _get_source_path(self, source_name):
         name = source_name
         if not source_name[-4:] == ".yml":
             name = source_name + ".yml"
@@ -202,7 +203,7 @@ class VerCLI:
         :param source_name: the name of the sources file
         :return: prints the list of configured sources in source_name
         """
-        path = self.get_source_path(source_name)
+        path = self._get_source_path(source_name)
         with open(path) as f:
             print(f.read())
 
@@ -266,18 +267,28 @@ class VerCLI:
     # ----------------------------------------------------------------------
     # DIndex Functions
 
-    def build_dindex(self, input_data_path, output_dindex_path):
-        try:
-            p = Path(output_dindex_path)
-            p.mkdir(parents=True)
-        except FileExistsError:
-            # warn(f'Model with the same name ({output_dindex_path}) already exists!')
-            raise DIndexConfigurationError(f"path {output_dindex_path} already exists!")
-
-        subprocess.call(['python', 'build_dindex.py', 'build', '--input_path', input_data_path])
+    def build_dindex(self, input_data_path):
+        # try:
+        #     p = Path(output_dindex_path)
+        #     p.mkdir(parents=True)
+        # except FileExistsError:
+        #     # warn(f'Model with the same name ({output_dindex_path}) already exists!')
+        #     raise DIndexConfigurationError(f"path {output_dindex_path} already exists!")
+        from dindex_builder import dindex_builder
+        import config
+        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+        # TODO: provide alternative way of configuring dindex build (other than config)
+        dindex_builder.build_dindex(input_data_path, cnf)
+        # subprocess.call(['python', 'dindex_builder/dindex_builder.py', 'build', '--input_path', input_data_path])
 
     def load_dindex(self):
-        subprocess.call(['python', 'build_dindex.py', 'load'])
+        from dindex_builder import dindex_builder
+        import config
+        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+        # TODO: provide alternative way of configuring dindex build (other than config)
+        dindex_builder.load_dindex(cnf)
+
+        # subprocess.call(['python', 'build_dindex.py', 'load'])
 
     def start_aurum_api_session(self, dindex_path):
         """

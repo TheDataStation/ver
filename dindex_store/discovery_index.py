@@ -47,16 +47,6 @@ class DiscoveryIndex:
         self.__fts_index = DiscoveryIndex.fts_index_mapping[config["fts_index"]](config, load=load)
         self.__graph_index = DiscoveryIndex.graph_index_mapping[config["graph_index"]](config, load=load)
 
-    def initialize(self, config: Dict):
-        # Initialize profile index
-        self.__profile_index.initialize(config)
-        # Initialize text index
-        self.__fts_index.initialize(config)
-        # Initialize content index
-        self.__content_similarity_index.initialize(config)
-        # Initialize graph index
-        self.__graph_index.initialize(config)
-
     def get_content_similarity_index(self):
         return self.__content_similarity_index
 

@@ -1,7 +1,7 @@
 import os
 import duckdb
 
-from typing import Dict
+from typing import List, Dict
 
 from dindex_store.common import ProfileIndex
 
@@ -24,10 +24,6 @@ class ProfileIndexDuckDB(ProfileIndex):
                 print("An error has occurred when reading the schema")
                 raise
 
-    def initialize(self, config):
-        # TODO: index creation, others
-        return
-
     def add_profile(self, node: Dict) -> bool:
         # if "minhash" in node and node["minhash"]:
         #     node["minhash"] = ",".join(map(str, node["minhash"]))
@@ -40,7 +36,7 @@ class ProfileIndexDuckDB(ProfileIndex):
             print("An error has occured when trying to add profile")
             return False
 
-    def get_profile(self, node_ids: [int]) -> Dict:
+    def get_profile(self, node_ids: List[int]) -> Dict:
         profile_table = self.config["profile_table_name"]
         predicate = "OR id = ".join([str(n) for n in node_ids])
         try:
@@ -52,7 +48,7 @@ class ProfileIndexDuckDB(ProfileIndex):
             print("An error has occured when trying to get profile")
             return False
 
-    def get_filtered_profiles_from_table(self, table_name, desired_attributes):
+    def get_filtered_profiles_from_table(self, table_name, desired_attributes: List[str]):
         profile_table = self.config["profile_table_name"]
         project_list = ",".join(desired_attributes)
         try:
@@ -64,7 +60,7 @@ class ProfileIndexDuckDB(ProfileIndex):
             print("An error has occured when trying to get profile")
             return False
 
-    def get_filtered_profiles_from_nids(self, nids, desired_attributes):
+    def get_filtered_profiles_from_nids(self, nids, desired_attributes: List[str]):
         project_list = ",".join(desired_attributes)
         predicate = "OR id = ".join([str(n) for n in nids])
         try:
