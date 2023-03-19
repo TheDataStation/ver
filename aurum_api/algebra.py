@@ -322,7 +322,7 @@ class Algebra:
         # Test for Hits
         if isinstance(general_input, Hit):
             field = general_input.field_name
-            if field is '' or field is None:
+            if field == '' or field is None:
                 # If the Hit's field is not defined, it is in table mode
                 # and all Hits from the table need to be found
                 general_input = self._hit_to_drs(

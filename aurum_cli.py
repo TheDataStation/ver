@@ -1,58 +1,19 @@
 #! /usr/bin/env python3
 
-import subprocess
 from dataclasses import dataclass
 import os
-from os import environ
+import subprocess
 from pathlib import Path
-# from knowledgerepr.ekgstore.neo4j_store import Neo4jExporter
 
 from fire import Fire
-import IPython
-# from aurum_api.main import init_system
 from aurum_api import algebra
-
-run_cmd = subprocess.call
-
-get_env = environ.get
-
-# Global, Final Variables
-AURUM_SRC_HOME_ENV = "AURUM_SRC_HOME"
-DDPROFILER_NAME = "ddprofiler"
-DDPROFILER_RUN = "run.sh"
-DDPROFILER_JSON_OUTPUT = "/json/"
-DDPROFILER_TEXT_OUTPUT = "/text/"
-AURUM_HOME_ENV = "AURUM_HOME"
-SOURCES_FILE_STARTING_TEMPLATE = """#######
-                        # This file is specified as input to the ddprofiler, which uses it to extract a list of
-                        # sources that are necessary to process and profile.
-                        #
-                        # This file consists of an attribute 'sources' which is a list of
-                        # data sources, that describe the different sources that need to be processed.
-                        # Each source has three mandatory attributes, 'name', which will be
-                        # used to refer to the source and should be descriptive. 'type', which indicates what
-                        # type of source we are dealing with, one of [csv, postgres, mysql, oracle10g, oracle11g].
-                        # Finally, a 'config' object, which will contain source specific properties.
-                        #
-                        # Each type of source has a different set of properties that are necessary to configure it.
-                        # These are all part of the 'config' object, that each source contains.
-                        # For example, a folder in a filesystem will require a path, while a database server will
-                        # require credentials to access it. We document the properties required by each source below.
-                        #######
-                        
-                        api_version: 0
-                        
-                        # In sources we include as many data sources as desired
-                        sources:
-                        
-                        # Include a source for each data source to configure"""
 
 
 class BaseAurumException(Exception):
     pass
 
 
-class DataSourceNotConfigured(BaseAurumException):
+class DataSourceError(BaseAurumException):
     pass
 
 
@@ -147,48 +108,70 @@ class DBDataSource:
                         db_password: {self.db_password}"""
 
 
-class AurumWrapper(object):
+class VerCLI:
     """
-    Class that acts as a bridge between the current Aurum source code and an higher-level APIs (e.g. CLI and Web).
+    Class that acts as a bridge between the current Aurum(Ver) source code and an higher-level APIs (e.g. CLI and Web).
     Relies heavily on filesystem CRUD interaction (e.g. relative paths) and thus should be removed once imports can be handled at the code level.
     Eventually the FS will need to be replaced with something like SQLite to store data sources, track profilings etc.
     """
 
     def __init__(self):
-        self.aurum_src_home = Path(get_env(AURUM_SRC_HOME_ENV, Path.cwd()))
-        self.ddprofiler_home = self.aurum_src_home.joinpath(DDPROFILER_NAME)
-        self.ddprofiler_run_sh = self.ddprofiler_home.joinpath(DDPROFILER_RUN)
-        self.aurum_home = Path(get_env(AURUM_HOME_ENV, Path.home().joinpath('.aurum')))
+        # Take the value for VER_HOME from the environment if available, or current directory by default
+        self.VER_HOME = os.environ.get("VER_HOME", Path.cwd())
+
+        # self.AURUM_SRC_HOME_ENV = "AURUM_SRC_HOME"
+        self.DDPROFILER_NAME = "ddprofiler"
+        self.DDPROFILER_RUN = "run.sh"
+        self.DDPROFILER_JSON_OUTPUT = "/json/"
+        self.DDPROFILER_TEXT_OUTPUT = "/text/"
+        self.VER_DISCOVERY_SESSIONS_PATH = "VER_DISCOVERY_SESSIONS_PATH"
+
+        self.ver_home = Path(self.VER_HOME)
+        self.ddprofiler_home = self.ver_home.joinpath(self.DDPROFILER_NAME)
+        self.ddprofiler_run_sh = self.ddprofiler_home.joinpath(self.DDPROFILER_RUN)
+        self.discovery_sessions_dir = Path(os.environ.get(self.VER_DISCOVERY_SESSIONS_PATH,
+                                                          Path.home().joinpath('.dsessions')))
         try:
-            self.aurum_home.mkdir(parents=True)
+            self.discovery_sessions_dir.mkdir(parents=True)
         except FileExistsError:
             pass
 
-        self.sources_dir = self.aurum_home.joinpath('sources')
+        self.sources_dir = self.discovery_sessions_dir.joinpath('sources')
         try:
             self.sources_dir.mkdir(parents=True)
         except FileExistsError:
             pass
 
-        # self.models_dir = self.aurum_home.joinpath('models')
-        # try:
-        #     self.models_dir.mkdir(parents=True)
-        # except FileExistsError:
-        #     pass
+        self.SOURCES_FILE_STARTING_TEMPLATE = """#######
+                                        # This file is specified as input to the ddprofiler, which uses it to extract a list of
+                                        # sources that are necessary to process and profile.
+                                        #
+                                        # This file consists of an attribute 'sources' which is a list of
+                                        # data sources, that describe the different sources that need to be processed.
+                                        # Each source has three mandatory attributes, 'name', which will be
+                                        # used to refer to the source and should be descriptive. 'type', which indicates what
+                                        # type of source we are dealing with, one of [csv, postgres, mysql, oracle10g, oracle11g].
+                                        # Finally, a 'config' object, which will contain source specific properties.
+                                        #
+                                        # Each type of source has a different set of properties that are necessary to configure it.
+                                        # These are all part of the 'config' object, that each source contains.
+                                        # For example, a folder in a filesystem will require a path, while a database server will
+                                        # require credentials to access it. We document the properties required by each source below.
+                                        #######
+
+                                        api_version: 0
+
+                                        # In sources we include as many data sources as desired
+                                        sources:
+
+                                        # Include a source for each data source to configure"""
 
     def _make_data_source_path(self, ds_name):
         return self.sources_dir.joinpath(ds_name + '.yml')
 
-    # def _make_model_path(self, model_name):
-    #     return self.models_dir.joinpath(model_name)
-
     @property
     def list_sources_files(self):
         return [f.name.replace('.yml', '') for f in self.sources_dir.iterdir()]
-
-    # @property
-    # def list_dindexes(self):
-    #     return [f.name for f in self.models_dir.iterdir()]
 
     def get_source_path(self, source_name):
         name = source_name
@@ -210,26 +193,20 @@ class AurumWrapper(object):
         with open(self._make_data_source_path(ds.name), 'w') as f:
             f.write(ds.to_yml())
 
-
-class AurumCLI(AurumWrapper):
-
-    def __init__(self):
-        super().__init__()
-
     # ----------------------------------------------------------------------
     # Configure sources functions
 
-    def inspect_source_file(self, source_name):
+    def inspect_sources_file(self, source_name):
         """
         Shows every source configured in the input source_path YAML file
         :param source_name: the name of the sources file
         :return: prints the list of configured sources in source_name
         """
-        path = super().get_source_path(source_name)
+        path = self.get_source_path(source_name)
         with open(path) as f:
             print(f.read())
 
-    def create_sources(self, sources_file_name) -> bool:
+    def create_sources_file(self, sources_file_name) -> bool:
         """
         Creates a new sources file to be configured with sources
         :param sources_file_name: the name of the sources file
@@ -240,14 +217,10 @@ class AurumCLI(AurumWrapper):
             print("Error: File {} already exists".format(path))
             return False
         with open(path, 'w') as f:
-            f.write(SOURCES_FILE_STARTING_TEMPLATE)
+            f.write(self.SOURCES_FILE_STARTING_TEMPLATE)
         return True
 
-    @property
-    def list_sources_files(self):
-        return super().list_sources_files
-
-    def add_csv_data_source(self, sources_file_name, csv_source_name, path_to_csv_files, sep=',') -> bool:
+    def add_csv(self, sources_file_name, csv_source_name, path_to_csv_files, sep=',') -> bool:
         ds = CSVDataSource()
         ds.name = csv_source_name
         ds.path = path_to_csv_files
@@ -257,15 +230,15 @@ class AurumCLI(AurumWrapper):
         # Verify the sources_file_name exist
         path = self._make_data_source_path(sources_file_name)
         if not os.path.exists(path):
-            print("Error: Sources file {} does not exist".format(path))
-            return False
+            raise DataSourceError("Error: Sources file {} does not exist, you need to create a sources file before"
+                                  " adding datasets.".format(path))
         # Append the source to the file
         with open(path, 'a') as f:
             yaml_data = ds.to_yml()
             f.write(yaml_data)
         return True
 
-    def add_db_data_source(self, name, db_type, host, port, db_name, username, password):
+    def add_database(self, name, db_type, host, port, db_name, username, password):
         # TODO check if `db_type` is supported
         # TODO give better names to the below variables
         ds = DBDataSource()
@@ -284,11 +257,11 @@ class AurumCLI(AurumWrapper):
     # Profile Functions
 
     def profile(self, sources_file_name, output_path):
-        path = super()._make_data_source_path(sources_file_name)
+        path = self._make_data_source_path(sources_file_name)
         if not path.exists():
-            raise DataSourceNotConfigured(f"Data Source {sources_file_name} not configured!")
+            raise DataSourceError(f"Data Source {sources_file_name} not configured!")
         profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', path, '--store.json.output.folder', output_path]
-        run_cmd(profile_cmd, cwd=self.ddprofiler_home)
+        subprocess.call(profile_cmd, cwd=self.ddprofiler_home)
 
     # ----------------------------------------------------------------------
     # DIndex Functions
@@ -301,20 +274,10 @@ class AurumCLI(AurumWrapper):
             # warn(f'Model with the same name ({output_dindex_path}) already exists!')
             raise DIndexConfigurationError(f"path {output_dindex_path} already exists!")
 
-        run_cmd(['python', 'build_dindex.py', 'build', '--input_path', input_data_path])
+        subprocess.call(['python', 'build_dindex.py', 'build', '--input_path', input_data_path])
 
     def load_dindex(self):
-        run_cmd(['python', 'build_dindex.py', 'load'])
-
-    # def clear_store(self):
-    #     """
-    #     γφ
-    #     """
-    #     from elasticsearch import Elasticsearch
-    #     # TODO extract AURUM_ES_HOST
-    #     es = Elasticsearch()
-    #     es.indices.delete('profile')
-    #     es.indices.delete('text')
+        subprocess.call(['python', 'build_dindex.py', 'load'])
 
     def start_aurum_api_session(self, dindex_path):
         """
@@ -323,6 +286,7 @@ class AurumCLI(AurumWrapper):
         :param model_name:
         :return:
         """
+        import IPython
         # interactive false, as it's already gonna be embedded here, and no reporting needed
         api, reporting = algebra.main(dindex_path, interactive=False, create_reporting=False)
         # api, reporting = init_system(dindex_path + '/', create_reporting=True)
@@ -330,20 +294,20 @@ class AurumCLI(AurumWrapper):
 
 
 if __name__ == '__main__':
-    aurum_cli = AurumCLI()
+    ver = VerCLI()
     Fire({
-        'create-sources-file': aurum_cli.create_sources,
-        'list-sources-files': aurum_cli.list_sources_files,
-        'inspect-sources': aurum_cli.inspect_source_file,
-        'add-csv': aurum_cli.add_csv_data_source,
-        'add-db': aurum_cli.add_db_data_source,
+        'create_sources_file': ver.create_sources_file,
+        'list_sources_files': ver.list_sources_files,
+        'inspect_sources_file': ver.inspect_sources_file,
+        'add_csv': ver.add_csv,
+        'add_database': ver.add_database,
 
-        'profile': aurum_cli.profile,
+        'profile': ver.profile,
 
-        'build-dindex': aurum_cli.build_dindex,
-        'load-dindex': aurum_cli.build_dindex,
+        'build_dindex': ver.build_dindex,
+        'load_dindex': ver.build_dindex,
 
-        # 'clear-store': aurum_cli.clear_store,
+        'aurum_api': ver.start_aurum_api_session
 
-        'aurum-api': aurum_cli.start_aurum_api_session
+        # TODO: include qbe, distillation, presentation
     })
