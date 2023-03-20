@@ -16,16 +16,19 @@ class FTSIndexDuckDB(FullTextSearchIndex):
         self.index_column = config["fts_index_column"]
 
         if not load:
-            # if we are building the index then we have to create the schema and the index
-            self.__create_schema_in_backend(self.table_name)
-            # create fts index on index_column
-            self.__create_fts_index(self.table_name, self.index_column)
+            with open(config['fts_schema_path']) as f:
+                self.schema = f.read()
+            try:
+                # if we are building the index then we have to create the schema and the index
+                self.conn.execute(self.schema)
+                # create fts index on index_column
+                self.__create_fts_index(self.table_name, self.index_column)
+            except:
+                print("An error has occurred when reading the schema")
+                raise
 
-    def __create_schema_in_backend(self, table_name):
-        # FIXME: pull this schema from config file
-        query = "CREATE TABLE {}(profile_id BIGINT, dbName VARCHAR, path VARCHAR, " \
-                "sourceName VARCHAR, columnName VARCHAR, data VARCHAR);".format(table_name)
-        self.conn.execute(query)
+    # ----------------------------------------------------------------------
+    # Modify Methods
 
     def __create_fts_index(self, table_name, index_column):
         # Create fts index over all, *, attributes
@@ -44,12 +47,17 @@ class FTSIndexDuckDB(FullTextSearchIndex):
             """
         self.conn.execute(prepare_query)
 
-    def insert(self, profile_id, dbName, path, sourceName, columnName, data):
-        # prepare query and insert
-        query = "INSERT INTO {} VALUES ({}, '{}', '{}', '{}', '{}', '{}');".format(
-            self.table_name, profile_id, dbName, path, sourceName, columnName, data)
+    def insert(self, profile_id, dbName, path, sourceName, columnName, data) -> bool:
+        try:
+            fts_data_table = self.conn.table(self.table_name)
+            fts_data_table.insert([profile_id, dbName, path, sourceName, columnName, data])
+            return True
+        except:
+            print("An error has occured when trying to add text data")
+            return False
 
-        self.conn.execute(query)
+    # ----------------------------------------------------------------------
+    # Query Methods
 
     def fts_query(self, keyword, search_domain, max_results, exact_search) -> List:
         # TODO: search over "search_domain", return top-"max_results", and switch between exact/approx search ("exact_search")

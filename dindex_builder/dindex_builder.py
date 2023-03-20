@@ -1,9 +1,6 @@
 import os
-from os import listdir
-from os.path import isfile, join
-import sys
 from typing import Dict
-import csv
+import pandas as pd
 import json
 
 from tqdm import tqdm
@@ -19,8 +16,6 @@ def load_dindex(config: Dict):
 
 def build_dindex(profile_data_path, config: Dict):
     print(f"Building DIndex. profile_data_path: {profile_data_path}")
-
-    exit()
 
     # Create an instance of the discovery index
     dindex = DiscoveryIndex(config)
@@ -47,19 +42,17 @@ def build_dindex(profile_data_path, config: Dict):
                 dindex.add_profile(profile)
 
     # Read text files and populate index
-    onlyfiles = [f for f in listdir(text_path) if isfile(join(text_path, f))]
-    for csv_file_path in tqdm(onlyfiles):
-        csv_delimiter = config["text_csv_delimiter"]
-        with open(csv_file_path) as csvfile:
-            csv_reader = csv.reader(csvfile, delimiter=csv_delimiter)
-            line_count = 0
-            for row in csv_reader:
-                if line_count == 0:
-                    line_count += 1
-                    continue
-                profile_id, dbName, path, sourceName, columnName, data = int(row[0]), row[1], row[2], row[3], row[4], row[5]
-
-                dindex.add_text_content(profile_id, dbName, path, sourceName, columnName, data)
+    for csv_file_path in tqdm(os.listdir(text_path)):
+        csv_file_path = os.path.join(text_path, csv_file_path)
+        if not os.path.isfile(csv_file_path):
+            continue
+        # TODO: Bulk insert using duckdb's api
+        df = pd.read_csv(csv_file_path,
+                        names=['id', 'dbName', 'path', 'sourceName',
+                            'columnName', 'data'],
+                        skiprows=1)
+        for _, row in df.iterrows():
+            dindex.add_text_content(row['id'], row['dbName'], row['path'], row['sourceName'], row['columnName'], row['data'])
 
     # Create content_similarity edges
     # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency

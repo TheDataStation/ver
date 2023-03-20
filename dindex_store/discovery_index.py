@@ -75,8 +75,8 @@ class DiscoveryIndex:
             return False
         return True
 
-    def add_text_content(self, profile_id, dbName, path, sourceName, columnName, data):
-        self.__fts_index.insert(profile_id, dbName, path, sourceName, columnName, data)
+    def add_text_content(self, profile_id, dbName, path, sourceName, columnName, data) -> bool:
+        return self.__fts_index.insert(profile_id, dbName, path, sourceName, columnName, data)
 
     def add_edge(
             self,
