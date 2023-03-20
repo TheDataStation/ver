@@ -1,6 +1,6 @@
 import os
 from typing import Dict
-import pandas as pd
+import csv
 import json
 
 from tqdm import tqdm
@@ -46,13 +46,17 @@ def build_dindex(profile_data_path, config: Dict):
         csv_file_path = os.path.join(text_path, csv_file_path)
         if not os.path.isfile(csv_file_path):
             continue
-        # TODO: Bulk insert using duckdb's api
-        df = pd.read_csv(csv_file_path,
-                        names=['id', 'dbName', 'path', 'sourceName',
-                            'columnName', 'data'],
-                        skiprows=1)
-        for _, row in df.iterrows():
-            dindex.add_text_content(row['id'], row['dbName'], row['path'], row['sourceName'], row['columnName'], row['data'])
+        csv_delimiter = config["text_csv_delimiter"]
+        with open(csv_file_path) as csvfile:
+            csv_reader = csv.reader(csvfile, delimiter=csv_delimiter)
+            line_count = 0
+            for row in csv_reader:
+                if line_count == 0:
+                    line_count += 1
+                    continue
+                profile_id, dbName, path, sourceName, columnName, data = int(row[0]), row[1], row[2], row[3], row[4], row[5]
+
+                dindex.add_text_content(profile_id, dbName, path, sourceName, columnName, data)
 
     # Create content_similarity edges
     # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency
