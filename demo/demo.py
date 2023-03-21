@@ -22,6 +22,8 @@ from view_distillation.view_distillation import ViewDistillation
 
 from tqdm import tqdm
 
+import fire
+
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -51,6 +53,8 @@ class Demo:
 
         self.G = None
         
+        # print("in")
+
     def end_to_end_demo(self):
 
         global row_num
@@ -172,6 +176,36 @@ class Demo:
         display(out)
         display(button5)
 
+    def view_specification(self, *examples, **attrs):
+
+        import ast
+
+        if "attrs" not in attrs.keys():
+            attrs["attrs"] = ["" for i in range(len(examples[0]))]
+
+        # new_examples = []
+        # for example in examples:
+        #     example = ast.literal_eval(example)
+        #     example = [n.strip() for n in example]
+        #     new_examples.append(example)
+        # examples = new_examples
+
+        # print(examples)
+        # print(attrs)
+
+        example_columns = []
+        for i, attr in enumerate(attrs["attrs"]):
+            example_col = ExampleColumn(attr, [examples[j][i] for j in range(len(examples))])
+            example_columns.append(example_col)
+
+        self.example_columns = example_columns
+
+        # for example_column in example_columns:
+        #     print(example_column.attr)
+        #     print(example_column.examples)
+
+        return self
+
     def find_candidate_columns(self):
 
         print("\nfinding candidate columns...")
@@ -184,6 +218,8 @@ class Demo:
             print('column {}: found {} candidate columns'.format(self.example_columns[i].attr, len(candidate)))
             # for c in candidate:
             #     print(c)
+
+        return self
 
     def find_join_graphs(self):
 
@@ -198,6 +234,8 @@ class Demo:
         # for i, join_graph in enumerate(join_graphs[:10]):
         #     print("----join graph {}----".format(i))
         #     join_graph.display()
+
+        return self
 
     def materialize_join_graphs(self):
 
@@ -232,21 +270,31 @@ class Demo:
 
         print(f"Materialized {len(self.view_dfs)} non-empty views")
 
+        return self
+
     
     def view_distillation(self, remove_identical_views=True,
                                 remove_contained_views=True,
-                                union_complementary_views=True):
+                                union_complementary_views=True,
+                                graph=True):
 
         print("\ndistilling views")
 
         self.vd = ViewDistillation(dfs=self.view_dfs)
 
-        self.G = self.vd.prune_graph(remove_identical_views,
-                                    remove_contained_views,
-                                    union_complementary_views)
+        if graph:
+            self.G = self.vd.prune_graph(remove_identical_views,
+                                        remove_contained_views,
+                                        union_complementary_views)
+        else:
+            self.vd.distill_views(remove_identical_views,
+                                  remove_contained_views,
+                                  union_complementary_views)
         
         current_views = self.vd.get_current_views()
         self.view_dfs = self.vd.get_dfs(current_views)
+
+        return self
 
     def view_presentation(self):
 
@@ -530,3 +578,7 @@ class Demo:
             display(dropdown_view, bounded_num)
 
         display(output)
+
+
+if __name__ == '__main__':
+  fire.Fire(Demo)
