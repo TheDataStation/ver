@@ -1,3 +1,8 @@
+"""
+This is the main config file for Ver.
+All properties of this config file should be written without using _ so they are easy to "get"
+"""
+
 # Overlap parameters
 join_overlap_th = 0.4
 
@@ -39,7 +44,9 @@ memory_limit_join_processing = 0.6  # 60% of total memory
 
 input_data_type = "json"
 text_csv_delimiter = ','
-profile_schema_path = ""
+profile_schema_name = "profile_index_schema_duckdb.txt"
+graph_schema_name = "graph_index_schema_kuzu.txt"
+fts_schema_name = "fts_index_schema_duckdb.txt"
 
 
 ##########
@@ -65,8 +72,6 @@ minhash_lsh_threshold = 0.7
 minhash_lsh_num_perm = 512
 
 # graph index configs
-graph_schema_path = ""
-kuzu_database_name = "graph_index"
-
+graph_kuzu_database_name = "graph_index"
 
 

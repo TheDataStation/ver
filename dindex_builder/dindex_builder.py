@@ -4,6 +4,7 @@ import csv
 import json
 
 from tqdm import tqdm
+import pandas as pd
 
 from dindex_store.discovery_index import DiscoveryIndex
 from dindex_store.common import EdgeType
@@ -14,11 +15,11 @@ def load_dindex(config: Dict):
     return dindex
 
 
-def build_dindex(profile_data_path, config: Dict):
+def build_dindex(profile_data_path, config: Dict, force: bool):
     print(f"Building DIndex. profile_data_path: {profile_data_path}")
 
     # Create an instance of the discovery index
-    dindex = DiscoveryIndex(config)
+    dindex = DiscoveryIndex(config, force=force)
 
     # Check input data type
     if config["input_data_type"] != "json":
@@ -47,16 +48,12 @@ def build_dindex(profile_data_path, config: Dict):
         if not os.path.isfile(csv_file_path):
             continue
         csv_delimiter = config["text_csv_delimiter"]
-        with open(csv_file_path) as csvfile:
-            csv_reader = csv.reader(csvfile, delimiter=csv_delimiter)
-            line_count = 0
-            for row in csv_reader:
-                if line_count == 0:
-                    line_count += 1
-                    continue
-                profile_id, dbName, path, sourceName, columnName, data = int(row[0]), row[1], row[2], row[3], row[4], row[5]
 
-                dindex.add_text_content(profile_id, dbName, path, sourceName, columnName, data)
+        df = pd.read_csv(csv_file_path, names=['profile_id', 'dbName', 'path', 'sourceName',
+                             'columnName', 'data'], sep=csv_delimiter)
+        for _, row in df.iterrows():
+            dindex.add_text_content(row['profile_id'], row['dbName'], row['path'],
+                                    row['sourceName'], row['columnName'], row['data'])
 
     # Create content_similarity edges
     # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency
@@ -78,9 +75,11 @@ if __name__ == "__main__":
     print("DIndex Builder")
 
     import config
+
     import argparse
 
-    cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+    cnf = {setting: getattr(config, setting) for setting in dir(config)
+           if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
 
     def print_usage():
         print("USAGE: ")
@@ -90,6 +89,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--profile_data_path', default=None, help='Path to profile data')
     parser.add_argument('--build', action='store_true', help='build discovery index from profile_data_path')
+    parser.add_argument('--force', action='store_true', help='build discovery index by removing previous one if necessary')
     parser.add_argument('--load', action='store_true', help='load existing discovery index')
 
     args = parser.parse_args()
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     if args.build:
         if not args.profile_data_path:
             print_usage()
-        dindex = build_dindex(args.profile_data_path, cnf)
+        dindex = build_dindex(args.profile_data_path, cnf, force=args.force)
     elif args.load:
         dindex = load_dindex(cnf)
     else:

@@ -1,5 +1,6 @@
 import os
 import duckdb
+from pathlib import Path
 
 from typing import List, Dict
 
@@ -8,16 +9,22 @@ from dindex_store.common import ProfileIndex
 
 class ProfileIndexDuckDB(ProfileIndex):
 
-    def __init__(self, config: Dict, load=False) -> None:
+    def __init__(self, config: Dict, load=False, force=False) -> None:
         ProfileIndexDuckDB._validate_config(config)
         self.config = config
         self.conn = duckdb.connect(database=config["profile_duckdb_database_name"])
         self.schema = ""
 
         if not load:
-            with open(config["profile_schema_path"]) as f:
+            profile_schema_name = config["profile_schema_name"]
+            profile_schema_path = Path(os.getcwd() + "/" + profile_schema_name).absolute()
+            with open(profile_schema_path) as f:
                 self.schema = f.read()
             try:
+                if force:
+                    profile_table_name = config["profile_table_name"]
+                    q = f"DROP TABLE IF EXISTS {profile_table_name};"
+                    self.conn.execute(q)
                 for statement in self.schema.split(";"):
                     self.conn.execute(statement)
             except:
@@ -81,8 +88,9 @@ class ProfileIndexDuckDB(ProfileIndex):
 
     @classmethod
     def _validate_config(cls, config):
-        assert "profile_schema_path" in config, "Error: schema_path is missing"
-        if not os.path.isfile(config["profile_schema_path"]):
+        assert "profile_schema_name" in config, "Error: schema_path is missing"
+        profile_schema_path = Path(os.getcwd() + "/" + config["profile_schema_name"]).absolute()
+        if not os.path.isfile(profile_schema_path):
             raise ValueError("The path does not exist, or is not a file")
         
         assert "profile_table_name" in config

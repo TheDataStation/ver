@@ -1,4 +1,6 @@
 from typing import List
+from pathlib import Path
+import os
 
 import duckdb
 
@@ -7,7 +9,7 @@ from dindex_store.common import FullTextSearchIndex
 
 class FTSIndexDuckDB(FullTextSearchIndex):
 
-    def __init__(self, config, load=False):
+    def __init__(self, config, load=False, force=False):
         # FIXME: Validate Config Name
         self.config = config
         self.conn = duckdb.connect(database=config["fts_duckdb_database_name"])
@@ -16,13 +18,20 @@ class FTSIndexDuckDB(FullTextSearchIndex):
         self.index_column = config["fts_index_column"]
 
         if not load:
-            with open(config['fts_schema_path']) as f:
+            fts_schema_path = Path(os.getcwd() + "/" + config["fts_schema_name"]).absolute()
+            if not os.path.isfile(fts_schema_path):
+                raise ValueError("The path to fts_schema does not exist, or is not a file")
+            with open(fts_schema_path) as f:
                 self.schema = f.read()
             try:
+                if force:
+                    fts_table_name = config["fts_data_table_name"]
+                    q = f"DROP TABLE IF EXISTS {fts_table_name};"
+                    self.conn.execute(q)
                 # if we are building the index then we have to create the schema and the index
                 self.conn.execute(self.schema)
                 # create fts index on index_column
-                self.__create_fts_index(self.table_name, self.index_column)
+                self.__create_fts_index(self.table_name, self.index_column, force=force)
             except:
                 print("An error has occurred when reading the schema")
                 raise
@@ -30,7 +39,11 @@ class FTSIndexDuckDB(FullTextSearchIndex):
     # ----------------------------------------------------------------------
     # Modify Methods
 
-    def __create_fts_index(self, table_name, index_column):
+    def __create_fts_index(self, table_name, index_column, force=False):
+        if force:
+            query = f"PRAGMA drop_fts_index('{table_name}')"
+            self.conn.execute(query)
+
         # Create fts index over all, *, attributes
         query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='english')"
         self.conn.execute(query)

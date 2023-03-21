@@ -1,4 +1,6 @@
 from typing import Dict, List
+from pathlib import Path
+import os
 
 import kuzu
 
@@ -7,7 +9,7 @@ from dindex_store.common import GraphIndex, EdgeType
 
 class GraphIndexKuzu(GraphIndex):
 
-    def __init__(self, config: Dict, load=False):
+    def __init__(self, config: Dict, load=False, force=False):
         GraphIndexKuzu._validate_config(config)
         self.config = config
         self.db = kuzu.database(config["graph_kuzu_database_name"])
@@ -15,9 +17,18 @@ class GraphIndexKuzu(GraphIndex):
         self.schema = ""
 
         if not load:
-            with open(config["graph_schema_path"]) as f:
+            graph_schema_path = Path(os.getcwd() + "/" + config["graph_schema_name"]).absolute()
+            if not os.path.isfile(graph_schema_path):
+                raise ValueError("The path to graph_schema does not exist, or is not a file")
+            with open(graph_schema_path) as f:
                 self.schema = f.read()
             try:
+                if force:
+                    # Note Edge and Column are hardcoded in the schema
+                    q = f"DROP TABLE Edge;"
+                    self.conn.execute(q)
+                    q = f"DROP TABLE Column;"
+                    self.conn.execute(q)
                 for statement in self.schema.split(";"):
                     self.conn.execute(statement)
             except:

@@ -40,20 +40,20 @@ class DiscoveryIndex:
         "kuzu": GraphIndexKuzu,
     }
 
-    def __init__(self, config: Dict, load=False) -> None:
+    def __init__(self, config: Dict, load=False, force=False) -> None:
         # TODO: Validate config in a consistent way
         profile_index = config["profile_index"]
         print(f"Initializing profile index: {profile_index}...")
-        self.__profile_index = DiscoveryIndex.profile_index_mapping[profile_index](config, load=load)
+        self.__profile_index = DiscoveryIndex.profile_index_mapping[profile_index](config, load=load, force=force)
         content_similarity_index = config["content_index"]
         print(f"Initializing content similarity index: {content_similarity_index}...")
         self.__content_similarity_index = DiscoveryIndex.content_similarity_index_mapping[content_similarity_index](config, load=load)
         fts_index = config["fts_index"]
         print(f"Initializing FTS index: {fts_index}...")
-        self.__fts_index = DiscoveryIndex.fts_index_mapping[fts_index](config, load=load)
+        self.__fts_index = DiscoveryIndex.fts_index_mapping[fts_index](config, load=load, force=force)
         graph_index = config["graph_index"]
         print(f"Initializing Graph index: {graph_index}...")
-        self.__graph_index = DiscoveryIndex.graph_index_mapping[graph_index](config, load=load)
+        self.__graph_index = DiscoveryIndex.graph_index_mapping[graph_index](config, load=load, force=force)
 
     def get_content_similarity_index(self):
         return self.__content_similarity_index
@@ -70,9 +70,11 @@ class DiscoveryIndex:
         success_graph = self.__graph_index.add_node(profile_id)
         if not success_graph:
             return False
-        success_content_similarity = self.__content_similarity_index.add_profile(profile_id, profile['minhash'])
-        if not success_content_similarity:
-            return False
+        # if there's a minhash for this column, then we insert it in the content index as well
+        if profile['minhash']:
+            success_content_similarity = self.__content_similarity_index.add_profile(profile_id, profile['minhash'])
+            if not success_content_similarity:
+                return False
         return True
 
     def add_text_content(self, profile_id, dbName, path, sourceName, columnName, data) -> bool:
