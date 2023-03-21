@@ -36,8 +36,8 @@ class DiscoveryIndex:
     }
 
     graph_index_mapping = {
-        "duckdb": GraphIndexDuckDB,
         "kuzu": GraphIndexKuzu,
+        "duckdb": GraphIndexDuckDB
     }
 
     def __init__(self, config: Dict, load=False, force=False) -> None:

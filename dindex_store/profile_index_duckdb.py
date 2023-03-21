@@ -1,8 +1,9 @@
 import os
-import duckdb
 from pathlib import Path
-
 from typing import List, Dict
+
+import duckdb
+from duckdb import BinderException, CastException, CatalogException, ConnectionException, ConstraintException, DataError, ConversionException
 
 from dindex_store.common import ProfileIndex
 
@@ -36,8 +37,26 @@ class ProfileIndexDuckDB(ProfileIndex):
             profile_table = self.conn.table(self.config["profile_table_name"])
             profile_table.insert(node.values())
             return True
-        except:
-            print("An error has occured when trying to add profile")
+        except BinderException as be:
+            print(f"An error has occured when trying to add profile: {be}")
+            return False
+        except CastException as ce:
+            print(f"An error has occured when trying to add profile: {ce}")
+            return False
+        except CatalogException as cae:
+            print(f"An error has occured when trying to add profile: {cae}")
+            return False
+        except ConnectionException as coe:
+            print(f"An error has occured when trying to add profile: {coe}")
+            return False
+        except ConstraintException as cone:
+            print(f"An error has occured when trying to add profile: {cone}")
+            return False
+        except ConversionException as conve:
+            print(f"An error has occured when trying to add profile: {conve}")
+            return False
+        except DataError as de:
+            print(f"An error has occured when trying to add profile: {de}")
             return False
 
     def get_profile(self, node_ids: List[int]) -> Dict:

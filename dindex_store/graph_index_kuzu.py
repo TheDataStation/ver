@@ -3,6 +3,7 @@ from pathlib import Path
 import os
 
 import kuzu
+# from kuzu import BinderException
 
 from dindex_store.common import GraphIndex, EdgeType
 
@@ -22,13 +23,19 @@ class GraphIndexKuzu(GraphIndex):
                 raise ValueError("The path to graph_schema does not exist, or is not a file")
             with open(graph_schema_path) as f:
                 self.schema = f.read()
-            try:
-                if force:
+
+            if force:
+                try:
                     # Note Edge and Column are hardcoded in the schema
                     q = f"DROP TABLE Edge;"
                     self.conn.execute(q)
                     q = f"DROP TABLE Column;"
                     self.conn.execute(q)
+                except RuntimeError as re:
+                    if re == "Binder exception: Node/Rel Edge does not exist.":
+                        print("An error has occurred when reading the schema, probably using "
+                              "--force with the first run of --build")
+            try:
                 for statement in self.schema.split(";"):
                     self.conn.execute(statement)
             except:
@@ -42,8 +49,8 @@ class GraphIndexKuzu(GraphIndex):
         try:
             self.conn.execute(f'CREATE (n:Column {{ id: {node_id} }})')
             return True
-        except:
-            print("Error when creating the node")
+        except Exception as e:
+            print(f"Error when creating the node: {e}")
             return False
 
     def add_edge(
@@ -65,8 +72,8 @@ class GraphIndexKuzu(GraphIndex):
                 CREATE (source)-[r:Edge {{ {", ".join(attr)} }}]->(target)
                 ''')
             return True
-        except:
-            print("Error when creating the edge")
+        except Exception as e:
+            print(f"Error when creating the edge: {e}")
             return False
 
     def add_undirected_edge(
