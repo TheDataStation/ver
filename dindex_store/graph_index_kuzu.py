@@ -10,7 +10,7 @@ class GraphIndexKuzu(GraphIndex):
     def __init__(self, config: Dict, load=False):
         GraphIndexKuzu._validate_config(config)
         self.config = config
-        self.db = kuzu.database(config["kuzu_database_name"])
+        self.db = kuzu.database(config["graph_kuzu_database_name"])
         self.conn = kuzu.connection(self.db)
         self.schema = ""
 

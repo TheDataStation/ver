@@ -112,9 +112,16 @@ class GraphIndex(ABC):
 
 
 class FullTextSearchIndex(ABC):
+    """
+    Base class for full text search index.
+    """
 
     @abstractmethod
-    def query(self, kw) -> List:
+    def insert(self, profile_id, dbName, path, sourceName, columnName, data) -> bool:
+        pass
+
+    @abstractmethod
+    def fts_query(self, keyword, search_domain, max_results, exact_search) -> List:
         pass
 
 

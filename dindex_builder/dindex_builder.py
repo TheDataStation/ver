@@ -1,7 +1,4 @@
 import os
-from os import listdir
-from os.path import isfile, join
-import sys
 from typing import Dict
 import csv
 import json
@@ -19,8 +16,6 @@ def load_dindex(config: Dict):
 
 def build_dindex(profile_data_path, config: Dict):
     print(f"Building DIndex. profile_data_path: {profile_data_path}")
-
-    exit()
 
     # Create an instance of the discovery index
     dindex = DiscoveryIndex(config)
@@ -47,8 +42,10 @@ def build_dindex(profile_data_path, config: Dict):
                 dindex.add_profile(profile)
 
     # Read text files and populate index
-    onlyfiles = [f for f in listdir(text_path) if isfile(join(text_path, f))]
-    for csv_file_path in tqdm(onlyfiles):
+    for csv_file_path in tqdm(os.listdir(text_path)):
+        csv_file_path = os.path.join(text_path, csv_file_path)
+        if not os.path.isfile(csv_file_path):
+            continue
         csv_delimiter = config["text_csv_delimiter"]
         with open(csv_file_path) as csvfile:
             csv_reader = csv.reader(csvfile, delimiter=csv_delimiter)
