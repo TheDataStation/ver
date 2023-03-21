@@ -50,6 +50,7 @@ class Demo:
         self.candidate_list = None
         self.join_graphs = None
         self.view_dfs = []
+        self.view_names = []
 
         self.G = None
         
@@ -237,7 +238,7 @@ class Demo:
 
         return self
 
-    def materialize_join_graphs(self):
+    def materialize_join_graphs(self, dir_path=None):
 
         print("\nmaterializing join graphs...")
 
@@ -264,8 +265,10 @@ class Demo:
                             k += 1
                         new_cols.append(new_col)
                     df.columns = new_cols
-                    # df.to_csv(f"./test_views2/view{j}.csv", index=False)
                     self.view_dfs.append(df)
+
+                    if dir_path is not None:
+                        df.to_csv(f"{dir_path}/view{j}.csv", index=False)
 
 
         print(f"Materialized {len(self.view_dfs)} non-empty views")
@@ -292,6 +295,7 @@ class Demo:
                                   union_complementary_views)
         
         current_views = self.vd.get_current_views()
+        self.view_names = current_views
         self.view_dfs = self.vd.get_dfs(current_views)
 
         return self
