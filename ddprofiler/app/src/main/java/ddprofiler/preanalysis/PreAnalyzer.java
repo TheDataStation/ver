@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import com.opencsv.exceptions.CsvValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,7 +59,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
             data = task.readRows(num);
             if (data == null)
                 return null;
-        } catch (IOException | SQLException e) {
+        } catch (IOException | SQLException | CsvValidationException e) {
             e.printStackTrace();
         }
 
@@ -255,7 +256,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
         this.task = task;
         try {
             this.attributes = task.getAttributes();
-        } catch (IOException | SQLException e) {
+        } catch (IOException | SQLException | CsvValidationException e) {
             e.printStackTrace();
         }
     }

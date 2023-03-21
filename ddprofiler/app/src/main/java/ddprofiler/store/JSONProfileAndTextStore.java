@@ -1,6 +1,6 @@
 package ddprofiler.store;
 
-import au.com.bytecode.opencsv.CSVWriter;
+import com.opencsv.CSVWriter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ddprofiler.core.Profile;
@@ -104,7 +104,7 @@ public class JSONProfileAndTextStore implements Store {
         // if csvWriter is null this is the first call, so we roll out a file
         if (csvWriter == null) {
             this.rollFile();
-            String header = "id, dbName, path, sourceName, columnName, data";
+            String[] header = {"id", "dbName", "path", "sourceName", "columnName", "data"};
             this.csvWriter.writeNext(header);
         }
 

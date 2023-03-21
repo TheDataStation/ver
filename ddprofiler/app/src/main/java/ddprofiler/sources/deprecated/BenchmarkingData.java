@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import au.com.bytecode.opencsv.CSVReader;
+import com.opencsv.*;
+import com.opencsv.exceptions.CsvValidationException;
 
 @Deprecated
 public class BenchmarkingData {
@@ -14,10 +15,11 @@ public class BenchmarkingData {
     public List<Attribute> attributes;
     public List<Record> records;
 
-    public boolean populateDataFromCSVFile(String path, char separator) {
+    public boolean populateDataFromCSVFile(String path, char separator) throws CsvValidationException {
         try {
             // Create CSV reader
-            CSVReader fileReader = new CSVReader(new FileReader(path), separator);
+            RFC4180Parser parser = new RFC4180ParserBuilder().withSeparator(separator).build();
+            CSVReader fileReader = new CSVReaderBuilder(new FileReader(path)).withCSVParser(parser).build();
             // Populate attributes
             attributes = this.getAttributes(fileReader);
             records = this.populateRecords(fileReader);
@@ -29,7 +31,7 @@ public class BenchmarkingData {
         return true;
     }
 
-    private List<Attribute> getAttributes(CSVReader fileReader) throws IOException {
+    private List<Attribute> getAttributes(CSVReader fileReader) throws IOException, CsvValidationException {
         // assume that the first row is the attributes;
         String[] attributes = fileReader.readNext();
 
@@ -50,8 +52,8 @@ public class BenchmarkingData {
                 rec.setTuples(res);
                 records.add(rec);
             }
-        } catch (IOException e) {
-
+        } catch (IOException | CsvValidationException e) {
+            e.printStackTrace();
         }
         return records;
     }

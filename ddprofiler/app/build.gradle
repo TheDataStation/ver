@@ -25,7 +25,6 @@ dependencies {
     implementation 'io.dropwizard.metrics:metrics-jmx:4.2.0'
 
     implementation 'org.apache.opennlp:opennlp-tools:2.0.0'
-    implementation 'au.com.bytecode:opencsv:2.4'
     // read and write csv
     implementation 'com.opencsv:opencsv:5.7.1'
 
