@@ -1,3 +1,7 @@
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/TheDataStation/ver/issues)
+
+
+
 # Data Discovery Tools and Systems
 
 **[This project is currently a work in progress, and we expect to have all
