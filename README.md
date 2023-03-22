@@ -16,11 +16,15 @@ discovery API (Aurum), a view discovery API (we call it Ver as well), and a
 utility-function based search (we call it Metam). And we are always thinking of new interfaces
 and components to help more users address their discovery needs.
 
+- [Quick Start](docs/quickstart.md)
+- [Tutorials](docs/tutorials.md)
+- [Contributing](docs/contributing.md)
+
 ### Structure of the Repository
 
 WIP
 
-## Ver Architecture
+## Ver Overview and Architecture
 
 A conceptual way of understanding what Ver does is to look at its architecture.
 
