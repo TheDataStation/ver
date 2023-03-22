@@ -4,7 +4,7 @@
 documentation, test and a full demo done by the end of the 2nd quarter of 2023.]**
 
 Data discovery is the problem of identifying and retrieving data that satisfies
-an information need. See [common data discovery problems here](docs/intro/datadiscovery.md) and feel free to open
+an information need. See [common data discovery problems here](docs/why_ver.md) and feel free to open
 issues to suggest other scenarios you know about. This respository contains Ver, a 
 collection of tools designed to address data discovery problems. 
 
