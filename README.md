@@ -1,15 +1,20 @@
-# Ver: Data Discovery Tools and Systems
+# Data Discovery Tools and Systems
+
+**[This project is currently a work in progress, and we expect to have all
+documentation, test and a full demo done by the end of the 2nd quarter of 2023.]**
 
 Data discovery is the problem of identifying and retrieving data that satisfies
-an information need. Ver consists of a collection of tools and an orchestration
-system for addressing data discovery problems. 
+an information need. See [common data discovery problems here](docs/intro/datadiscovery.md) and feel free to open
+issues to suggest other scenarios you know about. This respository contains Ver, a 
+collection of tools designed to address data discovery problems. 
 
 Ver is divided into separate components that can be used in isolation to solve
-point problems, or combined into a pipeline to address discovery scenarios end
+point problems, or used jointly to address discovery scenarios end
 to end. Upstream of any pipeline we have data repositories. Downstream of any
 pipeline we have an interface. Ver has different interfaces, including a Python
 discovery API (Aurum), a view discovery API (we call it Ver as well), and a
-utility-function based search (we call it Metam).
+utility-function based search (we call it Metam). And we are always thinking of new interfaces
+and components to help more users address their discovery needs.
 
 ### Structure of the Repository
 
@@ -149,9 +154,3 @@ python3 examples/example.py
 The View Presentation component will use the output of View Distillation
 component, which is stored in `vd_results_dir`, to ask questions and interact
 with the user until the user finds a view.
-
-## Future Work
-
-This project is currently a work in progress, and we expect to have all
-documentation, test and a full demo done by the 2nd quarter of 2023.
-
