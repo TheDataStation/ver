@@ -13,8 +13,8 @@ class GraphIndexKuzu(GraphIndex):
     def __init__(self, config: Dict, load=False, force=False):
         GraphIndexKuzu._validate_config(config)
         self.config = config
-        self.db = kuzu.database(config["graph_kuzu_database_name"])
-        self.conn = kuzu.connection(self.db)
+        self.db = kuzu.Database(config["graph_kuzu_database_name"])
+        self.conn = kuzu.Connection(self.db)
         self.schema = ""
 
         if not load:

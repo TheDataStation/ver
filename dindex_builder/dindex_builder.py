@@ -59,7 +59,7 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
     # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency
     profiles = dindex.get_minhashes()
     content_similarity_index = dindex.get_content_similarity_index()
-    for profile in profiles:
+    for profile in tqdm(profiles):
         neighbors = content_similarity_index.query(profile['minhash'])
         for neighbor in neighbors:
             # TODO: Need to check that they are not from the same source
@@ -67,6 +67,7 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
             dindex.add_undirected_edge(
                 profile['id'], neighbor,
                 EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {'similar': 1})
+    print("Done building")
 
     return dindex
 
