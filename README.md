@@ -22,11 +22,14 @@ WIP
 
 ## Ver Architecture
 
-<img src="docs/img/architecture.jpeg" width="500">
+A conceptual way of understanding what Ver does is to look at its architecture.
 
-The picture shows a high-level architectural view of Ver, including each of its
-components. We give a brief description of each component below. In-depth
-component descriptions are included in each component.
+<p align="center">
+     <img src="docs/img/architecture.jpeg" width="500">
+</p>
+
+The picture includes each of Ver's
+components. We give a brief description of each component below. Most components can be used in a standalone manner, and if you inspect the component, you will find a component-specific README that gives you more details.
 
 ### Discovery Engine and Index Creation
 
