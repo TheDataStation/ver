@@ -28,7 +28,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-class Demo:
+class Ver:
     def __init__(self, graph_path='/home/cc/chicago_open_data_graph/', data_path='/home/cc/chicago_open_data/'):
 
         # path to store the aurum graph index
@@ -56,7 +56,7 @@ class Demo:
         
         # print("in")
 
-    def end_to_end_demo(self):
+    def interface(self):
 
         global row_num
         global col_num
@@ -146,7 +146,9 @@ class Demo:
                 example_columns.append(example_col)
 
             self.example_columns = example_columns
-            print("Confirmed")
+            # print("Confirmed")
+
+            print("---------------------------------------")
 
             self.find_candidate_columns()
 
@@ -154,24 +156,25 @@ class Demo:
 
             self.materialize_join_graphs()
 
-            self.show_views()
-
             self.view_distillation()
 
-            self.view_presentation()
+            self.show_views()
+
+            # self.view_presentation()
 
 
         button1 = widgets.Button(description="Add Column")
         button2 = widgets.Button(description="Remove Column")
         button3 = widgets.Button(description="Add Row")
         button4 = widgets.Button(description="Remove Row")
-        button5 = widgets.Button(description="Confirm")
+        button5 = widgets.Button(description="Generate\nViews")
         button1.on_click(add_column)
         button2.on_click(remove_column)
         button3.on_click(add_row)
         button4.on_click(remove_row)
         button5.on_click(confirm)
 
+        print("Query-by-Example interface")
         display(widgets.HBox([button1, button2, button3, button4]))
         draw()
         display(out)
@@ -179,7 +182,7 @@ class Demo:
 
     def view_specification(self, *examples, **attrs):
 
-        import ast
+        # import ast
 
         if "attrs" not in attrs.keys():
             attrs["attrs"] = ["" for i in range(len(examples[0]))]
@@ -209,44 +212,54 @@ class Demo:
 
     def find_candidate_columns(self):
 
-        print("\nfinding candidate columns...")
+        # print("---------------------------------------")
+
+        print("Finding candidate columns...")
 
         self.candidate_list = self.qbe.find_candidate_columns(self.example_columns, cluster_prune=True)
 
-        self.candidate_list = [x[:3] for x in self.candidate_list]
+        self.candidate_list = [x[:10] for x in self.candidate_list]
 
-        for i, candidate in enumerate(self.candidate_list):
-            print('column {}: found {} candidate columns'.format(self.example_columns[i].attr, len(candidate)))
-            # for c in candidate:
-            #     print(c)
+        # for i, candidate in enumerate(self.candidate_list):
+        #     print('column {}: found {} candidate columns'.format(self.example_columns[i].attr, len(candidate)))
+        #     # for c in candidate:
+        #     #     print(c)
+
+        print("---------------------------------------")
 
         return self
 
     def find_join_graphs(self):
 
-        print("\nfinding join graphs among candidate columns...")
+        # print("---------------------------------------")
+
+        print("Finding join graphs among candidate columns...")
 
         self.join_graphs = self.qbe.find_join_graphs_between_candidate_columns(self.candidate_list, order_chain_only=True)
         
-        self.join_graphs = self.join_graphs[:10]
+        self.join_graphs = self.join_graphs[:200]
 
-        print("found {} join graphs".format(len(self.join_graphs)))
+        # print("found {} join graphs".format(len(self.join_graphs)))
         
         # for i, join_graph in enumerate(join_graphs[:10]):
         #     print("----join graph {}----".format(i))
         #     join_graph.display()
 
+        print("---------------------------------------")
+
         return self
 
     def materialize_join_graphs(self, dir_path=None):
 
-        print("\nmaterializing join graphs...")
+        # print("---------------------------------------")
+
+        print("Materializing join graphs...")
 
         materializer = Materializer(self.data_path, 200)
 
 
         j = 0
-        for join_graph in tqdm(self.join_graphs):
+        for join_graph in self.join_graphs:
 
             #ca join graph can produce multiple views because different columns are projected
             df_list = materializer.materialize_join_graph(join_graph)
@@ -271,7 +284,8 @@ class Demo:
                         df.to_csv(f"{dir_path}/view{j}.csv", index=False)
 
 
-        print(f"Materialized {len(self.view_dfs)} non-empty views")
+        # print(f"Materialized {len(self.view_dfs)} non-empty views")
+        print("---------------------------------------")
 
         return self
 
@@ -280,8 +294,10 @@ class Demo:
                                 remove_contained_views=True,
                                 union_complementary_views=True,
                                 graph=True):
+        
+        # print("---------------------------------------")
 
-        print("\ndistilling views")
+        print("Distilling views")
 
         self.vd = ViewDistillation(dfs=self.view_dfs)
 
@@ -297,6 +313,8 @@ class Demo:
         current_views = self.vd.get_current_views()
         self.view_names = current_views
         self.view_dfs = self.vd.get_dfs(current_views)
+
+        print("---------------------------------------")
 
         return self
 
@@ -428,13 +446,28 @@ class Demo:
 
         display(output)
 
+    def _apply_highlight_multi(self, df, cols_to_highlight):
+            
+            def highlight_cols(s, color):
+                return 'background-color: %s' % color
+            
+            s = df.style
+            
+            for col, color in cols_to_highlight:
+                s = s.applymap(highlight_cols,
+                                subset=pd.IndexSlice[:, [col]],
+                                color=color)
+            
+            html = s.render()
+            return html
+
 
     def show_join_graphs(self):
         
         output = widgets.Output()
 
 
-        def display_side_by_side(dfs,titles=cycle(['']), cols_to_highlight=None):
+        def display_side_by_side(dfs,titles=cycle(['']), join_keys=None):
             html_str=''
             i = 0
             for df, title in zip(dfs, chain(titles,cycle(['</br>'])) ):
@@ -442,9 +475,9 @@ class Demo:
                 html_str += f'<h2 style="text-align:center;">{title}</h2>'
 
                 df_html = df.to_html()
-                if cols_to_highlight is not None:
+                if len(join_keys) > 0:
                     # print(df.columns, cols_to_highlight[i])
-                    df_html = self._apply_highlight(df, cols_to_highlight[i])
+                    df_html = self._apply_highlight_multi(df, join_keys[i])
                     i+=1
 
                 html_str += df_html.replace('table','table style="display:inline"')
@@ -468,21 +501,32 @@ class Demo:
             join_graph = self.join_graphs[join_graph_idx]
 
             from collections import defaultdict
-            d = defaultdict(lambda: defaultdict(set))
+            # d = defaultdict(lambda: defaultdict(set))
+            d = defaultdict(lambda: defaultdict(list))
+
+            colors = ["lightgreen", "lightyellow", "lightblue", "lightpink"]
+            color_idx = 0
 
             for edge, path in join_graph.graph_dict.items():
                 
                 for i, join_key_pair in enumerate(path.path):
                     
                     if len(join_key_pair[0].field_name) > 0:
-                        d[join_key_pair[0].source_name]["join_key"].add(join_key_pair[0].field_name)
+                        # d[join_key_pair[0].source_name]["join_key"].add(join_key_pair[0].field_name)
+                        d[join_key_pair[0].source_name]["join_key"].append((join_key_pair[0].field_name, colors[color_idx]))
                                         
                     if len(join_key_pair[1].field_name) > 0:
-                        d[join_key_pair[1].source_name]["join_key"].add(join_key_pair[1].field_name)
+                        # d[join_key_pair[1].source_name]["join_key"].add(join_key_pair[1].field_name)
+                        d[join_key_pair[1].source_name]["join_key"].append((join_key_pair[1].field_name, colors[color_idx]))
+
+                        color_idx += 1
+                        if color_idx >= len(colors):
+                            color_idx = 0
 
                 for i, attrs in enumerate(path.tbl_proj_attrs):
                     for attr in attrs:
-                        d[attr.tbl_name]["attrs_to_project"].add(attr.attr_name)
+                        # d[attr.tbl_name]["attrs_to_project"].add(attr.attr_name)
+                        d[attr.tbl_name]["attrs_to_project"].append(attr.attr_name)
 
             join_keys = []
 
@@ -490,10 +534,12 @@ class Demo:
 
             for table_name, d1 in d.items():
 
-                join_key = list(d1["join_key"])
-                join_keys.append(join_key)
+                # join_key = list(d1["join_key"])
+                join_key = set(t[0] for t in d1["join_key"])
+                # join_keys.append(join_key)
+                join_keys.append(d1["join_key"])
 
-                attrs_to_project = d1["attrs_to_project"]
+                attrs_to_project = set(d1["attrs_to_project"])
                 
                 cols = attrs_to_project.copy()
                 cols.update(join_key)
@@ -556,10 +602,12 @@ class Demo:
                 display(dropdown_view)
                 display(bounded_num)
 
-            df = self.view_dfs[view_idx].head(num)
+            if view_idx != "":
 
-            with output:
-                display(df)
+                df = self.view_dfs[view_idx].head(num)
+
+                with output:
+                    display(df)
 
         def dropdown_view_eventhandler(change):
             idx = int(change.new)
@@ -571,7 +619,9 @@ class Demo:
             idx = dropdown_view.value
             display_view(idx, num)
 
-        dropdown_view = widgets.Dropdown(options=[i for i in range(len(self.view_dfs))], description="Idx")
+        options = [""] + [i for i in range(len(self.view_dfs))]
+
+        dropdown_view = widgets.Dropdown(options=options, description="View")
         bounded_num = widgets.BoundedFloatText(min=0, max=1000, value=10, step=1, description="Size")
 
         dropdown_view.observe(dropdown_view_eventhandler, names='value')
@@ -585,4 +635,4 @@ class Demo:
 
 
 if __name__ == '__main__':
-  fire.Fire(Demo)
+  fire.Fire(Ver)
