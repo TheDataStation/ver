@@ -1,7 +1,7 @@
 #randomness seed
 seed=0
 
-gensim_path = '../GoogleNews-vectors-negative300.bin'
+gensim_path = '/home/cc/GoogleNews-vectors-negative300.bin'
 
 
 #Parameter to determine exploration probability of view presentation algorithm

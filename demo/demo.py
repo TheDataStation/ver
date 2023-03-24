@@ -19,6 +19,8 @@ from qbe_module.column_selection import ColumnSelection
 from qbe_module.query_by_example import ExampleColumn, QueryByExample
 from qbe_module.materializer import Materializer
 from view_distillation.view_distillation import ViewDistillation
+from view_presentation.ver_view_presentation import ViewPresentation
+
 
 from tqdm import tqdm
 
@@ -632,6 +634,14 @@ class Ver:
             display(dropdown_view, bounded_num)
 
         display(output)
+
+    def view_presentation(self):
+
+        query = ""
+
+        vp = ViewPresentation(query, self.view_dfs)
+        
+        vp.choose_interface()
 
 
 if __name__ == '__main__':

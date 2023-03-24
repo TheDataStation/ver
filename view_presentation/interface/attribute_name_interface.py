@@ -1,6 +1,9 @@
 from view_presentation.interface.interface import interface
 import pandas as pd
-import view_presentation.interface.embedding_distance as embedding_distance
+# import view_presentation.interface.embedding_distance as embedding_distance
+
+from view_presentation.interface import embedding_distance
+
 import ipywidgets as widgets
 
 from IPython.display import clear_output

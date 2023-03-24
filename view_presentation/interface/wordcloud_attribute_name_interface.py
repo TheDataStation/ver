@@ -1,7 +1,9 @@
 from view_presentation.interface.interface import interface
-import view_presentation.interface.embedding_distance as embedding_distance
+# import view_presentation.interface.embedding_distance as embedding_distance
+from view_presentation.interface import embedding_distance
 import pandas as pd
-import view_presentation.interface.cluster as cluster
+# import view_presentation.interface.cluster as cluster
+from view_presentation.interface import cluster
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import ipywidgets as widgets
 
