@@ -12,14 +12,16 @@ class FTSIndexDuckDB(FullTextSearchIndex):
     def __init__(self, config, load=False, force=False):
         # FIXME: Validate Config Name
         self.config = config
-        self.conn = duckdb.connect(database=config["fts_duckdb_database_name"])
+        db_path = Path(config['ver_base_path']) / Path(config['fts_duckdb_database_name'])
+        self.conn = duckdb.connect(database=str(db_path))
 
         self.table_name = config["fts_data_table_name"]
         self.index_column = config["fts_index_column"]
 
         if not load:
-            fts_schema_path = Path(os.getcwd() + "/" + config["fts_schema_name"]).absolute()
-            if not os.path.isfile(fts_schema_path):
+            # fts_schema_path = Path(os.getcwd() + "/" + config["fts_schema_name"]).absolute()
+            fts_schema_path = Path(config['ver_base_path'] / config['fts_schema_name']).absolute()
+            if not fts_schema_path.is_file():
                 raise ValueError("The path to fts_schema does not exist, or is not a file")
             with open(fts_schema_path) as f:
                 self.schema = f.read()
@@ -31,7 +33,7 @@ class FTSIndexDuckDB(FullTextSearchIndex):
                 # if we are building the index then we have to create the schema and the index
                 self.conn.execute(self.schema)
                 # create fts index on index_column
-                self.__create_fts_index(self.table_name, self.index_column, force=force)
+                self.create_fts_index(self.table_name, self.index_column, force=force)
             except:
                 print("An error has occurred when reading the schema")
                 raise
@@ -39,26 +41,33 @@ class FTSIndexDuckDB(FullTextSearchIndex):
     # ----------------------------------------------------------------------
     # Modify Methods
 
-    def __create_fts_index(self, table_name, index_column, force=False):
+    def create_fts_index(self, table_name, index_column, force=False):
+        # Have to manually refresh fts index as per DuckDB's docs: "Note that the FTS index will not update automatically
+        # when input table changes. A workaround of this limitation can be recreating the index to refresh."
+        # The consequence for now is that force=True always, when this function is called
+        force = True
         if force:
-            query = f"PRAGMA drop_fts_index('{table_name}')"
-            self.conn.execute(query)
+            try:
+                query = f"PRAGMA drop_fts_index('{table_name}')"
+                self.conn.execute(query)
+            except duckdb.CatalogException as ce:
+                print(f"error when removing an existing fts index: {ce}")
 
         # Create fts index over all, *, attributes
         query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='english')"
         self.conn.execute(query)
 
-        prepare_query = f"""
-            PREPARE fts_query AS (
-                WITH scored_docs AS (
-                    SELECT *, fts_main_{table_name}.match_bm25(profile_id, ?) AS score FROM {table_name})
-                SELECT profile_id, score
-                FROM scored_docs
-                WHERE score IS NOT NULL
-                ORDER BY score DESC
-                LIMIT 100)
-            """
-        self.conn.execute(prepare_query)
+        # prepare_query = f"""
+        #     PREPARE fts_query AS (
+        #         WITH scored_docs AS (
+        #             SELECT *, fts_main_{table_name}.match_bm25(profile_id, ?) AS score FROM {table_name})
+        #         SELECT profile_id, score
+        #         FROM scored_docs
+        #         WHERE score IS NOT NULL
+        #         ORDER BY score DESC
+        #         LIMIT 100)
+        #     """
+        # self.conn.execute(prepare_query)
 
     def insert(self, profile_id, dbName, path, sourceName, columnName, data) -> bool:
         try:
@@ -73,6 +82,17 @@ class FTSIndexDuckDB(FullTextSearchIndex):
     # Query Methods
 
     def fts_query(self, keyword, search_domain, max_results, exact_search) -> List:
-        # TODO: search over "search_domain", return top-"max_results", and switch between exact/approx search ("exact_search")
-        res = self.conn.execute("EXECUTE fts_query('" + keyword + "')")
+        # TODO: search over "search_domain", return top-"max_results", and switch between
+        #  exact/approx search ("exact_search")
+
+        query = f"""WITH scored_docs AS (
+                SELECT *, fts_main_{self.table_name}.match_bm25(profile_id, '{keyword}') AS score FROM {self.table_name})
+            SELECT profile_id, score
+            FROM scored_docs
+            WHERE score IS NOT NULL
+            ORDER BY score DESC
+            LIMIT {max_results};"""
+        print(query)
+
+        res = self.conn.execute(query)
         return res.fetchall()

@@ -1,6 +1,7 @@
 import os
 from typing import Dict
 import csv
+from pathlib import Path
 import json
 
 from tqdm import tqdm
@@ -27,13 +28,15 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
         print("Error: only json profiles supported")
         return
 
-    profile_path = profile_data_path + "/json/"
-    text_path = profile_data_path + "/text/"
+    profile_path = Path(profile_data_path) / "json"
+    text_path = Path(profile_data_path) / "text"
 
     # Read profiles and populate the Profile index
     for file_path in os.listdir(profile_path):
-        file_path = os.path.join(profile_path, file_path)
-        if os.path.isfile(file_path):
+        file_path = profile_path / file_path
+        # file_path = os.path.join(profile_path, file_path)
+        if file_path.is_file():
+        # if os.path.isfile(file_path):
             with open(file_path) as f:
                 profile = json.load(f)
                 # Preprocessing minhash on profile
@@ -54,6 +57,12 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
         for _, row in df.iterrows():
             dindex.add_text_content(row['profile_id'], row['dbName'], row['path'],
                                     row['sourceName'], row['columnName'], row['data'])
+
+    # Have to manually refresh fts index as per DuckDB's docs: "Note that the FTS index will not update automatically
+    # when input table changes. A workaround of this limitation can be recreating the index to refresh."
+    table_name = config["fts_data_table_name"]
+    index_column = config["fts_index_column"]
+    dindex.refresh_fts_index(table_name, index_column, force=False)
 
     # Create content_similarity edges
     # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency
@@ -95,6 +104,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    dindex = None
     if args.build:
         if not args.profile_data_path:
             print_usage()
@@ -105,3 +115,8 @@ if __name__ == "__main__":
         print_usage()
 
     # TODO: notification
+
+    # test
+    from aurum_api.algebra import KWType
+    results = dindex.fts_query(keywords="madden", search_domain=KWType.KW_CONTENT, max_results=10)
+    print(results)

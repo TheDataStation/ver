@@ -13,13 +13,15 @@ class GraphIndexKuzu(GraphIndex):
     def __init__(self, config: Dict, load=False, force=False):
         GraphIndexKuzu._validate_config(config)
         self.config = config
-        self.db = kuzu.Database(config["graph_kuzu_database_name"])
+        db_path = Path(config['ver_base_path'] / config['graph_kuzu_database_name']).absolute()
+        self.db = kuzu.Database(str(db_path))
         self.conn = kuzu.Connection(self.db)
         self.schema = ""
 
         if not load:
-            graph_schema_path = Path(os.getcwd() + "/" + config["graph_schema_name"]).absolute()
-            if not os.path.isfile(graph_schema_path):
+            # graph_schema_path = Path(os.getcwd() + "/" + config["graph_schema_name"]).absolute()
+            graph_schema_path = Path(config['ver_base_path'] / config['graph_schema_name']).absolute()
+            if not graph_schema_path.is_file():
                 raise ValueError("The path to graph_schema does not exist, or is not a file")
             with open(graph_schema_path) as f:
                 self.schema = f.read()

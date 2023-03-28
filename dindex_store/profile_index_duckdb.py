@@ -13,12 +13,12 @@ class ProfileIndexDuckDB(ProfileIndex):
     def __init__(self, config: Dict, load=False, force=False) -> None:
         ProfileIndexDuckDB._validate_config(config)
         self.config = config
-        self.conn = duckdb.connect(database=config["profile_duckdb_database_name"])
+        db_path = Path(config['ver_base_path']) / Path(config['profile_duckdb_database_name'])
+        self.conn = duckdb.connect(database=str(db_path))
         self.schema = ""
 
         if not load:
-            profile_schema_name = config["profile_schema_name"]
-            profile_schema_path = Path(os.getcwd() + "/" + profile_schema_name).absolute()
+            profile_schema_path = Path(config['ver_base_path'] / config['profile_schema_name']).absolute()
             with open(profile_schema_path) as f:
                 self.schema = f.read()
             try:
@@ -108,7 +108,7 @@ class ProfileIndexDuckDB(ProfileIndex):
     @classmethod
     def _validate_config(cls, config):
         assert "profile_schema_name" in config, "Error: schema_path is missing"
-        profile_schema_path = Path(os.getcwd() + "/" + config["profile_schema_name"]).absolute()
+        profile_schema_path = Path(config['ver_base_path'] / config['profile_schema_name']).absolute()
         if not os.path.isfile(profile_schema_path):
             raise ValueError("The path does not exist, or is not a file")
         

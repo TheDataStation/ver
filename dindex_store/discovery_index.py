@@ -58,6 +58,9 @@ class DiscoveryIndex:
     def get_content_similarity_index(self):
         return self.__content_similarity_index
 
+    def refresh_fts_index(self, table_name, index_column, force=False):
+        self.__fts_index.create_fts_index(table_name, index_column, force=force)
+
     # ----------------------------------------------------------------------
     # Modify Methods
 
