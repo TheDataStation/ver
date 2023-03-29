@@ -24,11 +24,6 @@ class KWType(Enum):
 
 class Algebra:
 
-    # def __init__(self, network, store_client):
-    #     self._network = network
-    #     self._store_client = store_client
-    #     self.helper = Helper(network=network, store_client=store_client)
-
     def __init__(self, dindex: DiscoveryIndex):
         self.dindex = dindex
 
@@ -154,11 +149,6 @@ class Algebra:
     def neighbors(self, drs: DRS, relation):
         return self.__neighbor_search(drs, relation)
 
-    # def neighbors(self, drs: DRS, relation):
-    #     if not self._network.is_nid_in_graph(drs.nid):
-    #         return []
-    #     return self._network.neighbors_id(drs, relation)
-
     def paths(self, drs_a: DRS, drs_b: DRS, relation=Relation.PKFK, max_hops=2, lean_search=False) -> DRS:
         """
         Is there a transitive relationship between any element in a with any
@@ -198,7 +188,6 @@ class Algebra:
                     h1, h2, relation, self, max_hops=max_hops, lean_search=lean_search)
 
             o_drs = o_drs.absorb(res_drs)
-
 
         return o_drs
 
@@ -310,8 +299,8 @@ class Algebra:
 
         # Test for strings that represent tables
         if isinstance(general_input, str):
-            results = self.dindex.get_filtered_profiles_from_table(general_input, ['nid', 'db_name', 's_name', 'f_name'])
-            hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
+            results = self.dindex.get_filtered_profiles_from_table(general_input, ['id', 'dbname', 'sourcename', 'columnname'])
+            hits = [Hit(r[0], r[1], r[2], r[3], 0, []) for r in results]
             general_input = DRS([x for x in hits], Operation(OP.ORIGIN))
 
         # Test for tuples that are not Hits
@@ -325,8 +314,7 @@ class Algebra:
             if field == '' or field is None:
                 # If the Hit's field is not defined, it is in table mode
                 # and all Hits from the table need to be found
-                general_input = self._hit_to_drs(
-                    general_input, table_mode=True)
+                general_input = self._hit_to_drs(general_input, table_mode=True)
             else:
                 general_input = self._hit_to_drs(general_input)
         if isinstance(general_input, DRS):
@@ -344,9 +332,8 @@ class Algebra:
         nid = str(nid)
         score = 0.0
 
-        results = self.dindex.get_filtered_profiles_from_nids([nid], ['nid', 'db_name', 's_name', 'f_name'])
-
-        hit = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results[0]][0]
+        results = self.dindex.get_filtered_profiles_from_nids([nid], ['id', 'dbname', 'sourcename', 'columnname'])
+        hit = [Hit(r[0], r[1], r[2], r[3], 0, []) for r in results][0]
 
         # nid, db, source, field = self._network.get_info_for([nid])[0]
         # hit = Hit(nid, db, source, field, score,[])
@@ -379,8 +366,8 @@ class Algebra:
         drs = None
         if table_mode:
             table_name = hit.source_name
-            results = self.dindex.get_filtered_profiles_from_table(table_name, ['nid', 'db_name', 's_name', 'f_name'])
-            hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
+            results = self.dindex.get_filtered_profiles_from_table(table_name, ['id', 'dbname', 'sourcename', 'columnname'])
+            hits = [Hit(r[0], r[1], r[2], r[3], 0, []) for r in results]
             drs = DRS([x for x in hits], Operation(OP.TABLE, params=[hit]))
             drs.set_table_mode()
         else:
@@ -513,3 +500,20 @@ if __name__ == '__main__':
     res = api.search("madden")
 
     print(res.pretty_print_columns())
+    print(res.print_columns())
+    # exit()
+
+    print("Test 1")
+    results = api.dindex.get_filtered_profiles_from_nids([316673731, 263143580], ['id', 'dbname', 'sourcename', 'columnname'])
+    hits = [Hit(r[0], r[1], r[2], r[3], 0, []) for r in results]
+
+    print("Test 2")
+    results = api.dindex.get_filtered_profiles_from_nids([316673731], ['id', 'dbname', 'sourcename', 'columnname'])
+    hit = [Hit(r[0], r[1], r[2], r[3], 0, []) for r in results][0]
+    print(hit)
+
+    print("Test 3")
+    results = api.dindex.get_filtered_profiles_from_table('Drupal_employee_directory.csv', ['id', 'dbname', 'sourcename', 'columnname'])
+    hits = [Hit(r[0], r[1], r[2], r[3], 0, []) for r in results]
+    print(hits)
+

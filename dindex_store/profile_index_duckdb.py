@@ -75,12 +75,11 @@ class ProfileIndexDuckDB(ProfileIndex):
         profile_table = self.config["profile_table_name"]
         project_list = ",".join(desired_attributes)
         try:
-            result = self.conn.execute(
-                f"SELECT {project_list} FROM {profile_table} WHERE s_name = {table_name}") \
-                .to_dict(orient='records')[0]
-            return result
-        except:
-            print("An error has occured when trying to get profile")
+            query = f"SELECT {project_list} FROM {profile_table} WHERE sourcename = '{table_name}'"
+            result = self.conn.execute(query)
+            return result.fetchall()
+        except BinderException as be:
+            print(f"""An error has occured when trying to get profile: {be}""")
             return False
 
     def get_filtered_profiles_from_nids(self, nids, desired_attributes: List[str]):
@@ -88,12 +87,11 @@ class ProfileIndexDuckDB(ProfileIndex):
         predicate = "OR id = ".join([str(n) for n in nids])
         try:
             profile_table = self.config["profile_table_name"]
-            result = self.conn.execute(
-                f"SELECT {project_list} FROM {profile_table} WHERE id = {predicate}") \
-                .to_dict(orient='records')[0]
-            return result
-        except:
-            print("An error has occured when trying to get profile")
+            query = f"""SELECT {project_list} FROM {profile_table} WHERE id = {predicate}"""
+            results = self.conn.execute(query)
+            return results.fetchall()
+        except BinderException as be:
+            print(f"""An error has occured when trying to get profile {be}""")
             return False
 
     def get_minhashes(self) -> Dict:
