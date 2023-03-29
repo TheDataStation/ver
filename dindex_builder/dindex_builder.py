@@ -1,6 +1,5 @@
 import os
 from typing import Dict
-import csv
 from pathlib import Path
 import json
 
@@ -9,11 +8,6 @@ import pandas as pd
 
 from dindex_store.discovery_index import DiscoveryIndex
 from dindex_store.common import EdgeType
-
-
-def load_dindex(config: Dict):
-    dindex = DiscoveryIndex(config, load=True)
-    return dindex
 
 
 def build_dindex(profile_data_path, config: Dict, force: bool):
@@ -84,41 +78,30 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
 if __name__ == "__main__":
     print("DIndex Builder")
 
+    import time
     import config
-
     import argparse
+
+    start_time = time.time()
 
     cnf = {setting: getattr(config, setting) for setting in dir(config)
            if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
 
     def print_usage():
         print("USAGE: ")
-        print("python dindex_builder.py [--load | --build] --profile_data_path <path>")
+        print("python dindex_builder.py --profile_data_path <path> [--force]")
         exit()
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--profile_data_path', default=None, help='Path to profile data')
-    parser.add_argument('--build', action='store_true', help='build discovery index from profile_data_path')
     parser.add_argument('--force', action='store_true', help='build discovery index by removing previous one if necessary')
-    parser.add_argument('--load', action='store_true', help='load existing discovery index')
 
     args = parser.parse_args()
 
     dindex = None
-    if args.build:
-        if not args.profile_data_path:
-            print_usage()
-        dindex = build_dindex(args.profile_data_path, cnf, force=args.force)
-    elif args.load:
-        dindex = load_dindex(cnf)
-    else:
+    if not args.profile_data_path:
         print_usage()
+    dindex = build_dindex(args.profile_data_path, cnf, force=args.force)
 
-    # TODO: notification
-
-    # test
-    from aurum_api.algebra import KWType
-    results = dindex.fts_query(keywords="madden", search_domain=KWType.KW_CONTENT, max_results=10)
-    print(results)
-
-
+    build_time = time.time() - start_time
+    print(f"""DIndex finished building in {build_time}""")

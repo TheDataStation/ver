@@ -59,18 +59,6 @@ class ProfileIndexDuckDB(ProfileIndex):
             print(f"An error has occured when trying to add profile: {de}")
             return False
 
-    def get_profile(self, node_ids: List[int]) -> Dict:
-        profile_table = self.config["profile_table_name"]
-        predicate = "OR id = ".join([str(n) for n in node_ids])
-        try:
-            result = self.conn.execute(
-                f"SELECT * FROM {profile_table} WHERE id = {predicate}") \
-                .to_dict(orient='records')[0]
-            return result
-        except:
-            print("An error has occured when trying to get profile")
-            return False
-
     def get_filtered_profiles_from_table(self, table_name, desired_attributes: List[str]):
         profile_table = self.config["profile_table_name"]
         project_list = ",".join(desired_attributes)

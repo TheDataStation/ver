@@ -282,11 +282,11 @@ class VerCLI:
         # subprocess.call(['python', 'dindex_builder/dindex_builder.py', 'build', '--input_path', input_data_path])
 
     def load_dindex(self):
-        from dindex_builder import dindex_builder
+        from dindex_store.discovery_index import load_dindex
         import config
         cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
         # TODO: provide alternative way of configuring dindex build (other than config)
-        dindex_builder.load_dindex(cnf)
+        load_dindex(cnf)
 
         # subprocess.call(['python', 'build_dindex.py', 'load'])
 
