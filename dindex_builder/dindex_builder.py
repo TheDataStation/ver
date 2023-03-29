@@ -120,3 +120,5 @@ if __name__ == "__main__":
     from aurum_api.algebra import KWType
     results = dindex.fts_query(keywords="madden", search_domain=KWType.KW_CONTENT, max_results=10)
     print(results)
+
+

@@ -82,17 +82,20 @@ class FTSIndexDuckDB(FullTextSearchIndex):
     # Query Methods
 
     def fts_query(self, keyword, search_domain, max_results, exact_search) -> List:
-        # TODO: search over "search_domain", return top-"max_results", and switch between
-        #  exact/approx search ("exact_search")
+        # TODO: switch between exact/approx search ("exact_search")
+
+        # FIXME: translate search_domain into a field; here defaulting to data
+        search_domain = 'data'
 
         query = f"""WITH scored_docs AS (
-                SELECT *, fts_main_{self.table_name}.match_bm25(profile_id, '{keyword}') AS score FROM {self.table_name})
-            SELECT profile_id, score
+                SELECT *, fts_main_{self.table_name}.match_bm25(data, '{keyword}', fields := '{search_domain}') 
+                AS score FROM {self.table_name})
+            SELECT DISTINCT ON (profile_id) profile_id, dbname, path, sourcename, columnname, score
             FROM scored_docs
             WHERE score IS NOT NULL
             ORDER BY score DESC
             LIMIT {max_results};"""
-        print(query)
 
         res = self.conn.execute(query)
+
         return res.fetchall()

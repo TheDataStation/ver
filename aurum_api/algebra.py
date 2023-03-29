@@ -36,7 +36,7 @@ class Algebra:
     Basic API
     """
 
-    def search(self, kw: str, kw_type: KWType, max_results=10) -> DRS:
+    def search(self, kw: str, kw_type=KWType.KW_CONTENT, max_results=10) -> DRS:
         """
         Performs a keyword search over the contents of the data.
         Scope specifies where elasticsearch should be looking for matches.
@@ -49,7 +49,7 @@ class Algebra:
         """
 
         results = self.dindex.fts_query(keywords=kw, search_domain=kw_type, max_results=max_results, exact_search=False)
-        hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
+        hits = [Hit(r[0], r[1], r[3], r[4], r[5], []) for r in results]
 
         # data = Hit(str(el['_source']['id']), el['_source']['dbName'], el['_source']['sourceName'],
         #            el['_source']['columnName'], el['_score'], matched_text)
@@ -470,7 +470,8 @@ def main(dindex_path, interactive=False, create_reporting=False):
     sl = time.time()
 
     import config
-    cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+    cnf = {setting: getattr(config, setting) for setting in dir(config)
+           if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
 
     dindex = load_dindex(cnf)
     print_md("Loading DIndex...OK")
@@ -507,4 +508,8 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    main(args.dindex_path, interactive=args.interactive, create_reporting=args.create_reporting)
+    api, reporting = main(args.dindex_path, interactive=args.interactive, create_reporting=args.create_reporting)
+
+    res = api.search("madden")
+
+    print(res.pretty_print_columns())
