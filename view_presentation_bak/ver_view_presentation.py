@@ -1,15 +1,14 @@
 import pandas as pd
 import math, random
-from ipywidgets import *
 
-from view_presentation.interface import embedding_distance
+import view_presentation.interface.embedding_distance as embedding_distance
 #from view_presentation.interface.attribute_content_interface import AttributeContentInterface
 import view_presentation.config as config
 import view_presentation.interface_list as interface_lst
 import view_presentation.interface as int_folder
 import ipywidgets as widgets
 
-from IPython.display import clear_output, Markdown
+from IPython.display import clear_output
 
 random.seed(config.seed)
 
@@ -20,7 +19,6 @@ class ViewPresentation:
     def __init__(self,query, df_lst):
         self.interface_options=[]
         self.asked={}
-        self.total_questions=0
         self.answered={}
 
         self.query = query
@@ -55,12 +53,8 @@ class ViewPresentation:
         res= (self.result)
         coverage_lst=res[-1]
         self.choose_interface()
-        #print (res)
-        #print (res[0])
-        try:
-            out_index= res[0].index(res[1].value)
-        except:
-            out_index=0
+        out_index= res[0].index(res[1].value)
+        
         if out_index==0:
             for df_iter in coverage_lst:
                 if df_iter in self.shortlisted_datasets.keys():
@@ -75,61 +69,30 @@ class ViewPresentation:
                     self.ignored_datasets[df_iter]=1
 
 
-        # print ("this",out_index,self.shortlisted_datasets,self.ignored_datasets)
+        print ("this",out_index,self.shortlisted_datasets,self.ignored_datasets)
 
         return
-    
-
-    def get_shortlisted_datasets(self,b=None):
+    def get_shortlisted_datasets(self):
         print ("shortlisted datasets are")
         '''for iter in shortlisted:
             print ("---------------------")
             display(self.df_lst[iter])
             print ("---------------------")
         '''
-        clear_output(wait=True)
-        self.goback = widgets.Button(
-                description='Answer More',
-                disabled=False,
-                button_style='', # 'success', 'info', 'warning', 'danger' or ''
-                tooltip='Submit',
-                icon='' # (FontAwesome names without the `fa-` prefix)
-            )
-        self.goback.on_click(self.choose_interface)
-        display(self.goback)
-
         final_scores={}
         for df_iter in self.shortlisted_datasets.keys():
             final_scores[df_iter] = self.shortlisted_datasets[df_iter]
             if df_iter in self.ignored_datasets.keys():
                 final_scores[df_iter]-=self.ignored_datasets[df_iter]
         scores = sorted(final_scores.items(), key=lambda item: item[1],reverse=True)
-        
-        iter=1
-        for (score,df_iter) in scores:
-            print ("Rank ",iter)
-            self.download = widgets.Button(
-                description='Download',
-                disabled=False,
-                button_style='', # 'success', 'info', 'warning', 'danger' or ''
-                tooltip='Submit',
-                icon='' # (FontAwesome names without the `fa-` prefix)
-            )
-            #self.download.on_click(self.choose_interface)
-            display(self.df_lst[df_iter].head(10),self.download)
-            iter+=1
-
-        # print (scores)
+        print (scores)
 
 
-    def choose_interface(self,b=None):
+    def choose_interface(self):
 
         threshold=math.ceil(math.log(len(self.interface_options))*1.0/math.log(2))
         
-        clear_output(wait=True)
-
-        display(Markdown('<h1><center><strong>{}</strong></center></h1>'.format("View Presentation")))
-
+        
         gamma=config.gamma
 
         scores=[]
@@ -161,7 +124,7 @@ class ViewPresentation:
         if len(valid_interfaces)==0:
             return None,None,None
         if choose_random:
-            max_index=self.total_questions % len(self.interface_options)#random.randint(0,len(scores)-1)#scores.index(max(scores))
+            max_index=random.randint(0,len(scores)-1)#scores.index(max(scores))
             #print (max_index,"choosing randomly")
         else:
             #Toss a coin with prob. TODO
@@ -181,21 +144,10 @@ class ViewPresentation:
                 i+=1
             max_index=i
         #print ("Current question",max_index)
-        self.total_questions+=1
-        #print ("chosen interface",self.interface_options[max_index])
-        #print (max_index,valid_interfaces,corresponding_ques)
+
         self.result = valid_interfaces[max_index].ask_question(corresponding_ques[max_index],self.df_lst)
         self.result.append(coverage_lst[max_index])
         self.result[2].on_click(self.update_output)
-        self.shortlisted_datasets_button = widgets.Button(
-                description='Show\n Shortlist',
-                disabled=False,
-                button_style='', # 'success', 'info', 'warning', 'danger' or ''
-                tooltip='Submit',
-                icon='' # (FontAwesome names without the `fa-` prefix)
-            )
-        self.shortlisted_datasets_button.on_click(self.get_shortlisted_datasets)
-        display(HBox([self.shortlisted_datasets_button], layout= Layout(width='100%')))
         '''
         if result==1:
             for df_iter in coverage_lst[max_index]:

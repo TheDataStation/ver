@@ -1,71 +1,42 @@
 from view_presentation.interface.interface import interface
-from view_presentation.interface import embedding_distance
 import pandas as pd
-import random
-from IPython.display import Markdown
-from IPython.display import display
-
-# import view_presentation.interface.cluster as cluster
-from view_presentation.interface import cluster
-from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+from view_presentation.interface import embedding_distance
 import ipywidgets as widgets
+
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import matplotlib.pyplot as plt
 
-class WordCloudAttributeNameInterface(interface):
-    def __init__(self,name,embedding_obj=None,k=10):
+from IPython.display import clear_output
+
+class WordcloudNameInterface(interface):
+    def __init__(self,name,embedding_obj=None):
         self.name=name
         self.asked_questions={}
         self.curr_question_iter=0
         self.embedding_obj=embedding_obj
-        self.k=k
-
     def generate_candidates (self, df_lst):
-
         self.attr_dic={}
-        self.attributes=[]
-        self.attr_to_val={}
         iter=0
-        #print (len(df_lst))
         while iter<len(df_lst):
             df=df_lst[iter]
-            
             try:
                 attr_lst= list(df.columns)
-                #self.attributes.extend(attr_lst)
                 for attr in list(df.columns):
                     if len(attr)<3:
                         continue
                     attr_df_lst=[]
-                    val_lst=[]
                     if attr in self.attr_dic.keys():
                         attr_df_lst=self.attr_dic[attr]
-                        val_lst=self.attr_to_val[attr]
                     attr_df_lst.append(iter)
-                    val_lst.extend(list(df[attr]))
-                    self.attr_to_val[attr]=val_lst
                     self.attr_dic[attr]=attr_df_lst
                 iter+=1
             except:
                 iter+=1
                 continue
 
-        self.attributes = list(self.attr_dic.keys())
-        #print (self.attributes,self.attr_to_val)
-        self.centers_attr,self.center_attr,pred1,max_dist,pred_map_attr=cluster.cluster(self.attributes,self.attr_to_val,[],0,self.embedding_obj,self.k)
-        self.cluster_attr={}
-        for attr in pred_map_attr.keys():
-            l=[]
-            if pred_map_attr[attr] in self.cluster_attr.keys():
-                l=self.cluster_attr[pred_map_attr[attr]]
-            l.append(attr)
-            self.cluster_attr[pred_map_attr[attr]]=l
-        print (self.cluster_attr,self.center_attr)
-
-
     def rank_candidates (self, query): 
         self.scores={}
-        for attr in self.center_attr:
-            #print (attr,self.center_attr)
+        for attr in self.attr_dic.keys():
             dist=self.embedding_obj.get_distance(attr,query)#model.wmdistance(attr.split(),query.split())
             self.scores[attr]=dist
         self.sorted_sc=sorted(self.scores.items(), key=lambda item: item[1],reverse=False)
@@ -83,34 +54,16 @@ class WordCloudAttributeNameInterface(interface):
             else:
                 break
         curr_question = self.sorted_sc[iter][0]
-        
-               
         self.curr_question_iter = iter
         #print ("sorted2",self.sorted_sc,iter)
         #returns the chosen attribute and list of dataframes containing the attribute
-
-        lst = self.cluster_attr[curr_question] 
-
         coverage = list(set(self.attr_dic[curr_question]) - set(ignored_datasets))
 
-        return (len(coverage), lst, self.attr_dic[curr_question])
+        return (len(coverage), curr_question,self.attr_dic[curr_question])
 
     def ask_question_gui(self, question, df_lst):
         self.curr_question_iter += 1
-        question=["ratings", "rating", "score rating", "overall_rating"]#"loan_name", "program_group", "overall_rating"]
-        display(Markdown('<h3><strong>{}</strong></h3>'.format("Does the required dataset contain any of these attributes:")))
-        #print("Does the required dataset contain any of these attributes:")
-        wordcloud = WordCloud(background_color="white",stopwords=STOPWORDS,collocations=True).generate(' '.join(question))
-        def grey_color_func(word, font_size, position, orientation, random_state=None,
-                    **kwargs):
-            return "hsl(0, 0%%, %d%%)" % random.randint(0, 1)
-
-        def update():
-            plt.imshow(wordcloud.recolor(color_func=grey_color_func, random_state=3), cmap='Greys',interpolation='bilinear')
-    
-        wc_widget=widgets.interactive_output(update,{})
-        display(wc_widget)
-
+        print ("Do you want to shortlist datasets containing the attribute: ",question)
         self.attribute_yesno=widgets.RadioButtons(
             options=['Yes, my data must contain this attribute', 'No, my data should not contain this attribute','Does not matter'],
             value='Does not matter', # Defaults to 'pineapple'
@@ -132,8 +85,8 @@ class WordCloudAttributeNameInterface(interface):
         return [['Yes, my data must contain this attribute', 'No, my data should not contain this attribute','Does not matter'],self.attribute_yesno,self.submit]
 
     def returnval(self,b):
-        for ques in self.curr_question:
-            self.asked_questions[ques] = self.attribute_yesno.value
+
+        self.asked_questions[self.curr_question] = self.attribute_yesno.value
         #self.asked_questions[question] = self.attribute_yesno.value
         return self.attribute_yesno.value
     def ask_question(self, question, df_lst):
@@ -159,7 +112,6 @@ class WordCloudAttributeNameInterface(interface):
         '''
 
 
-#example usage of the interface
 if __name__ == '__main__':
 
     data1 = ["Chicago","NYC","SF","Seattle"]
@@ -170,16 +122,10 @@ if __name__ == '__main__':
 
     df_lst=[df1,df2]
     embedding_obj = embedding_distance.EmbeddingModel()
-   
-    print ("WordCloud Interface")
-    attr_inf=WordCloudAttributeNameInterface("wordcloud interface",embedding_obj,1)
+    attr_inf=AttributeNameInterface("header interface",embedding_obj)
     attr_inf.generate_candidates(df_lst)
-
     print(attr_inf.attr_dic)
-
     
     print(attr_inf.rank_candidates("new york city"))
-
     print(attr_inf.get_question())
 
-    

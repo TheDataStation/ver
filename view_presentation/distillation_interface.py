@@ -1,32 +1,25 @@
 import pandas as pd
-from IPython.display import Markdown
-
 from view_presentation.interface.interface import interface
 from view_presentation.interface import embedding_distance
 import ipywidgets as widgets
 
 from IPython.display import clear_output
+from view_distillation import ViewDistillation
 
 
-class DatasetInterfaceAttributeSim(interface):
+class DistillationInterface(interface):
     def __init__(self,name,embedding_obj=None):
         self.name=name
         self.asked_questions={}
         self.curr_question_iter=0
         self.embedding_obj=embedding_obj
 
-    def generate_candidates (self, df_lst):
-        self.attr_dic={}
-        iter=0
-        while iter<len(df_lst):
-            df=df_lst[iter]
-            try:
-                attr_lst= list(df.columns)
-                self.attr_dic[iter] = ' '.join(attr_lst)
-                iter+=1
-            except:
-                iter+=1
-                continue
+
+    def generate_candidates (self, path_to_views):
+        self.vd = ViewDistillation(path_to_views)
+        vd.distill_views(remove_identical_views=True, remove_contained_views=True, union_complementary_views=True)
+        self.graph = vd.generate_graph()
+
 
     def rank_candidates (self, query): 
         self.scores={}
@@ -55,8 +48,8 @@ class DatasetInterfaceAttributeSim(interface):
 
     def ask_question_gui(self, question, df_lst):
         self.curr_question_iter += 1
-        display(Markdown('<h3><strong>{}</strong></h3>'.format("Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
-        display(df_lst[question].head(10))
+        print ("Would you shortlist this dataset for the query?")
+        display(df_lst[question])
 
         self.attribute_yesno=widgets.RadioButtons(
             options=['Yes, my data must contain this dataset', 'No, my data should not contain this dataset','Does not matter'],

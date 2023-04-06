@@ -1,14 +1,16 @@
+import copy
+import numpy as np
 import pandas as pd
 from IPython.display import Markdown
-
+from IPython.display import display_html
 from view_presentation.interface.interface import interface
 from view_presentation.interface import embedding_distance
 import ipywidgets as widgets
-
+from IPython.display import HTML
 from IPython.display import clear_output
 
 
-class DatasetInterfaceAttributeSim(interface):
+class CDatasetInterfaceAttributeSim(interface):
     def __init__(self,name,embedding_obj=None):
         self.name=name
         self.asked_questions={}
@@ -52,15 +54,46 @@ class DatasetInterfaceAttributeSim(interface):
             return (1, curr_question,[curr_question])
         else:
             return None
+    def highlight_diff(self,df1, df2, color='pink'):
+        # Define html attribute
+        attr = 'background-color: {}'.format(color)
+        # Where df1 != df2 set attribute
+        return pd.DataFrame(np.where(df1.ne(df2), attr, ''), index=df1.index, columns=df1.columns)
+
+
+    def highlight_cols(self,s, color='lightgreen'):
+        return 'background-color: %s' % color
 
     def ask_question_gui(self, question, df_lst):
+
+        display(Markdown('<h3><strong>{}</strong></h3>'.format("Below are contradicting datasets (with key = long_name), which dataset would you shortlist?")))#This Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
+        contradictory_rows1=df_lst[0].head(3)#, random_state=1)
+        contradictory_rows1.loc[1]=df_lst[0].loc[4]
+        contradictory_rows2=copy.deepcopy(contradictory_rows1)#df_lst[0].head())
+        contradictory_rows2.at[2,'overall_rating']='inability to rate'
+        contradictory_rows2.at[0,'overall_rating']='inability to rate'
+        key_tuple = tuple(['long_name'])#,'long_name')
+        html1 = contradictory_rows1.style \
+                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, ['long_name']],
+                                      color='lightyellow') \
+                            .apply(self.highlight_diff, axis=None, df2=contradictory_rows2) \
+                            .render()#tio_html()
+
+        html2 = contradictory_rows2.style \
+                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, ['long_name']],
+                                      color='lightyellow') \
+                            .apply(self.highlight_diff, axis=None, df2=contradictory_rows1) \
+                            .render()#to_html()   
+        display(Markdown('<h3><strong>{}</strong></h3>'.format("A:")))
+        display(HTML(html1)) 
+        display(Markdown('<h3><strong>{}</strong></h3>'.format("B:")))
+        display(HTML(html2))
         self.curr_question_iter += 1
-        display(Markdown('<h3><strong>{}</strong></h3>'.format("Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
-        display(df_lst[question].head(10))
+        #display(df_lst[question].head(10))
 
         self.attribute_yesno=widgets.RadioButtons(
-            options=['Yes, my data must contain this dataset', 'No, my data should not contain this dataset','Does not matter'],
-            value='Does not matter', # Defaults to 'pineapple'
+                options=['A: Choose the first one', 'B: Choose the second one','None'],
+            value='None', # Defaults to 'pineapple'
             description='',
             disabled=False
         )

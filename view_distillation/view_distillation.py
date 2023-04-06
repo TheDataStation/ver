@@ -24,7 +24,7 @@ class ViewDistillation:
         dfs, self.path_to_df_dict = get_dataframes(path=path_to_views, dfs=dfs)
         self.dfs_per_schema = classify_per_table_schema(dfs)
 
-        # print(f"original num views: {len(dfs)}")
+        print(f"original num views: {len(dfs)}")
         # print(f"num schema groups: {len(self.dfs_per_schema)}")
 
         self.hash_dict = {}
@@ -578,7 +578,9 @@ class ViewDistillation:
                 # only union the two views when there is no contradiction for ANY key
                 # continue
 
-            if (path1, path2) in already_processed:
+            # if (path1, path2) in already_processed:
+            #     continue
+            if path1 in already_processed or path2 in already_processed:
                 continue
 
             df1 = self.path_to_df_dict[path1]
@@ -586,13 +588,17 @@ class ViewDistillation:
 
             new_df = pd.concat([df1, df2]).drop_duplicates().reset_index(drop=True)
             file_name = f"{os.path.splitext(path1)[0]}_union_{path2}"
-            if self.path_to_views is not None:
-                new_path = os.path.join(self.path_to_views, file_name)
-                new_df.to_csv(new_path)
+            # if self.path_to_views is not None:
+            #     new_path = os.path.join(self.path_to_views, file_name)
+            #     new_df.to_csv(new_path)
 
-            already_processed.add((path1, path2))
+            # already_processed.add((path1, path2))
+            already_processed.add(path1)
+            already_processed.add(path2)
+
             self.complementary_views_to_remove.add(path1)
             self.complementary_views_to_remove.add(path2)
+            
             self.unioned_complementary_views.append((file_name, new_df))
 
         views_left = []

@@ -1,9 +1,7 @@
 from view_presentation.interface.interface import interface
+from IPython.display import Markdown
 import pandas as pd
-# import view_presentation.interface.embedding_distance as embedding_distance
-
 from view_presentation.interface import embedding_distance
-
 import ipywidgets as widgets
 
 from IPython.display import clear_output
@@ -63,7 +61,8 @@ class AttributeNameInterface(interface):
 
     def ask_question_gui(self, question, df_lst):
         self.curr_question_iter += 1
-        print ("Do you want to shortlist datasets containing the attribute: ",question)
+        display(Markdown('<h3><strong>{}</strong></h3>'.format("Do you want to shortlist datasets containing the attribute: "+question)))
+        #print ("Do you want to shortlist datasets containing the attribute: ",question)
         self.attribute_yesno=widgets.RadioButtons(
             options=['Yes, my data must contain this attribute', 'No, my data should not contain this attribute','Does not matter'],
             value='Does not matter', # Defaults to 'pineapple'

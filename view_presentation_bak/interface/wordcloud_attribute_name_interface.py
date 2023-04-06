@@ -1,18 +1,14 @@
 from view_presentation.interface.interface import interface
+# import view_presentation.interface.embedding_distance as embedding_distance
 from view_presentation.interface import embedding_distance
 import pandas as pd
-import random
-from IPython.display import Markdown
-from IPython.display import display
-
 # import view_presentation.interface.cluster as cluster
 from view_presentation.interface import cluster
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import ipywidgets as widgets
-import matplotlib.pyplot as plt
 
 class WordCloudAttributeNameInterface(interface):
-    def __init__(self,name,embedding_obj=None,k=10):
+    def __init__(self,name,embedding_obj=None,k=100):
         self.name=name
         self.asked_questions={}
         self.curr_question_iter=0
@@ -59,7 +55,7 @@ class WordCloudAttributeNameInterface(interface):
                 l=self.cluster_attr[pred_map_attr[attr]]
             l.append(attr)
             self.cluster_attr[pred_map_attr[attr]]=l
-        print (self.cluster_attr,self.center_attr)
+
 
 
     def rank_candidates (self, query): 
@@ -97,22 +93,9 @@ class WordCloudAttributeNameInterface(interface):
 
     def ask_question_gui(self, question, df_lst):
         self.curr_question_iter += 1
-        question=["ratings", "rating", "score rating", "overall_rating"]#"loan_name", "program_group", "overall_rating"]
-        display(Markdown('<h3><strong>{}</strong></h3>'.format("Does the required dataset contain any of these attributes:")))
-        #print("Does the required dataset contain any of these attributes:")
-        wordcloud = WordCloud(background_color="white",stopwords=STOPWORDS,collocations=True).generate(' '.join(question))
-        def grey_color_func(word, font_size, position, orientation, random_state=None,
-                    **kwargs):
-            return "hsl(0, 0%%, %d%%)" % random.randint(0, 1)
-
-        def update():
-            plt.imshow(wordcloud.recolor(color_func=grey_color_func, random_state=3), cmap='Greys',interpolation='bilinear')
-    
-        wc_widget=widgets.interactive_output(update,{})
-        display(wc_widget)
-
+        print ("Does the required dataset contain attribute: ",question)
         self.attribute_yesno=widgets.RadioButtons(
-            options=['Yes, my data must contain this attribute', 'No, my data should not contain this attribute','Does not matter'],
+            options=['Yes, my data must contain this attribute', 'No, the data should not contain this attribute','Does not matter'],
             value='Does not matter', # Defaults to 'pineapple'
             description='',
             disabled=False

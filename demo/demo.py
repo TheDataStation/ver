@@ -5,7 +5,7 @@ sys.path.append("..")
 
 from typing import List
 import ipywidgets as widgets
-from IPython.display import display, clear_output, HTML, display_html
+from IPython.display import display, clear_output, HTML, display_html, Markdown
 
 import pandas as pd
 import time
@@ -158,7 +158,7 @@ class Ver:
 
             self.materialize_join_graphs()
 
-            self.view_distillation()
+            # self.view_distillation()
 
             self.show_views()
 
@@ -169,14 +169,16 @@ class Ver:
         button2 = widgets.Button(description="Remove Column")
         button3 = widgets.Button(description="Add Row")
         button4 = widgets.Button(description="Remove Row")
-        button5 = widgets.Button(description="Generate\nViews")
+        button5 = widgets.Button(description="Find\nViews")
         button1.on_click(add_column)
         button2.on_click(remove_column)
         button3.on_click(add_row)
         button4.on_click(remove_row)
         button5.on_click(confirm)
 
-        print("Query-by-Example interface")
+        # print("Query-by-Example interface")
+        display(Markdown('<h1><center><strong>{}</strong></center></h1>'.format("Ver QBE interface")))
+
         display(widgets.HBox([button1, button2, button3, button4]))
         draw()
         display(out)
@@ -220,12 +222,12 @@ class Ver:
 
         self.candidate_list = self.qbe.find_candidate_columns(self.example_columns, cluster_prune=True)
 
-        self.candidate_list = [x[:10] for x in self.candidate_list]
+        # self.candidate_list = [x[:15] for x in self.candidate_list]
 
         # for i, candidate in enumerate(self.candidate_list):
-        #     print('column {}: found {} candidate columns'.format(self.example_columns[i].attr, len(candidate)))
-        #     # for c in candidate:
-        #     #     print(c)
+        #     print('Column {}: found {} candidate columns'.format(self.example_columns[i].attr, len(candidate)))
+            # for c in candidate:
+            #     print(c)
 
         print("---------------------------------------")
 
@@ -239,7 +241,7 @@ class Ver:
 
         self.join_graphs = self.qbe.find_join_graphs_between_candidate_columns(self.candidate_list, order_chain_only=True)
         
-        self.join_graphs = self.join_graphs[:200]
+        # self.join_graphs = self.join_graphs[:500]
 
         # print("found {} join graphs".format(len(self.join_graphs)))
         
@@ -295,13 +297,17 @@ class Ver:
     def view_distillation(self, remove_identical_views=True,
                                 remove_contained_views=True,
                                 union_complementary_views=True,
-                                graph=True):
+                                graph=False,
+                                path_to_views=None):
         
         # print("---------------------------------------")
 
         print("Distilling views")
 
-        self.vd = ViewDistillation(dfs=self.view_dfs)
+        if path_to_views is None:
+            self.vd = ViewDistillation(dfs=self.view_dfs)
+        else:
+            self.vd = ViewDistillation(path_to_views=path_to_views)
 
         if graph:
             self.G = self.vd.prune_graph(remove_identical_views,
@@ -637,7 +643,7 @@ class Ver:
 
     def view_presentation(self):
 
-        query = ""
+        query = "school type rating"
 
         vp = ViewPresentation(query, self.view_dfs)
         
