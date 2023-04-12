@@ -7,26 +7,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import ddprofiler.analysis.modules.Cardinality;
-import ddprofiler.analysis.modules.CardinalityAnalyzer;
-import ddprofiler.analysis.modules.Entities;
-import ddprofiler.analysis.modules.EntityAnalyzer;
-import ddprofiler.analysis.modules.KMinHash;
+import ddprofiler.analysis.modules.*;
+import xsystem.layers.XStructure;
 
 public class TextualAnalyzer implements TextualAnalysis {
 
     private List<DataConsumer> analyzers;
     private CardinalityAnalyzer ca;
     private KMinHash mh;
+    private XSystemAnalyzer xa;
     private EntityAnalyzer ea;
 
     private TextualAnalyzer(int pseudoRandomSeed) {
         analyzers = new ArrayList<>();
         mh = new KMinHash(pseudoRandomSeed);
         ca = new CardinalityAnalyzer();
+        xa = new XSystemAnalyzer();
 //        this.ea = ea;
         analyzers.add(ca);
         analyzers.add(mh);
+        analyzers.add(xa);
 //        analyzers.add(ea);
     }
 
@@ -65,6 +65,11 @@ public class TextualAnalyzer implements TextualAnalysis {
     @Override
     public long[] getMH() {
         return mh.getMH();
+    }
+
+    @Override
+    public XStructure getXstructure() {
+        return xa.getXstructure();
     }
 
 }

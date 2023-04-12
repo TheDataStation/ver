@@ -48,8 +48,8 @@ dependencies {
     // elastic
     implementation 'co.elastic.clients:elasticsearch-java:8.4.3'
 
-
-//    implementation 'co.elastic.clients:elasticsearch-java:8.4.1'
+    // local library
+    implementation fileTree(dir: 'libs', include: '*.jar')
 
     // This dependency is used by the application.
     // default -> implementation 'com.google.guava:guava:31.0.1-jre'
