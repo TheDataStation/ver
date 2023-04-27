@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import ddprofiler.analysis.modules.*;
+import ddprofiler.analysis.modules.Cardinality;
+import ddprofiler.analysis.modules.CardinalityAnalyzer;
+import ddprofiler.analysis.modules.EntityAnalyzer;
+import ddprofiler.analysis.modules.KMinHash;
+import ddprofiler.analysis.modules.XSystemAnalyzer;
 import xsystem.layers.XStructure;
 
 public class TextualAnalyzer implements TextualAnalysis {
