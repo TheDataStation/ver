@@ -13,6 +13,9 @@ public class ProfilerConfig extends Config {
 
     private static final ConfigDef config;
 
+    public static final String EXCLUDE_ANALYZER = "exclude.analyzer";
+    public static final String EXCLUDE_ANALYZER_DOC = "To exclude analyzer, ex: \"XSystem\"";
+
     public static final String EXPERIMENTAL = "experimental";
     private static final String EXPERIMENTAL_DOC = "To activate experimental features";
 
@@ -81,7 +84,8 @@ public class ProfilerConfig extends Config {
                 .define(ERROR_LOG_FILE_NAME, Type.STRING, "error_profiler.log", Importance.MEDIUM,
                     ERROR_LOG_FILE_NAME_DOC)
                 .define(REPORT_METRICS_CONSOLE, Type.INT, -1, Importance.HIGH, REPORT_METRICS_CONSOLE_DOC)
-                .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC);
+                .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC)
+                .define(EXCLUDE_ANALYZER, Type.STRING, "", Importance.LOW, EXCLUDE_ANALYZER_DOC);
     }
 
     public ProfilerConfig(Map<? extends Object, ? extends Object> originals) {
