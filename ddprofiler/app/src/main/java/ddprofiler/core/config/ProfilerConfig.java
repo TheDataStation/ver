@@ -63,6 +63,9 @@ public class ProfilerConfig extends Config {
     public static final String REPORT_METRICS_CONSOLE = "console.metrics";
     private static final String REPORT_METRICS_CONSOLE_DOC = "Output metrics to console";
 
+    public static final String XSYSTEM_REFERENCE_FILE = "xsystem.reference";
+    private static final String XSYSTEM_REFERENCE_FILE_DOC = "Reference file used for automated labeling using XSystem";
+
     static {
         config = new ConfigDef()
                 .define(SOURCE_CONFIG_FILE, Type.STRING, "", Importance.HIGH, SOURCE_CONFIG_FILE_DOC)
@@ -81,7 +84,9 @@ public class ProfilerConfig extends Config {
                 .define(ERROR_LOG_FILE_NAME, Type.STRING, "error_profiler.log", Importance.MEDIUM,
                     ERROR_LOG_FILE_NAME_DOC)
                 .define(REPORT_METRICS_CONSOLE, Type.INT, -1, Importance.HIGH, REPORT_METRICS_CONSOLE_DOC)
-                .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC);
+                .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC)
+                .define(XSYSTEM_REFERENCE_FILE, Type.STRING, "./app/src/main/resources/reference.json", 
+                    Importance.MEDIUM, XSYSTEM_REFERENCE_FILE_DOC);
     }
 
     public ProfilerConfig(Map<? extends Object, ? extends Object> originals) {
