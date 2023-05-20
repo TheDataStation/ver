@@ -11,4 +11,6 @@ public interface TextualAnalysis extends Analysis, TextualDataConsumer {
 
     public long[] getMH();
 
+    public String getLabel();
+
 }

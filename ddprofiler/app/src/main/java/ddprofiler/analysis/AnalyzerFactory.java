@@ -1,6 +1,7 @@
 package ddprofiler.analysis;
 
 import ddprofiler.analysis.modules.EntityAnalyzer;
+import ddprofiler.core.config.ProfilerConfig;
 
 public class AnalyzerFactory {
 
@@ -19,4 +20,10 @@ public class AnalyzerFactory {
         TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pseudoRandomSeed);
         return ta;
     }
+
+    public static TextualAnalysis makeTextualAnalyzer(ProfilerConfig pc, int pseudoRandomSeed) {
+        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pc, pseudoRandomSeed);
+        return ta;
+    }
+
 }

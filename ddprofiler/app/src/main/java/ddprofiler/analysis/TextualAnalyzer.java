@@ -12,6 +12,8 @@ import ddprofiler.analysis.modules.CardinalityAnalyzer;
 import ddprofiler.analysis.modules.Entities;
 import ddprofiler.analysis.modules.EntityAnalyzer;
 import ddprofiler.analysis.modules.KMinHash;
+import ddprofiler.analysis.modules.LabelAnalyzer;
+import ddprofiler.core.config.ProfilerConfig;
 
 public class TextualAnalyzer implements TextualAnalysis {
 
@@ -19,6 +21,7 @@ public class TextualAnalyzer implements TextualAnalysis {
     private CardinalityAnalyzer ca;
     private KMinHash mh;
     private EntityAnalyzer ea;
+    private LabelAnalyzer la;
 
     private TextualAnalyzer(int pseudoRandomSeed) {
         analyzers = new ArrayList<>();
@@ -30,9 +33,23 @@ public class TextualAnalyzer implements TextualAnalysis {
 //        analyzers.add(ea);
     }
 
+    private TextualAnalyzer(ProfilerConfig pc, int pseudoRandomSeed) {
+        analyzers = new ArrayList<>();
+        la = new LabelAnalyzer(pc);
+        mh = new KMinHash(pseudoRandomSeed);
+        ca = new CardinalityAnalyzer();
+        analyzers.add(la);
+        analyzers.add(ca);
+        analyzers.add(mh);
+    }
+
     public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed) {
 //        ea2.clear();
         return new TextualAnalyzer(pseudoRandomSeed);
+    }
+
+    public static TextualAnalyzer makeAnalyzer(ProfilerConfig pc, int pseudoRandomSeed) {
+        return new TextualAnalyzer(pc, pseudoRandomSeed);
     }
 
     @Override
@@ -65,6 +82,11 @@ public class TextualAnalyzer implements TextualAnalysis {
     @Override
     public long[] getMH() {
         return mh.getMH();
+    }
+
+    @Override
+    public String getLabel() {
+        return la.getLabel();
     }
 
 }
