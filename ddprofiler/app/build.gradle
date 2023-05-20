@@ -48,7 +48,7 @@ dependencies {
     // elastic
     implementation 'co.elastic.clients:elasticsearch-java:8.4.3'
 
-
+    implementation files('libs/xsystem-ng.jar')
 //    implementation 'co.elastic.clients:elasticsearch-java:8.4.1'
 
     // This dependency is used by the application.
