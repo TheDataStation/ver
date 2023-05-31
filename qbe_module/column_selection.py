@@ -1,11 +1,17 @@
 from aurum_api.algebra import AurumAPI
-from archived.DoD import FilterType, data_processing_utils as dpu
+from archived.DoD import data_processing_utils as dpu
 from collections import defaultdict
 
 from aurum_api.apiutils import DRS, Operation, OP
 from qbe_module.column import Column
 from typing import List
 from aurum_api.apiutils import Relation
+from enum import Enum
+ 
+class FilterType(Enum):
+    ATTR = 1
+    CELL = 2
+    ATTR_CELL = 3
 
 
 class ColumnSelection:

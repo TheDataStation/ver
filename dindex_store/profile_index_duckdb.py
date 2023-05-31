@@ -81,7 +81,10 @@ class ProfileIndexDuckDB(ProfileIndex):
         except BinderException as be:
             print(f"""An error has occured when trying to get profile {be}""")
             return False
-
+        
+    def get_profile(self, node_id: int) -> Dict:
+        pass
+    
     def get_minhashes(self) -> Dict:
         # Get all profiles with minhash
         profile_table = self.conn.table(self.config["profile_table_name"])

@@ -108,15 +108,15 @@ class JoinGraphSearch:
             new_dict = {}
             for edge in valid_graph:
                 new_dict[edge] = join_path_map[edge]
-                # cnt = 0
-                # for k, v in new_dict[edge].items():
-                #     print("src_tbl", k)
-                #     for path in v:
-                #         print(path.to_str())
-                #     cnt += len(v)
-                # print(edge, cnt)
+                cnt = 0
+                for k, v in new_dict[edge].items():
+                    # print("src_tbl", k)
+                    # for path in v:
+                    #     print(path.to_str())
+                    cnt += len(v)
+                print(edge, cnt)
                 new_dict[(edge[1], edge[0])] = join_path_map[edge]
-           
+            # print("begin dfs")
             join_graphs = self.dfs_graph(valid_graph, new_dict)
             for join_graph in join_graphs:
                 join_graph = JoinGraph(join_graph)

@@ -1,28 +1,22 @@
-from knowledgerepr import fieldnetwork
-from archived.modelstore import StoreHandler
+import config
+from dindex_store.discovery_index import load_dindex
 from aurum_api.algebra import AurumAPI
 from qbe_module.query_by_example import ExampleColumn, QueryByExample
 from qbe_module.materializer import Materializer
 from tqdm import tqdm
+import os
 
-"""
-path to store the aurum graph index
-"""
-graph_path = '/home/cc/opendata_large_graph/'
-# graph_path = '/home/cc/chicago_open_data_graph/'
+cnf = {setting: getattr(config, setting) for setting in dir(config)
+        if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
 
-"""
-path to store the raw data
-"""
-data_path = '/home/cc/opendata_cleaned/'
-# data_path = '/home/cc/chicago_open_data/'
+dindex = load_dindex(cnf)
+print("Loading DIndex...OK")
 
-store_client = StoreHandler()
-network = fieldnetwork.deserialize_network(graph_path)
-aurum_api = AurumAPI(network=network, store_client=store_client)
+api = AurumAPI(dindex)
+print("created aurum api")
 
 # QBE interface
-qbe = QueryByExample(aurum_api)
+qbe = QueryByExample(api)
 
 """
 Specify an example query
@@ -51,6 +45,12 @@ for i, join_graph in enumerate(join_graphs[:10]):
 """
 Materialize join graphs
 """
+data_path = './demo_dataset/' # path where the raw data is stored
+output_path = './output/' # path to store the output views
+num_views = 100 # how many views you want to materialize
+
+if not os.path.exists(output_path):
+    os.makedirs(output_path)
 materializer = Materializer(data_path, 200)
 
 result = []
@@ -74,6 +74,8 @@ for join_graph in tqdm(join_graphs):
                     k += 1
                 new_cols.append(new_col)
             df.columns = new_cols
-            df.to_csv(f"./test_views2/view{j}.csv", index=False)
+            df.to_csv(f"./{output_path}/view{j}.csv", index=False)
+            if num_views >= num_views:
+                break
 
 print("valid views", j)

@@ -1,7 +1,7 @@
 from typing import Dict, List
 from pathlib import Path
 import os
-
+import traceback
 import kuzu
 # from kuzu import BinderException
 
@@ -31,7 +31,7 @@ class GraphIndexKuzu(GraphIndex):
                     # Note Edge and Column are hardcoded in the schema
                     q = f"DROP TABLE Edge;"
                     self.conn.execute(q)
-                    q = f"DROP TABLE Column;"
+                    q = f"DROP TABLE Dataset;"
                     self.conn.execute(q)
                 except RuntimeError as re:
                     if re == "Binder exception: Node/Rel Edge does not exist.":
@@ -49,7 +49,7 @@ class GraphIndexKuzu(GraphIndex):
 
     def add_node(self, node_id: int) -> bool:
         try:
-            self.conn.execute(f'CREATE (n:Column {{ id: {node_id} }})')
+            self.conn.execute(f'CREATE (n:Dataset {{ id: {node_id} }})')
             return True
         except Exception as e:
             print(f"Error when creating the node: {e}")
@@ -69,7 +69,7 @@ class GraphIndexKuzu(GraphIndex):
                 else:
                     attr.append(key + ': ' + str(value))
             self.conn.execute(
-                f'''MATCH (source:Column), (target:Column)
+                f'''MATCH (source:Dataset), (target:Dataset)
                 WHERE source.id = {source_node_id} AND target.id = {target_node_id}
                 CREATE (source)-[r:Edge {{ {", ".join(attr)} }}]->(target)
                 ''')
@@ -94,10 +94,14 @@ class GraphIndexKuzu(GraphIndex):
         try:
             results = self.conn.execute(
                 f'''MATCH
-                (startNode:Column {{id : {node_id}}})-[:Edge*1..{hops}]->(endNode:Column)
-                RETURN endNode''').getAsDF()
-            return results["endNode.id"].tolist()
+                (startNode:Dataset {{id : {node_id}}})-[:Edge*1..{hops}]->(endNode:Dataset)
+                RETURN endNode''')
+            neighbors = []
+            while results.has_next():
+                neighbors.append(results.get_next()[0]['id'])
+            return neighbors
         except:
+            traceback.print_exc()
             print(f"Error when trying to find a {hops}-hop neighborhood")
             return []
 

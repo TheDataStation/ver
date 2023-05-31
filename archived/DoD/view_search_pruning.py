@@ -6,7 +6,7 @@ import itertools
 from archived.DoD.colors import Colors
 from archived.DoD import data_processing_utils as dpu
 from archived.DoD import material_view_analysis as mva
-from archived.DoD import FilterType
+# from archived.DoD import FilterType
 import numpy as np
 from functools import reduce
 import operator
