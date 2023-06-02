@@ -107,12 +107,12 @@ public class LabelAnalyzerTest {
         autolabel = new LabelAnalyzer(pc);
         ArrayList<String> test = new ArrayList<>();
 
-        test.add("(12.313414414, -31.314141414)");
-        test.add("(12.313414414, 31.314141685)");
-        test.add("(-12.313414414, 31.314141414)");
-        test.add("(112.313414414, -31.314141414)");
-        test.add("(-110.313414414, 31.3120876614)");
-        test.add("(-12.313414414, -31.3146741414)");
+        test.add("(12.31341441, -31.31414141)");
+        test.add("(12.31341441, 31.31414185)");
+        test.add("(-12.31341441, 31.31414141)");
+        test.add("(112.31341414, -31.31414114)");
+        test.add("(-110.31341414, 31.312087614)");
+        test.add("(-12.31341414, -31.314674414)");
 
         autolabel.feedTextData(test);
         assertEquals(EXPECTED, autolabel.getLabel());
@@ -148,6 +148,30 @@ public class LabelAnalyzerTest {
         test.add("11000");
         test.add("12098");
         test.add("09871");
+
+        autolabel.feedTextData(test);
+        assertEquals(EXPECTED, autolabel.getLabel());
+        test.clear();
+
+    }
+
+    @Test
+    public void testNoReference() {
+        final String EXPECTED = null;
+        when(pc.getBoolean("xsystem")).thenReturn(XSYSTEM_ENABLED);
+        when(pc.getDouble("xsystem.threshold")).thenReturn(SIMILARITY_THRESHOLD);
+        when(pc.getString("xsystem.reference")).thenReturn(REFERENCE_FILE_PATH);
+
+        LabelAnalyzer.nullifyXStructureReference();
+        autolabel = new LabelAnalyzer(pc);
+        ArrayList<String> test = new ArrayList<>();
+
+        test.add("460 Tulip Street");
+        test.add("62 Orchard Street");
+        test.add("3 Main Street");
+        test.add("1100 Main Street");
+        test.add("1234 Avocado Street");
+        test.add("55 Apple Street");
 
         autolabel.feedTextData(test);
         assertEquals(EXPECTED, autolabel.getLabel());
