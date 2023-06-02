@@ -34,16 +34,6 @@ public class LabelAnalyzer implements TextualDataConsumer {
         }
     }
 
-    /**
-     * For testing
-     * @param string
-     */
-    private LabelAnalyzer(String string) {
-        String referenceFilePath = string;
-        LabelAnalyzer.xStructureReference = (new LearningModel()).readXStructsfromJSON(referenceFilePath);
-        scoreThreshold = 0.5;
-    }
-
     @Override
     public boolean feedTextData(List<String> records) {
         if (records == null || records.isEmpty()) {
@@ -67,6 +57,7 @@ public class LabelAnalyzer implements TextualDataConsumer {
 
         for (XStructType struct : xStructureReference) {
             double score = struct.xStructure.compareTwo(toBeLabeled, struct.xStructure);
+            LOG.debug("Item compared with " + struct.type + " has similarity score " + score);
             scoreList.add(score);
         }
         double maxScore = Collections.max(scoreList);
@@ -86,43 +77,6 @@ public class LabelAnalyzer implements TextualDataConsumer {
 
     public String getLabel() {
         return label;
-    }
-
-    public static void main(String[] args) {
-
-        LabelAnalyzer autolabel = new LabelAnalyzer(
-                "D:\\Project\\ver\\ddprofiler\\app\\src\\main\\resources\\reference.json");
-        ArrayList<String> test1 = new ArrayList<>();
-
-        test1.add("12/10/2002");
-        test1.add("02/11/2002");
-        test1.add("22/11/2012");
-        test1.add("18/01/2002");
-        test1.add("07/12/2002");
-        test1.add("11/12/2012");
-
-        System.out.println(autolabel.labelListOfStrings(test1));
-        ArrayList<String> test2 = new ArrayList<>();
-
-        test2.add("12-10-2002");
-        test2.add("02-11-2002");
-        test2.add("22-11-2012");
-        test2.add("18-01-2002");
-        test2.add("07-12-2002");
-        test2.add("11-12-2012");
-
-        System.out.println(autolabel.labelListOfStrings(test2));
-        ArrayList<String> test3 = new ArrayList<>();
-
-        test3.add("(12.313414414, -31.314141414)");
-        test2.add("(12.313414414, 31.314141685)");
-        test2.add("(-12.313414414, 31.314141414)");
-        test2.add("(112.313414414, -31.314141414)");
-        test2.add("(-110.313414414, 31.3120876614)");
-        test2.add("(-12.313414414, -31.3146741414)");
-
-        System.out.println(autolabel.labelListOfStrings(test3));
-
     }
     
 }
