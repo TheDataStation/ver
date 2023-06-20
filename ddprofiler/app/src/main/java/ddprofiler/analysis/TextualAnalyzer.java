@@ -9,18 +9,20 @@ import java.util.List;
 
 import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.CardinalityAnalyzer;
-import ddprofiler.analysis.modules.Entities;
 import ddprofiler.analysis.modules.EntityAnalyzer;
 import ddprofiler.analysis.modules.KMinHash;
+import ddprofiler.analysis.modules.XSystemAnalyzer;
+import xsystem.layers.XStructure;
 
 public class TextualAnalyzer implements TextualAnalysis {
 
     private List<DataConsumer> analyzers;
     private CardinalityAnalyzer ca;
     private KMinHash mh;
+    private XSystemAnalyzer xa;
     private EntityAnalyzer ea;
 
-    private TextualAnalyzer(int pseudoRandomSeed) {
+    private TextualAnalyzer(int pseudoRandomSeed, String excludedAnalyzer) {
         analyzers = new ArrayList<>();
         mh = new KMinHash(pseudoRandomSeed);
         ca = new CardinalityAnalyzer();
@@ -28,11 +30,16 @@ public class TextualAnalyzer implements TextualAnalysis {
         analyzers.add(ca);
         analyzers.add(mh);
 //        analyzers.add(ea);
+
+        if (!excludedAnalyzer.contains("XSystem")) {
+            xa = new XSystemAnalyzer();
+            analyzers.add(xa);
+        }
     }
 
-    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed) {
+    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed, String excludedAnalyzer) {
 //        ea2.clear();
-        return new TextualAnalyzer(pseudoRandomSeed);
+        return new TextualAnalyzer(pseudoRandomSeed, excludedAnalyzer);
     }
 
     @Override
@@ -65,6 +72,11 @@ public class TextualAnalyzer implements TextualAnalysis {
     @Override
     public long[] getMH() {
         return mh.getMH();
+    }
+
+    @Override
+    public XStructure getXstructure() {
+        return (xa == null) ? null : xa.getXstructure();
     }
 
 }

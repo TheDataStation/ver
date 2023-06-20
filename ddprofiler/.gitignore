@@ -1,5 +1,6 @@
 /bin/
 /drivers/
+/output_profiles_json/
 
 # Ignore Gradle project-specific cache directory
 .gradle
