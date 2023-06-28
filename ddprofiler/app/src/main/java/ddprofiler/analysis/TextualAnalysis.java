@@ -15,5 +15,4 @@ public interface TextualAnalysis extends Analysis, TextualDataConsumer {
     public XStructure getXstructure();
 
     public String getLabel();
-
 }

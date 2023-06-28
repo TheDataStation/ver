@@ -101,5 +101,4 @@ public class TextualAnalyzer implements TextualAnalysis {
     public String getLabel() {
         return (la == null) ? null : la.getLabel();
     }
-
 }

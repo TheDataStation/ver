@@ -14,5 +14,4 @@ public class AnalyzerFactory {
         TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pseudoRandomSeed, pc);
         return ta;
     }
-
 }

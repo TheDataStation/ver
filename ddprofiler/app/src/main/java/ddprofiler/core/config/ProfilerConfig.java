@@ -96,7 +96,6 @@ public class ProfilerConfig extends Config {
                     Importance.MEDIUM, XSYSTEM_REFERENCE_FILE_DOC)
                 .define(XSYSTEM_SIMILARITY_THRESHOLD, Type.DOUBLE, 0.5, 
                     Importance.MEDIUM, XSYSTEM_SIMILARITY_THRESHOLD_DOC);
-
     }
 
     public ProfilerConfig(Map<? extends Object, ? extends Object> originals) {
