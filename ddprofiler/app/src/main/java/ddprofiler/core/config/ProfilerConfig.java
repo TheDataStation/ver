@@ -14,7 +14,7 @@ public class ProfilerConfig extends Config {
     private static final ConfigDef config;
 
     public static final String EXCLUDE_ANALYZER = "exclude.analyzer";
-    public static final String EXCLUDE_ANALYZER_DOC = "To exclude analyzer, ex: \"XSystem\"";
+    public static final String EXCLUDE_ANALYZER_DOC = "To exclude analyzer, ex: \"KMinHash\", \"Cardinality\", \"Entity\", \"XSystem\", \"Label\"";
 
     public static final String EXPERIMENTAL = "experimental";
     private static final String EXPERIMENTAL_DOC = "To activate experimental features";
@@ -66,6 +66,12 @@ public class ProfilerConfig extends Config {
     public static final String REPORT_METRICS_CONSOLE = "console.metrics";
     private static final String REPORT_METRICS_CONSOLE_DOC = "Output metrics to console";
 
+    public static final String XSYSTEM_REFERENCE_FILE = "xsystem.reference";
+    private static final String XSYSTEM_REFERENCE_FILE_DOC = "Reference file used for automated labeling using XSystem";
+
+    public static final String XSYSTEM_SIMILARITY_THRESHOLD = "xsystem.threshold";
+    private static final String XSYSTEM_SIMILARITY_THRESHOLD_DOC = "Minimum similarity score to which attribute is assigned with a label";
+
     static {
         config = new ConfigDef()
                 .define(SOURCE_CONFIG_FILE, Type.STRING, "", Importance.HIGH, SOURCE_CONFIG_FILE_DOC)
@@ -85,7 +91,11 @@ public class ProfilerConfig extends Config {
                     ERROR_LOG_FILE_NAME_DOC)
                 .define(REPORT_METRICS_CONSOLE, Type.INT, -1, Importance.HIGH, REPORT_METRICS_CONSOLE_DOC)
                 .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC)
-                .define(EXCLUDE_ANALYZER, Type.STRING, "", Importance.LOW, EXCLUDE_ANALYZER_DOC);
+                .define(EXCLUDE_ANALYZER, Type.STRING, "", Importance.LOW, EXCLUDE_ANALYZER_DOC)
+                .define(XSYSTEM_REFERENCE_FILE, Type.STRING, "./app/src/main/resources/reference.json", 
+                    Importance.MEDIUM, XSYSTEM_REFERENCE_FILE_DOC)
+                .define(XSYSTEM_SIMILARITY_THRESHOLD, Type.DOUBLE, 0.5, 
+                    Importance.MEDIUM, XSYSTEM_SIMILARITY_THRESHOLD_DOC);
     }
 
     public ProfilerConfig(Map<? extends Object, ? extends Object> originals) {

@@ -1,6 +1,7 @@
 package ddprofiler.analysis;
 
 import ddprofiler.analysis.modules.EntityAnalyzer;
+import ddprofiler.core.config.ProfilerConfig;
 
 public class AnalyzerFactory {
 
@@ -9,14 +10,8 @@ public class AnalyzerFactory {
         return na;
     }
 
-    public static TextualAnalysis makeTextualAnalyzer(EntityAnalyzer ea, int pseudoRandomSeed, String excludedAnalyzer) {
-        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pseudoRandomSeed, excludedAnalyzer);
-        return ta;
-    }
-
-    public static TextualAnalysis makeTextualAnalyzer(int pseudoRandomSeed, String excludedAnalyzer) {
-//        EntityAnalyzer ea = new EntityAnalyzer();
-        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pseudoRandomSeed, excludedAnalyzer);
+    public static TextualAnalysis makeTextualAnalyzer(ProfilerConfig pc, int pseudoRandomSeed) {
+        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pseudoRandomSeed, pc);
         return ta;
     }
 }
