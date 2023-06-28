@@ -25,7 +25,7 @@ public class ProfileHolder {
         Profile wtr = new Profile(
                 -1, "none", "none", "none", "none",
                 "N", "none", 100, 100, 100, "entities",
-                new long[2], 50, 50, 50, 0, 0);
+                new long[2], "", 50, 50, 50, 0, 0);
         rs.add(wtr);
         return rs;
     }
@@ -55,6 +55,7 @@ public class ProfileHolder {
                         (int) na.getCardinality().getNonEmptyValues(),
                         "",
                         null,
+                        null,
                         na.getNumericalRange(AttributeType.FLOAT).getMinF(),
                         na.getNumericalRange(AttributeType.FLOAT).getMaxF(),
                         na.getNumericalRange(AttributeType.FLOAT).getAvg(),
@@ -75,6 +76,7 @@ public class ProfileHolder {
                         (int) na.getCardinality().getUniqueElements(),
                         (int) na.getCardinality().getNonEmptyValues(),
                         "",
+                        null,
                         null,
                         na.getNumericalRange(AttributeType.INT).getMin(),
                         na.getNumericalRange(AttributeType.INT).getMax(),
@@ -109,6 +111,7 @@ public class ProfileHolder {
                         (int) ta.getCardinality().getNonEmptyValues(),
                         "entities_removed_on_modernize_ddprofiler",
                         mh,
+                        ((ta.getXstructure() == null) ? null : ta.getXstructure().toString()),
                         0,
                         0,
                         0,

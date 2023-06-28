@@ -21,14 +21,18 @@ public class LabelAnalyzer implements TextualDataConsumer {
     private double scoreThreshold;
     private static ArrayList<XStructType> xStructureReference = null;
     private String label;
+    private static boolean isThisAnalyzerIncluded = false;
 
     public LabelAnalyzer(ProfilerConfig pc) {
         this.pc = pc;
-        this.scoreThreshold = pc.getDouble("xsystem.threshold");
+        this.scoreThreshold = pc.getDouble(ProfilerConfig.XSYSTEM_SIMILARITY_THRESHOLD);
 
-        if (LabelAnalyzer.xStructureReference == null && pc.getBoolean("xsystem")) {
-            String referenceFilePath = pc.getString("xsystem.reference");
-            LabelAnalyzer.xStructureReference = (new LearningModel()).readXStructsfromJSON(referenceFilePath);
+        String excludedAnalyzer = pc.getString(ProfilerConfig.EXCLUDE_ANALYZER);
+        if (!excludedAnalyzer.contains("Label")) isThisAnalyzerIncluded = true;
+
+        if (xStructureReference == null && isThisAnalyzerIncluded) {
+            String referenceFilePath = pc.getString(ProfilerConfig.XSYSTEM_REFERENCE_FILE);
+            xStructureReference = (new LearningModel()).readXStructsfromJSON(referenceFilePath);
         } else {
             LOG.warn("Reference file already initialized or XSystem is not enabled");
         }
@@ -42,8 +46,8 @@ public class LabelAnalyzer implements TextualDataConsumer {
         if (LabelAnalyzer.xStructureReference == null) {
             LOG.warn("Reference file not initialized");
         }
-        if (pc.getBoolean("xsystem")) {
-            this.label = labelListOfStrings((ArrayList<String>) records);
+        if (isThisAnalyzerIncluded) {
+            label = labelListOfStrings((ArrayList<String>) records);
         } else {
             LOG.info("XSystem is not enabled");
         }
