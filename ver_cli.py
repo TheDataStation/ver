@@ -257,17 +257,18 @@ class VerCLI:
     # ----------------------------------------------------------------------
     # Profile Functions
 
-    def profile(self, sources_file_name, output_path):
+    def profile(self, sources_file_name, output_path, store_type: int = 1):
         path = self._make_data_source_path(sources_file_name)
         if not path.exists():
             raise DataSourceError(f"Data Source {sources_file_name} not configured!")
-        profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', path, '--store.json.output.folder', output_path]
+        profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', path, '--store.json.output.folder', output_path,
+                       '--store.type', str(store_type)]
         subprocess.call(profile_cmd, cwd=self.ddprofiler_home)
 
     # ----------------------------------------------------------------------
     # DIndex Functions
 
-    def build_dindex(self, profile_data_path):
+    def build_dindex(self, profile_data_path, force=False):
         # try:
         #     p = Path(output_dindex_path)
         #     p.mkdir(parents=True)
@@ -276,15 +277,15 @@ class VerCLI:
         #     raise DIndexConfigurationError(f"path {output_dindex_path} already exists!")
         from dindex_builder import dindex_builder
         import config
-        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower()}
         # TODO: provide alternative way of configuring dindex build (other than config)
-        dindex_builder.build_dindex(profile_data_path, cnf)
+        dindex_builder.build_dindex(profile_data_path, cnf, force)
         # subprocess.call(['python', 'dindex_builder/dindex_builder.py', 'build', '--input_path', input_data_path])
 
     def load_dindex(self):
         from dindex_store.discovery_index import load_dindex
         import config
-        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower()}
         # TODO: provide alternative way of configuring dindex build (other than config)
         load_dindex(cnf)
 
