@@ -1,0 +1,11 @@
+api_version: 0
+
+# In sources we include as many data sources as desired
+sources:
+  - name: "quickstart"
+    type: csv
+    config:
+      # path indicates where the CSV files live
+      path: "/home/azureuser/ver/demo_dataset/"
+      # separator used in the CSV files
+      separator: ','

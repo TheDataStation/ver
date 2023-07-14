@@ -31,7 +31,7 @@ def build_parser() -> argparse.ArgumentParser:
                         help="build dindex")
     parser.add_argument("--test", dest="test", default=False, action="store_true",
                         help="enable testing mode")
-    parser.add_argument("--data", type=str, default="demo_dataset/",
+    parser.add_argument("--data", type=str, default="data_config",
                         help="data loaction")
     parser.add_argument("--profile", type=str, default="ddprofiler/output_profiles_json/",
                         help="profiles loaction")
