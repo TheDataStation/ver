@@ -1,4 +1,5 @@
 import os
+import yaml
 from pathlib import Path
 from typing import List, Dict
 
@@ -19,8 +20,8 @@ class ProfileIndexDuckDB(ProfileIndex):
 
         if not load:
             profile_schema_path = Path(config['ver_base_path'] / config['profile_schema_name']).absolute()
-            with open(profile_schema_path) as f:
-                self.schema = f.read()
+            self.schema = self._read_unified_profile_schema(profile_schema_path)
+
             try:
                 if force:
                     profile_table_name = config["profile_table_name"]
@@ -58,6 +59,9 @@ class ProfileIndexDuckDB(ProfileIndex):
         except DataError as de:
             print(f"An error has occured when trying to add profile: {de}")
             return False
+
+    def get_profile(self, node_id: int) -> Dict:
+        pass
 
     def get_filtered_profiles_from_table(self, table_name, desired_attributes: List[str]):
         profile_table = self.config["profile_table_name"]
@@ -99,6 +103,25 @@ class ProfileIndexDuckDB(ProfileIndex):
             raise ValueError("The path does not exist, or is not a file")
         
         assert "profile_table_name" in config
+
+    @classmethod
+    def _read_unified_profile_schema(self, path) -> str:
+        # Read unified profile schema file
+        with open(path, "r") as stream:
+            try:
+                # Parse unified profile schema to duckdb schema
+                file_load = yaml.safe_load(stream)
+                schema = "CREATE TABLE profiles (\n"
+                for attribute in file_load['attributes']:
+                    schema += f"    {attribute['name']} {attribute['type']},\n"
+                for analyzer in file_load['analyzers']:
+                    for field in analyzer['fields']:
+                        schema += f"    {field['name']} {field['type']},\n"
+                schema = schema[:-2] + ")"
+                return schema
+            except yaml.YAMLError as e:
+                print(f"""An error has occured when trying to parse profile schema file: {e}""")
+                return None
 
 
 if __name__ == "__main__":
