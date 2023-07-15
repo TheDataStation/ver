@@ -14,7 +14,7 @@ attributes:
 
 analyzers:
   - name: "cardinality"
-    enabled: false
+    enabled: true
     fields:
       - name: "totalvalues"
         type: "INT"
@@ -24,19 +24,19 @@ analyzers:
         type: "INT"
         
   - name: "entity"
-    enabled: false
+    enabled: true
     fields:
       - name: "entities"
         type: "VARCHAR(255)"
         
   - name: "kminhash"
-    enabled: false
+    enabled: true
     fields:
       - name: "minhash"
         type: "BLOB"
         
   - name: "range"
-    enabled: false
+    enabled: true
     fields:
       - name: "minvalue"
         type: "DECIMAL(18, 4)"
@@ -50,7 +50,13 @@ analyzers:
         type: "DECIMAL(18, 0)"
         
   - name: "xsystem"
-    enabled: false
+    enabled: true
     fields:
       - name: "xstructure"
+        type: "VARCHAR(255)"
+
+  - name: "label"
+    enabled: true
+    fields:
+      - name: "columnLabel"
         type: "VARCHAR(255)"
