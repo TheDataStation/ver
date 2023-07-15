@@ -19,12 +19,12 @@ class ProfileIndexDuckDB(ProfileIndex):
         self.schema = ""
 
         if not load:
+            profile_table_name = config["profile_table_name"]
             profile_schema_path = Path(config['ver_base_path'] / config['profile_schema_name']).absolute()
-            self.schema = self._read_unified_profile_schema(profile_schema_path)
+            self.schema = self._read_unified_profile_schema(profile_table_name, profile_schema_path)
 
             try:
                 if force:
-                    profile_table_name = config["profile_table_name"]
                     q = f"DROP TABLE IF EXISTS {profile_table_name};"
                     self.conn.execute(q)
                 for statement in self.schema.split(";"):
@@ -105,18 +105,22 @@ class ProfileIndexDuckDB(ProfileIndex):
         assert "profile_table_name" in config
 
     @classmethod
-    def _read_unified_profile_schema(self, path) -> str:
+    def _read_unified_profile_schema(self, profile_table_name, path) -> str:
         # Read unified profile schema file
         with open(path, "r") as stream:
             try:
                 # Parse unified profile schema to duckdb schema
                 file_load = yaml.safe_load(stream)
-                schema = "CREATE TABLE profiles (\n"
+                schema = f"CREATE TABLE {profile_table_name} (\n"
+
                 for attribute in file_load['attributes']:
                     schema += f"    {attribute['name']} {attribute['type']},\n"
                 for analyzer in file_load['analyzers']:
+                    if not analyzer['enabled']:
+                        continue
                     for field in analyzer['fields']:
                         schema += f"    {field['name']} {field['type']},\n"
+
                 schema = schema[:-2] + ")"
                 return schema
             except yaml.YAMLError as e:
