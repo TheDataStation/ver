@@ -10,9 +10,14 @@ $ source venv/bin/activate
 (venv) $ pip install -r requirements_quick_start.txt
 ```
 
-## Build Data Profiles
-Config data sources in ver/.dsessions/sources/data_config.yml
+## Create config file
+```bash
+python ver_cli.py create_sources_file quickstart
+python ver_cli.py add_csv quickstart quickstart <DIR>
+```
+`<DIR>` is an absolute path to your dataset.
 
+## Build Data Profiles
 ```bash
 python ver_cli.py profile data_config output_profiles_json --store_type 3
 ```
