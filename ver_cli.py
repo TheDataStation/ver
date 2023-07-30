@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import os
 import subprocess
 from pathlib import Path
+from textwrap import dedent
 
 from fire import Fire
 from aurum_api import algebra
@@ -47,15 +48,14 @@ class CSVDataSource:
         }
 
     def to_yml(self):
-        return f"""api_version: 0
-                    sources:
-                    - name: "{self.name}"
-                      type: csv
-                      config:
-                        path: "{str(self.path)}"
-                        separator: '{self.separator}'"""
-
-
+        return f"""\
+                - name: "{self.name}"
+                  type: csv
+                    config:
+                      path: "{str(self.path)}"
+                      separator: '{self.separator}'
+                """
+    
 @dataclass()
 class DBDataSource:
     name: str = ''
@@ -142,7 +142,8 @@ class VerCLI:
         except FileExistsError:
             pass
 
-        self.SOURCES_FILE_STARTING_TEMPLATE = """#######
+        self.SOURCES_FILE_STARTING_TEMPLATE = """\
+                                        #######
                                         # This file is specified as input to the ddprofiler, which uses it to extract a list of
                                         # sources that are necessary to process and profile.
                                         #
@@ -164,7 +165,8 @@ class VerCLI:
                                         # In sources we include as many data sources as desired
                                         sources:
 
-                                        # Include a source for each data source to configure"""
+                                        # Include a source for each data source to configure
+                                        """
 
     def _make_data_source_path(self, ds_name):
         # FIXME: if the file already exists, then raise exception and ask for a different name
@@ -218,7 +220,7 @@ class VerCLI:
             print("Error: File {} already exists".format(path))
             return False
         with open(path, 'w') as f:
-            f.write(self.SOURCES_FILE_STARTING_TEMPLATE)
+            f.write(dedent(self.SOURCES_FILE_STARTING_TEMPLATE))
         return True
 
     def add_csv(self, sources_file_name, csv_source_name, path_to_csv_files, sep=',') -> bool:
@@ -235,7 +237,7 @@ class VerCLI:
                                   " adding datasets.".format(path))
         # Append the source to the file
         with open(path, 'a') as f:
-            yaml_data = ds.to_yml()
+            yaml_data = dedent(ds.to_yml())
             f.write(yaml_data)
         return True
 
