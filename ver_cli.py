@@ -51,9 +51,9 @@ class CSVDataSource:
         return f"""\
                 - name: "{self.name}"
                   type: csv
-                    config:
-                      path: "{str(self.path)}"
-                      separator: '{self.separator}'
+                  config:
+                    path: "{str(self.path)}"
+                    separator: '{self.separator}'
                 """
     
 @dataclass()
@@ -96,16 +96,16 @@ class DBDataSource:
         }
 
     def to_yml(self):
-        return f"""api_version: 0
-                    sources:
-                    - name: "{self.name}"
-                      type: {self.type}
-                      config:
-                        db_server_ip: {self.host}
-                        db_server_port: {self.port}
-                        database_name: {self.db_name}
-                        db_username: {self.db_user}
-                        db_password: {self.db_password}"""
+        return f"""\
+                - name: "{self.name}"
+                  type: {self.type}
+                  config:
+                    db_server_ip: {self.host}
+                    db_server_port: {self.port}
+                    database_name: {self.db_name}
+                    db_username: {self.db_user}
+                    db_password: {self.db_password}
+                """
 
 
 class VerCLI:
