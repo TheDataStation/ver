@@ -19,7 +19,7 @@ python ver_cli.py add_csv quickstart quickstart <DIR>
 
 ## Build Data Profiles
 ```bash
-python ver_cli.py profile data_config output_profiles_json --store_type 3
+python ver_cli.py profile quickstart output_profiles_json --store_type 3
 ```
 Data profiles are stored as json files in ddprofiler/output_profiles_json
 
