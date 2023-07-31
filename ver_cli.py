@@ -226,7 +226,10 @@ class VerCLI:
     def add_csv(self, sources_file_name, csv_source_name, path_to_csv_files, sep=',') -> bool:
         ds = CSVDataSource()
         ds.name = csv_source_name
-        ds.path = path_to_csv_files
+        if Path(path_to_csv_files).is_absolute():
+            ds.path = path_to_csv_files
+        else:
+            ds.path = Path.cwd().joinpath(path_to_csv_files)
         ds.separator = sep
 
         # super()._store_data_source(ds)
@@ -259,10 +262,12 @@ class VerCLI:
     # ----------------------------------------------------------------------
     # Profile Functions
 
-    def profile(self, sources_file_name, output_path, store_type: int = 1):
+    def profile(self, sources_file_name, output_path, store_type: int = 3):
         path = self._make_data_source_path(sources_file_name)
         if not path.exists():
             raise DataSourceError(f"Data Source {sources_file_name} not configured!")
+        if not Path(output_path).is_absolute():
+            output_path = Path.cwd().joinpath(output_path)
         profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', path, '--store.json.output.folder', output_path,
                        '--store.type', str(store_type)]
         subprocess.call(profile_cmd, cwd=self.ddprofiler_home)
