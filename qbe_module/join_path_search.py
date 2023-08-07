@@ -12,6 +12,9 @@ class JoinPath:
         self.path = path
         self.tbl_proj_attrs = tbl_proj_attrs
     
+    def reverse(self):
+        return JoinPath([sub[::-1] for sub in self.path[::-1]], None)
+    
     def to_str(self):
         output = ""
         for i, join_key_pair in enumerate(self.path):
@@ -59,19 +62,33 @@ class JoinPathSearch:
                     
         return result
 
+    def find_join_paths(self, src, tgt, rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):
+        result = []
+        for src_col in self.api._general_to_drs(src):
+            src_paths = self.find_join_paths_from_col(src_col, rel, max_hop)
+            for src_path in src_paths:
+                end_tbl = src_path[-1][1].source_name
+                if end_tbl == tgt:
+                    jp = JoinPath(src_path, [])
+                    result.append(jp)
+        return result
+    
     def find_join_paths_between_two_tbls(self, src_tbl, tgt_tbls, src_dict, tgt_dict, rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):
         result = []
         if src_tbl in tgt_tbls:
             src_tbl_drs = self.api._general_to_drs(src_tbl).data[0]
-           
-            result.append(JoinPath([[src_tbl_drs, src_tbl_drs]], [src_dict[src_tbl], tgt_dict[src_tbl]]))
-        
+            jp = JoinPath([[src_tbl_drs, src_tbl_drs]], [src_dict[src_tbl], tgt_dict[src_tbl]])
+            # print(f"same table::{jp.to_str()}")
+            result.append(jp)
+          
         for src_col in self.api._general_to_drs(src_tbl):
             src_paths = self.find_join_paths_from_col(src_col, rel, max_hop)
             for src_path in src_paths:
                 end_tbl = src_path[-1][1].source_name
                 if end_tbl in tgt_tbls:
-                    result.append(JoinPath(src_path, [src_dict[src_tbl], tgt_dict[end_tbl]]))
+                    jp = JoinPath(src_path, [src_dict[src_tbl], tgt_dict[end_tbl]])
+                    # print(f"different table::{jp.to_str()}")
+                    result.append(jp)
         return result
                 
     def find_join_paths_between_two_cols(self, src: Column, tgts: List[Column], rel: Relation=Relation.CONTENT_SIM, max_hop: int=1):

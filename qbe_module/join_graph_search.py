@@ -3,16 +3,27 @@ from qbe_module.join_path_search import JoinPathSearch
 import itertools
 from collections import defaultdict
 from copy import deepcopy
+from enum import Enum
 
+class JoinGraphType(Enum):
+    JOIN = 1
+    NO_JOIN = 2
+  
 class JoinGraph:
-    def __init__(self, graph_dict):
-        adj_list = defaultdict(list)
-        for edge in graph_dict.keys():
-            adj_list[edge[0]].append(edge[1])
-            adj_list[edge[1]].append(edge[0])
-        self.graph = adj_list
-        self.paths = list(graph_dict.values())
-        self.graph_dict = graph_dict
+    def __init__(self, graph_dict, single_tbl: str=None):
+        if graph_dict is None:
+            # means there is no join needed
+            self.tbl = single_tbl
+            self.type = JoinGraphType.NO_JOIN
+        else:
+            self.type = JoinGraphType.JOIN
+            adj_list = defaultdict(list)
+            for edge in graph_dict.keys():
+                adj_list[edge[0]].append(edge[1])
+                adj_list[edge[1]].append(edge[0])
+            self.graph = adj_list
+            self.paths = list(graph_dict.values())
+            self.graph_dict = graph_dict
     
     def get_attrs_needed(self):
         # attrs needed in the materialization process {tbl -> [attrs needed]}
@@ -45,21 +56,40 @@ class JoinGraph:
         return attrs_needed, columns_to_proj
     
     def display(self):
-        i = 0
-        for edge, path in self.graph_dict.items():
-            print(edge)
-            print(path.to_str())
-            print("attributes to project")
-            for i, attrs in enumerate(path.tbl_proj_attrs):
-                print("column {} candidates".format(edge[i]))
-                print([attr.to_str() for attr in attrs])
-        
+        if self.type is JoinGraphType.NO_JOIN:
+            print(self.tbl)
+        else:
+            i = 0
+            for edge, path in self.graph_dict.items():
+                # print(edge)
+                print(path.to_str())
+                # print("attributes to project")
+                # for i, attrs in enumerate(path.tbl_proj_attrs):
+                #     print("column {} candidates".format(edge[i]))
+                #     print([attr.to_str() for attr in attrs])
+            
 
 class JoinGraphSearch:
     def __init__(self, join_path_search: JoinPathSearch):
         self.join_path_search = join_path_search
+        self.all_paths = {}
 
-    def get_join_path_map(self, candidate_lists: List):
+    def get_join_path_map(self, cand_group: List):
+        self.cur_paths = {}
+        tbl_num = len(cand_group)
+        for i in range(tbl_num):
+            for j in range(i+1, tbl_num):
+                src, tgt = cand_group[i], cand_group[j]
+                if (src, tgt) not in self.all_paths and (tgt, src) not in self.all_paths:
+                    paths = self.join_path_search.find_join_paths(src, tgt)
+                    reverse_paths = [x.reverse() for x in paths]
+                    self.all_paths[(src, tgt)] = paths
+                    self.all_paths[(tgt, src)] = reverse_paths
+                self.cur_paths[(src, tgt)], self.all_paths[(tgt, src)] = self.all_paths[(src, tgt)], self.all_paths[(tgt, src)]
+        return self.cur_paths
+
+
+    def get_join_path_map2(self, candidate_lists: List):
         self.col_num = len(candidate_lists)
         join_path_map = {}
         # group candidate columns by their table {tbl -> [columns]}
@@ -74,6 +104,7 @@ class JoinGraphSearch:
         
         for i in range(self.col_num):
             for j in range(i+1, self.col_num):
+                print(i, j)
                 src_dict = cand_dict_list[i]
                 src_tbls = list(src_dict.keys())
                 tgt_dict = cand_dict_list[j]
@@ -84,13 +115,36 @@ class JoinGraphSearch:
                 for src_tbl in src_tbls:
                     paths = self.join_path_search.find_join_paths_between_two_tbls(src_tbl, tgt_tbls, src_dict, tgt_dict)
                     all_paths[src_tbl].extend(paths)
+                    # print(src_tbl)
+                    # for path in paths:
+                    #     print(path.to_str())
                     
                 if len(all_paths) != 0:
                     join_path_map[(i, j)] = all_paths
-                   
+        # print(join_path_map)          
         return join_path_map
 
-    def find_join_graphs(self, candidate_lists: List, order_chain_only=False):
+    def find_join_graphs(self, cand_group: List, chain_only=True):
+        if len(cand_group) == 1:
+            return [JoinGraph(None, cand_group[0])]
+        join_path_map = self.get_join_path_map(cand_group)
+        edges = list(join_path_map.keys())
+        graph_skeleton = []
+        if not chain_only:
+            # we consider all graph topologies
+            graph_skeleton = list(itertools.combinations(edges, len(cand_group)-1))
+        else:
+            graph_skeleton.append([(cand_group[i], cand_group[i+1]) for i in range(len(cand_group)-1)])
+        join_graph_lst = []
+        for graph in graph_skeleton:
+            join_graphs = self.dfs_graph(graph, join_path_map)
+            for join_graph in join_graphs:
+                join_graph = JoinGraph(join_graph)
+                join_graph_lst.append(join_graph)
+           
+        return join_graph_lst
+
+    def find_join_graphs2(self, candidate_lists: List, order_chain_only=False):
         join_path_map = self.get_join_path_map(candidate_lists)
         edges = list(join_path_map.keys())
         valid_graphs = []
@@ -124,7 +178,7 @@ class JoinGraphSearch:
            
         return all_join_graphs
 
-    def dfs(self, cur_graph, visited, res, adj_list, edges_dict, path_order, idx):
+    def dfs(self, cur_graph, res, adj_list, edges_dict, path_order, idx):
         if idx == len(path_order):
             res.append(deepcopy(cur_graph))
             # if len(res) % 10000 == 0:
@@ -132,17 +186,13 @@ class JoinGraphSearch:
             return
 
         cur_edge = path_order[idx]
-        for start_tbl, edge_list in edges_dict[cur_edge].items():
-            if (cur_edge[0] in visited) and (visited[cur_edge[0]] != start_tbl):
-                continue
-            for edge in edge_list:
-                end_tbl = edge.path[-1][-1].source_name
-                cur_graph[cur_edge] = edge
-                visited[cur_edge[1]] = end_tbl
-                self.dfs(cur_graph, visited, res, adj_list, edges_dict, path_order, idx+1)
-                cur_graph.pop(cur_edge)
-                visited.pop(cur_edge[1])
-
+        start_tbl, edge_list = cur_edge[0], edges_dict[cur_edge]
+       
+        for edge in edge_list:
+            cur_graph[cur_edge] = edge
+            self.dfs(cur_graph, res, adj_list, edges_dict, path_order, idx+1)
+            cur_graph.pop(cur_edge)
+            
     
     def dfs_graph(self, graph, edges_dict):
         adj_list = defaultdict(list)
@@ -160,12 +210,12 @@ class JoinGraphSearch:
                 break
 
         path_order = []
-
+       
         self.dfs_graph_structure(adj_list, {start}, path_order, start)
-
+       
         res = []
 
-        self.dfs({}, {}, res, adj_list, edges_dict, path_order, 0)
+        self.dfs({}, res, adj_list, edges_dict, path_order, 0)
         return res
 
     def dfs_graph_structure(self, adj_list, visited, path_order, start):

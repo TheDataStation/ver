@@ -32,32 +32,46 @@ candidate_list = qbe.find_candidate_columns(example_columns, cluster_prune=True)
 for i, candidate in enumerate(candidate_list):
     print('column {}: found {} candidate columns'.format(format(i), len(candidate)))
 
-"""
-Find join graphs
-"""
-join_graphs = qbe.find_join_graphs_between_candidate_columns(candidate_list, order_chain_only=True)
-print("found {} join graphs".format(len(join_graphs)))
+cand_groups, tbl_cols = qbe.find_candidate_groups(candidate_list)
 
-"""
-Display join graphs (for debugging purpose)
-"""
-# for i, join_graph in enumerate(join_graphs[-10:]):
-#     print("----join graph {}----".format(i))
-#     join_graph.display()
+join_graphs = qbe.find_join_graphs_for_cand_groups(cand_groups)
+for i, join_graph in enumerate(join_graphs):
+    print(f"----join graph {i}----")
+    join_graph.display()
+
+# print(tbl_cols)
+# for k, v in tbl_cols.items():
+#     print("-----", k, "-------")
+#     for x, y in v.items():
+#         print(x)
+#         print(y)
+
+# """
+# Find join graphs
+# """
+# join_graphs = qbe.find_join_graphs_between_candidate_columns(candidate_list, order_chain_only=True)
+# print("found {} join graphs".format(len(join_graphs)))
+
+# """
+# Display join graphs (for debugging purpose)
+# """
+# # for i, join_graph in enumerate(join_graphs[-10:]):
+# #     print("----join graph {}----".format(i))
+# #     join_graph.display()
 
 
-"""
-Materialize join graphs
-"""
-data_path = './demo_dataset/' # path where the raw data is stored
-output_path = './output/' # path to store the output views
-num_views = 100 # how many views you want to materialize
+# """
+# Materialize join graphs
+# """
+# data_path = './demo_dataset/' # path where the raw data is stored
+# output_path = './output/' # path to store the output views
+# num_views = 100 # how many views you want to materialize
 
-if not os.path.exists(output_path):
-    os.makedirs(output_path)
-materializer = Materializer(data_path, 200)
+# if not os.path.exists(output_path):
+#     os.makedirs(output_path)
+# materializer = Materializer(data_path, 200)
 
-result = []
+# result = []
 
 # j = 0
 # for join_graph in tqdm(join_graphs):

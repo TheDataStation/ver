@@ -3,6 +3,8 @@ from qbe_module.column_selection import ColumnSelection, Column
 from qbe_module.join_path_search import JoinPathSearch
 from qbe_module.join_graph_search import JoinGraphSearch
 from aurum_api.algebra import AurumAPI
+from collections import defaultdict
+from itertools import product
 
 class ExampleColumn:
     def __init__(self, attr: str, examples: List[str]) -> None:
@@ -26,6 +28,31 @@ class QueryByExample:
             candidates_list = self.get_column_clusters(candidates_list, prune=True)
         return candidates_list
     
+    def find_candidate_groups(self, candidate_list: List[List[Column]]):
+        candidate_tbls = [set() for _ in candidate_list] 
+        tbl_cols = {}
+        for i, candidates in enumerate(candidate_list):
+            for col in candidates:
+                candidate_tbls[i].add(col.tbl_name)
+                if col.tbl_name not in tbl_cols:
+                    tbl_cols[col.tbl_name] = defaultdict(list)
+                tbl_cols[col.tbl_name][i].append(col)
+        # obtain combinations of candidate tbls
+        combs = list(product(*candidate_tbls))
+        candidate_groups = set()
+        for comb in combs:
+            candidate_groups.add(tuple(set(comb)))
+        return [list(x) for x in candidate_groups], tbl_cols
+
+    def find_join_graphs_for_cand_group(self, cand_group):
+        return self.join_graph_search.find_join_graphs(cand_group)
+
+    def find_join_graphs_for_cand_groups(self, cand_groups):
+        all_join_graphs = []
+        for cand_group in cand_groups:
+            all_join_graphs.extend(self.join_graph_search.find_join_graphs(cand_group))
+        return all_join_graphs
+
     def get_column_clusters(self, candidate_list, prune=False):
         column_clusters = []
         for i, candidate in enumerate(candidate_list):
