@@ -57,5 +57,5 @@ python ver_cli.py build_dindex output_profiles_json/ --force
 
 ## Run Ver on the demo dataset
 ```bash
-python ver_test.py
+python ver_quickstart.py
 ```

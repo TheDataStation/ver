@@ -42,16 +42,23 @@ sources:
   #     # separator used in the CSV files
   #     separator: ','
 
-  - name: "opendata"
-    # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]
+  # - name: "opendata"
+  #   # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]
+  #   type: csv
+  #   config:
+  #     # path indicates where the CSV files live
+  #     path: "/home/cc/opendata_cleaned/"
+  #     # separator used in the CSV files
+  #     separator: ','
+
+  - name: "demo"
+  # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]
     type: csv
     config:
       # path indicates where the CSV files live
-      path: "/home/cc/opendata_cleaned/"
+      path: "/Users/yuegong/Documents/ver/demo_dataset/"
       # separator used in the CSV files
       separator: ','
-
-
 
 #- name: "data_in_postgres_db"
 #  type: postgres

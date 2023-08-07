@@ -21,9 +21,9 @@ qbe = QueryByExample(api)
 """
 Specify an example query
 """
-example_columns = [ExampleColumn(attr='', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
-                   ExampleColumn(attr='', examples=["International Baccalaureate (IB)", "General Education"]),
-                    ExampleColumn(attr='', examples=["Level 1", "Level 2+"])]
+example_columns = [ExampleColumn(attr='school_name', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
+                   ExampleColumn(attr='degree type', examples=["International Baccalaureate (IB)", "General Education"]),
+                    ExampleColumn(attr='level', examples=["Level 1", "Level 2+"])]
 
 """
 Find candidate columns
@@ -37,9 +37,13 @@ Find join graphs
 """
 join_graphs = qbe.find_join_graphs_between_candidate_columns(candidate_list, order_chain_only=True)
 print("found {} join graphs".format(len(join_graphs)))
-for i, join_graph in enumerate(join_graphs[:10]):
-    print("----join graph {}----".format(i))
-    join_graph.display()
+
+"""
+Display join graphs (for debugging purpose)
+"""
+# for i, join_graph in enumerate(join_graphs[-10:]):
+#     print("----join graph {}----".format(i))
+#     join_graph.display()
 
 
 """
@@ -55,27 +59,27 @@ materializer = Materializer(data_path, 200)
 
 result = []
 
-j = 0
-for join_graph in tqdm(join_graphs):
-    """
-    a join graph can produce multiple views because different columns are projected
-    """
-    df_list = materializer.materialize_join_graph(join_graph)
-    for df in df_list:
-        if len(df) != 0:
-            j += 1
-            print("non empty view", j)
-            new_cols = []
-            k = 1
-            for col in df.columns:
-                new_col = col.split(".")[-1]
-                if new_col in new_cols:
-                    new_col += str(k)
-                    k += 1
-                new_cols.append(new_col)
-            df.columns = new_cols
-            df.to_csv(f"./{output_path}/view{j}.csv", index=False)
-            if num_views >= num_views:
-                break
-
-print("valid views", j)
+# j = 0
+# for join_graph in tqdm(join_graphs):
+#     """
+#     a join graph can produce multiple views because different columns are projected
+#     """
+#     df_list = materializer.materialize_join_graph(join_graph)
+#     for df in df_list:
+#         if len(df) != 0:
+#             j += 1
+#             print("non empty view", j)
+#             new_cols = []
+#             k = 1
+#             for col in df.columns:
+#                 new_col = col.split(".")[-1]
+#                 if new_col in new_cols:
+#                     new_col += str(k)
+#                     k += 1
+#                 new_cols.append(new_col)
+#             df.columns = new_cols
+#             df.to_csv(f"./{output_path}/view{j}.csv", index=False)
+#     if j >= num_views:
+#         break
+           
+# print("valid views", j)

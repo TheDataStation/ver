@@ -34,7 +34,7 @@ class QueryByExample:
             column_clusters.append(column_cluster)
         return column_clusters
 
-    def find_join_graphs_between_candidate_columns(self, candidate_list: List[List[Column]], order_chain_only=False):
+    def find_join_graphs_between_candidate_columns(self, candidate_list: List[List[Column]], order_chain_only=True):
         return self.join_graph_search.find_join_graphs(candidate_list, order_chain_only)
 
     def find_joins_between_candidate_columns(self, candidate_list: List[List[Column]]):
