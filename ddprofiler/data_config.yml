@@ -42,32 +42,15 @@ sources:
   #     # separator used in the CSV files
   #     separator: ','
 
-  # - name: "test"
-  #   # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]
-  #   type: csv
-  #   config:
-  #     # path indicates where the CSV files live
-  #     path: "/Users/test/data/"
-  #     # separator used in the CSV files
-  #     separator: ','
-
-  # - name: "advw"
-  #   # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]
-  #   type: csv
-  #   config:
-  #     # path indicates where the CSV files live
-  #     path: "/Users/yuegong/Documents/adventureWork/"
-  #     # separator used in the CSV files
-  #     separator: ','
-
-  - name: "quickstart"
+  - name: "test"
     # indicate the type of source, one of [csv, postgres, mysql, oracle10g, oracle11g]
     type: csv
     config:
       # path indicates where the CSV files live
-      path: "/Users/yuegong/Documents/ver/demo_dataset/"
+      path: "/Users/test/data/"
       # separator used in the CSV files
       separator: ','
+
 
 
 #- name: "data_in_postgres_db"
@@ -92,4 +75,3 @@ sources:
 #    hive_server_port: 10000
 #    # The name of the database
 #    database_name: hive-data
-
