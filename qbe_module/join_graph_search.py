@@ -8,12 +8,23 @@ from enum import Enum
 class JoinGraphType(Enum):
     JOIN = 1
     NO_JOIN = 2
-  
+
+
+class CandidateGroup:
+    def __init__(self, cand_tbls, project_options):
+        # tbls that cover all example columns
+        self.cand_tbls = cand_tbls
+        # options to project columns in cand_tbls
+        self.project_options = project_options
+
+
 class JoinGraph:
-    def __init__(self, graph_dict, single_tbl: str=None):
-        if graph_dict is None:
+    def __init__(self, cand_group: CandidateGroup, graph_dict):
+        self.cand_group = cand_group
+        cand_tbls = self.cand_group.cand_tbls
+        if len(cand_tbls) == 1:
             # means there is no join needed
-            self.tbl = single_tbl
+            self.tbl = cand_tbls[0]
             self.type = JoinGraphType.NO_JOIN
         else:
             self.type = JoinGraphType.JOIN
@@ -25,36 +36,41 @@ class JoinGraph:
             self.paths = list(graph_dict.values())
             self.graph_dict = graph_dict
     
-    def get_attrs_needed(self):
-        # attrs needed in the materialization process {tbl -> [attrs needed]}
-        attrs_needed = defaultdict(set)
-        columns_to_project_dict = defaultdict(list)
+    def get_attrs_needed(self, tbl_cols):
+        # get attrs needed in the materialization process {tbl -> [attrs needed]}
+        attrs_needed = {}
+        for tbl in self.cand_group.cand_tbls:
+            attrs_needed[tbl] = list(itertools.chain(*list(tbl_cols[tbl].values())))
+            attrs_needed[tbl] = set([col.attr_name for col in attrs_needed[tbl]])
 
-        for edge, path in self.graph_dict.items():
-            start, end = edge[0], edge[1]
-            proj_attrs = path.tbl_proj_attrs
-            columns_to_project_dict[start] = proj_attrs[0]
-            columns_to_project_dict[end] = proj_attrs[1]
-
-        columns_to_proj = [(k, v) for k, v in columns_to_project_dict.items()]
-
-        columns_to_proj = sorted(columns_to_proj, key=lambda x: x[0])
-
-        columns_to_proj = [columns_to_proj_pair[1] for columns_to_proj_pair in columns_to_proj]
-
-        for path in self.paths:
-            for join_pair in path.path:
-                if len(join_pair[0].field_name):
-                    attrs_needed[join_pair[0].source_name].add(join_pair[0].field_name)
-                if len(join_pair[1].field_name):
-                    attrs_needed[join_pair[1].source_name].add(join_pair[1].field_name)
+        # add join key to attrs needed
+        if self.type == JoinGraphType.JOIN:
+            for path in self.paths:
+                for join_pair in path.path:
+                    if len(join_pair[0].field_name):
+                        attrs_needed[join_pair[0].source_name].add(join_pair[0].field_name)
+                    if len(join_pair[1].field_name):
+                        attrs_needed[join_pair[1].source_name].add(join_pair[1].field_name)
             
-            for attr_list in path.tbl_proj_attrs:
-                for attr in attr_list:
-                    attrs_needed[attr.tbl_name].add(attr.attr_name)
-         
-        return attrs_needed, columns_to_proj
-    
+        # get all projection options
+        proj_ops = self.cand_group.project_options
+        columns_to_proj_lst = []
+        for proj_op in proj_ops:
+            proj_map = defaultdict(list)
+            for tbl, col_list in proj_op.items():
+                for col in col_list:
+                    proj_map[col].extend(tbl_cols[tbl][col])
+            
+            columns_to_proj = [(k, v) for k, v in proj_map.items()]
+
+            columns_to_proj = sorted(columns_to_proj, key=lambda x: x[0])
+
+            columns_to_proj = [columns_to_proj_pair[1] for columns_to_proj_pair in columns_to_proj]
+
+            columns_to_proj_lst.append(columns_to_proj)
+
+        return attrs_needed, columns_to_proj_lst
+            
     def display(self):
         if self.type is JoinGraphType.NO_JOIN:
             print(self.tbl)
@@ -124,59 +140,26 @@ class JoinGraphSearch:
         # print(join_path_map)          
         return join_path_map
 
-    def find_join_graphs(self, cand_group: List, chain_only=True):
-        if len(cand_group) == 1:
-            return [JoinGraph(None, cand_group[0])]
-        join_path_map = self.get_join_path_map(cand_group)
+    def find_join_graphs(self, cand_group: CandidateGroup, chain_only=True):
+        cand_tbls = cand_group.cand_tbls
+        if len(cand_tbls) == 1:
+            return [JoinGraph(cand_group, None)]
+        join_path_map = self.get_join_path_map(cand_tbls)
         edges = list(join_path_map.keys())
         graph_skeleton = []
         if not chain_only:
             # we consider all graph topologies
-            graph_skeleton = list(itertools.combinations(edges, len(cand_group)-1))
+            graph_skeleton = list(itertools.combinations(edges, len(cand_tbls)-1))
         else:
-            graph_skeleton.append([(cand_group[i], cand_group[i+1]) for i in range(len(cand_group)-1)])
+            graph_skeleton.append([(cand_tbls[i], cand_tbls[i+1]) for i in range(len(cand_tbls)-1)])
         join_graph_lst = []
         for graph in graph_skeleton:
             join_graphs = self.dfs_graph(graph, join_path_map)
-            for join_graph in join_graphs:
-                join_graph = JoinGraph(join_graph)
+            for _join_graph in join_graphs:
+                join_graph = JoinGraph(cand_group, _join_graph)
                 join_graph_lst.append(join_graph)
            
         return join_graph_lst
-
-    def find_join_graphs2(self, candidate_lists: List, order_chain_only=False):
-        join_path_map = self.get_join_path_map(candidate_lists)
-        edges = list(join_path_map.keys())
-        valid_graphs = []
-        
-        if not order_chain_only:
-            for subset in itertools.combinations(edges, len(candidate_lists)-1):
-                if self.is_graph_valid(subset, self.col_num):
-                    valid_graphs.append(subset)
-        else:
-            valid_graphs.append([(i, i+1) for i in range(len(candidate_lists)-1)])
-
-        all_join_graphs = []
-        for valid_graph in valid_graphs:
-            # print(valid_graph)
-            new_dict = {}
-            for edge in valid_graph:
-                new_dict[edge] = join_path_map[edge]
-                cnt = 0
-                for k, v in new_dict[edge].items():
-                    # print("src_tbl", k)
-                    # for path in v:
-                    #     print(path.to_str())
-                    cnt += len(v)
-                print(edge, cnt)
-                new_dict[(edge[1], edge[0])] = join_path_map[edge]
-            # print("begin dfs")
-            join_graphs = self.dfs_graph(valid_graph, new_dict)
-            for join_graph in join_graphs:
-                join_graph = JoinGraph(join_graph)
-                all_join_graphs.append(join_graph)
-           
-        return all_join_graphs
 
     def dfs(self, cur_graph, res, adj_list, edges_dict, path_order, idx):
         if idx == len(path_order):

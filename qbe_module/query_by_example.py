@@ -1,16 +1,17 @@
 from typing import List
 from qbe_module.column_selection import ColumnSelection, Column
 from qbe_module.join_path_search import JoinPathSearch
-from qbe_module.join_graph_search import JoinGraphSearch
+from qbe_module.join_graph_search import JoinGraphSearch, CandidateGroup
 from aurum_api.algebra import AurumAPI
 from collections import defaultdict
 from itertools import product
+from copy import deepcopy
 
 class ExampleColumn:
     def __init__(self, attr: str, examples: List[str]) -> None:
         self.attr = attr
         self.examples = examples
-       
+
 class QueryByExample:
     def __init__(self, aurum_api: AurumAPI):
         self.column_selection = ColumnSelection(aurum_api)
@@ -28,6 +29,19 @@ class QueryByExample:
             candidates_list = self.get_column_clusters(candidates_list, prune=True)
         return candidates_list
     
+    def dfs_to_find_cand_groups(self, idx, cand_group, cand_cols, lists, result):
+        if idx == len(lists):
+            result.append([set(cand_group[:]), deepcopy(cand_cols)])
+            return 
+        for tbl in lists[idx]:
+            cand_group.append(tbl)
+            cand_cols[tbl].append(idx)
+            self.dfs_to_find_cand_groups(idx+1, cand_group, cand_cols, lists, result)
+            cand_group.pop()
+            cand_cols[tbl].pop()
+            if len(cand_cols[tbl]) == 0:
+                del cand_cols[tbl]
+
     def find_candidate_groups(self, candidate_list: List[List[Column]]):
         candidate_tbls = [set() for _ in candidate_list] 
         tbl_cols = {}
@@ -38,16 +52,21 @@ class QueryByExample:
                     tbl_cols[col.tbl_name] = defaultdict(list)
                 tbl_cols[col.tbl_name][i].append(col)
         # obtain combinations of candidate tbls
-        combs = list(product(*candidate_tbls))
-        candidate_groups = set()
+        combs = []
+        self.dfs_to_find_cand_groups(0, [], defaultdict(list), candidate_tbls, combs)
+        result = defaultdict(list)
         for comb in combs:
-            candidate_groups.add(tuple(set(comb)))
-        return [list(x) for x in candidate_groups], tbl_cols
+            cand_tbls = sorted(list(comb[0]))
+            result[tuple(cand_tbls)].append(comb[1])
+        candidate_groups = []
+        for cand_tbls, project_options in result.items():
+            candidate_groups.append(CandidateGroup(cand_tbls, project_options))
+        return candidate_groups, tbl_cols
 
     def find_join_graphs_for_cand_group(self, cand_group):
         return self.join_graph_search.find_join_graphs(cand_group)
 
-    def find_join_graphs_for_cand_groups(self, cand_groups):
+    def find_join_graphs_for_cand_groups(self, cand_groups: List[CandidateGroup]):
         all_join_graphs = []
         for cand_group in cand_groups:
             all_join_graphs.extend(self.join_graph_search.find_join_graphs(cand_group))
