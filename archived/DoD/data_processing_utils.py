@@ -2,7 +2,6 @@ import pandas as pd
 from collections import defaultdict
 import math
 
-from archived.DoD import FilterType
 import config as C
 import os
 import psutil

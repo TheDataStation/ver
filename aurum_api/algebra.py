@@ -61,8 +61,9 @@ class Algebra:
         """
 
         results = self.dindex.fts_query(keywords=kw, search_domain=kw_type, max_results=max_results, exact_search=True)
-        hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
-
+        
+        # hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
+        hits = [Hit(r[0], r[1], r[3], r[4], 0, []) for r in results]
         # hits = self._store_client.exact_search_keywords(
         #     keywords=kw, elasticfieldname=kw_type, max_hits=max_results)
 
@@ -112,14 +113,17 @@ class Algebra:
         # Check neighbors
         if not relation.from_metadata():
             for h in i_drs:
-                attrs = ["nid, dbName, sourceName, columnName"]
+                attrs = ["id, dbName, sourceName, columnName"]
                 results = self.dindex.find_neighborhood(h.nid, relation, hops=1, desired_attributes=attrs)
-                hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
+                
+                # hits = [Hit(r.id, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
+                # make sure neighbors are from different tables with the input
+                hits = [Hit(r[0], r[1], r[2], r[3], 0, []) for r in results if r[2] != h.source_name]
 
                 # # FIXME: adapt results from index to API consumable DRS objects
                 # hits_drs = self._network.neighbors_id(h, relation)
 
-                op = Relation.get_op_from_relation(relation)
+                op = relation.get_op_from_relation(relation)
                 hits_drs = DRS(hits, Operation(op, params=[h]))
 
                 o_drs = o_drs.absorb(hits_drs)

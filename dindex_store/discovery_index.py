@@ -122,6 +122,8 @@ class DiscoveryIndex:
 
     def find_neighborhood(self, node_id: int, relation_type, hops: int = 1, desired_attributes=None):
         neighbors_ids = self.__graph_index.find_neighborhood(node_id, relation_type, hops)
+        if len(neighbors_ids) == 0:
+            return []
         # now, for each neighbor_id, retrieve the desired attributes
         if desired_attributes is not None:
             return self.__profile_index.get_filtered_profiles_from_nids(neighbors_ids, desired_attributes)

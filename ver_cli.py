@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import os
 import subprocess
 from pathlib import Path
+from textwrap import dedent
 
 from fire import Fire
 from aurum_api import algebra
@@ -47,15 +48,14 @@ class CSVDataSource:
         }
 
     def to_yml(self):
-        return f"""api_version: 0
-                    sources:
-                    - name: "{self.name}"
-                      type: csv
-                      config:
-                        path: "{str(self.path)}"
-                        separator: '{self.separator}'"""
-
-
+        return f"""\
+                - name: "{self.name}"
+                  type: csv
+                  config:
+                    path: "{str(self.path)}"
+                    separator: '{self.separator}'
+                """
+    
 @dataclass()
 class DBDataSource:
     name: str = ''
@@ -96,16 +96,16 @@ class DBDataSource:
         }
 
     def to_yml(self):
-        return f"""api_version: 0
-                    sources:
-                    - name: "{self.name}"
-                      type: {self.type}
-                      config:
-                        db_server_ip: {self.host}
-                        db_server_port: {self.port}
-                        database_name: {self.db_name}
-                        db_username: {self.db_user}
-                        db_password: {self.db_password}"""
+        return f"""\
+                - name: "{self.name}"
+                  type: {self.type}
+                  config:
+                    db_server_ip: {self.host}
+                    db_server_port: {self.port}
+                    database_name: {self.db_name}
+                    db_username: {self.db_user}
+                    db_password: {self.db_password}
+                """
 
 
 class VerCLI:
@@ -142,7 +142,8 @@ class VerCLI:
         except FileExistsError:
             pass
 
-        self.SOURCES_FILE_STARTING_TEMPLATE = """#######
+        self.SOURCES_FILE_STARTING_TEMPLATE = """\
+                                        #######
                                         # This file is specified as input to the ddprofiler, which uses it to extract a list of
                                         # sources that are necessary to process and profile.
                                         #
@@ -164,7 +165,8 @@ class VerCLI:
                                         # In sources we include as many data sources as desired
                                         sources:
 
-                                        # Include a source for each data source to configure"""
+                                        # Include a source for each data source to configure
+                                        """
 
     def _make_data_source_path(self, ds_name):
         # FIXME: if the file already exists, then raise exception and ask for a different name
@@ -218,13 +220,16 @@ class VerCLI:
             print("Error: File {} already exists".format(path))
             return False
         with open(path, 'w') as f:
-            f.write(self.SOURCES_FILE_STARTING_TEMPLATE)
+            f.write(dedent(self.SOURCES_FILE_STARTING_TEMPLATE))
         return True
 
     def add_csv(self, sources_file_name, csv_source_name, path_to_csv_files, sep=',') -> bool:
         ds = CSVDataSource()
         ds.name = csv_source_name
-        ds.path = path_to_csv_files
+        if Path(path_to_csv_files).is_absolute():
+            ds.path = path_to_csv_files
+        else:
+            ds.path = Path.cwd().joinpath(path_to_csv_files)
         ds.separator = sep
 
         # super()._store_data_source(ds)
@@ -235,7 +240,7 @@ class VerCLI:
                                   " adding datasets.".format(path))
         # Append the source to the file
         with open(path, 'a') as f:
-            yaml_data = ds.to_yml()
+            yaml_data = dedent(ds.to_yml())
             f.write(yaml_data)
         return True
 
@@ -257,17 +262,20 @@ class VerCLI:
     # ----------------------------------------------------------------------
     # Profile Functions
 
-    def profile(self, sources_file_name, output_path):
+    def profile(self, sources_file_name, output_path, store_type: int = 3):
         path = self._make_data_source_path(sources_file_name)
         if not path.exists():
             raise DataSourceError(f"Data Source {sources_file_name} not configured!")
-        profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', path, '--store.json.output.folder', output_path]
+        if not Path(output_path).is_absolute():
+            output_path = Path.cwd().joinpath(output_path)
+        profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', path, '--store.json.output.folder', output_path,
+                       '--store.type', str(store_type)]
         subprocess.call(profile_cmd, cwd=self.ddprofiler_home)
 
     # ----------------------------------------------------------------------
     # DIndex Functions
 
-    def build_dindex(self, profile_data_path):
+    def build_dindex(self, profile_data_path, force=False):
         # try:
         #     p = Path(output_dindex_path)
         #     p.mkdir(parents=True)
@@ -276,15 +284,15 @@ class VerCLI:
         #     raise DIndexConfigurationError(f"path {output_dindex_path} already exists!")
         from dindex_builder import dindex_builder
         import config
-        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower()}
         # TODO: provide alternative way of configuring dindex build (other than config)
-        dindex_builder.build_dindex(profile_data_path, cnf)
+        dindex_builder.build_dindex(profile_data_path, cnf, force)
         # subprocess.call(['python', 'dindex_builder/dindex_builder.py', 'build', '--input_path', input_data_path])
 
     def load_dindex(self):
         from dindex_store.discovery_index import load_dindex
         import config
-        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+        cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower()}
         # TODO: provide alternative way of configuring dindex build (other than config)
         load_dindex(cnf)
 

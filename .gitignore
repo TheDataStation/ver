@@ -3,15 +3,17 @@
 .ipynb_checkpoints/
 *.ipynb
 .python-version
-*.csv
+# *.csv
 archived/DoD/ui/node_modules/
 DoD2/
 figures/
 *result*/
 view_distillation/dataset
+output_profiles_json/
 *.png
 log*.txt
 example_queries.md
+graph_index/
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
@@ -179,6 +181,7 @@ ddprofiler/.classpath
 ddprofiler/.gradle/
 ddprofiler/.project
 ddprofiler/.settings/
+output/
 
 # Notes
 notes.sh
@@ -195,7 +198,11 @@ data/*
 
 *.pkl
 *.pickle
+profiles
 
 # Store for models and glove
 models/
 ontomatch/glove/
+
+# sessions
+.dsessions/
