@@ -47,7 +47,7 @@ ver_base_path = Path(__file__).parent
 
 input_data_type = "json"
 text_csv_delimiter = ','
-profile_schema_name = "dindex_builder/profile_index_schema_duckdb.txt"
+profile_schema_name = "profile_schema.yml"
 graph_schema_name = "dindex_builder/graph_index_schema_kuzu.txt"
 fts_schema_name = "dindex_builder/fts_index_schema_duckdb.txt"
 

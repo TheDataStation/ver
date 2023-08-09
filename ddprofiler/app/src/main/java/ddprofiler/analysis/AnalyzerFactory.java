@@ -11,7 +11,7 @@ public class AnalyzerFactory {
     }
 
     public static TextualAnalysis makeTextualAnalyzer(ProfilerConfig pc, int pseudoRandomSeed) {
-        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pseudoRandomSeed, pc);
+        TextualAnalyzer ta = TextualAnalyzer.makeAnalyzer(pc, pseudoRandomSeed);
         return ta;
     }
 }
