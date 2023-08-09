@@ -70,7 +70,16 @@ class JoinGraph:
             columns_to_proj_lst.append(columns_to_proj)
 
         return attrs_needed, columns_to_proj_lst
-            
+    
+    def to_str(self):
+        if self.type is JoinGraphType.NO_JOIN:
+            return self.tbl
+        else:
+            join_paths = []
+            for _, path in self.graph_dict.items():
+                join_paths.append(path.to_str())
+            return "\n".join(join_paths)
+
     def display(self):
         if self.type is JoinGraphType.NO_JOIN:
             print(self.tbl)

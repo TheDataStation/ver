@@ -6,10 +6,11 @@ from collections import deque, defaultdict
 import itertools
 
 class Materializer:
-    def __init__(self, table_path: str, tbl_cols, sample_size: int=200):
+    def __init__(self, table_path: str, tbl_cols, sample_size: int=200, sep: str=','):
         self.sample_size = sample_size
         self.table_path = table_path
         self.tbl_cols = tbl_cols
+        self.sep = sep
 
     def materialize_join_graph(self, join_graph: JoinGraph):
         attrs_needed_map, columns_to_project_lst = join_graph.get_attrs_needed(self.tbl_cols)
@@ -17,7 +18,7 @@ class Materializer:
         # when a join graph has only a single tbl and no join is needed
         if join_graph.type == JoinGraphType.NO_JOIN:
             tbl = join_graph.tbl
-            df = read_csv_columns_with_sampling(self.table_path + tbl, tbl, list(attrs_needed_map[tbl]), self.sample_size)
+            df = read_csv_columns_with_sampling(self.table_path + tbl, tbl, list(attrs_needed_map[tbl]), self.sample_size, self.sep)
         else:
             graph = join_graph.graph
             graph_dict = join_graph.graph_dict
@@ -78,13 +79,13 @@ class Materializer:
                 else:
                     attrs_needs = attr_needed_map[tbl1]
                     visited_tbl.add(tbl1)
-                    return read_csv_columns_with_sampling(self.table_path + tbl1, tbl1, list(attrs_needs), self.sample_size)
+                    return read_csv_columns_with_sampling(self.table_path + tbl1, tbl1, list(attrs_needs), self.sample_size, self.sep)
             
             if prv_df is None:
                 attrs_needs1 = attr_needed_map[tbl1]
-                df1 = read_csv_columns_with_sampling(self.table_path + tbl1, tbl1, list(attrs_needs1), self.sample_size)
+                df1 = read_csv_columns_with_sampling(self.table_path + tbl1, tbl1, list(attrs_needs1), self.sample_size, self.sep)
                 attrs_needs2 = attr_needed_map[tbl2]
-                df2 = read_csv_columns_with_sampling(self.table_path + tbl2, tbl2, list(attrs_needs2), self.sample_size)
+                df2 = read_csv_columns_with_sampling(self.table_path + tbl2, tbl2, list(attrs_needs2), self.sample_size, self.sep)
                 prv_df = pd.merge(df1, df2, left_on=self.get_col_name(key1), right_on=self.get_col_name(key2), how='inner')
                 visited_tbl.add(tbl1)
                 visited_tbl.add(tbl2)
@@ -95,7 +96,7 @@ class Materializer:
                 if tbl2 in visited_tbl:
                     continue
                 attrs_needs2 = attr_needed_map[tbl2]
-                df = read_csv_columns_with_sampling(self.table_path + tbl2, tbl2, list(attrs_needs2), self.sample_size)
+                df = read_csv_columns_with_sampling(self.table_path + tbl2, tbl2, list(attrs_needs2), self.sample_size, self.sep)
                 prv_df = pd.merge(prv_df, df, left_on=self.get_col_name(key1), right_on=self.get_col_name(key2), how='inner')
                 visited_tbl.add(tbl2)
 

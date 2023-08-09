@@ -1,5 +1,4 @@
 from aurum_api.algebra import AurumAPI
-from archived.DoD import data_processing_utils as dpu
 from collections import defaultdict
 
 from aurum_api.apiutils import DRS, Operation, OP
@@ -15,9 +14,8 @@ class FilterType(Enum):
 
 
 class ColumnSelection:
-    def __init__(self, aurum_api: AurumAPI, csv_separator: str = ','):
+    def __init__(self, aurum_api: AurumAPI):
         self.aurum_api = aurum_api
-        dpu.configure_csv_separator(csv_separator)
         self.topk = 2000  # limit the number of columns returned from keyword search
 
     def column_retreival(self, attr: str, examples: List[str]):

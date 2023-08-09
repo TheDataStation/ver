@@ -15,6 +15,8 @@ $ source venv/bin/activate
 Before running Ver you must prepare a config file that contains the information about the data sources. The config file is in yaml format.
 ### Create the file
 First you need to create an empty config file that later will be filled with the information about the data sources. The following command is how to create sources file with name `SOURCE_FILE_NAME`.
+The source file will be stored under `.dsessions/sources/`
+
 ```bash
 python ver_cli.py create_sources_file SOURCE_FILE_NAME
 ```
@@ -55,7 +57,12 @@ python ver_cli.py profile quickstart output_profiles_json
 python ver_cli.py build_dindex output_profiles_json/ --force
 ```
 
-## Run Ver on the demo dataset
+## Run Ver end-to-end
 ```bash
 python ver_quickstart.py
 ```
+
+In `ver_quickstart.py`, we give an end-to-end example of how to use the query-by-example module of Ver.
+
+
+The output is a set of materialized views (`output/view{i}.csv`) and each view is associated with a metadata profile (`output/view{i}.json`). `view{i}.json` has two fields: `join_graph` and `columns_proj`. `join_graph` is the join graph that is used to generate the view and `columns_proj` are the columns projected from the view.

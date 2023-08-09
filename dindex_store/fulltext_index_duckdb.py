@@ -88,7 +88,7 @@ class FTSIndexDuckDB(FullTextSearchIndex):
         search_domain = 'data'
 
         query = f"""WITH scored_docs AS (
-                SELECT *, fts_main_{self.table_name}.match_bm25(data, '{keyword}', fields := '{search_domain}') 
+                SELECT *, fts_main_{self.table_name}.match_bm25(data, '{keyword}', fields := '{search_domain}', conjunctive := 1) 
                 AS score FROM {self.table_name})
             SELECT DISTINCT ON (profile_id) profile_id, dbname, path, sourcename, columnname, score
             FROM scored_docs
