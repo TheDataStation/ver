@@ -57,18 +57,6 @@ public class Main {
         // ws.init();
         // }
 
-        // Parsing profile schema file
-        try {
-            String profileSchemaFile = pc.getString(ProfilerConfig.PROFILE_SCHEMA_FILE);
-            LOG.info("Using {} as profile schema file", profileSchemaFile);
-            ProfileSchemaParser.processProfileSchema(profileSchemaFile);
-        } catch (FileNotFoundException fnfe) {
-            LOG.error("Profile schema file not found");
-            System.exit(0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         // Parsing sources config file
         String sourceConfigFile = pc.getString(ProfilerConfig.SOURCE_CONFIG_FILE);
         LOG.info("Using {} as sources file", sourceConfigFile);

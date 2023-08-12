@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import ddprofiler.analysis.config.AnalyzerConfig;
 import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.CardinalityAnalyzer;
 import ddprofiler.analysis.modules.Range;
@@ -22,16 +21,10 @@ public class NumericalAnalyzer implements NumericalAnalysis {
 
     private NumericalAnalyzer() {
         analyzers = new ArrayList<>();
-
-        if (AnalyzerConfig.getCardinality()) {
-            ca = new CardinalityAnalyzer();
-            analyzers.add(ca);
-        }
-
-        if (AnalyzerConfig.getRange()) {
-            ra = new RangeAnalyzer();
-            analyzers.add(ra);
-        }
+        ca = new CardinalityAnalyzer();
+        ra = new RangeAnalyzer();
+        analyzers.add(ca);
+        analyzers.add(ra);
     }
 
     public static NumericalAnalyzer makeAnalyzer() {
@@ -70,21 +63,21 @@ public class NumericalAnalyzer implements NumericalAnalysis {
 
     @Override
     public Cardinality getCardinality() {
-        return (ca != null) ? ca.getCardinality() : null;
+        return ca.getCardinality();
     }
 
     @Override
     public Range getNumericalRange(AttributeType type) {
         if (type.equals(AttributeType.FLOAT)) {
-            return (ra != null) ? ra.getFloatRange() : null;
+            return ra.getFloatRange();
         } else if (type.equals(AttributeType.INT)) {
-            return (ra != null) ? ra.getIntegerRange() : null;
+            return ra.getIntegerRange();
         }
         return null;
     }
 
     @Override
     public long getQuantile(double p) {
-        return (ra != null) ? ra.getQuantile(p) : null;
+        return ra.getQuantile(p);
     }
 }
