@@ -32,13 +32,13 @@ python ver_cli.py add_csv SOURCE_FILE_NAME CSV_SOURCE_NAME PATH_TO_CSV_FOLDER [-
 - `DELIMITER` is the delimiter used in the csv files. Default is `,`.
 
 ## Build Data Profiles
-After entering all the data sources, the next step is to build data profiles. The data profiles are stored in a folder. The following command is how to build data profiles.
+After entering all the data sources, the next step is to profile the data. The following command is how to build data profiles, use `--build` flag to (re)build the data profiler.
 ```bash
-python ver_cli.py profile SOURCE_FILE_NAME OUTPUT_PROFILE_PATH [--store_type STORE_TYPE]
+python ver_cli.py profile SOURCE_FILE_NAME OUTPUT_PROFILE_PATH [--build] [--store_type STORE_TYPE]
 ```
 - `SOURCE_FILE_NAME` is the name of the sources file created in the previous step.
 - `OUTPUT_PROFILE_PATH` is the path to the folder where the data profiles will be stored.
-- `STORE_TYPE` is the type of storage to use for the data profiles. Default is 3 (json files).
+- `STORE_TYPE` is the type of storage to use for the data profiles. Default is 3 (json files with text CSV for full text search).
 
 ## Build discovery indices on top of data profiles
 After building data profiles, the next step is to build discovery index by using the following command.
@@ -59,10 +59,10 @@ python ver_cli.py build_dindex output_profiles_json/ --force
 
 ## Run Ver end-to-end
 ```bash
-python ver_quickstart.py
+python ver_quick_start.py
 ```
 
-In `ver_quickstart.py`, we give an end-to-end example of how to use the query-by-example module of Ver.
+In `ver_quick_start.py`, we give an end-to-end example of how to use the query-by-example module of Ver.
 
 
 The output is a set of materialized views (`output/view{i}.csv`) and each view is associated with a metadata profile (`output/view{i}.json`). `view{i}.json` has two fields: `join_graph` and `columns_proj`. `join_graph` is the join graph that is used to generate the view and `columns_proj` are the columns projected from the view.
