@@ -59,10 +59,10 @@ python ver_cli.py build_dindex output_profiles_json/ --force
 
 ## Run Ver end-to-end
 ```bash
-python ver_quickstart.py
+python ver_quick_start.py
 ```
 
-In `ver_quickstart.py`, we give an end-to-end example of how to use the query-by-example module of Ver.
+In `ver_quick_start.py`, we give an end-to-end example of how to use the query-by-example module of Ver.
 
 
 The output is a set of materialized views (`output/view{i}.csv`) and each view is associated with a metadata profile (`output/view{i}.json`). `view{i}.json` has two fields: `join_graph` and `columns_proj`. `join_graph` is the join graph that is used to generate the view and `columns_proj` are the columns projected from the view.
