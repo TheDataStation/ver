@@ -17,12 +17,11 @@ class ProfileIndexDuckDB(ProfileIndex):
         db_path = Path(config['ver_base_path']) / Path(config['profile_duckdb_database_name'])
         self.conn = duckdb.connect(database=str(db_path))
         self.schema = ""
-        self.field_order = []
 
         if not load:
             profile_table_name = config["profile_table_name"]
             profile_schema_path = Path(config['ver_base_path'] / config['profile_schema_name']).absolute()
-            self.schema, self.field_order = self._read_unified_profile_schema(profile_table_name, profile_schema_path)
+            self.schema = self._read_unified_profile_schema(profile_table_name, profile_schema_path)
 
             try:
                 if force:
@@ -37,8 +36,7 @@ class ProfileIndexDuckDB(ProfileIndex):
     def add_profile(self, node: Dict) -> bool:
         try:
             profile_table = self.conn.table(self.config["profile_table_name"])
-            to_insert = [node[field] if field in node else None for field in self.field_order]
-            profile_table.insert(to_insert)
+            profile_table.insert(node.values())
             return True
         except BinderException as be:
             print(f"An error has occured when trying to add profile: {be}")
@@ -110,9 +108,8 @@ class ProfileIndexDuckDB(ProfileIndex):
         assert "profile_table_name" in config
 
     @classmethod
-    def _read_unified_profile_schema(self, profile_table_name, path) -> (str, List):
+    def _read_unified_profile_schema(self, profile_table_name, path) -> str:
         # Read unified profile schema file
-        field_order = []
         with open(path, "r") as stream:
             try:
                 # Parse unified profile schema to duckdb schema
@@ -121,19 +118,17 @@ class ProfileIndexDuckDB(ProfileIndex):
 
                 for attribute in file_load['attributes']:
                     schema += f"    {attribute['name']} {attribute['type']},\n"
-                    field_order.append(attribute['name'])
                 for analyzer in file_load['analyzers']:
                     if not analyzer['enabled']:
                         continue
                     for field in analyzer['fields']:
                         schema += f"    {field['name']} {field['type']},\n"
-                        field_order.append(field['name'])
 
                 schema = schema[:-2] + ")"
-                return schema, field_order
+                return schema
             except yaml.YAMLError as e:
                 print(f"""An error has occured when trying to parse profile schema file: {e}""")
-                return None, None
+                return None
 
 
 if __name__ == "__main__":

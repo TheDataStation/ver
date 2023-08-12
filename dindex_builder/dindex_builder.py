@@ -47,7 +47,7 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
         csv_delimiter = config["text_csv_delimiter"]
 
         df = pd.read_csv(csv_file_path, names=['profile_id', 'dbName', 'path', 'sourceName',
-                             'columnName', 'data'], sep=csv_delimiter, skiprows=1)
+                             'columnName', 'data'], sep=csv_delimiter)
         for _, row in df.iterrows():
             dindex.add_text_content(row['profile_id'], row['dbName'], row['path'],
                                     row['sourceName'], row['columnName'], row['data'])
