@@ -41,5 +41,5 @@ python3 dindex_builder.py --profile_data_path ../ddprofiler/output_profiles_json
 
 ## Run Ver on the demo dataset
 ```bash
-python ver_quickstart.py
+python ver_quick_start.py
 ```
