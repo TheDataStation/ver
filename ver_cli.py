@@ -121,7 +121,6 @@ class VerCLI:
 
         # self.AURUM_SRC_HOME_ENV = "AURUM_SRC_HOME"
         self.DDPROFILER_NAME = "ddprofiler"
-        self.DDPROFILER_BUILD = "build.sh"
         self.DDPROFILER_RUN = "run.sh"
         self.DDPROFILER_JSON_OUTPUT = "/json/"
         self.DDPROFILER_TEXT_OUTPUT = "/text/"
@@ -129,7 +128,6 @@ class VerCLI:
 
         self.ver_home = Path(self.VER_HOME)
         self.ddprofiler_home = self.ver_home.joinpath(self.DDPROFILER_NAME)
-        self.ddprofiler_build_sh = self.ddprofiler_home.joinpath(self.DDPROFILER_BUILD)
         self.ddprofiler_run_sh = self.ddprofiler_home.joinpath(self.DDPROFILER_RUN)
         self.discovery_sessions_dir = Path(os.environ.get(self.VER_DISCOVERY_SESSIONS_PATH,
                                                           Path.cwd().joinpath('.dsessions')))
@@ -264,15 +262,12 @@ class VerCLI:
     # ----------------------------------------------------------------------
     # Profile Functions
 
-    def profile(self, sources_file_name, output_path, store_type: int=3, build=False):
+    def profile(self, sources_file_name, output_path, store_type: int = 3):
         path = self._make_data_source_path(sources_file_name)
         if not path.exists():
             raise DataSourceError(f"Data Source {sources_file_name} not configured!")
         if not Path(output_path).is_absolute():
             output_path = Path.cwd().joinpath(output_path)
-        if build:
-            build_cmd = ['bash', self.ddprofiler_build_sh,]
-            subprocess.call(build_cmd, cwd=self.ddprofiler_home)
         profile_cmd = ['bash', self.ddprofiler_run_sh, '--sources', path, '--store.json.output.folder', output_path,
                        '--store.type', str(store_type)]
         subprocess.call(profile_cmd, cwd=self.ddprofiler_home)
