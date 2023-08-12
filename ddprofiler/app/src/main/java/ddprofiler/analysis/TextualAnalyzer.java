@@ -9,55 +9,30 @@ import java.util.List;
 
 import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.CardinalityAnalyzer;
+import ddprofiler.analysis.modules.Entities;
 import ddprofiler.analysis.modules.EntityAnalyzer;
 import ddprofiler.analysis.modules.KMinHash;
-import ddprofiler.analysis.modules.LabelAnalyzer;
-import ddprofiler.analysis.modules.XSystemAnalyzer;
-import ddprofiler.core.config.ProfilerConfig;
-import xsystem.layers.XStructure;
 
 public class TextualAnalyzer implements TextualAnalysis {
 
     private List<DataConsumer> analyzers;
     private CardinalityAnalyzer ca;
     private KMinHash mh;
-    private XSystemAnalyzer xa;
     private EntityAnalyzer ea;
-    private LabelAnalyzer la;
-    private String excludedAnalyzer;
 
-    private TextualAnalyzer(int pseudoRandomSeed, ProfilerConfig pc) {
-        excludedAnalyzer = pc.getString(ProfilerConfig.EXCLUDE_ANALYZER);
-
+    private TextualAnalyzer(int pseudoRandomSeed) {
         analyzers = new ArrayList<>();
-        if (!excludedAnalyzer.contains("KMinHash")) {
-            mh = new KMinHash(pseudoRandomSeed);
-            analyzers.add(mh);
-        }
-
-        if (!excludedAnalyzer.contains("Cardinality")) {
-            ca = new CardinalityAnalyzer();
-            analyzers.add(ca);
-        }
-
-        if (!excludedAnalyzer.contains("Entity")) {
-            ea = new EntityAnalyzer();
-            analyzers.add(ea);
-        }
-
-        if (!excludedAnalyzer.contains("XSystem")) {
-            xa = new XSystemAnalyzer();
-            analyzers.add(xa);
-        }
-
-        if (!excludedAnalyzer.contains("Label")) {
-            la = new LabelAnalyzer(pc);
-            analyzers.add(la);
-        }
+        mh = new KMinHash(pseudoRandomSeed);
+        ca = new CardinalityAnalyzer();
+//        this.ea = ea;
+        analyzers.add(ca);
+        analyzers.add(mh);
+//        analyzers.add(ea);
     }
 
-    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed, ProfilerConfig pc) {
-        return new TextualAnalyzer(pseudoRandomSeed, pc);
+    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed) {
+//        ea2.clear();
+        return new TextualAnalyzer(pseudoRandomSeed);
     }
 
     @Override
@@ -92,13 +67,4 @@ public class TextualAnalyzer implements TextualAnalysis {
         return mh.getMH();
     }
 
-    @Override
-    public XStructure getXstructure() {
-        return (xa == null) ? null : xa.getXstructure();
-    }
-
-    @Override
-    public String getLabel() {
-        return (la == null) ? null : la.getLabel();
-    }
 }

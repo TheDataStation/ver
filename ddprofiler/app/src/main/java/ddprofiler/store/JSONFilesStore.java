@@ -7,7 +7,6 @@ import ddprofiler.core.config.ProfilerConfig;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -53,7 +52,7 @@ public class JSONFilesStore implements Store {
         String json = null;
         try {
             json = mapper.writeValueAsString(wtr);
-        } catch (IOException e) {
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
 

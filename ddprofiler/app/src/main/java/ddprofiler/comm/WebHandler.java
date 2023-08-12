@@ -124,7 +124,7 @@ public class WebHandler extends HttpServlet {
         String response = "";
         try {
             response = om.writeValueAsString(t);
-        } catch (IOException e) {
+        } catch (JsonProcessingException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

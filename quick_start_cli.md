@@ -1,6 +1,7 @@
 # Quick Start
 ## Setup
-Compatible with Python versions 3.8.10 and higher
+Compatible with Python versions 3.8.10 and higher, Java17 and higher
+
 ### Install dependencies
 ```bash
 # Create an virtual environment 
@@ -9,6 +10,12 @@ $ python -m venv venv
 $ source venv/bin/activate
 # install dependencies
 (venv) $ pip install -r requirements_quick_start.txt
+```
+
+### Build ddprofiler
+```bash
+$ cd ddprofiler
+$ bash build.sh
 ```
 
 ## Create sources config file

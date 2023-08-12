@@ -75,3 +75,4 @@ sources:
 #    hive_server_port: 10000
 #    # The name of the database
 #    database_name: hive-data
+

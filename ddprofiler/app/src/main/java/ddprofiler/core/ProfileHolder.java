@@ -24,8 +24,8 @@ public class ProfileHolder {
         List<Profile> rs = new ArrayList<>();
         Profile wtr = new Profile(
                 -1, "none", "none", "none", "none",
-                "N", "none", 100, 100, 100, "entities",
-                new long[2], "", 50, 50, 50, 0, 0);
+                "N", 100, 100, 100, "entities",
+                new long[2], 50, 50, 50, 0, 0);
         rs.add(wtr);
         return rs;
     }
@@ -49,12 +49,10 @@ public class ProfileHolder {
                         sourceName,
                         a.getColumnName(),
                         "N",
-                        null,
                         (int) na.getCardinality().getTotalRecords(),
                         (int) na.getCardinality().getUniqueElements(),
                         (int) na.getCardinality().getNonEmptyValues(),
                         "",
-                        null,
                         null,
                         na.getNumericalRange(AttributeType.FLOAT).getMinF(),
                         na.getNumericalRange(AttributeType.FLOAT).getMaxF(),
@@ -71,12 +69,10 @@ public class ProfileHolder {
                         sourceName,
                         a.getColumnName(),
                         "N",
-                        null,
                         (int) na.getCardinality().getTotalRecords(),
                         (int) na.getCardinality().getUniqueElements(),
                         (int) na.getCardinality().getNonEmptyValues(),
                         "",
-                        null,
                         null,
                         na.getNumericalRange(AttributeType.INT).getMin(),
                         na.getNumericalRange(AttributeType.INT).getMax(),
@@ -96,8 +92,6 @@ public class ProfileHolder {
 //                }
 //                String entities = sb.toString();
 
-                String label = ta.getLabel();
-
                 Profile wtr = new Profile(
                         id,
                         dbName,
@@ -105,13 +99,11 @@ public class ProfileHolder {
                         sourceName,
                         a.getColumnName(),
                         "T",
-                        label,
                         (int) ta.getCardinality().getTotalRecords(),
                         (int) ta.getCardinality().getUniqueElements(),
                         (int) ta.getCardinality().getNonEmptyValues(),
                         "entities_removed_on_modernize_ddprofiler",
                         mh,
-                        ((ta.getXstructure() == null) ? null : ta.getXstructure().toString()),
                         0,
                         0,
                         0,
