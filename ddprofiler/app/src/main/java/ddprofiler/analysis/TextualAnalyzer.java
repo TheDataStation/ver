@@ -40,10 +40,10 @@ public class TextualAnalyzer implements TextualAnalysis {
             analyzers.add(ca);
         }
 
-        if (!excludedAnalyzer.contains("Entity")) {
-            ea = new EntityAnalyzer();
-            analyzers.add(ea);
-        }
+        // if (!excludedAnalyzer.contains("Entity")) {
+        //     ea = new EntityAnalyzer();
+        //     analyzers.add(ea);
+        // }
 
         if (!excludedAnalyzer.contains("XSystem")) {
             xa = new XSystemAnalyzer();
