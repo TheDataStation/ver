@@ -55,21 +55,6 @@ RDBMS, you will need to run ddprofiler two times, each one configured to read
 the data from each source. All data summaries will be created and stored in
 elasticsearch. Only make sure to edit the YAML file appropriately each time.
 
-## Enabling and disabling analyzers
-
-There are several analyzer that can be enabled or disabled. To do so, you can
-indicate the analyzers you want to enable or disable in the YAML file. There's
-a default file for this configuration that you can find in the root folder
-called `profile_schema.yml`. To enable or disable an analyzer, simply change
-the value of the `enabled` field to `true` or `false` respectively. It's highly
-recommended that you use this file as the configuration file, though you can
-use any other file as long as it follows the same structure. Here's an example
-to use another file:
-
-```bash
-$> bash run.sh --sources <path_to_sources.yml> --profile.schema <path_to_profile_schema.yml>
-```
-
 ### Test datasets
 
 We include a (growing) list of links to datasets you can download to test the

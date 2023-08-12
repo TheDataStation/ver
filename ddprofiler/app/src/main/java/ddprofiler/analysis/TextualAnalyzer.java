@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import ddprofiler.analysis.config.AnalyzerConfig;
 import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.CardinalityAnalyzer;
 import ddprofiler.analysis.modules.EntityAnalyzer;
@@ -25,38 +24,40 @@ public class TextualAnalyzer implements TextualAnalysis {
     private XSystemAnalyzer xa;
     private EntityAnalyzer ea;
     private LabelAnalyzer la;
+    private String excludedAnalyzer;
 
-    private TextualAnalyzer(ProfilerConfig pc, int pseudoRandomSeed) {
+    private TextualAnalyzer(int pseudoRandomSeed, ProfilerConfig pc) {
+        excludedAnalyzer = pc.getString(ProfilerConfig.EXCLUDE_ANALYZER);
+
         analyzers = new ArrayList<>();
-
-        if (AnalyzerConfig.getCardinality()) {
-            ca = new CardinalityAnalyzer();
-            analyzers.add(ca);
-        }
-
-        if (AnalyzerConfig.getKminhash()) {
+        if (!excludedAnalyzer.contains("KMinHash")) {
             mh = new KMinHash(pseudoRandomSeed);
             analyzers.add(mh);
         }
 
-//        if (AnalyzerConfig.getEntity()) {
-//            ea = new EntityAnalyzer();
-//            analyzers.add(ea);
-//        }
+        if (!excludedAnalyzer.contains("Cardinality")) {
+            ca = new CardinalityAnalyzer();
+            analyzers.add(ca);
+        }
 
-        if (AnalyzerConfig.getXsystem()) {
+        if (!excludedAnalyzer.contains("Entity")) {
+            ea = new EntityAnalyzer();
+            analyzers.add(ea);
+        }
+
+        if (!excludedAnalyzer.contains("XSystem")) {
             xa = new XSystemAnalyzer();
             analyzers.add(xa);
         }
 
-        if (AnalyzerConfig.getLabel()) {
+        if (!excludedAnalyzer.contains("Label")) {
             la = new LabelAnalyzer(pc);
             analyzers.add(la);
         }
     }
 
-    public static TextualAnalyzer makeAnalyzer(ProfilerConfig pc, int pseudoRandomSeed) {
-        return new TextualAnalyzer(pc, pseudoRandomSeed);
+    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed, ProfilerConfig pc) {
+        return new TextualAnalyzer(pseudoRandomSeed, pc);
     }
 
     @Override
@@ -78,7 +79,7 @@ public class TextualAnalyzer implements TextualAnalysis {
 
     @Override
     public Cardinality getCardinality() {
-        return (ca != null) ? ca.getCardinality() : null;
+        return ca.getCardinality();
     }
 
 //    @Override
@@ -88,16 +89,16 @@ public class TextualAnalyzer implements TextualAnalysis {
 
     @Override
     public long[] getMH() {
-        return (mh != null) ? mh.getMH() : null;
+        return mh.getMH();
     }
 
     @Override
     public XStructure getXstructure() {
-        return (xa != null) ? xa.getXstructure() : null;
+        return (xa == null) ? null : xa.getXstructure();
     }
 
     @Override
     public String getLabel() {
-        return (la != null) ? la.getLabel() : null;
+        return (la == null) ? null : la.getLabel();
     }
 }
