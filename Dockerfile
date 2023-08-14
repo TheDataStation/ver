@@ -22,5 +22,5 @@ RUN python3 ver_cli.py create_sources_file quickstart
 RUN python3 ver_cli.py add_csv quickstart quickstart demo_dataset/
 RUN python3 ver_cli.py profile quickstart output_profiles_json
 RUN python3 ver_cli.py build_dindex output_profiles_json/ --force
-
+RUN python3 ver_quickstart.py
 CMD ["bash"]
