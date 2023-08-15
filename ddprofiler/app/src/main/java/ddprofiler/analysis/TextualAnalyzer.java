@@ -9,7 +9,6 @@ import java.util.List;
 
 import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.CardinalityAnalyzer;
-import ddprofiler.analysis.modules.EntityAnalyzer;
 import ddprofiler.analysis.modules.KMinHash;
 import ddprofiler.analysis.modules.LabelAnalyzer;
 import ddprofiler.analysis.modules.XSystemAnalyzer;
@@ -22,7 +21,6 @@ public class TextualAnalyzer implements TextualAnalysis {
     private CardinalityAnalyzer ca;
     private KMinHash mh;
     private XSystemAnalyzer xa;
-    private EntityAnalyzer ea;
     private LabelAnalyzer la;
     private String excludedAnalyzer;
 
@@ -39,11 +37,6 @@ public class TextualAnalyzer implements TextualAnalysis {
             ca = new CardinalityAnalyzer();
             analyzers.add(ca);
         }
-
-        // if (!excludedAnalyzer.contains("Entity")) {
-        //     ea = new EntityAnalyzer();
-        //     analyzers.add(ea);
-        // }
 
         if (!excludedAnalyzer.contains("XSystem")) {
             xa = new XSystemAnalyzer();
@@ -81,11 +74,6 @@ public class TextualAnalyzer implements TextualAnalysis {
     public Cardinality getCardinality() {
         return ca.getCardinality();
     }
-
-//    @Override
-//    public Entities getEntities() {
-//        return null;
-//    }
 
     @Override
     public long[] getMH() {
