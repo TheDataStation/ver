@@ -46,15 +46,15 @@ public class LabelAnalyzer implements TextualDataConsumer {
 
     private String labelListOfStrings(ArrayList<String> strings) {
         String label = null;
-        ArrayList<Double> scoreList = new ArrayList<>();
+        ArrayList<Double> scores = new ArrayList<>();
         XStructure toBeLabeled = (new XStructure()).addNewLines(strings);
 
         for (XStructType struct : xStructureReference) {
             double score = struct.xStructure.compareTwo(toBeLabeled, struct.xStructure);
-            scoreList.add(score);
+            scores.add(score);
         }
-        double maxScore = Collections.max(scoreList);
-        int maxIndex = scoreList.indexOf(maxScore);
+        double maxScore = Collections.max(scores);
+        int maxIndex = scores.indexOf(maxScore);
 
         if (maxScore >= scoreThreshold) {
             label = xStructureReference.get(maxIndex).type;
