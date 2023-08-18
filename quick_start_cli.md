@@ -32,9 +32,9 @@ python ver_cli.py add_csv SOURCE_FILE_NAME CSV_SOURCE_NAME PATH_TO_CSV_FOLDER [-
 - `DELIMITER` is the delimiter used in the csv files. Default is `,`.
 
 ## Build Data Profiles
-After entering all the data sources, the next step is to build data profiles. The data profiles are stored in a folder. The following command is how to build data profiles.
+After entering all the data sources, the next step is to profile the data. The following command is how to build data profiles, use `--build` flag to (re)build the data profiler.
 ```bash
-python ver_cli.py profile SOURCE_FILE_NAME OUTPUT_PROFILE_PATH [--store_type STORE_TYPE]
+python ver_cli.py profile SOURCE_FILE_NAME OUTPUT_PROFILE_PATH [--build] [--store_type STORE_TYPE]
 ```
 - `SOURCE_FILE_NAME` is the name of the sources file created in the previous step.
 - `OUTPUT_PROFILE_PATH` is the path to the folder where the data profiles will be stored.
