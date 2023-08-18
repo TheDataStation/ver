@@ -7,7 +7,9 @@ import java.util.Map;
 import ddprofiler.analysis.Analysis;
 import ddprofiler.analysis.NumericalAnalysis;
 import ddprofiler.analysis.TextualAnalysis;
+import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.Entities;
+import ddprofiler.analysis.modules.Range;
 import ddprofiler.sources.deprecated.Attribute;
 import ddprofiler.sources.deprecated.Attribute.AttributeType;
 
@@ -42,6 +44,8 @@ public class ProfileHolder {
             long id = Utils.computeAttrId(dbName, sourceName, a.getColumnName());
             if (at.equals(AttributeType.FLOAT)) {
                 NumericalAnalysis na = ((NumericalAnalysis) an);
+                Cardinality ca = na.getCardinality();
+                Range nr = na.getNumericalRange(AttributeType.FLOAT);
                 Profile wtr = new Profile(
                         id,
                         dbName,
@@ -50,20 +54,27 @@ public class ProfileHolder {
                         a.getColumnName(),
                         "N",
                         null,
-                        (int) na.getCardinality().getTotalRecords(),
-                        (int) na.getCardinality().getUniqueElements(),
-                        (int) na.getCardinality().getNonEmptyValues(),
-                        "",
+                        (ca != null) ? (int) ca.getTotalRecords() : 0,
+                        (ca != null) ? (int) ca.getUniqueElements() : 0,
+                        (ca != null) ? (int) ca.getNonEmptyValues() : 0,
                         null,
                         null,
-                        na.getNumericalRange(AttributeType.FLOAT).getMinF(),
-                        na.getNumericalRange(AttributeType.FLOAT).getMaxF(),
-                        na.getNumericalRange(AttributeType.FLOAT).getAvg(),
-                        na.getNumericalRange(AttributeType.FLOAT).getMedian(),
-                        na.getNumericalRange(AttributeType.FLOAT).getIQR());
+                        null,
+                        (nr != null) ? nr.getMinF() : 0,
+                        (nr != null) ? nr.getMaxF() : 0,
+                        (nr != null) ? nr.getAvg() : 0,
+                        (nr != null) ? nr.getMedian() : 0,
+                        (nr != null) ? nr.getIQR() : 0);
+                        // na.getNumericalRange(AttributeType.FLOAT).getMinF(),
+                        // na.getNumericalRange(AttributeType.FLOAT).getMaxF(),
+                        // na.getNumericalRange(AttributeType.FLOAT).getAvg(),
+                        // na.getNumericalRange(AttributeType.FLOAT).getMedian(),
+                        // na.getNumericalRange(AttributeType.FLOAT).getIQR());
                 rs.add(wtr);
             } else if (at.equals(AttributeType.INT)) {
                 NumericalAnalysis na = ((NumericalAnalysis) an);
+                Cardinality ca = na.getCardinality();
+                Range nr = na.getNumericalRange(AttributeType.INT);
                 Profile wtr = new Profile(
                         id,
                         dbName,
@@ -72,22 +83,22 @@ public class ProfileHolder {
                         a.getColumnName(),
                         "N",
                         null,
-                        (int) na.getCardinality().getTotalRecords(),
-                        (int) na.getCardinality().getUniqueElements(),
-                        (int) na.getCardinality().getNonEmptyValues(),
-                        "",
+                        (ca != null) ? (int) ca.getTotalRecords() : 0,
+                        (ca != null) ? (int) ca.getUniqueElements() : 0,
+                        (ca != null) ? (int) ca.getNonEmptyValues() : 0,
                         null,
                         null,
-                        na.getNumericalRange(AttributeType.INT).getMin(),
-                        na.getNumericalRange(AttributeType.INT).getMax(),
-                        na.getNumericalRange(AttributeType.INT).getAvg(),
-                        na.getNumericalRange(AttributeType.INT).getMedian(),
-                        na.getNumericalRange(AttributeType.INT).getIQR());
+                        null,
+                        (nr != null) ? nr.getMin() : 0,
+                        (nr != null) ? nr.getMax() : 0,
+                        (nr != null) ? nr.getAvg() : 0,
+                        (nr != null) ? nr.getMedian() : 0,
+                        (nr != null) ? nr.getIQR() : 0);
                 rs.add(wtr);
             } else if (at.equals(AttributeType.STRING)) {
                 TextualAnalysis ta = ((TextualAnalysis) an);
+                Cardinality ca = ta.getCardinality();
 //                Entities e = ta.getEntities();
-                long[] mh = ta.getMH();
 //                List<String> ents = e.getEntities();
 //                StringBuffer sb = new StringBuffer();
 //                for (String str : ents) {
@@ -96,8 +107,6 @@ public class ProfileHolder {
 //                }
 //                String entities = sb.toString();
 
-                String label = ta.getLabel();
-
                 Profile wtr = new Profile(
                         id,
                         dbName,
@@ -105,13 +114,13 @@ public class ProfileHolder {
                         sourceName,
                         a.getColumnName(),
                         "T",
-                        label,
-                        (int) ta.getCardinality().getTotalRecords(),
-                        (int) ta.getCardinality().getUniqueElements(),
-                        (int) ta.getCardinality().getNonEmptyValues(),
+                        ta.getLabel(),
+                        (ca != null) ? (int) ca.getTotalRecords() : 0,
+                        (ca != null) ? (int) ca.getUniqueElements() : 0,
+                        (ca != null) ? (int) ca.getNonEmptyValues() : 0,
                         "entities_removed_on_modernize_ddprofiler",
-                        mh,
-                        ((ta.getXstructure() == null) ? null : ta.getXstructure().toString()),
+                        (ta.getMH() != null) ? ta.getMH() : null,
+                        (ta.getXstructure() != null) ? ta.getXstructure().toString() : null,
                         0,
                         0,
                         0,

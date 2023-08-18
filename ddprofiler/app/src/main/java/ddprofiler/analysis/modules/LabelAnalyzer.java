@@ -21,20 +21,14 @@ public class LabelAnalyzer implements TextualDataConsumer {
     private double scoreThreshold;
     private static ArrayList<XStructType> xStructureReference = null;
     private String label;
-    private static boolean isThisAnalyzerIncluded = false;
 
     public LabelAnalyzer(ProfilerConfig pc) {
         this.pc = pc;
         this.scoreThreshold = pc.getDouble(ProfilerConfig.XSYSTEM_SIMILARITY_THRESHOLD);
 
-        String excludedAnalyzer = pc.getString(ProfilerConfig.EXCLUDE_ANALYZER);
-        if (!excludedAnalyzer.contains("Label")) isThisAnalyzerIncluded = true;
-
-        if (xStructureReference == null && isThisAnalyzerIncluded) {
+        if (xStructureReference == null) {
             String referenceFilePath = pc.getString(ProfilerConfig.XSYSTEM_REFERENCE_FILE);
             xStructureReference = (new LearningModel()).readXStructsfromJSON(referenceFilePath);
-        } else {
-            LOG.warn("Reference file already initialized or XSystem is not enabled");
         }
     }
 
@@ -46,11 +40,7 @@ public class LabelAnalyzer implements TextualDataConsumer {
         if (LabelAnalyzer.xStructureReference == null) {
             LOG.warn("Reference file not initialized");
         }
-        if (isThisAnalyzerIncluded) {
-            label = labelListOfStrings((ArrayList<String>) records);
-        } else {
-            LOG.info("XSystem is not enabled");
-        }
+        label = labelListOfStrings((ArrayList<String>) records);
         return true;
     }
 
@@ -61,7 +51,6 @@ public class LabelAnalyzer implements TextualDataConsumer {
 
         for (XStructType struct : xStructureReference) {
             double score = struct.xStructure.compareTwo(toBeLabeled, struct.xStructure);
-            LOG.debug("Item compared with " + struct.type + " has similarity score " + score);
             scoreList.add(score);
         }
         double maxScore = Collections.max(scoreList);

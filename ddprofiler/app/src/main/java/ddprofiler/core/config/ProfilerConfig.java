@@ -13,8 +13,8 @@ public class ProfilerConfig extends Config {
 
     private static final ConfigDef config;
 
-    public static final String EXCLUDE_ANALYZER = "exclude.analyzer";
-    public static final String EXCLUDE_ANALYZER_DOC = "To exclude analyzer, ex: \"KMinHash\", \"Cardinality\", \"Entity\", \"XSystem\", \"Label\"";
+    public static final String PROFILE_SCHEMA_FILE = "profile.schema";
+    private static final String PROFILE_SCHEMA_FILE_DOC = "Path to the YAML file with the " + "profile schema";
 
     public static final String EXPERIMENTAL = "experimental";
     private static final String EXPERIMENTAL_DOC = "To activate experimental features";
@@ -91,7 +91,7 @@ public class ProfilerConfig extends Config {
                     ERROR_LOG_FILE_NAME_DOC)
                 .define(REPORT_METRICS_CONSOLE, Type.INT, -1, Importance.HIGH, REPORT_METRICS_CONSOLE_DOC)
                 .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC)
-                .define(EXCLUDE_ANALYZER, Type.STRING, "", Importance.LOW, EXCLUDE_ANALYZER_DOC)
+                .define(PROFILE_SCHEMA_FILE, Type.STRING, "./../profile_schema.yml", Importance.HIGH, PROFILE_SCHEMA_FILE_DOC)
                 .define(XSYSTEM_REFERENCE_FILE, Type.STRING, "./app/src/main/resources/reference.json", 
                     Importance.MEDIUM, XSYSTEM_REFERENCE_FILE_DOC)
                 .define(XSYSTEM_SIMILARITY_THRESHOLD, Type.DOUBLE, 0.5, 
