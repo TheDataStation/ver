@@ -50,13 +50,13 @@ analyzers:
         type: "DECIMAL(18, 0)"
 
   - name: "xsystem"
-    enabled: true
+    enabled: false
     fields:
       - name: "xstructure"
         type: "VARCHAR(255)"
 
   - name: "label"
-    enabled: true
+    enabled: false
     fields:
       - name: "columnLabel"
         type: "VARCHAR(255)"
