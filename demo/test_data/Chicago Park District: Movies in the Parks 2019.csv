@@ -1,0 +1,211 @@
+day,date,park,park_phone,title,cc,rating,underwriter,park_address,location,:@computed_region_rpca_8um6,:@computed_region_vrxf_vc4k,:@computed_region_6mkv_f3dw,:@computed_region_bdys_3d7i,:@computed_region_43wa_7qmu
+Mon,2019-07-08T00:00:00.000,Chippewa Park,(773) 731-0380,Bee Movie,Y,PG,JCC Chicago,6748 N. Sacramento Ave.,"{'latitude': '42.00438076', 'longitude': '-87.70475177'}",12,20,22528,32,27
+Tue,2019-08-06T00:00:00.000,Lawler Park,(773) 284-7328,Coco,Y,PG,,5210 W. 64th St.,"{'latitude': '41.77611338', 'longitude': '-87.75229515'}",7,62,22268,337,15
+Mon,2019-07-08T00:00:00.000,Calumet Park,(312) 747-6039,The Wizard of Oz,Y,G,,9801 S. Ave G,"{'latitude': '41.71772004', 'longitude': '-87.53150812'}",25,49,21202,705,47
+Thu,2019-08-01T00:00:00.000,Harrison Park,(312) 746-5491,Black Panther,Y,PG-13,,1824 S. Wood St.,"{'latitude': '41.85692162', 'longitude': '-87.67122476'}",43,33,14920,366,26
+Thu,2019-07-18T00:00:00.000,Hoard Playground Park,(773) 256-1903,Black Panther,Y,PG-13,,7201 S. Dobson Ave.,"{'latitude': '41.7640317', 'longitude': '-87.59928813'}",61,67,21546,121,33
+Fri,2019-06-07T00:00:00.000,Berger Park Cultural Center,(773) 761-0376,Some Like It Hot,Y,NR,,6205 N. Sheridan Rd.,"{'latitude': '41.99480562', 'longitude': '-87.65538421'}",14,76,4451,45,16
+Sat,2019-07-13T00:00:00.000,Skinner Park,(312) 746-5560,Big Hero 6,Y,PG,The Museum of Science and Industry,1331 W. Monroe St.,"{'latitude': '41.88015941', 'longitude': '-87.66077867'}",44,29,14917,91,46
+Mon,2019-08-12T00:00:00.000,River Park,(312) 742-7516,Hotel Transylvania 3,Y,PG,,5100 N. Francisco Ave.,"{'latitude': '41.97406838', 'longitude': '-87.70144885'}",20,6,21849,620,24
+Wed,2019-07-24T00:00:00.000,Kilbourn Park,(773) 685-3351,El Reality,Y,NR,The International Latino Cultural Center,3501 N. Kilbourn Ave.,"{'latitude': '41.94450485', 'longitude': '-87.73951111'}",21,16,22618,328,21
+Wed,2019-06-12T00:00:00.000,Union Park,(312) 746-5494,Black Panther,Y,PG-13,,1501 W. Randolph St.,"{'latitude': '41.88471128', 'longitude': '-87.66428183'}",44,29,14917,63,46
+Thu,2019-07-25T00:00:00.000,Wicker Park,(312) 742-7553,The Rainmaker,Y,PG-13,The Wicker Park Bucktown Chamber of Commerce Members and the Wicker Park Advisory Council,1425 N. Damen Avenue,"{'latitude': '41.90795225', 'longitude': '-87.67724924'}",4,25,21560,481,41
+Fri,2019-08-23T00:00:00.000,Shedd Park,(773) 762-3168,The Star,Y,PG,,3660 W. 23rd St.,"{'latitude': '41.84992518', 'longitude': '-87.71735905'}",57,32,21569,754,28
+Fri,2019-06-14T00:00:00.000,Pottawattomie Park,(773) 262-5835,Ghostbusters (1984),Y,PG,,7340 N. Rogers Ave.,"{'latitude': '42.01468225', 'longitude': '-87.67838211'}",9,10,21853,52,5
+Sat,2019-06-29T00:00:00.000,Rowan Park,(773) 646-3180,Aquaman,Y,PG-13,The Forest Preserve District of Cook County,11546 S. Avenue L,"{'latitude': '41.68500208', 'longitude': '-87.53661565'}",25,49,21202,603,47
+Fri,2019-08-02T00:00:00.000,Maplewood Playlot Park,(312) 742-7554,Ralph Breaks the Internet,Y,PG,,1640 N.Maplewood Ave.,"{'latitude': '41.91149995', 'longitude': '-87.69106224'}",1,25,22535,287,41
+Wed,2019-08-07T00:00:00.000,Heritage Green,(312) 746-5494,Smallfoot,Y,PG,The West Loop Community Organization,610-30 W. Adams St.,"{'latitude': '41.87937955', 'longitude': '-87.6430924'}",45,29,4452,786,36
+Wed,2019-08-14T00:00:00.000,Hayes Park,(312) 747-6177,Spider-Man: Into the Spider-Verse,Y,PG,The Forest Preserve District of Cook County,2936 W. 85th St.,"{'latitude': '41.73874188', 'longitude': '-87.69676781'}",8,69,4300,217,30
+Sat,2019-08-17T00:00:00.000,DuSable Museum of African American History,(312) 742-1134,Trinity Goodheart,Y,NR,The DuSable Museum of African American History,740 E. 56th Pl.,"{'latitude': '41.79248002', 'longitude': '-87.60685252'}",60,7,22260,401,4
+Wed,2019-06-26T00:00:00.000,Horner Park,(773) 478-3499,Wonder,Y,PG,JCC Chicago,2741 W. Montrose Ave.,"{'latitude': '41.9611441', 'longitude': '-87.69770153'}",39,16,21538,214,20
+Thu,2019-06-20T00:00:00.000,Maggie Daley Park,(312) 742-3918,Ralph Breaks the Internet,Y,PG,,337 E. Randolph St.,"{'latitude': '41.88422161', 'longitude': '-87.61933906'}",41,38,14309,580,36
+Mon,2019-06-24T00:00:00.000,Harold Washington Playlot Park,(312) 747-6620,Cabaret,Y,PG,,5200 S. Hyde Park Blvd.,"{'latitude': '41.80047033', 'longitude': '-87.58450476'}",10,8,21192,405,33
+Thu,2019-06-20T00:00:00.000,McKiernan Playground Park,(312) 747-2883,Avengers: Infinity War,Y,PG-13,,10714 S. Sawyer Ave.,"{'latitude': '41.69846337', 'longitude': '-87.70242508'}",33,73,4447,369,42
+Fri,2019-06-28T00:00:00.000,Portage Park,(773) 685-7235,Dirty Dancing,Y,PG-13,,4100 N. Long Ave.,"{'latitude': '41.95510787', 'longitude': '-87.76228458'}",21,15,22618,260,19
+Sat,2019-06-15T00:00:00.000,Tuley Park,(312) 747-6763,Night School,Y,PG-13,,501 E. 90th Pl.,"{'latitude': '41.73008229', 'longitude': '-87.61181885'}",61,40,21546,430,43
+Fri,2019-08-16T00:00:00.000,Tilton Park,(773) 287-0806,Avengers: Infinity War,Y,PG-13,,305 N. Kostner Ave.,"{'latitude': '41.88560476', 'longitude': '-87.73548782'}",30,27,21572,619,23
+Mon,2019-07-22T00:00:00.000,Haas Park,(312) 742-7552,Spider-Man: Into the Spider-Verse,Y,PG,,2402 N. Washtenaw Ave.,"{'latitude': '41.92494165', 'longitude': '-87.69512119'}",1,23,22535,468,41
+Sat,2019-07-27T00:00:00.000,Buttercup Playlot Park,(312) 742-7502,Come Drink With Me,N,NR,,4901 N. Sheridan Rd.,"{'latitude': '41.97166865', 'longitude': '-87.65473895'}",15,31,22616,635,16
+Wed,2019-08-21T00:00:00.000,Gill Park,(312) 742-7802,Wonder,Y,PG,JCC Chicago,825 W. Sheridan Rd.,"{'latitude': '41.9526213', 'longitude': '-87.65067083'}",53,57,21186,83,39
+Thu,2019-08-08T00:00:00.000,Burnside Park,(312) 747-6015,A Wrinkle in Time,Y,PG,,9400 S. Greenwood Ave.,"{'latitude': '41.72400937', 'longitude': '-87.59741566'}",61,43,21546,472,35
+Mon,2019-08-19T00:00:00.000,Grant Park: Logan Monument,(312) 742-1134,Grease,Y,PG,The Greater South Loop Association,900 S. Michigan Ave.,"{'latitude': '41.87055847', 'longitude': '-87.62428661'}",35,38,14913,368,10
+Wed,2019-06-19T00:00:00.000,Green Briar Park,(773) 761-0582,Alice in Wonderland,Y,G,,2650 W. Peterson Ave.,"{'latitude': '41.99056874', 'longitude': '-87.69659414'}",50,20,4450,31,24
+Thu,2019-06-27T00:00:00.000,Gross Park,(312) 742-7528,Mary Poppins Returns,Y,PG,,2708 W. Lawrence Ave.,"{'latitude': '41.96865935', 'longitude': '-87.69662091'}",20,6,21849,28,24
+Tue,2019-07-16T00:00:00.000,Beverly Park,(312) 747-6024,Cars (2006),Y,G,,2460 W. 102nd St.,"{'latitude': '41.70829186', 'longitude': '-87.68413609'}",33,71,4447,661,42
+Tue,2019-08-06T00:00:00.000,West Lawn Park,(773) 284-2803,Coco,Y,PG,,4233 W. 65th St.,"{'latitude': '41.77486501', 'longitude': '-87.72884225'}",58,63,21867,6,15
+Sun,2019-06-30T00:00:00.000,Chicago Women's Park and Gardens,(312) 328-0821,The Incredibles 2,Y,PG,The Prairie District Neighborhood Alliance,1801 S. Indiana Ave.,"{'latitude': '41.85783824', 'longitude': '-87.62218405'}",40,34,21194,374,9
+Thu,2019-07-11T00:00:00.000,Dunbar Park,(312) 747-6287,Black Panther,Y,PG-13,,300 E. 31st St.,"{'latitude': '41.83849698', 'longitude': '-87.62015738'}",40,1,21194,191,10
+Fri,2019-06-21T00:00:00.000,Mandrake Park,(312) 747-6446,Spider-Man: Into the Spider-Verse,Y,PG,,900 E. Pershing Rd.,"{'latitude': '41.82509196', 'longitude': '-87.60390798'}",36,2,4301,221,10
+Sat,2019-08-10T00:00:00.000,Humboldt Park,(312) 742-7549,Smallfoot,Y,PG,,1440 N. Sacramento,"{'latitude': '-87.701792', 'longitude': '41.902822'}",,,,,
+Thu,2019-08-15T00:00:00.000,West Pullman Park,(312) 747-7090,Black Panther,Y,PG-13,,401 W. 123rd St.,"{'latitude': '41.6705255', 'longitude': '-87.63211402'}",19,50,21861,7,22
+Sat,2019-07-20T00:00:00.000,Bradley Park,(312) 747-6022,Black Panther,Y,PG-13,,9729 S.Yates Ave.,"{'latitude': '41.71809861', 'longitude': '-87.56450116'}",25,48,21202,527,47
+Fri,2019-07-26T00:00:00.000,Clarendon Park Community Center,(312) 742-7512,Spider-Man: Into the Spider-Verse,Y,PG,,4501 N. Clarendon Ave.,"{'latitude': '41.96371269', 'longitude': '-87.64981992'}",15,31,22616,636,39
+Fri,2019-07-12T00:00:00.000,Moore Park,(773) 287-0561,Creed II,Y,PG-13,,5085 W. Adams,"{'latitude': '41.87839125', 'longitude': '-87.75274341'}",32,26,22216,184,23
+Mon,2019-08-05T00:00:00.000,Julia de Burgos Park,(312) 742-7529,Trolls,Y,NR,The 606,1805 N. Albany Ave.,"{'latitude': '41.91389527', 'longitude': '-87.70502242'}",1,23,22535,386,41
+Tue,2019-07-02T00:00:00.000,Harold Washington Playlot Park,(312) 747-6620,Leap!,Y,PG,The Cultural Service at the Consulate General of France,5200 S. Hyde Park Blvd.,"{'latitude': '41.80047033', 'longitude': '-87.58450476'}",10,8,21192,405,33
+Tue,2019-07-30T00:00:00.000,Humboldt Park,(312) 742-7549,The Incredibles 2,Y,PG,,1440 N. Sacramento,"{'latitude': '-87.701792', 'longitude': '41.902822'}",,,,,
+Sun,2019-07-14T00:00:00.000,Jonquil Playlot Park,(312) 742-7816,Spider-Man: Homecoming,Y,PG-13,The Wrightwood Neighbors Association,1001 W. Wrightwood Ave.,"{'latitude': '41.92889597', 'longitude': '-87.65385229'}",16,68,21190,795,34
+Wed,2019-07-31T00:00:00.000,Chicago History Museum,(312) 742-1134,My Favorite Wife,Y,NR,The Chicago History Museum,1601 N. Clark St.,,,,,,
+Wed,2019-07-24T00:00:00.000,La Villita Park,(312) 747-6608,Smallfoot,Y,PG,,2800 S. Sacramento Blvd.,"{'latitude': '41.8408764', 'longitude': '-87.70018045'}",57,32,21569,124,1
+Mon,2019-06-10T00:00:00.000,Belmont Harbor,(312) 742-1134,The 39 Steps,Y,NR,,3200 N. Lake Shore Dr.,"{'latitude': '41.94090916', 'longitude': '-87.63936916'}",22,57,4449,535,25
+Tue,2019-07-09T00:00:00.000,Ward (A. Montgomery) Park,(312) 742-7895,Mary Poppins Returns,Y,PG,The River North Resident's Association,630 N. Kingsbury St.,"{'latitude': '41.893015', 'longitude': '-87.64125791'}",55,37,4446,652,36
+Sat,2019-08-24T00:00:00.000,Oz Park,(312) 742-7898,The Wizard of Oz,Y,G,,2021 N. Burling St.,"{'latitude': '41.9189011', 'longitude': '-87.64717807'}",16,68,21190,798,34
+Thu,2019-06-13T00:00:00.000,Bartelme (Mary) Park,(312) 746-5962,Adventures in Babysitting,Y,PG-13,The Mary Bartelme Park Advisory Council,115 S. Sangamon St.,"{'latitude': '41.87994748', 'longitude': '-87.65066137'}",44,29,14917,91,26
+Mon,2019-07-01T00:00:00.000,Oakwood Beach,(312) 742-1134,Grease,Y,PG,,3900 S. Lake Shore Dr.,"{'latitude': '41.82588259', 'longitude': '-87.60097185'}",36,2,4301,221,10
+Wed,2019-07-24T00:00:00.000,White (Willye B.) Park,(773) 262-5051,Aquaman,Y,PG-13,The Forest Preserve District of Cook County,7631 N. Ashland Ave.,"{'latitude': '42.02087112', 'longitude': '-87.67057561'}",9,10,21853,340,5
+Sat,2019-07-13T00:00:00.000,Buttercup Playlot Park,(312) 742-7502,Napoleon Dynamite,Y,PG,,4901 N. Sheridan Rd.,"{'latitude': '41.97166865', 'longitude': '-87.65473895'}",15,31,22616,635,16
+Fri,2019-08-23T00:00:00.000,Indian Road Park,(773) 631-3761,The Incredibles 2,Y,PG,,6010 W. Matson Ave.,"{'latitude': '41.99284157', 'longitude': '-87.77835042'}",18,36,22532,656,38
+Fri,2019-07-19T00:00:00.000,Douglas Park Cultural and Community Center,(773) 762-2842,Little Shop of Horrors (1986),Y,PG-13,,1401 S. Sacramento Dr.,"{'latitude': '41.862904', 'longitude': '-87.70186654'}",57,30,21569,132,14
+Fri,2019-06-21T00:00:00.000,Independence Park,(773) 478-3538,The Sandlot,Y,PG,,3945 N. Springfield Ave.,"{'latitude': '41.95322543', 'longitude': '-87.72494811'}",39,16,21538,326,50
+Tue,2019-06-25T00:00:00.000,Bartelme (Mary) Park,(312) 746-5962,Wayne's World,Y,PG-13,The Mary Bartelme Park Advisory Council,115 S. Sangamon St.,"{'latitude': '41.87994748', 'longitude': '-87.65066137'}",44,29,14917,91,26
+Fri,2019-08-09T00:00:00.000,Chopin Park,(773) 685-3247,Trolls,Y,NR,,3420 N. Long Ave.,"{'latitude': '41.94291712', 'longitude': '-87.76188146'}",21,15,22618,361,21
+Tue,2019-08-20T00:00:00.000,Bosley Playground Park,(312) 747-6026,The Incredibles 2,Y,PG,,3044 S. Bonfield St.,"{'latitude': '41.83922943', 'longitude': '-87.6537317'}",43,58,14920,722,48
+Wed,2019-06-19T00:00:00.000,Museum of Science and Industry,(312) 742-1134,Back to the Future Part II,Y,PG,The Museum of Science & Industry,5700 S. Lake Shore Dr.,"{'latitude': '41.79142028', 'longitude': '-87.58014777'}",60,8,22260,502,33
+Thu,2019-08-01T00:00:00.000,Chicago Women's Park and Gardens,(312) 328-0821,Jane Eyre (2011),Y,PG-13,"The Department of Cultural Affairs and Special Events, the Clarke House Museum, The National Society of The Colonial Dames of America, Glessner House and The Prairie District Neighborhood Alliance",1801 S. Indiana Ave.,"{'latitude': '41.85783824', 'longitude': '-87.62218405'}",40,34,21194,374,9
+Sat,2019-08-10T00:00:00.000,Museum of Science and Industry,(312) 742-1134,Wonder Woman,Y,PG-13,The Museum of Science & Industry,5700 S. Lake Shore Dr.,"{'latitude': '41.79142028', 'longitude': '-87.58014777'}",60,8,22260,502,33
+Sat,2019-06-22T00:00:00.000,West Chatham Park,(317) 747-6998,Black Panther,Y,PG-13,,8223 S. Princeton Ave.,"{'latitude': '41.74443787', 'longitude': '-87.63156363'}",59,40,21554,1,13
+Mon,2019-07-15T00:00:00.000,Osterman Beach,(312) 742-1134,Singin' in the Rain,Y,G,,5800 N. Lake Shore Dr.,"{'latitude': '-87.6528859', 'longitude': '41.9863754'}",,,,,
+Thu,2019-08-22T00:00:00.000,Bartelme (Mary) Park,(312) 746-5962,Green Book,Y,PG-13,The Mary Bartelme Park Advisory Council,115 S. Sangamon St.,"{'latitude': '41.87994748', 'longitude': '-87.65066137'}",44,29,14917,91,26
+Fri,2019-07-05T00:00:00.000,Indian Boundary Park and Cultural Center,(773) 764-0338,Yankee Doodle Dandy,N,NR,,2500 W. Lunt Ave.,"{'latitude': '42.0087144', 'longitude': '-87.69268958'}",12,20,22528,42,27
+Wed,2019-07-17T00:00:00.000,Harrison Park,(312) 746-5491,Not Quite Adults / Tampoco Tan Grandes,Y,NR,The International Latino Cultural Center,1824 S. Wood St.,"{'latitude': '41.85692162', 'longitude': '-87.67122476'}",43,33,14920,366,26
+Thu,2019-08-08T00:00:00.000,Bartelme (Mary) Park,(312) 746-5962,Creed (2015),Y,PG-13,The Mary Bartelme Park Advisory Council,115 S. Sangamon St.,"{'latitude': '41.87994748', 'longitude': '-87.65066137'}",44,29,14917,91,26
+Fri,2019-06-14T00:00:00.000,Lindblom Park,(312) 747-6443,Creed II,Y,PG-13,,6054 S. Damen Ave.,"{'latitude': '41.78318436', 'longitude': '-87.67415389'}",23,65,22257,274,2
+Sun,2019-08-18T00:00:00.000,Wallace Playground Park,(312) 747-6763,Creed II,Y,PG-13,,607 W. 92nd St.,"{'latitude': '41.72689281', 'longitude': '-87.63883826'}",59,72,21554,631,13
+Fri,2019-06-28T00:00:00.000,Wentworth Park,(312) 747-6993,Ralph Breaks the Internet,Y,PG,,5625 S. Mobile Ave.,"{'latitude': '41.78970398', 'longitude': '-87.7791043'}",7,53,22268,590,15
+Mon,2019-08-12T00:00:00.000,Belmont Harbor,(312) 742-1134,Meet Me In St. Louis,Y,NR,,3200 N. Lake Shore Dr.,"{'latitude': '41.94090916', 'longitude': '-87.63936916'}",22,57,4449,535,25
+Fri,2019-08-02T00:00:00.000,Cornell Square Park,(312) 747-6097,Spider-Man: Into the Spider-Verse,Y,PG,,1809 W. 50th St.,"{'latitude': '41.8029812', 'longitude': '-87.67011453'}",37,59,14924,709,4
+Sun,2019-07-21T00:00:00.000,Jonquil Playlot Park,(312) 742-7816,The Grinch,Y,PG,The Wrightwood Neighbors Association,1001 W. Wrightwood Ave.,"{'latitude': '41.92889597', 'longitude': '-87.65385229'}",16,68,21190,795,34
+Fri,2019-07-26T00:00:00.000,Rutherford Sayre Park,(312) 746-5368,Mary Poppins Returns,Y,PG,,6871 W. Belden Ave.,"{'latitude': '41.92103326', 'longitude': '-87.79791006'}",3,18,4454,136,7
+Wed,2019-07-10T00:00:00.000,Loyola Park,(773) 262-8605,The Gazelle's Dance / El Baile de la Gacela,Y,NR,The International Latino Cultural Center,1230 W. Greenleaf Ave.,"{'latitude': '42.01052218', 'longitude': '-87.66130892'}",9,10,21853,267,5
+Tue,2019-08-20T00:00:00.000,Jensen Park,(312) 742-7054,Sherlock Gnomes,Y,PG,,4650 N. Lawndale Ave.,"{'latitude': '41.9661342', 'longitude': '-87.72077765'}",20,14,21849,119,12
+Wed,2019-07-17T00:00:00.000,Brainerd Park,(312) 747-6027,Creed II,Y,PG-13,,1246 W. 92nd St.,"{'latitude': '41.72690254', 'longitude': '-87.65494879'}",59,72,21554,195,13
+Wed,2019-08-14T00:00:00.000,Hamlin Park,(312) 742-7785,Smallfoot,Y,PG,,3035 N. Hoyne Ave.,"{'latitude': '41.93695733', 'longitude': '-87.68055828'}",39,46,21538,616,40
+Sat,2019-06-15T00:00:00.000,Oz Park,(312) 742-7898,The Sandlot 2,Y,PG,The Oz Park Baseball Association,2021 N. Burling St.,"{'latitude': '41.9189011', 'longitude': '-87.64717807'}",16,68,21190,798,34
+Mon,2019-07-29T00:00:00.000,Oakwood Beach,(312) 742-1134,Muppets Take Manhattan,Y,G,,3900 S. Lake Shore Dr.,"{'latitude': '41.82588259', 'longitude': '-87.60097185'}",36,2,4301,221,10
+Wed,2019-06-26T00:00:00.000,Blackhawk Park,(312) 746-5014,The Incredibles 2,Y,PG,,2318 N. Lavergne Ave.,"{'latitude': '41.92293421', 'longitude': '-87.7513379'}",2,19,22615,306,44
+Wed,2019-07-31T00:00:00.000,Piotrowski Park,(312) 745-4801,Tesoros,Y,G,The International Latino Cultural Center,4247 W. 31st St.,"{'latitude': '41.83669678', 'longitude': '-87.73107269'}",57,32,21569,200,28
+Tue,2019-07-09T00:00:00.000,Trebes Park,(312) 742-7769,La Bolduc,Y,NR,The Cultural Service at the Consulate General of France,2250 N. Clifton Ave.,"{'latitude': '41.92317657', 'longitude': '-87.65732331'}",16,68,21190,797,34
+Sat,2019-07-27T00:00:00.000,Park No. 564 - Big Marsh,(773) 646-0210,Captain Marvel,Y,PG-13,,11555 S. Stony Island Ave.,"{'latitude': '41.68482787', 'longitude': '-87.57630433'}",25,48,22250,174,47
+Fri,2019-07-19T00:00:00.000,Piotrowski Park,(312) 745-4801,Spider-Man: Into the Spider-Verse,Y,PG,,4247 W. 31st St.,"{'latitude': '41.83669678', 'longitude': '-87.73107269'}",57,32,21569,200,28
+Tue,2019-06-11T00:00:00.000,Donovan Playground Park,(312) 747-6111,Goosebumps 2,Y,PG,,3620 S.Lituanica Ave.,"{'latitude': '41.82797656', 'longitude': '-87.64781283'}",37,58,14924,172,48
+Sat,2019-08-24T00:00:00.000,Euclid Park,(312) 747-6124,Aquaman,Y,PG-13,,9800 S. Parnell Ave.,"{'latitude': '41.71604187', 'longitude': '-87.63714774'}",19,72,21861,593,22
+Sat,2019-08-10T00:00:00.000,Pendleton (Hadiya) Park,(312) 747-6707,Aquaman,Y,PG-13,,4345 S. Calumet Ave.,"{'latitude': '41.81524092', 'longitude': '-87.61816658'}",36,4,4301,162,9
+Sat,2019-06-22T00:00:00.000,Sauganash Park,(773) 685-6122,Ralph Breaks the Internet,Y,PG,The Edgebrook Sauganash Athletic Association,5861 N. Kostner Ave.,"{'latitude': '41.98806928', 'longitude': '-87.73816907'}",18,12,22532,713,38
+Sun,2019-06-23T00:00:00.000,Brooks Park,(773) 631-4401,Mary Poppins Returns,Y,PG,The Edison Park Chamber of Commerce,7100 N. Harlem Ave.,"{'latitude': '42.00994549', 'longitude': '-87.80680465'}",17,77,22243,654,29
+Mon,2019-08-05T00:00:00.000,South Shore Cultural Center,(773) 256-0149,A Wrinkle in Time,Y,PG,,7059 S. South Shore Drive,"{'latitude': '41.76660302', 'longitude': '-87.56632372'}",24,39,22538,142,33
+Thu,2019-06-27T00:00:00.000,Austin Town Hall,(773) 287-7658,Black Panther,Y,PG-13,,5610 W. Lake St.,"{'latitude': '41.88784692', 'longitude': '-87.76559245'}",32,26,22216,672,7
+Fri,2019-08-09T00:00:00.000,Palmer Park,(312) 747-6577,Jumanji: Welcome to the Jungle,Y,PG-13,,201 E. 111th St.,"{'latitude': '41.69254319', 'longitude': '-87.61813446'}",19,45,21861,253,43
+Fri,2019-07-05T00:00:00.000,Augusta Park,(312) 742-7544,Aquaman,Y,PG-13,,4433 W. Augusta Blvd.,"{'latitude': '41.8987269', 'longitude': '-87.73738695'}",5,24,4299,99,45
+Fri,2019-08-16T00:00:00.000,Ada Park,(312) 747-6002,Rampage,Y,PG-13,,11250 S. Ada St.,"{'latitude': '41.68856983', 'longitude': '-87.65578778'}",13,74,22212,663,22
+Tue,2019-06-18T00:00:00.000,Kedvale Park,(312) 742-7543,Spider-Man: Into the Spider-Verse,Y,PG,,4134 W. Hirsch St.,"{'latitude': '41.90634312', 'longitude': '-87.73022479'}",5,24,4299,286,49
+Wed,2019-08-14T00:00:00.000,Sheridan Park,(312) 746-5369,Moana,Y,PG,,910 S. Aberdeen St.,"{'latitude': '41.87032717', 'longitude': '-87.65439381'}",44,29,14917,87,26
+Mon,2019-08-19T00:00:00.000,South Shore Cultural Center,(773) 256-0149,Spider-Man: Into the Spider-Verse,Y,PG,South Shore Cultural Center,7059 S. South Shore Drive,"{'latitude': '41.76660302', 'longitude': '-87.56632372'}",24,39,22538,142,33
+Thu,2019-06-20T00:00:00.000,Archer Park,(773) 284-7029,Smallfoot,Y,PG,,4901 S.Kilbourn Ave.,"{'latitude': '41.80391551', 'longitude': '-87.73556627'}",56,54,22248,697,8
+Wed,2019-06-26T00:00:00.000,Lincoln Park Cultural Center,(312) 742-7726,Galaxy Quest,Y,PG,,2045 N. Lincoln Park West,"{'latitude': '41.91983669', 'longitude': '-87.63624578'}",16,68,21190,207,34
+Mon,2019-07-01T00:00:00.000,Calumet Park,(312) 747-6039,Spider-Man: Into the Spider-Verse,Y,PG,,9801 S. Ave G,"{'latitude': '41.71772004', 'longitude': '-87.53150812'}",25,49,21202,705,47
+Thu,2019-07-25T00:00:00.000,Columbus Park,(773) 287-7641,Aquaman,Y,PG-13,,500 S. Central Ave.,"{'latitude': '41.87377325', 'longitude': '-87.7647697'}",32,26,22216,67,7
+Sat,2019-08-24T00:00:00.000,Chicago Women's Park and Gardens,(312) 328-0821,First Man,Y,PG-13,The Prairie District Neighborhood Alliance,1801 S. Indiana Ave.,"{'latitude': '41.85783824', 'longitude': '-87.62218405'}",40,34,21194,374,9
+Fri,2019-06-21T00:00:00.000,Gladstone Park,(773) 631-7859,Ralph Breaks the Internet,Y,PG,,5421 N. Menard Ave.,"{'latitude': '41.97910458', 'longitude': '-87.77310817'}",48,11,21869,693,50
+Mon,2019-07-08T00:00:00.000,Daniel Webster Park,(312) 745-1479,Peter Rabbit,Y,PG,The Greater South Loop Association,1357 S. Indiana Ave.,"{'latitude': '41.86427432', 'longitude': '-87.62233575'}",35,34,14913,374,9
+Sat,2019-06-15T00:00:00.000,DuSable Museum of African American History,(312) 742-1134,Freedom Song,Y,NR,,740 E. 56th Pl.,"{'latitude': '41.79248002', 'longitude': '-87.60685252'}",60,7,22260,401,4
+Sat,2019-06-29T00:00:00.000,Belmont Harbor,(312) 742-1134,Breathless / A Bout De Souffle,Y,NR,The Cultural Service at the Consulate General of France,3200 N. Lake Shore Dr.,"{'latitude': '41.94090916', 'longitude': '-87.63936916'}",22,57,4449,535,25
+Sat,2019-08-03T00:00:00.000,Rowan Park,(773) 646-3180,Monsters University,Y,G,,11546 S. Avenue L,"{'latitude': '41.68500208', 'longitude': '-87.53661565'}",25,49,21202,603,47
+Fri,2019-06-28T00:00:00.000,Carver Park,(312) 747-6047,Spider-Man: Into the Spider-Verse,Y,PG,The Forest Preserve District of Cook County,939 E. 132nd St.,"{'latitude': '41.65592462', 'longitude': '-87.59906439'}",47,51,4460,10,43
+Fri,2019-08-16T00:00:00.000,Hermosa Park,(312) 742-7540,Aquaman,Y,PG-13,,2240 N. Kilbourn Ave.,"{'latitude': '41.92192999', 'longitude': '-87.73907239'}",2,21,22615,75,44
+Sat,2019-07-13T00:00:00.000,Chicago Women's Park and Gardens,(312) 328-0821,Dunkirk,Y,PG-13,The Prairie District Neighborhood Alliance,1801 S. Indiana Ave.,"{'latitude': '41.85783824', 'longitude': '-87.62218405'}",40,34,21194,374,9
+Fri,2019-08-09T00:00:00.000,Bessemer Park,(312) 747-6023,Spider-Man: Into the Spider-Verse,Y,PG,,8930 S. Muskegon Ave.,"{'latitude': '41.7327341', 'longitude': '-87.55561477'}",25,42,21202,175,37
+Sat,2019-08-17T00:00:00.000,Winnemac Park,(312) 742-5101,Spider-Man: Into the Spider-Verse,Y,PG,Friends of Winnemac Park,5100 N. Leavitt St,"{'latitude': '41.97406708', 'longitude': '-87.68437099'}",20,6,21849,54,24
+Tue,2019-08-13T00:00:00.000,Welles Park,(312) 742-7511,Footloose (1984),Y,PG,,2333 W. Sunnyside Ave.,"{'latitude': '41.96304075', 'longitude': '-87.68773712'}",20,6,21849,667,18
+Tue,2019-07-23T00:00:00.000,Kosciuszko Park,(312) 742-7546,Black Panther,Y,PG-13,The Kosciuszko Park Advisory Council,2732 N. Avers Ave.,"{'latitude': '41.9310234', 'longitude': '-87.72343588'}",1,23,22535,107,17
+Fri,2019-07-12T00:00:00.000,Adams Playground Park,(312) 742-7787,Mary Poppins Returns,Y,PG,,1919 N. Seminary Ave.,"{'latitude': '41.91669986', 'longitude': '-87.65522827'}",16,68,21190,168,34
+Wed,2019-07-10T00:00:00.000,La Follette Park,(773) 287-0541,Spider-Man: Into the Spider-Verse,Y,PG,,1333 N. Laramie Ave.,"{'latitude': '41.90505469', 'longitude': '-87.75569246'}",5,26,4299,600,45
+Thu,2019-06-13T00:00:00.000,Wicker Park,(312) 742-7553,Stardust,Y,PG-13,The Wicker Park Bucktown Chamber of Commerce Members and the Wicker Park Advisory Council,1425 N. Damen Avenue,"{'latitude': '41.90795225', 'longitude': '-87.67724924'}",4,25,21560,481,41
+Tue,2019-06-25T00:00:00.000,Hamilton Park,(312) 747-6174,Jurassic World: Fallen Kingdom,Y,PG-13,,513 W. 72nd St.,"{'latitude': '41.76337465', 'longitude': '-87.6376201'}",11,66,21559,511,32
+Wed,2019-07-17T00:00:00.000,Kilbourn Park,(773) 685-3351,Goonies,Y,PG,,3501 N. Kilbourn Ave.,"{'latitude': '41.94450485', 'longitude': '-87.73951111'}",21,16,22618,328,21
+Sat,2019-09-07T00:00:00.000,Buttercup Playlot Park,(312) 742-7502,After School Cartoons,N,NR,,4901 N. Sheridan Rd.,"{'latitude': '41.97166865', 'longitude': '-87.65473895'}",15,31,22616,635,16
+Fri,2019-07-19T00:00:00.000,Independence Park,(773) 478-3538,Spider-Man: Into the Spider-Verse,Y,PG,,3945 N. Springfield Ave.,"{'latitude': '41.95322543', 'longitude': '-87.72494811'}",39,16,21538,326,50
+Fri,2019-08-02T00:00:00.000,Clark (Richard) Playlot Park,(773) 248-3966,Crazy Rich Asians,Y,PG-13,,3400 N. Rockwell St.,"{'latitude': '41.94305204', 'longitude': '-87.69384443'}",39,46,21538,110,18
+Mon,2019-07-15T00:00:00.000,Harold Washington Playlot Park,(312) 747-6620,Isle of Dogs,Y,PG-13,,5200 S. Hyde Park Blvd.,"{'latitude': '41.80047033', 'longitude': '-87.58450476'}",10,8,21192,405,33
+Fri,2019-07-05T00:00:00.000,Kelly Park,(312) 747-6197,Ralph Breaks the Internet,Y,PG,,2725 W. 41st St.,"{'latitude': '41.81918844', 'longitude': '-87.69340844'}",56,55,22248,641,1
+Wed,2019-08-07T00:00:00.000,Senn Playlot Park,(312) 742-7502,Ralph Breaks the Internet,Y,PG,,5887 N. Ridge Ave.,"{'latitude': '41.98893587', 'longitude': '-87.66850696'}",14,76,4451,539,16
+Thu,2019-08-22T00:00:00.000,Churchill Field Playlot Park,(312) 742-7554,Ralph Breaks the Internet,Y,PG,The Bucktown Community Organization,1825 N. Damen Ave.,"{'latitude': '41.9146579', 'longitude': '-87.67740738'}",4,23,21560,179,40
+Sat,2019-07-20T00:00:00.000,Horner Park,(773) 478-3499,E. T. the Extra-Terrestrial,Y,PG,The Hornrer Park Advisory Council,2741 W. Montrose Ave.,"{'latitude': '41.9611441', 'longitude': '-87.69770153'}",39,16,21538,214,20
+Tue,2019-07-30T00:00:00.000,Fuller Park,(312) 747-6144,Spider-Man: Into the Spider-Verse,Y,PG,The Forest Preserve District of Cook County,331 W. 45th St,"{'latitude': '41.81238512', 'longitude': '-87.63479837'}",37,3,14924,189,9
+Wed,2019-07-31T00:00:00.000,Union Park,(312) 746-5494,The Incredibles 2,Y,PG,The West Loop Community Organization,1501 W. Randolph St.,"{'latitude': '41.88471128', 'longitude': '-87.66428183'}",44,29,14917,63,46
+Tue,2019-06-11T00:00:00.000,Ward (A. Montgomery) Park,(312) 742-7895,Crazy Rich Asians,Y,PG-13,The River North Resident's Association,630 N. Kingsbury St.,"{'latitude': '41.893015', 'longitude': '-87.64125791'}",55,37,4446,652,36
+Thu,2019-07-11T00:00:00.000,Wicker Park,(312) 742-7553,Les Miserables (1998),Y,PG-13,The Wormhole Coffee,1425 N. Damen Avenue,"{'latitude': '41.90795225', 'longitude': '-87.67724924'}",4,25,21560,481,41
+Sun,2019-08-11T00:00:00.000,Jonquil Playlot Park,(312) 742-7816,Ralph Breaks the Internet,Y,PG,The Wrightwood Neighbors Association,1001 W. Wrightwood Ave.,"{'latitude': '41.92889597', 'longitude': '-87.65385229'}",16,68,21190,795,34
+Sun,2019-06-23T00:00:00.000,Jonquil Playlot Park,(312) 742-7816,Guardians of the Galaxy,Y,PG-13,The Wrightwood Neighbors Association,1001 W. Wrightwood Ave.,"{'latitude': '41.92889597', 'longitude': '-87.65385229'}",16,68,21190,795,34
+Fri,2019-08-09T00:00:00.000,Veteran's Memorial Park,(312) 747-6812,Ralph Breaks the Internet,Y,PG,,2820 E. 98th St.,"{'latitude': '41.71739698', 'longitude': '-87.55556913'}",25,48,21202,526,47
+Mon,2019-09-09T00:00:00.000,South Shore Cultural Center,(773) 256-0149,Robin Hood,Y,PG-13,South Shore Cultural Center,7059 S. South Shore Drive,"{'latitude': '41.76660302', 'longitude': '-87.56632372'}",24,39,22538,142,33
+Tue,2019-07-23T00:00:00.000,Churchill Field Playlot Park,(312) 742-7554,The Sting,Y,PG,The Bucktown Community Organization,1825 N. Damen Ave.,"{'latitude': '41.9146579', 'longitude': '-87.67740738'}",4,23,21560,179,40
+Fri,2019-07-26T00:00:00.000,Portage Park,(773) 685-7235,Mary Poppins Returns,Y,PG,,4100 N. Long Ave.,"{'latitude': '41.95510787', 'longitude': '-87.76228458'}",21,15,22618,260,19
+Tue,2019-08-20T00:00:00.000,Ward (A. Montgomery) Park,(312) 742-7895,The Incredibles 2,Y,PG,The River North Resident's Association,630 N. Kingsbury St.,"{'latitude': '41.893015', 'longitude': '-87.64125791'}",55,37,4446,652,36
+Sat,2019-08-03T00:00:00.000,Sauganash Park,(773) 685-6122,The LEGO Movie 2,Y,PG,The Sauganash Community Association,5861 N. Kostner Ave.,"{'latitude': '41.98806928', 'longitude': '-87.73816907'}",18,12,22532,713,38
+Thu,2019-06-27T00:00:00.000,Wicker Park,(312) 742-7553,Romeo + Juliet,Y,PG-13,The Wormhole Coffee,1425 N. Damen Avenue,"{'latitude': '41.90795225', 'longitude': '-87.67724924'}",4,25,21560,481,41
+Tue,2019-07-02T00:00:00.000,Ridge Park,(312) 747-6640,Jaws,Y,PG,,1817 W. 96th Street,"{'latitude': '41.71920815', 'longitude': '-87.66823047'}",13,71,22212,628,42
+Tue,2019-06-18T00:00:00.000,Roberts Square Playlot Park,(773) 685-3316,The Rugrats Movie (1998),Y,G,,5230 W. Argyle St.,"{'latitude': '41.97166987', 'longitude': '-87.75892379'}",48,11,21869,129,50
+Tue,2019-08-06T00:00:00.000,McGuane Park,(312) 747-6497,Coco,Y,PG,,2901 S. Poplar Ave.,"{'latitude': '41.84134899', 'longitude': '-87.64950769'}",43,58,14920,59,48
+Tue,2019-07-16T00:00:00.000,West Lawn Park,(773) 284-2803,Mary Poppins Returns,Y,PG,St. Nicholas of Tolentine School,4233 W. 65th St.,"{'latitude': '41.77486501', 'longitude': '-87.72884225'}",58,63,21867,6,15
+Fri,2019-06-28T00:00:00.000,Osterman Beach,(312) 742-1134,That Thing You Do!,Y,PG,,5800 N. Lake Shore Dr.,"{'latitude': '-87.6528859', 'longitude': '41.9863754'}",,,,,
+Sat,2019-07-06T00:00:00.000,O'Hallaren Park,(312) 747-6573,Coco,Y,PG,,8335 S. Honore St.,"{'latitude': '41.74194234', 'longitude': '-87.66914926'}",59,70,21554,532,13
+Thu,2019-08-22T00:00:00.000,Garfield Park,(312) 746-5092,The Princess and the Frog,Y,G,,100 N. Central Park Ave.,"{'latitude': '41.88335532', 'longitude': '-87.71566523'}",30,28,21572,176,23
+Thu,2019-08-15T00:00:00.000,Davis Square Park,(312) 747-6107,Teen Titans Go! To The Movies,Y,PG-13,,4430 S. Marshfield Ave.,"{'latitude': '41.81310599', 'longitude': '-87.66646688'}",37,59,14924,706,3
+Fri,2019-08-16T00:00:00.000,Independence Park,(773) 478-3538,Bohemian Rhapsody,Y,PG-13,,3945 N. Springfield Ave.,"{'latitude': '41.95322543', 'longitude': '-87.72494811'}",39,16,21538,326,50
+Mon,2019-06-17T00:00:00.000,Grant Park: Logan Monument,(312) 742-1134,Chicago,Y,PG-13,,900 S. Michigan Ave.,"{'latitude': '41.87055847', 'longitude': '-87.62428661'}",35,38,14913,368,10
+Sat,2019-07-27T00:00:00.000,Mamie Till-Mobley Park,(312) 747-7661,Coco,Y,PG,,6404 S. Ellis Ave.,"{'latitude': '41.77835204', 'longitude': '-87.60055506'}",60,9,22260,347,4
+Sat,2019-06-22T00:00:00.000,Pulaski Park,(312) 742-7559,Guardians of the Galaxy,Y,PG-13,The Museum of Science and Industry,1419 W. Blackhawk St.,"{'latitude': '41.90693712', 'longitude': '-87.66360239'}",49,25,22620,483,11
+Wed,2019-06-12T00:00:00.000,Brands Park,(773) 478-2414,Moana,Y,PG,,3259 N. Elston Ave.,"{'latitude': '41.94059875', 'longitude': '-87.69986095'}",39,22,21538,425,20
+Wed,2019-08-07T00:00:00.000,Kelvyn Park,(312) 742-7547,What I Feel for You / Lo Que Siento Por Ti,Y,NR,The International Latino Cultural Center,4438 W. Wrightwood Ave.,"{'latitude': '41.92875053', 'longitude': '-87.73827846'}",2,21,22615,439,17
+Fri,2019-06-14T00:00:00.000,Shedd Park,(773) 762-3168,Night School,Y,PG-13,,3660 W. 23rd St.,"{'latitude': '41.84992518', 'longitude': '-87.71735905'}",57,32,21569,754,28
+Tue,2019-07-09T00:00:00.000,Kells Playground Park,(312) 742-7544,Spider-Man: Into the Spider-Verse,Y,PG,Bickerdike Redevelopment Corp.,3201 W. Chicago Ave.,"{'latitude': '41.89544308', 'longitude': '-87.7066155'}",30,24,21572,177,46
+Wed,2019-08-14T00:00:00.000,La Villita Park,(312) 747-6608,Turbo,Y,PG,,2800 S. Sacramento Blvd.,"{'latitude': '41.8408764', 'longitude': '-87.70018045'}",57,32,21569,124,1
+Sat,2019-08-03T00:00:00.000,Ogden Park,(312) 747-6572,Ralph Breaks the Internet,Y,PG,,6500 S. Racine Ave.,"{'latitude': '41.77588058', 'longitude': '-87.65454639'}",23,65,22257,21,31
+Wed,2019-06-26T00:00:00.000,La Villita Park,(312) 747-6608,The House with a Clock in its Walls,Y,PG,,2800 S. Sacramento Blvd.,"{'latitude': '41.8408764', 'longitude': '-87.70018045'}",57,32,21569,124,1
+Thu,2019-07-18T00:00:00.000,Bartelme (Mary) Park,(312) 746-5962,Space Jam,Y,PG,The Mary Bartelme Park Advisory Council,115 S. Sangamon St.,"{'latitude': '41.87994748', 'longitude': '-87.65066137'}",44,29,14917,91,26
+Sat,2019-07-13T00:00:00.000,Oz Park,(312) 742-7898,Ghostbusters (1984),Y,PG,The Oz Park Advisory Council,2021 N. Burling St.,"{'latitude': '41.9189011', 'longitude': '-87.64717807'}",16,68,21190,798,34
+Sat,2019-08-24T00:00:00.000,Buttercup Playlot Park,(312) 742-7502,Spider-Man: Into the Spider-Verse,Y,PG,,4901 N. Sheridan Rd.,"{'latitude': '41.97166865', 'longitude': '-87.65473895'}",15,31,22616,635,16
+Fri,2019-07-19T00:00:00.000,Paschen Park,(773) 262-5871,Ant-Man and the Wasp,Y,PG-13,,1932 W. Lunt Ave.,"{'latitude': '42.00900097', 'longitude': '-87.67923602'}",9,10,21853,44,5
+Tue,2019-06-25T00:00:00.000,Ward (A. Montgomery) Park,(312) 742-7895,Black Panther,Y,PG-13,The River North Resident's Association,630 N. Kingsbury St.,"{'latitude': '41.893015', 'longitude': '-87.64125791'}",55,37,4446,652,36
+Thu,2019-06-20T00:00:00.000,Wilson (John P.) Park,(312) 747-7002,The LEGO Movie 2,Y,PG,,1122 W. 34th Pl.,"{'latitude': '41.83167213', 'longitude': '-87.65436337'}",43,58,14920,171,48
+Thu,2019-08-08T00:00:00.000,Washtenaw Park,(312) 747-4420,Avengers: Infinity War,Y,PG-13,,2521 S. Washtenaw Ave.,"{'latitude': '41.84577829', 'longitude': '-87.69267681'}",43,32,14920,263,14
+Sat,2019-08-17T00:00:00.000,Eckhart Park,(312) 746-5490,Avengers: Infinity War,Y,PG-13,Friends of Eckhart Park,1330 W. Chicago Ave.,"{'latitude': '41.89628864', 'longitude': '-87.6605556'}",49,25,22620,109,46
+Sat,2019-06-29T00:00:00.000,Grand Crossing Park,(312) 747-6158,Smallfoot,Y,PG,,7655 S. Ingleside Ave.,"{'latitude': '41.75521198', 'longitude': '-87.60149568'}",61,67,21546,497,35
+Tue,2019-07-23T00:00:00.000,Mann Park,(773) 646-0210,Smallfoot,Y,PG,,3035 E. 130st St.,"{'latitude': '41.65905937', 'longitude': '-87.54940208'}",26,52,22250,787,47
+Mon,2019-08-12T00:00:00.000,South Shore Cultural Center,(773) 256-0149,Moana,Y,PG,,7059 S. South Shore Drive,"{'latitude': '41.76660302', 'longitude': '-87.56632372'}",24,39,22538,142,33
+Thu,2019-08-01T00:00:00.000,Scottsdale Playground Park,(773) 284-1826,The Incredibles 2,Y,PG,,4637 W. 83rd St.,"{'latitude': '41.74191533', 'longitude': '-87.73635951'}",8,69,4300,197,30
+Thu,2019-06-20T00:00:00.000,Edgebrook Park,(773) 631-7461,Aquaman,Y,PG-13,,6525 N. Hiawatha Ave.,"{'latitude': '41.99946016', 'longitude': '-87.7618211'}",18,12,22532,782,29
+Fri,2019-06-14T00:00:00.000,Eugene Field Park,(773) 478-9744,Great Outdoors,Y,PG,,5100 N. Ridgeway Ave.,"{'latitude': '41.97380338', 'longitude': '-87.72221154'}",20,14,21849,127,38
+Wed,2019-07-10T00:00:00.000,Kelvyn Park,(312) 742-7547,Bumble Bee,Y,PG-13,,4438 W. Wrightwood Ave.,"{'latitude': '41.92875053', 'longitude': '-87.73827846'}",2,21,22615,439,17
+Thu,2019-07-25T00:00:00.000,Marquette Park,(312) 747-6469,Hotel Transylvania 3,Y,PG,,6743 S. Kedzie Ave.,"{'latitude': '41.77040513', 'longitude': '-87.70279647'}",58,64,21867,383,31
+Sun,2019-06-30T00:00:00.000,Holstein Park,(312) 742-7554,The LEGO Movie 2,Y,PG,The Bucktown Community Organization,2200 N. Oakley Ave.,"{'latitude': '41.92206895', 'longitude': '-87.68525593'}",1,23,22535,324,40
+Mon,2019-08-26T00:00:00.000,South Shore Cultural Center,(773) 256-0149,The Wiz,Y,G,,7059 S. South Shore Drive,"{'latitude': '41.76660302', 'longitude': '-87.56632372'}",24,39,22538,142,33
+Fri,2019-07-12T00:00:00.000,Gill Park,(312) 742-7802,The Sandlot,Y,PG,,825 W. Sheridan Rd.,"{'latitude': '41.9526213', 'longitude': '-87.65067083'}",53,57,21186,83,39
+Tue,2019-08-06T00:00:00.000,Ward (A. Montgomery) Park,(312) 742-7895,Green Book,Y,PG-13,The River North Resident's Association,630 N. Kingsbury St.,"{'latitude': '41.893015', 'longitude': '-87.64125791'}",55,37,4446,652,36
+Mon,2019-06-24T00:00:00.000,Cotton Tail Park,(312) 747-7640,The LEGO Movie 2,Y,PG,The Greater South Loop Association,44 W. 15th St.,"{'latitude': '41.86203657', 'longitude': '-87.62911255'}",35,34,14913,330,9
+Sun,2019-08-11T00:00:00.000,Unity Playlot Park,(773) 478-1410,Mary Poppins Returns,Y,PG,The Unity Park Advisory Council,2636 N. Kimball Ave.,"{'latitude': '41.92949896', 'longitude': '-87.71237758'}",1,23,22535,72,12
+Mon,2019-08-05T00:00:00.000,Calumet Park,(312) 747-6039,Hairspray,Y,PG,,9801 S. Ave G,"{'latitude': '41.71772004', 'longitude': '-87.53150812'}",25,49,21202,705,47
+Fri,2019-06-21T00:00:00.000,Osterman Beach,(312) 742-1134,French Cancan,Y,NR,The Cultural Service at the Consulate General of France,5800 N. Lake Shore Dr.,"{'latitude': '-87.6528859', 'longitude': '41.9863754'}",,,,,
+Fri,2019-06-28T00:00:00.000,Owens Park,(312) 747-6709,Bumble Bee,Y,PG-13,,8800 S. Clyde,"{'latitude': '41.73517227', 'longitude': '-87.57339543'}",25,44,21202,473,35
+Mon,2019-08-19T00:00:00.000,Osterman Beach,(312) 742-1134,Moulin Rouge,Y,PG-13,,5800 N. Lake Shore Dr.,"{'latitude': '-87.6528859', 'longitude': '41.9863754'}",,,,,
+Fri,2019-08-16T00:00:00.000,Portage Park,(773) 685-7235,A Dog's Way Home,Y,PG,,4100 N. Long Ave.,"{'latitude': '41.95510787', 'longitude': '-87.76228458'}",21,15,22618,260,19
+Wed,2019-06-19T00:00:00.000,Chicago History Museum,(312) 742-1134,"To Wong Foo, Thanks for Everything, Julie Newmar",Y,PG-13,The Chicago History Museum,1601 N. Clark St.,"{'latitude': '41.91131036', 'longitude': '-87.63156657'}",16,68,21190,271,34
+Sat,2019-07-20T00:00:00.000,DuSable Museum of African American History,(312) 742-1134,Spider-Man: Into the Spider-Verse,Y,PG,The DuSable Museum of African American History,740 E. 56th Pl.,"{'latitude': '41.79248002', 'longitude': '-87.60685252'}",60,7,22260,401,4
+Sat,2019-07-27T00:00:00.000,Ellis (Samuel) Park,(312) 656-0423,Creed II,Y,PG-13,,535 E. 35th St.,"{'latitude': '41.8310921', 'longitude': '-87.61291629'}",36,1,21194,561,10
+Thu,2019-08-01T00:00:00.000,Archer Park,(773) 284-7029,Bumble Bee,Y,PG-13,,4901 S.Kilbourn Ave.,"{'latitude': '41.80391551', 'longitude': '-87.73556627'}",56,54,22248,697,8
+Thu,2019-07-11T00:00:00.000,Normandy Playground Park,(773) 229-1421,Mary Poppins Returns,Y,PG,,6660 W. 52nd St.,"{'latitude': '41.79785925', 'longitude': '-87.78923279'}",7,53,22268,588,8
+Wed,2019-08-21T00:00:00.000,Chicago History Museum,(312) 742-1134,Singin' in the Rain,Y,G,The Chicago History Museum,1601 N. Clark St.,"{'latitude': '41.91131036', 'longitude': '-87.63156657'}",16,68,21190,271,34
+Tue,2019-07-16T00:00:00.000,Ward (A. Montgomery) Park,(312) 742-7895,The 400 Blows,Y,NR,The Cultural Service at the Consulate General of France,630 N. Kingsbury St.,"{'latitude': '41.893015', 'longitude': '-87.64125791'}",55,37,4446,652,36
+Tue,2019-07-30T00:00:00.000,Gage Park,(312) 747-6147,Mary Poppins Returns,Y,PG,,2411 W. 55th St.,"{'latitude': '41.79374925', 'longitude': '-87.684513'}",58,61,22248,112,3
+Thu,2019-06-27T00:00:00.000,Vittum Park,(773) 284-6022,Ralph Breaks the Internet,Y,PG,,5010 W. 50th St.,"{'latitude': '41.80218518', 'longitude': '-87.74838435'}",7,53,22268,605,28
+Sat,2019-06-15T00:00:00.000,Winnemac Park,(312) 742-5101,Aquaman,Y,PG-13,,5100 N. Leavitt St,"{'latitude': '41.97406708', 'longitude': '-87.68437099'}",20,6,21849,54,24
+Fri,2019-08-09T00:00:00.000,Vittum Park,(773) 284-6022,The Incredibles 2,Y,PG,,5010 W. 50th St.,"{'latitude': '41.80218518', 'longitude': '-87.74838435'}",7,53,22268,605,28
+Fri,2019-08-23T00:00:00.000,Fosco Park,(312) 746-5086,Creed II,Y,PG-13,,1312 S. Racine Ave,"{'latitude': '41.86485873', 'longitude': '-87.65676659'}",43,29,14920,96,26
+Sat,2019-07-06T00:00:00.000,Walsh Playground Park,(312) 742-7769,Cleo from 5 to 7 / Cleo de 5 a 7,Y,NR,The Cultural Service at the Consulate General of France,1722 N. Ashland Ave.,"{'latitude': '41.91316569', 'longitude': '-87.66790828'}",4,25,21560,437,40
+Tue,2019-07-02T00:00:00.000,Kells Playground Park,(312) 742-7544,Bumble Bee,Y,PG-13,,3201 W. Chicago Ave.,"{'latitude': '41.89544308', 'longitude': '-87.7066155'}",30,24,21572,177,46
+Thu,2019-08-15T00:00:00.000,Maggie Daley Park,(312) 742-3918,Cloudy With a Chance of Meatballs,Y,PG,The Museum of Science and Industry,337 E. Randolph St.,"{'latitude': '41.88422161', 'longitude': '-87.61933906'}",41,38,14309,580,36
+Mon,2019-07-15T00:00:00.000,Chippewa Park,(773) 731-0380,Ralph Breaks the Internet,Y,PG,Alderman Debra Silverstein,6748 N. Sacramento Ave.,"{'latitude': '42.00438076', 'longitude': '-87.70475177'}",12,20,22528,32,27
+Mon,2019-07-22T00:00:00.000,Harold Washington Playlot Park,(312) 747-6620,Dreamgirls,Y,PG-13,,5200 S. Hyde Park Blvd.,"{'latitude': '41.80047033', 'longitude': '-87.58450476'}",10,8,21192,405,33
+Fri,2019-07-26T00:00:00.000,Oakdale Park,(312) 747-6569,Black Panther,Y,PG-13,,965 W. 95th St.,"{'latitude': '41.72129198', 'longitude': '-87.64801198'}",13,72,22212,592,13
+Fri,2019-07-12T00:00:00.000,Meyering Playground Park,(312) 747-6545,Night School,Y,PG-13,,7140 S. Martin Luther King Dr.,"{'latitude': '41.76448442', 'longitude': '-87.61540433'}",61,67,21546,474,32
+Thu,2019-07-18T00:00:00.000,Commercial Club Playground,(312) 742-7558,The Incredibles 2,Y,PG,,1845 W. Rice St.,"{'latitude': '41.89676186', 'longitude': '-87.67398364'}",4,25,21560,462,41

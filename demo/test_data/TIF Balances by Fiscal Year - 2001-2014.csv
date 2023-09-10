@@ -1,0 +1,1001 @@
+fiscal_year,tif_ref,tif_name,balance,amount
+2014,T-111,105th/Vincennes,Beginning Balance,79281.00
+2014,T-111,105th/Vincennes,Ending Balance,114502.00
+2014,T-073,111th Street/Kedzie Avenue Business District,Beginning Balance,3203993.00
+2014,T-073,111th Street/Kedzie Avenue Business District,Ending Balance,3278114.00
+2014,T-114,119th and Halsted,Beginning Balance,3515651.00
+2014,T-114,119th and Halsted,Ending Balance,4124936.00
+2014,T-125,119th/I-57,Beginning Balance,5745995.00
+2014,T-125,119th/I-57,Ending Balance,4895102.00
+2014,T-010,126th and Torrence,Beginning Balance,1215193.00
+2014,T-010,126th and Torrence,Ending Balance,918519.00
+2014,T-159,134th and Avenue K,Beginning Balance,20593.00
+2014,T-159,134th and Avenue K,Ending Balance,0.00
+2014,T-072,24th/Michigan,Beginning Balance,47636376.00
+2014,T-072,24th/Michigan,Ending Balance,14712197.00
+2014,T-141,26th and King Drive,Beginning Balance,844499.00
+2014,T-141,26th and King Drive,Ending Balance,883109.00
+2014,T-079,35th and Wallace,Beginning Balance,4171495.00
+2014,T-079,35th and Wallace,Ending Balance,4772933.00
+2014,T-001,35th/Halsted,Beginning Balance,20328678.00
+2014,T-001,35th/Halsted,Ending Balance,22985458.00
+2014,T-131,35th/State,Beginning Balance,2616872.00
+2014,T-131,35th/State,Ending Balance,2733347.00
+2014,T-055,43rd/Cottage Grove,Beginning Balance,13231650.00
+2014,T-055,43rd/Cottage Grove,Ending Balance,15261027.00
+2014,T-120,45th/Western Industrial Park Conservation Area,Beginning Balance,451683.00
+2014,T-120,45th/Western Industrial Park Conservation Area,Ending Balance,465867.00
+2014,T-117,47th/Ashland,Beginning Balance,18211472.00
+2014,T-117,47th/Ashland,Ending Balance,15425689.00
+2014,T-121,47th/Halsted,Beginning Balance,14223927.00
+2014,T-121,47th/Halsted,Ending Balance,15030184.00
+2014,T-118,47th/King Drive,Beginning Balance,32716899.00
+2014,T-118,47th/King Drive,Ending Balance,33907239.00
+2014,T-136,47th/State,Beginning Balance,7623132.00
+2014,T-136,47th/State,Ending Balance,8683187.00
+2014,T-004,49th Street/St. Lawrence Avenue,Beginning Balance,2658377.00
+2014,T-004,49th Street/St. Lawrence Avenue,Ending Balance,2837963.00
+2014,T-097,51st/Archer,Beginning Balance,9070431.00
+2014,T-097,51st/Archer,Ending Balance,7771110.00
+2014,T-105,53rd Street,Beginning Balance,1644208.00
+2014,T-105,53rd Street,Ending Balance,1874122.00
+2014,T-005,60th and Western,Beginning Balance,3480258.00
+2014,T-005,60th and Western,Ending Balance,1567441.00
+2014,T-143,63rd/Ashland,Beginning Balance,3245119.00
+2014,T-143,63rd/Ashland,Ending Balance,3598335.00
+2014,T-098,63rd/Pulaski,Beginning Balance,5704684.00
+2014,T-098,63rd/Pulaski,Ending Balance,5360838.00
+2014,T-124,67th/Cicero,Beginning Balance,876605.00
+2014,T-124,67th/Cicero,Ending Balance,1424424.00
+2014,T-138,69th/Ashland,Beginning Balance,859235.00
+2014,T-138,69th/Ashland,Ending Balance,1432327.00
+2014,T-060,71st/Stony Island,Beginning Balance,18537978.00
+2014,T-060,71st/Stony Island,Ending Balance,16299774.00
+2014,T-145,73rd/University,Beginning Balance,2912259.00
+2014,T-145,73rd/University,Ending Balance,2903589.00
+2014,T-140,79th/Cicero,Beginning Balance,136036.00
+2014,T-140,79th/Cicero,Ending Balance,166956.00
+2014,T-056,79th Street Corridor,Beginning Balance,6045634.00
+2014,T-056,79th Street Corridor,Ending Balance,6222771.00
+2014,T-112,79th Street/Southwest Highway,Beginning Balance,7305531.00
+2014,T-112,79th Street/Southwest Highway,Ending Balance,7668659.00
+2014,T-155,79th/Vincennes,Beginning Balance,2146880.00
+2014,T-155,79th/Vincennes,Ending Balance,2100214.00
+2014,T-133,83rd/Stewart,Beginning Balance,569534.00
+2014,T-133,83rd/Stewart,Ending Balance,815954.00
+2014,T-127,87th/Cottage Grove,Beginning Balance,5535800.00
+2014,T-127,87th/Cottage Grove,Ending Balance,4883138.00
+2014,T-009,95th and Western,Beginning Balance,5131299.00
+2014,T-009,95th and Western,Ending Balance,4536386.00
+2014,T-008,95th Street and Stony Island,Beginning Balance,3254719.00
+2014,T-008,95th Street and Stony Island,Ending Balance,4147598.00
+2014,T-011,Addison Corridor North,Beginning Balance,9154681.00
+2014,T-011,Addison Corridor North,Ending Balance,2184795.00
+2014,T-150,Addison South,Beginning Balance,11618328.00
+2014,T-150,Addison South,Ending Balance,11227589.00
+2014,T-099,Archer/Central,Beginning Balance,3417622.00
+2014,T-099,Archer/Central,Ending Balance,2395244.00
+2014,T-067,Archer Courts,Beginning Balance,1860322.00
+2014,T-067,Archer Courts,Ending Balance,2035903.00
+2014,T-163,Archer/Western,Beginning Balance,842681.00
+2014,T-163,Archer/Western,Ending Balance,690382.00
+2014,T-151,Armitage/Pulaski,Beginning Balance,1172204.00
+2014,T-151,Armitage/Pulaski,Ending Balance,1094944.00
+2014,T-156,Austin Commercial,Beginning Balance,4321034.00
+2014,T-156,Austin Commercial,Ending Balance,3418829.00
+2014,T-123,Avalon Park/South Shore,Beginning Balance,2665980.00
+2014,T-123,Avalon Park/South Shore,Ending Balance,2385623.00
+2014,T-167,Avondale,Beginning Balance,1165661.00
+2014,T-167,Avondale,Ending Balance,968925.00
+2014,T-081,Belmont/Central,Beginning Balance,11432894.00
+2014,T-081,Belmont/Central,Ending Balance,11223110.00
+2014,T-082,Belmont/Cicero,Beginning Balance,4713161.00
+2014,T-082,Belmont/Cicero,Ending Balance,5399582.00
+2014,T-061,Bronzeville,Beginning Balance,16158744.00
+2014,T-061,Bronzeville,Ending Balance,14859609.00
+2014,T-013,Bryn Mawr/Broadway,Beginning Balance,10831431.00
+2014,T-013,Bryn Mawr/Broadway,Ending Balance,11484996.00
+2014,T-059,Calumet Avenue/Cermak Road,Beginning Balance,15951693.00
+2014,T-059,Calumet Avenue/Cermak Road,Ending Balance,15460734.00
+2014,T-168,Calumet River,Beginning Balance,0.00
+2014,T-168,Calumet River,Ending Balance,0.00
+2014,T-063,Canal/Congress,Beginning Balance,61191121.00
+2014,T-063,Canal/Congress,Ending Balance,66278297.00
+2014,T-086,Central West,Beginning Balance,68384833.00
+2014,T-086,Central West,Ending Balance,57003957.00
+2014,T-115,Chicago/Central Park,Beginning Balance,66436822.00
+2014,T-115,Chicago/Central Park,Ending Balance,56017958.00
+2014,T-094,Chicago/Kingsbury,Beginning Balance,50158372.00
+2014,T-094,Chicago/Kingsbury,Ending Balance,64467326.00
+2014,T-170,Chicago Lakeside Development Ph.1,Beginning Balance,0.00
+2014,T-170,Chicago Lakeside Development Ph.1,Ending Balance,0.00
+2014,T-096,Cicero/Archer,Beginning Balance,7190397.00
+2014,T-096,Cicero/Archer,Ending Balance,7219919.00
+2014,T-070,Clark/Montrose,Beginning Balance,7640521.00
+2014,T-070,Clark/Montrose,Ending Balance,8463971.00
+2014,T-074,Clark Street and Ridge Avenue,Beginning Balance,6598692.00
+2014,T-074,Clark Street and Ridge Avenue,Ending Balance,7418806.00
+2014,T-128,Commercial Avenue,Beginning Balance,11210265.00
+2014,T-128,Commercial Avenue,Ending Balance,9995937.00
+2014,T-134,Devon/Sheridan,Beginning Balance,4421051.00
+2014,T-134,Devon/Sheridan,Ending Balance,4488613.00
+2014,T-076,Devon/Western,Beginning Balance,7596900.00
+2014,T-076,Devon/Western,Ending Balance,4650092.00
+2014,T-129,Diversey/Narragansett,Beginning Balance,2554087.00
+2014,T-129,Diversey/Narragansett,Ending Balance,3012864.00
+2014,T-107,Division/Homan,Beginning Balance,7963214.00
+2014,T-107,Division/Homan,Ending Balance,7768352.00
+2014,T-122,Drexel Boulevard,Beginning Balance,139656.00
+2014,T-122,Drexel Boulevard,Ending Balance,162966.00
+2014,T-130,Edgewater/Ashland,Beginning Balance,1878764.00
+2014,T-130,Edgewater/Ashland,Ending Balance,2115602.00
+2014,T-153,Elston/Armstrong Industrial Corridor,Beginning Balance,1426224.00
+2014,T-153,Elston/Armstrong Industrial Corridor,Ending Balance,1091497.00
+2014,T-021,Englewood Mall,Beginning Balance,4722778.00
+2014,T-021,Englewood Mall,Ending Balance,1991381.00
+2014,T-106,Englewood Neighborhood,Beginning Balance,24050836.00
+2014,T-106,Englewood Neighborhood,Ending Balance,13506435.00
+2014,T-169,Ewing Avenue,Beginning Balance,3663825.00
+2014,T-169,Ewing Avenue,Ending Balance,2463447.00
+2014,T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",Beginning Balance,929691.00
+2014,T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",Ending Balance,1016255.00
+2014,T-087,Fullerton/Milwaukee,Beginning Balance,24575181.00
+2014,T-087,Fullerton/Milwaukee,Ending Balance,16561697.00
+2014,T-071,Galewood/Armitage Industrial,Beginning Balance,24371478.00
+2014,T-071,Galewood/Armitage Industrial,Ending Balance,18513166.00
+2014,T-023,Goose Island,Beginning Balance,13320394.00
+2014,T-023,Goose Island,Ending Balance,11243560.00
+2014,T-066,Greater Southwest Industrial Corridor (East),Beginning Balance,3202102.00
+2014,T-066,Greater Southwest Industrial Corridor (East),Ending Balance,2518805.00
+2014,T-092,Greater Southwest Industrial Corridor (West),Beginning Balance,8339476.00
+2014,T-092,Greater Southwest Industrial Corridor (West),Ending Balance,5161962.00
+2014,T-148,Harlem Industrial Park Conservation Area,Beginning Balance,554943.00
+2014,T-148,Harlem Industrial Park Conservation Area,Ending Balance,437996.00
+2014,T-144,Harrison/Central,Beginning Balance,1066219.00
+2014,T-144,Harrison/Central,Ending Balance,841222.00
+2014,T-157,Hollywood/Sheridan,Beginning Balance,3531593.00
+2014,T-157,Hollywood/Sheridan,Ending Balance,3159897.00
+2014,T-024,Homan-Arthington,Beginning Balance,4090429.00
+2014,T-024,Homan-Arthington,Ending Balance,5619585.00
+2014,T-108,Humboldt Park Commercial,Beginning Balance,7781811.00
+2014,T-108,Humboldt Park Commercial,Ending Balance,5853133.00
+2014,T-027,Irving/Cicero,Beginning Balance,345020.00
+2014,T-027,Irving/Cicero,Ending Balance,938035.00
+2014,T-165,Irving Park/Elston,Beginning Balance,748278.00
+2014,T-165,Irving Park/Elston,Ending Balance,447919.00
+2014,T-057,Jefferson Park Business District,Beginning Balance,4263439.00
+2014,T-057,Jefferson Park Business District,Ending Balance,4508143.00
+2014,T-101,Jefferson/Roosevelt,Beginning Balance,18359351.00
+2014,T-101,Jefferson/Roosevelt,Ending Balance,16137588.00
+2014,T-160,Kennedy/Kimball,Beginning Balance,615650.00
+2014,T-160,Kennedy/Kimball,Ending Balance,325883.00
+2014,T-052,Kinzie Industrial Corridor,Beginning Balance,48112530.00
+2014,T-052,Kinzie Industrial Corridor,Ending Balance,56348066.00
+2014,T-162,Kostner Avenue,Beginning Balance,-233.00
+2014,T-162,Kostner Avenue,Ending Balance,0.00
+2014,T-103,Lake Calumet Area Industrial,Beginning Balance,6617852.00
+2014,T-103,Lake Calumet Area Industrial,Ending Balance,3109227.00
+2014,T-119,Lakefront,Beginning Balance,579339.00
+2014,T-119,Lakefront,Ending Balance,617223.00
+2014,T-147,LaSalle Central,Beginning Balance,31173086.00
+2014,T-147,LaSalle Central,Ending Balance,47851465.00
+2014,T-109,Lawrence/Broadway,Beginning Balance,12130097.00
+2014,T-109,Lawrence/Broadway,Ending Balance,13430039.00
+2014,T-088,Lawrence/Kedzie,Beginning Balance,22044393.00
+2014,T-088,Lawrence/Kedzie,Ending Balance,13091940.00
+2014,T-116,Lawrence/Pulaski,Beginning Balance,7306554.00
+2014,T-116,Lawrence/Pulaski,Ending Balance,5577674.00
+2014,T-077,Lincoln Avenue,Beginning Balance,9880188.00
+2014,T-077,Lincoln Avenue,Ending Balance,8755466.00
+2014,T-028,Lincoln-Belmont-Ashland,Beginning Balance,1402934.00
+2014,T-028,Lincoln-Belmont-Ashland,Ending Balance,-2761019.00
+2014,T-164,Little Village East,Beginning Balance,452958.00
+2014,T-164,Little Village East,Ending Balance,433482.00
+2014,T-152,Little Village Industrial Corridor,Beginning Balance,1419549.00
+2014,T-152,Little Village Industrial Corridor,Ending Balance,1401257.00
+2014,T-126,Madden/Wells,Beginning Balance,2813468.00
+2014,T-126,Madden/Wells,Ending Balance,3000887.00
+2014,T-075,Madison/Austin Corridor,Beginning Balance,14054665.00
+2014,T-075,Madison/Austin Corridor,Ending Balance,13469354.00
+2014,T-029,Michigan/Cermak,Beginning Balance,1796952.00
+2014,T-029,Michigan/Cermak,Ending Balance,6740575.00
+2014,T-089,Midway Industrial Corridor,Beginning Balance,4672621.00
+2014,T-089,Midway Industrial Corridor,Ending Balance,4717273.00
+2014,T-095,Midwest,Beginning Balance,49077482.00
+2014,T-095,Midwest,Ending Balance,46069469.00
+2014,T-102,Montclare,Beginning Balance,713837.00
+2014,T-102,Montclare,Ending Balance,776772.00
+2014,T-173,Montrose/Clarendon,Beginning Balance,0.00
+2014,T-173,Montrose/Clarendon,Ending Balance,0.00
+2014,T-030,Near North,Beginning Balance,57716977.00
+2014,T-030,Near North,Ending Balance,64075780.00
+2014,T-031,Near South,Beginning Balance,125431493.00
+2014,T-031,Near South,Ending Balance,34604993.00
+2014,T-033,North Branch (North),Beginning Balance,32892846.00
+2014,T-033,North Branch (North),Ending Balance,11265208.00
+2014,T-034,North Branch (South),Beginning Balance,25539986.00
+2014,T-034,North Branch (South),Ending Balance,17557448.00
+2014,T-035,North-Cicero,Beginning Balance,895737.00
+2014,T-035,North-Cicero,Ending Balance,1970209.00
+2014,T-166,North Pullman,Beginning Balance,99798.00
+2014,T-166,North Pullman,Ending Balance,4030129.00
+2014,T-064,Northwest Industrial Corridor,Beginning Balance,18326511.00
+2014,T-064,Northwest Industrial Corridor,Ending Balance,18011851.00
+2014,T-161,Ogden/Pulaski,Beginning Balance,4728314.00
+2014,T-161,Ogden/Pulaski,Ending Balance,4525376.00
+2014,T-100,Ohio/Wabash,Beginning Balance,1473683.00
+2014,T-100,Ohio/Wabash,Ending Balance,1509399.00
+2014,T-154,Pershing/King,Beginning Balance,199573.00
+2014,T-154,Pershing/King,Ending Balance,176859.00
+2014,T-090,Peterson/Cicero,Beginning Balance,1976214.00
+2014,T-090,Peterson/Cicero,Ending Balance,2246760.00
+2014,T-091,Peterson/Pulaski,Beginning Balance,6341998.00
+2014,T-091,Peterson/Pulaski,Ending Balance,4805193.00
+2014,T-053,Pilsen Industrial Corridor,Beginning Balance,44560073.00
+2014,T-053,Pilsen Industrial Corridor,Ending Balance,50843157.00
+2014,T-058,Portage Park,Beginning Balance,14758868.00
+2014,T-058,Portage Park,Ending Balance,12445037.00
+2014,T-135,Pratt/Ridge Industrial Park Conservation Area,Beginning Balance,670180.00
+2014,T-135,Pratt/Ridge Industrial Park Conservation Area,Ending Balance,665035.00
+2014,T-069,Pulaski Corridor,Beginning Balance,13214112.00
+2014,T-069,Pulaski Corridor,Ending Balance,11021197.00
+2014,T-172,Randolph/Wells,Beginning Balance,446399.00
+2014,T-172,Randolph/Wells,Ending Balance,881664.00
+2014,T-139,Ravenswood Corridor,Beginning Balance,4493639.00
+2014,T-139,Ravenswood Corridor,Ending Balance,4575705.00
+2014,T-036,Read-Dunning,Beginning Balance,10969320.00
+2014,T-036,Read-Dunning,Ending Balance,13201617.00
+2014,T-037,River South,Beginning Balance,50371935.00
+2014,T-037,River South,Ending Balance,46209185.00
+2014,T-104,River West,Beginning Balance,50523063.00
+2014,T-104,River West,Ending Balance,43531179.00
+2014,T-039,Roosevelt/Canal,Beginning Balance,2031524.00
+2014,T-039,Roosevelt/Canal,Ending Balance,2053899.00
+2014,T-038,Roosevelt/Cicero,Beginning Balance,12676785.00
+2014,T-038,Roosevelt/Cicero,Ending Balance,11305135.00
+2014,T-040,Roosevelt-Homan,Beginning Balance,9071872.00
+2014,T-040,Roosevelt-Homan,Ending Balance,5585135.00
+2014,T-062,Roosevelt/Racine,Beginning Balance,5290005.00
+2014,T-062,Roosevelt/Racine,Ending Balance,6085546.00
+2014,T-068,Roosevelt/Union,Beginning Balance,9245271.00
+2014,T-068,Roosevelt/Union,Ending Balance,9268932.00
+2014,T-113,Roseland/Michigan,Beginning Balance,2247917.00
+2014,T-113,Roseland/Michigan,Ending Balance,982970.00
+2014,T-042,Sanitary Drainage and Ship Canal,Beginning Balance,468896.00
+2014,T-042,Sanitary Drainage and Ship Canal,Ending Balance,965072.00
+2014,T-093,South Chicago,Beginning Balance,7805169.00
+2014,T-093,South Chicago,Ending Balance,8427225.00
+2014,T-078,South Works Industrial,Beginning Balance,1041670.00
+2014,T-078,South Works Industrial,Ending Balance,1110802.00
+2014,T-149,Stevenson/Brighton,Beginning Balance,2948252.00
+2014,T-149,Stevenson/Brighton,Ending Balance,2956758.00
+2014,T-043,Stockyards Annex,Beginning Balance,8362498.00
+2014,T-043,Stockyards Annex,Ending Balance,8228097.00
+2014,T-045,Stockyards Southeast Quadrant Industrial,Beginning Balance,10686439.00
+2014,T-045,Stockyards Southeast Quadrant Industrial,Ending Balance,10382603.00
+2014,T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Beginning Balance,6077848.00
+2014,T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Ending Balance,5886092.00
+2014,T-146,Touhy/Western,Beginning Balance,9526297.00
+2014,T-146,Touhy/Western,Ending Balance,3872927.00
+2014,T-158,Weed/Freemont,Beginning Balance,694661.00
+2014,T-158,Weed/Freemont,Ending Balance,447253.00
+2014,T-084,Western Avenue North,Beginning Balance,24045757.00
+2014,T-084,Western Avenue North,Ending Balance,16240917.00
+2014,T-142,Western Avenue/Rock Island,Beginning Balance,5741477.00
+2014,T-142,Western Avenue/Rock Island,Ending Balance,3838607.00
+2014,T-085,Western Avenue South,Beginning Balance,26335940.00
+2014,T-085,Western Avenue South,Ending Balance,14982403.00
+2014,T-048,Western/Ogden,Beginning Balance,31645766.00
+2014,T-048,Western/Ogden,Ending Balance,24063573.00
+2014,T-083,West Irving Park,Beginning Balance,5145482.00
+2014,T-083,West Irving Park,Ending Balance,5270164.00
+2014,T-050,West Pullman Industrial Park Conservation Area,Beginning Balance,123223.00
+2014,T-050,West Pullman Industrial Park Conservation Area,Ending Balance,24676.00
+2014,T-171,West Woodlawn,Beginning Balance,940713.00
+2014,T-171,West Woodlawn,Ending Balance,808859.00
+2014,T-110,Wilson Yard,Beginning Balance,16050179.00
+2014,T-110,Wilson Yard,Ending Balance,14333547.00
+2014,T-065,Woodlawn,Beginning Balance,10752268.00
+2014,T-065,Woodlawn,Ending Balance,11392687.00
+2013,T-111,105th/Vincennes,Beginning Balance,181644.00
+2013,T-111,105th/Vincennes,Ending Balance,79281.00
+2013,T-073,111th Street/Kedzie Avenue Business District,Beginning Balance,3012177.00
+2013,T-073,111th Street/Kedzie Avenue Business District,Ending Balance,3203993.00
+2013,T-114,119th and Halsted,Beginning Balance,3463124.00
+2013,T-114,119th and Halsted,Ending Balance,3515651.00
+2013,T-125,119th/I-57,Beginning Balance,6773745.00
+2013,T-125,119th/I-57,Ending Balance,5745995.00
+2013,T-010,126th and Torrence,Beginning Balance,1357049.00
+2013,T-010,126th and Torrence,Ending Balance,1215193.00
+2013,T-159,134th and Avenue K,Beginning Balance,21060.00
+2013,T-159,134th and Avenue K,Ending Balance,20593.00
+2013,T-072,24th/Michigan,Beginning Balance,5217029.00
+2013,T-072,24th/Michigan,Ending Balance,47636376.00
+2013,T-141,26th and King Drive,Beginning Balance,1065721.00
+2013,T-141,26th and King Drive,Ending Balance,844499.00
+2013,T-079,35th and Wallace,Beginning Balance,3556109.00
+2013,T-079,35th and Wallace,Ending Balance,4171495.00
+2013,T-001,35th/Halsted,Beginning Balance,23779182.00
+2013,T-001,35th/Halsted,Ending Balance,20328678.00
+2013,T-131,35th/State,Beginning Balance,2182315.00
+2013,T-131,35th/State,Ending Balance,2616872.00
+2013,T-055,43rd/Cottage Grove,Beginning Balance,11088800.00
+2013,T-055,43rd/Cottage Grove,Ending Balance,13231650.00
+2013,T-120,45th/Western Industrial Park Conservation Area,Beginning Balance,403598.00
+2013,T-120,45th/Western Industrial Park Conservation Area,Ending Balance,451683.00
+2013,T-117,47th/Ashland,Beginning Balance,20299523.00
+2013,T-117,47th/Ashland,Ending Balance,18211472.00
+2013,T-121,47th/Halsted,Beginning Balance,14689274.00
+2013,T-121,47th/Halsted,Ending Balance,14223927.00
+2013,T-118,47th/King Drive,Beginning Balance,28608572.00
+2013,T-118,47th/King Drive,Ending Balance,32716899.00
+2013,T-136,47th/State,Beginning Balance,6619932.00
+2013,T-136,47th/State,Ending Balance,7623132.00
+2013,T-004,49th Street/St. Lawrence Avenue,Beginning Balance,2351632.00
+2013,T-004,49th Street/St. Lawrence Avenue,Ending Balance,2658377.00
+2013,T-097,51st/Archer,Beginning Balance,13110997.00
+2013,T-097,51st/Archer,Ending Balance,9070431.00
+2013,T-105,53rd Street,Beginning Balance,2584854.00
+2013,T-105,53rd Street,Ending Balance,1644208.00
+2013,T-005,60th and Western,Beginning Balance,3530204.00
+2013,T-005,60th and Western,Ending Balance,3480258.00
+2013,T-143,63rd/Ashland,Beginning Balance,2877483.00
+2013,T-143,63rd/Ashland,Ending Balance,3245119.00
+2013,T-098,63rd/Pulaski,Beginning Balance,6358600.00
+2013,T-098,63rd/Pulaski,Ending Balance,5704684.00
+2013,T-124,67th/Cicero,Beginning Balance,453209.00
+2013,T-124,67th/Cicero,Ending Balance,876605.00
+2013,T-138,69th/Ashland,Beginning Balance,1290446.00
+2013,T-138,69th/Ashland,Ending Balance,859235.00
+2013,T-060,71st/Stony Island,Beginning Balance,17092996.00
+2013,T-060,71st/Stony Island,Ending Balance,18537978.00
+2013,T-145,73rd/University,Beginning Balance,2796027.00
+2013,T-145,73rd/University,Ending Balance,2912259.00
+2013,T-140,79th/Cicero,Beginning Balance,722537.00
+2013,T-140,79th/Cicero,Ending Balance,136036.00
+2013,T-056,79th Street Corridor,Beginning Balance,5550913.00
+2013,T-056,79th Street Corridor,Ending Balance,6045634.00
+2013,T-112,79th Street/Southwest Highway,Beginning Balance,6321196.00
+2013,T-112,79th Street/Southwest Highway,Ending Balance,7305531.00
+2013,T-155,79th/Vincennes,Beginning Balance,2194305.00
+2013,T-155,79th/Vincennes,Ending Balance,2146880.00
+2013,T-133,83rd/Stewart,Beginning Balance,151730.00
+2013,T-133,83rd/Stewart,Ending Balance,569534.00
+2013,T-127,87th/Cottage Grove,Beginning Balance,6614822.00
+2013,T-127,87th/Cottage Grove,Ending Balance,5535800.00
+2013,T-049,89th and State,Beginning Balance,437197.00
+2013,T-049,89th and State,Ending Balance,600313.00
+2013,T-009,95th and Western,Beginning Balance,3474848.00
+2013,T-009,95th and Western,Ending Balance,5131299.00
+2013,T-008,95th Street and Stony Island,Beginning Balance,2275732.00
+2013,T-008,95th Street and Stony Island,Ending Balance,3254719.00
+2013,T-011,Addison Corridor North,Beginning Balance,9191886.00
+2013,T-011,Addison Corridor North,Ending Balance,9154681.00
+2013,T-150,Addison South,Beginning Balance,10182147.00
+2013,T-150,Addison South,Ending Balance,11618328.00
+2013,T-099,Archer/Central,Beginning Balance,3334113.00
+2013,T-099,Archer/Central,Ending Balance,3417622.00
+2013,T-067,Archer Courts,Beginning Balance,1591681.00
+2013,T-067,Archer Courts,Ending Balance,1860322.00
+2013,T-163,Archer/Western,Beginning Balance,862109.00
+2013,T-163,Archer/Western,Ending Balance,842681.00
+2013,T-151,Armitage/Pulaski,Beginning Balance,1240597.00
+2013,T-151,Armitage/Pulaski,Ending Balance,1172204.00
+2013,T-156,Austin Commercial,Beginning Balance,4485161.00
+2013,T-156,Austin Commercial,Ending Balance,4321034.00
+2013,T-123,Avalon Park/South Shore,Beginning Balance,2953460.00
+2013,T-123,Avalon Park/South Shore,Ending Balance,2665980.00
+2013,T-167,Avondale,Beginning Balance,1221095.00
+2013,T-167,Avondale,Ending Balance,1165661.00
+2013,T-081,Belmont/Central,Beginning Balance,11304759.00
+2013,T-081,Belmont/Central,Ending Balance,11432894.00
+2013,T-082,Belmont/Cicero,Beginning Balance,4024612.00
+2013,T-082,Belmont/Cicero,Ending Balance,4713161.00
+2013,T-061,Bronzeville,Beginning Balance,14951517.00
+2013,T-061,Bronzeville,Ending Balance,16158744.00
+2013,T-013,Bryn Mawr/Broadway,Beginning Balance,10587288.00
+2013,T-013,Bryn Mawr/Broadway,Ending Balance,10831431.00
+2013,T-059,Calumet Avenue/Cermak Road,Beginning Balance,17640943.00
+2013,T-059,Calumet Avenue/Cermak Road,Ending Balance,15951693.00
+2013,T-168,Calumet River,Beginning Balance,0.00
+2013,T-168,Calumet River,Ending Balance,0.00
+2013,T-063,Canal/Congress,Beginning Balance,49237938.00
+2013,T-063,Canal/Congress,Ending Balance,61191121.00
+2013,T-086,Central West,Beginning Balance,56159644.00
+2013,T-086,Central West,Ending Balance,68384833.00
+2013,T-115,Chicago/Central Park,Beginning Balance,68110028.00
+2013,T-115,Chicago/Central Park,Ending Balance,66436822.00
+2013,T-094,Chicago/Kingsbury,Beginning Balance,35641495.00
+2013,T-094,Chicago/Kingsbury,Ending Balance,50158372.00
+2013,T-170,Chicago Lakeside Development Ph.1,Beginning Balance,0.00
+2013,T-170,Chicago Lakeside Development Ph.1,Ending Balance,0.00
+2013,T-096,Cicero/Archer,Beginning Balance,6925878.00
+2013,T-096,Cicero/Archer,Ending Balance,7190397.00
+2013,T-070,Clark/Montrose,Beginning Balance,9549388.00
+2013,T-070,Clark/Montrose,Ending Balance,7640521.00
+2013,T-074,Clark Street and Ridge Avenue,Beginning Balance,8872079.00
+2013,T-074,Clark Street and Ridge Avenue,Ending Balance,6598692.00
+2013,T-128,Commercial Avenue,Beginning Balance,10413847.00
+2013,T-128,Commercial Avenue,Ending Balance,11210265.00
+2013,T-134,Devon/Sheridan,Beginning Balance,1254578.00
+2013,T-134,Devon/Sheridan,Ending Balance,4421051.00
+2013,T-076,Devon/Western,Beginning Balance,7967156.00
+2013,T-076,Devon/Western,Ending Balance,7596900.00
+2013,T-129,Diversey/Narragansett,Beginning Balance,2213477.00
+2013,T-129,Diversey/Narragansett,Ending Balance,2554087.00
+2013,T-107,Division/Homan,Beginning Balance,7451105.00
+2013,T-107,Division/Homan,Ending Balance,7963214.00
+2013,T-122,Drexel Boulevard,Beginning Balance,183635.00
+2013,T-122,Drexel Boulevard,Ending Balance,139656.00
+2013,T-130,Edgewater/Ashland,Beginning Balance,1675111.00
+2013,T-130,Edgewater/Ashland,Ending Balance,1878764.00
+2013,T-153,Elston/Armstrong Industrial Corridor,Beginning Balance,1522099.00
+2013,T-153,Elston/Armstrong Industrial Corridor,Ending Balance,1426224.00
+2013,T-021,Englewood Mall,Beginning Balance,4817041.00
+2013,T-021,Englewood Mall,Ending Balance,4722778.00
+2013,T-106,Englewood Neighborhood,Beginning Balance,24159463.00
+2013,T-106,Englewood Neighborhood,Ending Balance,24050836.00
+2013,T-169,Ewing Avenue,Beginning Balance,722080.00
+2013,T-169,Ewing Avenue,Ending Balance,3663825.00
+2013,T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",Beginning Balance,906489.00
+2013,T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",Ending Balance,929691.00
+2013,T-087,Fullerton/Milwaukee,Beginning Balance,23134413.00
+2013,T-087,Fullerton/Milwaukee,Ending Balance,24575181.00
+2013,T-071,Galewood/Armitage Industrial,Beginning Balance,23481280.00
+2013,T-071,Galewood/Armitage Industrial,Ending Balance,24371478.00
+2013,T-023,Goose Island,Beginning Balance,12891725.00
+2013,T-023,Goose Island,Ending Balance,13320394.00
+2013,T-066,Greater Southwest Industrial Corridor (East),Beginning Balance,2870599.00
+2013,T-066,Greater Southwest Industrial Corridor (East),Ending Balance,3202102.00
+2013,T-092,Greater Southwest Industrial Corridor (West),Beginning Balance,9000524.00
+2013,T-092,Greater Southwest Industrial Corridor (West),Ending Balance,8339476.00
+2013,T-148,Harlem Industrial Park Conservation Area,Beginning Balance,671264.00
+2013,T-148,Harlem Industrial Park Conservation Area,Ending Balance,554943.00
+2013,T-144,Harrison/Central,Beginning Balance,1482249.00
+2013,T-144,Harrison/Central,Ending Balance,1066219.00
+2013,T-157,Hollywood/Sheridan,Beginning Balance,1425704.00
+2013,T-157,Hollywood/Sheridan,Ending Balance,3531593.00
+2013,T-024,Homan-Arthington,Beginning Balance,5158883.00
+2013,T-024,Homan-Arthington,Ending Balance,4090429.00
+2013,T-108,Humboldt Park Commercial,Beginning Balance,6777370.00
+2013,T-108,Humboldt Park Commercial,Ending Balance,7781811.00
+2013,T-027,Irving/Cicero,Beginning Balance,720812.00
+2013,T-027,Irving/Cicero,Ending Balance,345020.00
+2013,T-165,Irving Park/Elston,Beginning Balance,786837.00
+2013,T-165,Irving Park/Elston,Ending Balance,748278.00
+2013,T-057,Jefferson Park Business District,Beginning Balance,4443966.00
+2013,T-057,Jefferson Park Business District,Ending Balance,4263439.00
+2013,T-101,Jefferson/Roosevelt,Beginning Balance,15535928.00
+2013,T-101,Jefferson/Roosevelt,Ending Balance,18359351.00
+2013,T-160,Kennedy/Kimball,Beginning Balance,721537.00
+2013,T-160,Kennedy/Kimball,Ending Balance,615650.00
+2013,T-052,Kinzie Industrial Corridor,Beginning Balance,48824818.00
+2013,T-052,Kinzie Industrial Corridor,Ending Balance,48112530.00
+2013,T-162,Kostner Avenue,Beginning Balance,962.00
+2013,T-162,Kostner Avenue,Ending Balance,-233.00
+2013,T-103,Lake Calumet Area Industrial,Beginning Balance,14638952.00
+2013,T-103,Lake Calumet Area Industrial,Ending Balance,6617852.00
+2013,T-119,Lakefront,Beginning Balance,378983.00
+2013,T-119,Lakefront,Ending Balance,579339.00
+2013,T-147,LaSalle Central,Beginning Balance,18783305.00
+2013,T-147,LaSalle Central,Ending Balance,31173086.00
+2013,T-109,Lawrence/Broadway,Beginning Balance,13169640.00
+2013,T-109,Lawrence/Broadway,Ending Balance,12130097.00
+2013,T-088,Lawrence/Kedzie,Beginning Balance,20096429.00
+2013,T-088,Lawrence/Kedzie,Ending Balance,22044393.00
+2013,T-116,Lawrence/Pulaski,Beginning Balance,9007491.00
+2013,T-116,Lawrence/Pulaski,Ending Balance,7306554.00
+2013,T-077,Lincoln Avenue,Beginning Balance,10404107.00
+2013,T-077,Lincoln Avenue,Ending Balance,9880188.00
+2013,T-028,Lincoln-Belmont-Ashland,Beginning Balance,1620286.00
+2013,T-028,Lincoln-Belmont-Ashland,Ending Balance,1402934.00
+2013,T-164,Little Village East,Beginning Balance,460644.00
+2013,T-164,Little Village East,Ending Balance,452958.00
+2013,T-152,Little Village Industrial Corridor,Beginning Balance,1551257.00
+2013,T-152,Little Village Industrial Corridor,Ending Balance,1419549.00
+2013,T-126,Madden/Wells,Beginning Balance,2018652.00
+2013,T-126,Madden/Wells,Ending Balance,2813468.00
+2013,T-075,Madison/Austin Corridor,Beginning Balance,13498143.00
+2013,T-075,Madison/Austin Corridor,Ending Balance,14054665.00
+2013,T-029,Michigan/Cermak,Beginning Balance,6001362.00
+2013,T-029,Michigan/Cermak,Ending Balance,1796952.00
+2013,T-089,Midway Industrial Corridor,Beginning Balance,4473511.00
+2013,T-089,Midway Industrial Corridor,Ending Balance,4672621.00
+2013,T-095,Midwest,Beginning Balance,45104451.00
+2013,T-095,Midwest,Ending Balance,49077482.00
+2013,T-102,Montclare,Beginning Balance,708721.00
+2013,T-102,Montclare,Ending Balance,713837.00
+2013,T-173,Montrose/Clarendon,Beginning Balance,0.00
+2013,T-173,Montrose/Clarendon,Ending Balance,0.00
+2013,T-030,Near North,Beginning Balance,53852139.00
+2013,T-030,Near North,Ending Balance,57716977.00
+2013,T-031,Near South,Beginning Balance,196806447.00
+2013,T-031,Near South,Ending Balance,125431493.00
+2013,T-032,Near West,Beginning Balance,34703487.00
+2013,T-032,Near West,Ending Balance,20738245.00
+2013,T-033,North Branch (North),Beginning Balance,35610031.00
+2013,T-033,North Branch (North),Ending Balance,32892846.00
+2013,T-034,North Branch (South),Beginning Balance,25455128.00
+2013,T-034,North Branch (South),Ending Balance,25539986.00
+2013,T-035,North-Cicero,Beginning Balance,2641431.00
+2013,T-035,North-Cicero,Ending Balance,895737.00
+2013,T-166,North Pullman,Beginning Balance,113025.00
+2013,T-166,North Pullman,Ending Balance,99798.00
+2013,T-064,Northwest Industrial Corridor,Beginning Balance,21030788.00
+2013,T-064,Northwest Industrial Corridor,Ending Balance,18326511.00
+2013,T-161,Ogden/Pulaski,Beginning Balance,5774821.00
+2013,T-161,Ogden/Pulaski,Ending Balance,4728314.00
+2013,T-100,Ohio/Wabash,Beginning Balance,1247643.00
+2013,T-100,Ohio/Wabash,Ending Balance,1473683.00
+2013,T-154,Pershing/King,Beginning Balance,216448.00
+2013,T-154,Pershing/King,Ending Balance,199573.00
+2013,T-090,Peterson/Cicero,Beginning Balance,1558284.00
+2013,T-090,Peterson/Cicero,Ending Balance,1976214.00
+2013,T-091,Peterson/Pulaski,Beginning Balance,6088233.00
+2013,T-091,Peterson/Pulaski,Ending Balance,6341998.00
+2013,T-053,Pilsen Industrial Corridor,Beginning Balance,44989857.00
+2013,T-053,Pilsen Industrial Corridor,Ending Balance,44560073.00
+2013,T-058,Portage Park,Beginning Balance,14346748.00
+2013,T-058,Portage Park,Ending Balance,14758868.00
+2013,T-135,Pratt/Ridge Industrial Park Conservation Area,Beginning Balance,673375.00
+2013,T-135,Pratt/Ridge Industrial Park Conservation Area,Ending Balance,670180.00
+2013,T-069,Pulaski Corridor,Beginning Balance,13372841.00
+2013,T-069,Pulaski Corridor,Ending Balance,13214112.00
+2013,T-172,Randolph/Wells,Beginning Balance,48156.00
+2013,T-172,Randolph/Wells,Ending Balance,446399.00
+2013,T-139,Ravenswood Corridor,Beginning Balance,4033474.00
+2013,T-139,Ravenswood Corridor,Ending Balance,4493639.00
+2013,T-036,Read-Dunning,Beginning Balance,10900280.00
+2013,T-036,Read-Dunning,Ending Balance,10969320.00
+2013,T-037,River South,Beginning Balance,54406262.00
+2013,T-037,River South,Ending Balance,50371935.00
+2013,T-104,River West,Beginning Balance,44554332.00
+2013,T-104,River West,Ending Balance,50523063.00
+2013,T-039,Roosevelt/Canal,Beginning Balance,1896679.00
+2013,T-039,Roosevelt/Canal,Ending Balance,2031524.00
+2013,T-038,Roosevelt/Cicero,Beginning Balance,12922623.00
+2013,T-038,Roosevelt/Cicero,Ending Balance,12676785.00
+2013,T-040,Roosevelt-Homan,Beginning Balance,8195531.00
+2013,T-040,Roosevelt-Homan,Ending Balance,9071872.00
+2013,T-062,Roosevelt/Racine,Beginning Balance,4503164.00
+2013,T-062,Roosevelt/Racine,Ending Balance,5290005.00
+2013,T-068,Roosevelt/Union,Beginning Balance,5615768.00
+2013,T-068,Roosevelt/Union,Ending Balance,9245271.00
+2013,T-113,Roseland/Michigan,Beginning Balance,3421920.00
+2013,T-113,Roseland/Michigan,Ending Balance,2247917.00
+2013,T-042,Sanitary Drainage and Ship Canal,Beginning Balance,1165158.00
+2013,T-042,Sanitary Drainage and Ship Canal,Ending Balance,468896.00
+2013,T-093,South Chicago,Beginning Balance,6715738.00
+2013,T-093,South Chicago,Ending Balance,7805169.00
+2013,T-078,South Works Industrial,Beginning Balance,964081.00
+2013,T-078,South Works Industrial,Ending Balance,1041670.00
+2013,T-149,Stevenson/Brighton,Beginning Balance,2921418.00
+2013,T-149,Stevenson/Brighton,Ending Balance,2948252.00
+2013,T-043,Stockyards Annex,Beginning Balance,8288141.00
+2013,T-043,Stockyards Annex,Ending Balance,8362498.00
+2013,T-044,Stockyards Industrial Commercial,Beginning Balance,7194487.00
+2013,T-044,Stockyards Industrial Commercial,Ending Balance,4847917.00
+2013,T-045,Stockyards Southeast Quadrant Industrial,Beginning Balance,10352405.00
+2013,T-045,Stockyards Southeast Quadrant Industrial,Ending Balance,10686439.00
+2013,T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Beginning Balance,7011800.00
+2013,T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Ending Balance,6077848.00
+2013,T-146,Touhy/Western,Beginning Balance,9595420.00
+2013,T-146,Touhy/Western,Ending Balance,9526297.00
+2013,T-158,Weed/Freemont,Beginning Balance,562137.00
+2013,T-158,Weed/Freemont,Ending Balance,694661.00
+2013,T-084,Western Avenue North,Beginning Balance,20218003.00
+2013,T-084,Western Avenue North,Ending Balance,24045757.00
+2013,T-142,Western Avenue/Rock Island,Beginning Balance,8108370.00
+2013,T-142,Western Avenue/Rock Island,Ending Balance,5741477.00
+2013,T-085,Western Avenue South,Beginning Balance,22848255.00
+2013,T-085,Western Avenue South,Ending Balance,26335940.00
+2013,T-048,Western/Ogden,Beginning Balance,28877994.00
+2013,T-048,Western/Ogden,Ending Balance,31645766.00
+2013,T-083,West Irving Park,Beginning Balance,5923231.00
+2013,T-083,West Irving Park,Ending Balance,5145482.00
+2013,T-050,West Pullman Industrial Park Conservation Area,Beginning Balance,27917.00
+2013,T-050,West Pullman Industrial Park Conservation Area,Ending Balance,123223.00
+2013,T-171,West Woodlawn,Beginning Balance,102530.00
+2013,T-171,West Woodlawn,Ending Balance,940713.00
+2013,T-110,Wilson Yard,Beginning Balance,15977683.00
+2013,T-110,Wilson Yard,Ending Balance,16050179.00
+2013,T-065,Woodlawn,Beginning Balance,12505730.00
+2013,T-065,Woodlawn,Ending Balance,10752268.00
+2012,T-111,105th/Vincennes,Beginning Balance,1489234.00
+2012,T-111,105th/Vincennes,Ending Balance,181644.00
+2012,T-073,111th Street/Kedzie Avenue Business District,Beginning Balance,2666952.00
+2012,T-073,111th Street/Kedzie Avenue Business District,Ending Balance,3012177.00
+2012,T-114,119th and Halsted,Beginning Balance,3674791.00
+2012,T-114,119th and Halsted,Ending Balance,3463124.00
+2012,T-125,119th/I-57,Beginning Balance,5518764.00
+2012,T-125,119th/I-57,Ending Balance,6773745.00
+2012,T-010,126th and Torrence,Beginning Balance,1277733.00
+2012,T-010,126th and Torrence,Ending Balance,1357049.00
+2012,T-159,134th and Avenue K,Beginning Balance,22188.00
+2012,T-159,134th and Avenue K,Ending Balance,22188.00
+2012,T-072,24th/Michigan,Beginning Balance,4312727.00
+2012,T-072,24th/Michigan,Ending Balance,5217029.00
+2012,T-141,26th and King Drive,Beginning Balance,271012.00
+2012,T-141,26th and King Drive,Ending Balance,1065721.00
+2012,T-079,35th and Wallace,Beginning Balance,3153280.00
+2012,T-079,35th and Wallace,Ending Balance,3556109.00
+2012,T-001,35th/Halsted,Beginning Balance,21477475.00
+2012,T-001,35th/Halsted,Ending Balance,23779182.00
+2012,T-131,35th/State,Beginning Balance,4841426.00
+2012,T-131,35th/State,Ending Balance,2182315.00
+2012,T-132,40th/State,Beginning Balance,0.00
+2012,T-132,40th/State,Ending Balance,0.00
+2012,T-055,43rd/Cottage Grove,Beginning Balance,9144966.00
+2012,T-055,43rd/Cottage Grove,Ending Balance,11088800.00
+2012,T-120,45th/Western Industrial Park Conservation Area,Beginning Balance,312974.00
+2012,T-120,45th/Western Industrial Park Conservation Area,Ending Balance,403598.00
+2012,T-117,47th/Ashland,Beginning Balance,19733059.00
+2012,T-117,47th/Ashland,Ending Balance,20299523.00
+2012,T-121,47th/Halsted,Beginning Balance,13942869.00
+2012,T-121,47th/Halsted,Ending Balance,14689274.00
+2012,T-118,47th/King Drive,Beginning Balance,34091838.00
+2012,T-118,47th/King Drive,Ending Balance,28608572.00
+2012,T-136,47th/State,Beginning Balance,6290817.00
+2012,T-136,47th/State,Ending Balance,6619932.00
+2012,T-004,49th Street/St. Lawrence Avenue,Beginning Balance,2350484.00
+2012,T-004,49th Street/St. Lawrence Avenue,Ending Balance,2351632.00
+2012,T-097,51st/Archer,Beginning Balance,12876704.00
+2012,T-097,51st/Archer,Ending Balance,13110997.00
+2012,T-105,53rd Street,Beginning Balance,2376845.00
+2012,T-105,53rd Street,Ending Balance,2584854.00
+2012,T-005,60th and Western,Beginning Balance,3607525.00
+2012,T-005,60th and Western,Ending Balance,3530204.00
+2012,T-143,63rd/Ashland,Beginning Balance,1574590.00
+2012,T-143,63rd/Ashland,Ending Balance,2877483.00
+2012,T-098,63rd/Pulaski,Beginning Balance,6462595.00
+2012,T-098,63rd/Pulaski,Ending Balance,6358600.00
+2012,T-124,67th/Cicero,Beginning Balance,686832.00
+2012,T-124,67th/Cicero,Ending Balance,453209.00
+2012,T-138,69th/Ashland,Beginning Balance,1079091.00
+2012,T-138,69th/Ashland,Ending Balance,1290446.00
+2012,T-060,71st/Stony Island,Beginning Balance,15894934.00
+2012,T-060,71st/Stony Island,Ending Balance,17092996.00
+2012,T-006,72nd and Cicero,Beginning Balance,2664646.00
+2012,T-006,72nd and Cicero,Ending Balance,2456771.00
+2012,T-007,73rd and Kedzie,Beginning Balance,425619.00
+2012,T-007,73rd and Kedzie,Ending Balance,279176.00
+2012,T-145,73rd/University,Beginning Balance,2506159.00
+2012,T-145,73rd/University,Ending Balance,2796027.00
+2012,T-140,79th/Cicero,Beginning Balance,586164.00
+2012,T-140,79th/Cicero,Ending Balance,722537.00
+2012,T-056,79th Street Corridor,Beginning Balance,5804403.00
+2012,T-056,79th Street Corridor,Ending Balance,5550913.00
+2012,T-112,79th Street/Southwest Highway,Beginning Balance,5398764.00
+2012,T-112,79th Street/Southwest Highway,Ending Balance,6321196.00
+2012,T-155,79th/Vincennes,Beginning Balance,1865644.00
+2012,T-155,79th/Vincennes,Ending Balance,2194305.00
+2012,T-133,83rd/Stewart,Beginning Balance,1364145.00
+2012,T-133,83rd/Stewart,Ending Balance,151730.00
+2012,T-127,87th/Cottage Grove,Beginning Balance,6862887.00
+2012,T-127,87th/Cottage Grove,Ending Balance,6614822.00
+2012,T-049,89th and State,Beginning Balance,88063.00
+2012,T-049,89th and State,Ending Balance,437197.00
+2012,T-009,95th and Western,Beginning Balance,4798936.00
+2012,T-009,95th and Western,Ending Balance,3474848.00
+2012,T-008,95th Street and Stony Island,Beginning Balance,2068462.00
+2012,T-008,95th Street and Stony Island,Ending Balance,2275732.00
+2012,T-011,Addison Corridor North,Beginning Balance,8692808.00
+2012,T-011,Addison Corridor North,Ending Balance,9191886.00
+2012,T-150,Addison South,Beginning Balance,8132601.00
+2012,T-150,Addison South,Ending Balance,10182147.00
+2012,T-099,Archer/Central,Beginning Balance,2893656.00
+2012,T-099,Archer/Central,Ending Balance,3334113.00
+2012,T-067,Archer Courts,Beginning Balance,1624962.00
+2012,T-067,Archer Courts,Ending Balance,1591681.00
+2012,T-163,Archer/Western,Beginning Balance,964086.00
+2012,T-163,Archer/Western,Ending Balance,862109.00
+2012,T-151,Armitage/Pulaski,Beginning Balance,1073423.00
+2012,T-151,Armitage/Pulaski,Ending Balance,1240597.00
+2012,T-156,Austin Commercial,Beginning Balance,4386206.00
+2012,T-156,Austin Commercial,Ending Balance,4485161.00
+2012,T-123,Avalon Park/South Shore,Beginning Balance,3041451.00
+2012,T-123,Avalon Park/South Shore,Ending Balance,2953460.00
+2012,T-167,Avondale,Beginning Balance,1402047.00
+2012,T-167,Avondale,Ending Balance,1221095.00
+2012,T-081,Belmont/Central,Beginning Balance,12501597.00
+2012,T-081,Belmont/Central,Ending Balance,11304759.00
+2012,T-082,Belmont/Cicero,Beginning Balance,3410808.00
+2012,T-082,Belmont/Cicero,Ending Balance,4024612.00
+2012,T-061,Bronzeville,Beginning Balance,16703371.00
+2012,T-061,Bronzeville,Ending Balance,14951517.00
+2012,T-013,Bryn Mawr/Broadway,Beginning Balance,10057845.00
+2012,T-013,Bryn Mawr/Broadway,Ending Balance,10587288.00
+2012,T-059,Calumet Avenue/Cermak Road,Beginning Balance,8756646.00
+2012,T-059,Calumet Avenue/Cermak Road,Ending Balance,17640943.00
+2012,T-168,Calumet River,Beginning Balance,0.00
+2012,T-168,Calumet River,Ending Balance,0.00
+2012,T-063,Canal/Congress,Beginning Balance,42206155.00
+2012,T-063,Canal/Congress,Ending Balance,49237938.00
+2012,T-086,Central West,Beginning Balance,63312034.00
+2012,T-086,Central West,Ending Balance,56159644.00
+2012,T-115,Chicago/Central Park,Beginning Balance,68107901.00
+2012,T-115,Chicago/Central Park,Ending Balance,68110028.00
+2012,T-094,Chicago/Kingsbury,Beginning Balance,24781652.00
+2012,T-094,Chicago/Kingsbury,Ending Balance,35641495.00
+2012,T-170,Chicago Lakeside Development Ph.1,Beginning Balance,0.00
+2012,T-170,Chicago Lakeside Development Ph.1,Ending Balance,0.00
+2012,T-096,Cicero/Archer,Beginning Balance,6522989.00
+2012,T-096,Cicero/Archer,Ending Balance,6925878.00
+2012,T-070,Clark/Montrose,Beginning Balance,9820752.00
+2012,T-070,Clark/Montrose,Ending Balance,9549388.00
+2012,T-074,Clark Street and Ridge Avenue,Beginning Balance,9959343.00
+2012,T-074,Clark Street and Ridge Avenue,Ending Balance,8872079.00
+2012,T-128,Commercial Avenue,Beginning Balance,10506800.00
+2012,T-128,Commercial Avenue,Ending Balance,10413847.00
+2012,T-134,Devon/Sheridan,Beginning Balance,2270271.00
+2012,T-134,Devon/Sheridan,Ending Balance,1254578.00
+2012,T-076,Devon/Western,Beginning Balance,8336882.00
+2012,T-076,Devon/Western,Ending Balance,7967156.00
+2012,T-129,Diversey/Narragansett,Beginning Balance,2200961.00
+2012,T-129,Diversey/Narragansett,Ending Balance,2213477.00
+2012,T-107,Division/Homan,Beginning Balance,6799115.00
+2012,T-107,Division/Homan,Ending Balance,7451105.00
+2012,T-017,Division-Hooker,Beginning Balance,1898310.00
+2012,T-017,Division-Hooker,Ending Balance,1771293.00
+2012,T-018,Division/North Branch,Beginning Balance,487687.00
+2012,T-018,Division/North Branch,Ending Balance,682904.00
+2012,T-122,Drexel Boulevard,Beginning Balance,353760.00
+2012,T-122,Drexel Boulevard,Ending Balance,183635.00
+2012,T-019,Eastman/North Branch,Beginning Balance,1712265.00
+2012,T-019,Eastman/North Branch,Ending Balance,1588233.00
+2012,T-130,Edgewater/Ashland,Beginning Balance,1771772.00
+2012,T-130,Edgewater/Ashland,Ending Balance,1675111.00
+2012,T-153,Elston/Armstrong Industrial Corridor,Beginning Balance,1676641.00
+2012,T-153,Elston/Armstrong Industrial Corridor,Ending Balance,1522099.00
+2012,T-021,Englewood Mall,Beginning Balance,5064555.00
+2012,T-021,Englewood Mall,Ending Balance,4817041.00
+2012,T-106,Englewood Neighborhood,Beginning Balance,24047684.00
+2012,T-106,Englewood Neighborhood,Ending Balance,24159463.00
+2012,T-169,Ewing Avenue,Beginning Balance,894933.00
+2012,T-169,Ewing Avenue,Ending Balance,722080.00
+2012,T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",Beginning Balance,876942.00
+2012,T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",Ending Balance,906489.00
+2012,T-087,Fullerton/Milwaukee,Beginning Balance,23415183.00
+2012,T-087,Fullerton/Milwaukee,Ending Balance,23134413.00
+2012,T-071,Galewood/Armitage Industrial,Beginning Balance,21745998.00
+2012,T-071,Galewood/Armitage Industrial,Ending Balance,23481280.00
+2012,T-023,Goose Island,Beginning Balance,11515794.00
+2012,T-023,Goose Island,Ending Balance,12891725.00
+2012,T-066,Greater Southwest Industrial Corridor (East),Beginning Balance,2671427.00
+2012,T-066,Greater Southwest Industrial Corridor (East),Ending Balance,2870599.00
+2012,T-092,Greater Southwest Industrial Corridor (West),Beginning Balance,9465117.00
+2012,T-092,Greater Southwest Industrial Corridor (West),Ending Balance,9000524.00
+2012,T-148,Harlem Industrial Park Conservation Area,Beginning Balance,731437.00
+2012,T-148,Harlem Industrial Park Conservation Area,Ending Balance,671264.00
+2012,T-144,Harrison/Central,Beginning Balance,1783795.00
+2012,T-144,Harrison/Central,Ending Balance,1482249.00
+2012,T-157,Hollywood/Sheridan,Beginning Balance,2235961.00
+2012,T-157,Hollywood/Sheridan,Ending Balance,1425704.00
+2012,T-024,Homan-Arthington,Beginning Balance,4868532.00
+2012,T-024,Homan-Arthington,Ending Balance,5158883.00
+2012,T-025,Homan/Grand Trunk,Beginning Balance,2790976.00
+2012,T-025,Homan/Grand Trunk,Ending Balance,2547077.00
+2012,T-026,Howard-Paulina,Beginning Balance,4787082.00
+2012,T-026,Howard-Paulina,Ending Balance,2412586.00
+2012,T-108,Humboldt Park Commercial,Beginning Balance,11237614.00
+2012,T-108,Humboldt Park Commercial,Ending Balance,6777370.00
+2012,T-027,Irving/Cicero,Beginning Balance,1137713.00
+2012,T-027,Irving/Cicero,Ending Balance,720812.00
+2012,T-165,Irving Park/Elston,Beginning Balance,823676.00
+2012,T-165,Irving Park/Elston,Ending Balance,786837.00
+2012,T-057,Jefferson Park Business District,Beginning Balance,4562681.00
+2012,T-057,Jefferson Park Business District,Ending Balance,4443966.00
+2012,T-101,Jefferson/Roosevelt,Beginning Balance,11716983.00
+2012,T-101,Jefferson/Roosevelt,Ending Balance,15535928.00
+2012,T-160,Kennedy/Kimball,Beginning Balance,749620.00
+2012,T-160,Kennedy/Kimball,Ending Balance,721537.00
+2012,T-052,Kinzie Industrial Corridor,Beginning Balance,46623992.00
+2012,T-052,Kinzie Industrial Corridor,Ending Balance,48824818.00
+2012,T-162,Kostner Avenue,Beginning Balance,2140.00
+2012,T-162,Kostner Avenue,Ending Balance,2140.00
+2012,T-103,Lake Calumet Area Industrial,Beginning Balance,14940000.00
+2012,T-103,Lake Calumet Area Industrial,Ending Balance,14638952.00
+2012,T-119,Lakefront,Beginning Balance,718774.00
+2012,T-119,Lakefront,Ending Balance,378983.00
+2012,T-137,Lakeside/Clarendon,Beginning Balance,551685.00
+2012,T-137,Lakeside/Clarendon,Ending Balance,498779.00
+2012,T-147,LaSalle Central,Beginning Balance,32578230.00
+2012,T-147,LaSalle Central,Ending Balance,18783305.00
+2012,T-109,Lawrence/Broadway,Beginning Balance,10960069.00
+2012,T-109,Lawrence/Broadway,Ending Balance,13169640.00
+2012,T-088,Lawrence/Kedzie,Beginning Balance,22815080.00
+2012,T-088,Lawrence/Kedzie,Ending Balance,20096429.00
+2012,T-116,Lawrence/Pulaski,Beginning Balance,9458413.00
+2012,T-116,Lawrence/Pulaski,Ending Balance,9007491.00
+2012,T-077,Lincoln Avenue,Beginning Balance,9719658.00
+2012,T-077,Lincoln Avenue,Ending Balance,10404107.00
+2012,T-028,Lincoln-Belmont-Ashland,Beginning Balance,1657506.00
+2012,T-028,Lincoln-Belmont-Ashland,Ending Balance,1620286.00
+2012,T-164,Little Village East,Beginning Balance,356898.00
+2012,T-164,Little Village East,Ending Balance,460644.00
+2012,T-152,Little Village Industrial Corridor,Beginning Balance,1803990.00
+2012,T-152,Little Village Industrial Corridor,Ending Balance,1551257.00
+2012,T-126,Madden/Wells,Beginning Balance,1592431.00
+2012,T-126,Madden/Wells,Ending Balance,2018652.00
+2012,T-075,Madison/Austin Corridor,Beginning Balance,12927695.00
+2012,T-075,Madison/Austin Corridor,Ending Balance,13498143.00
+2012,T-029,Michigan/Cermak,Beginning Balance,3588000.00
+2012,T-029,Michigan/Cermak,Ending Balance,6001362.00
+2012,T-089,Midway Industrial Corridor,Beginning Balance,4322967.00
+2012,T-089,Midway Industrial Corridor,Ending Balance,4473511.00
+2012,T-095,Midwest,Beginning Balance,40526645.00
+2012,T-095,Midwest,Ending Balance,45104451.00
+2012,T-102,Montclare,Beginning Balance,768350.00
+2012,T-102,Montclare,Ending Balance,708721.00
+2012,T-173,Montrose/Clarendon,Beginning Balance,0.00
+2012,T-173,Montrose/Clarendon,Ending Balance,0.00
+2012,T-030,Near North,Beginning Balance,54857756.00
+2012,T-030,Near North,Ending Balance,53852139.00
+2012,T-031,Near South,Beginning Balance,171266030.00
+2012,T-031,Near South,Ending Balance,196806447.00
+2012,T-032,Near West,Beginning Balance,40291131.00
+2012,T-032,Near West,Ending Balance,34703487.00
+2012,T-033,North Branch (North),Beginning Balance,31570751.00
+2012,T-033,North Branch (North),Ending Balance,35610031.00
+2012,T-034,North Branch (South),Beginning Balance,31216015.00
+2012,T-034,North Branch (South),Ending Balance,25455128.00
+2012,T-035,North-Cicero,Beginning Balance,2094422.00
+2012,T-035,North-Cicero,Ending Balance,2641431.00
+2012,T-166,North Pullman,Beginning Balance,332648.00
+2012,T-166,North Pullman,Ending Balance,113025.00
+2012,T-064,Northwest Industrial Corridor,Beginning Balance,19563255.00
+2012,T-064,Northwest Industrial Corridor,Ending Balance,21030788.00
+2012,T-161,Ogden/Pulaski,Beginning Balance,5456009.00
+2012,T-161,Ogden/Pulaski,Ending Balance,5774821.00
+2012,T-100,Ohio/Wabash,Beginning Balance,1335453.00
+2012,T-100,Ohio/Wabash,Ending Balance,1247643.00
+2012,T-154,Pershing/King,Beginning Balance,-52391.00
+2012,T-154,Pershing/King,Ending Balance,216448.00
+2012,T-090,Peterson/Cicero,Beginning Balance,1320380.00
+2012,T-090,Peterson/Cicero,Ending Balance,1558284.00
+2012,T-091,Peterson/Pulaski,Beginning Balance,5783250.00
+2012,T-091,Peterson/Pulaski,Ending Balance,6088233.00
+2012,T-053,Pilsen Industrial Corridor,Beginning Balance,50146706.00
+2012,T-053,Pilsen Industrial Corridor,Ending Balance,44989857.00
+2012,T-058,Portage Park,Beginning Balance,13792527.00
+2012,T-058,Portage Park,Ending Balance,14346748.00
+2012,T-135,Pratt/Ridge Industrial Park Conservation Area,Beginning Balance,396727.00
+2012,T-135,Pratt/Ridge Industrial Park Conservation Area,Ending Balance,673375.00
+2012,T-069,Pulaski Corridor,Beginning Balance,13164951.00
+2012,T-069,Pulaski Corridor,Ending Balance,13372841.00
+2012,T-172,Randolph/Wells,Beginning Balance,63265.00
+2012,T-172,Randolph/Wells,Ending Balance,48156.00
+2012,T-139,Ravenswood Corridor,Beginning Balance,3817454.00
+2012,T-139,Ravenswood Corridor,Ending Balance,4033474.00
+2012,T-036,Read-Dunning,Beginning Balance,10734991.00
+2012,T-036,Read-Dunning,Ending Balance,10900280.00
+2012,T-037,River South,Beginning Balance,42017523.00
+2012,T-037,River South,Ending Balance,54406262.00
+2012,T-104,River West,Beginning Balance,36970536.00
+2012,T-104,River West,Ending Balance,44554332.00
+2012,T-039,Roosevelt/Canal,Beginning Balance,2310364.00
+2012,T-039,Roosevelt/Canal,Ending Balance,1896679.00
+2012,T-038,Roosevelt/Cicero,Beginning Balance,12191164.00
+2012,T-038,Roosevelt/Cicero,Ending Balance,12922623.00
+2012,T-040,Roosevelt-Homan,Beginning Balance,7892603.00
+2012,T-040,Roosevelt-Homan,Ending Balance,8195531.00
+2012,T-062,Roosevelt/Racine,Beginning Balance,3032965.00
+2012,T-062,Roosevelt/Racine,Ending Balance,4503164.00
+2012,T-068,Roosevelt/Union,Beginning Balance,10038853.00
+2012,T-068,Roosevelt/Union,Ending Balance,5615768.00
+2012,T-113,Roseland/Michigan,Beginning Balance,3549309.00
+2012,T-113,Roseland/Michigan,Ending Balance,3421920.00
+2012,T-042,Sanitary Drainage and Ship Canal,Beginning Balance,1562369.00
+2012,T-042,Sanitary Drainage and Ship Canal,Ending Balance,1165158.00
+2012,T-093,South Chicago,Beginning Balance,5512985.00
+2012,T-093,South Chicago,Ending Balance,6715738.00
+2012,T-078,South Works Industrial,Beginning Balance,1071536.00
+2012,T-078,South Works Industrial,Ending Balance,964081.00
+2012,T-149,Stevenson/Brighton,Beginning Balance,3210883.00
+2012,T-149,Stevenson/Brighton,Ending Balance,2921418.00
+2012,T-043,Stockyards Annex,Beginning Balance,14372607.00
+2012,T-043,Stockyards Annex,Ending Balance,8288141.00
+2012,T-044,Stockyards Industrial Commercial,Beginning Balance,5300267.00
+2012,T-044,Stockyards Industrial Commercial,Ending Balance,7194487.00
+2012,T-045,Stockyards Southeast Quadrant Industrial,Beginning Balance,9332854.00
+2012,T-045,Stockyards Southeast Quadrant Industrial,Ending Balance,10352405.00
+2012,T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Beginning Balance,8863572.00
+2012,T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Ending Balance,7011800.00
+2012,T-146,Touhy/Western,Beginning Balance,9568912.00
+2012,T-146,Touhy/Western,Ending Balance,9595420.00
+2012,T-158,Weed/Freemont,Beginning Balance,607125.00
+2012,T-158,Weed/Freemont,Ending Balance,562137.00
+2012,T-084,Western Avenue North,Beginning Balance,19650604.00
+2012,T-084,Western Avenue North,Ending Balance,20218003.00
+2012,T-142,Western Avenue/Rock Island,Beginning Balance,7815773.00
+2012,T-142,Western Avenue/Rock Island,Ending Balance,8108370.00
+2012,T-085,Western Avenue South,Beginning Balance,23616002.00
+2012,T-085,Western Avenue South,Ending Balance,22848255.00
+2012,T-048,Western/Ogden,Beginning Balance,23317899.00
+2012,T-048,Western/Ogden,Ending Balance,28877994.00
+2012,T-046,West Grand,Beginning Balance,264962.00
+2012,T-046,West Grand,Ending Balance,294574.00
+2012,T-083,West Irving Park,Beginning Balance,5795107.00
+2012,T-083,West Irving Park,Ending Balance,5923231.00
+2012,T-050,West Pullman Industrial Park Conservation Area,Beginning Balance,34063.00
+2012,T-050,West Pullman Industrial Park Conservation Area,Ending Balance,27917.00
+2012,T-171,West Woodlawn,Beginning Balance,101579.00
+2012,T-171,West Woodlawn,Ending Balance,102530.00
+2012,T-110,Wilson Yard,Beginning Balance,18789289.00
+2012,T-110,Wilson Yard,Ending Balance,15977683.00
+2012,T-065,Woodlawn,Beginning Balance,12746729.00
+2012,T-065,Woodlawn,Ending Balance,12505730.00
+2011,T-111,105th/Vincennes,Beginning Balance,1150733.00
+2011,T-111,105th/Vincennes,Ending Balance,1489234.00
+2011,T-073,111th Street/Kedzie Avenue Business District,Beginning Balance,2092629.00
+2011,T-073,111th Street/Kedzie Avenue Business District,Ending Balance,2666952.00
+2011,T-114,119th and Halsted,Beginning Balance,3512960.00
+2011,T-114,119th and Halsted,Ending Balance,3674791.00
+2011,T-125,119th/I-57,Beginning Balance,3440293.00
+2011,T-125,119th/I-57,Ending Balance,5518764.00
+2011,T-010,126th and Torrence,Beginning Balance,526198.00
+2011,T-010,126th and Torrence,Ending Balance,1277733.00
+2011,T-159,134th and Avenue K,Beginning Balance,2547.00
+2011,T-159,134th and Avenue K,Ending Balance,22188.00
+2011,T-072,24th/Michigan,Beginning Balance,3508750.00
+2011,T-072,24th/Michigan,Ending Balance,4312727.00
+2011,T-141,26th and King Drive,Beginning Balance,1240434.00
+2011,T-141,26th and King Drive,Ending Balance,271012.00
+2011,T-079,35th and Wallace,Beginning Balance,2266157.00
+2011,T-079,35th and Wallace,Ending Balance,3153280.00
+2011,T-001,35th/Halsted,Beginning Balance,19386107.00
+2011,T-001,35th/Halsted,Ending Balance,21477475.00
+2011,T-131,35th/State,Beginning Balance,2719919.00
+2011,T-131,35th/State,Ending Balance,4841426.00
+2011,T-132,40th/State,Beginning Balance,0.00
+2011,T-132,40th/State,Ending Balance,0.00
+2011,T-055,43rd/Cottage Grove,Beginning Balance,7066507.00
+2011,T-055,43rd/Cottage Grove,Ending Balance,9144966.00
+2011,T-120,45th/Western Industrial Park Conservation Area,Beginning Balance,243273.00
+2011,T-120,45th/Western Industrial Park Conservation Area,Ending Balance,312974.00
+2011,T-117,47th/Ashland,Beginning Balance,31101735.00
+2011,T-117,47th/Ashland,Ending Balance,19733059.00
+2011,T-121,47th/Halsted,Beginning Balance,11210430.00
+2011,T-121,47th/Halsted,Ending Balance,13942869.00
+2011,T-118,47th/King Drive,Beginning Balance,32950255.00
+2011,T-118,47th/King Drive,Ending Balance,34091838.00
+2011,T-136,47th/State,Beginning Balance,6790001.00
+2011,T-136,47th/State,Ending Balance,6290817.00
+2011,T-004,49th Street/St. Lawrence Avenue,Beginning Balance,1904910.00
+2011,T-004,49th Street/St. Lawrence Avenue,Ending Balance,2350484.00
+2011,T-097,51st/Archer,Beginning Balance,10123632.00
+2011,T-097,51st/Archer,Ending Balance,12876704.00
+2011,T-105,53rd Street,Beginning Balance,3702001.00
+2011,T-105,53rd Street,Ending Balance,2376845.00
+2011,T-005,60th and Western,Beginning Balance,3390990.00
+2011,T-005,60th and Western,Ending Balance,3607525.00
+2011,T-143,63rd/Ashland,Beginning Balance,0.00
+2011,T-143,63rd/Ashland,Ending Balance,1574590.00
+2011,T-098,63rd/Pulaski,Beginning Balance,8472916.00
+2011,T-098,63rd/Pulaski,Ending Balance,6462595.00
+2011,T-124,67th/Cicero,Beginning Balance,421396.00
+2011,T-124,67th/Cicero,Ending Balance,686832.00
+2011,T-138,69th/Ashland,Beginning Balance,732498.00
+2011,T-138,69th/Ashland,Ending Balance,1079091.00
+2011,T-060,71st/Stony Island,Beginning Balance,23858686.00
+2011,T-060,71st/Stony Island,Ending Balance,15894934.00
+2011,T-006,72nd and Cicero,Beginning Balance,2369962.00
+2011,T-006,72nd and Cicero,Ending Balance,2664646.00
+2011,T-007,73rd and Kedzie,Beginning Balance,427324.00
+2011,T-007,73rd and Kedzie,Ending Balance,425619.00
+2011,T-145,73rd/University,Beginning Balance,1858226.00
+2011,T-145,73rd/University,Ending Balance,2506159.00
+2011,T-140,79th/Cicero,Beginning Balance,958007.00
+2011,T-140,79th/Cicero,Ending Balance,586164.00
+2011,T-056,79th Street Corridor,Beginning Balance,4730982.00
+2011,T-056,79th Street Corridor,Ending Balance,5804403.00
+2011,T-112,79th Street/Southwest Highway,Beginning Balance,4667559.00
+2011,T-112,79th Street/Southwest Highway,Ending Balance,5398764.00
+2011,T-155,79th/Vincennes,Beginning Balance,1362750.00
+2011,T-155,79th/Vincennes,Ending Balance,1865644.00
+2011,T-133,83rd/Stewart,Beginning Balance,944005.00
+2011,T-133,83rd/Stewart,Ending Balance,1364145.00
+2011,T-127,87th/Cottage Grove,Beginning Balance,5677913.00
+2011,T-127,87th/Cottage Grove,Ending Balance,6862887.00
+2011,T-049,89th and State,Beginning Balance,418564.00
+2011,T-049,89th and State,Ending Balance,88063.00

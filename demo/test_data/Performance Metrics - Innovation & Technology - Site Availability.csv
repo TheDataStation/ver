@@ -1,0 +1,675 @@
+week,site_name,total_downtime_minutes_,site_uptime_
+09/26/2011-10/02/2011,City Internet Website Availability,6.0,99.94
+09/26/2011-10/02/2011,Explore Chicago Website Availability,6.0,99.94
+09/26/2011-10/02/2011,IPI Portal Website Availability,4.0,99.96
+09/26/2011-10/02/2011,CSR Website Availability,0.0,100
+09/26/2011-10/02/2011,Map Chicago Website Availability (GIS),0.0,100
+09/26/2011-10/02/2011,Zoning Map Website Availability (GIS),0.0,100
+10/03/2011-10/09/2011,Explore Chicago Website Availability,20.0,99.802
+10/03/2011-10/09/2011,City Internet Website Availability,4.0,99.96
+10/03/2011-10/09/2011,IPI Portal Website Availability,4.0,99.96
+10/03/2011-10/09/2011,CSR Website Availability,0.0,100
+10/03/2011-10/09/2011,Map Chicago Website Availability (GIS),0.0,100
+10/03/2011-10/09/2011,Zoning Map Website Availability (GIS),0.0,100
+10/10/2011-10/16/2011,Explore Chicago Website Availability,110.0,98.909
+10/10/2011-10/16/2011,CSR Website Availability,0.0,100
+10/10/2011-10/16/2011,City Internet Website Availability,0.0,100
+10/10/2011-10/16/2011,IPI Portal Website Availability,0.0,100
+10/10/2011-10/16/2011,Map Chicago Website Availability (GIS),0.0,100
+10/10/2011-10/16/2011,Zoning Map Website Availability (GIS),0.0,100
+10/17/2011-10/23/2011,Explore Chicago Website Availability,16.0,99.841
+10/17/2011-10/23/2011,IPI Portal Website Availability,2.0,99.98
+10/17/2011-10/23/2011,CSR Website Availability,0.0,100
+10/17/2011-10/23/2011,City Internet Website Availability,0.0,100
+10/17/2011-10/23/2011,Map Chicago Website Availability (GIS),0.0,100
+10/17/2011-10/23/2011,Zoning Map Website Availability (GIS),0.0,100
+10/24/2011-10/30/2011,Explore Chicago Website Availability,24.0,99.762
+10/24/2011-10/30/2011,IPI Portal Website Availability,2.0,99.98
+10/24/2011-10/30/2011,CSR Website Availability,0.0,100
+10/24/2011-10/30/2011,City Internet Website Availability,0.0,100
+10/24/2011-10/30/2011,Map Chicago Website Availability (GIS),0.0,100
+10/24/2011-10/30/2011,Zoning Map Website Availability (GIS),0.0,100
+10/31/2011-11/06/2011,CSR Website Availability,2.0,99.98
+10/31/2011-11/06/2011,City Internet Website Availability,0.0,100
+10/31/2011-11/06/2011,Explore Chicago Website Availability,0.0,100
+10/31/2011-11/06/2011,IPI Portal Website Availability,0.0,100
+10/31/2011-11/06/2011,Map Chicago Website Availability (GIS),0.0,100
+10/31/2011-11/06/2011,Zoning Map Website Availability (GIS),0.0,100
+11/07/2011-11/13/2011,IPI Portal Website Availability,2.0,99.98
+11/07/2011-11/13/2011,CSR Website Availability,0.0,100
+11/07/2011-11/13/2011,City Internet Website Availability,0.0,100
+11/07/2011-11/13/2011,Explore Chicago Website Availability,0.0,100
+11/07/2011-11/13/2011,Map Chicago Website Availability (GIS),0.0,100
+11/07/2011-11/13/2011,Zoning Map Website Availability (GIS),0.0,100
+11/14/2011-11/20/2011,Explore Chicago Website Availability,8.0,99.921
+11/14/2011-11/20/2011,IPI Portal Website Availability,2.0,99.98
+11/14/2011-11/20/2011,CSR Website Availability,0.0,100
+11/14/2011-11/20/2011,City Internet Website Availability,0.0,100
+11/14/2011-11/20/2011,Map Chicago Website Availability (GIS),0.0,100
+11/14/2011-11/20/2011,Zoning Map Website Availability (GIS),0.0,100
+11/21/2011-11/27/2011,IPI Portal Website Availability,2.0,99.98
+11/21/2011-11/27/2011,CSR Website Availability,0.0,100
+11/21/2011-11/27/2011,City Internet Website Availability,0.0,100
+11/21/2011-11/27/2011,Explore Chicago Website Availability,0.0,100
+11/21/2011-11/27/2011,Map Chicago Website Availability (GIS),0.0,100
+11/21/2011-11/27/2011,Zoning Map Website Availability (GIS),0.0,100
+11/28/2011-12/04/2011,IPI Portal Website Availability,58.0,99.425
+11/28/2011-12/04/2011,CSR Website Availability,2.0,99.98
+11/28/2011-12/04/2011,City Internet Website Availability,0.0,100
+11/28/2011-12/04/2011,Explore Chicago Website Availability,0.0,100
+11/28/2011-12/04/2011,Map Chicago Website Availability (GIS),0.0,100
+11/28/2011-12/04/2011,Zoning Map Website Availability (GIS),0.0,100
+12/05/2011-12/11/2011,IPI Portal Website Availability,2.0,99.98
+12/05/2011-12/11/2011,Map Chicago Website Availability (GIS),2.0,99.98
+12/05/2011-12/11/2011,Zoning Map Website Availability (GIS),2.0,99.98
+12/05/2011-12/11/2011,CSR Website Availability,0.0,100
+12/05/2011-12/11/2011,City Internet Website Availability,0.0,100
+12/05/2011-12/11/2011,Explore Chicago Website Availability,0.0,100
+12/12/2011-12/18/2011,IPI Portal Website Availability,2.0,99.98
+12/12/2011-12/18/2011,CSR Website Availability,0.0,100
+12/12/2011-12/18/2011,City Internet Website Availability,0.0,100
+12/12/2011-12/18/2011,Explore Chicago Website Availability,0.0,100
+12/12/2011-12/18/2011,Map Chicago Website Availability (GIS),0.0,100
+12/12/2011-12/18/2011,Zoning Map Website Availability (GIS),0.0,100
+12/19/2011-12/25/2011,Explore Chicago Website Availability,8.0,99.921
+12/19/2011-12/25/2011,IPI Portal Website Availability,2.0,99.98
+12/19/2011-12/25/2011,CSR Website Availability,0.0,100
+12/19/2011-12/25/2011,City Internet Website Availability,0.0,100
+12/19/2011-12/25/2011,Map Chicago Website Availability (GIS),0.0,100
+12/19/2011-12/25/2011,Zoning Map Website Availability (GIS),0.0,100
+12/26/2011-01/01/2012,IPI Portal Website Availability,2.0,99.98
+12/26/2011-01/01/2012,CSR Website Availability,0.0,100
+12/26/2011-01/01/2012,City Internet Website Availability,0.0,100
+12/26/2011-01/01/2012,Explore Chicago Website Availability,0.0,100
+12/26/2011-01/01/2012,Map Chicago Website Availability (GIS),0.0,100
+12/26/2011-01/01/2012,Zoning Map Website Availability (GIS),0.0,100
+01/02/2012-01/08/2012,Explore Chicago Website Availability,2.0,99.98
+01/02/2012-01/08/2012,IPI Portal Website Availability,2.0,99.98
+01/02/2012-01/08/2012,CSR Website Availability,0.0,100
+01/02/2012-01/08/2012,City Internet Website Availability,0.0,100
+01/02/2012-01/08/2012,Map Chicago Website Availability (GIS),0.0,100
+01/02/2012-01/08/2012,Zoning Map Website Availability (GIS),0.0,100
+01/09/2012-01/15/2012,IPI Portal Website Availability,2.0,99.98
+01/09/2012-01/15/2012,CSR Website Availability,0.0,100
+01/09/2012-01/15/2012,City Internet Website Availability,0.0,100
+01/09/2012-01/15/2012,Explore Chicago Website Availability,0.0,100
+01/09/2012-01/15/2012,Map Chicago Website Availability (GIS),0.0,100
+01/09/2012-01/15/2012,Zoning Map Website Availability (GIS),0.0,100
+01/16/2012-01/22/2012,City Internet Website Availability,186.0,98.155
+01/16/2012-01/22/2012,IPI Portal Website Availability,2.0,99.98
+01/16/2012-01/22/2012,CSR Website Availability,0.0,100
+01/16/2012-01/22/2012,Explore Chicago Website Availability,0.0,100
+01/16/2012-01/22/2012,Map Chicago Website Availability (GIS),0.0,100
+01/16/2012-01/22/2012,Zoning Map Website Availability (GIS),0.0,100
+01/23/2012-01/29/2012,City Internet Website Availability,56.0,99.444
+01/23/2012-01/29/2012,CSR Website Availability,4.0,99.96
+01/23/2012-01/29/2012,Explore Chicago Website Availability,2.0,99.98
+01/23/2012-01/29/2012,IPI Portal Website Availability,2.0,99.98
+01/23/2012-01/29/2012,Map Chicago Website Availability (GIS),0.0,100
+01/23/2012-01/29/2012,Zoning Map Website Availability (GIS),0.0,100
+01/30/2012-02/05/2012,Explore Chicago Website Availability,14.0,99.861
+01/30/2012-02/05/2012,CSR Website Availability,2.0,99.98
+01/30/2012-02/05/2012,IPI Portal Website Availability,2.0,99.98
+01/30/2012-02/05/2012,City Internet Website Availability,0.0,100
+01/30/2012-02/05/2012,Map Chicago Website Availability (GIS),0.0,100
+01/30/2012-02/05/2012,Zoning Map Website Availability (GIS),0.0,100
+02/06/2012-02/12/2012,CSR Website Availability,4.0,99.96
+02/06/2012-02/12/2012,City Internet Website Availability,0.0,100
+02/06/2012-02/12/2012,Explore Chicago Website Availability,0.0,100
+02/06/2012-02/12/2012,IPI Portal Website Availability,0.0,100
+02/06/2012-02/12/2012,Map Chicago Website Availability (GIS),0.0,100
+02/06/2012-02/12/2012,Zoning Map Website Availability (GIS),0.0,100
+02/13/2012-02/19/2012,CSR Website Availability,8.0,99.921
+02/13/2012-02/19/2012,Explore Chicago Website Availability,6.0,99.94
+02/13/2012-02/19/2012,City Internet Website Availability,4.0,99.96
+02/13/2012-02/19/2012,IPI Portal Website Availability,2.0,99.98
+02/13/2012-02/19/2012,Map Chicago Website Availability (GIS),0.0,100
+02/13/2012-02/19/2012,Zoning Map Website Availability (GIS),0.0,100
+02/20/2012-02/26/2012,IPI Portal Website Availability,4.0,99.96
+02/20/2012-02/26/2012,Explore Chicago Website Availability,2.0,99.98
+02/20/2012-02/26/2012,CSR Website Availability,0.0,100
+02/20/2012-02/26/2012,City Internet Website Availability,0.0,100
+02/20/2012-02/26/2012,Map Chicago Website Availability (GIS),0.0,100
+02/20/2012-02/26/2012,Zoning Map Website Availability (GIS),0.0,100
+02/27/2012-03/04/2012,CSR Website Availability,12.0,99.881
+02/27/2012-03/04/2012,Explore Chicago Website Availability,2.0,99.98
+02/27/2012-03/04/2012,IPI Portal Website Availability,2.0,99.98
+02/27/2012-03/04/2012,City Internet Website Availability,0.0,100
+02/27/2012-03/04/2012,Map Chicago Website Availability (GIS),0.0,100
+02/27/2012-03/04/2012,Zoning Map Website Availability (GIS),0.0,100
+03/05/2012-03/11/2012,Explore Chicago Website Availability,6.0,99.94
+03/05/2012-03/11/2012,CSR Website Availability,0.0,100
+03/05/2012-03/11/2012,City Internet Website Availability,0.0,100
+03/05/2012-03/11/2012,IPI Portal Website Availability,0.0,100
+03/05/2012-03/11/2012,Map Chicago Website Availability (GIS),0.0,100
+03/05/2012-03/11/2012,Zoning Map Website Availability (GIS),0.0,100
+03/12/2012-03/18/2012,Explore Chicago Website Availability,16.0,99.841
+03/12/2012-03/18/2012,CSR Website Availability,0.0,100
+03/12/2012-03/18/2012,City Internet Website Availability,0.0,100
+03/12/2012-03/18/2012,IPI Portal Website Availability,0.0,100
+03/12/2012-03/18/2012,Map Chicago Website Availability (GIS),0.0,100
+03/12/2012-03/18/2012,Zoning Map Website Availability (GIS),0.0,100
+03/19/2012-03/25/2012,Explore Chicago Website Availability,2.0,99.98
+03/19/2012-03/25/2012,IPI Portal Website Availability,2.0,99.98
+03/19/2012-03/25/2012,CSR Website Availability,0.0,100
+03/19/2012-03/25/2012,City Internet Website Availability,0.0,100
+03/19/2012-03/25/2012,Map Chicago Website Availability (GIS),0.0,100
+03/19/2012-03/25/2012,Zoning Map Website Availability (GIS),0.0,100
+03/26/2012-04/01/2012,Explore Chicago Website Availability,184.0,98.175
+03/26/2012-04/01/2012,City Internet Website Availability,36.0,99.643
+03/26/2012-04/01/2012,CSR Website Availability,2.0,99.98
+03/26/2012-04/01/2012,Map Chicago Website Availability (GIS),2.0,99.98
+03/26/2012-04/01/2012,Zoning Map Website Availability (GIS),2.0,99.98
+03/26/2012-04/01/2012,IPI Portal Website Availability,0.0,100
+04/02/2012-04/08/2012,Explore Chicago Website Availability,6.0,99.94
+04/02/2012-04/08/2012,CSR Website Availability,4.0,99.96
+04/02/2012-04/08/2012,IPI Portal Website Availability,2.0,99.98
+04/02/2012-04/08/2012,City Internet Website Availability,0.0,100
+04/02/2012-04/08/2012,Map Chicago Website Availability (GIS),0.0,100
+04/02/2012-04/08/2012,Zoning Map Website Availability (GIS),0.0,100
+04/09/2012-04/15/2012,Explore Chicago Website Availability,10.0,99.901
+04/09/2012-04/15/2012,City Internet Website Availability,6.0,99.94
+04/09/2012-04/15/2012,CSR Website Availability,0.0,100
+04/09/2012-04/15/2012,IPI Portal Website Availability,0.0,100
+04/09/2012-04/15/2012,Map Chicago Website Availability (GIS),0.0,100
+04/09/2012-04/15/2012,Zoning Map Website Availability (GIS),0.0,100
+04/16/2012-04/22/2012,Explore Chicago Website Availability,20.0,99.802
+04/16/2012-04/22/2012,CSR Website Availability,4.0,99.96
+04/16/2012-04/22/2012,City Internet Website Availability,4.0,99.96
+04/16/2012-04/22/2012,IPI Portal Website Availability,2.0,99.98
+04/16/2012-04/22/2012,Map Chicago Website Availability (GIS),0.0,100
+04/16/2012-04/22/2012,Zoning Map Website Availability (GIS),0.0,100
+04/23/2012-04/29/2012,Explore Chicago Website Availability,10.0,99.901
+04/23/2012-04/29/2012,CSR Website Availability,8.0,99.921
+04/23/2012-04/29/2012,IPI Portal Website Availability,2.0,99.98
+04/23/2012-04/29/2012,City Internet Website Availability,0.0,100
+04/23/2012-04/29/2012,Map Chicago Website Availability (GIS),0.0,100
+04/23/2012-04/29/2012,Zoning Map Website Availability (GIS),0.0,100
+04/30/2012-05/06/2012,CSR Website Availability,240.0,97.619
+04/30/2012-05/06/2012,IPI Portal Website Availability,170.0,98.313
+04/30/2012-05/06/2012,Explore Chicago Website Availability,52.0,99.484
+04/30/2012-05/06/2012,City Internet Website Availability,0.0,100
+04/30/2012-05/06/2012,Map Chicago Website Availability (GIS),0.0,100
+04/30/2012-05/06/2012,Zoning Map Website Availability (GIS),0.0,100
+05/07/2012-05/13/2012,Explore Chicago Website Availability,4.0,99.96
+05/07/2012-05/13/2012,IPI Portal Website Availability,2.0,99.98
+05/07/2012-05/13/2012,CSR Website Availability,0.0,100
+05/07/2012-05/13/2012,City Internet Website Availability,0.0,100
+05/07/2012-05/13/2012,Map Chicago Website Availability (GIS),0.0,100
+05/07/2012-05/13/2012,Zoning Map Website Availability (GIS),0.0,100
+05/14/2012-05/20/2012,Explore Chicago Website Availability,210.0,97.917
+05/14/2012-05/20/2012,City Internet Website Availability,134.0,98.671
+05/14/2012-05/20/2012,CSR Website Availability,30.0,99.702
+05/14/2012-05/20/2012,IPI Portal Website Availability,2.0,99.98
+05/14/2012-05/20/2012,Map Chicago Website Availability (GIS),0.0,100
+05/14/2012-05/20/2012,Zoning Map Website Availability (GIS),0.0,100
+05/21/2012-05/27/2012,Explore Chicago Website Availability,64.0,99.365
+05/21/2012-05/27/2012,City Internet Website Availability,20.0,99.802
+05/21/2012-05/27/2012,IPI Portal Website Availability,4.0,99.96
+05/21/2012-05/27/2012,CSR Website Availability,0.0,100
+05/21/2012-05/27/2012,Map Chicago Website Availability (GIS),0.0,100
+05/21/2012-05/27/2012,Zoning Map Website Availability (GIS),0.0,100
+05/28/2012-06/03/2012,Explore Chicago Website Availability,46.0,99.544
+05/28/2012-06/03/2012,IPI Portal Website Availability,2.0,99.98
+05/28/2012-06/03/2012,CSR Website Availability,0.0,100
+05/28/2012-06/03/2012,City Internet Website Availability,0.0,100
+05/28/2012-06/03/2012,Map Chicago Website Availability (GIS),0.0,100
+05/28/2012-06/03/2012,Zoning Map Website Availability (GIS),0.0,100
+06/04/2012-06/10/2012,Explore Chicago Website Availability,1698.0,83.155
+06/04/2012-06/10/2012,City Internet Website Availability,1636.0,83.77
+06/04/2012-06/10/2012,IPI Portal Website Availability,1612.0,84.008
+06/04/2012-06/10/2012,CSR Website Availability,1606.0,84.067
+06/04/2012-06/10/2012,Map Chicago Website Availability (GIS),1600.0,84.127
+06/04/2012-06/10/2012,Zoning Map Website Availability (GIS),1600.0,84.127
+06/11/2012-06/17/2012,Explore Chicago Website Availability,158.0,98.433
+06/11/2012-06/17/2012,City Internet Website Availability,10.0,99.901
+06/11/2012-06/17/2012,IPI Portal Website Availability,4.0,99.96
+06/11/2012-06/17/2012,CSR Website Availability,0.0,100
+06/11/2012-06/17/2012,Map Chicago Website Availability (GIS),0.0,100
+06/11/2012-06/17/2012,Zoning Map Website Availability (GIS),0.0,100
+06/18/2012-06/24/2012,Explore Chicago Website Availability,212.0,97.897
+06/18/2012-06/24/2012,IPI Portal Website Availability,62.0,99.385
+06/18/2012-06/24/2012,CSR Website Availability,0.0,100
+06/18/2012-06/24/2012,City Internet Website Availability,0.0,100
+06/18/2012-06/24/2012,Map Chicago Website Availability (GIS),0.0,100
+06/18/2012-06/24/2012,Zoning Map Website Availability (GIS),0.0,100
+06/25/2012-07/01/2012,Explore Chicago Website Availability,60.0,99.405
+06/25/2012-07/01/2012,IPI Portal Website Availability,14.0,99.861
+06/25/2012-07/01/2012,CSR Website Availability,0.0,100
+06/25/2012-07/01/2012,City Internet Website Availability,0.0,100
+06/25/2012-07/01/2012,Map Chicago Website Availability (GIS),0.0,100
+06/25/2012-07/01/2012,Zoning Map Website Availability (GIS),0.0,100
+07/02/2012-07/08/2012,Explore Chicago Website Availability,78.0,99.226
+07/02/2012-07/08/2012,IPI Portal Website Availability,34.0,99.663
+07/02/2012-07/08/2012,CSR Website Availability,0.0,100
+07/02/2012-07/08/2012,City Internet Website Availability,0.0,100
+07/02/2012-07/08/2012,Map Chicago Website Availability (GIS),0.0,100
+07/02/2012-07/08/2012,Zoning Map Website Availability (GIS),0.0,100
+07/09/2012-07/15/2012,City Internet Website Availability,40.0,99.603
+07/09/2012-07/15/2012,Explore Chicago Website Availability,22.0,99.782
+07/09/2012-07/15/2012,IPI Portal Website Availability,6.0,99.94
+07/09/2012-07/15/2012,CSR Website Availability,0.0,100
+07/09/2012-07/15/2012,Map Chicago Website Availability (GIS),0.0,100
+07/09/2012-07/15/2012,Zoning Map Website Availability (GIS),0.0,100
+07/16/2012-07/22/2012,Explore Chicago Website Availability,62.0,99.385
+07/16/2012-07/22/2012,CSR Website Availability,0.0,100
+07/16/2012-07/22/2012,City Internet Website Availability,0.0,100
+07/16/2012-07/22/2012,IPI Portal Website Availability,0.0,100
+07/16/2012-07/22/2012,Map Chicago Website Availability (GIS),0.0,100
+07/16/2012-07/22/2012,Zoning Map Website Availability (GIS),0.0,100
+07/23/2012-07/29/2012,Explore Chicago Website Availability,20.0,99.802
+07/23/2012-07/29/2012,IPI Portal Website Availability,4.0,99.96
+07/23/2012-07/29/2012,CSR Website Availability,2.0,99.98
+07/23/2012-07/29/2012,City Internet Website Availability,0.0,100
+07/23/2012-07/29/2012,Map Chicago Website Availability (GIS),0.0,100
+07/23/2012-07/29/2012,Zoning Map Website Availability (GIS),0.0,100
+07/30/2012-08/05/2012,Explore Chicago Website Availability,66.0,99.345
+07/30/2012-08/05/2012,IPI Portal Website Availability,6.0,99.94
+07/30/2012-08/05/2012,CSR Website Availability,0.0,100
+07/30/2012-08/05/2012,City Internet Website Availability,0.0,100
+07/30/2012-08/05/2012,Map Chicago Website Availability (GIS),0.0,100
+07/30/2012-08/05/2012,Zoning Map Website Availability (GIS),0.0,100
+08/06/2012-08/12/2012,Explore Chicago Website Availability,244.0,97.579
+08/06/2012-08/12/2012,IPI Portal Website Availability,6.0,99.94
+08/06/2012-08/12/2012,CSR Website Availability,0.0,100
+08/06/2012-08/12/2012,City Internet Website Availability,0.0,100
+08/06/2012-08/12/2012,Map Chicago Website Availability (GIS),0.0,100
+08/06/2012-08/12/2012,Zoning Map Website Availability (GIS),0.0,100
+08/13/2012-08/19/2012,Explore Chicago Website Availability,66.0,99.345
+08/13/2012-08/19/2012,IPI Portal Website Availability,4.0,99.96
+08/13/2012-08/19/2012,City Internet Website Availability,2.0,99.98
+08/13/2012-08/19/2012,CSR Website Availability,0.0,100
+08/13/2012-08/19/2012,Map Chicago Website Availability (GIS),0.0,100
+08/13/2012-08/19/2012,Zoning Map Website Availability (GIS),0.0,100
+08/20/2012-08/26/2012,Explore Chicago Website Availability,108.0,98.929
+08/20/2012-08/26/2012,IPI Portal Website Availability,4.0,99.96
+08/20/2012-08/26/2012,CSR Website Availability,2.0,99.98
+08/20/2012-08/26/2012,City Internet Website Availability,0.0,100
+08/20/2012-08/26/2012,Map Chicago Website Availability (GIS),0.0,100
+08/20/2012-08/26/2012,Zoning Map Website Availability (GIS),0.0,100
+08/27/2012-09/02/2012,Explore Chicago Website Availability,38.0,99.623
+08/27/2012-09/02/2012,IPI Portal Website Availability,6.0,99.94
+08/27/2012-09/02/2012,CSR Website Availability,2.0,99.98
+08/27/2012-09/02/2012,City Internet Website Availability,0.0,100
+08/27/2012-09/02/2012,Map Chicago Website Availability (GIS),0.0,100
+08/27/2012-09/02/2012,Zoning Map Website Availability (GIS),0.0,100
+09/03/2012-09/09/2012,Explore Chicago Website Availability,20.0,99.802
+09/03/2012-09/09/2012,IPI Portal Website Availability,18.0,99.821
+09/03/2012-09/09/2012,CSR Website Availability,6.0,99.94
+09/03/2012-09/09/2012,Map Chicago Website Availability (GIS),6.0,99.94
+09/03/2012-09/09/2012,Zoning Map Website Availability (GIS),6.0,99.94
+09/03/2012-09/09/2012,City Internet Website Availability,2.0,99.98
+09/10/2012-09/16/2012,IPI Portal Website Availability,10.0,99.901
+09/10/2012-09/16/2012,Explore Chicago Website Availability,8.0,99.921
+09/10/2012-09/16/2012,CSR Website Availability,4.0,99.96
+09/10/2012-09/16/2012,City Internet Website Availability,0.0,100
+09/10/2012-09/16/2012,Map Chicago Website Availability (GIS),0.0,100
+09/10/2012-09/16/2012,Zoning Map Website Availability (GIS),0.0,100
+09/17/2012-09/23/2012,Explore Chicago Website Availability,20.0,99.802
+09/17/2012-09/23/2012,IPI Portal Website Availability,12.0,99.881
+09/17/2012-09/23/2012,CSR Website Availability,6.0,99.94
+09/17/2012-09/23/2012,City Internet Website Availability,0.0,100
+09/17/2012-09/23/2012,Map Chicago Website Availability (GIS),0.0,100
+09/17/2012-09/23/2012,Zoning Map Website Availability (GIS),0.0,100
+09/24/2012-09/30/2012,CSR Website Availability,120.0,98.81
+09/24/2012-09/30/2012,Explore Chicago Website Availability,12.0,99.881
+09/24/2012-09/30/2012,IPI Portal Website Availability,8.0,99.921
+09/24/2012-09/30/2012,City Internet Website Availability,0.0,100
+09/24/2012-09/30/2012,Map Chicago Website Availability (GIS),0.0,100
+09/24/2012-09/30/2012,Zoning Map Website Availability (GIS),0.0,100
+10/01/2012-10/07/2012,Zoning Map Website Availability (GIS),5870.0,41.758
+10/01/2012-10/07/2012,Map Chicago Website Availability (GIS),5870.0,41.758
+10/01/2012-10/07/2012,IPI Portal Website Availability,5870.0,41.758
+10/01/2012-10/07/2012,Explore Chicago Website Availability,5870.0,41.758
+10/01/2012-10/07/2012,City Internet Website Availability,5868.0,41.778
+10/01/2012-10/07/2012,CSR Website Availability,5868.0,41.778
+10/08/2012-10/14/2012,IPI Portal Website Availability,3598.0,64.306
+10/08/2012-10/14/2012,Explore Chicago Website Availability,3594.0,64.345
+10/08/2012-10/14/2012,CSR Website Availability,3592.0,64.365
+10/08/2012-10/14/2012,Map Chicago Website Availability (GIS),3592.0,64.365
+10/08/2012-10/14/2012,Zoning Map Website Availability (GIS),3592.0,64.365
+10/08/2012-10/14/2012,City Internet Website Availability,3590.0,64.385
+10/15/2012-10/21/2012,IPI Portal Website Availability,14.0,99.861
+10/15/2012-10/21/2012,Explore Chicago Website Availability,2.0,99.98
+10/15/2012-10/21/2012,Map Chicago Website Availability (GIS),2.0,99.98
+10/15/2012-10/21/2012,Zoning Map Website Availability (GIS),2.0,99.98
+10/15/2012-10/21/2012,CSR Website Availability,0.0,100
+10/15/2012-10/21/2012,City Internet Website Availability,0.0,100
+10/22/2012-10/28/2012,IPI Portal Website Availability,118.0,98.829
+10/22/2012-10/28/2012,Explore Chicago Website Availability,12.0,99.881
+10/22/2012-10/28/2012,City Internet Website Availability,4.0,99.96
+10/22/2012-10/28/2012,Zoning Map Website Availability (GIS),2.0,99.98
+10/22/2012-10/28/2012,CSR Website Availability,0.0,100
+10/22/2012-10/28/2012,Map Chicago Website Availability (GIS),0.0,100
+10/29/2012-11/04/2012,Explore Chicago Website Availability,24.0,99.762
+10/29/2012-11/04/2012,IPI Portal Website Availability,6.0,99.94
+10/29/2012-11/04/2012,CSR Website Availability,0.0,100
+10/29/2012-11/04/2012,City Internet Website Availability,0.0,100
+10/29/2012-11/04/2012,Map Chicago Website Availability (GIS),0.0,100
+10/29/2012-11/04/2012,Zoning Map Website Availability (GIS),0.0,100
+11/05/2012-11/11/2012,IPI Portal Website Availability,76.0,99.246
+11/05/2012-11/11/2012,CSR Website Availability,16.0,99.841
+11/05/2012-11/11/2012,Explore Chicago Website Availability,14.0,99.861
+11/05/2012-11/11/2012,City Internet Website Availability,0.0,100
+11/05/2012-11/11/2012,Map Chicago Website Availability (GIS),0.0,100
+11/05/2012-11/11/2012,Zoning Map Website Availability (GIS),0.0,100
+11/12/2012-11/18/2012,IPI Portal Website Availability,8.0,99.921
+11/12/2012-11/18/2012,CSR Website Availability,0.0,100
+11/12/2012-11/18/2012,City Internet Website Availability,0.0,100
+11/12/2012-11/18/2012,Explore Chicago Website Availability,0.0,100
+11/12/2012-11/18/2012,Map Chicago Website Availability (GIS),0.0,100
+11/12/2012-11/18/2012,Zoning Map Website Availability (GIS),0.0,100
+11/19/2012-11/25/2012,IPI Portal Website Availability,18.0,99.821
+11/19/2012-11/25/2012,CSR Website Availability,0.0,100
+11/19/2012-11/25/2012,City Internet Website Availability,0.0,100
+11/19/2012-11/25/2012,Explore Chicago Website Availability,0.0,100
+11/19/2012-11/25/2012,Map Chicago Website Availability (GIS),0.0,100
+11/19/2012-11/25/2012,Zoning Map Website Availability (GIS),0.0,100
+12/17/2012-12/23/2012,IPI Portal Website Availability,24.0,99.762
+12/17/2012-12/23/2012,Explore Chicago Website Availability,22.0,99.782
+12/17/2012-12/23/2012,City Internet Website Availability,18.0,99.821
+12/17/2012-12/23/2012,Map Chicago Website Availability (GIS),8.0,99.921
+12/17/2012-12/23/2012,CSR Website Availability,6.0,99.94
+12/17/2012-12/23/2012,Zoning Map Website Availability (GIS),2.0,99.98
+12/26/2011-01/01/2012,IPI Portal Website Availability,2.0,99.98
+12/26/2011-01/01/2012,CSR Website Availability,0.0,100
+12/26/2011-01/01/2012,City Internet Website Availability,0.0,100
+12/26/2011-01/01/2012,Explore Chicago Website Availability,0.0,100
+12/26/2011-01/01/2012,Map Chicago Website Availability (GIS),0.0,100
+12/26/2011-01/01/2012,Zoning Map Website Availability (GIS),0.0,100
+12/31/2012-01/06/2013,IPI Portal Website Availability,18.0,99.821
+12/31/2012-01/06/2013,Explore Chicago Website Availability,8.0,99.921
+12/31/2012-01/06/2013,City Internet Website Availability,2.0,99.98
+12/31/2012-01/06/2013,CSR Website Availability,0.0,100
+12/31/2012-01/06/2013,Map Chicago Website Availability (GIS),0.0,100
+12/31/2012-01/06/2013,Zoning Map Website Availability (GIS),0.0,100
+01/07/2013-01/13/2013,IPI Portal Website Availability,22.0,99.782
+01/07/2013-01/13/2013,City Internet Website Availability,12.0,99.881
+01/07/2013-01/13/2013,Explore Chicago Website Availability,10.0,99.901
+01/07/2013-01/13/2013,CSR Website Availability,2.0,99.98
+01/07/2013-01/13/2013,Map Chicago Website Availability (GIS),0.0,100
+01/07/2013-01/13/2013,Zoning Map Website Availability (GIS),0.0,100
+01/14/2013-01/20/2013,IPI Portal Website Availability,184.0,98.175
+01/14/2013-01/20/2013,Explore Chicago Website Availability,128.0,98.73
+01/14/2013-01/20/2013,Map Chicago Website Availability (GIS),126.0,98.75
+01/14/2013-01/20/2013,Zoning Map Website Availability (GIS),122.0,98.79
+01/14/2013-01/20/2013,City Internet Website Availability,104.0,98.968
+01/14/2013-01/20/2013,CSR Website Availability,72.0,99.286
+01/21/2013-01/27/2013,IPI Portal Website Availability,16.0,99.841
+01/21/2013-01/27/2013,City Internet Website Availability,4.0,99.96
+01/21/2013-01/27/2013,Explore Chicago Website Availability,4.0,99.96
+01/21/2013-01/27/2013,CSR Website Availability,0.0,100
+01/21/2013-01/27/2013,Map Chicago Website Availability (GIS),0.0,100
+01/21/2013-01/27/2013,Zoning Map Website Availability (GIS),0.0,100
+01/28/2013-02/03/2013,IPI Portal Website Availability,36.0,99.643
+01/28/2013-02/03/2013,City Internet Website Availability,32.0,99.683
+01/28/2013-02/03/2013,Explore Chicago Website Availability,10.0,99.901
+01/28/2013-02/03/2013,CSR Website Availability,4.0,99.96
+01/28/2013-02/03/2013,Map Chicago Website Availability (GIS),0.0,100
+01/28/2013-02/03/2013,Zoning Map Website Availability (GIS),0.0,100
+02/04/2013-02/10/2013,Explore Chicago Website Availability,94.0,99.067
+02/04/2013-02/10/2013,IPI Portal Website Availability,68.0,99.325
+02/04/2013-02/10/2013,City Internet Website Availability,16.0,99.841
+02/04/2013-02/10/2013,CSR Website Availability,0.0,100
+02/04/2013-02/10/2013,Map Chicago Website Availability (GIS),0.0,100
+02/04/2013-02/10/2013,Zoning Map Website Availability (GIS),0.0,100
+02/11/2013-02/17/2013,Explore Chicago Website Availability,42.0,99.583
+02/11/2013-02/17/2013,IPI Portal Website Availability,26.0,99.742
+02/11/2013-02/17/2013,City Internet Website Availability,6.0,99.94
+02/11/2013-02/17/2013,CSR Website Availability,0.0,100
+02/11/2013-02/17/2013,Map Chicago Website Availability (GIS),0.0,100
+02/11/2013-02/17/2013,Zoning Map Website Availability (GIS),0.0,100
+02/18/2013-02/24/2013,Explore Chicago Website Availability,70.0,99.306
+02/18/2013-02/24/2013,IPI Portal Website Availability,26.0,99.742
+02/18/2013-02/24/2013,City Internet Website Availability,2.0,99.98
+02/18/2013-02/24/2013,CSR Website Availability,0.0,100
+02/18/2013-02/24/2013,Map Chicago Website Availability (GIS),0.0,100
+02/18/2013-02/24/2013,Zoning Map Website Availability (GIS),0.0,100
+02/25/2013-03/03/2013,Explore Chicago Website Availability,50.0,99.504
+02/25/2013-03/03/2013,IPI Portal Website Availability,36.0,99.643
+02/25/2013-03/03/2013,CSR Website Availability,0.0,100
+02/25/2013-03/03/2013,City Internet Website Availability,0.0,100
+02/25/2013-03/03/2013,Map Chicago Website Availability (GIS),0.0,100
+02/25/2013-03/03/2013,Zoning Map Website Availability (GIS),0.0,100
+03/04/2013-03/10/2013,IPI Portal Website Availability,26.0,99.742
+03/04/2013-03/10/2013,Explore Chicago Website Availability,4.0,99.96
+03/04/2013-03/10/2013,CSR Website Availability,2.0,99.98
+03/04/2013-03/10/2013,City Internet Website Availability,0.0,100
+03/04/2013-03/10/2013,Map Chicago Website Availability (GIS),0.0,100
+03/04/2013-03/10/2013,Zoning Map Website Availability (GIS),0.0,100
+03/11/2013-03/17/2013,IPI Portal Website Availability,60.0,99.405
+03/11/2013-03/17/2013,CSR Website Availability,0.0,100
+03/11/2013-03/17/2013,City Internet Website Availability,0.0,100
+03/11/2013-03/17/2013,Explore Chicago Website Availability,0.0,100
+03/11/2013-03/17/2013,Map Chicago Website Availability (GIS),0.0,100
+03/11/2013-03/17/2013,Zoning Map Website Availability (GIS),0.0,100
+03/18/2013-03/24/2013,Explore Chicago Website Availability,40.0,99.603
+03/18/2013-03/24/2013,IPI Portal Website Availability,34.0,99.663
+03/18/2013-03/24/2013,CSR Website Availability,0.0,100
+03/18/2013-03/24/2013,City Internet Website Availability,0.0,100
+03/18/2013-03/24/2013,Map Chicago Website Availability (GIS),0.0,100
+03/18/2013-03/24/2013,Zoning Map Website Availability (GIS),0.0,100
+03/25/2013-03/31/2013,IPI Portal Website Availability,112.0,98.889
+03/25/2013-03/31/2013,Explore Chicago Website Availability,10.0,99.901
+03/25/2013-03/31/2013,City Internet Website Availability,4.0,99.96
+03/25/2013-03/31/2013,CSR Website Availability,0.0,100
+03/25/2013-03/31/2013,Map Chicago Website Availability (GIS),0.0,100
+03/25/2013-03/31/2013,Zoning Map Website Availability (GIS),0.0,100
+04/01/2013-04/07/2013,Explore Chicago Website Availability,36.0,99.643
+04/01/2013-04/07/2013,IPI Portal Website Availability,28.0,99.722
+04/01/2013-04/07/2013,CSR Website Availability,0.0,100
+04/01/2013-04/07/2013,City Internet Website Availability,0.0,100
+04/01/2013-04/07/2013,Map Chicago Website Availability (GIS),0.0,100
+04/01/2013-04/07/2013,Zoning Map Website Availability (GIS),0.0,100
+04/08/2013-04/14/2013,IPI Portal Website Availability,18.0,99.821
+04/08/2013-04/14/2013,Explore Chicago Website Availability,14.0,99.861
+04/08/2013-04/14/2013,City Internet Website Availability,8.0,99.921
+04/08/2013-04/14/2013,CSR Website Availability,0.0,100
+04/08/2013-04/14/2013,Map Chicago Website Availability (GIS),0.0,100
+04/08/2013-04/14/2013,Zoning Map Website Availability (GIS),0.0,100
+04/15/2013-04/21/2013,Explore Chicago Website Availability,230.0,97.718
+04/15/2013-04/21/2013,IPI Portal Website Availability,30.0,99.702
+04/15/2013-04/21/2013,City Internet Website Availability,2.0,99.98
+04/15/2013-04/21/2013,CSR Website Availability,0.0,100
+04/15/2013-04/21/2013,Map Chicago Website Availability (GIS),0.0,100
+04/15/2013-04/21/2013,Zoning Map Website Availability (GIS),0.0,100
+04/22/2013-04/28/2013,CSR Website Availability,668.0,93.366
+04/22/2013-04/28/2013,Explore Chicago Website Availability,52.0,99.484
+04/22/2013-04/28/2013,IPI Portal Website Availability,6.0,99.94
+04/22/2013-04/28/2013,City Internet Website Availability,0.0,100
+04/22/2013-04/28/2013,Map Chicago Website Availability (GIS),0.0,100
+04/22/2013-04/28/2013,Zoning Map Website Availability (GIS),0.0,100
+04/29/2013-05/05/2013,CSR Website Availability,522.0,94.821
+04/29/2013-05/05/2013,Explore Chicago Website Availability,104.0,98.968
+04/29/2013-05/05/2013,IPI Portal Website Availability,22.0,99.782
+04/29/2013-05/05/2013,City Internet Website Availability,0.0,100
+04/29/2013-05/05/2013,Map Chicago Website Availability (GIS),0.0,100
+04/29/2013-05/05/2013,Zoning Map Website Availability (GIS),0.0,100
+05/06/2013-05/12/2013,Explore Chicago Website Availability,78.0,99.226
+05/06/2013-05/12/2013,IPI Portal Website Availability,18.0,99.821
+05/06/2013-05/12/2013,CSR Website Availability,0.0,100
+05/06/2013-05/12/2013,City Internet Website Availability,0.0,100
+05/06/2013-05/12/2013,Map Chicago Website Availability (GIS),0.0,100
+05/06/2013-05/12/2013,Zoning Map Website Availability (GIS),0.0,100
+05/13/2013-05/19/2013,Explore Chicago Website Availability,132.0,98.69
+05/13/2013-05/19/2013,IPI Portal Website Availability,32.0,99.683
+05/13/2013-05/19/2013,CSR Website Availability,0.0,100
+05/13/2013-05/19/2013,City Internet Website Availability,0.0,100
+05/13/2013-05/19/2013,Map Chicago Website Availability (GIS),0.0,100
+05/13/2013-05/19/2013,Zoning Map Website Availability (GIS),0.0,100
+05/20/2013-05/26/2013,Explore Chicago Website Availability,90.0,99.107
+05/20/2013-05/26/2013,IPI Portal Website Availability,38.0,99.623
+05/20/2013-05/26/2013,CSR Website Availability,0.0,100
+05/20/2013-05/26/2013,City Internet Website Availability,0.0,100
+05/20/2013-05/26/2013,Map Chicago Website Availability (GIS),0.0,100
+05/20/2013-05/26/2013,Zoning Map Website Availability (GIS),0.0,100
+05/27/2013-06/02/2013,CSR Website Availability,68.0,99.325
+05/27/2013-06/02/2013,Explore Chicago Website Availability,58.0,99.425
+05/27/2013-06/02/2013,IPI Portal Website Availability,32.0,99.683
+05/27/2013-06/02/2013,Map Chicago Website Availability (GIS),8.0,99.921
+05/27/2013-06/02/2013,Zoning Map Website Availability (GIS),8.0,99.921
+05/27/2013-06/02/2013,City Internet Website Availability,0.0,100
+06/03/2013-06/09/2013,IPI Portal Website Availability,22.0,99.782
+06/03/2013-06/09/2013,Explore Chicago Website Availability,20.0,99.802
+06/03/2013-06/09/2013,City Internet Website Availability,8.0,99.921
+06/03/2013-06/09/2013,CSR Website Availability,0.0,100
+06/03/2013-06/09/2013,Map Chicago Website Availability (GIS),0.0,100
+06/03/2013-06/09/2013,Zoning Map Website Availability (GIS),0.0,100
+06/10/2013-06/16/2013,Explore Chicago Website Availability,58.0,99.425
+06/10/2013-06/16/2013,IPI Portal Website Availability,26.0,99.742
+06/10/2013-06/16/2013,CSR Website Availability,0.0,100
+06/10/2013-06/16/2013,City Internet Website Availability,0.0,100
+06/10/2013-06/16/2013,Map Chicago Website Availability (GIS),0.0,100
+06/10/2013-06/16/2013,Zoning Map Website Availability (GIS),0.0,100
+06/17/2013-06/23/2013,IPI Portal Website Availability,40.0,99.603
+06/17/2013-06/23/2013,Map Chicago Website Availability (GIS),40.0,99.603
+06/17/2013-06/23/2013,CSR Website Availability,26.0,99.742
+06/17/2013-06/23/2013,Explore Chicago Website Availability,26.0,99.742
+06/17/2013-06/23/2013,City Internet Website Availability,16.0,99.841
+06/17/2013-06/23/2013,Zoning Map Website Availability (GIS),6.0,99.94
+06/24/2013-06/30/2013,IPI Portal Website Availability,26.0,99.742
+06/24/2013-06/30/2013,CSR Website Availability,2.0,99.98
+06/24/2013-06/30/2013,Explore Chicago Website Availability,2.0,99.98
+06/24/2013-06/30/2013,City Internet Website Availability,0.0,100
+06/24/2013-06/30/2013,Map Chicago Website Availability (GIS),0.0,100
+06/24/2013-06/30/2013,Zoning Map Website Availability (GIS),0.0,100
+07/01/2013-07/07/2013,Explore Chicago Website Availability,20.0,99.802
+07/01/2013-07/07/2013,IPI Portal Website Availability,18.0,99.821
+07/01/2013-07/07/2013,CSR Website Availability,2.0,99.98
+07/01/2013-07/07/2013,City Internet Website Availability,0.0,100
+07/01/2013-07/07/2013,Map Chicago Website Availability (GIS),0.0,100
+07/01/2013-07/07/2013,Zoning Map Website Availability (GIS),0.0,100
+07/08/2013-07/14/2013,IPI Portal Website Availability,34.0,99.663
+07/08/2013-07/14/2013,CSR Website Availability,2.0,99.98
+07/08/2013-07/14/2013,City Internet Website Availability,0.0,100
+07/08/2013-07/14/2013,Explore Chicago Website Availability,0.0,100
+07/08/2013-07/14/2013,Map Chicago Website Availability (GIS),0.0,100
+07/08/2013-07/14/2013,Zoning Map Website Availability (GIS),0.0,100
+07/15/2013-07/21/2013,Explore Chicago Website Availability,26.0,99.742
+07/15/2013-07/21/2013,IPI Portal Website Availability,20.0,99.802
+07/15/2013-07/21/2013,CSR Website Availability,2.0,99.98
+07/15/2013-07/21/2013,City Internet Website Availability,0.0,100
+07/15/2013-07/21/2013,Map Chicago Website Availability (GIS),0.0,100
+07/15/2013-07/21/2013,Zoning Map Website Availability (GIS),0.0,100
+07/22/2013-07/28/2013,IPI Portal Website Availability,30.0,99.702
+07/22/2013-07/28/2013,City Internet Website Availability,10.0,99.901
+07/22/2013-07/28/2013,Explore Chicago Website Availability,10.0,99.901
+07/22/2013-07/28/2013,CSR Website Availability,2.0,99.98
+07/22/2013-07/28/2013,Map Chicago Website Availability (GIS),0.0,100
+07/22/2013-07/28/2013,Zoning Map Website Availability (GIS),0.0,100
+07/29/2013-08/04/2013,IPI Portal Website Availability,52.0,99.484
+07/29/2013-08/04/2013,City Internet Website Availability,8.0,99.921
+07/29/2013-08/04/2013,CSR Website Availability,0.0,100
+07/29/2013-08/04/2013,Explore Chicago Website Availability,0.0,100
+07/29/2013-08/04/2013,Map Chicago Website Availability (GIS),0.0,100
+07/29/2013-08/04/2013,Zoning Map Website Availability (GIS),0.0,100
+08/05/2013-08/11/2013,IPI Portal Website Availability,26.0,99.742
+08/05/2013-08/11/2013,Explore Chicago Website Availability,6.0,99.94
+08/05/2013-08/11/2013,CSR Website Availability,0.0,100
+08/05/2013-08/11/2013,City Internet Website Availability,0.0,100
+08/05/2013-08/11/2013,Map Chicago Website Availability (GIS),0.0,100
+08/05/2013-08/11/2013,Zoning Map Website Availability (GIS),0.0,100
+08/12/2013-08/18/2013,Explore Chicago Website Availability,146.0,98.552
+08/12/2013-08/18/2013,IPI Portal Website Availability,28.0,99.722
+08/12/2013-08/18/2013,City Internet Website Availability,2.0,99.98
+08/12/2013-08/18/2013,CSR Website Availability,0.0,100
+08/12/2013-08/18/2013,Map Chicago Website Availability (GIS),0.0,100
+08/12/2013-08/18/2013,Zoning Map Website Availability (GIS),0.0,100
+08/19/2013-08/25/2013,IPI Portal Website Availability,22.0,99.782
+08/19/2013-08/25/2013,Explore Chicago Website Availability,12.0,99.881
+08/19/2013-08/25/2013,CSR Website Availability,0.0,100
+08/19/2013-08/25/2013,City Internet Website Availability,0.0,100
+08/19/2013-08/25/2013,Map Chicago Website Availability (GIS),0.0,100
+08/19/2013-08/25/2013,Zoning Map Website Availability (GIS),0.0,100
+08/26/2013-09/01/2013,IPI Portal Website Availability,18.0,99.821
+08/26/2013-09/01/2013,Explore Chicago Website Availability,2.0,99.98
+08/26/2013-09/01/2013,CSR Website Availability,0.0,100
+08/26/2013-09/01/2013,City Internet Website Availability,0.0,100
+08/26/2013-09/01/2013,Map Chicago Website Availability (GIS),0.0,100
+08/26/2013-09/01/2013,Zoning Map Website Availability (GIS),0.0,100
+09/02/2013-09/08/2013,IPI Portal Website Availability,16.0,99.841
+09/02/2013-09/08/2013,CSR Website Availability,0.0,100
+09/02/2013-09/08/2013,City Internet Website Availability,0.0,100
+09/02/2013-09/08/2013,Explore Chicago Website Availability,0.0,100
+09/02/2013-09/08/2013,Map Chicago Website Availability (GIS),0.0,100
+09/02/2013-09/08/2013,Zoning Map Website Availability (GIS),0.0,100
+09/09/2013-09/15/2013,IPI Portal Website Availability,22.0,99.782
+09/09/2013-09/15/2013,CSR Website Availability,0.0,100
+09/09/2013-09/15/2013,City Internet Website Availability,0.0,100
+09/09/2013-09/15/2013,Map Chicago Website Availability (GIS),0.0,100
+09/09/2013-09/15/2013,Zoning Map Website Availability (GIS),0.0,100
+09/16/2013-09/22/2013,IPI Portal Website Availability,16.0,99.841
+09/16/2013-09/22/2013,CSR Website Availability,2.0,99.98
+09/16/2013-09/22/2013,City Internet Website Availability,0.0,100
+09/16/2013-09/22/2013,Map Chicago Website Availability (GIS),0.0,100
+09/16/2013-09/22/2013,Zoning Map Website Availability (GIS),0.0,100
+09/23/2013-09/29/2013,IPI Portal Website Availability,422.0,95.813
+09/23/2013-09/29/2013,City Internet Website Availability,14.0,99.861
+09/23/2013-09/29/2013,Map Chicago Website Availability (GIS),2.0,99.98
+09/23/2013-09/29/2013,Zoning Map Website Availability (GIS),2.0,99.98
+09/23/2013-09/29/2013,CSR Website Availability,0.0,100
+09/30/2013-10/06/2013,IPI Portal Website Availability,16.0,99.841
+09/30/2013-10/06/2013,CSR Website Availability,0.0,100
+09/30/2013-10/06/2013,City Internet Website Availability,0.0,100
+09/30/2013-10/06/2013,Map Chicago Website Availability (GIS),0.0,100
+09/30/2013-10/06/2013,Zoning Map Website Availability (GIS),0.0,100
+10/07/2013-10/13/2013,IPI Portal Website Availability,24.0,99.762
+10/07/2013-10/13/2013,CSR Website Availability,0.0,100
+10/07/2013-10/13/2013,City Internet Website Availability,0.0,100
+10/07/2013-10/13/2013,Map Chicago Website Availability (GIS),0.0,100
+10/07/2013-10/13/2013,Zoning Map Website Availability (GIS),0.0,100
+10/14/2013-10/20/2013,IPI Portal Website Availability,28.0,99.722
+10/14/2013-10/20/2013,CSR Website Availability,0.0,100
+10/14/2013-10/20/2013,City Internet Website Availability,0.0,100
+10/14/2013-10/20/2013,Map Chicago Website Availability (GIS),0.0,100
+10/14/2013-10/20/2013,Zoning Map Website Availability (GIS),0.0,100
+10/21/2013-10/27/2013,IPI Portal Website Availability,28.0,99.722
+10/21/2013-10/27/2013,CSR Website Availability,0.0,100
+10/21/2013-10/27/2013,City Internet Website Availability,0.0,100
+10/21/2013-10/27/2013,Map Chicago Website Availability (GIS),0.0,100
+10/21/2013-10/27/2013,Zoning Map Website Availability (GIS),0.0,100
+10/28/2013-11/03/2013,IPI Portal Website Availability,22.0,99.782
+10/28/2013-11/03/2013,CSR Website Availability,0.0,100
+10/28/2013-11/03/2013,City Internet Website Availability,0.0,100
+10/28/2013-11/03/2013,Map Chicago Website Availability (GIS),0.0,100
+10/28/2013-11/03/2013,Zoning Map Website Availability (GIS),0.0,100
+11/04/2013-11/10/2013,IPI Portal Website Availability,20.0,99.802
+11/04/2013-11/10/2013,CSR Website Availability,0.0,100
+11/04/2013-11/10/2013,City Internet Website Availability,0.0,100
+11/04/2013-11/10/2013,Map Chicago Website Availability (GIS),0.0,100
+11/04/2013-11/10/2013,Zoning Map Website Availability (GIS),0.0,100
+11/11/2013-11/17/2013,IPI Portal Website Availability,10.0,99.901
+11/11/2013-11/17/2013,CSR Website Availability,0.0,100
+11/11/2013-11/17/2013,City Internet Website Availability,0.0,100
+11/11/2013-11/17/2013,Map Chicago Website Availability (GIS),0.0,100
+11/11/2013-11/17/2013,Zoning Map Website Availability (GIS),0.0,100
+11/18/2013-11/24/2013,IPI Portal Website Availability,20.0,99.802
+11/18/2013-11/24/2013,CSR Website Availability,0.0,100
+11/18/2013-11/24/2013,City Internet Website Availability,0.0,100
+11/18/2013-11/24/2013,Map Chicago Website Availability (GIS),0.0,100
+11/18/2013-11/24/2013,Zoning Map Website Availability (GIS),0.0,100
+11/25/2013-12/01/2013,IPI Portal Website Availability,60.0,99.405
+11/25/2013-12/01/2013,CSR Website Availability,0.0,100
+11/25/2013-12/01/2013,City Internet Website Availability,0.0,100
+11/25/2013-12/01/2013,Map Chicago Website Availability (GIS),0.0,100
+11/25/2013-12/01/2013,Zoning Map Website Availability (GIS),0.0,100
+12/02/2013-12/08/2013,IPI Portal Website Availability,10.0,99.901
+12/02/2013-12/08/2013,CSR Website Availability,0.0,100
+12/02/2013-12/08/2013,City Internet Website Availability,0.0,100
+12/02/2013-12/08/2013,Map Chicago Website Availability (GIS),0.0,100
+12/02/2013-12/08/2013,Zoning Map Website Availability (GIS),0.0,100
+12/09/2013-12/15/2013,CSR Website Availability,20.0,99.802
+12/09/2013-12/15/2013,IPI Portal Website Availability,20.0,99.802
+12/09/2013-12/15/2013,City Internet Website Availability,0.0,100
+12/09/2013-12/15/2013,Map Chicago Website Availability (GIS),0.0,100
+12/09/2013-12/15/2013,Zoning Map Website Availability (GIS),0.0,100
+12/16/2013-12/22/2013,IPI Portal Website Availability,20.0,99.802
+12/16/2013-12/22/2013,CSR Website Availability,0.0,100
+12/16/2013-12/22/2013,City Internet Website Availability,0.0,100
+12/16/2013-12/22/2013,Map Chicago Website Availability (GIS),0.0,100
+12/16/2013-12/22/2013,Zoning Map Website Availability (GIS),0.0,100
+12/24/2012-12/30/2012,CSR Website Availability,0.0,100
+12/24/2012-12/30/2012,City Internet Website Availability,0.0,100
+12/24/2012-12/30/2012,IPI Portal Website Availability,0.0,100
+12/24/2012-12/30/2012,Map Chicago Website Availability (GIS),0.0,100
+12/24/2012-12/30/2012,Zoning Map Website Availability (GIS),0.0,100

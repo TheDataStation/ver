@@ -1,0 +1,44 @@
+loan_year,borrower_ethnicity,borrower_gender,number_of_loans
+2012,Black,Female,7
+2012,Black,Male,5
+2012,Hispanic,Female,2
+2012,Other,Female,1
+2012,White,Female,2
+2012,White,Male,4
+2013,Asian,Female,1
+2013,Asian,Male,1
+2013,Black,Female,34
+2013,Black,Male,22
+2013,Hispanic,Female,6
+2013,Hispanic,Female ,1
+2013,Hispanic,Male,6
+2013,Hispanic,M/F,1
+2013,Hispanic,M/M,1
+2013,Hispanic ,Female,1
+2013,Hispanic ,Male,1
+2013,Other,Female,2
+2013,Other,Male,1
+2013,White,Female,12
+2013,White,Male,12
+2014,Asian,Male,1
+2014,Black,Female,19
+2014,Black,F / M,1
+2014,Black,Male,14
+2014,(blank),Female,1
+2014,Hispanic,Female,5
+2014,Hispanic,Female ,1
+2014,Hispanic,Male,7
+2014,White,Female,3
+2014,White,Male,2
+2015,Asian,Female,1
+2015,Black,Female,21
+2015,Black,Male,15
+2015,Hispanic,Female,6
+2015,Hispanic,Male,7
+2015,White,Female,10
+2015,White,Male,4
+2016,Black,Female,4
+2016,Black,Male,3
+2016,Hispanic,Male,1
+2016,White,Female,1
+2016,White,Male,1

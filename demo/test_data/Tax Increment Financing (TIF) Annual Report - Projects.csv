@@ -1,0 +1,1001 @@
+tif_number,tif_district,report_year,project_iga,project_type,project_number,project_name,annual_report_name,current_year_new_deals,ongoing,status,current_year_payments,estimated_next_year_payments,private_funds,private_funds_to_completion,public_funds,public_funds_to_completion
+T-001,35th/Halsted,2021,Project,Project,2,Acre,ACRE Mixed-Use Development,False,False,Active Project,297381,313278,0,18093600,2793595,2793595
+T-001,35th/Halsted,2021,IGA,CBE,3,IGA - CBE - Armour Elementary,IGA - CBE - Armour Elementary,False,False,Active Project,0,0,0,0,0,0
+T-001,35th/Halsted,2021,IGA,CPD,2,IGA - CPD - Wilson Park,IGA - CPD - Wilson Park,False,False,Active Project,0,0,0,0,323398,0
+T-001,35th/Halsted,2021,IGA,PBC,1,IGA - PBC - Ramova Theater,IGA - PBC - Ramova Theater,False,False,Active Project,0,0,0,0,0,0
+T-001,35th/Halsted,2021,Project,Project,1,Miracle - Pepsi,"Miracle, LLC",False,False,Completed,0,0,17050000,0,2970972,0
+T-001,35th/Halsted,2021,Project,Project,6,Ramova Theater,Ramova Theater,False,False,Active Project,0,681500,0,21483689,0,6815000
+T-001,35th/Halsted,2021,Program,SBIF,3,SBIF - 35th Halsted,SBIF - 35th Halsted,False,False,Active Project,516894,705000,0,5500000,2767075,2750000
+T-001,35th/Halsted,2021,Program,TIFWorks,4,TIFWorks - 35th Halsted,TIFWorks - 35th Halsted,False,False,Active Project,0,0,0,0,557801,882628
+T-001,35th/Halsted,2021,Project,Project,5,Vienna Beef,Vienna Beef,False,False,Completed,0,0,8788376,0,4970000,0
+T-009,95th/Western,2021,Project,Project,1,Borders - 95th Western,DB Beverly L.L.C.,False,False,Completed,0,0,4322000,0,1524472,0
+T-009,95th/Western,2021,Program,SBIF,2,SBIF - 95th Western,SBIF - 95th Western,False,False,Active Project,0,360000,0,1500000,3266,750000
+T-013,Bryn Mawr/Broadway,2021,Project,Project,1,Bryn Mawr-Belle Shore,Bryn Mawr-Belle Shore Ltd.,False,False,Completed,0,0,7200000,0,6547727,0
+T-013,Bryn Mawr/Broadway,2021,Project,Project,2,Good Taste Bakery,Good Taste Bakery,False,False,Completed,0,0,676123,0,225250,0
+T-013,Bryn Mawr/Broadway,2021,Project,Project,6,Holsten Development,Holsten Development,False,False,Completed,0,0,0,0,216182,0
+T-013,Bryn Mawr/Broadway,2021,IGA,CPD,1,IGA - CPD - Park 0435 - Broman Park,IGA - CPD - Park 0435 - Bromann Park,False,False,Completed,0,0,0,0,350000,0
+T-013,Bryn Mawr/Broadway,2021,IGA,CTA,2,IGA - CTA - Bryn Mawr Station,CTA - Bryn Mawr Station,False,False,Completed,0,0,0,0,10000000,0
+T-013,Bryn Mawr/Broadway,2021,IGA,CTA,6,IGA - CTA - RPM Phase 1,IGA - CTA - RPM Phase 1,False,False,Active Project,0,0,0,0,0,0
+T-013,Bryn Mawr/Broadway,2021,Project,Project,4,Nookies Restaurant,Nookies/Bryn Mawr Real Estate LLC,False,False,Completed,0,0,3132169,0,0,0
+T-013,Bryn Mawr/Broadway,2021,Program,SBIF,3,SBIF - Bryn Mawr Broadway,SBIF - Bryn Mawr Broadway,False,False,Active Project,185181,81000,0,3500000,1451261,1750000
+T-013,Bryn Mawr/Broadway,2021,Program,TIFWorks,5,TIFWorks - Bryn Mawr Broadway,TIFWorks - Bryn Mawr Broadway,False,False,Active Project,0,0,0,0,112653,175000
+T-021,Englewood Mall,2021,Project,Project,1,Englewood Apts,Englewood SRO,False,False,Completed,0,0,14672386,0,2000000,0
+T-021,Englewood Mall,2021,Program,Retail Thrive,3,Retail Thrive - Englewood Mall,Retail Thrive - Englewood Mall,False,False,Active Project,0,0,0,1000000,0,500000
+T-021,Englewood Mall,2021,Program,TIFWorks,2,TIFWorks - Englewood Mall,TIFWorks - Englewood Mall,False,False,Active Project,0,0,0,0,0,75000
+T-023,Goose Island,2021,Project,Project,2,Gooseland Venture,Gooseland Venture LLC,False,False,Completed,0,0,13715707,0,1212753,0
+T-023,Goose Island,2021,Project,Project,3,Republic Windows,Republic Windows and Doors,False,False,Completed,0,0,27855715,0,10433394,0
+T-023,Goose Island,2021,Project,Project,4,Sara Lee - Riverworks,River Works LLC,False,False,Completed,0,0,33300000,0,1220023,0
+T-023,Goose Island,2021,Program,SBIF,5,SBIF - Goose Island,SBIF - Goose Island,False,False,Active Project,0,0,0,3000000,93000,1500000
+T-023,Goose Island,2021,Program,TIFWorks,7,TIFWorks - Goose Island,TIFWorks - Goose Island,False,False,Active Project,0,0,0,0,34385,100000
+T-023,Goose Island,2021,Project,Project,8,UI LABS,UI LABS,False,False,Completed,0,0,6500000,0,10000000,0
+T-023,Goose Island,2021,Project,Project,6,WaterSaver Faucet - Phase I,WaterSaver Faucet - Phase I,False,False,Active Project,0,0,0,14083750,618186,750000
+T-023,Goose Island,2021,Project,Project,1,Wrigley Innovation Center,Wm. Wrigley Jr. Company,False,False,Completed,0,0,69330000,0,8326703,0
+T-024,Homan/Arthington,2021,Project,Project,3,Homan Square Phase VI,Homan Square Phase VI,False,False,Completed,0,0,9884156,0,3062798,0
+T-024,Homan/Arthington,2021,Program,TIFWorks,1,TIFWorks - Homan Arthington,TIFWorks - Homan Arthington,False,False,Active Project,0,0,0,0,771879,892609
+T-024,Homan/Arthington,2021,Project,Project,2,UCAN,UCAN,False,False,Completed,0,0,36586515,0,2500000,0
+T-029,Michigan/Cermak,2021,Program,SBIF,1,SBIF - Michigan Cermak,SBIF - Michigan Cermak,False,False,Active Project,0,0,0,1000000,367636,500000
+T-029,Michigan/Cermak,2021,Program,TIFWorks,2,TIFWorks - Michigan Cermak,TIFWorks - Michigan Cermak,False,False,Active Project,0,0,0,0,421,154280
+T-030,Near North,2021,Project,Project,11,ClyDiv,ClyDiv,False,False,Completed,0,0,31062810,0,8018612,0
+T-030,Near North,2021,IGA,CBE,6,IGA - CBE - ADA - Manierre,IGA - CBE - ADA - Manierre,False,False,Active Project,0,0,0,0,0,750000
+T-030,Near North,2021,IGA,CBE,5,IGA - CBE - ADA - Schiller,IGA - CBE - ADA - Schiller,False,False,Active Project,0,0,0,0,0,1500000
+T-030,Near North,2021,IGA,CBE,7,IGA - CBE - Franklin,IGA - CBE - Franklin,False,False,Active Project,0,0,0,0,189504,0
+T-030,Near North,2021,IGA,CBE,3,IGA - CBE - Payton HS ADA,IGA - CBE - Payton HS ADA,False,False,Active Project,0,0,0,0,13849001,11125000
+T-030,Near North,2021,IGA,CPD,1,IGA - CPD - Park ____ - Jesse White,IGA - CPD - Park ____ - Jesse White,False,False,Completed,0,0,0,0,5000000,0
+T-030,Near North,2021,IGA,CPD,2,IGA - CPD - Park ____ - Jesse White - II,IGA - CPD - Park ____ - Jesse White - II,False,False,Completed,0,0,0,0,5000000,0
+T-030,Near North,2021,IGA,CPD,4,IGA - CPD - Park ____ - W Chicago Ave Fieldhouse,IGA - CPD - Park ____ - W Chicago Ave Fieldhouse,False,False,Active Project,0,0,0,5000000,0,0
+T-030,Near North,2021,IGA,CPD,5,IGA- CPD- Seward Park,IGA- CPD- Seward Park,False,False,Active Project,871712,2930991,0,0,0,0
+T-030,Near North,2021,IGA,CPD,8,IGA - CPD Stanton Park,IGA - CPD Stanton Park,False,False,Completed,0,0,0,0,1665371,0
+T-030,Near North,2021,Project,Project,4,Lakefront SRO - Clybourn,Lakefront Supportive Housing,False,False,Completed,0,0,13188021,0,1000000,0
+T-030,Near North,2021,IGA,CBE,12,Near North High School-CHA-IGA,Near North High School-CHA-IGA,False,False,Active Project,0,2073147,0,0,1926853,4000000
+T-030,Near North,2021,Project,Project,1,North Town Village,North Town Village LLC,False,False,Completed,0,0,46400000,0,5102178,0
+T-030,Near North,2021,Project,Project,12,Parkside Four Phase II Rental Project,Parkside Four Phase II Rental Project,False,False,Active Project,4750000,4750000,0,34033133,4750000,9500000
+T-030,Near North,2021,Project,Project,5,Parkside I,Parkside of Old Town­ CHA Transformation,False,False,Completed,0,0,96244234,0,8815191,0
+T-030,Near North,2021,Project,Project,10,Parkside IIB Rental Project,Parkside IIB Rental Project,False,False,Completed,0,0,31351529,0,9642808,0
+T-030,Near North,2021,Project,Project,8,Parkside Old Town II,Parkside Old Town - Cabrini Phase II,False,False,Completed,0,0,33505231,0,7331867,0
+T-030,Near North,2021,Project,Project,7,River Village - Site G - Pointe,River Village - Site G - Pointe,False,False,Completed,0,0,25504028,0,5697494,0
+T-030,Near North,2021,Project,Project,2,River Village - Site H1,River Village Townhomes & Lofts (Site H),False,False,Completed,0,0,3051024,0,1395311,0
+T-030,Near North,2021,Project,Project,3,River Village - Site I,River Village - Site I,False,False,Completed,0,0,2958227,0,3484024,0
+T-030,Near North,2021,Program,SBIF,6,SBIF - Near North,SBIF - Near North,False,False,Active Project,0,0,0,3000000,742412,1500000
+T-030,Near North,2021,Program,TIFWorks,9,TIFWorks - Near North,TIFWorks - Near North,False,False,Active Project,0,0,0,0,0,125000
+T-033,North Branch North,2021,Program,SBIF,1,SBIF - North Branch North,SBIF - North Branch North,False,False,Completed,0,0,1000000,0,27682,0
+T-033,North Branch North,2021,Program,TIFWorks,2,TIFWorks - North Branch North,TIFWorks - North Branch North,False,False,Completed,0,0,0,0,702507,0
+T-034,North Branch South,2021,Program,SBIF,1,SBIF - North Branch South,SBIF - North Branch South,False,False,Active Project,0,294000,0,3000000,1282840,1500000
+T-034,North Branch South,2021,Program,TIFWorks,2,TIFWorks - North Branch South,TIFWorks - North Branch South,False,False,Active Project,0,0,0,0,295216,321000
+T-035,North/Cicero,2021,Project,Project,1,North Cicero,North & Cicero Development LLC,False,False,Completed,0,0,15552467,0,4926083,0
+T-035,North/Cicero,2021,Program,SBIF,2,SBIF - North Cicero,SBIF - North Cicero,False,False,Completed,0,0,1000000,0,162200,0
+T-035,North/Cicero,2021,Program,TIFWorks,3,TIFWorks - North Cicero,TIFWorks - North Cicero,False,False,Completed,0,0,0,0,4064,0
+T-037,River South,2021,IGA,CBE,3,IGA - CBE - (New South Loop),IGA - CBE - New South Loop Elem,False,False,Active Project,0,0,0,0,9136000,0
+T-037,River South,2021,IGA,CBE,4,IGA - CBE - (New South Loop) Construction,IGA - CBE - New South Loop Elem Construction,False,False,Active Project,0,0,0,0,44200000,0
+T-037,River South,2021,IGA,CPD,1,IGA - CPD - Park 0481 - Ping Tom - II,IGA - CPD - Park 0481 - Ping Tom,False,False,Completed,0,0,0,0,15000000,0
+T-037,River South,2021,IGA,CTA,2,IGA - CTA - 18th St. Connector,IGA - CTA - 18th St. Connector,False,False,Active Project,0,0,0,0,0,0
+T-037,River South,2021,Project,Project,1,LaSalle Park - Clark Taylor,"Clark / Taylor, LLC",False,False,Completed,0,0,0,0,2529901,0
+T-037,River South,2021,Program,TIFWorks,2,TIFWorks - River South,TIFWorks - River South,False,False,Completed,0,0,0,0,63503,0
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Program,Industrial Growth Zone,3,Industrial Growth Zone- Roosevelt/Cicero,Industrial Growth Zone- Roosevelt/Cicero,False,False,Active Project,0,0,0,0,13945,5000000
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Program,SBIF,1,SBIF - Roosevelt Cicero,SBIF - Roosevelt Cicero,False,False,Active Project,291111,641000,0,3000000,1367791,1500000
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Program,TIFWorks,2,TIFWorks - Roosevelt Cicero,TIFWorks - Roosevelt Cicero,False,False,Active Project,0,0,0,0,1125811,1200000
+T-042,Sanitary and Ship Canal,2021,Program,TIFWorks,1,TIFWorks - Sanitary Ship Canal,TIFWorks - Sanitary Ship Canal,False,False,Active Project,0,0,0,0,101063,300000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Program,SBIF,2,SBIF - Stockyards Southeast Quadrant,SBIF - Stockyards Southeast Quadrant,False,False,Active Project,0,0,0,1000000,129262,500000
+T-048,Western/Ogden,2021,Project,Project,6,Casa Queretaro Rental Project,Casa Queretaro Rental Project,False,False,Completed,0,0,11087102,0,4372080,0
+T-048,Western/Ogden,2021,Project,Project,1,CCIL,Chicago Christian Industrial League/ Building Solutions,False,False,Completed,0,0,14400000,0,11153992,0
+T-048,Western/Ogden,2021,IGA,CBE,1,IGA - CBE - Orozco - MS,IGA - CBE - Orozco Middle School,False,False,Active Project,0,0,0,231148,750000,250000
+T-048,Western/Ogden,2021,IGA,CPD,3,IGA - CPD - Park Livingston Field,IGA - CPD - Park Livingston Field,False,False,Active Project,0,0,0,0,2124810,0
+T-048,Western/Ogden,2021,IGA,PBC,2,IGA - PBC - Children's Advocacy Center,IGA - PBC - Children's Advocacy Center,False,False,Active Project,0,0,0,0,0,0
+T-048,Western/Ogden,2021,Project,Project,2,New Homes Chicago - Resurrection,New Homes Chicago - Resurrection,False,False,Completed,0,0,0,0,350000,0
+T-048,Western/Ogden,2021,Project,Project,5,Red Cross Facility,Red Cross Facility,False,False,Completed,0,0,1782697,0,500000,0
+T-048,Western/Ogden,2021,Program,SBIF,3,SBIF - Western Ogden,SBIF - Western Ogden,False,False,Active Project,333204,376000,0,4000000,993063,2000000
+T-048,Western/Ogden,2021,Program,TIFWorks,4,TIFWorks - Western Ogden Industr Corridor,TIFWorks - Western Ogden Industr Corridor,False,False,Active Project,52816,0,0,0,1132111,1352389
+T-052,Kinzie Industrial Corridor,2021,Project,Project,8,CB2,CB2 Relocation,False,False,Completed,296254,0,12826000,0,1963894,0
+T-052,Kinzie Industrial Corridor,2021,Project,Project,5,City Escape Garden,City Escape Garden,False,False,Completed,0,0,2275000,0,425000,0
+T-052,Kinzie Industrial Corridor,2021,Project,Project,6,Coyne Institute,Coyne American Institute,False,False,Completed,0,0,12626113,0,3800357,0
+T-052,Kinzie Industrial Corridor,2021,Project,Project,7,Greater West Town Center,Greater West Town Training Econ Dev Center,False,False,Completed,0,0,7132111,0,3434939,0
+T-052,Kinzie Industrial Corridor,2021,Project,Project,4,Green Works,Greenworks,False,False,Completed,0,0,6129652,0,5238679,0
+T-052,Kinzie Industrial Corridor,2021,Project,Project,1,HWUC - Erie Co-Op,"HWUC - Erie Cooperative, Limited Partnership",False,False,Active Project,0,0,0,16624718,647618,1000000
+T-052,Kinzie Industrial Corridor,2021,IGA,CBE,3,IGA - CBE - ADA - Beidler,IGA - CBE - ADA - Beidler,False,False,Active Project,0,0,0,0,0,750000
+T-052,Kinzie Industrial Corridor,2021,IGA,CBE,2,IGA - CBE - ADA - Morton,IGA - CBE - ADA - Morton,False,False,Active Project,0,0,0,0,0,750000
+T-052,Kinzie Industrial Corridor,2021,IGA,CBE,1,IGA - CBE - Beidler School Park,IGA - CBE - Beidler School Park,False,False,Active Project,0,0,0,0,0,1000000
+T-052,Kinzie Industrial Corridor,2021,IGA,CBE,5,IGA - CBE - Cather Elementary Space to Grow,IGA - CBE - Cather Elementary Space to Grow,False,False,Active Project,0,0,0,0,500000,0
+T-052,Kinzie Industrial Corridor,2021,IGA,CPD,4,IGA - CPD - Park 1015 - Smith Park,IGA - CPD - Park 1015 - Smith Park,False,False,Completed,0,0,0,0,924000,0
+T-052,Kinzie Industrial Corridor,2021,IGA,PBC,6,IGA - PBC- DSS Salt Pile,IGA - PBC- DSS Salt Pile,False,False,Active Project,8194349,0,0,0,0,0
+T-052,Kinzie Industrial Corridor,2021,Project,Project,2,Nanoink,"Nanolnk, Inc.",False,False,Completed,0,0,4940753,0,0,0
+T-052,Kinzie Industrial Corridor,2021,Project,Project,10,NMA,Nelson Mandela Apartments,False,False,Completed,0,0,14181689,0,3594476,0
+T-052,Kinzie Industrial Corridor,2021,Program,SBIF,3,SBIF - Kinzie,SBIF - Kinzie Industrial,False,False,Active Project,318883,370000,0,20000000,9636043,10000000
+T-052,Kinzie Industrial Corridor,2021,Project,Project,11,The Hatchery,The Hatchery,False,False,Completed,0,0,26888053,0,7161975,0
+T-052,Kinzie Industrial Corridor,2021,Program,TIFWorks,9,TIFWorks - Kinzie Industr Corridor,TIFWorks - Kinzie Industr Corridor,False,False,Active Project,428146,360000,0,0,7744899,5923419
+T-053,Pilsen Industrial Corridor,2021,IGA,CBE,1,IGA - CBE - Juarez Community Academy,IGA - CBE - Juarez Community Academy,False,False,Active Project,0,0,0,23500000,12795000,15500000
+T-053,Pilsen Industrial Corridor,2021,IGA,CBE,4,IGA - CBE - Perez School,IGA - CBE - Perez School,False,False,Active Project,0,0,0,0,698894,0
+T-053,Pilsen Industrial Corridor,2021,IGA,CBE,2,IGA - CBE - Whittier School,IGA - CBE - Whittier School,False,False,Active Project,0,0,0,0,0,0
+T-053,Pilsen Industrial Corridor,2021,IGA,CPD,3,IGA - CPD Dvorak Park,IGA - CPD Dvorak Park,False,False,Active Project,0,0,0,0,442961,0
+T-053,Pilsen Industrial Corridor,2021,Project,Project,1,International Produce Market,Center Point Realty; Services Corporation; Chicago International; and Produce Market LLC,False,False,Completed,0,0,37639816,0,11125031,0
+T-053,Pilsen Industrial Corridor,2021,Project,Project,4,New Homes Chicago - Resurrection,New Homes Chicago - Resurrection,False,False,Completed,0,0,0,0,0,0
+T-053,Pilsen Industrial Corridor,2021,Program,SBIF,3,SBIF - Pilsen,SBIF - Pilsen,False,False,Active Project,119503,327000,0,5000000,1827090,2500000
+T-053,Pilsen Industrial Corridor,2021,Project,Project,2,Target - 33rd Damen,Target Store,False,False,Active Project,532703,558824,0,27454095,6360612,5300000
+T-053,Pilsen Industrial Corridor,2021,Program,TIFWorks,6,TIFWorks - Pilsen,TIFWorks - Pilsen,False,False,Active Project,0,0,0,0,1673801,1604190
+T-054,Stony Island Commercial/Burnside Industrial,2021,Project,Project,8,Chicago Family Health Center,Chicago Family Health Center,False,False,Active Project,0,0,0,1116362,500000,500000
+T-054,Stony Island Commercial/Burnside Industrial,2021,Project,Project,5,Finkl Steel,A. Finkl & Sons Co.,False,False,Active Project,280886,280886,0,139249110,2428169,22500000
+T-054,Stony Island Commercial/Burnside Industrial,2021,Project,Project,1,Greenwood Assoc,Greenwood Associates LP,False,False,Completed,0,0,12881599,0,3573945,0
+T-054,Stony Island Commercial/Burnside Industrial,2021,IGA,CPD,2,IGA - CPD - Dixon Park,IGA - CPD - Dixon Park,False,False,Active Project,0,0,0,0,93000,0
+T-054,Stony Island Commercial/Burnside Industrial,2021,IGA,CPD,1,IGA - CPD - Park 0237 - Jesse Owens,IGA - CPD - Park 0237 - Jesse Owens,False,False,Active Project,0,0,0,6950000,0,1650000
+T-054,Stony Island Commercial/Burnside Industrial,2021,Project,Project,7,Imani Village Advocate Medical Center,Imani Village Advocate Medical Center,False,False,Active Project,0,0,0,6663000,981022,981022
+T-054,Stony Island Commercial/Burnside Industrial,2021,Program,Industrial Growth Zone,6,Industrial Growth Zone- Stony Island/Burnside,Industrial Growth Zone- Stony Island/Burnside,False,False,Active Project,0,0,0,0,42185,1000000
+T-054,Stony Island Commercial/Burnside Industrial,2021,Project,Project,3,Midway Broadcasting - WVON,WVON Radio,False,False,Completed,0,0,3277615,0,1000000,0
+T-054,Stony Island Commercial/Burnside Industrial,2021,Project,Project,9,Montclare Senior Residences of Calumet Heights,Montclare Senior Residences of Calumet Heights,False,False,Active Project,600000,600000,0,38347185,1200000,3000000
+T-054,Stony Island Commercial/Burnside Industrial,2021,Program,SBIF,2,SBIF - Stony Island Burnside,SBIF - Stony Island Burnside,False,False,Active Project,131341,162000,0,3000000,1632096,1500000
+T-054,Stony Island Commercial/Burnside Industrial,2021,Program,TIFWorks,4,TIFWorks - Stony Island Burnside,TIFWorks - Stony Island Burnside,False,False,Active Project,0,0,0,0,1315411,420000
+T-055,43rd/Cottage Grove,2021,Project,Project,8,"45th/Cottage, LLC","45th/Cottage, LLC",False,False,Active Project,0,0,0,36999024,7200000,0
+T-055,43rd/Cottage Grove,2021,Project,Project,1,Hearts Multi-Family 1,Hearts United,False,False,Active Project,0,0,0,11787784,1851044,4112216
+T-055,43rd/Cottage Grove,2021,Project,Project,2,Hearts Multi-Family 2,"Hearts United Phase II, L.P.Hearts Multi-Family II",False,False,Active Project,0,0,0,14162026,1340627,3400000
+T-055,43rd/Cottage Grove,2021,Project,Project,3,Hearts Multi-Family 3,"Hearts United Phase III, L.P.",False,False,Active Project,167390,63400,0,9514652,1028347,1469000
+T-055,43rd/Cottage Grove,2021,IGA,CPD,2,IGA - CPD - Dog Park,IGA - CPD - Dog Park,False,False,Active Project,0,0,0,0,0,0
+T-055,43rd/Cottage Grove,2021,IGA,CPD,1,IGA- CPD- Sumac Park,IGA- CPD- Sumac Park,False,False,Active Project,180292,0,0,0,350000,0
+T-055,43rd/Cottage Grove,2021,Project,Project,5,Mahogany Shops Lofts 47 - Phase I,Mahogany Shops Lofts 47 - Phase I,False,False,Active Project,1302580,2011870,0,32781627,13046240,12850000
+T-055,43rd/Cottage Grove,2021,Program,Retail Thrive,7,Retail Thrive - 43rd Cottage Grove,Retail Thrive - 43rd Cottage Grove,False,False,Active Project,174771,0,0,1500000,196553,750000
+T-055,43rd/Cottage Grove,2021,Program,SBIF,4,SBIF - 43rd Cottage Grove,SBIF - 43rd Cottage Grove,False,False,Active Project,218609,501000,0,3000000,1201956,1500000
+T-055,43rd/Cottage Grove,2021,Program,TIFWorks,6,TIFWorks - 43rd/Cottage Grove,TIFWorks - 43rd/Cottage Grove,False,False,Active Project,0,0,0,0,192800,207000
+T-056,79th Street Corridor,2021,Project,Project,1,Greater Auburn Gresham,Greater Auburn Gresham,False,False,Active Project,0,1050000,0,13806344,0,2100000
+T-056,79th Street Corridor,2021,Program,SBIF,1,SBIF - 79th St Corridor,SBIF - 79th St Corridor,False,False,Active Project,0,300000,0,2000000,516256,1000000
+T-056,79th Street Corridor,2021,Program,TIFWorks,2,TIFWorks - 79th St Corridor,TIFWorks - 79th St Corridor,False,False,Active Project,0,0,0,0,10139,175000
+T-057,Jefferson Park,2021,IGA,CPD,2,IGA - CPD - Park 0094 - Jefferson Memorial,IGA - CPD - Park 0094 - Jefferson Memorial,False,False,Completed,0,0,0,0,600000,0
+T-057,Jefferson Park,2021,IGA,CPD,1,IGA - CPD - Park 0145 - Wilson,IGA - CPD - Park 0145 - Wilson,False,False,Completed,0,0,0,0,500000,0
+T-057,Jefferson Park,2021,IGA,CTA,1,IGA- CTA- Jefferson Park Station,IGA- CTA- Jefferson Park Station,False,False,Active Project,265127,378255,0,0,4621745,5000000
+T-057,Jefferson Park,2021,Program,SBIF,1,SBIF - Jefferson Park,SBIF - Jefferson Park,False,False,Active Project,125274,70000,0,5000000,1908942,2500000
+T-057,Jefferson Park,2021,Program,TIFWorks,2,TIFWorks - Jefferson Park,TIFWorks - Jefferson Park,False,False,Active Project,0,0,0,0,0,175000
+T-058,Portage Park,2021,IGA,CBE,2,IGA - CBE - Schurz,IGA - CBE - Schurz,False,False,Active Project,0,0,0,0,4952792,0
+T-058,Portage Park,2021,IGA,CPD,1,IGA - CPD -  Park 0084 Kilbourn Park,IGA - CPD -  Park 0084 Kilbourn Park,False,False,Completed,0,0,0,0,50000,0
+T-058,Portage Park,2021,Project,Project,3,"Irving Park Property Holdings, LLC.","Irving Park Property Holdings, LLC.",False,False,Completed,0,0,0,0,0,0
+T-058,Portage Park,2021,Program,SBIF,1,SBIF - Portage Park,SBIF - Portage Park,False,False,Active Project,12095,555000,0,6320000,2766927,3160000
+T-058,Portage Park,2021,Program,TIFWorks,2,TIFWorks - Portage Park,TIFWorks - Portage Park,False,False,Active Project,0,0,0,0,452039,577389
+T-060,71st/Stony Island,2021,Project,Project,3,Jeffery Plaza,Jeffery Plaza,False,False,Active Project,2000000,2000000,0,24965615,6000000,10000000
+T-060,71st/Stony Island,2021,Project,Project,2,Montclare Sr - Avalon Park - Phase I,Montclare Senior Residence of Avalon Park - Phase I,False,False,Active Project,115432,0,0,20227495,1791594,1850000
+T-060,71st/Stony Island,2021,Program,SBIF,3,SBIF - 71st Stony Island,SBIF - 71st Stony Island,False,False,Active Project,0,162000,0,700000,0,350000
+T-060,71st/Stony Island,2021,Project,Project,1,Starbuck's - Stony Island,Starbucks (BMG Stony Island),False,False,Completed,0,0,1175000,0,225000,0
+T-060,71st/Stony Island,2021,Program,TIFWorks,4,TIFWorks - 71st Stony Island,TIFWorks - 71st Stony Island,False,False,Active Project,0,0,0,0,73772,75000
+T-061,Bronzeville,2021,IGA,CPD,3,IGA - CPD - Dog Park,IGA - CPD - Dog Park,False,False,Active Project,0,0,0,0,0,0
+T-061,Bronzeville,2021,IGA,CPD,1,IGA - CPD - Park 0267 - Dunbar,IGA - CPD - Park 0267 - Dunbar,False,False,Active Project,0,0,0,1000000,1000000,0
+T-061,Bronzeville,2021,IGA,CPD,2,IGA- CPD- Williams Park,IGA- CPD- Williams Park,False,False,Active Project,0,0,0,0,0,0
+T-061,Bronzeville,2021,Program,NIF,1,NIF - Bronzeville I,NIF - Bronzeville,False,False,Active Project,0,0,0,2000000,976668,1000000
+T-061,Bronzeville,2021,Program,NIF,5,NIF - Bronzeville II,NIF - Bronzeville II,False,False,Active Project,0,0,0,2000000,471177,1000000
+T-061,Bronzeville,2021,Project,Project,2,Pershing Courts,Pershing Court,False,False,Active Project,36002,0,0,16077853,476289,734378
+T-061,Bronzeville,2021,Project,Project,4,Quad Communities Arts & Rec Center,Quad Communities,False,False,Completed,0,0,13351566,0,4300000,0
+T-061,Bronzeville,2021,Program,SBIF,4,SBIF - Bronzeville,SBIF - Bronzeville,False,False,Active Project,0,160875,0,2000000,420512,1000000
+T-061,Bronzeville,2021,Project,Project,3,S Park Plaza - Prairie Courts,South Park Plaza,False,False,Completed,0,0,28676706,0,0,0
+T-061,Bronzeville,2021,Program,TIFWorks,6,TIFWorks - Bronzeville,TIFWorks - Bronzeville,False,False,Active Project,0,0,0,0,110796,175500
+T-062,Roosevelt/Racine,2021,IGA,CPD,3,IGA - CPD Addams Medill Park,IGA - CPD Addams Medill Park,False,False,Active Project,0,0,0,0,0,0
+T-062,Roosevelt/Racine,2021,Project,Project,1,Roosevelt Sq - ABLA - 1,"Roosevelt Square, Phase I",False,False,Active Project,960103,1031427,0,75231531,12761784,11475000
+T-062,Roosevelt/Racine,2021,Project,Project,2,Taylor Street Library & Apartments,Taylor Street Library & Apartments,False,False,Active Project,0,0,0,34330000,7000000,0
+T-063,Canal/Congress,2021,Project,Project,4,550 W Adams - USG,USG Corporate Headquarters,False,False,Completed,0,0,122590000,0,14702160,0
+T-063,Canal/Congress,2021,Project,Project,3,550 W. Jackson,550 W. Jackson Building,False,False,Completed,0,0,71940032,0,9123990,0
+T-063,Canal/Congress,2021,Project,Project,5,Hillshire Brands (Sara Lee),Hillshire Brands (Sara Lee),False,False,Active Project,0,0,0,23642963,5750000,6500000
+T-063,Canal/Congress,2021,IGA,CPD,1,IGA - CPD - Park 0537 - Heritage Green I,IGA - CPD - Park Des Plaines Adams,False,False,Completed,0,0,5400000,0,0,0
+T-063,Canal/Congress,2021,Project,Project,1,Quaker Oats,Monroe/Clinton LLC,False,False,Completed,0,0,75111986,0,14378098,0
+T-063,Canal/Congress,2021,Program,TIFWorks,5,TIFWorks - Canal Congress,TIFWorks - Canal Congress,False,False,Active Project,0,0,0,0,22539,227389
+T-063,Canal/Congress,2021,Project,Project,2,Union Station Health Club,"US Fitness, L.L.C.",False,False,Completed,0,0,11600000,0,3157889,0
+T-064,Northwest Industrial Corridor,2021,Project,Project,4,Brach's - 401 N Cicero,Brachs,False,False,Completed,0,0,32076609,0,0,0
+T-064,Northwest Industrial Corridor,2021,Project,Project,3,Home Depot - NW Industr,"Home Depot USA, Inc - NWIC",False,False,Completed,0,0,16302212,0,514024,0
+T-064,Northwest Industrial Corridor,2021,IGA,CBE,1,IGA - CBE - Lloyd E.S. - Athletic Field,IGA - CBE - Lloyd E.S. - Athletic Field,False,False,Active Project,0,0,0,0,0,750000
+T-064,Northwest Industrial Corridor,2021,IGA,CPD,2,IGA - CPD - Park 0132 - Greenbaum,IGA - CPD - Park 0132 - Greenbaum,False,False,Completed,0,0,538793,0,1987000,0
+T-064,Northwest Industrial Corridor,2021,IGA,CPD,3,IGA - CPD - Park 0407 - Orr,IGA - CPD - Park 0407 - Orr,False,False,Completed,0,0,2006000,0,600000,0
+T-064,Northwest Industrial Corridor,2021,Program,Industrial Growth Zone,6,Industrial Growth Zone- Northwest,Industrial Growth Zone- Northwest,False,False,Active Project,0,0,0,0,8835,5000000
+T-064,Northwest Industrial Corridor,2021,Project,Project,2,Merlin Coke,Coke/Merlin,False,False,Active Project,163116,202578,0,3820345,2129091,3225000
+T-064,Northwest Industrial Corridor,2021,Program,SBIF,1,SBIF - NW Industr Corridor,SBIF - NW Industr Corridor,False,False,Active Project,86273,450000,0,9000000,3770429,4500000
+T-064,Northwest Industrial Corridor,2021,Program,TIFWorks,5,TIFWorks - Northwest Industr Corridor,TIFWorks - Northwest Industr Corridor,False,False,Active Project,0,0,0,0,2191438,1876800
+T-065,Woodlawn,2021,IGA,CBE,1,IGA - CBE - ADA - Fiske,IGA - CBE - ADA - Fiske,False,False,Active Project,0,0,0,0,0,1500000
+T-065,Woodlawn,2021,IGA,CBE,3,IGA - CBE - Wadsworth,IGA - CBE - Wadsworth,False,False,Active Project,0,0,0,0,500000,0
+T-065,Woodlawn,2021,IGA,CPD,2,IGA - CPD - Harris Park,IGA - CPD - Harris Park,False,False,Completed,0,0,0,0,1425000,0
+T-065,Woodlawn,2021,Program,NIF,1,NIF - Woodlawn,NIF - Woodlawn,False,False,Active Project,0,0,0,5000000,3030556,2500000
+T-065,Woodlawn,2021,Program,SBIF,2,SBIF - Woodlawn,SBIF - Woodlawn,False,False,Active Project,0,22000,0,1000000,469712,500000
+T-065,Woodlawn,2021,Project,Project,3,The Strand Hotel,Historic Strand,False,False,Completed,0,0,22849528,0,2000000,0
+T-066,Greater Southwest Industrial (East),2021,Program,Industrial Growth Zone,5,Industrial Growth Zone- Greater Southwest East,Industrial Growth Zone- Greater Southwest East,False,False,Active Project,0,0,0,0,2019,1000000
+T-066,Greater Southwest Industrial (East),2021,Project,Project,3,Marquette Village,Marquette Village,False,False,Active Project,0,0,0,36315833,0,6093318
+T-066,Greater Southwest Industrial (East),2021,Program,SBIF,2,SBIF - Greater SW Industr East,SBIF - Greater SW Industr East,False,False,Active Project,0,0,0,1000000,122942,500000
+T-066,Greater Southwest Industrial (East),2021,Project,Project,1,Stylemaster - Gateway Park,"Gateway Park, LLC (Regent Stylemaster)",False,False,Active Project,757417,0,0,14235000,7443465,14000000
+T-066,Greater Southwest Industrial (East),2021,Program,TIFWorks,4,TIFWorks - Greater Southwest Industr East,TIFWorks - Greater Southwest Industr East,False,False,Active Project,0,0,0,0,73565,125000
+T-067,Archer Courts,2021,Project,Project,1,Archer Courts - Phase I - Apts,Community Housing Partners V L.P.,False,False,Active Project,108493,0,0,8540129,2247502,2500000
+T-067,Archer Courts,2021,Project,Project,2,Archer Courts - Phase II - Townhomes,Archer Courts - Phase II,False,False,Completed,0,0,12000000,0,2061546,0
+T-067,Archer Courts,2021,Program,TIFWorks,3,TIFWorks - Archer Courts,TIFWorks - Archer Courts,False,False,Active Project,0,0,0,0,0,75000
+T-068,Roosevelt/Union,2021,Project,Project,1,UIC,Board of Trustees UIC,False,False,Active Project,6088410,6234417,0,467300000,69033197,75000000
+T-069,Pulaski Industrial Corridor,2021,IGA,CBE,1,IGA - CBE - ADA - McAuliffe,IGA - CBE - ADA - McAuliffe,False,False,Active Project,0,0,0,0,0,750000
+T-069,Pulaski Industrial Corridor,2021,IGA,CBE,2,IGA - CBE - Ames Academy,IGA - CBE - Ames Academy,False,False,Active Project,0,0,0,0,4500000,0
+T-069,Pulaski Industrial Corridor,2021,IGA,CPD,3,IGA - CPD - Kosciuszko Park,IGA - CPD - Kosciuszko Park,False,False,Active Project,960448,889552,0,0,960448,1850000
+T-069,Pulaski Industrial Corridor,2021,Project,Project,3,North and Pulaski Sr Housing,North and Pulaski Sr Housing,False,False,Completed,0,0,15464490,0,4000000,0
+T-069,Pulaski Industrial Corridor,2021,Program,SBIF,1,SBIF - Pulaski Industr Corridor,SBIF - Pulaski Industr Corridor,False,False,Active Project,113900,101000,0,6000000,1805307,3000000
+T-069,Pulaski Industrial Corridor,2021,Program,TIFWorks,2,TIFWorks - Pulaski Industr Corridor,TIFWorks - Pulaski Industr Corridor,False,False,Active Project,46067,26000,0,0,1267876,1200600
+T-069,Pulaski Industrial Corridor,2021,Program,Vacant Lots,4,Vacant Bldg Purch Rehab SF Prog - Pulaski Corridor,Vacant Bldg Purch Rehab SF Prog - Pulaski Corridor,False,False,Completed,0,0,500000,0,500000,0
+T-070,Clark/Montrose,2021,Project,Project,2,Black Ensemble Theater,Black Ensemble Theater,False,False,Completed,0,0,7557213,0,10381510,0
+T-070,Clark/Montrose,2021,IGA,CPD,1,IGA - CPD - Park 0103 - Chase,IGA - CPD - Park 0103 - Chase,False,False,Active Project,2183834,816166,355000,0,2183834,0
+T-070,Clark/Montrose,2021,Program,SBIF,1,SBIF - Clark Montrose,SBIF - Clark Montrose,False,False,Active Project,0,0,0,4600000,1633717,2300000
+T-070,Clark/Montrose,2021,Program,TIFWorks,3,TIFWorks - Clark Montrose,TIFWorks - Clark Montrose,False,False,Active Project,0,0,0,0,0,125000
+T-071,Galewood/Armitage Industrial,2021,IGA,CBE,1,IGA - CBE - Prieto - ES - I,IGA - CBE -Belmont/Cragin Elementary School,False,False,Active Project,0,0,0,3118295,8099213,7575000
+T-071,Galewood/Armitage Industrial,2021,IGA,CPD,4,IGA - CPD Amundsen Park,IGA - CPD Amundsen Park,False,False,Active Project,0,0,0,0,285155,0
+T-071,Galewood/Armitage Industrial,2021,IGA,CPD,3,IGA - CPD - Park 0127 - Rutherford Sayre - I,CPD - Park 0127 - Rutherford Sayre,False,False,Active Project,0,0,0,190000,0,300000
+T-071,Galewood/Armitage Industrial,2021,Program,Industrial Growth Zone,4,Industrial Growth Zone- Galewood/Armitage,Industrial Growth Zone- Galewood/Armitage,False,False,Active Project,0,0,0,0,0,1750000
+T-071,Galewood/Armitage Industrial,2021,Project,Project,2,Laborer's Union,Laborers' Union­ Training Center,False,False,Completed,0,0,20775950,0,6113197,0
+T-071,Galewood/Armitage Industrial,2021,Program,SBIF,1,SBIF - Galewood Armitage,SBIF - Galewood Armitage,False,False,Active Project,0,230000,0,5600000,1384802,2800000
+T-071,Galewood/Armitage Industrial,2021,Program,TIFWorks,3,TIFWorks - Galewood Armitage,TIFWorks - Galewood Armitage,False,False,Active Project,0,0,0,0,378162,554600
+T-072,24th/Michigan,2021,Project,Project,4,Broad Shoulders Brewery,Broad Shoulders Brewery,False,False,Completed,0,0,3888703,0,628000,0
+T-072,24th/Michigan,2021,Project,Project,1,Hilliard Homes - I,Hilliard Homes Phase I,False,False,Active Project,0,0,0,46378255,0,750000
+T-072,24th/Michigan,2021,Project,Project,2,Hilliard Homes - II,Hilliard Homes Phase II,False,False,Active Project,0,0,0,49572074,0,1540000
+T-072,24th/Michigan,2021,IGA,CBE,1,IGA - CBE - Teacher's Academy ES,IGA - CBE - Teacher's Academy ES,False,False,Completed,0,0,0,0,5027700,0
+T-072,24th/Michigan,2021,IGA,CBE,1,IGA - CBE - Teacher's Academy Turf Field,IGA - CBE - Teacher's Academy Turf Field,False,False,Active Project,0,0,0,0,162859,0
+T-072,24th/Michigan,2021,IGA,CTA,3,IGA - CTA - Red Line Cermak Station,IGA - CTA - Red Line Cermak Station,False,False,Active Project,0,0,0,0,0,0
+T-072,24th/Michigan,2021,IGA,PBC,2,IGA - PBC - Chinatown Library,IGA - PBC - Chinatown Library,False,False,Active Project,0,0,0,0,0,0
+T-072,24th/Michigan,2021,Program,SBIF,5,SBIF - 24th Michigan,SBIF - 24th Michigan,False,False,Active Project,0,0,0,1000000,83923,500000
+T-072,24th/Michigan,2021,Project,Project,6,Southbridge 4%,Southbridge 4 Master Owner LLC,False,False,Active Project,6375000,6375000,0,40758000,6375000,12750000
+T-072,24th/Michigan,2021,Project,Project,5,Southbridge 9%,Southbridge 9 Master Owner LLC,False,False,Active Project,2125000,2125000,0,37991000,2125000,4250000
+T-072,24th/Michigan,2021,Program,TIFWorks,3,TIFWorks - 24th Michigan,TIFWorks - 24th Michigan,False,False,Active Project,0,0,0,0,38369,175000
+T-073,111th/Kedzie,2021,Project,Project,1,Mt Greenwood Walgreens,Mt. Greenwood Walgreens Center,False,False,Active Project,121653,243307,0,9233092,1478302,1500000
+T-073,111th/Kedzie,2021,Program,SBIF,2,SBIF - 111th Kedzie,SBIF - 111th Kedzie,False,False,Active Project,0,377000,0,3500000,1280845,1750000
+T-074,Clark/Ridge,2021,IGA,CBE,1,IGA - CBE - Hayt Elementary,IGA - CBE - Hayt Elementary,False,False,Active Project,0,0,0,0,670000,0
+T-074,Clark/Ridge,2021,IGA,CBE,2,IGA - CBE - Senn HS,IGA - CBE - Senn HS,False,False,Active Project,0,0,0,2301000,0,1000000
+T-074,Clark/Ridge,2021,Project,Project,2,Ravenswood Sr Apts,Ravenswood Senior Apartments,False,False,Completed,0,0,28567474,0,9166622,0
+T-074,Clark/Ridge,2021,Project,Project,1,Raven Theatre,Raven Theatre Company,False,False,Completed,0,0,1430000,0,594491,0
+T-074,Clark/Ridge,2021,Program,SBIF,3,SBIF - Clark Ridge,SBIF - Clark Ridge,False,False,Active Project,30566,0,0,3500000,1688261,1750000
+T-074,Clark/Ridge,2021,Program,TIFWorks,4,TIFWorks - Clark Ridge,TIFWorks - Clark Ridge,False,False,Active Project,32655,0,0,0,174376,175000
+T-075,Madison/Austin Corridor,2021,IGA,CBE,1,IGA - CBE - Austin - HS - I,IGA - CBE - Austin - HS - I,False,False,Active Project,0,0,0,2988087,32203759,30300000
+T-075,Madison/Austin Corridor,2021,IGA,CBE,3,IGA - CBE - ES - DePriest,IGA - CBE - DePriest Elementary,False,False,Active Project,0,0,0,2000000,0,18500000
+T-075,Madison/Austin Corridor,2021,IGA,CBE,2,IGA - CBE - HS - Austin - II,IGA - CBE - HS - Austin - II,False,False,Active Project,0,0,0,0,0,5750000
+T-075,Madison/Austin Corridor,2021,IGA,CBE,7,IGA - CBE - Melody,IGA - CBE - Melody,False,False,Active Project,0,0,0,0,0,0
+T-075,Madison/Austin Corridor,2021,IGA,CBE,4,IGA- CBE - Modern Schools,IGA - CBE - Modern Schools,False,False,Active Project,0,0,0,0,0,0
+T-075,Madison/Austin Corridor,2021,IGA,CBE,5,IGA - CBE - Spencer Academy,IGA - CBE - Spencer Academy,False,False,Active Project,0,0,0,0,0,0
+T-075,Madison/Austin Corridor,2021,IGA,CBE,6,IGA - CBE - Tilton,IGA - CBE - Tilton,False,False,Active Project,0,0,0,0,0,0
+T-075,Madison/Austin Corridor,2021,Project,Project,2,Lake & Waller,Lake and Waller LP,False,False,Active Project,0,0,0,11942248,0,1310000
+T-075,Madison/Austin Corridor,2021,Program,SBIF,1,SBIF - Madison Austin,SBIF - Madison Austin,False,False,Active Project,10512,160000,0,4500000,1126199,2250000
+T-075,Madison/Austin Corridor,2021,Program,TIFWorks,3,TIFWorks - Madison Austin,TIFWorks - Madison Austin,False,False,Active Project,36920,0,0,0,78920,100000
+T-076,Devon/Western,2021,Project,Project,1,Devon Rockwell Mixed Use,"ASAT, Inc",False,False,Completed,0,0,12509681,0,0,0
+T-076,Devon/Western,2021,Program,SBIF,2,SBIF - Devon Western,SBIF - Devon Western,False,False,Active Project,0,0,0,7500000,2055858,3750000
+T-076,Devon/Western,2021,Program,TIFWorks,3,TIFWorks - Devon Western,TIFWorks - Devon Western,False,False,Active Project,0,0,0,0,155575,175000
+T-077,Lincoln Avenue,2021,Project,Project,3,Chaville Condo,Chaville Condo,False,False,Completed,0,0,7521372,0,625454,0
+T-077,Lincoln Avenue,2021,IGA,CPD,1,IGA - CPD - Park 526,IGA - CPD - Park 526,False,False,Active Project,0,0,0,0,49541,49541
+T-077,Lincoln Avenue,2021,Project,Project,1,Lincoln Village,BGP Lincoln Village L.L.C.,False,False,Completed,0,0,17958935,0,6285020,0
+T-077,Lincoln Avenue,2021,Program,SBIF,2,SBIF - Lincoln Ave,SBIF - Lincoln Ave,False,False,Active Project,55741,53625,0,3000000,1250999,1500000
+T-077,Lincoln Avenue,2021,Program,TIFWorks,4,TIFWorks - Lincoln Ave,TIFWorks - Lincoln Ave,False,False,Active Project,0,0,0,0,0,175000
+T-079,35th/Wallace,2021,IGA,CBE,1,Chicago Board of Education (McClellan School),IGA - CBE - McClellan School,False,False,Active Project,0,0,0,0,1277567,0
+T-079,35th/Wallace,2021,Program,SBIF,2,SBIF - 35th Wallace,SBIF - 35th Wallace,False,False,Active Project,0,0,0,1000000,159554,500000
+T-079,35th/Wallace,2021,Program,TIFWorks,1,TIFWorks - 35th Wallace,TIFWorks - 35th Wallace,False,False,Active Project,0,0,0,0,0,125000
+T-081,Belmont/Central,2021,IGA,CBE,1,IGA - CBE - Belmont Cragin,IGA - CBE - Belmont Cragin,False,False,Active Project,0,0,0,0,121738,0
+T-081,Belmont/Central,2021,Program,SBIF,1,SBIF - Belmont Central,SBIF - Belmont Central,False,False,Active Project,75896,450000,0,7400000,2504718,3700000
+T-081,Belmont/Central,2021,Program,TIFWorks,2,TIFWorks - Belmont Central,TIFWorks - Belmont Central,False,False,Active Project,0,0,0,0,82776,150000
+T-082,Belmont/Cicero,2021,Project,Project,4,Cicero and George Limited Partnership,Cicero and George Limited Partnership,False,False,Completed,0,0,22107575,0,4000000,0
+T-082,Belmont/Cicero,2021,Program,SBIF,1,SBIF - Belmont Cicero,SBIF - Belmont Cicero,False,False,Active Project,11129,324000,0,3000000,853544,1500000
+T-082,Belmont/Cicero,2021,Project,Project,2,Sr Suites - Kelvyn Park,Senior Suites,False,False,Completed,0,0,15923235,0,3595666,0
+T-082,Belmont/Cicero,2021,Program,TIFWorks,3,TIFWorks - Belmont Cicero,TIFWorks - Belmont Cicero,False,False,Active Project,0,0,0,0,162650,227389
+T-083,West Irving Park,2021,IGA,CPD,2,IGA - CPD - Park 0147 - Portage - I - Playground,IGA - CPD - Park 0147 - Portage - I - Playground,False,False,Active Project,0,0,0,0,1000000,117948
+T-083,West Irving Park,2021,IGA,CPD,1,IGA - CPD - Park 0256 - Merrimac,IGA - CPD - Park 0256 - Merrimac,False,False,Active Project,0,0,0,0,606250,606250
+T-083,West Irving Park,2021,Program,SBIF,1,SBIF - West Irving Park,SBIF - West Irving Park,False,False,Active Project,36565,300000,0,6000000,2498140,3000000
+T-083,West Irving Park,2021,Program,TIFWorks,2,TIFWorks - West Irving Park,TIFWorks - West Irving Park,False,False,Active Project,0,0,0,0,0,75000
+T-084,Western Avenue North,2021,IGA,CBE,1,IGA - CBE - Amundsen HS,IGA - CBE - Amundsen HS,False,False,Active Project,0,0,0,0,1537400,0
+T-084,Western Avenue North,2021,IGA,CBE,3,IGA - CBE - Chappell,IGA - CBE - Chappell,False,False,Active Project,0,0,0,0,2260137,0
+T-084,Western Avenue North,2021,IGA,CBE,2,IGA - CBE - McPherson ES,IGA - CBE - McPherson ES,False,False,Active Project,0,0,0,0,0,0
+T-084,Western Avenue North,2021,IGA,CPD,4,IGA - CPD - Wells Park,IGA - CPD - Wells Park,False,False,Completed,0,0,0,0,1300000,0
+T-084,Western Avenue North,2021,Project,Project,2,Ravenswood Sq - 4800 Damen,Ravenswood Sq - 4800 Damen,False,False,Active Project,288159,275300,0,15385283,3343961,3000000
+T-084,Western Avenue North,2021,Project,Project,3,Ravenswood Station,Ravenswood Station,False,False,Completed,0,0,39523458,0,4500000,0
+T-084,Western Avenue North,2021,Program,SBIF,1,SBIF - Western Ave North,SBIF - Western Ave North,False,False,Active Project,0,219000,0,6000000,2615332,3000000
+T-085,Western Avenue South,2021,IGA,CBE,1,IGA - CBE - Coonley,IGA - CBE - Coonley,False,False,Active Project,0,0,0,0,270772,2201500
+T-085,Western Avenue South,2021,IGA,CBE,2,IGA - CBE - Lane Tech,IGA - CBE - Lane Tech,False,False,Active Project,0,0,0,0,0,1892100
+T-085,Western Avenue South,2021,IGA,CPD,4,IGA - CPD - Clark Park Boathouse,IGA - CPD - Clark Park Boathouse,False,False,Completed,0,0,0,0,1000000,0
+T-085,Western Avenue South,2021,IGA,CPD,3,IGA - CPD - Park 0457 - Richard Clark,IGA CPD - Clark Park Expansion,False,False,Completed,0,0,1500000,0,0,0
+T-085,Western Avenue South,2021,IGA,CPD,5,IGA - CPD Revere Park,IGA - CPD Revere Park,False,False,Active Project,2557470,4942530,0,0,200000,0
+T-085,Western Avenue South,2021,Project,Project,3,N Center Sr - Belle Plaine Condo,North Center Associates LLC/Belle Plaines Commons,False,False,Completed,0,0,24085722,0,3380000,0
+T-085,Western Avenue South,2021,Project,Project,2,N Center Sr - M W Apts,North Center Senior Apartments,False,False,Active Project,78042,86451,0,13447100,864072,3500000
+T-085,Western Avenue South,2021,Project,Project,4,N Center Sr - Park - TACH,N. Center Sr. - Park - TACH,False,False,Completed,0,0,1303000,0,1165000,0
+T-085,Western Avenue South,2021,Program,SBIF,1,SBIF - Western Ave South,SBIF - Western Ave South,False,False,Active Project,51323,162000,0,5000000,1671030,2500000
+T-086,Central West,2021,Project,Project,3,950 W Monroe Condo,950 W. Monroe Development LLC,False,False,Completed,0,0,31610000,0,4182937,0
+T-086,Central West,2021,Project,Project,2,Horner - IIA1 - Lowrise,Horner Low-Rise,False,False,Completed,0,0,14793650,0,2501821,0
+T-086,Central West,2021,Project,Project,1,Horner - IIA2 - Midrise,Westhaven Park Midrise,False,False,Completed,0,0,28259178,0,3509353,0
+T-086,Central West,2021,IGA,CBE,6,IGA - CBE - ADA - Brown,IGA - CBE - ADA - Brown,False,False,Active Project,0,0,0,0,0,750000
+T-086,Central West,2021,IGA,CBE,5,IGA - CBE - ADA - Cregier,IGA - CBE - ADA - Cregier,False,False,Active Project,0,0,0,0,0,1500250
+T-086,Central West,2021,IGA,CBE,10,IGA - CBE - Crane,IGA - CBE - Crane,False,False,Active Project,0,0,0,0,0,0
+T-086,Central West,2021,IGA,CBE,12,IGA - CBE  - Skinner - ES,IGA - CBE  - Skinner - ES,False,False,Active Project,0,0,0,0,0,34340000
+T-086,Central West,2021,IGA,CBE,4,IGA - CBE - Skinner - ES - II,IGA - CBE - Skinner - ES - II,False,False,Active Project,0,0,0,0,838473,6120000
+T-086,Central West,2021,IGA,CBE,16,IGA- CBE - Whitney Young,IGA - CBE - Whitney Young,False,False,Active Project,312712,0,0,0,3987288,3987288
+T-086,Central West,2021,IGA,CPD,7,IGA - CPD - 0210 - Union Park,IGA - CPD - 0210 - Union Park,False,False,Completed,0,0,0,0,700000,0
+T-086,Central West,2021,IGA,CPD,13,IGA - CPD - Ellen Gates Starr Park IGA,IGA - CPD - Ellen Gates Starr Park IGA,False,False,Active Project,0,0,0,0,727019,0
+T-086,Central West,2021,IGA,CPD,1,IGA - CPD - Park 0542 - Sangamon Adams I,IGA - CPD - Park - Sangamon Adams,False,False,Completed,0,0,810000,0,6220000,0
+T-086,Central West,2021,IGA,CPD,2,IGA - CPD - Park 0542 - Sangamon Adams II,IGA - CPD - Park 0542 - Sangamon Adams II,False,False,Completed,0,0,0,0,5250000,0
+T-086,Central West,2021,IGA,CPD,11,IGA - CPD - Skinner Dog Park,IGA - CPD - Skinner Dog Park,False,False,Active Project,0,0,0,0,0,0
+T-086,Central West,2021,IGA,CPD,8,IGA - CPD Skinner Park,IGA - CPD Skinner Park,False,False,Active Project,0,0,0,0,1050000,0
+T-086,Central West,2021,IGA,CPD,9,IGA - CPD - West Haven Park,IGA - CPD - West Haven Park,False,False,Active Project,0,0,0,0,1860778,0
+T-086,Central West,2021,IGA,CTA,14,IGA - CTA - Illinois Medical District Station,IGA - CTA - Illinois Medical District Station,False,False,Completed,0,0,0,0,22997819,0
+T-086,Central West,2021,Project,Project,15,"McCrory Senior Apartments, LLC","McCrory Senior Apartments, LLC",False,False,Completed,0,0,17319142,0,4100000,0
+T-086,Central West,2021,Program,NIF,7,NIF - Central West,NIF - Central West,False,False,Active Project,0,0,0,4000000,574877,2000000
+T-086,Central West,2021,Project,Project,5,Rush University Medical Center,Rush,False,False,Completed,0,0,825701000,0,75410080,0
+T-086,Central West,2021,Program,SBIF,4,SBIF - Central West,SBIF - Central West,False,False,Active Project,0,0,0,2000000,626373,1000000
+T-086,Central West,2021,Program,TIFWorks,9,TIFWorks - Central West,TIFWorks - Central West,False,False,Active Project,0,0,0,0,500267,450000
+T-086,Central West,2021,Project,Project,8,Viceroy Hotel,Viceroy Hotel,False,False,Completed,0,0,17633853,0,3778318,0
+T-086,Central West,2021,Project,Project,6,Women's Treatment Center,Women's Treatment Center,False,False,Completed,0,0,2366459,0,1000000,0
+T-087,Fullerton/Milwaukee,2021,Project,Project,8,"2650 Milwaukee, LLC",Logan Theatre,False,False,Active Project,200000,200000,0,5591188,800000,1000000
+T-087,Fullerton/Milwaukee,2021,Project,Project,9,Emmett Street Apartments,Emmett Street Apartments,False,False,Active Project,0,6800000,0,30432796,0,10100000
+T-087,Fullerton/Milwaukee,2021,Project,Project,2,Florsheim - Footwear Factory,Florsheim,False,False,Completed,0,0,47400000,0,10336948,0
+T-087,Fullerton/Milwaukee,2021,IGA,CBE,1,IGA - CBE - Avondale Irving Park - ES - I,IGA - CBE - Avondale Irving Park - ES - I,False,False,Active Project,0,0,0,330746,10766724,10100000
+T-087,Fullerton/Milwaukee,2021,IGA,CBE,2,IGA - CBE - Modern Schools Phase II,IGA - CBE - Modern Schools Phase II,False,False,Active Project,0,0,0,0,0,0
+T-087,Fullerton/Milwaukee,2021,Project,Project,7,Milwaukee Avenue Apartments,Milwaukee Avenue Apartments,False,False,Completed,0,0,8716258,0,1000000,0
+T-087,Fullerton/Milwaukee,2021,Project,Project,3,Sachs Hairpin - Lofts,Sachs Hairpin - Lofts,False,False,Completed,0,0,5121129,0,5941770,0
+T-087,Fullerton/Milwaukee,2021,Project,Project,4,Sachs Hairpin - Retail,Sachs Hairpin - Retail,False,False,Completed,0,0,2130035,0,1210000,0
+T-087,Fullerton/Milwaukee,2021,Program,SBIF,1,SBIF - Fullerton Milwaukee,SBIF - Fullerton Milwaukee,False,False,Active Project,108778,107250,0,10400000,4808513,5200000
+T-087,Fullerton/Milwaukee,2021,Program,TIFWorks,6,TIFWorks - Fullerton Milwaukee,TIFWorks - Fullerton Milwaukee,False,False,Active Project,45284,0,0,0,251805,252389
+T-087,Fullerton/Milwaukee,2021,Project,Project,5,Zapata Apts,Zapata Apts,False,False,Completed,0,0,20460604,0,4612967,0
+T-088,Lawrence/Kedzie,2021,IGA,CBE,3,IGA - CBE - Albany Park Academy - ES,IGA - CBE - Albany Park Academy - ES,False,False,Active Project,0,0,0,4000000,28662826,25000000
+T-088,Lawrence/Kedzie,2021,IGA,CBE,4,IGA - CBE - Peterson - ES - II,IGA - CBE - Peterson - ES - II,False,False,Active Project,0,0,0,0,0,2900000
+T-088,Lawrence/Kedzie,2021,IGA,CPD,6,IGA - CPD - Kiwanis Park,IGA - CPD - Kiwanis Park,False,False,Active Project,0,0,0,0,422067,422067
+T-088,Lawrence/Kedzie,2021,IGA,PBC,5,IGA - PBC - Albany Park Library,IGA - PBC - Albany Park Library,False,False,Active Project,0,0,0,0,0,0
+T-088,Lawrence/Kedzie,2021,Program,NIF,1,NIF - Lawrence Kedzie,NIF - Lawrence Kedzie,False,False,Active Project,0,0,0,10000000,3747544,5000000
+T-088,Lawrence/Kedzie,2021,Program,SBIF,2,SBIF - Lawrence Kedzie,SBIF - Lawrence Kedzie,False,False,Active Project,106089,295000,0,4500000,2110083,2250000
+T-089,Midway Industrial Corridor,2021,Program,SBIF,1,SBIF - Midway Industr,SBIF - Midway Industrial,False,False,Active Project,0,0,0,2200000,900577,1100000
+T-090,Peterson/Cicero,2021,Project,Project,1,Peterson Cicero - Sauganash Place Whole Foods,Sauganash Village,False,False,Completed,0,0,53389644,0,0,0
+T-090,Peterson/Cicero,2021,Program,TIFWorks,2,TIFWorks - Peterson Cicero,TIFWorks - Peterson Cicero,False,False,Active Project,0,0,0,0,0,175000
+T-091,Peterson/Pulaski,2021,Project,Project,2,Beltone,Center Point Properties Trust (Beltone Building),False,False,Completed,0,0,6921274,0,825000,0
+T-091,Peterson/Pulaski,2021,Project,Project,3,CCH,CCH,False,False,Active Project,0,0,0,0,0,0
+T-091,Peterson/Pulaski,2021,Program,SBIF,1,SBIF - Peterson Pulaski,SBIF - Peterson Pulaski,False,False,Active Project,185514,270000,0,4000000,1844041,2000000
+T-091,Peterson/Pulaski,2021,Program,TIFWorks,4,TIFWorks - Peterson Pulaski,TIFWorks - Peterson Pulaski,False,False,Active Project,0,0,0,0,180391,650000
+T-092,Greater Southwest Industrial (West),2021,Project,Project,1,ATA - Training Facility,"Washington Street Aviation, LLC",False,False,Completed,0,0,86200593,0,0,0
+T-092,Greater Southwest Industrial (West),2021,Program,Industrial Growth Zone,4,Industrial Growth Zone- Greater Southwest West,Industrial Growth Zone- Greater Southwest West,False,False,Active Project,0,0,0,0,2116,1750000
+T-092,Greater Southwest Industrial (West),2021,Program,SBIF,2,SBIF - Greater SW Industr West,SBIF - Greater SW Industr West,False,False,Active Project,78845,0,0,2000000,386310,1000000
+T-092,Greater Southwest Industrial (West),2021,Program,TIFWorks,3,TIFWorks - Greater Southwest Industr West,TIFWorks - Greater Southwest Industr West,False,False,Active Project,0,0,0,0,198001,425000
+T-093,South Chicago,2021,IGA,CPD,3,IGA - CPD Steelworkers Park,IGA - CPD Steelworkers Park,False,False,Active Project,0,0,0,0,100035,0
+T-093,South Chicago,2021,Program,Industrial Growth Zone,4,Industrial Growth Zone- South Chicago,Industrial Growth Zone- South Chicago,False,False,Active Project,0,0,0,0,0,5000000
+T-093,South Chicago,2021,Program,NIF,1,NIF - South Chicago,NIF - South Chicago,False,False,Active Project,0,0,0,4000000,1686998,2000000
+T-093,South Chicago,2021,Program,SBIF,2,SBIF - South Chicago,SBIF - South Chicago,False,False,Active Project,0,154000,0,1000000,361982,500000
+T-093,South Chicago,2021,Program,TIFWorks,3,TIFWorks - South Chicago,TIFWorks - South Chicago,False,False,Active Project,0,0,0,0,18606,200000
+T-094,Chicago/Kingsbury,2021,Project,Project,4,Barry Callebaut,Barry Callebaut,False,False,Completed,0,0,2640000,0,880000,0
+T-094,Chicago/Kingsbury,2021,Project,Project,1,Eport - 600 W Chicago,"Eport 600, LLC; Eport 600 Riverwalk Owner, LLC; Eport 600 Property Owner, LLC",False,False,Completed,0,0,253432839,0,45106200,0
+T-094,Chicago/Kingsbury,2021,IGA,CPD,1,IGA - CPD - Park 0511 - Erie II,IGA - CPD - Park 0511 - Erie II,False,False,Active Project,0,0,0,0,0,3000000
+T-094,Chicago/Kingsbury,2021,IGA,CPD,2,IGA - CPD - Ward (Erie) Park,IGA - CPD - Ward (Erie) Park,False,False,Completed,0,0,0,0,72443,0
+T-094,Chicago/Kingsbury,2021,Project,Project,2,River Village - Site H2,River Village Townhomes & Lofts (Site H),False,False,Completed,0,0,3051024,0,1669449,0
+T-094,Chicago/Kingsbury,2021,Program,SBIF,3,SBIF - Chicago Kingsbury,SBIF - Chicago Kingsbury,False,False,Active Project,0,0,0,1500000,985397,750000
+T-094,Chicago/Kingsbury,2021,Program,TIFWorks,5,TIFWorks - Chicago Kingsbury,TIFWorks - Chicago Kingsbury,False,False,Active Project,0,0,0,0,139,175000
+T-095,Midwest,2021,Project,Project,12,City Gardens,Maple Jack LLC,False,False,Completed,0,0,25593383,0,2917804,0
+T-095,Midwest,2021,Project,Project,13,East Park SRO,East Park SRO,False,False,Completed,0,0,11454268,0,5212176,0
+T-095,Midwest,2021,Project,Project,11,Harvest Homes,Harvest Homes,False,False,Completed,0,0,13063323,0,1039544,0
+T-095,Midwest,2021,Project,Project,4,Heritage Homes,"New West Kedzie, LLC",False,False,Completed,0,0,17744426,0,2800000,0
+T-095,Midwest,2021,IGA,CBE,1,IGA - CBE - ADA - Dodge,IGA - CBE - ADA - Dodge,False,False,Active Project,0,0,0,0,0,750000
+T-095,Midwest,2021,IGA,CBE,5,IGA - CBE - Collins HS,IGA - CBE - Collins HS,False,False,Active Project,0,0,0,0,0,30300000
+T-095,Midwest,2021,IGA,CBE,2,IGA - CBE - William Penn,IGA - CBE - William Penn,False,False,Active Project,0,0,0,0,0,0
+T-095,Midwest,2021,IGA,CPD,6,IGA - CPD - Douglass Park,IGA - CPD - Douglass Park,False,False,Active Project,851421,248579,0,0,851421,1100000
+T-095,Midwest,2021,IGA,CPD,3,IGA - CPD - Park 3928 Douglas Park,IGA - CPD - Park 3928 Douglas Park,False,False,Completed,0,0,0,0,2000000,0
+T-095,Midwest,2021,IGA,CPD,4,IGA - CPD - Park 5047 Garfield Park Conservatory,IGA - CPD - Park 5047 Garfield Park Conservatory,False,False,Completed,0,0,0,0,3000000,0
+T-095,Midwest,2021,Project,Project,5,Lawndale Restoration Apts,Lawndale Restoration Apartments,False,False,Completed,0,0,19846475,0,8950000,0
+T-095,Midwest,2021,Project,Project,3,Liberty Square Apts,Liberty Square Apartments (DOH),False,False,Active Project,91102,63799,0,12438917,730611,1900000
+T-095,Midwest,2021,Project,Project,7,New Homes Chicago - Resurrection,New Homes Chicago - Resurrection,False,False,Completed,0,0,0,0,0,0
+T-095,Midwest,2021,Program,NIF,2,NIF - Midwest,NIF - Midwest,False,False,Active Project,0,0,0,13500000,6493530,6750000
+T-095,Midwest,2021,Project,Project,6,Renaissance Place Apts,Renaissance Place,False,False,Completed,0,0,8767263,0,2000000,0
+T-095,Midwest,2021,Project,Project,8,Rockwell West End- Phase II-A Rental,Rockwell West End - Phase II-A Rental,False,False,Active Project,0,0,0,38123910,0,1250000
+T-095,Midwest,2021,Project,Project,15,Roosevelt Rd Veterans Housing,"Roosevelt Road Veterans Housing, LP",False,False,Active Project,1500000,1500000,0,17107417,3000000,4500000
+T-095,Midwest,2021,Program,SBIF,1,SBIF - Midwest,SBIF - Midwest,False,False,Active Project,40865,107250,0,7500000,2250453,3750000
+T-095,Midwest,2021,Project,Project,14,SINAI Health System,SINAI Health System,False,False,Active Project,0,4500000,24836532,44163468,11500000,31000000
+T-095,Midwest,2021,Program,TIFWorks,9,TIFWorks - Midwest,TIFWorks - Midwest,False,False,Active Project,0,0,0,0,852746,885000
+T-095,Midwest,2021,Program,Vacant Lots,12,Vacant Bldg Purch Rehab MF Prog -Midwest,Vacant Bldg Purch Rehab MF Prog -Midwest,False,False,Active Project,1050000,0,0,1500000,0,1500000
+T-095,Midwest,2021,Program,Vacant Lots,11,Vacant Bldg Purch Rehab SF Prog -Midwest,Vacant Bldg Purch Rehab SF Prog -Midwest,False,False,Active Project,0,0,0,500000,0,500000
+T-096,Cicero/Archer,2021,IGA,CBE,1,IGA - CBE - Hearst,IGA - CBE - Hearst,False,False,Active Project,0,0,0,0,0,0
+T-096,Cicero/Archer,2021,Project,Project,3,Midway Pointe LLC,Midway Pointe LLC,False,False,Completed,0,0,17998512,0,2000000,0
+T-096,Cicero/Archer,2021,Program,SBIF,1,SBIF - Cicero Archer,SBIF - Cicero Archer,False,False,Active Project,0,0,0,1500000,182166,750000
+T-096,Cicero/Archer,2021,Program,TIFWorks,2,TIFWorks - Cicero Archer,TIFWorks - Cicero Archer,False,False,Active Project,0,0,0,0,0,125000
+T-097,51st/Archer,2021,IGA,CBE,1,IGA - CBE - Hernandez - M.S. - I,IGA - CBE - Hernandez MS,False,False,Active Project,0,0,0,910083,32818102,30300000
+T-097,51st/Archer,2021,Project,Project,1,Park Place Homes,Park Place Homes,False,False,Completed,0,0,58655000,0,0,0
+T-097,51st/Archer,2021,Program,TIFWorks,2,TIFWorks - 51st Archer,TIFWorks - 51st Archer,False,False,Active Project,0,0,0,0,28884,75000
+T-098,63rd/Pulaski,2021,Program,SBIF,1,SBIF - 63rd Pulaski,SBIF - 63rd Pulaski,False,False,Active Project,10000,500000,0,2400000,900758,1200000
+T-098,63rd/Pulaski,2021,Program,TIFWorks,2,TIFWorks - 63rd Pulaski,TIFWorks - 63rd Pulaski,False,False,Active Project,0,0,0,0,241437,460000
+T-099,Archer/Central,2021,IGA,CPD,1,IGA - CPD - Park 0307 - Minuteman,IGA - CPD - Park 0307 - Minuteman,False,False,Completed,0,0,212500,0,340000,0
+T-099,Archer/Central,2021,Program,SBIF,2,SBIF - Archer Central,SBIF - Archer Central,False,False,Active Project,0,425000,0,1600000,659647,800000
+T-099,Archer/Central,2021,Project,Project,1,Shop and Save,Shop and Save,False,False,Completed,0,0,12590970,0,3000000,0
+T-099,Archer/Central,2021,Program,TIFWorks,3,TIFWorks - Archer Central,TIFWorks - Archer Central,False,False,Active Project,0,0,0,0,0,125000
+T-100,Ohio/Wabash,2021,Project,Project,1,Medinah Temple,"Medinah Temple, Inc.; Tree Studios, L.L.C.; Unit Building, Inc. and Bloomingdales, Inc.",False,False,Active Project,2047110,2160475,0,46418000,26389340,12700000
+T-101,Jefferson/Roosevelt,2021,Project,Project,1,Canal Taylor Viaduct Ramps,Canal/Taylor Central LLC,False,False,Completed,0,0,6500000,0,6119725,0
+T-101,Jefferson/Roosevelt,2021,Project,Project,3,Home Depot - Jefferson Roosevelt,Home Depot - South Loop,False,False,Active Project,237968,275765,0,26595000,3029130,5400000
+T-101,Jefferson/Roosevelt,2021,Program,SBIF,2,SBIF - Jefferson Roosevelt,SBIF - Jefferson Roosevelt,False,False,Active Project,0,0,0,1500000,0,750000
+T-101,Jefferson/Roosevelt,2021,Program,TIFWorks,4,TIFWorks - Jefferson Roosevelt,TIFWorks - Jefferson Roosevelt,False,False,Active Project,0,0,0,0,706277,352389
+T-102,Montclare,2021,Project,Project,2,Montclare Sr Residence I,"Montclare Senior Residences Phase I, LP",False,False,Active Project,123352,137900,0,16257808,2396203,4853000
+T-102,Montclare,2021,Project,Project,1,Montclare Sr Residence II,"Montclare Senior Residences, Phase II Limited Partnership",False,False,Active Project,134160,149172,0,17954640,1749590,7197700
+T-103,Lake Calumet Area Industrial,2021,IGA,CPD,2,IGA - CPD Big Marsh,IGA - CPD Big Marsh,False,False,Active Project,0,0,0,0,0,0
+T-103,Lake Calumet Area Industrial,2021,IGA,,4,IGA- Illinois International Port District,IGA- Illinois International Port District,False,False,Active Project,0,173876,0,0,0,2449000
+T-103,Lake Calumet Area Industrial,2021,Program,Industrial Growth Zone,3,Industrial Growth Zone- Lake Calumet,Industrial Growth Zone- Lake Calumet,False,False,Active Project,0,0,0,0,13551,8500000
+T-103,Lake Calumet Area Industrial,2021,Project,Project,1,Keebler,"Keebler Company; Atlantic Financial Group, Ltd.",False,False,Completed,0,0,0,0,0,0
+T-103,Lake Calumet Area Industrial,2021,Program,TIFWorks,2,TIFWorks - Lake Calumet,TIFWorks - Lake Calumet,False,False,Active Project,0,0,0,0,278128,570000
+T-104,River West,2021,Project,Project,1,ABN AMRO Plaza,"LaSalle Street Capital, Inc.",False,False,Completed,0,0,315409959,0,15551499,0
+T-104,River West,2021,Project,Project,3,Blommer Chocolate,Blommer's Chocolate,False,False,Active Project,0,0,0,28109580,5801368,9000000
+T-104,River West,2021,IGA,CTA,1,Grand Avenue Station,Grand Avenue Station,False,False,Active Project,233140,31350,0,0,3968650,4000000
+T-104,River West,2021,Project,Project,2,Jewel - Kinzie DesPlaines,Jewel @ Kinzie/DesPlaines,False,False,Completed,0,0,15226231,0,4000000,0
+T-104,River West,2021,Project,Project,5,Metra Market,Metra Market Amendment,False,False,Completed,0,0,31649000,0,11897160,0
+T-104,River West,2021,Program,SBIF,4,SBIF - River West,SBIF - River West,False,False,Active Project,0,0,0,3000000,374337,1500000
+T-104,River West,2021,Program,TIFWorks,7,TIFWorks - River West,TIFWorks - River West,False,False,Active Project,0,0,0,0,166892,325000
+T-104,River West,2021,Project,Project,6,WaterSaver Faucet - Phase II,WaterSaver Faucet - Phase II,False,False,Active Project,0,464197,0,21027785,697437,5200000
+T-105,53rd Street,2021,Project,Project,2,Harper Court,Harper Court Redevelopment,False,False,Active Project,726514,1134306,0,91843037,24296762,20045000
+T-105,53rd Street,2021,Project,Project,3,Hyde Park Hyatt,Hyde Park Hyatt,False,False,Active Project,153307,153307,0,27098944,3114199,2901146
+T-105,53rd Street,2021,IGA,CBE,1,IGA - CBE - Canter - MS,IGA - CBE - Canter,False,False,Active Project,0,0,0,150000,150000,150000
+T-105,53rd Street,2021,IGA,CBE,2,IGA - CBE - Kenwood Academy - HS,IGA - CBE - Kenwood Academy - HS,False,False,Active Project,0,0,0,0,0,60000
+T-105,53rd Street,2021,Program,SBIF,1,SBIF - 53rd Street,SBIF - 53rd Street,False,False,Active Project,0,296000,0,1500000,699254,750000
+T-105,53rd Street,2021,Program,TIFWorks,4,TIFWorks - 53rd Street,TIFWorks - 53rd Street,False,False,Active Project,0,0,0,0,45429,75000
+T-106,Englewood Neighborhood,2021,Project,Project,3,Hope Manor II,Hope Manor II,False,False,Completed,0,0,20491185,0,3000000,0
+T-106,Englewood Neighborhood,2021,IGA,CBE,3,IGA - CBE - ADA - Holmes,IGA - CBE - ADA - Holmes,False,False,Active Project,0,0,0,0,0,750000
+T-106,Englewood Neighborhood,2021,IGA,CBE,1,IGA - CBE - ADA - Mays,IGA - CBE - ADA - Mays,False,False,Active Project,0,0,0,0,0,750000
+T-106,Englewood Neighborhood,2021,IGA,CBE,2,IGA - CBE - ADA - Nicholson,IGA - CBE - ADA - Nicholson,False,False,Active Project,0,0,0,0,0,750000
+T-106,Englewood Neighborhood,2021,IGA,CBE,4,IGA - CBE - Holmes,IGA - CBE - Holmes,False,False,Completed,0,0,66480,0,3270000,0
+T-106,Englewood Neighborhood,2021,IGA,CPD,1,IGA- CPD- Ogden Park,IGA- CPD- Ogden Park,False,False,Active Project,0,0,0,0,0,0
+T-106,Englewood Neighborhood,2021,Program,NIF,1,NIF - Englewood Neighborhood,NIF - Englewood Neighborhood,False,False,Active Project,0,0,0,12000000,5346793,6000000
+T-106,Englewood Neighborhood,2021,Program,Retail Thrive,4,Retail Thrive - Englewood Neighborhood,Retail Thrive - Englewood Neighborhood,False,False,Active Project,0,0,0,1500000,134063,750000
+T-106,Englewood Neighborhood,2021,Program,TIFWorks,2,TIFWorks - Englewood Neighborhood,TIFWorks - Englewood Neighborhood,False,False,Active Project,21478,18000,0,0,151110,175000
+T-106,Englewood Neighborhood,2021,Program,Vacant Lots,1,Vacant Bldg Purch Rehab MF Prog - Englewood Neighborhood,Vacant Bldg Purch Rehab MF Prog - Englewood Neighborhood,False,False,Active Project,0,0,0,1000000,0,1500000
+T-107,Division/Homan,2021,Project,Project,4,Humboldt Park Residence,Humboldt Park Residence,False,False,Active Project,1900000,1900000,0,10393839,1900000,3800000
+T-107,Division/Homan,2021,IGA,CPD,1,IGA - CPD - Park 0219 - Humboldt - I,IGA - CPD - Park 0219 - Humboldt - I,False,False,Active Project,0,0,0,0,766406,0
+T-107,Division/Homan,2021,Project,Project,3,Institute Puerto Rican,Institute of Puerto Rican Arts & Culture (IPRAC),False,False,Completed,0,0,4696243,0,1000000,0
+T-107,Division/Homan,2021,Project,Project,1,La Estancia,La Estancia,False,False,Completed,0,0,0,0,0,0
+T-107,Division/Homan,2021,Program,NIF,2,NIF - Division Homan,NIF - Division Homan,False,False,Active Project,0,0,0,2000000,621563,1000000
+T-107,Division/Homan,2021,Program,SBIF,4,SBIF - Division Homan,SBIF - Division Homan,False,False,Active Project,0,0,0,1800000,513439,900000
+T-107,Division/Homan,2021,Program,TIFWorks,5,TIFWorks - Division Homan,TIFWorks - Division Homan,False,False,Active Project,0,0,0,0,43245,75000
+T-107,Division/Homan,2021,Program,Vacant Lots,6,Vacant Bldg Purch Rehab MF Prog -Division/Homan,Vacant Bldg Purch Rehab MF Prog -Division/Homan,False,False,Completed,0,0,1000000,0,1000000,0
+T-108,Humboldt Park Commercial,2021,IGA,PBC,1,IGA - PBC - Library - 1605 N Troy St,IGA - PBC - Library - 1605 N Troy St,False,False,Active Project,0,0,0,0,0,4500000
+T-108,Humboldt Park Commercial,2021,Project,Project,9,La Casa Norte,La Casa Norte,False,False,Active Project,1750000,0,0,17311128,3500000,3500000
+T-108,Humboldt Park Commercial,2021,Project,Project,2,La Estancia,La Estancia,False,False,Completed,0,0,15416423,0,1555484,0
+T-108,Humboldt Park Commercial,2021,Program,NIF,4,NIF - Humboldt Park,NIF - Humboldt Park,False,False,Active Project,0,0,0,2000000,0,1000000
+T-108,Humboldt Park Commercial,2021,Project,Project,6,North Talman - III - Rental,North Talman - Phase III,False,False,Completed,0,0,11261672,0,2358496,0
+T-108,Humboldt Park Commercial,2021,Project,Project,3,North Talman - II - Rental,North/Talman Residences,False,False,Completed,0,0,13696720,0,3981120,0
+T-108,Humboldt Park Commercial,2021,Project,Project,10,Paseo Boricua,Paseo Boricua,False,False,Active Project,0,1400950,0,10883895,0,4245304
+T-108,Humboldt Park Commercial,2021,Project,Project,5,Resurrection University,Resurrection University,False,False,Active Project,333417,333417,0,8799475,4703007,4738179
+T-108,Humboldt Park Commercial,2021,Program,SBIF,1,SBIF - Humboldt Park,SBIF - Humboldt Park,False,False,Active Project,321750,210000,0,5500000,2740946,2750000
+T-108,Humboldt Park Commercial,2021,Program,TIFWorks,7,TIFWorks - Humboldt Park,TIFWorks - Humboldt Park,False,False,Active Project,0,0,0,0,385424,402389
+T-108,Humboldt Park Commercial,2021,Program,Vacant Lots,8,Vacant Bldg Purch Rehab MF Prog -Humboldt Park,Vacant Bldg Purch Rehab MF Prog -Humboldt Park,False,False,Completed,0,0,1000000,0,1000000,0
+T-109,Lawrence/Broadway,2021,Project,Project,2,Gunnison Lofts,"Gunnison Street Lofts, LLC",False,False,Active Project,141409,131048,0,7431412,1445151,1908282
+T-109,Lawrence/Broadway,2021,IGA,CTA,8,IGA - CTA - RPM Phase 1,IGA - CTA - RPM Phase 1,False,False,Active Project,0,0,0,0,0,0
+T-109,Lawrence/Broadway,2021,Project,Project,3,Leland Hotel,Leland Apartments - Leland Limited Partnership,False,False,Active Project,18505,15309,0,12774804,542052,2000000
+T-109,Lawrence/Broadway,2021,Program,SBIF,6,SBIF - Lawrence Broadway,SBIF - Lawrence Broadway,False,False,Active Project,0,90000,0,3000000,1069894,1500000
+T-109,Lawrence/Broadway,2021,Program,TIFWorks,7,TIFWorks - Lawrence Broadway,TIFWorks - Lawrence Broadway,False,False,Active Project,50544,0,0,0,325496,150000
+T-109,Lawrence/Broadway,2021,Project,Project,5,Uptown Broadway Bldg,Theus Property Holdings,False,False,Active Project,71240,79647,0,3456363,877997,1452860
+T-109,Lawrence/Broadway,2021,Project,Project,1,Uptown Goldblatt,"Uptown Goldblatts Venture, LLC",False,False,Completed,0,0,17889461,0,5102433,0
+T-109,Lawrence/Broadway,2021,Project,Project,4,Uptown Theatre Stabilization,Uptown Theater,False,False,Completed,0,0,0,0,1372037,0
+T-110,Wilson Yard,2021,Project,Project,5,Clifton Magnolia Apts,Clifton-Magnolia Apts.,False,False,Active Project,263338,263338,0,18049526,4135044,4265000
+T-110,Wilson Yard,2021,Project,Project,6,Hazel Winthrop Apts,Hazel Winthrop Apts,False,False,Completed,0,0,9562400,0,2425000,0
+T-110,Wilson Yard,2021,IGA,CBE,2,IGA - CBE - Uplift Community School,IGA - CBE - Uplift Community School,False,False,Active Project,0,0,530991,0,1447244,0
+T-110,Wilson Yard,2021,IGA,CCC,3,IGA - CCC - Truman College,IGA - CCC - Truman College,False,False,Active Project,1135660,1135660,0,44737073,10220936,10000000
+T-110,Wilson Yard,2021,IGA,CTA,8,IGA - CTA - RPM Phase 1,IGA - CTA - RPM Phase 1,False,False,Active Project,0,0,0,0,0,0
+T-110,Wilson Yard,2021,IGA,CTA,4,IGA - CTA - Wilson Station,IGA - CTA - Wilson Station,False,False,Completed,0,0,0,0,3000000,0
+T-110,Wilson Yard,2021,IGA,PBC,1,IGA - PBC - Stewart School Campus Park,IGA - PBC - Stewart School Campus Park,False,False,Active Project,0,0,0,200000,1443800,1443800
+T-110,Wilson Yard,2021,Project,Project,4,Mercy Housing - Eastwood Sheridan,Mercy Housing - Wilson Yard,False,False,Completed,0,0,65070740,0,3000000,0
+T-110,Wilson Yard,2021,Project,Project,8,Sarah's Circle,Sarah's on Sheridan,False,False,Active Project,786956,0,0,18575500,3411956,3411956
+T-110,Wilson Yard,2021,Program,SBIF,2,SBIF - Wilson Yard,SBIF - Wilson Yard,False,False,Active Project,0,0,0,2000000,947512,1000000
+T-110,Wilson Yard,2021,Program,TIFWorks,7,TIFWorks - Wilson Yard,TIFWorks - Wilson Yard,False,False,Active Project,0,0,0,0,74133,75000
+T-110,Wilson Yard,2021,Project,Project,3,Uptown Preservation Apts,Uptown Preservation Apartments,False,False,Completed,0,0,15886104,0,557273,0
+T-110,Wilson Yard,2021,Project,Project,1,Wilson Yard,Wilson Yard,False,False,Active Project,10932830,14981631,0,95408824,73987185,54174723
+T-111,105th/Vincennes,2021,Project,Project,1,105th Vincennes,MGM/TGI 105th Street LLC,False,False,Completed,0,0,37716220,0,5714743,0
+T-112,79th/Southwest Highway,2021,Program,Industrial Growth Zone,4,Industrial Growth Zone- 79th/Southwest Highway,Industrial Growth Zone- 79th/Southwest Highway,False,False,Active Project,0,0,0,0,438,2250000
+T-112,79th/Southwest Highway,2021,Program,SBIF,3,SBIF - 79th SW Hwy,SBIF - 79th SW Hwy,False,False,Active Project,58448,0,0,1000000,350865,500000
+T-112,79th/Southwest Highway,2021,Program,TIFWorks,2,TIFWorks - 79th SW Hwy,TIFWorks - 79th SW Hwy,False,False,Active Project,0,0,0,0,27666,75000
+T-112,79th/Southwest Highway,2021,Project,Project,1,Wrightwood Sr Apt,Wrightwood Sr Apt,False,False,Completed,0,0,18143696,0,2950000,0
+T-113,Roseland/Michigan,2021,Program,SBIF,1,SBIF - Roseland Michigan,SBIF - Roseland Michigan,False,False,Active Project,0,162000,0,1000000,434572,500000
+T-114,119th/Halsted,2021,Project,Project,3,Hancock House Sr Apts,Hancock House Sr. Apts,False,False,Completed,0,0,18588496,0,303741,0
+T-114,119th/Halsted,2021,Project,Project,4,Kennedy Jordan Manor,Kennedy Jordan Manor,False,False,Completed,0,0,18370921,0,1500000,0
+T-114,119th/Halsted,2021,Project,Project,6,Maple Park Marketplace,Preferred Halsted LLC,False,False,Completed,0,0,10106196,0,1000000,0
+T-114,119th/Halsted,2021,Program,NIF,2,NIF - 119th Halsted,NIF - 119th Halsted,False,False,Active Project,0,0,0,3000000,974136,1500000
+T-114,119th/Halsted,2021,Program,Retail Thrive,5,Retail Thrive - 119th Halsted,Retail Thrive - 119th Halsted,False,False,Active Project,0,0,0,500000,0,250000
+T-114,119th/Halsted,2021,Program,SBIF,1,SBIF - 119th Halsted,SBIF - 119th Halsted,False,False,Active Project,55846,316500,0,1500000,423487,750000
+T-114,119th/Halsted,2021,Program,Vacant Lots,1,Vacant Bldg Purch Rehab SF Prog-119th/Halsted,Vacant Bldg Purch Rehab SF Prog-119th/Halsted,False,False,Active Project,0,0,0,500000,0,500000
+T-115,Chicago/Central Park,2021,Project,Project,4,Breakthrough Urban Ministries - I,Breakthrough Urban Ministries,False,False,Completed,0,0,3845868,0,1153961,0
+T-115,Chicago/Central Park,2021,Project,Project,7,Breakthrough Urban Ministries - II,Breakthrough Urban Ministries - II,False,False,Completed,0,0,12093770,0,3571159,0
+T-115,Chicago/Central Park,2021,IGA,CBE,4,IGA - CBE - ADA - Ryerson,IGA - CBE - ADA - Ryerson,False,False,Active Project,0,0,0,750000,0,750000
+T-115,Chicago/Central Park,2021,IGA,CBE,6,IGA- CBE - Raby School,IGA - CBE - Raby School,False,False,Active Project,0,0,0,0,378803,378803
+T-115,Chicago/Central Park,2021,IGA,CBE,5,IGA - CBE  - Skinner - ES,IGA - CBE  - Skinner - ES,False,False,Active Project,0,0,0,0,0,0
+T-115,Chicago/Central Park,2021,IGA,CBE,1,IGA - CBE - Westinghouse - HS - I,IGA - CBE - Westinghouse H.S.,False,False,Active Project,0,0,0,6212250,58618967,53750000
+T-115,Chicago/Central Park,2021,IGA,CBE,2,IGA - CBE - Westinghouse - HS - II,IGA - CBE - Westinghouse - HS - MSAC I,False,False,Active Project,0,0,0,0,17752171,16412500
+T-115,Chicago/Central Park,2021,IGA,CBE,3,IGA - CBE - Westinghouse - HS - III,IGA - CBE - Westinghouse - HS - MSAC II,False,False,Active Project,0,0,0,0,0,32920000
+T-115,Chicago/Central Park,2021,Program,NIF,1,NIF - Chicago Central Park,NIF - Chicago Central Park,False,False,Active Project,0,0,0,7000000,2996742,3500000
+T-115,Chicago/Central Park,2021,Project,Project,10,NMA,Nelson Mandela Apartments,False,False,Completed,0,0,6927411,0,2856027,0
+T-115,Chicago/Central Park,2021,Program,Retail Thrive,9,Retail Thrive - Chicago Central Park,Retail Thrive - Chicago Central Park,False,False,Active Project,0,0,0,2500000,256115,1250000
+T-115,Chicago/Central Park,2021,Project,Project,3,Rosa Parks Apts,Rosa Parks Apts,False,False,Completed,0,0,23565314,0,3999143,0
+T-115,Chicago/Central Park,2021,Program,SBIF,2,SBIF - Chicago Central Park,SBIF - Chicago Central Park,False,False,Active Project,12678,183000,0,4200000,268102,2100000
+T-115,Chicago/Central Park,2021,Project,Project,8,The Children's Place Association,The Children's Place Association,False,False,Completed,0,0,4176035,0,1000000,0
+T-115,Chicago/Central Park,2021,Program,TIFWorks,6,TIFWorks - Chicago Central Park,TIFWorks - Chicago Central Park,False,False,Active Project,0,0,0,0,363619,175000
+T-115,Chicago/Central Park,2021,Program,Vacant Lots,5,Vacant Bldg Purch Rehab MF Prog - Chicago Central Park,Vacant Bldg Purch Rehab MF Prog - Chicago Central Park,False,False,Active Project,0,0,0,1000000,0,1000000
+T-115,Chicago/Central Park,2021,Program,Vacant Lots,5,Vacant Bldg Purch Rehab SF Prog - Chicago Central Park,Vacant Bldg Purch Rehab SF Prog - Chicago Central Park,False,False,Completed,0,0,1000000,0,1000000,0
+T-115,Chicago/Central Park,2021,Program,Vacant Lots,6,Vacant Bldg Purch Rehab SF Prog - Chicago Central Park,Vacant Bldg Purch Rehab SF Prog - Chicago Central Park,False,False,Active Project,0,0,0,1000000,0,1000000
+T-116,Lawrence/Pulaski,2021,IGA,CPD,5,IGA - CPD - Park 0040 - Gompers - I,IGA - CPD - Park - Gompers,False,False,Completed,0,0,350000,0,400000,0
+T-116,Lawrence/Pulaski,2021,IGA,CPD,4,IGA - CPD - Park 0040 - Gompers II,IGA - CPD - Park 0040 - Gompers II,False,False,Completed,0,0,0,0,250000,0
+T-116,Lawrence/Pulaski,2021,IGA,CPD,6,IGA - CPD - Spikings Farm Playlot,IGA - CPD - Spikings Farm Playlot,False,False,Active Project,0,0,0,0,137500,137500
+T-116,Lawrence/Pulaski,2021,Program,SBIF,1,SBIF - Lawrence Pulaski,SBIF - Lawrence Pulaski,False,False,Active Project,129616,107250,0,3500000,1889091,1750000
+T-116,Lawrence/Pulaski,2021,Project,Project,2,Thai Town Center,Thai Town Center,False,False,Completed,0,0,1859424,0,780000,0
+T-116,Lawrence/Pulaski,2021,Program,TIFWorks,3,TIFWorks - Lawrence Pulaski,TIFWorks - Lawrence Pulaski,False,False,Active Project,0,0,0,0,39877,200000
+T-117,47th/Ashland,2021,Project,Project,2,Bishop Plaza,Bishop Plaza,False,False,Active Project,264771,284412,0,8040542,2507755,2200000
+T-117,47th/Ashland,2021,Project,Project,1,Glazier - Cardinal - 52nd Ashland,Cardinal Limited Partnership/Glazier Corp.,False,False,Completed,0,0,1349902,0,452580,0
+T-117,47th/Ashland,2021,Project,Project,5,Goldblatt's Sr Living,Goldblatt's Sr Living,False,False,Completed,0,0,31020989,0,2900000,0
+T-117,47th/Ashland,2021,IGA,CBE,1,IGA - CBE - ADA - Seward,IGA - CBE - ADA - Seward,False,False,Active Project,0,0,0,0,0,0
+T-117,47th/Ashland,2021,IGA,CBE,2,IGA - CBE - Back of Yards HS,IGA - CBE - Back of Yards HS,False,False,Active Project,0,0,0,0,0,0
+T-117,47th/Ashland,2021,Project,Project,4,Park Federal Savings Bank,Park Federal Savings Bank,False,False,Completed,0,0,4152670,0,236065,0
+T-117,47th/Ashland,2021,Program,Retail Thrive,6,Retail Thrive - 47th Ashland,Retail Thrive - 47th Ashland,False,False,Active Project,0,0,0,2500000,396318,1250000
+T-117,47th/Ashland,2021,Program,SBIF,3,SBIF - 47th Ashland,SBIF - 47th Ashland,False,False,Active Project,0,371000,0,3000000,1160331,1500000
+T-118,47th/King Drive,2021,Project,Project,11,43 Green Phase 1,43 Green Phase 1,False,False,Active Project,0,0,0,33385381,0,500000
+T-118,47th/King Drive,2021,Project,Project,5,Bronzeville Artist Lofts,Bronzeville Artist Lofts,False,False,Completed,0,0,5838333,0,1085807,0
+T-118,47th/King Drive,2021,Project,Project,3,Cuisine Diaspora,Cuisine Diaspora,False,False,Active Project,0,0,0,5397146,2000000,3000000
+T-118,47th/King Drive,2021,Project,Project,4,Educare Family Center,Educare Family Center,False,False,Completed,0,0,2152445,0,400000,0
+T-118,47th/King Drive,2021,IGA,CBE,1,IGA - CBE - ADA - Mollison,IGA - CBE - ADA - Mollison,False,False,Active Project,0,0,0,0,0,750000
+T-118,47th/King Drive,2021,Project,Project,9,Legends South C-3,Legends South C-3,False,False,Completed,0,0,25291454,0,3027414,0
+T-118,47th/King Drive,2021,Program,NIF,2,NIF - 47th King,NIF - 47th King,False,False,Active Project,0,0,0,4000000,1678278,2000000
+T-118,47th/King Drive,2021,Project,Project,10,Paul G Stewart III,Paul G Stewart III,False,False,Completed,0,0,33718414,0,4299179,0
+T-118,47th/King Drive,2021,Program,Retail Thrive,7,Retail Thrive - 47th King Drive,Retail Thrive - 47th King Drive,False,False,Active Project,0,0,0,1000000,0,500000
+T-118,47th/King Drive,2021,Project,Project,6,Rosenwald Apts,Rosenwald Apts,False,False,Completed,0,0,85168276,0,25000000,0
+T-118,47th/King Drive,2021,Program,SBIF,1,SBIF - 47th King,SBIF - 47th King,False,False,Active Project,43855,290000,0,3000000,1179599,1500000
+T-118,47th/King Drive,2021,Program,TIFWorks,8,TIFWorks - 47th/King,TIFWorks - 47th/King,False,False,Active Project,0,0,0,0,153500,353500
+T-119,Lakefront,2021,Project,Project,2,Lake Park Crescent - Phase I - For Sale,"Lake Park Crescent (Lakefront Associates l, LLC)",False,False,Active Project,198806,232396,0,24142000,1977825,4900000
+T-119,Lakefront,2021,Project,Project,1,Lake Park Crescent - Phase I - Rental,Lake Park Crescent Associates I Limited Partnership,False,False,Active Project,292880,0,0,36480097,0,1700000
+T-121,47th/Halsted,2021,IGA,CBE,3,IGA - CBE - Hope College Prep,Chicago Board of Education (Hope College),False,False,Active Project,0,0,0,0,253614,0
+T-121,47th/Halsted,2021,IGA,CPD,4,IGA - CPD Lowes Park,IGA - CPD Lowes Park,False,False,Completed,0,0,0,0,550000,0
+T-121,47th/Halsted,2021,IGA,CPD,4,IGA - CPD McInerney Park,IGA - CPD McInerney Park,False,False,Active Project,336000,216000,0,0,336000,0
+T-121,47th/Halsted,2021,IGA,CPD,1,IGA - CPD - Metcalf Park,IGA - CPD - Metcalf Park,False,False,Completed,0,0,0,0,125000,0
+T-121,47th/Halsted,2021,IGA,CPD,2,IGA - CPD - Park 1025 - Taylor Lauridsen - I,IGA - CPD - Park - Taylor Lauridsen,False,False,Completed,0,0,5500000,0,2500000,0
+T-121,47th/Halsted,2021,Program,NIF,1,NIF - 47th Halsted,NIF - 47th Halsted,False,False,Active Project,0,0,0,4000000,1781182,2000000
+T-121,47th/Halsted,2021,Program,SBIF,2,SBIF - 47th Halsted,SBIF - 47th Halsted,False,False,Active Project,115994,447000,0,1000000,385351,500000
+T-121,47th/Halsted,2021,Program,TIFWorks,3,TIFWorks- 47th/Halsted,TIFWorks- 47th/Halsted,False,False,Active Project,9675,65000,0,0,9675,75114
+T-123,Avalon Park/South Shore,2021,Program,Retail Thrive,1,Retail Thrive - Avalon Park South Shore,Retail Thrive - Avalon Park South Shore,False,False,Active Project,0,0,0,2000000,0,1000000
+T-123,Avalon Park/South Shore,2021,Program,SBIF,1,SBIF - Avalon Park,SBIF - Avalon Park,False,False,Active Project,91117,107250,0,1600000,636917,800000
+T-123,Avalon Park/South Shore,2021,Program,TIFWorks,2,TIFWorks - Avalon Park South Shore,TIFWorks - Avalon Park South Shore,False,False,Active Project,0,0,0,0,0,125000
+T-124,67th/Cicero,2021,IGA,CPD,1,IGA - CPD - Park 0484 - Madigan Fields,IGA - CPD - Park 0484 - Madigan Fields,False,False,Completed,0,0,0,0,1847483,0
+T-124,67th/Cicero,2021,IGA,CPD,2,IGA - CPD - Park 0484 - Madigan Fields Lighting,IGA - CPD - Park 0484 - Madigan Fields Lighting,False,False,Completed,0,0,0,0,110000,0
+T-124,67th/Cicero,2021,Project,Project,1,Midway Village - Sr Affordable,Midway Village,False,False,Active Project,343560,380935,0,15350392,3527700,2750000
+T-125,119th/I-57,2021,IGA,CPD,1,IGA- CPD Park 0373 - Blackwelder,IGA- CPD Park 0373 - Blackwelder,False,False,Completed,0,0,0,0,1250000,0
+T-125,119th/I-57,2021,Project,Project,4,Marshfield Plaza,Marshfield Plaza,False,False,Active Project,1847518,1884468,0,189483119,17603175,26600000
+T-125,119th/I-57,2021,Program,NIF,1,NIF - 119th I-57,NIF - 119th I-57,False,False,Active Project,0,0,0,4000000,1350057,2000000
+T-125,119th/I-57,2021,Project,Project,2,Renaissance Estates,JTA Developers Renaissance Estates,False,False,Active Project,0,0,0,14811668,1741662,3600000
+T-125,119th/I-57,2021,Program,SBIF,3,SBIF - 119th I-57,SBIF - 119th I-57,False,False,Active Project,0,157000,0,2000000,322107,1000000
+T-125,119th/I-57,2021,Program,TIFWorks,5,TIFWorks - 119th/I-57,TIFWorks - 119th/I-57,False,False,Active Project,0,0,0,0,10000,10000
+T-126,Madden/Wells,2021,IGA,CBE,6,IGA - CBE - Donoghue School,IGA - CBE - Donoghue School,False,False,Active Project,0,0,0,0,0,0
+T-126,Madden/Wells,2021,IGA,CPD,7,IGA - CPD - Dog Park,IGA - CPD - Dog Park,False,False,Active Project,0,0,0,0,0,0
+T-126,Madden/Wells,2021,Project,Project,2,Madden Wells - 1-A - For Sale - Arches,The Arches at Oakwood Shores,False,False,Completed,0,0,40561796,0,6598586,0
+T-126,Madden/Wells,2021,Project,Project,1,Madden Wells - 1-A - Rental,Madden Wells Phase 1-A (rental),False,False,Active Project,0,68075,0,31280770,694596,4800000
+T-126,Madden/Wells,2021,Project,Project,3,Madden Wells - 1-B - Rental,Madden Wells Phase 1-B (rental),False,False,Active Project,241156,126666,0,36126230,961368,3021000
+T-126,Madden/Wells,2021,Project,Project,4,Madden Wells - 2-A - Rental,Oakwood Shores Phase 2 Rental,False,False,Active Project,0,0,0,54669913,676879,2900000
+T-126,Madden/Wells,2021,Project,Project,5,Madden Wells - 2-C - Rental Retail,Madden Wells - 2-C - Rental Retail,False,False,Active Project,226517,221341,0,20948393,802381,2100000
+T-127,87th/Cottage Grove,2021,IGA,PBC,1,IGA - PBC - Whitney Young Library,IGA - PBC - Whitney Young Library,False,False,Active Project,0,0,0,0,0,0
+T-127,87th/Cottage Grove,2021,Program,Retail Thrive,2,Retail Thrive - 87th Cottage Grove,Retail Thrive - 87th Cottage Grove,False,False,Active Project,0,0,0,1250000,16969,625000
+T-127,87th/Cottage Grove,2021,Program,SBIF,1,SBIF - 87th Cottage Grove,SBIF - 87th Cottage Grove,False,False,Active Project,24755,209000,0,3000000,937144,1500000
+T-128,Commercial Avenue,2021,Program,Industrial Growth Zone,4,Industrial Growth Zone- Commercial Avenue,Industrial Growth Zone- Commercial Avenue,False,False,Active Project,0,0,0,0,0,3500000
+T-128,Commercial Avenue,2021,Program,NIF,2,NIF - Commercial Ave,NIF - Commercial Ave,False,False,Active Project,0,0,0,1000000,256324,500000
+T-128,Commercial Avenue,2021,Program,SBIF,1,SBIF - Commercial Ave,SBIF - Commercial Ave,False,False,Active Project,58782,198000,0,4000000,1200547,2000000
+T-128,Commercial Avenue,2021,Program,TIFWorks,3,TIFWorks - Commercial Ave,TIFWorks - Commercial Ave,False,False,Active Project,53846,0,0,0,158146,175000
+T-129,Diversey/Narragansett,2021,Project,Project,1,Brickyard,"W9/MLM Real Estate Limited Partnership & W9/MLM Brickyard, LLC",False,False,Active Project,1999240,2152911,0,83459532,24973094,26500000
+T-129,Diversey/Narragansett,2021,IGA,CPD,1,IGA - CPD - Park 0123 - Riis,IGA - CPD - Park 0123 - Riis,False,False,Active Project,0,0,0,115671,1000000,0
+T-129,Diversey/Narragansett,2021,Program,TIFWorks,2,TIFWorks - Diversey Narragansett,TIFWorks - Diversey Narragansett,False,False,Active Project,0,0,0,0,0,75000
+T-131,35th/State,2021,Project,Project,2,IIT Townsend,IIT,False,False,Active Project,1269133,1428407,0,38146364,12041649,13400000
+T-131,35th/State,2021,Project,Project,1,Stateway Gardens - Phase 1 - Park Blvd,Park Boulevard LLC,False,False,Active Project,366775,411778,0,62222816,4696092,8390000
+T-131,35th/State,2021,Project,Project,3,Stateway Gardens - Phase 2 - Park Blvd - II-B,Stateway Gardens - Phase 2 - Park Blvd - II-B,False,False,Completed,0,0,36031100,0,5000000,0
+T-133,83rd/Stewart,2021,Project,Project,1,Chatham Market,"W2005 CMK Realty, L.L.C.",False,False,Active Project,1303860,1124811,0,57383000,11339349,24550000
+T-134,Devon/Sheridan,2021,IGA,CTA,3,IGA - CTA - RPM Phase 1,IGA - CTA - RPM Phase 1,False,False,Active Project,0,0,0,0,0,0
+T-134,Devon/Sheridan,2021,Project,Project,1,Loyola U - Lakeshore,Loyola University,False,False,Active Project,1305162,1331265,0,64600000,5960420,20400000
+T-134,Devon/Sheridan,2021,Program,NIF,3,NIF - Devon Sheridan,NIF - Devon Sheridan,False,False,Active Project,0,0,0,2000000,61800,1000000
+T-134,Devon/Sheridan,2021,Program,SBIF,2,SBIF - Devon Sheridan,SBIF - Devon Sheridan,False,False,Active Project,23930,0,0,2000000,539819,1000000
+T-134,Devon/Sheridan,2021,Project,Project,4,UG2 - 1401-1405 W Devon,Uncommon Ground II,False,False,Completed,0,0,1551701,0,517234,0
+T-135,Pratt/Ridge Industrial Park Conservation Area,2021,Project,Project,1,S & C Electric,S & C Electric,False,False,Active Project,0,0,0,98415000,897987,39735000
+T-136,47th/State,2021,Program,SBIF,2,SBIF - 47th State,SBIF - 47th State,False,False,Active Project,0,0,0,1000000,107250,500000
+T-136,47th/State,2021,Project,Project,1,TRC Sr Village I,TRC Sr Village I,False,False,Completed,0,0,13101130,0,725000,0
+T-136,47th/State,2021,Project,Project,3,XS Tennis,XS Tennis Village,False,False,Active Project,0,0,0,9164457,0,2943793
+T-140,79th/Cicero,2021,Project,Project,1,Scottsdale Center,Scottsdale Center,False,False,Active Project,574078,593651,0,22460817,5958716,8100000
+T-141,26th/King Drive,2021,Project,Project,1,Mercy Hospital,Mercy Hospital,False,False,Completed,0,0,202254207,0,5817537,0
+T-142,Western/Rock Island,2021,Project,Project,3,Beverly Western Partners,Beverly Western Partners,False,False,Active Project,90000,90000,0,2913825,360000,450000
+T-142,Western/Rock Island,2021,Project,Project,1,Home Run Inn,CPMOK Properties,False,False,Completed,0,0,1206995,0,350000,0
+T-142,Western/Rock Island,2021,IGA,CBE,2,IGA - CBE Morgan Park HS,IGA - CBE - Morgan Park HS,False,False,Active Project,0,0,0,0,1500000,44000
+T-142,Western/Rock Island,2021,IGA,CPD,1,IGA - CPD - Morgan Park-Beverly Sports Center,IGA - CPD - Morgan Park-Beverly Sports Center,False,False,Completed,0,0,0,0,8500000,0
+T-142,Western/Rock Island,2021,Program,SBIF,2,SBIF - Western Ave Rock Island,SBIF - Western Rock Island,False,False,Active Project,0,0,0,2100000,830241,1050000
+T-143,63rd/Ashland,2021,IGA,CBE,3,IGA - CBE - Earle Elementary,IGA - CBE - Earle Elementary,False,False,Active Project,0,0,0,0,190826,0
+T-143,63rd/Ashland,2021,IGA,CPD,1,IGA - CPD -  Park 4565 - Lindblom Park,IGA - CPD -  Park 4565 - Lindblom Park,False,False,Completed,0,0,0,0,2000000,0
+T-143,63rd/Ashland,2021,IGA,PBC,2,IGA - PBC - Lindblom Academy,IGA - PBC - Lindblom Academy,False,False,Active Project,0,0,0,0,0,0
+T-143,63rd/Ashland,2021,Program,NIF,2,NIF - 63rd Ashland,NIF - 63rd Ashland,False,False,Active Project,0,0,0,2000000,855373,1000000
+T-143,63rd/Ashland,2021,Program,SBIF,1,SBIF - 63rd Ashland,SBIF - 63rd Ashland,False,False,Active Project,112250,240000,0,1500000,246574,750000
+T-143,63rd/Ashland,2021,Program,Vacant Lots,1,Vacant Bldg Purch Rehab SF Prog -63rd Ashland,Vacant Bldg Purch Rehab SF Prog -63rd Ashland,False,False,Active Project,0,0,0,1000000,0,1000000
+T-144,Harrison/Central,2021,Project,Project,2,Loretto Hospital,Loretto Hospital,False,False,Completed,0,0,16452000,0,7644132,0
+T-144,Harrison/Central,2021,Program,NIF,1,NIF - Harrison Central,NIF - Harrison Central,False,False,Active Project,0,0,0,3500000,1701292,1750000
+T-145,73rd/University,2021,Project,Project,1,Comer Foundation,Comer Foundation,False,False,Active Project,0,0,0,1507979,522237,652796
+T-146,Touhy/Western,2021,IGA,CBE,1,IGA - CBE - Boone Clinton - ES,IGA - CBE - Boone Clinton - ES,False,False,Active Project,0,0,0,2034332,8142740,7575000
+T-146,Touhy/Western,2021,Program,SBIF,1,SBIF - Touhy Western,SBIF - Touhy Western,False,False,Active Project,0,181000,0,2000000,443856,1000000
+T-147,LaSalle Central,2021,Project,Project,6,Accretive Health,Accretive Health,False,False,Completed,0,0,0,0,0,0
+T-147,LaSalle Central,2021,Project,Project,9,DeVry Office,DeVry Office,False,False,Completed,0,0,5550883,0,100000,0
+T-147,LaSalle Central,2021,IGA,CTA,1,IGA - CTA - Quincy Station,IGA - CTA - Quincy Station,False,False,Active Project,0,0,0,0,15700000,15700000
+T-147,LaSalle Central,2021,Project,Project,8,JMC Steel Group HQ,JMC Steel Group HQ,False,False,Completed,0,0,3301312,0,0,0
+T-147,LaSalle Central,2021,Project,Project,5,Lyric Opera Building,Lyric Opera Building,False,False,Completed,0,0,990188,0,454478,0
+T-147,LaSalle Central,2021,Project,Project,4,MillerCoors,MillerCoors - 250 S. Wacker,False,False,Completed,0,0,21500000,0,5775000,0
+T-147,LaSalle Central,2021,Project,Project,3,NAVTEQ,NAVTEQ,False,False,Completed,0,0,23583483,0,5000000,0
+T-147,LaSalle Central,2021,Project,Project,10,Presence Care Transformation Corp,Presence Care Transformation Corp,False,False,Completed,0,0,0,0,0,0
+T-147,LaSalle Central,2021,Project,Project,7,Riverside Park - II,Riverside Park - II,False,False,Active Project,4075700,4040675,0,11765398,9774360,29500000
+T-147,LaSalle Central,2021,Project,Project,2,UAL - HQ,United Airlines Inc.,False,False,Completed,0,0,45896881,0,31663800,0
+T-147,LaSalle Central,2021,Project,Project,1,Ziegler HQ,Ziegler,False,False,Completed,0,0,5847280,0,724800,0
+T-149,Stevenson Brighton,2021,IGA,CBE,1,IGA - CBE - Brighton Park - ES,IGA - CBE - Brighton Park - ES,False,False,Active Project,6298043,0,0,0,5661826,25420000
+T-149,Stevenson Brighton,2021,IGA,CPD,2,IGA - CPD - HQ Property Acquisition,IGA - CPD - HQ Property Acquisition,False,False,Active Project,0,0,0,0,5000000,5000000
+T-149,Stevenson Brighton,2021,Project,Project,1,Pulaski Promenade,Pulaski Promenade,False,False,Active Project,936891,913001,0,24010768,3787040,7935395
+T-150,Addison South,2021,Project,Project,4,Coyote Logistics,Coyote Logistics,False,False,Active Project,224637,212274,0,4649745,2355515,2567789
+T-150,Addison South,2021,Project,Project,2,Green Exchange,Green Exchange (Cooper Lamp Building),False,False,Completed,0,0,46644323,0,12642730,0
+T-150,Addison South,2021,Program,NIF,3,NIF - Addison South,NIF - Addison South,False,False,Active Project,0,0,0,500000,181503,250000
+T-150,Addison South,2021,Program,SBIF,1,SBIF - Addison South,SBIF - Addison South,False,False,Active Project,105835,0,0,2000000,948678,1000000
+T-150,Addison South,2021,Program,TIFWorks,5,TIFWorks - Addison South,TIFWorks - Addison South,False,False,Active Project,4,0,0,0,45220,20000
+T-151,Armitage/Pulaski,2021,Program,SBIF,1,SBIF - Armitage Pulaski,SBIF - Armitage Pulaski,False,False,Active Project,189051,214000,0,2000000,984659,1000000
+T-152,Little Village Industrial Corridor,2021,Program,SBIF,1,SBIF - Little Village Industrial,SBIF - Little Village Industrial,False,False,Active Project,0,0,0,2000000,665241,1000000
+T-152,Little Village Industrial Corridor,2021,Program,TIFWorks,2,TIFWorks- Little Village,TIFWorks- Little Village,False,False,Active Project,0,0,0,0,48760,48760
+T-153,Elston/Armstrong Industrial Corridor,2021,Program,SBIF,1,SBIF - Elston Armstrong,SBIF - Elston Armstrong,False,False,Active Project,208367,0,0,1500000,1184863,750000
+T-155,79th/Vincennes,2021,Program,SBIF,1,SBIF - 79th Vincennes,SBIF - 79th Vincennes,False,False,Active Project,0,283000,0,1000000,0,500000
+T-155,79th/Vincennes,2021,Program,Vacant Lots,1,Vacant Bldg Purch Rehab SF Prog -79th Vincennes,Vacant Bldg Purch Rehab SF Prog -79th Vincennes,False,False,Active Project,0,0,0,500000,0,500000
+T-156,Austin Commercial,2021,Program,NIF,2,NIF - Austin Commercial,NIF - Austin Commercial,False,False,Active Project,0,0,0,1000000,362825,500000
+T-156,Austin Commercial,2021,Program,Retail Thrive,3,Retail Thrive - Austin Commercial,Retail Thrive - Austin Commercial,False,False,Active Project,282452,125000,0,2500000,625027,1250000
+T-156,Austin Commercial,2021,Program,SBIF,1,SBIF - Austin Commercial,SBIF - Austin Commercial,False,False,Active Project,387049,470000,0,3500000,1396142,1750000
+T-157,Hollywood/Sheridan,2021,Project,Project,1,Hollywood House Apts,Hollywood House,False,False,Active Project,575824,575824,0,23042434,9470329,9900000
+T-157,Hollywood/Sheridan,2021,IGA,CPD,1,IGA - CPD - Park 0385 - Buttercup,IGA - CPD - Park 0385 - Buttercup,False,False,Completed,0,0,0,0,978268,0
+T-157,Hollywood/Sheridan,2021,IGA,CTA,3,IGA - CTA - RPM Phase 1,IGA - CTA - RPM Phase 1,False,False,Active Project,0,0,0,0,0,0
+T-157,Hollywood/Sheridan,2021,IGA,PBC,2,IGA - PBC - Edgewater Branch Library,IGA - PBC - Edgewater Branch Library,False,False,Active Project,0,0,0,0,0,0
+T-157,Hollywood/Sheridan,2021,Program,SBIF,2,SBIF - Hollywood Sheridan,SBIF - Hollywood Sheridan,False,False,Active Project,0,0,0,3300000,1599878,1650000
+T-160,Kennedy/Kimball,2021,Program,SBIF,1,SBIF - Kennedy Kimball,SBIF - Kennedy Kimball,False,False,Active Project,0,0,0,1000000,196709,500000
+T-161,Ogden/Pulaski,2021,Project,Project,4,"Montclare Senior Residences SLF of Lawndale, LLC","Montclare Senior Residences SLF of Lawndale, LLC",False,False,Completed,0,0,25707015,0,2000000,0
+T-161,Ogden/Pulaski,2021,Program,NIF,2,NIF - Ogden Pulaski,NIF - Ogden Pulaski,False,False,Active Project,0,0,0,2000000,963315,1000000
+T-161,Ogden/Pulaski,2021,Program,SBIF,1,SBIF - Ogden Pulaski,SBIF - Ogden Pulaski,False,False,Active Project,39851,120000,0,2000000,580798,1000000
+T-161,Ogden/Pulaski,2021,Program,Vacant Lots,3,Vacant Bldg Purch Rehab MF Prog - Ogden Pulaski,Vacant Bldg Purch Rehab MF Prog - Ogden Pulaski,False,False,Completed,0,0,1000000,0,1000000,0
+T-163,Archer/Western,2021,IGA,CPD,3,IGA - CPD McGuane Park,IGA - CPD McGuane Park,False,False,Active Project,1621042,846160,0,0,4923840,5770000
+T-163,Archer/Western,2021,IGA,CPD,1,IGA - CPD McGuane Park,IGA - CPD McGuane Park,False,False,Active Project,0,0,0,0,0,0
+T-163,Archer/Western,2021,IGA,CPD,2,IGA - CPD McKinley Park,IGA - CPD McKinley Park,False,False,Active Project,0,0,0,0,0,0
+T-163,Archer/Western,2021,Program,SBIF,1,SBIF - Archer Western,SBIF - Archer Western,False,False,Active Project,0,425000,0,600000,299776,300000
+T-166,North Pullman,2021,Project,Project,5,Gotham Greens Chicago Neighborhood Init,Gotham Greens Chicago Neighborhood Init,False,False,Active Project,312204,315879,0,1430000,676487,2800000
+T-166,North Pullman,2021,IGA,CPD,1,IGA - CPD Gately Park,IGA - CPD Gately Park,False,False,Active Project,2000000,8000000,0,0,0,0
+T-166,North Pullman,2021,Project,Project,3,Method Pullman Factory,Method Pullman Factory,False,False,Completed,0,0,3540068,0,8100000,0
+T-166,North Pullman,2021,Program,NIF,1,NIF - North Pullman,NIF - North Pullman,False,False,Active Project,0,0,0,1000000,436373,500000
+T-166,North Pullman,2021,Project,Project,2,Pullman Park,Pullman Park,False,False,Active Project,754832,535956,0,34824097,10560518,11003525
+T-166,North Pullman,2021,Project,Project,4,Whole Foods Warehouse / Distribution Center,Whole Foods Warehouse / Distribution Center,False,False,Active Project,759053,763074,0,0,3692954,8400000
+T-167,Avondale,2021,Program,SBIF,1,SBIF - Avondale,SBIF - Avondale,False,False,Active Project,0,280000,0,2000000,894346,1000000
+T-169,Ewing Avenue,2021,IGA,CBE,2,IGA - CBE - Addams Elementary School,IGA - CBE - Addams Elementary School,False,False,Active Project,0,0,0,0,1043274,0
+T-169,Ewing Avenue,2021,IGA,CBE,1,IGA - CBE - Gallistel,IGA - CBE - Gallistel,False,False,Active Project,0,0,0,0,2031117,0
+T-169,Ewing Avenue,2021,Program,SBIF,1,SBIF - Ewing Ave,SBIF - Ewing Avenue,False,False,Active Project,0,0,0,600000,282361,300000
+T-171,West Woodlawn,2021,Program,NIF,1,NIF - West Woodlawn,NIF - West Woodlawn,False,False,Active Project,0,0,0,2000000,980382,1000000
+T-171,West Woodlawn,2021,Program,SBIF,2,SBIF - West Woodlawn,SBIF - West Woodlawn,False,False,Active Project,0,0,0,1000000,440836,500000
+T-172,Randolph/Wells,2021,Project,Project,1,Randolph Tower - II,Randolph Tower - II 188 West Randolph,False,False,Completed,0,0,111059588,0,35917379,0
+T-173,Montrose/Clarendon,2021,Project,Project,1,Montrose Clarendon Apts,Montrose Clarendon Apts,False,False,Active Project,0,250000,0,109164198,0,11280000
+T-173,Montrose/Clarendon,2021,Project,Project,1,Montrose Clarendon Park,Montrose Clarendon Park,False,False,Active Project,0,250000,0,0,0,4600000
+T-174,67th/Wentworth,2021,Program,Retail Thrive,1,Retail Thrive - 67th Wentworth,Retail Thrive - 67th Wentworth,False,False,Active Project,0,0,0,1250000,84635,625000
+T-175,51st/Lake Park,2021,Project,Project,1,City Hyde Park,1525 HP,False,False,Active Project,1207171,1231314,0,113445664,3715405,11321242
+T-176,107th/Halsted,2021,Program,Retail Thrive,1,Retail Thrive - 107th/Halsted,Retail Thrive - 107th/Halsted,False,False,Active Project,0,644000,0,2000000,26343,1000000
+T-177,Foster/California,2021,IGA,CBE,1,IGA - CBE - Budlong,IGA - CBE - Budlong,False,False,Active Project,0,0,0,0,2144830,0
+T-177,Foster/California,2021,Project,Project,1,Swedish Covenant Hospital,Swedish Covenant Hospital,False,False,Completed,0,0,18397806,0,4600000,0
+T-178,Washington Park,2021,Project,Project,1,Kleo Community Life Center,Life Center Artist Residences,False,False,Active Project,0,0,0,16973280,6350000,0
+T-178,Washington Park,2021,Program,SBIF,2,SBIF - Washington Park,SBIF - Washington Park,False,False,Active Project,0,0,0,600000,107234,300000
+T-180,Red Purple Modernization Phase One (Transit TIF),2021,IGA,CTA,1,IGA - CTA - RPM Phase 1,IGA - CTA - RPM Phase 1,False,False,Active Project,54505640,60000000,0,0,164674903,622000000
+T-181,Foster/Edens,2021,Project,Project,1,Foster Edens Collection,Foster Edens Collection,False,False,Active Project,0,0,0,48176207,0,10500000
+T-182,116th/Avenue O,2021,Project,Project,1,North Point,North Point,False,False,Active Project,4512000,5088000,0,112459067,4512000,52000000
+T-183,Cortland/Chicago River,2021,Project,Project,1,Lincoln Yards,Lincoln Yards,False,False,Active Project,0,0,0,533715000,0,487830000
+T-184,Roosevelt/Clark,2021,Project,Project,1,78,78,False,False,Active Project,0,0,0,561300000,0,551200000
+T-001,35th/Halsted,2020,Project,Project,2,Acre,ACRE Mixed-Use Development,False,False,Active Project,285414,297381,0,18093600,2496213,2593000
+T-001,35th/Halsted,2020,IGA,CBE,3,IGA - CBE - Armour Elementary,IGA - CBE - Armour Elementary,False,False,Active Project,0,0,0,0,0,0
+T-001,35th/Halsted,2020,IGA,CPD,2,IGA - CPD - Wilson Park,IGA - CPD - Wilson Park,False,False,Active Project,0,0,0,0,323398,0
+T-001,35th/Halsted,2020,IGA,PBC,1,IGA - PBC - Ramova Theater,IGA - PBC - Ramova Theater,False,False,Active Project,0,0,0,0,0,0
+T-001,35th/Halsted,2020,Project,Project,1,Miracle - Pepsi,"Miracle, LLC",False,False,Completed Project,0,0,17050000,0,2970972,0
+T-001,35th/Halsted,2020,Program,SBIF,3,SBIF - 35th Halsted,SBIF - 35th Halsted,False,False,Active Project,107250,698301,0,5500000,2250181,2750000
+T-001,35th/Halsted,2020,Program,TIFWorks,4,TIFWorks - 35th Halsted,TIFWorks - 35th Halsted,False,False,Active Project,0,48760,0,0,557801,882628
+T-001,35th/Halsted,2020,Project,Project,5,Vienna Beef,Vienna Beef,False,False,Completed Project,0,0,8788376,0,4970000,0
+T-004,49th/St. Lawrence,2020,Project,Project,2,Cornerstone Apartments,Cornerstone Apartments,False,False,Completed Project,0,0,13507638,0,2000000,0
+T-004,49th/St. Lawrence,2020,Project,Project,1,Willard Square,Willard Square Ltd.,False,False,Completed Project,156893,0,7930874,0,5967069,0
+T-005,60th/Western,2020,Project,Project,1,Kmart,Kmart Corporation,False,False,Completed Project,0,0,18030000,0,3700000,0
+T-005,60th/Western,2020,Program,TIFWorks,2,TIFWorks - 60th Western,TIFWorks - 60th Western,False,False,Completed Project,0,0,277,0,139,0
+T-009,95th/Western,2020,Project,Project,1,Borders - 95th Western,DB Beverly L.L.C.,False,False,Completed Project,0,0,4322000,0,1524472,0
+T-009,95th/Western,2020,Program,SBIF,2,SBIF - 95th Western,SBIF - 95th Western,False,False,Active Project,0,0,0,1500000,3266,750000
+T-013,Bryn Mawr/Broadway,2020,Project,Project,1,Bryn Mawr-Belle Shore,Bryn Mawr-Belle Shore Ltd.,False,False,Completed Project,0,0,7200000,0,6547727,0
+T-013,Bryn Mawr/Broadway,2020,Project,Project,2,Good Taste Bakery,Good Taste Bakery,False,False,Completed Project,0,0,676123,0,225250,0
+T-013,Bryn Mawr/Broadway,2020,Project,Project,6,Holsten Development,Holsten Development,False,False,Completed Project,0,0,0,0,216182,0
+T-013,Bryn Mawr/Broadway,2020,IGA,CPD,1,IGA - CPD - Park 0435 - Broman Park,IGA - CPD - Park 0435 - Bromann Park,False,False,Completed Project,0,0,0,0,350000,0
+T-013,Bryn Mawr/Broadway,2020,IGA,CTA,2,IGA - CTA - Bryn Mawr Station,CTA - Bryn Mawr Station,False,False,Active Project,0,0,0,0,10000000,10000000
+T-013,Bryn Mawr/Broadway,2020,IGA,CTA,,IGA - CTA - RPM Phase 1,IGA - CTA - RPM Phase 1,False,False,Active Project,25592920,0,0,0,0,0
+T-013,Bryn Mawr/Broadway,2020,Project,Project,4,Nookies Restaurant,Nookies/Bryn Mawr Real Estate LLC,False,False,Completed Project,0,0,3132169,0,0,0
+T-013,Bryn Mawr/Broadway,2020,Program,SBIF,3,SBIF - Bryn Mawr Broadway,SBIF - Bryn Mawr Broadway,False,False,Active Project,11261,198420,0,3500000,1266080,1750000
+T-013,Bryn Mawr/Broadway,2020,Program,TIFWorks,5,TIFWorks - Bryn Mawr Broadway,TIFWorks - Bryn Mawr Broadway,False,False,Active Project,0,0,0,0,112653,175000
+T-021,Englewood Mall,2020,Project,Project,1,Englewood Apts,Englewood SRO,False,False,Completed Project,0,0,14672386,0,2000000,0
+T-021,Englewood Mall,2020,Program,Retail Thrive,3,Retail Thrive - Englewood Mall,Retail Thrive - Englewood Mall,False,False,Active Project,0,0,0,1000000,0,500000
+T-021,Englewood Mall,2020,Program,TIFWorks,2,TIFWorks - Englewood Mall,TIFWorks - Englewood Mall,False,False,Active Project,0,0,0,0,0,75000
+T-023,Goose Island,2020,Project,Project,2,Gooseland Venture,Gooseland Venture LLC,False,False,Completed Project,0,0,13715707,0,1212753,0
+T-023,Goose Island,2020,Project,Project,3,Republic Windows,Republic Windows and Doors,False,False,Completed Project,0,0,27855715,0,10433394,0
+T-023,Goose Island,2020,Project,Project,4,Sara Lee - Riverworks,River Works LLC,False,False,Completed Project,0,0,33300000,0,1220023,0
+T-023,Goose Island,2020,Program,SBIF,5,SBIF - Goose Island,SBIF - Goose Island,False,False,Active Project,0,0,0,3000000,93000,1500000
+T-023,Goose Island,2020,Program,TIFWorks,7,TIFWorks - Goose Island,TIFWorks - Goose Island,False,False,Active Project,0,0,0,0,34385,100000
+T-023,Goose Island,2020,Project,Project,8,UI LABS,UI LABS,False,False,Completed Project,0,0,6500000,0,10000000,0
+T-023,Goose Island,2020,Project,Project,6,WaterSaver Faucet - Phase I,WaterSaver Faucet - Phase I,False,False,Active Project,0,126336,0,14083750,618186,750000
+T-023,Goose Island,2020,Project,Project,1,Wrigley Innovation Center,Wm. Wrigley Jr. Company,False,False,Completed Project,0,0,69330000,0,8326703,0
+T-024,Homan/Arthington,2020,Project,Project,3,Homan Square Phase VI,Homan Square Phase VI,False,False,Completed Project,0,0,9884156,0,3062798,0
+T-024,Homan/Arthington,2020,Program,TIFWorks,1,TIFWorks - Homan Arthington,TIFWorks - Homan Arthington,False,False,Active Project,28251,0,0,0,771879,892609
+T-024,Homan/Arthington,2020,Project,Project,2,UCAN,UCAN,False,False,Active Project,500000,0,0,36586515,2500000,0
+T-027,Irving/Cicero,2020,Project,Project,1,Klee Bldg,Klee Building,False,False,Completed Project,201089,0,17076699,0,1550632,0
+T-027,Irving/Cicero,2020,Program,SBIF,2,SBIF - Irving Cicero,SBIF - Irving Cicero,False,False,Completed Project,0,0,794028,0,397014,0
+T-029,Michigan/Cermak,2020,Program,SBIF,1,SBIF - Michigan Cermak,SBIF - Michigan Cermak,False,False,Active Project,0,107250,0,1000000,367636,500000
+T-029,Michigan/Cermak,2020,Program,TIFWorks,2,TIFWorks - Michigan Cermak,TIFWorks - Michigan Cermak,False,False,Active Project,0,0,0,0,421,154280
+T-030,Near North,2020,Project,Project,11,ClyDiv,ClyDiv,False,False,Completed Project,0,0,31062810,0,8018612,0
+T-030,Near North,2020,IGA,CBE,6,IGA - CBE - ADA - Manierre,IGA - CBE - ADA - Manierre,False,False,Active Project,0,0,0,0,0,750000
+T-030,Near North,2020,IGA,CBE,5,IGA - CBE - ADA - Schiller,IGA - CBE - ADA - Schiller,False,False,Active Project,0,0,0,0,0,1500000
+T-030,Near North,2020,IGA,CBE,7,IGA - CBE - Franklin,IGA - CBE - Franklin,False,False,Active Project,0,0,0,0,189504,0
+T-030,Near North,2020,IGA,CBE,3,IGA - CBE - Payton HS ADA,IGA - CBE - Payton HS ADA,False,False,Active Project,0,0,0,0,13849001,11125000
+T-030,Near North,2020,IGA,CPD,1,IGA - CPD - Park ____ - Jesse White,IGA - CPD - Park ____ - Jesse White,False,False,Completed Project,0,0,0,0,5000000,0
+T-030,Near North,2020,IGA,CPD,2,IGA - CPD - Park ____ - Jesse White - II,IGA - CPD - Park ____ - Jesse White - II,False,False,Completed Project,0,0,0,0,5000000,0
+T-030,Near North,2020,IGA,CPD,4,IGA - CPD - Park ____ - W Chicago Ave Fieldhouse,IGA - CPD - Park ____ - W Chicago Ave Fieldhouse,False,False,Active Project,0,0,0,5000000,0,0
+T-030,Near North,2020,IGA,CPD,5,IGA- CPD- Seward Park,IGA- CPD- Seward Park,False,False,Active Project,197298,0,0,0,0,0
+T-030,Near North,2020,IGA,CPD,8,IGA - CPD Stanton Park,IGA - CPD Stanton Park,False,False,Completed Project,0,0,0,0,1665371,0
+T-030,Near North,2020,Project,Project,4,Lakefront SRO - Clybourn,Lakefront Supportive Housing,False,False,Completed Project,0,0,13188021,0,1000000,0
+T-030,Near North,2020,IGA,CBE,12,Near North High School-CHA-IGA,Near North High School-CHA-IGA,False,False,Active Project,1926853,2073147,0,0,1926853,4000000
+T-030,Near North,2020,Project,Project,1,North Town Village,North Town Village LLC,False,False,Completed Project,0,0,46400000,0,5102178,0
+T-030,Near North,2020,Project,Project,12,Parkside Four Phase II Rental Project,Parkside Four Phase II Rental Project,False,False,Active Project,0,0,0,34033133,0,9500000
+T-030,Near North,2020,Project,Project,5,Parkside I,Parkside of Old Town­ CHA Transformation,False,False,Completed Project,0,0,96244234,0,8815191,0
+T-030,Near North,2020,Project,Project,10,Parkside IIB Rental Project,Parkside IIB Rental Project,False,False,Completed Project,0,0,31351529,0,9642808,0
+T-030,Near North,2020,Project,Project,8,Parkside Old Town II,Parkside Old Town - Cabrini Phase II,False,False,Active Project,855195,864243,0,33505231,7331867,8216100
+T-030,Near North,2020,Project,Project,7,River Village - Site G - Pointe,River Village - Site G - Pointe,False,False,Completed Project,0,0,25504028,0,5697494,0
+T-030,Near North,2020,Project,Project,2,River Village - Site H1,River Village Townhomes & Lofts (Site H),False,False,Completed Project,0,0,3051024,0,1395311,0
+T-030,Near North,2020,Project,Project,3,River Village - Site I,River Village - Site I,False,False,Completed Project,0,0,2958227,0,3484024,0
+T-030,Near North,2020,Program,SBIF,6,SBIF - Near North,SBIF - Near North,False,False,Active Project,0,0,0,3000000,742412,1500000
+T-030,Near North,2020,Program,TIFWorks,9,TIFWorks - Near North,TIFWorks - Near North,False,False,Active Project,0,0,0,0,0,125000
+T-033,North Branch North,2020,Program,SBIF,1,SBIF - North Branch North,SBIF - North Branch North,False,False,Active Project,0,0,0,1000000,27682,500000
+T-033,North Branch North,2020,Program,TIFWorks,2,TIFWorks - North Branch North,TIFWorks - North Branch North,False,False,Active Project,0,0,0,0,702507,721000
+T-034,North Branch South,2020,Program,SBIF,1,SBIF - North Branch South,SBIF - North Branch South,False,False,Active Project,0,0,0,3000000,1282840,1500000
+T-034,North Branch South,2020,Program,TIFWorks,2,TIFWorks - North Branch South,TIFWorks - North Branch South,False,False,Active Project,38209,48760,0,0,295216,321000
+T-035,North/Cicero,2020,Project,Project,1,North Cicero,North & Cicero Development LLC,False,False,Completed Project,0,0,15552467,0,4926083,0
+T-035,North/Cicero,2020,Program,SBIF,2,SBIF - North Cicero,SBIF - North Cicero,False,False,Active Project,0,0,0,1000000,162200,500000
+T-035,North/Cicero,2020,Program,TIFWorks,3,TIFWorks - North Cicero,TIFWorks - North Cicero,False,False,Active Project,0,0,0,0,4064,150000
+T-037,River South,2020,IGA,CBE,3,IGA - CBE - (New South Loop),IGA - CBE - New South Loop Elem,False,False,Active Project,0,0,0,0,9136000,0
+T-037,River South,2020,IGA,CBE,4,IGA - CBE - (New South Loop) Construction,IGA - CBE - New South Loop Elem Construction,False,False,Active Project,0,0,0,0,44200000,0
+T-037,River South,2020,IGA,CPD,1,IGA - CPD - Park 0481 - Ping Tom - II,IGA - CPD - Park 0481 - Ping Tom,False,False,Completed Project,0,0,0,0,15000000,0
+T-037,River South,2020,IGA,CTA,2,IGA - CTA - 18th St. Connector,IGA - CTA - 18th St. Connector,False,False,Active Project,0,0,0,0,0,0
+T-037,River South,2020,Project,Project,1,LaSalle Park - Clark Taylor,"Clark / Taylor, LLC",False,False,Completed Project,0,0,0,0,2529901,0
+T-037,River South,2020,Program,TIFWorks,2,TIFWorks - River South,TIFWorks - River South,False,False,Active Project,0,0,0,0,63503,175000
+T-038,Roosevelt/Cicero Industrial Corridor,2020,Program,Industrial Growth Zone,3,Industrial Growth Zone- Roosevelt/Cicero,Industrial Growth Zone- Roosevelt/Cicero,False,False,Active Project,0,0,0,0,13945,5000000
+T-038,Roosevelt/Cicero Industrial Corridor,2020,Program,SBIF,1,SBIF - Roosevelt Cicero,SBIF - Roosevelt Cicero,False,False,Active Project,0,0,0,3000000,1076680,1500000
+T-038,Roosevelt/Cicero Industrial Corridor,2020,Program,TIFWorks,2,TIFWorks - Roosevelt Cicero,TIFWorks - Roosevelt Cicero,False,False,Active Project,0,0,0,0,1125811,1200000
+T-042,Sanitary and Ship Canal,2020,Program,TIFWorks,1,TIFWorks - Sanitary Ship Canal,TIFWorks - Sanitary Ship Canal,False,False,Active Project,0,48760,0,0,101063,300000
+T-043,Stockyards Annex,2020,Project,Project,4,815 W Pershing Warehouse,815 W Pershing Warehouse,False,False,Completed Project,0,0,9014734,0,917000,0
+T-043,Stockyards Annex,2020,Project,Project,2,Experimur,Experimur,False,False,Completed Project,0,0,13411319,0,6500000,0
+T-043,Stockyards Annex,2020,IGA,PBC,1,IGA - PBC - Stockyards Bank,IGA - PBC - Stockyards Bank,False,False,Active Project,0,0,0,0,0,0
+T-043,Stockyards Annex,2020,Program,SBIF,1,SBIF - Stockyards Annex,SBIF - Stockyards Annex,False,False,Completed Project,72394,0,1801045,0,900522,0
+T-043,Stockyards Annex,2020,Program,TIFWorks,3,TIFWorks - Stockyards Annex,TIFWorks - Stockyards Annex,False,False,Completed Project,0,0,0,0,99350,0
+T-045,Stockyards Southeast Quadrant Industrial,2020,Program,SBIF,2,SBIF - Stockyards Southeast Quadrant,SBIF - Stockyards Southeast Quadrant,False,False,Active Project,129262,0,0,1000000,129262,500000
+T-048,Western/Ogden,2020,Project,Project,6,Casa Queretaro Rental Project,Casa Queretaro Rental Project,False,False,Completed Project,0,0,11087102,0,4372080,0
+T-048,Western/Ogden,2020,Project,Project,1,CCIL,Chicago Christian Industrial League/ Building Solutions,False,False,Completed Project,0,0,14400000,0,11153992,0
+T-048,Western/Ogden,2020,IGA,CBE,1,IGA - CBE - Orozco - MS,IGA - CBE - Orozco Middle School,False,False,Active Project,0,0,0,231148,750000,250000
+T-048,Western/Ogden,2020,IGA,CPD,3,IGA - CPD - Park Livingston Field,IGA - CPD - Park Livingston Field,False,False,Active Project,0,0,0,0,2124810,0
+T-048,Western/Ogden,2020,IGA,PBC,2,IGA - PBC - Children's Advocacy Center,IGA - PBC - Children's Advocacy Center,False,False,Active Project,0,0,0,0,0,0
+T-048,Western/Ogden,2020,Project,Project,2,New Homes Chicago - Resurrection,New Homes Chicago - Resurrection,False,False,Completed Project,0,0,0,0,350000,0
+T-048,Western/Ogden,2020,Project,Project,5,Red Cross Facility,Red Cross Facility,False,False,Completed Project,0,0,1782697,0,500000,0
+T-048,Western/Ogden,2020,Program,SBIF,3,SBIF - Western Ogden,SBIF - Western Ogden,False,False,Active Project,0,482625,0,4000000,659859,2000000
+T-048,Western/Ogden,2020,Program,TIFWorks,4,TIFWorks - Western Ogden Industr Corridor,TIFWorks - Western Ogden Industr Corridor,False,False,Active Project,167149,132004,0,0,1079295,1352389
+T-052,Kinzie Industrial Corridor,2020,Project,Project,8,CB2,CB2 Relocation,False,False,Active Project,198292,201767,0,12826000,1667641,3400000
+T-052,Kinzie Industrial Corridor,2020,Project,Project,5,City Escape Garden,City Escape Garden,False,False,Completed Project,0,0,2275000,0,425000,0
+T-052,Kinzie Industrial Corridor,2020,Project,Project,6,Coyne Institute,Coyne American Institute,False,False,Completed Project,0,0,12626113,0,3800357,0
+T-052,Kinzie Industrial Corridor,2020,Project,Project,7,Greater West Town Center,Greater West Town Training Econ Dev Center,False,False,Completed Project,0,0,7132111,0,3434939,0
+T-052,Kinzie Industrial Corridor,2020,Project,Project,4,Green Works,Greenworks,False,False,Completed Project,0,0,6129652,0,5238679,0
+T-052,Kinzie Industrial Corridor,2020,Project,Project,1,HWUC - Erie Co-Op,"HWUC - Erie Cooperative, Limited Partnership",False,False,Active Project,37344,37344,0,16624718,647618,1000000
+T-052,Kinzie Industrial Corridor,2020,IGA,CBE,3,IGA - CBE - ADA - Beidler,IGA - CBE - ADA - Beidler,False,False,Active Project,0,0,0,0,0,750000
+T-052,Kinzie Industrial Corridor,2020,IGA,CBE,2,IGA - CBE - ADA - Morton,IGA - CBE - ADA - Morton,False,False,Active Project,0,0,0,0,0,750000
+T-052,Kinzie Industrial Corridor,2020,IGA,CBE,1,IGA - CBE - Beidler School Park,IGA - CBE - Beidler School Park,False,False,Active Project,0,0,0,0,0,1000000
+T-052,Kinzie Industrial Corridor,2020,IGA,CBE,5,IGA - CBE - Cather Elementary Space to Grow,IGA - CBE - Cather Elementary Space to Grow,False,False,Active Project,0,0,0,0,500000,0
+T-052,Kinzie Industrial Corridor,2020,IGA,CPD,4,IGA - CPD - Park 1015 - Smith Park,IGA - CPD - Park 1015 - Smith Park,False,False,Completed Project,0,0,0,0,924000,0
+T-052,Kinzie Industrial Corridor,2020,IGA,PBC,6,IGA - PBC- DSS Salt Pile,IGA - PBC- DSS Salt Pile,False,False,Active Project,2475551,0,0,0,0,0
+T-052,Kinzie Industrial Corridor,2020,Project,Project,2,Nanoink,"Nanolnk, Inc.",False,False,Completed Project,0,0,4940753,0,0,0
+T-052,Kinzie Industrial Corridor,2020,Project,Project,10,NMA,Nelson Mandela Apartments,False,False,Completed Project,0,0,14181689,0,3594476,0
+T-052,Kinzie Industrial Corridor,2020,Program,SBIF,3,SBIF - Kinzie,SBIF - Kinzie Industrial,False,False,Active Project,919170,520447,0,20000000,9317161,10000000
+T-052,Kinzie Industrial Corridor,2020,Project,Project,11,The Hatchery,The Hatchery,False,False,Active Project,0,0,0,26888053,7161975,7172228
+T-052,Kinzie Industrial Corridor,2020,Program,TIFWorks,9,TIFWorks - Kinzie Industr Corridor,TIFWorks - Kinzie Industr Corridor,False,False,Active Project,167507,1113994,0,0,7316753,5923419
+T-053,Pilsen Industrial Corridor,2020,IGA,CBE,1,IGA - CBE - Juarez Community Academy,IGA - CBE - Juarez Community Academy,False,False,Active Project,0,0,0,23500000,12795000,15500000
+T-053,Pilsen Industrial Corridor,2020,IGA,CBE,4,IGA - CBE - Perez School,IGA - CBE - Perez School,False,False,Active Project,0,0,0,0,698894,0
+T-053,Pilsen Industrial Corridor,2020,IGA,CBE,2,IGA - CBE - Whittier School,IGA - CBE - Whittier School,False,False,Active Project,0,0,0,0,0,0
+T-053,Pilsen Industrial Corridor,2020,IGA,CPD,3,IGA - CPD Dvorak Park,IGA - CPD Dvorak Park,False,False,Active Project,0,0,0,0,442961,0
+T-053,Pilsen Industrial Corridor,2020,Project,Project,1,International Produce Market,Center Point Realty; Services Corporation; Chicago International; and Produce Market LLC,False,False,Completed Project,0,0,37639816,0,11125031,0
+T-053,Pilsen Industrial Corridor,2020,Project,Project,4,New Homes Chicago - Resurrection,New Homes Chicago - Resurrection,False,False,Completed Project,0,0,0,0,0,0
+T-053,Pilsen Industrial Corridor,2020,Program,SBIF,3,SBIF - Pilsen,SBIF - Pilsen,False,False,Active Project,237814,107250,0,5000000,1707587,2500000
+T-053,Pilsen Industrial Corridor,2020,Project,Project,2,Target - 33rd Damen,Target Store,False,False,Active Project,523622,532703,0,27454095,5827908,5300000
+T-053,Pilsen Industrial Corridor,2020,Program,TIFWorks,6,TIFWorks - Pilsen,TIFWorks - Pilsen,False,False,Active Project,0,48760,0,0,1673801,1604190
+T-054,Stony Island Commercial/Burnside Industrial,2020,Project,Project,8,Chicago Family Health Center,Chicago Family Health Center,False,False,Active Project,0,0,0,1116362,500000,500000
+T-054,Stony Island Commercial/Burnside Industrial,2020,Project,Project,5,Finkl Steel,A. Finkl & Sons Co.,False,False,Active Project,280886,534052,0,139249110,2147283,22500000
+T-054,Stony Island Commercial/Burnside Industrial,2020,Project,Project,1,Greenwood Assoc,Greenwood Associates LP,False,False,Completed Project,0,0,12881599,0,3573945,0
+T-054,Stony Island Commercial/Burnside Industrial,2020,IGA,CPD,2,IGA - CPD - Dixon Park,IGA - CPD - Dixon Park,False,False,Active Project,0,0,0,0,93000,0
+T-054,Stony Island Commercial/Burnside Industrial,2020,IGA,CPD,1,IGA - CPD - Park 0237 - Jesse Owens,IGA - CPD - Park 0237 - Jesse Owens,False,False,Active Project,0,0,0,6950000,0,1650000
+T-054,Stony Island Commercial/Burnside Industrial,2020,Project,Project,7,Imani Village Advocate Medical Center,Imani Village Advocate Medical Center,False,False,Active Project,981022,0,0,6663000,981022,981022
+T-054,Stony Island Commercial/Burnside Industrial,2020,Program,Industrial Growth Zone,6,Industrial Growth Zone- Stony Island/Burnside,Industrial Growth Zone- Stony Island/Burnside,False,False,Active Project,0,0,0,0,42185,1000000
+T-054,Stony Island Commercial/Burnside Industrial,2020,Project,Project,3,Midway Broadcasting - WVON,WVON Radio,False,False,Completed Project,0,0,3277615,0,1000000,0
+T-054,Stony Island Commercial/Burnside Industrial,2020,Project,Project,9,Montclare Senior Residences of Calumet Heights,Montclare Senior Residences of Calumet Heights,False,False,Active Project,600000,600000,0,38347185,600000,3000000
+T-054,Stony Island Commercial/Burnside Industrial,2020,Program,SBIF,2,SBIF - Stony Island Burnside,SBIF - Stony Island Burnside,False,False,Active Project,124371,145600,0,3000000,1500756,1500000
+T-054,Stony Island Commercial/Burnside Industrial,2020,Program,TIFWorks,4,TIFWorks - Stony Island Burnside,TIFWorks - Stony Island Burnside,False,False,Active Project,136770,250000,0,0,1315411,420000
+T-055,43rd/Cottage Grove,2020,Project,Project,8,"45th/Cottage, LLC","45th/Cottage, LLC",False,False,Active Project,4800000,0,0,36999024,7200000,0
+T-055,43rd/Cottage Grove,2020,Project,Project,1,Hearts Multi-Family 1,Hearts United,False,False,Active Project,0,0,0,11787784,1851044,4112216
+T-055,43rd/Cottage Grove,2020,Project,Project,2,Hearts Multi-Family 2,"Hearts United Phase II, L.P.Hearts Multi-Family II",False,False,Active Project,0,267675,0,14162026,1340627,3400000
+T-055,43rd/Cottage Grove,2020,Project,Project,3,Hearts Multi-Family 3,"Hearts United Phase III, L.P.",False,False,Active Project,0,117280,0,9514652,860957,1469000
+T-055,43rd/Cottage Grove,2020,IGA,CPD,2,IGA - CPD - Dog Park,IGA - CPD - Dog Park,False,False,Active Project,506138,0,0,0,0,0
+T-055,43rd/Cottage Grove,2020,IGA,CPD,1,IGA- CPD- Sumac Park,IGA- CPD- Sumac Park,False,False,Active Project,169709,0,0,0,169709,0
+T-055,43rd/Cottage Grove,2020,Project,Project,5,Mahogany Shops Lofts 47 - Phase I,Mahogany Shops Lofts 47 - Phase I,False,False,Active Project,1302580,1302580,0,32781627,11743661,12850000
+T-055,43rd/Cottage Grove,2020,Program,Retail Thrive,7,Retail Thrive - 43rd Cottage Grove,Retail Thrive - 43rd Cottage Grove,False,False,Active Project,21782,406199,0,1500000,21782,750000
+T-055,43rd/Cottage Grove,2020,Program,SBIF,4,SBIF - 43rd Cottage Grove,SBIF - 43rd Cottage Grove,False,False,Active Project,26813,241313,0,3000000,983347,1500000
+T-055,43rd/Cottage Grove,2020,Program,TIFWorks,6,TIFWorks - 43rd/Cottage Grove,TIFWorks - 43rd/Cottage Grove,False,False,Active Project,0,0,0,0,192800,207000
+T-056,79th Street Corridor,2020,Program,SBIF,1,SBIF - 79th St Corridor,SBIF - 79th St Corridor,False,False,Active Project,0,107250,0,2000000,516256,1000000
+T-056,79th Street Corridor,2020,Program,TIFWorks,2,TIFWorks - 79th St Corridor,TIFWorks - 79th St Corridor,False,False,Active Project,0,0,0,0,10139,175000
+T-057,Jefferson Park,2020,IGA,CPD,2,IGA - CPD - Park 0094 - Jefferson Memorial,IGA - CPD - Park 0094 - Jefferson Memorial,False,False,Completed Project,0,0,0,0,600000,0
+T-057,Jefferson Park,2020,IGA,CPD,1,IGA - CPD - Park 0145 - Wilson,IGA - CPD - Park 0145 - Wilson,False,False,Completed Project,0,0,0,0,500000,0
+T-057,Jefferson Park,2020,IGA,CTA,1,IGA- CTA- Jefferson Park Station,IGA- CTA- Jefferson Park Station,False,False,Active Project,3466780,643382,0,0,4356618,5000000
+T-057,Jefferson Park,2020,Program,SBIF,1,SBIF - Jefferson Park,SBIF - Jefferson Park,False,False,Active Project,0,119801,0,5000000,1783668,2500000
+T-057,Jefferson Park,2020,Program,TIFWorks,2,TIFWorks - Jefferson Park,TIFWorks - Jefferson Park,False,False,Active Project,0,0,0,0,0,175000
+T-058,Portage Park,2020,IGA,CBE,2,IGA - CBE - Schurz,IGA - CBE - Schurz,False,False,Active Project,0,0,0,0,4952792,0
+T-058,Portage Park,2020,IGA,CPD,1,IGA - CPD -  Park 0084 Kilbourn Park,IGA - CPD -  Park 0084 Kilbourn Park,False,False,Completed Project,0,0,0,0,50000,0
+T-058,Portage Park,2020,Project,Project,3,"Irving Park Property Holdings, LLC.","Irving Park Property Holdings, LLC.",False,False,Completed Project,0,0,0,0,0,0
+T-058,Portage Park,2020,Program,SBIF,1,SBIF - Portage Park,SBIF - Portage Park,False,False,Active Project,282396,268125,0,6320000,2754832,3160000
+T-058,Portage Park,2020,Program,TIFWorks,2,TIFWorks - Portage Park,TIFWorks - Portage Park,False,False,Active Project,0,0,0,0,452039,577389
+T-060,71st/Stony Island,2020,Project,Project,3,Jeffery Plaza,Jeffery Plaza,False,False,Active Project,2000000,2000000,0,24965615,4000000,10000000
+T-060,71st/Stony Island,2020,Project,Project,2,Montclare Sr - Avalon Park - Phase I,Montclare Senior Residence of Avalon Park - Phase I,False,False,Active Project,72353,115432,0,20227495,1676162,1850000
+T-060,71st/Stony Island,2020,Program,SBIF,3,SBIF - 71st Stony Island,SBIF - 71st Stony Island,False,False,Active Project,0,0,0,700000,0,350000
+T-060,71st/Stony Island,2020,Project,Project,1,Starbuck's - Stony Island,Starbucks (BMG Stony Island),False,False,Completed Project,0,0,1175000,0,225000,0
+T-060,71st/Stony Island,2020,Program,TIFWorks,4,TIFWorks - 71st Stony Island,TIFWorks - 71st Stony Island,False,False,Active Project,0,0,0,0,73772,75000
+T-061,Bronzeville,2020,IGA,CPD,3,IGA - CPD - Dog Park,IGA - CPD - Dog Park,False,False,Active Project,455558,0,0,0,0,0
+T-061,Bronzeville,2020,IGA,CPD,1,IGA - CPD - Park 0267 - Dunbar,IGA - CPD - Park 0267 - Dunbar,False,False,Active Project,1400000,0,0,1000000,1000000,0
+T-061,Bronzeville,2020,IGA,CPD,2,IGA- CPD- Williams Park,IGA- CPD- Williams Park,False,False,Active Project,3000000,0,0,0,0,0
+T-061,Bronzeville,2020,Program,NIF,1,NIF - Bronzeville I,NIF - Bronzeville,False,False,Active Project,0,419639,0,2000000,976668,1000000
+T-061,Bronzeville,2020,Program,NIF,5,NIF - Bronzeville II,NIF - Bronzeville II,False,False,Active Project,0,0,0,2000000,471177,1000000
+T-061,Bronzeville,2020,Project,Project,2,Pershing Courts,Pershing Court,False,False,Active Project,45209,36002,0,16077853,440286,734378
+T-061,Bronzeville,2020,Project,Project,4,Quad Communities Arts & Rec Center,Quad Communities,False,False,Completed Project,0,0,13351566,0,4300000,0
+T-061,Bronzeville,2020,Program,SBIF,4,SBIF - Bronzeville,SBIF - Bronzeville,False,False,Active Project,29933,0,0,2000000,420512,1000000
+T-061,Bronzeville,2020,Project,Project,3,S Park Plaza - Prairie Courts,South Park Plaza,False,False,Active Project,0,0,0,28676706,0,2834575
+T-061,Bronzeville,2020,Program,TIFWorks,6,TIFWorks - Bronzeville,TIFWorks - Bronzeville,False,False,Active Project,0,0,0,0,110796,175500
+T-062,Roosevelt/Racine,2020,IGA,CPD,3,IGA - CPD Addams Medill Park,IGA - CPD Addams Medill Park,False,False,Active Project,2636857,0,0,0,0,0
+T-062,Roosevelt/Racine,2020,Project,Project,1,Roosevelt Sq - ABLA - 1,"Roosevelt Square, Phase I",False,False,Active Project,976074,980000,0,75231531,11801681,11475000
+T-062,Roosevelt/Racine,2020,Project,Project,2,Taylor Street Library & Apartments,Taylor Street Library & Apartments,False,False,Active Project,1750000,0,0,34330000,7000000,0
+T-063,Canal/Congress,2020,Project,Project,4,550 W Adams - USG,USG Corporate Headquarters,False,False,Completed Project,0,0,122590000,0,14702160,0
+T-063,Canal/Congress,2020,Project,Project,3,550 W. Jackson,550 W. Jackson Building,False,False,Completed Project,0,0,71940032,0,9123990,0
+T-063,Canal/Congress,2020,Project,Project,5,Hillshire Brands (Sara Lee),Hillshire Brands (Sara Lee),False,False,Active Project,0,0,0,23642963,5750000,6500000
+T-063,Canal/Congress,2020,IGA,CPD,1,IGA - CPD - Park 0537 - Heritage Green I,IGA - CPD - Park Des Plaines Adams,False,False,Completed Project,0,0,5400000,0,0,0
+T-063,Canal/Congress,2020,Project,Project,1,Quaker Oats,Monroe/Clinton LLC,False,False,Completed Project,0,0,75111986,0,14378098,0
+T-063,Canal/Congress,2020,Program,TIFWorks,5,TIFWorks - Canal Congress,TIFWorks - Canal Congress,False,False,Active Project,0,0,0,0,22539,227389
+T-063,Canal/Congress,2020,Project,Project,2,Union Station Health Club,"US Fitness, L.L.C.",False,False,Completed Project,0,0,11600000,0,3157889,0
+T-064,Northwest Industrial Corridor,2020,Project,Project,4,Brach's - 401 N Cicero,Brachs,False,False,Completed Project,0,0,32076609,0,0,0
+T-064,Northwest Industrial Corridor,2020,Project,Project,3,Home Depot - NW Industr,"Home Depot USA, Inc - NWIC",False,False,Completed Project,0,0,16302212,0,514024,0
+T-064,Northwest Industrial Corridor,2020,IGA,CBE,1,IGA - CBE - Lloyd E.S. - Athletic Field,IGA - CBE - Lloyd E.S. - Athletic Field,False,False,Active Project,0,0,0,0,0,750000
+T-064,Northwest Industrial Corridor,2020,IGA,CPD,2,IGA - CPD - Park 0132 - Greenbaum,IGA - CPD - Park 0132 - Greenbaum,False,False,Completed Project,0,0,0,538793,1987000,0
+T-064,Northwest Industrial Corridor,2020,IGA,CPD,3,IGA - CPD - Park 0407 - Orr,IGA - CPD - Park 0407 - Orr,False,False,Completed Project,0,0,0,2006000,600000,0
+T-064,Northwest Industrial Corridor,2020,Program,Industrial Growth Zone,6,Industrial Growth Zone- Northwest,Industrial Growth Zone- Northwest,False,False,Active Project,0,0,0,0,8835,5000000
+T-064,Northwest Industrial Corridor,2020,Project,Project,2,Merlin Coke,Coke/Merlin,False,False,Active Project,266885,163116,0,3820345,1965975,3225000
+T-064,Northwest Industrial Corridor,2020,Program,SBIF,1,SBIF - NW Industr Corridor,SBIF - NW Industr Corridor,False,False,Active Project,137866,380229,0,9000000,3684157,4500000
+T-064,Northwest Industrial Corridor,2020,Program,TIFWorks,5,TIFWorks - Northwest Industr Corridor,TIFWorks - Northwest Industr Corridor,False,False,Active Project,0,0,0,0,2191438,1876800
+T-065,Woodlawn,2020,IGA,CBE,1,IGA - CBE - ADA - Fiske,IGA - CBE - ADA - Fiske,False,False,Active Project,0,0,0,0,0,1500000
+T-065,Woodlawn,2020,IGA,CBE,3,IGA - CBE - Wadsworth,IGA - CBE - Wadsworth,False,False,Active Project,0,0,0,0,500000,0
+T-065,Woodlawn,2020,IGA,CPD,2,IGA - CPD - Harris Park,IGA - CPD - Harris Park,False,False,Completed Project,0,0,0,0,1425000,0
+T-065,Woodlawn,2020,Program,NIF,1,NIF - Woodlawn,NIF - Woodlawn,False,False,Active Project,0,0,0,5000000,3030556,2500000
+T-065,Woodlawn,2020,Program,SBIF,2,SBIF - Woodlawn,SBIF - Woodlawn,False,False,Active Project,0,0,0,1000000,469712,500000
+T-065,Woodlawn,2020,Project,Project,3,The Strand Hotel,Historic Strand,False,False,Completed Project,0,0,22849528,0,2000000,0
+T-066,Greater Southwest Industrial (East),2020,Program,Industrial Growth Zone,5,Industrial Growth Zone- Greater Southwest East,Industrial Growth Zone- Greater Southwest East,False,False,Active Project,0,0,0,0,2019,1000000
+T-066,Greater Southwest Industrial (East),2020,Project,Project,3,Marquette Village,Marquette Village,False,False,Active Project,0,0,0,36315833,0,6093318
+T-066,Greater Southwest Industrial (East),2020,Program,SBIF,2,SBIF - Greater SW Industr East,SBIF - Greater SW Industr East,False,False,Active Project,0,0,0,1000000,122942,500000
+T-066,Greater Southwest Industrial (East),2020,Project,Project,1,Stylemaster - Gateway Park,"Gateway Park, LLC (Regent Stylemaster)",False,False,Active Project,744675,757417,0,14235000,6686047,14000000
+T-066,Greater Southwest Industrial (East),2020,Program,TIFWorks,4,TIFWorks - Greater Southwest Industr East,TIFWorks - Greater Southwest Industr East,False,False,Active Project,0,0,0,0,73565,125000
+T-067,Archer Courts,2020,Project,Project,1,Archer Courts - Phase I - Apts,Community Housing Partners V L.P.,False,False,Active Project,108672,108672,0,8540129,2139007,2500000
+T-067,Archer Courts,2020,Project,Project,2,Archer Courts - Phase II - Townhomes,Archer Courts - Phase II,False,False,Completed Project,0,0,12000000,0,2061546,0
+T-067,Archer Courts,2020,Program,TIFWorks,3,TIFWorks - Archer Courts,TIFWorks - Archer Courts,False,False,Active Project,0,0,0,0,0,75000
+T-068,Roosevelt/Union,2020,Project,Project,1,UIC,Board of Trustees UIC,False,False,Active Project,5825705,6088410,0,467300000,63194787,75000000
+T-069,Pulaski Industrial Corridor,2020,IGA,CBE,1,IGA - CBE - ADA - McAuliffe,IGA - CBE - ADA - McAuliffe,False,False,Active Project,0,0,0,0,0,750000
+T-069,Pulaski Industrial Corridor,2020,IGA,CBE,2,IGA - CBE - Ames Academy,IGA - CBE - Ames Academy,False,False,Active Project,0,0,0,0,4500000,0
+T-069,Pulaski Industrial Corridor,2020,Project,Project,3,North and Pulaski Sr Housing,North and Pulaski Sr Housing,False,False,Completed Project,0,0,15464490,0,4000000,0
+T-069,Pulaski Industrial Corridor,2020,Program,SBIF,1,SBIF - Pulaski Industr Corridor,SBIF - Pulaski Industr Corridor,False,False,Active Project,152516,223324,0,6000000,1691407,3000000
+T-069,Pulaski Industrial Corridor,2020,Program,TIFWorks,2,TIFWorks - Pulaski Industr Corridor,TIFWorks - Pulaski Industr Corridor,False,False,Active Project,103586,102797,0,0,1221810,1200600
+T-069,Pulaski Industrial Corridor,2020,Program,,4,Vacant Bldg Purch Rehab SF Prog - Pulaski Corridor,Vacant Bldg Purch Rehab SF Prog - Pulaski Corridor,False,False,Completed Project,0,0,500000,0,500000,0
+T-070,Clark/Montrose,2020,Project,Project,2,Black Ensemble Theater,Black Ensemble Theater,False,False,Completed Project,0,0,7557213,0,10381510,0
+T-070,Clark/Montrose,2020,IGA,CPD,1,IGA - CPD - Park 0103 - Chase,IGA - CPD - Park 0103 - Chase,False,False,Completed Project,0,0,355000,0,300000,0
+T-070,Clark/Montrose,2020,Program,SBIF,1,SBIF - Clark Montrose,SBIF - Clark Montrose,False,False,Active Project,95833,0,0,4600000,1633717,2300000
+T-070,Clark/Montrose,2020,Program,TIFWorks,3,TIFWorks - Clark Montrose,TIFWorks - Clark Montrose,False,False,Active Project,0,0,0,0,0,125000
+T-071,Galewood/Armitage Industrial,2020,IGA,CBE,1,IGA - CBE - Prieto - ES - I,IGA - CBE -Belmont/Cragin Elementary School,False,False,Active Project,0,0,0,3118295,8099213,7575000
+T-071,Galewood/Armitage Industrial,2020,IGA,CPD,4,IGA - CPD Amundsen Park,IGA - CPD Amundsen Park,False,False,Active Project,0,0,0,0,285155,0
+T-071,Galewood/Armitage Industrial,2020,IGA,CPD,3,IGA - CPD - Park 0127 - Rutherford Sayre - I,CPD - Park 0127 - Rutherford Sayre,False,False,Active Project,0,0,0,190000,0,300000
+T-071,Galewood/Armitage Industrial,2020,Program,Industrial Growth Zone,4,Industrial Growth Zone- Galewood/Armitage,Industrial Growth Zone- Galewood/Armitage,False,False,Active Project,0,0,0,0,0,1750000
+T-071,Galewood/Armitage Industrial,2020,Project,Project,2,Laborer's Union,Laborers' Union­ Training Center,False,False,Completed Project,0,0,20775950,0,6113197,0
+T-071,Galewood/Armitage Industrial,2020,Program,SBIF,1,SBIF - Galewood Armitage,SBIF - Galewood Armitage,False,False,Active Project,222731,0,0,5600000,1384802,2800000
+T-071,Galewood/Armitage Industrial,2020,Program,TIFWorks,3,TIFWorks - Galewood Armitage,TIFWorks - Galewood Armitage,False,False,Active Project,400,0,0,0,378162,554600
+T-072,24th/Michigan,2020,Project,Project,4,Broad Shoulders Brewery,Broad Shoulders Brewery,False,False,Completed Project,0,0,3888703,0,628000,0
+T-072,24th/Michigan,2020,Project,Project,1,Hilliard Homes - I,Hilliard Homes Phase I,False,False,Active Project,0,0,0,46378255,0,750000
+T-072,24th/Michigan,2020,Project,Project,2,Hilliard Homes - II,Hilliard Homes Phase II,False,False,Active Project,0,0,0,49572074,0,1540000
+T-072,24th/Michigan,2020,IGA,CBE,1,IGA - CBE - Teacher's Academy ES,IGA - CBE - Teacher's Academy ES,False,False,Completed Project,0,0,0,0,5027700,0
+T-072,24th/Michigan,2020,IGA,CBE,1,IGA - CBE - Teacher's Academy Turf Field,IGA - CBE - Teacher's Academy Turf Field,False,False,Active Project,36165,0,0,0,162859,0
+T-072,24th/Michigan,2020,IGA,CTA,3,IGA - CTA - Red Line Cermak Station,IGA - CTA - Red Line Cermak Station,False,False,Active Project,0,0,0,0,0,0
+T-072,24th/Michigan,2020,IGA,PBC,2,IGA - PBC - Chinatown Library,IGA - PBC - Chinatown Library,False,False,Active Project,0,0,0,0,0,0
+T-072,24th/Michigan,2020,Program,SBIF,5,SBIF - 24th Michigan,SBIF - 24th Michigan,False,False,Active Project,0,0,0,1000000,83923,500000
+T-072,24th/Michigan,2020,Project,Project,6,Southbridge 4%,Southbridge 4 Master Owner LLC,False,False,Active Project,0,3187500,0,40758000,0,12750000
+T-072,24th/Michigan,2020,Project,Project,5,Southbridge 9%,Southbridge 9 Master Owner LLC,False,False,Active Project,0,2125000,0,37991000,0,4250000
+T-072,24th/Michigan,2020,Program,TIFWorks,3,TIFWorks - 24th Michigan,TIFWorks - 24th Michigan,False,False,Active Project,0,0,0,0,38369,175000
+T-073,111th/Kedzie,2020,Project,Project,1,Mt Greenwood Walgreens,Mt. Greenwood Walgreens Center,False,False,Active Project,121653,121653,0,9233092,1356648,1500000
+T-073,111th/Kedzie,2020,Program,SBIF,2,SBIF - 111th Kedzie,SBIF - 111th Kedzie,False,False,Active Project,0,0,0,3500000,1280845,1750000
+T-074,Clark/Ridge,2020,IGA,CBE,1,IGA - CBE - Hayt Elementary,IGA - CBE - Hayt Elementary,False,False,Active Project,0,0,0,0,670000,0
+T-074,Clark/Ridge,2020,IGA,CBE,2,IGA - CBE - Senn HS,IGA - CBE - Senn HS,False,False,Active Project,0,0,0,2301000,0,1000000
+T-074,Clark/Ridge,2020,Project,Project,2,Ravenswood Sr Apts,Ravenswood Senior Apartments,False,False,Completed Project,1300000,0,28567474,0,9166622,0
+T-074,Clark/Ridge,2020,Project,Project,1,Raven Theatre,Raven Theatre Company,False,False,Completed Project,0,0,1430000,0,594491,0
+T-074,Clark/Ridge,2020,Program,SBIF,3,SBIF - Clark Ridge,SBIF - Clark Ridge,False,False,Active Project,0,33622,0,3500000,1657695,1750000
+T-074,Clark/Ridge,2020,Program,TIFWorks,4,TIFWorks - Clark Ridge,TIFWorks - Clark Ridge,False,False,Active Project,23627,0,0,0,141721,175000
+T-075,Madison/Austin Corridor,2020,IGA,CBE,1,IGA - CBE - Austin - HS - I,IGA - CBE - Austin - HS - I,False,False,Active Project,0,0,0,2988087,32203759,30300000
+T-075,Madison/Austin Corridor,2020,IGA,CBE,3,IGA - CBE - ES - DePriest,IGA - CBE - DePriest Elementary,False,False,Active Project,0,0,0,2000000,0,18500000
+T-075,Madison/Austin Corridor,2020,IGA,CBE,2,IGA - CBE - HS - Austin - II,IGA - CBE - HS - Austin - II,False,False,Active Project,0,0,0,0,0,5750000
+T-075,Madison/Austin Corridor,2020,IGA,CBE,7,IGA - CBE - Melody,IGA - CBE - Melody,False,False,Active Project,0,0,0,0,0,0
+T-075,Madison/Austin Corridor,2020,IGA,CBE,4,IGA- CBE - Modern Schools,IGA - CBE - Modern Schools,False,False,Active Project,0,0,0,0,0,0
+T-075,Madison/Austin Corridor,2020,IGA,CBE,5,IGA - CBE - Spencer Academy,IGA - CBE - Spencer Academy,False,False,Active Project,0,0,0,0,0,0
+T-075,Madison/Austin Corridor,2020,IGA,CBE,6,IGA - CBE - Tilton,IGA - CBE - Tilton,False,False,Active Project,0,0,0,0,0,0
+T-075,Madison/Austin Corridor,2020,Project,Project,2,Lake & Waller,Lake and Waller LP,False,False,Active Project,0,0,0,11942248,0,1310000
+T-075,Madison/Austin Corridor,2020,Program,SBIF,1,SBIF - Madison Austin,SBIF - Madison Austin,False,False,Active Project,84150,60520,0,4500000,1115687,2250000
+T-075,Madison/Austin Corridor,2020,Program,TIFWorks,3,TIFWorks - Madison Austin,TIFWorks - Madison Austin,False,False,Active Project,0,37720,0,0,42000,100000
+T-076,Devon/Western,2020,Project,Project,1,Devon Rockwell Mixed Use,"ASAT, Inc",False,False,Completed Project,0,0,12509681,0,0,0
+T-076,Devon/Western,2020,Program,SBIF,2,SBIF - Devon Western,SBIF - Devon Western,False,False,Active Project,0,0,0,7500000,2055858,3750000
+T-076,Devon/Western,2020,Program,TIFWorks,3,TIFWorks - Devon Western,TIFWorks - Devon Western,False,False,Active Project,47096,51587,0,0,155575,175000
+T-077,Lincoln Avenue,2020,Project,Project,3,Chaville Condo,Chaville Condo,False,False,Completed Project,0,0,7521372,0,625454,0
+T-077,Lincoln Avenue,2020,IGA,CPD,1,IGA - CPD - Park 526,IGA - CPD - Park 526,False,False,Active Project,0,0,0,0,49541,49541
+T-077,Lincoln Avenue,2020,Project,Project,1,Lincoln Village,BGP Lincoln Village L.L.C.,False,False,Completed Project,0,0,17958935,0,6285020,0
+T-077,Lincoln Avenue,2020,Program,SBIF,2,SBIF - Lincoln Ave,SBIF - Lincoln Ave,False,False,Active Project,56286,160875,0,3000000,1195258,1500000
+T-077,Lincoln Avenue,2020,Program,TIFWorks,4,TIFWorks - Lincoln Ave,TIFWorks - Lincoln Ave,False,False,Active Project,0,0,0,0,0,175000
+T-079,35th/Wallace,2020,IGA,CBE,1,Chicago Board of Education (McClellan School),IGA - CBE - McClellan School,False,False,Active Project,0,0,0,0,1277567,0
+T-079,35th/Wallace,2020,Program,SBIF,2,SBIF - 35th Wallace,SBIF - 35th Wallace,False,False,Active Project,53625,0,0,1000000,159554,500000
+T-079,35th/Wallace,2020,Program,TIFWorks,1,TIFWorks - 35th Wallace,TIFWorks - 35th Wallace,False,False,Active Project,0,0,0,0,0,125000
+T-081,Belmont/Central,2020,IGA,CBE,1,IGA - CBE - Belmont Cragin,IGA - CBE - Belmont Cragin,False,False,Active Project,0,0,0,0,121738,0
+T-081,Belmont/Central,2020,Program,SBIF,1,SBIF - Belmont Central,SBIF - Belmont Central,False,False,Active Project,162649,227952,0,7400000,2428823,3700000
+T-081,Belmont/Central,2020,Program,TIFWorks,2,TIFWorks - Belmont Central,TIFWorks - Belmont Central,False,False,Active Project,0,0,0,0,82776,150000
+T-082,Belmont/Cicero,2020,Project,Project,4,Cicero and George Limited Partnership,Cicero and George Limited Partnership,False,False,Completed Project,0,0,22107575,0,4000000,0
+T-082,Belmont/Cicero,2020,Program,SBIF,1,SBIF - Belmont Cicero,SBIF - Belmont Cicero,False,False,Active Project,36845,0,0,3000000,842415,1500000
+T-082,Belmont/Cicero,2020,Project,Project,2,Sr Suites - Kelvyn Park,Senior Suites,False,False,Completed Project,0,0,15923235,0,3595666,0
+T-082,Belmont/Cicero,2020,Program,TIFWorks,3,TIFWorks - Belmont Cicero,TIFWorks - Belmont Cicero,False,False,Active Project,0,0,0,0,162650,227389
+T-083,West Irving Park,2020,IGA,CPD,2,IGA - CPD - Park 0147 - Portage - I - Playground,IGA - CPD - Park 0147 - Portage - I - Playground,False,False,Active Project,0,0,0,0,1000000,117948
+T-083,West Irving Park,2020,IGA,CPD,1,IGA - CPD - Park 0256 - Merrimac,IGA - CPD - Park 0256 - Merrimac,False,False,Active Project,0,0,0,0,606250,606250
+T-083,West Irving Park,2020,Program,SBIF,1,SBIF - West Irving Park,SBIF - West Irving Park,False,False,Active Project,13385,296539,0,6000000,2461574,3000000
+T-083,West Irving Park,2020,Program,TIFWorks,2,TIFWorks - West Irving Park,TIFWorks - West Irving Park,False,False,Active Project,0,0,0,0,0,75000
+T-084,Western Avenue North,2020,IGA,CBE,1,IGA - CBE - Amundsen HS,IGA - CBE - Amundsen HS,False,False,Active Project,0,0,0,0,1537400,0
+T-084,Western Avenue North,2020,IGA,CBE,3,IGA - CBE - Chappell,IGA - CBE - Chappell,False,False,Active Project,0,0,0,0,2260137,0
+T-084,Western Avenue North,2020,IGA,CBE,2,IGA - CBE - McPherson ES,IGA - CBE - McPherson ES,False,False,Active Project,0,0,0,0,0,0
+T-084,Western Avenue North,2020,IGA,CPD,4,IGA - CPD - Wells Park,IGA - CPD - Wells Park,False,False,Completed Project,0,0,0,0,1300000,0
+T-084,Western Avenue North,2020,Project,Project,2,Ravenswood Sq - 4800 Damen,Ravenswood Sq - 4800 Damen,False,False,Active Project,280049,288159,0,15385283,3056465,3000000
+T-084,Western Avenue North,2020,Project,Project,3,Ravenswood Station,Ravenswood Station,False,False,Completed Project,0,0,39523458,0,4500000,0
+T-084,Western Avenue North,2020,Program,SBIF,1,SBIF - Western Ave North,SBIF - Western Ave North,False,False,Active Project,0,0,0,6000000,2615332,3000000
+T-085,Western Avenue South,2020,IGA,CBE,1,IGA - CBE - Coonley,IGA - CBE - Coonley,False,False,Active Project,0,0,0,0,270772,2201500
+T-085,Western Avenue South,2020,IGA,CBE,2,IGA - CBE - Lane Tech,IGA - CBE - Lane Tech,False,False,Active Project,0,0,0,0,0,1892100
+T-085,Western Avenue South,2020,IGA,CPD,4,IGA - CPD - Clark Park Boathouse,IGA - CPD - Clark Park Boathouse,False,False,Completed Project,0,0,0,0,1000000,0
+T-085,Western Avenue South,2020,IGA,CPD,3,IGA - CPD - Park 0457 - Richard Clark,IGA CPD - Clark Park Expansion,False,False,Completed Project,0,0,1500000,0,0,0
+T-085,Western Avenue South,2020,IGA,CPD,5,IGA - CPD Revere Park,IGA - CPD Revere Park,False,False,Active Project,0,0,0,0,200000,0
+T-085,Western Avenue South,2020,Project,Project,3,N Center Sr - Belle Plaine Condo,North Center Associates LLC/Belle Plaines Commons,False,False,Completed Project,0,0,24085722,0,3380000,0
+T-085,Western Avenue South,2020,Project,Project,2,N Center Sr - M W Apts,North Center Senior Apartments,False,False,Active Project,76788,78042,0,13447100,786030,3500000
+T-085,Western Avenue South,2020,Project,Project,4,N Center Sr - Park - TACH,N. Center Sr. - Park - TACH,False,False,Completed Project,0,0,1303000,0,1165000,0
+T-085,Western Avenue South,2020,Program,SBIF,1,SBIF - Western Ave South,SBIF - Western Ave South,False,False,Active Project,200242,53625,0,5000000,1619708,2500000
+T-086,Central West,2020,Project,Project,3,950 W Monroe Condo,950 W. Monroe Development LLC,False,False,Completed Project,0,0,31610000,0,4182937,0
+T-086,Central West,2020,Project,Project,2,Horner - IIA1 - Lowrise,Horner Low-Rise,False,False,Completed Project,0,0,14793650,0,2501821,0
+T-086,Central West,2020,Project,Project,1,Horner - IIA2 - Midrise,Westhaven Park Midrise,False,False,Completed Project,0,0,28259178,0,3509353,0
+T-086,Central West,2020,IGA,CBE,6,IGA - CBE - ADA - Brown,IGA - CBE - ADA - Brown,False,False,Active Project,0,0,0,0,0,750000
+T-086,Central West,2020,IGA,CBE,5,IGA - CBE - ADA - Cregier,IGA - CBE - ADA - Cregier,False,False,Active Project,0,0,0,0,0,1500250
+T-086,Central West,2020,IGA,CBE,10,IGA - CBE - Crane,IGA - CBE - Crane,False,False,Active Project,0,0,0,0,0,0
+T-086,Central West,2020,IGA,CBE,12,IGA - CBE  - Skinner - ES,IGA - CBE  - Skinner - ES,False,False,Active Project,0,0,0,0,0,34340000
+T-086,Central West,2020,IGA,CBE,4,IGA - CBE - Skinner - ES - II,IGA - CBE - Skinner - ES - II,False,False,Active Project,0,0,0,0,838473,6120000
+T-086,Central West,2020,IGA,CBE,16,IGA- CBE - Whitney Young,IGA - CBE - Whitney Young,False,False,Active Project,0,0,0,0,3987288,3987288
+T-086,Central West,2020,IGA,CPD,7,IGA - CPD - 0210 - Union Park,IGA - CPD - 0210 - Union Park,False,False,Completed Project,0,0,0,0,700000,0
+T-086,Central West,2020,IGA,CPD,13,IGA - CPD - Ellen Gates Starr Park IGA,IGA - CPD - Ellen Gates Starr Park IGA,False,False,Active Project,0,0,0,0,727019,0
+T-086,Central West,2020,IGA,CPD,1,IGA - CPD - Park 0542 - Sangamon Adams I,IGA - CPD - Park - Sangamon Adams,False,False,Completed Project,0,0,0,810000,6220000,0
+T-086,Central West,2020,IGA,CPD,2,IGA - CPD - Park 0542 - Sangamon Adams II,IGA - CPD - Park 0542 - Sangamon Adams II,False,False,Completed Project,0,0,0,0,5250000,0
+T-086,Central West,2020,IGA,CPD,11,IGA - CPD - Skinner Dog Park,IGA - CPD - Skinner Dog Park,False,False,Active Project,0,0,0,0,0,0
+T-086,Central West,2020,IGA,CPD,8,IGA - CPD Skinner Park,IGA - CPD Skinner Park,False,False,Active Project,0,0,0,0,1050000,0
+T-086,Central West,2020,IGA,CPD,9,IGA - CPD - West Haven Park,IGA - CPD - West Haven Park,False,False,Active Project,0,0,0,0,1860778,0
+T-086,Central West,2020,IGA,CTA,14,IGA - CTA - Illinois Medical District Station,IGA - CTA - Illinois Medical District Station,False,False,Active Project,-2181,0,0,0,22997819,0
+T-086,Central West,2020,Project,Project,15,"McCrory Senior Apartments, LLC","McCrory Senior Apartments, LLC",False,False,Active Project,1025000,0,0,17319142,4100000,4100000
+T-086,Central West,2020,Program,NIF,7,NIF - Central West,NIF - Central West,False,False,Active Project,0,0,0,4000000,574877,2000000
+T-086,Central West,2020,Project,Project,5,Rush University Medical Center,Rush,False,False,Completed Project,0,0,825701000,0,75410080,0
+T-086,Central West,2020,Program,SBIF,4,SBIF - Central West,SBIF - Central West,False,False,Active Project,107250,0,0,2000000,626373,1000000
+T-086,Central West,2020,Program,TIFWorks,9,TIFWorks - Central West,TIFWorks - Central West,False,False,Active Project,0,0,0,0,500267,450000
+T-086,Central West,2020,Project,Project,8,Viceroy Hotel,Viceroy Hotel,False,False,Completed Project,0,0,17633853,0,3778318,0
+T-086,Central West,2020,Project,Project,6,Women's Treatment Center,Women's Treatment Center,False,False,Completed Project,0,0,2366459,0,1000000,0
+T-087,Fullerton/Milwaukee,2020,Project,Project,8,"2650 Milwaukee, LLC",Logan Theatre,False,False,Active Project,200000,200000,0,5591188,600000,1000000
+T-087,Fullerton/Milwaukee,2020,Project,Project,9,Emmett Street Apartments,Emmett Street Apartments,False,False,Active Project,0,0,0,30432796,0,10100000
+T-087,Fullerton/Milwaukee,2020,Project,Project,2,Florsheim - Footwear Factory,Florsheim,False,False,Completed Project,0,0,47400000,0,10336948,0
+T-087,Fullerton/Milwaukee,2020,IGA,CBE,1,IGA - CBE - Avondale Irving Park - ES - I,IGA - CBE - Avondale Irving Park - ES - I,False,False,Active Project,0,0,0,330746,10766724,10100000
+T-087,Fullerton/Milwaukee,2020,IGA,CBE,2,IGA - CBE - Modern Schools Phase II,IGA - CBE - Modern Schools Phase II,False,False,Active Project,0,0,0,0,0,0
+T-087,Fullerton/Milwaukee,2020,Project,Project,7,Milwaukee Avenue Apartments,Milwaukee Avenue Apartments,False,False,Completed Project,0,0,8716258,0,1000000,0
+T-087,Fullerton/Milwaukee,2020,Project,Project,3,Sachs Hairpin - Lofts,Sachs Hairpin - Lofts,False,False,Completed Project,0,0,5121129,0,5941770,0
+T-087,Fullerton/Milwaukee,2020,Project,Project,4,Sachs Hairpin - Retail,Sachs Hairpin - Retail,False,False,Completed Project,0,0,2130035,0,1210000,0
+T-087,Fullerton/Milwaukee,2020,Program,SBIF,1,SBIF - Fullerton Milwaukee,SBIF - Fullerton Milwaukee,False,False,Active Project,494940,227743,0,10400000,4699735,5200000
+T-087,Fullerton/Milwaukee,2020,Program,TIFWorks,6,TIFWorks - Fullerton Milwaukee,TIFWorks - Fullerton Milwaukee,False,False,Active Project,6235,45746,0,0,206521,252389
+T-087,Fullerton/Milwaukee,2020,Project,Project,5,Zapata Apts,Zapata Apts,False,False,Completed Project,0,0,20460604,0,4612967,0
+T-088,Lawrence/Kedzie,2020,IGA,CBE,3,IGA - CBE - Albany Park Academy - ES,IGA - CBE - Albany Park Academy - ES,False,False,Active Project,0,0,0,4000000,28662826,25000000
+T-088,Lawrence/Kedzie,2020,IGA,CBE,4,IGA - CBE - Peterson - ES - II,IGA - CBE - Peterson - ES - II,False,False,Active Project,0,0,0,0,0,2900000
+T-088,Lawrence/Kedzie,2020,IGA,CPD,6,IGA - CPD - Kiwanis Park,IGA - CPD - Kiwanis Park,False,False,Active Project,0,0,0,0,422067,422067
+T-088,Lawrence/Kedzie,2020,IGA,PBC,5,IGA - PBC - Albany Park Library,IGA - PBC - Albany Park Library,False,False,Active Project,0,0,0,0,0,0
+T-088,Lawrence/Kedzie,2020,Program,NIF,1,NIF - Lawrence Kedzie,NIF - Lawrence Kedzie,False,False,Active Project,0,0,0,10000000,3747544,5000000
+T-088,Lawrence/Kedzie,2020,Program,SBIF,2,SBIF - Lawrence Kedzie,SBIF - Lawrence Kedzie,False,False,Active Project,102609,0,0,4500000,2003994,2250000
+T-089,Midway Industrial Corridor,2020,Program,SBIF,1,SBIF - Midway Industr,SBIF - Midway Industrial,False,False,Active Project,0,0,0,2200000,900577,1100000
+T-090,Peterson/Cicero,2020,Project,Project,1,Peterson Cicero - Sauganash Place Whole Foods,Sauganash Village,False,False,Completed Project,0,0,53389644,0,0,0
+T-090,Peterson/Cicero,2020,Program,TIFWorks,2,TIFWorks - Peterson Cicero,TIFWorks - Peterson Cicero,False,False,Active Project,0,0,0,0,0,175000
+T-091,Peterson/Pulaski,2020,Project,Project,2,Beltone,Center Point Properties Trust (Beltone Building),False,False,Completed Project,0,0,6921274,0,825000,0
+T-091,Peterson/Pulaski,2020,Project,Project,3,CCH,CCH,False,False,Completed Project,0,0,0,0,0,0
+T-091,Peterson/Pulaski,2020,Program,SBIF,1,SBIF - Peterson Pulaski,SBIF - Peterson Pulaski,False,False,Active Project,108065,189724,0,4000000,1658527,2000000
+T-091,Peterson/Pulaski,2020,Program,TIFWorks,4,TIFWorks - Peterson Pulaski,TIFWorks - Peterson Pulaski,False,False,Active Project,0,0,0,0,180391,650000
+T-092,Greater Southwest Industrial (West),2020,Project,Project,1,ATA - Training Facility,"Washington Street Aviation, LLC",False,False,Completed Project,0,0,86200593,0,0,0
+T-092,Greater Southwest Industrial (West),2020,Program,Industrial Growth Zone,4,Industrial Growth Zone- Greater Southwest West,Industrial Growth Zone- Greater Southwest West,False,False,Active Project,0,0,0,0,2116,1750000
+T-092,Greater Southwest Industrial (West),2020,Program,SBIF,2,SBIF - Greater SW Industr West,SBIF - Greater SW Industr West,False,False,Active Project,0,103593,0,2000000,307465,1000000
+T-092,Greater Southwest Industrial (West),2020,Program,TIFWorks,3,TIFWorks - Greater Southwest Industr West,TIFWorks - Greater Southwest Industr West,False,False,Active Project,0,48760,0,0,198001,425000
+T-093,South Chicago,2020,IGA,CPD,3,IGA - CPD Steelworkers Park,IGA - CPD Steelworkers Park,False,False,Active Project,0,0,0,0,100035,0
+T-093,South Chicago,2020,Program,Industrial Growth Zone,4,Industrial Growth Zone- South Chicago,Industrial Growth Zone- South Chicago,False,False,Active Project,0,0,0,0,0,5000000
+T-093,South Chicago,2020,Program,NIF,1,NIF - South Chicago,NIF - South Chicago,False,False,Active Project,0,0,0,4000000,1686998,2000000
+T-093,South Chicago,2020,Program,SBIF,2,SBIF - South Chicago,SBIF - South Chicago,False,False,Active Project,0,0,0,1000000,361982,500000
+T-093,South Chicago,2020,Program,TIFWorks,3,TIFWorks - South Chicago,TIFWorks - South Chicago,False,False,Active Project,0,0,0,0,18606,200000
+T-094,Chicago/Kingsbury,2020,Project,Project,4,Barry Callebaut,Barry Callebaut,False,False,Completed Project,0,0,2640000,0,880000,0
+T-094,Chicago/Kingsbury,2020,Project,Project,1,Eport - 600 W Chicago,"Eport 600, LLC; Eport 600 Riverwalk Owner, LLC; Eport 600 Property Owner, LLC",False,False,Completed Project,0,0,253432839,0,45106200,0
+T-094,Chicago/Kingsbury,2020,IGA,Retail Thrive,1,IGA - CPD - Park 0511 - Erie II,IGA - CPD - Park 0511 - Erie II,False,False,Active Project,0,0,0,0,0,3000000
+T-094,Chicago/Kingsbury,2020,IGA,Retail Thrive,2,IGA - CPD - Ward (Erie) Park,IGA - CPD - Ward (Erie) Park,False,False,Completed Project,0,0,0,0,72443,0
+T-094,Chicago/Kingsbury,2020,Project,Project,2,River Village - Site H2,River Village Townhomes & Lofts (Site H),False,False,Completed Project,0,0,3051024,0,1669449,0
+T-094,Chicago/Kingsbury,2020,Program,SBIF,3,SBIF - Chicago Kingsbury,SBIF - Chicago Kingsbury,False,False,Active Project,0,0,0,1500000,985397,750000

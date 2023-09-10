@@ -1,0 +1,253 @@
+loan_date,lender,block,street_direction,street_name,street_type,city,state,zip,ward,industry,latitude,longitude,location,:@computed_region_awaf_s7ux,:@computed_region_43wa_7qmu,:@computed_region_vrxf_vc4k,:@computed_region_6mkv_f3dw,:@computed_region_bdys_3d7i
+2012-01-10T00:00:00.000,Accion,016XX,W,21st ,Street,Chicago,IL,60608,25,Retail Stores,41.854222612,-87.668174117,"{'latitude': '41.854223', 'longitude': '-87.668174'}",8,26,33,14920,343
+2012-01-10T00:00:00.000,Accion,059XX,W,Patterson,Avenue,Chicago,IL,60634,39,Medical Services,41.946795663,-87.776116779,"{'latitude': '41.946796', 'longitude': '-87.776117'}",25,44,15,22254,311
+2012-04-10T00:00:00.000,Accion,038XX,N,Lincoln,Avenue,Chicago,IL,60613,47,Day Care,41.951797588,-87.677279839,"{'latitude': '41.951798', 'longitude': '-87.67728'}",13,18,46,21186,644
+2012-10-20T00:00:00.000,Accion,032XX,W,Douglas,Boulevard,Chicago,IL,60623,24,Professional/Off Svc,41.863049108,-87.707581493,"{'latitude': '41.863049', 'longitude': '-87.707581'}",36,14,30,21569,34
+2012-10-20T00:00:00.000,Accion,048XX,S,Michigan,Avenue,Chicago,IL,60615,3,Professional/Off Svc,41.805960625,-87.622895681,"{'latitude': '41.805961', 'longitude': '-87.622896'}",12,9,4,21192,448
+2012-11-10T00:00:00.000,Accion,002XX,W,Eugenie,Street,Chicago,IL,60614,2,Food/Beverage,41.912962356,-87.636673056,"{'latitude': '41.912962', 'longitude': '-87.636673'}",51,34,68,21190,271
+2012-11-10T00:00:00.000,Accion,017XX,E,71st,Street,Chicago,IL,60649,7,Professional/Off Svc,41.766297058,-87.581683507,"{'latitude': '41.766297', 'longitude': '-87.581684'}",32,33,39,22538,381
+2012-11-10T00:00:00.000,Accion,017XX,N,Damen,Avenue,Chicago,IL,60647,32,Clothing/Material Production,41.913788046,-87.677684427,"{'latitude': '41.913788', 'longitude': '-87.677684'}",16,40,25,22535,179
+2012-11-10T00:00:00.000,Accion,018XX,S,Clark,Street,Chicago,IL,60616,43,Clothing/Material Production,41.85663565,-87.630345428,"{'latitude': '41.856636', 'longitude': '-87.630345'}",8,26,35,21194,3
+2012-11-10T00:00:00.000,Accion,036XX,S,Canal,Street,Chicago,IL,60609,11,Clothing/Material Production,41.827515865,-87.637920743,"{'latitude': '41.827516', 'longitude': '-87.637921'}",26,48,58,14924,223
+2012-11-10T00:00:00.000,Accion,043XX,N,Campbell,Street,Chicago,IL,60618,47,Wholesale,41.961010339,-87.691944203,"{'latitude': '41.96101', 'longitude': '-87.691944'}",13,18,46,21538,624
+2012-11-20T00:00:00.000,Accion,018XX,W,63rd,Street,Chicago,IL,60636,15,Beauty/Salon Services,41.779466199,-87.671101769,"{'latitude': '41.779466', 'longitude': '-87.671102'}",44,3,65,22257,275
+2012-12-04T00:00:00.000,CNI,016XX,W,87th,Street,Chicago,IL,60620,21,Retail Sales - Other,41.735873186,-87.665125327,"{'latitude': '41.735873', 'longitude': '-87.665125'}",6,13,70,21554,532
+2012-12-04T00:00:00.000,CNI,069XX,S,Cornell,Avenue,Chicago,IL,60649,5,Food/Beverage,41.76821085,-87.584545179,"{'latitude': '41.768211', 'longitude': '-87.584545'}",32,33,39,22538,381
+2012-12-10T00:00:00.000,Accion,007XX,E,75th,Street,Chicago,IL,60619,6,Medical Services,41.758680511,-87.605796969,"{'latitude': '41.758681', 'longitude': '-87.605797'}",31,32,67,21546,515
+2012-12-10T00:00:00.000,Accion,015XX,N,Damen,Avenue,Chicago,IL,60622,1,Other Services,41.909679359,-87.677590211,"{'latitude': '41.909679', 'longitude': '-87.67759'}",24,41,25,21560,481
+2012-12-10T00:00:00.000,Accion,030XX,N,Lincoln,Avenue,Chicago,IL,60657,32,Retail Stores,41.937149264,-87.665352278,"{'latitude': '41.937149', 'longitude': '-87.665352'}",16,40,57,4449,712
+2012-12-10T00:00:00.000,Accion,087XX,S,Racine,Avenue,Chicago,IL,60620,21,Retail Sales - Other,41.734425227,-87.653443031,"{'latitude': '41.734425', 'longitude': '-87.653443'}",18,13,70,21554,533
+2012-12-17T00:00:00.000,Accion,048XX,N,Broadway,Street,Chicago,IL,60640,46,Food/Beverage,41.970449245,-87.65985608,"{'latitude': '41.970449', 'longitude': '-87.659856'}",40,39,31,22616,633
+2012-12-20T00:00:00.000,Accion,006XX,E,75th,Street,Chicago,IL,60619,6,Food/Beverage,41.758642167,-87.608238768,"{'latitude': '41.758642', 'longitude': '-87.608239'}",31,32,67,21546,515
+2012-12-20T00:00:00.000,Accion,013XX,N,Paulina,Street,Chicago,IL,60622,1,Arts/Crafts Production,41.906544266,-87.670164899,"{'latitude': '41.906544', 'longitude': '-87.670165'}",24,41,25,21560,482
+2013-01-10T00:00:00.000,CNI,052XX,S ,Harper,Street,Chicago,IL,60615,4,Retail Sales - Other,41.799563261,-87.589239073,"{'latitude': '41.799563', 'longitude': '-87.589239'}",1,10,8,21192,500
+2013-01-11T00:00:00.000,CNI,108XX,S,Langley,Avenue,Chicago,IL,60628,9,Transportation,41.696425687,-87.606214973,"{'latitude': '41.696426', 'longitude': '-87.606215'}",30,43,47,21861,254
+2013-02-20T00:00:00.000,Accion,005XX,N,Michigan,Avenue,Chicago,IL,60611,42,Food/Beverage,41.892511145,-87.624330958,"{'latitude': '41.892511', 'longitude': '-87.624331'}",22,36,37,21182,626
+2013-02-27T00:00:00.000,Accion,016XX,W,18th,Street,Chicago,IL,60608,25,Food/Beverage,41.857871405,-87.668270534,"{'latitude': '41.857871', 'longitude': '-87.668271'}",8,26,33,14920,343
+2013-02-28T00:00:00.000,Accion,113XX,S.,Bell,Avenue,Chicago,IL,60643,19,Professional/Off Svc,41.686896909,-87.676999722,"{'latitude': '41.686897', 'longitude': '-87.677'}",33,42,74,22212,378
+2013-02-28T00:00:00.000,CNI,052XX,S,May,Street,Chicago,IL,60643,16,Construction/Repair,41.798138001,-87.653908838,"{'latitude': '41.798138', 'longitude': '-87.653909'}",19,4,59,14924,791
+2013-03-11T00:00:00.000,Accion,039XX,N,Seeley,Avenue,Chicago,IL,60618,47,Arts/Crafts Production,41.953819581,-87.680104184,"{'latitude': '41.95382', 'longitude': '-87.680104'}",13,18,46,21538,613
+2013-03-15T00:00:00.000,CNI,003XX,E,79th,Street,Chicago,IL,60619,6,Retail Sales - Other,41.75120691,-87.616146156,"{'latitude': '41.751207', 'longitude': '-87.616146'}",31,32,67,21546,475
+2013-03-18T00:00:00.000,Accion,014XX,W,63rd,Street,Chicago,IL,60636,16,Beauty/Salon Services,41.779623958,-87.661390419,"{'latitude': '41.779624', 'longitude': '-87.66139'}",19,2,65,22257,277
+2013-03-19T00:00:00.000,Accion,036XX,N,Narragansett,Avenue,Chicago,IL,60634,36,Other Services,41.947201266,-87.786459059,"{'latitude': '41.947201', 'longitude': '-87.786459'}",25,19,17,22254,444
+2013-03-20T00:00:00.000,Accion,033XX,W,59th ,Street,Chicago,IL,60629,23,Beauty/Salon Services,41.786287906,-87.707836726,"{'latitude': '41.786288', 'longitude': '-87.707837'}",49,6,61,21867,801
+2013-03-21T00:00:00.000,Accion,026XX,W,Toughy,Avenue,Chicago,IL,60645,50,Medical Services,42.012241707,-87.697008884,"{'latitude': '42.012242', 'longitude': '-87.697009'}",42,27,20,22528,359
+2013-03-29T00:00:00.000,Accion,017XX,W,79th,Street,Chicago,IL,60620,17,Food/Beverage,41.750406805,-87.667897611,"{'latitude': '41.750407', 'longitude': '-87.667898'}",17,31,70,21554,573
+2013-03-29T00:00:00.000,Accion,022XX,N,Menard,Street,Chicago,IL,60639,36,Food/Beverage,41.921776007,-87.770924082,"{'latitude': '41.921776', 'longitude': '-87.770924'}",4,44,19,22615,57
+2013-04-01T00:00:00.000,Accion,000XX,E,Jackson,Boulevard,Chicago ,IL,60604,42,Other Services,41.878362592,-87.625789895,"{'latitude': '41.878363', 'longitude': '-87.62579'}",22,36,38,14912,367
+2013-04-05T00:00:00.000,Accion,002XX,S,Wacker,Drive,Chicago,IL,60606,42,Other Services,41.878138181,-87.637064995,"{'latitude': '41.878138', 'longitude': '-87.637065'}",48,36,38,14914,92
+2013-04-15T00:00:00.000,CNI,016XX,E,87th,Street,Chicago,IL,60619,8,Professional/Off Svc,41.737058488,-87.583180907,"{'latitude': '41.737058', 'longitude': '-87.583181'}",9,35,41,21202,431
+2013-04-17T00:00:00.000,Accion,022XX,S,Troop,Street,Chicago,IL,60608,25,Other Services,41.85096156,-87.658810143,"{'latitude': '41.850962', 'longitude': '-87.65881'}",8,26,33,14920,126
+2013-04-19T00:00:00.000,WBDC,009XX,W,Van Buren,Street,Chicago,IL,60607,2,Beauty/Salon Services,41.876716551,-87.651574752,"{'latitude': '41.876717', 'longitude': '-87.651575'}",48,26,29,14917,91
+2013-04-19T00:00:00.000,WBDC,020XX,W,Greenleaf,Street,Chicago,IL,60645,49,,42.010263349,-87.682413424,"{'latitude': '42.010263', 'longitude': '-87.682413'}",42,27,20,22528,268
+2013-04-22T00:00:00.000,CNI,095XX,S,King,Drive,Chicago,IL,60628,6,Professional/Off Svc,41.720390674,-87.614253606,"{'latitude': '41.720391', 'longitude': '-87.614254'}",31,43,45,21861,567
+2013-04-24T00:00:00.000,Accion,006XX,S,Wabash,Avenue,Chicago,IL,60605,4,Retail Sales - Other,41.873347292,-87.626117642,"{'latitude': '41.873347', 'longitude': '-87.626118'}",48,10,38,14913,368
+2013-04-24T00:00:00.000,Accion,030XX,N,Central,Park,Chicago,IL,60618,35,Other Services,41.936721765,-87.717464528,"{'latitude': '41.936722', 'longitude': '-87.717465'}",15,21,22,21538,215
+2013-04-24T00:00:00.000,Accion,040XX,N,Drake,Avenue,Chicago,IL,60618,35,Other Services,41.955304751,-87.716779636,"{'latitude': '41.955305', 'longitude': '-87.71678'}",2,12,16,21538,23
+2013-04-26T00:00:00.000,Accion,011XX,W,111th,Street,Chicago,IL,60643,34,Food/Beverage,41.692353493,-87.651688246,"{'latitude': '41.692353', 'longitude': '-87.651688'}",45,22,74,22212,315
+2013-04-26T00:00:00.000,Accion,020XX,N,Seminary,Avenue,Chicago,IL,60614,43,Wholesale,41.91956724,-87.655989859,"{'latitude': '41.919567', 'longitude': '-87.65599'}",51,34,68,21190,797
+2013-04-27T00:00:00.000,Accion,092XX,S,Anthony,Avenue,Chicago,IL,60617,10,Day Care,41.726626307,-87.554414097,"{'latitude': '41.726626', 'longitude': '-87.554414'}",43,47,44,21202,493
+2013-04-29T00:00:00.000,Accion,002XX,W,St. Paul,Street,Chicago,IL,60614,43,Professional/Off Svc,41.913707771,-87.636695887,"{'latitude': '41.913708', 'longitude': '-87.636696'}",51,34,68,21190,271
+2013-04-30T00:00:00.000,Accion,017XX,N,Western,Avenue,Chicago,IL,60645,1,Day Care,41.913605732,-87.687454197,"{'latitude': '41.913606', 'longitude': '-87.687454'}",24,41,25,22535,287
+2013-05-02T00:00:00.000,CNI,000XX,E,Washington,Street,Chicago,IL,60602,42,Professional/Off Svc,41.883330907,-87.62603979,"{'latitude': '41.883331', 'longitude': '-87.62604'}",22,36,38,14310,580
+2013-05-06T00:00:00.000,Accion,011XX,W,Chicago,Avenue,Chicago,IL,60642,27,Food/Beverage,41.896342858,-87.657211671,"{'latitude': '41.896343', 'longitude': '-87.657212'}",41,46,25,22620,109
+2013-05-07T00:00:00.000,Accion,093XX,S,Halsted,Street,Chicago,IL,60620,21,Beauty/Salon Services,41.72357081,-87.643414424,"{'latitude': '41.723571', 'longitude': '-87.643414'}",18,13,72,21554,151
+2013-05-09T00:00:00.000,Accion,063XX,S.,Kolin,Avenue,Chicago,IL,60629,13,Construction/Repair,41.777016532,-87.731410259,"{'latitude': '41.777017', 'longitude': '-87.73141'}",23,15,63,21867,6
+2013-05-10T00:00:00.000,Accion,009XX,E,47th,Street,Chicago,IL,60653,4,Beauty/Salon Services,41.809696835,-87.601757992,"{'latitude': '41.809697', 'longitude': '-87.601758'}",1,10,5,4301,398
+2013-05-13T00:00:00.000,Accion,002XX,N,Pulaski,Avenue,Chicago,IL,60624,28,Food/Beverage,41.884873046,-87.725935624,"{'latitude': '41.884873', 'longitude': '-87.725936'}",11,23,27,21572,659
+2013-05-18T00:00:00.000,Accion,040XX,S,Kedzie,Avenue,Chicago,IL,60632,12,Food/Beverage,41.819318843,-87.704557578,"{'latitude': '41.819319', 'longitude': '-87.704558'}",49,8,55,22248,640
+2013-05-20T00:00:00.000,Accion,006XX,N,Milwaukee,Avenue,Chicago,IL,60642,27,Clothing/Material Production,41.893222744,-87.650960012,"{'latitude': '41.893223', 'longitude': '-87.65096'}",41,46,25,22620,522
+2013-05-23T00:00:00.000,Accion,038XX,W,Chicago,Avenue,Chicago,IL,60651,37,Professional/Off Svc,41.895502619,-87.723239039,"{'latitude': '41.895503', 'longitude': '-87.723239'}",41,45,24,4299,456
+2013-05-25T00:00:00.000,CNI,021XX,W,Division,Street,Chicago,IL,60647,32,Retail Sales - Other,41.903222949,-87.681718412,"{'latitude': '41.903223', 'longitude': '-87.681718'}",16,11,25,21560,517
+2013-05-25T00:00:00.000,CNI,045XX,S,St Lawrence,Street,Chicago,IL,60653,3,Construction/Repair,41.811593819,-87.611651694,"{'latitude': '41.811594', 'longitude': '-87.611652'}",12,9,4,4301,161
+2013-05-29T00:00:00.000,Accion,015XX,W,Victoria,Street,Chicago,IL,60660,48,Wholesale,41.987249381,-87.669538843,"{'latitude': '41.987249', 'longitude': '-87.669539'}",40,16,76,4451,539
+2013-05-30T00:00:00.000,CNI,000XX,W,Polk,Street,Chicago,IL,60605,2,Transportation,41.872386434,-87.629583433,"{'latitude': '41.872386', 'longitude': '-87.629583'}",48,10,38,14913,12
+2013-05-30T00:00:00.000,CNI,005XX,E,61st,Street,Chicago,IL,60637,20,Other Services,41.784071842,-87.611277409,"{'latitude': '41.784072', 'longitude': '-87.611277'}",53,4,9,22260,331
+2013-05-30T00:00:00.000,CNI,039XX,W,87th,Street,Chicago,IL,60652,18,Transportation,41.734977335,-87.720972482,"{'latitude': '41.734977', 'longitude': '-87.720972'}",6,30,69,4300,198
+2013-05-30T00:00:00.000,CNI,048XX,S,Forestville,Avenue,Chicago,IL,60615,4,Education,41.806118546,-87.612741496,"{'latitude': '41.806119', 'longitude': '-87.612741'}",12,9,4,21192,447
+2013-05-31T00:00:00.000,Accion,032XX,W.,84th,Street,Chicago,IL,60652,18,Other Services,41.740745482,-87.704159892,"{'latitude': '41.740745', 'longitude': '-87.70416'}",6,30,69,4300,198
+2013-05-31T00:00:00.000,Accion,043XX,N,Lincoln,Avenue,Chicago,IL,60618,47,Medical Services,41.9611988,-87.683869818,"{'latitude': '41.961199', 'longitude': '-87.68387'}",13,18,46,21538,623
+2013-06-10T00:00:00.000,WBDC,014XX,N,Ashland,Avenue,Chicago,IL,60622,1,Professional/Off Svc,41.908377716,-87.667773189,"{'latitude': '41.908378', 'longitude': '-87.667773'}",24,11,25,21560,482
+2013-06-12T00:00:00.000,WBDC,007XX,N,Sacramento,Street,Chicago,IL,60612,27,Other Services,41.895305694,-87.702341905,"{'latitude': '41.895306', 'longitude': '-87.702342'}",41,46,24,21184,177
+2013-06-14T00:00:00.000,Accion,017XX,W,Chicago,Avenue,Chicago,IL,60622,1,Other Services,41.896110115,-87.671694946,"{'latitude': '41.89611', 'longitude': '-87.671695'}",24,41,25,21560,518
+2013-06-25T00:00:00.000,WBDC,003XX,W,18th,Street,Chicago,IL,60616,25,Retail Sales - Other,41.857814473,-87.636746844,"{'latitude': '41.857814', 'longitude': '-87.636747'}",8,26,29,21194,97
+2013-06-26T00:00:00.000,WBDC,033XX,W,Foster,Avenue,Chicago,IL,60625,39,Retail Sales - Other,41.975806213,-87.713183389,"{'latitude': '41.975806', 'longitude': '-87.713183'}",28,38,13,21849,167
+2013-06-28T00:00:00.000,Accion,007XX,N,Austin,Avenue,Chicago,IL,60644,29,Medical Services,41.894322521,-87.775263449,"{'latitude': '41.894323', 'longitude': '-87.775263'}",,,,26615,
+2013-07-03T00:00:00.000,CNI,034XX,W,76th,Place,Chicago,IL,60652,18,Construction/Repair,41.754695049,-87.709448594,"{'latitude': '41.754695', 'longitude': '-87.709449'}",6,30,69,4300,498
+2013-07-10T00:00:00.000,Accion,075XX,S,Clyde,Avenue,Chicago,IL,60649,8,Professional/Off Svc,41.757403429,-87.573811245,"{'latitude': '41.757403', 'longitude': '-87.573811'}",9,35,39,22538,420
+2013-07-15T00:00:00.000,WBDC,003XX,W,18th,Street,Chicago,IL,60616,25,Construction/Repair,41.857814473,-87.636746844,"{'latitude': '41.857814', 'longitude': '-87.636747'}",8,26,29,21194,97
+2013-07-16T00:00:00.000,Accion,023XX,N,Milwaukee,Avenue,Chicago,IL,60647,1,Food/Beverage,41.92383417,-87.699100155,"{'latitude': '41.923834', 'longitude': '-87.6991'}",15,41,23,22535,322
+2013-07-23T00:00:00.000,WBDC,054XX,W,Devon,Avenue,Chicago,IL,60646,39,Day Care,41.997458858,-87.765754186,"{'latitude': '41.997459', 'longitude': '-87.765754'}",34,29,12,22532,781
+2013-07-29T00:00:00.000,Accion,010XX,E,76th,Street,Chicago,IL,60619,8,Beauty/Salon Services,41.75705433,-87.598819545,"{'latitude': '41.757054', 'longitude': '-87.59882'}",9,35,67,21546,497
+2013-08-05T00:00:00.000,CNI,009XX,W,Washington,Street,Chicago,IL,60607,27,Other Services,41.883179433,-87.651753296,"{'latitude': '41.883179', 'longitude': '-87.651753'}",41,46,29,14917,63
+2013-08-05T00:00:00.000,CNI,009XX,W,Washington,Street,Chicago,IL,60607,27,Construction/Repair,41.883179433,-87.651753296,"{'latitude': '41.883179', 'longitude': '-87.651753'}",41,46,29,14917,63
+2013-08-05T00:00:00.000,CNI,009XX,W,Washington,Street,Chicago,IL,60607,27,Other Services,41.883179433,-87.651753296,"{'latitude': '41.883179', 'longitude': '-87.651753'}",41,46,29,14917,63
+2013-08-08T00:00:00.000,WBDC,010XX,S,Western,Avenue,Chicago,IL,60612,25,Retail Sales - Other,41.868456183,-87.686235717,"{'latitude': '41.868456', 'longitude': '-87.686236'}",11,23,29,21184,756
+2013-08-13T00:00:00.000,CNI,108XX,S,King Drive,Avenue,Chicago,IL,60628,9,Food/Beverage,,,,,,,,
+2013-08-16T00:00:00.000,CNI,028XX,E,79th,Street,Chicago,IL,60649,7,Other Services,41.751993753,-87.554961229,"{'latitude': '41.751994', 'longitude': '-87.554961'}",43,37,39,22538,246
+2013-08-21T00:00:00.000,Accion,033XX,N,Paulina,Street,Chicago,IL,60626,47,Professional/Off Svc,41.942987046,-87.671331836,"{'latitude': '41.942987', 'longitude': '-87.671332'}",16,18,57,4449,742
+2013-08-25T00:00:00.000,Accion,033XX,N,Oleander,St.,Chicago,IL,60634,29,Construction/Repair,41.94107163,-87.815556357,"{'latitude': '41.941072', 'longitude': '-87.815556'}",39,7,17,22254,458
+2013-08-28T00:00:00.000,Accion,045XX,W,Irving Pk.,Rd.,Chicago,IL,60657,45,Retail Sales - Other,41.953583501,-87.742578071,"{'latitude': '41.953584', 'longitude': '-87.742578'}",25,50,16,22618,363
+2013-08-28T00:00:00.000,WBDC,064XX,S,Washtenaw,Avenue,Chicago,IL,60629,15,Transportation,41.77572258,-87.691015878,"{'latitude': '41.775723', 'longitude': '-87.691016'}",44,31,64,21867,319
+2013-08-30T00:00:00.000,Accion,004XX,E,Randolph,Street,Chicago,IL,60601,42,Auto/Vehicle,41.884483688,-87.615456174,"{'latitude': '41.884484', 'longitude': '-87.615456'}",22,36,38,14309,580
+2013-08-30T00:00:00.000,Accion,017XX,N,Mason,Street,Chicago,IL,60639,29,Food/Beverage,41.912597808,-87.774226348,"{'latitude': '41.912598', 'longitude': '-87.774226'}",52,7,26,22615,597
+2013-08-30T00:00:00.000,Accion,030XX,N,Lincoln,Avenue,Chicago,IL,60641,47,Retail Sales - Other,41.937149264,-87.665352278,"{'latitude': '41.937149', 'longitude': '-87.665352'}",16,40,57,4449,712
+2013-08-30T00:00:00.000,Accion,041XX,W,81st,Street,Chicago,IL,60652,18,Professional/Off Svc,41.745819843,-87.726010365,"{'latitude': '41.74582', 'longitude': '-87.72601'}",23,30,69,4300,235
+2013-09-06T00:00:00.000,Accion,101XX,S,S,Lafayette,Chicago,IL,60628,9,Construction/Repair,,,,,,,,
+2013-09-12T00:00:00.000,CNI,117XX,S,Elizabeth,Street,Chicago,IL,60628,34,Construction/Repair,41.67980097,-87.653079115,"{'latitude': '41.679801', 'longitude': '-87.653079'}",45,22,50,22212,642
+2013-09-18T00:00:00.000,WBDC,019XX,W,87th,Street,Chicago,IL,60620,18,Professional/Off Svc,41.735766874,-87.672396457,"{'latitude': '41.735767', 'longitude': '-87.672396'}",6,13,70,21554,532
+2013-09-19T00:00:00.000,WBDC,043XX,W,Fullerton,Avenue,Chicago,IL,60639,31,Professional/Off Svc,41.924479361,-87.736194413,"{'latitude': '41.924479', 'longitude': '-87.736194'}",7,17,21,22615,439
+2013-10-02T00:00:00.000,WBDC,053XX,S,Hyde Park,Boulevard,Chicago,IL ,60653,5,Professional/Off Svc,41.79821668,-87.58416835,"{'latitude': '41.798217', 'longitude': '-87.584168'}",32,33,8,21192,501
+2013-10-04T00:00:00.000,CNI,043XX,S,Vincennes,Avenue,Chicago,IL,60653,3,Food/Beverage,41.815184026,-87.614192226,"{'latitude': '41.815184', 'longitude': '-87.614192'}",12,9,4,4301,161
+2013-10-04T00:00:00.000,WBDC,081XX,S,Langley,St,Chicago,IL,60619,6,Education,41.746075485,-87.607663164,"{'latitude': '41.746075', 'longitude': '-87.607663'}",31,32,40,21546,11
+2013-10-07T00:00:00.000,CNI,108XX,S,Langley,Street,Chicago,IL,60628,9,Transportation,41.696425687,-87.606214973,"{'latitude': '41.696426', 'longitude': '-87.606215'}",30,43,47,21861,254
+2013-10-07T00:00:00.000,WBDC,000XX,E,14th,Street,Chicago,IL,60605,2,Professional/Off Svc,41.864181307,-87.625403212,"{'latitude': '41.864181', 'longitude': '-87.625403'}",48,9,34,14913,374
+2013-10-07T00:00:00.000,WBDC,006XX,W,Cermak,Avenue,Chicago,IL,60608,25,Other Services,41.852790641,-87.64364221,"{'latitude': '41.852791', 'longitude': '-87.643642'}",8,26,33,21194,249
+2013-10-07T00:00:00.000,WBDC,011XX,S,State,Street,Chicago,IL,60605,2,Other Services,41.867936373,-87.627580413,"{'latitude': '41.867936', 'longitude': '-87.62758'}",48,10,38,14913,12
+2013-10-07T00:00:00.000,WBDC,020XX,W,Belmont,Avenue,Chicago,IL,60618,32,Retail Sales - Other,41.939657595,-87.680360379,"{'latitude': '41.939658', 'longitude': '-87.68036'}",16,40,46,21538,647
+2013-10-18T00:00:00.000,CNI,039XX,W,Lawrence,Avenue,Chicago,IL,60625,39,Professional/Off Svc,41.968356466,-87.727656367,"{'latitude': '41.968356', 'longitude': '-87.727656'}",28,12,14,21849,120
+2013-10-30T00:00:00.000,CNI,107XX,S,Eberhart,Street,Chicago,IL,60628,9,Transportation,41.698513608,-87.611230373,"{'latitude': '41.698514', 'longitude': '-87.61123'}",30,43,45,21861,237
+2013-10-31T00:00:00.000,Accion,029XX,W,Pershing,Rd.,Chicago,IL,60632,12,Food/Beverage,41.822807198,-87.69911434,"{'latitude': '41.822807', 'longitude': '-87.699114'}",49,1,55,22248,639
+2013-10-31T00:00:00.000,WBDC,003XX,S,Michigan,Avenue,Chicago,IL,60604,2,Transportation,41.877066783,-87.62443921,"{'latitude': '41.877067', 'longitude': '-87.624439'}",48,36,38,14912,367
+2013-11-06T00:00:00.000,WBDC,017XX,W,Lawrence,Avenue,Chicago,IL,60660,47,,41.968945848,-87.67299374,"{'latitude': '41.968946', 'longitude': '-87.672994'}",13,18,31,22616,610
+2013-11-08T00:00:00.000,WBDC,044XX,N,Ravenswood,Avenue,Chicago,IL,60640,47,Medical Services,41.963019851,-87.674712135,"{'latitude': '41.96302', 'longitude': '-87.674712'}",13,18,6,22616,225
+2013-11-14T00:00:00.000,Accion,016XX,W,21st ,Street,Chicago,IL,60608,25,Retail Stores,41.854222612,-87.668174117,"{'latitude': '41.854223', 'longitude': '-87.668174'}",8,26,33,14920,343
+2013-11-15T00:00:00.000,Accion,036XX,N,Halsted,Street,Chicago,IL,60613,46,Beauty/Salon Services,41.948799126,-87.649678275,"{'latitude': '41.948799', 'longitude': '-87.649678'}",38,25,57,21186,727
+2013-11-19T00:00:00.000,Accion,012XX,S,Michigan,Avenue,Chicago,IL,60605,3,Food/Beverage,41.866073587,-87.624267673,"{'latitude': '41.866074', 'longitude': '-87.624268'}",48,9,34,14913,374
+2013-11-25T00:00:00.000,Accion,055XX,S,State,Street,Chicago,IL,60621,3,Beauty/Salon Services,41.79291528,-87.625802131,"{'latitude': '41.792915', 'longitude': '-87.625802'}",12,9,7,21559,164
+2013-11-27T00:00:00.000,Accion,045XX,S,Leamington,Street,Chicago,IL,60638,22,Professional/Off Svc,41.809651235,-87.751917263,"{'latitude': '41.809651', 'longitude': '-87.751917'}",35,28,53,22268,604
+2013-11-30T00:00:00.000,Accion,041XX,S,Ashland,Avenue,Chicago,IL,60609,12,Other Services,41.818054515,-87.665341967,"{'latitude': '41.818055', 'longitude': '-87.665342'}",29,1,59,14924,706
+2013-12-09T00:00:00.000,Accion,006XX,W,Cermak,Rd.,Chicago,IL,60616,25,Wholesale,41.852790641,-87.64364221,"{'latitude': '41.852791', 'longitude': '-87.643642'}",8,26,33,21194,249
+2013-12-11T00:00:00.000,CNI,015XX,S,Western,Avenue,Chicago,IL,60608,28,IT/Manufacturing,41.859679009,-87.685989222,"{'latitude': '41.859679', 'longitude': '-87.685989'}",11,23,29,14920,96
+2013-12-16T00:00:00.000,Accion,007XX,N,Franklin,Street,Chicago,IL,60654,42,Retail Stores,41.896317588,-87.635840254,"{'latitude': '41.896318', 'longitude': '-87.63584'}",22,36,37,4446,652
+2013-12-16T00:00:00.000,Accion,034XX,W,Armitage,Avenue,Chicago,IL,60647,26,Retail Sales - Other,41.917434655,-87.713445161,"{'latitude': '41.917435', 'longitude': '-87.713445'}",10,49,23,22535,321
+2013-12-17T00:00:00.000,Accion,008XX,S,Wabash,Avenue,Chicago,IL,60605,4,Retail Sales - Other,41.871184354,-87.62606949,"{'latitude': '41.871184', 'longitude': '-87.626069'}",48,10,38,14913,368
+2014-01-30T00:00:00.000,Accion,068XX,S.,Pulaski,Avenue,Chicago,IL,60629,13,Retail Sales - Other,41.768013884,-87.722638914,"{'latitude': '41.768014', 'longitude': '-87.722639'}",23,15,63,21867,318
+2014-03-03T00:00:00.000,CNI,000XX,N,Wacker,Drive,Chicago,IL,60606,42,Professional/Off Svc,41.883134296,-87.637191526,"{'latitude': '41.883134', 'longitude': '-87.637192'}",22,36,38,14914,92
+2014-04-04T00:00:00.000,CNI,045XX,S,Greenwood,Avenue,Chicago,IL,60653,4,Other Services,41.811751058,-87.599457832,"{'latitude': '41.811751', 'longitude': '-87.599458'}",1,10,5,4301,395
+2014-04-09T00:00:00.000,Accion,073XX,S,Artesian,Avenue,Chicago,IL,60629,18,Retail Sales - Other,41.759524141,-87.684473522,"{'latitude': '41.759524', 'longitude': '-87.684474'}",6,30,64,21867,333
+2014-04-14T00:00:00.000,Accion,032XX,W,71st St.,Place,Chicago,IL,60629,17,Day Care,,,,,,,,
+2014-04-24T00:00:00.000,Accion,,,,,Chicago,IL,60621,,Other Services,,,,,,,,
+2014-04-25T00:00:00.000,CNI,022XX,S,Michigan,Avenue,Chicago,IL,60616,2,Professional/Off Svc,41.851416506,-87.623912577,"{'latitude': '41.851417', 'longitude': '-87.623913'}",48,9,34,21194,193
+2014-04-29T00:00:00.000,Accion,011XX,W,Thorndale,Avenue,Chicago,IL,60660,48,Professional/Off Svc,41.99011704,-87.66017523,"{'latitude': '41.990117', 'longitude': '-87.660175'}",40,16,76,4451,213
+2014-05-01T00:00:00.000,CNI,003XX,E,115th,Street,Chicago,IL,60628,9,Construction/Repair,41.685533059,-87.6135524,"{'latitude': '41.685533', 'longitude': '-87.613552'}",30,43,45,21861,253
+2014-05-08T00:00:00.000,CNI,039XX,W,Lawrence,Avenue,Chicago,IL,60625,39,Construction/Repair,41.968356466,-87.727656367,"{'latitude': '41.968356', 'longitude': '-87.727656'}",28,12,14,21849,120
+2014-05-20T00:00:00.000,Accion,055XX,W,Belmont,Avenue,Chicago,IL,60641,31,Professional/Off Svc,41.938688594,-87.766123438,"{'latitude': '41.938689', 'longitude': '-87.766123'}",25,21,15,22618,361
+2014-05-21T00:00:00.000,Accion,080XX,S,Stony Island,Avenue,Chicago,IL,60617,8,Auto/Vehicle,41.748143549,-87.586046897,"{'latitude': '41.748144', 'longitude': '-87.586047'}",9,35,41,21202,133
+2014-05-22T00:00:00.000,Accion,064XX,S,Pulaski,Avenue,Chicago,IL,60629,13,Food/Beverage,41.775286556,-87.722819282,"{'latitude': '41.775287', 'longitude': '-87.722819'}",23,15,63,21867,6
+2014-06-13T00:00:00.000,Accion,006XX,E,71st ,Street,Chicago,IL,60637,6,Construction/Repair,41.765935086,-87.608486389,"{'latitude': '41.765935', 'longitude': '-87.608486'}",31,32,67,21546,480
+2014-06-18T00:00:00.000,WBDC,043XX,W,Fullerton,Avenue,Chicago,IL,60639,31,Professional/Off Svc,41.924479361,-87.736194413,"{'latitude': '41.924479', 'longitude': '-87.736194'}",7,17,21,22615,439
+2014-06-26T00:00:00.000,Accion,012XX,W,Lake,Street,Chicago,IL,60607,27,Entertainment,41.885583712,-87.658758596,"{'latitude': '41.885584', 'longitude': '-87.658759'}",41,46,29,14917,63
+2014-06-30T00:00:00.000,Accion,016XX,W,21st ,Street,Chicago,IL,60608,25,Retail Stores,41.854222612,-87.668174117,"{'latitude': '41.854223', 'longitude': '-87.668174'}",8,26,33,14920,343
+2014-06-30T00:00:00.000,Accion,017XX,W,North,Avenue,Chicago,IL,60622,32,Retail Stores,41.910676883,-87.672126285,"{'latitude': '41.910677', 'longitude': '-87.672126'}",16,40,25,21560,437
+2014-06-30T00:00:00.000,Accion,038XX,W,Chicago,Avenue,Chicago,IL,60651,37,Professional/Off Svc,41.895502619,-87.723239039,"{'latitude': '41.895503', 'longitude': '-87.723239'}",41,45,24,4299,456
+2014-07-02T00:00:00.000,Accion,063XX,W,Cuyler,Avenue,Chicago,IL,60634,38,Food/Beverage,41.953948536,-87.786167289,"{'latitude': '41.953949', 'longitude': '-87.786167'}",25,19,15,22254,131
+2014-07-08T00:00:00.000,Accion,040XX,N,Drake,Avenue,Chicago,IL,60618,35,Other Services,41.955304751,-87.716779636,"{'latitude': '41.955305', 'longitude': '-87.71678'}",2,12,16,21538,23
+2014-07-18T00:00:00.000,Accion,024XX,N,Western,Avenue,Chicago,IL,60647,1,Retail Stores,41.926433443,-87.687846644,"{'latitude': '41.926433', 'longitude': '-87.687847'}",24,41,23,22535,240
+2014-07-24T00:00:00.000,Accion,034XX,W,Armitage,Avenue,Chicago,IL,60647,26,Retail Sales - Other,41.917434655,-87.713445161,"{'latitude': '41.917435', 'longitude': '-87.713445'}",10,49,23,22535,321
+2014-07-25T00:00:00.000,Accion,046XX,S,Kolin,Avenue,Chicago,IL,60632,14,Retail Sales - Other,41.808075695,-87.732539098,"{'latitude': '41.808076', 'longitude': '-87.732539'}",49,8,54,22248,591
+2014-07-28T00:00:00.000,Accion,059XX,S,Michigan,Avenue,Chicago,IL,60637,20,Construction/Repair,41.785900266,-87.622383571,"{'latitude': '41.7859', 'longitude': '-87.622384'}",53,4,7,22260,164
+2014-07-29T00:00:00.000,Accion,018XX,E,87th,Street,Chicago,IL,60619,8,Beauty/Salon Services,41.737125223,-87.578601773,"{'latitude': '41.737125', 'longitude': '-87.578602'}",9,35,41,21202,431
+2014-07-30T00:00:00.000,Accion,069XX,W,Grand,Avenue,Chicago,IL,60707,36,Auto/Vehicle,41.923672582,-87.799705607,"{'latitude': '41.923673', 'longitude': '-87.799706'}",39,44,18,4454,136
+2014-08-14T00:00:00.000,Accion,000XX,E,102nd,Place,Chicago,IL,60628,9,Professional/Off Svc,41.708212377,-87.621623588,"{'latitude': '41.708212', 'longitude': '-87.621624'}",30,43,45,21861,570
+2014-08-15T00:00:00.000,Accion,038XX,N,Lincoln,Avenue,Chicago,IL,60613,47,Education,41.951797588,-87.677279839,"{'latitude': '41.951798', 'longitude': '-87.67728'}",13,18,46,21186,644
+2014-08-26T00:00:00.000,Accion,037XX,N,Saint Louis,Avenue,Chicago,IL,60618,35,Retail Stores,41.949861008,-87.715400981,"{'latitude': '41.949861', 'longitude': '-87.715401'}",15,12,16,21538,325
+2014-09-03T00:00:00.000,Accion,059XX,W,Patterson,Avenue,Chicago,IL,60634,36,Medical Services,41.946795663,-87.776116779,"{'latitude': '41.946796', 'longitude': '-87.776117'}",25,44,15,22254,311
+2014-09-15T00:00:00.000,CNI,003XX,E,Ohio,Street,Chicago,IL,60611,42,Real Estate Consultant,41.892741648,-87.618288156,"{'latitude': '41.892742', 'longitude': '-87.618288'}",22,36,37,21182,159
+2014-09-16T00:00:00.000,CNI,050XX,S,State,Street,Chicago,IL,60609,3,Catering,41.802247471,-87.626043589,"{'latitude': '41.802247', 'longitude': '-87.626044'}",12,9,4,14924,415
+2014-09-16T00:00:00.000,CNI,081XX,S,Cornell,Avenue,Chicago,IL,60617,8,Construction,41.746689547,-87.584327648,"{'latitude': '41.74669', 'longitude': '-87.584328'}",9,35,41,21202,431
+2014-09-30T00:00:00.000,Accion,040XX,S,Indiana,Street,Chicago,IL,60653,3,Day Care,41.820488979,-87.621662243,"{'latitude': '41.820489', 'longitude': '-87.621662'}",12,9,4,4301,163
+2014-10-17T00:00:00.000,Accion,054XX,W,Ferdinand,Street,Chicago,IL,60651,37,Auto/Vehicle,41.888993811,-87.762246174,"{'latitude': '41.888994', 'longitude': '-87.762246'}",4,45,26,22216,673
+2014-10-20T00:00:00.000,Accion,111XX,S,Western,Avenue,Chicago,IL,60643,19,Medical Services,41.690214082,-87.681251795,"{'latitude': '41.690214', 'longitude': '-87.681252'}",33,42,74,22212,379
+2014-10-22T00:00:00.000,Accion,053XX,S,Hyde Park,BLVD,Chicago,IL,60615,5,Retail Stores,41.79821668,-87.58416835,"{'latitude': '41.798217', 'longitude': '-87.584168'}",32,33,8,21192,501
+2014-11-06T00:00:00.000,Accion,111XX,S,Longwood,Drive,Chicago,IL,60643,19,Professional/Off Svc,41.690441874,-87.672331394,"{'latitude': '41.690442', 'longitude': '-87.672331'}",33,42,74,22212,378
+2014-11-10T00:00:00.000,Accion,106XX,S,Halsted,Street,Chicago,IL,60628,34,Day Care,41.69995513,-87.642763331,"{'latitude': '41.699955', 'longitude': '-87.642763'}",45,22,72,21861,595
+2014-11-13T00:00:00.000,Accion,025XX,W,Lawrence,Avenue,Chicago,IL,60625,40,Food/Beverage,41.968685531,-87.693369954,"{'latitude': '41.968686', 'longitude': '-87.69337'}",13,24,6,21849,28
+2014-11-18T00:00:00.000,Accion,095XX,S,Constance,Street,Chicago,IL,60617,7,Day Care,41.720988133,-87.579112453,"{'latitude': '41.720988', 'longitude': '-87.579112'}",43,37,48,21202,252
+2014-11-18T00:00:00.000,CNI,001XX,E,83rd,Street,Chicago,IL,60619,6,Service,41.743840448,-87.619653944,"{'latitude': '41.74384', 'longitude': '-87.619654'}",31,32,40,21546,406
+2014-11-19T00:00:00.000,Accion,037XX,W,Cermak,Rd.,CHICAGO,IL,60623,22,Retail Stores,41.851722608,-87.719448564,"{'latitude': '41.851723', 'longitude': '-87.719449'}",36,14,30,21569,157
+2014-11-20T00:00:00.000,Accion,010XX,E,76th,Street,Chicago,IL,60619,8,Beauty/Salon Services,41.75705433,-87.598819545,"{'latitude': '41.757054', 'longitude': '-87.59882'}",9,35,67,21546,497
+2014-11-24T00:00:00.000,Accion,048XX,S,Evans,Street,Chicago,IL,60615,4,Medical Services,41.806193422,-87.607859643,"{'latitude': '41.806193', 'longitude': '-87.60786'}",1,10,4,21192,165
+2014-11-25T00:00:00.000,Accion,074XX,W,Irving Pk.,Rd.,Chicago,IL,60634,38,Other Services,41.952711949,-87.814246268,"{'latitude': '41.952712', 'longitude': '-87.814246'}",21,,,4453,
+2014-11-25T00:00:00.000,Accion,078XX,S,Shore,Drive,Chicago,IL,60649,7,transportation,41.753007302,-87.549326948,"{'latitude': '41.753007', 'longitude': '-87.549327'}",43,37,42,22538,505
+2014-12-02T00:00:00.000,Accion,148XX, ,Evans,Avenue,Dolton,IL,60620,,Construction/Repair,,,,,,,,
+2014-12-04T00:00:00.000,Accion,018XX,N,Monitor,Street,Chicago,IL,60639,29,Construction/Repair,41.914456401,-87.7717878,"{'latitude': '41.914456', 'longitude': '-87.771788'}",52,7,26,22615,597
+2014-12-05T00:00:00.000,Accion,019XX,N,Austin,Avenue,Chicago,IL,60639,29,Food/Beverage,41.91622789,-87.775605613,"{'latitude': '41.916228', 'longitude': '-87.775606'}",52,7,26,22615,597
+2014-12-05T00:00:00.000,Accion,094XX,S,Perry,Avenue,Chicago,IL,60620,21,Day Care,41.722006907,-87.626390322,"{'latitude': '41.722007', 'longitude': '-87.62639'}",18,13,45,21861,187
+2014-12-12T00:00:00.000,Accion,000XX,N,LaSalle,Street,Chicago,IL,60602,42,Professional/Off Svc,41.883173368,-87.632552736,"{'latitude': '41.883173', 'longitude': '-87.632553'}",22,36,38,14310,92
+2014-12-12T00:00:00.000,Accion,101XX,S,Lafayette,Street,Chicago,IL,60628,9,Construction/Repair,41.709285897,-87.624925274,"{'latitude': '41.709286', 'longitude': '-87.624925'}",30,43,45,21861,569
+2015-01-07T00:00:00.000,CNI,021XX,S,Canalport,Street,Chicago,IL,60608,6,Construction,41.853301464,-87.649929695,"{'latitude': '41.853301', 'longitude': '-87.64993'}",8,26,33,14920,250
+2015-01-15T00:00:00.000,CNI,053XX,S,Greenwood,Avenue,Chicago,IL,60615,5,Service,41.798022972,-87.599856389,"{'latitude': '41.798023', 'longitude': '-87.599856'}",32,33,8,21192,441
+2015-01-30T00:00:00.000,WBDC,007XX,W,Washington,Street,Chicago,IL,60661,42,Professional/Off Svc,41.883256433,-87.647365592,"{'latitude': '41.883256', 'longitude': '-87.647366'}",41,46,29,4452,784
+2015-02-02T00:00:00.000,Accion,029XX,N,Lincoln,Avenue,Chicago,IL,60657,32,Retail Stores,41.935398499,-87.662897921,"{'latitude': '41.935398', 'longitude': '-87.662898'}",16,40,57,4449,679
+2015-02-06T00:00:00.000,Accion,003XX,E,71st,Street,Chicago,IL,60619,6,Clothing Design/Mfg,41.765795405,-87.616487173,"{'latitude': '41.765795', 'longitude': '-87.616487'}",31,32,67,22260,514
+2015-02-12T00:00:00.000,Accion,014XX,N,Milwaukee,Avenue,Chicago,IL,60622,1,Retail sales,41.908161631,-87.67422876,"{'latitude': '41.908162', 'longitude': '-87.674229'}",24,41,25,21560,481
+2015-02-13T00:00:00.000,Accion,035XX,W,63rd,Street,Chicago,IL,60629,23,Restaurant - Full Service,41.77893795,-87.712384286,"{'latitude': '41.778938', 'longitude': '-87.712384'}",44,6,64,21867,344
+2015-02-18T00:00:00.000,Accion,010XX,N,California,Avenue,Chicago,IL,60622,26,Restaurant - Full Service,41.900760711,-87.696975027,"{'latitude': '41.900761', 'longitude': '-87.696975'}",10,49,25,21560,301
+2015-02-23T00:00:00.000,Accion,019XX,W,103rd,Street,Chicago,IL,60643,19,Other Services,41.706669083,-87.671082793,"{'latitude': '41.706669', 'longitude': '-87.671083'}",33,42,71,22212,628
+2015-02-23T00:00:00.000,Accion,034XX,N,Pulaski,Avenue,Chicago,IL,60641,30,Restaurant - Full Service,41.944183101,-87.727478918,"{'latitude': '41.944183', 'longitude': '-87.727479'}",27,21,16,22618,329
+2015-02-23T00:00:00.000,CNI,112XX,S,Saint Lawrence,Avenue,Chicago,IL,60628,9,Food/Beverage,41.689529257,-87.608493489,"{'latitude': '41.689529', 'longitude': '-87.608493'}",30,43,47,21861,601
+2015-02-25T00:00:00.000,Accion,033XX,W,BRYN MAWR,Avenue,CHICAGO,IL,60659,39,Restaurant - Full Service,41.98312144,-87.713368491,"{'latitude': '41.983121', 'longitude': '-87.713368'}",28,38,13,4450,799
+2015-02-26T00:00:00.000,Accion,008XX,S,Wabash,Avenue,Chicago,IL,60605,4,Electronics,41.871184354,-87.62606949,"{'latitude': '41.871184', 'longitude': '-87.626069'}",48,10,38,14913,368
+2015-03-04T00:00:00.000,Accion,060XX,W,Irving Pk.,Road,Chicago,IL,60634,38,Retail Stores,41.953128103,-87.778825478,"{'latitude': '41.953128', 'longitude': '-87.778825'}",25,19,15,22254,131
+2015-03-05T00:00:00.000,Accion,000XX,,,,Chicago,IL,60636,,Other Construction/Repair,,,,,,,,
+2015-03-09T00:00:00.000,CNI,077XX,S,Albany,Avenue,Chicago,IL,60652,18,Other Services -Childcare,41.752003688,-87.700161747,"{'latitude': '41.752004', 'longitude': '-87.700162'}",6,30,69,4300,498
+2015-03-12T00:00:00.000,Accion,039XX,W,Armitage,Avenue,Chicago ,IL,60647,26,Auto/Vehicle,41.917280964,-87.726185515,"{'latitude': '41.917281', 'longitude': '-87.726186'}",27,49,21,22535,76
+2015-03-16T00:00:00.000,Accion,135XX,S,Brainard,Avenue,Chicago,IL,60633,10,Food/Beverage,41.648211288,-87.545772832,"{'latitude': '41.648211', 'longitude': '-87.545773'}",47,47,52,22250,586
+2015-03-17T00:00:00.000,Accion,025XX,W,16th,Street,Chicago,IL,60608,28,Entertainment,41.859403662,-87.690337461,"{'latitude': '41.859404', 'longitude': '-87.690337'}",11,23,30,14920,16
+2015-03-19T00:00:00.000,Accion,016XX,N,Tripp,Avenue,Chicago,IL,60639,26,Transportation,41.911306184,-87.732633806,"{'latitude': '41.911306', 'longitude': '-87.732634'}",27,49,24,22615,285
+2015-03-23T00:00:00.000,Accion,041XX,S,Maplewood,Avenue,Chicago,IL,60632,12,Manufacturing,41.817755662,-87.68852451,"{'latitude': '41.817756', 'longitude': '-87.688525'}",29,1,55,22248,718
+2015-03-23T00:00:00.000,Accion,047XX,N,Sawyer,Avenue,Chicago,IL,60625,33,Other Services,41.968126183,-87.709826697,"{'latitude': '41.968126', 'longitude': '-87.709827'}",2,20,14,21849,118
+2015-03-24T00:00:00.000,Accion,000XX,,,,Chicago,IL,60680,,Other Services,,,,,,,,
+2015-03-30T00:00:00.000,Accion,013XX,W,Wrightwood,Avenue,Chicago,IL,60614,32,Retail Sales ,41.928964527,-87.663049927,"{'latitude': '41.928965', 'longitude': '-87.66305'}",16,40,68,21190,796
+2015-04-01T00:00:00.000,CNI,077XX,S,Calumet,Avenue,Chicago,IL,60619,6,Other Services - Childcare,41.75322778,-87.616735646,"{'latitude': '41.753228', 'longitude': '-87.616736'}",31,32,67,21546,475
+2015-04-01T00:00:00.000,CNI,085XX,S,Racine,Avenue,Chicago,IL,60620,21,Other Services - Tire Repair,41.738069556,-87.653544944,"{'latitude': '41.73807', 'longitude': '-87.653545'}",18,13,70,21554,531
+2015-04-07T00:00:00.000,WBDC,011XX,S,State,Street,Chicago,IL,60605,2,Other Services,41.867936373,-87.627580413,"{'latitude': '41.867936', 'longitude': '-87.62758'}",48,10,38,14913,12
+2015-04-07T00:00:00.000,WBDC,017XX,W,Lawrence,Avenue,Chicago,IL,60660,47,,41.968945848,-87.67299374,"{'latitude': '41.968946', 'longitude': '-87.672994'}",13,18,31,22616,610
+2015-04-16T00:00:00.000,Accion,001XX,S,Hamlin,Boulevard,Chicago,IL,60624,28,Other Services,41.878284228,-87.720804134,"{'latitude': '41.878284', 'longitude': '-87.720804'}",11,23,27,21572,736
+2015-04-24T00:00:00.000,CNI,021XX,S,Canalport,Street,Chicago,IL,60608,25,Other Services - Cosmetology,41.853301464,-87.649929695,"{'latitude': '41.853301', 'longitude': '-87.64993'}",8,26,33,14920,250
+2015-05-01T00:00:00.000,WBDC,027XX,W,Potomac,Avenue,Chicago,IL,60622,26,Retail Sales - Other,41.904865295,-87.696497802,"{'latitude': '41.904865', 'longitude': '-87.696498'}",10,49,25,21560,543
+2015-05-07T00:00:00.000,WBDC,014XX,N,Ashland,Avenue,Chicago,IL,60622,1,Professional/Off Svc,41.908377716,-87.667773189,"{'latitude': '41.908378', 'longitude': '-87.667773'}",24,11,25,21560,482
+2015-05-15T00:00:00.000,WBDC,010XX,S,Western,Avenue,Chicago,IL,60612,25,Retail Sales - Other,41.868456183,-87.686235717,"{'latitude': '41.868456', 'longitude': '-87.686236'}",11,23,29,21184,756
+2015-05-26T00:00:00.000,WBDC,005XX,E,43rd,Street,Chicago,IL,60653,4,,41.816831307,-87.612018219,"{'latitude': '41.816831', 'longitude': '-87.612018'}",1,10,4,4301,583
+2015-06-03T00:00:00.000,Accion,059XX,S,Michigan,Avenue,Chicago,IL,60637,20,Construction/Repair,41.785900266,-87.622383571,"{'latitude': '41.7859', 'longitude': '-87.622384'}",53,4,7,22260,164
+2015-06-04T00:00:00.000,WBDC,008XX,W,63rd,Street,Chicago,IL,60621,20,,41.779826797,-87.646902618,"{'latitude': '41.779827', 'longitude': '-87.646903'}",19,2,66,21559,22
+2015-06-16T00:00:00.000,Accion,042XX,N,Cicero,Avenue,Chicago,IL,60641,45,Professional/Off Svc,41.958555449,-87.747611909,"{'latitude': '41.958555', 'longitude': '-87.747612'}",20,50,15,22618,259
+2015-06-29T00:00:00.000,CNI,009XX,W,North,Avenue,Chicago,IL,60642,21,Transportation,41.910951382,-87.653010859,"{'latitude': '41.910951', 'longitude': '-87.653011'}",16,11,68,22620,168
+2015-07-15T00:00:00.000,CNI,017XX,E,92nd,Street,Chicago,IL,60617,7,Other Services,41.727980124,-87.580634236,"{'latitude': '41.72798', 'longitude': '-87.580634'}",9,35,44,21202,492
+2015-07-15T00:00:00.000,CNI,028XX,E,79th,Street,Chicago,IL,60649,27,Other Services,41.751993753,-87.554961229,"{'latitude': '41.751994', 'longitude': '-87.554961'}",43,37,39,22538,246
+2015-07-17T00:00:00.000,Accion,016XX,W,21st ,Street,Chicago,IL,60608,25,"Fashion, jewelry, art and sewing/ jewelry classes",41.854222612,-87.668174117,"{'latitude': '41.854223', 'longitude': '-87.668174'}",8,26,33,14920,343
+2015-08-04T00:00:00.000,CNI,056XX,,Mannheim,Road,Chicago,IL,60666,16,Other Services - Barbershop,41.981355689,-87.879182873,"{'latitude': '41.981356', 'longitude': '-87.879183'}",34,29,75,16197,668
+2015-08-06T00:00:00.000,CNI,089XX,S,Blackstone,Street,Chicago,IL,60619,8,Transportation,41.731729337,-87.588167875,"{'latitude': '41.731729', 'longitude': '-87.588168'}",9,35,44,21546,491
+2015-08-07T00:00:00.000,WBDC,003XX,W,18th,Street,Chicago,IL,60616,25,Construction/Repair,41.857814473,-87.636746844,"{'latitude': '41.857814', 'longitude': '-87.636747'}",8,26,29,21194,97
+2015-08-28T00:00:00.000,Accion,080XX,S,Normal,Avenue,Chicago,IL,60620,17,Other Services,41.747411671,-87.636787879,"{'latitude': '41.747412', 'longitude': '-87.636788'}",18,31,40,21554,1
+2015-08-31T00:00:00.000,Accion,087XX,S,Racine,Avenue,Chicago,IL,60620,21,Retail Services - Other,41.734425227,-87.653443031,"{'latitude': '41.734425', 'longitude': '-87.653443'}",18,13,70,21554,533
+2015-09-10T00:00:00.000,CNI,106XX,S,Yates,Avenue,Chicago,IL,60617,41,Other Services,41.701271823,-87.564135629,"{'latitude': '41.701272', 'longitude': '-87.564136'}",47,37,48,21202,174
+2015-09-22T00:00:00.000,CNI,067XX,S,South Chicago,Avenue,Chicago,IL,60637,7,Other Services,41.771818686,-87.614077935,"{'latitude': '41.771819', 'longitude': '-87.614078'}",53,4,67,22260,480
+2015-09-29T00:00:00.000,Accion,021XX,N,Milwaukee,Avenue,Chicago,IL,60647,1,Retail Stores,41.920230129,-87.693217337,"{'latitude': '41.92023', 'longitude': '-87.693217'}",24,41,23,22535,294
+2015-10-06T00:00:00.000,Accion,016XX,W,18th,Street,Chicago,IL,60608,25,Food/Beverage,41.857871405,-87.668270534,"{'latitude': '41.857871', 'longitude': '-87.668271'}",8,26,33,14920,343
+2015-10-06T00:00:00.000,Accion,017XX,W,Chicago,Avenue,Chicago,IL,60622,1,Entertainment,41.896110115,-87.671694946,"{'latitude': '41.89611', 'longitude': '-87.671695'}",24,41,25,21560,518
+2015-10-08T00:00:00.000,WBDC,010XX,E,43rd ,Street,Chicago,IL,60653,4,Retail Sales - Other,41.817000516,-87.599814358,"{'latitude': '41.817001', 'longitude': '-87.599814'}",1,10,2,4301,220
+2015-10-09T00:00:00.000,CNI,015XX,E,53rd ,Street,Chicago,IL,60615,5,Retail Sales - Other,41.799674501,-87.587171084,"{'latitude': '41.799675', 'longitude': '-87.587171'}",1,10,8,21192,405
+2015-10-23T00:00:00.000,CNI,019XX,W,87th,Street,Chicago,IL,60620,20,Professional/Off Svc,41.735766874,-87.672396457,"{'latitude': '41.735767', 'longitude': '-87.672396'}",6,13,70,21554,532
+2015-11-03T00:00:00.000,WBDC,000XX,W,Schiller,Street,Chicago,IL,60610,2,Entertainment/Manufacturing,41.90796282,-87.630584687,"{'latitude': '41.907963', 'longitude': '-87.630585'}",22,11,37,14926,100
+2015-11-09T00:00:00.000,WBDC,049XX,N,Francisco,Avenue,Chicago,IL,60625,40,Enviromental Consulting,41.972082832,-87.701396229,"{'latitude': '41.972083', 'longitude': '-87.701396'}",46,24,6,21849,620
+2015-11-25T00:00:00.000,Accion,038XX,N,Broadway,Street,Chicago,IL,60613,46,Beauty/Salon Services,41.952667333,-87.649798106,"{'latitude': '41.952667', 'longitude': '-87.649798'}",37,39,57,21186,83
+2015-12-11T00:00:00.000,Accion,043XX,N,Lincoln,Avenue,Chicago,IL,60618,47,Medical Services,41.9611988,-87.683869818,"{'latitude': '41.961199', 'longitude': '-87.68387'}",13,18,46,21538,623
+2015-12-11T00:00:00.000,CNI,017XX,W,104th,Place,Chicago,IL,60643,19,Manufacturing,41.70401463,-87.66669565,"{'latitude': '41.704015', 'longitude': '-87.666696'}",33,42,71,22212,630
+2015-12-11T00:00:00.000,CNI,089XX,S,Euclid,Avenue,Chicago,IL,60617,8,Other Services - Education,41.731882963,-87.576953624,"{'latitude': '41.731883', 'longitude': '-87.576954'}",9,35,44,21202,492
+2015-12-11T00:00:00.000,WBDC,022XX,S,Throop,Street,Chicago,IL,60608,25,Retail Sales - Other,41.85096156,-87.658810143,"{'latitude': '41.850962', 'longitude': '-87.65881'}",8,26,33,14920,126
+2015-12-16T00:00:00.000,Accion,038XX,W,Montrose,Avenue,Chicago,IL,60618,35,Food/Beverage,41.961091681,-87.72500737,"{'latitude': '41.961092', 'longitude': '-87.725007'}",28,12,14,21538,117
+2015-12-23T00:00:00.000,CNI,000XX,N,Wacker,Drive,Chicago,IL,60606,42,Professional/Off Svc,41.883134296,-87.637191526,"{'latitude': '41.883134', 'longitude': '-87.637192'}",22,36,38,14914,92
+2015-12-23T00:00:00.000,WBDC,036XX,S,Halsted,Street,Chicago,IL,60609,11,Day Care,41.827682151,-87.646181967,"{'latitude': '41.827682', 'longitude': '-87.646182'}",26,48,58,14924,172
+2016-01-13T00:00:00.000,WBDC,074XX,S,Merrill,Street,Chicago,IL,60649,5,Construction/Repair,41.759232588,-87.572592157,"{'latitude': '41.759233', 'longitude': '-87.572592'}",32,37,39,22538,418
+2016-01-15T00:00:00.000,CNI,008XX,E,40th ,Street,Chicago,IL,60653,4,Other Services,41.821834711,-87.604472033,"{'latitude': '41.821835', 'longitude': '-87.604472'}",1,10,2,4301,220
+2016-01-18T00:00:00.000,Accion,001XX,N,Clark,St,Chicago,IL,60601,42,Other Services,41.884535737,-87.631084951,"{'latitude': '41.884536', 'longitude': '-87.631085'}",22,36,38,14309,92
+2016-01-28T00:00:00.000,Accion,015XX,S,Western,Avenue,Chicago,IL,60603,28,Arts/Crafts Production,41.859679009,-87.685989222,"{'latitude': '41.859679', 'longitude': '-87.685989'}",11,23,29,14920,96
+2016-01-29T00:00:00.000,Accion,005XX,N,Michigan,Avenue,Chicago,IL,60611,42,Retail Sales - Other,41.892511145,-87.624330958,"{'latitude': '41.892511', 'longitude': '-87.624331'}",22,36,37,21182,626
+2016-02-02T00:00:00.000,Accion,031XX,N,Broadway,Avenue,Chicago,IL,60657,44,Food/Beverage,41.939120097,-87.644515275,"{'latitude': '41.93912', 'longitude': '-87.644515'}",38,25,57,4449,682
+2016-02-10T00:00:00.000,CNI,040XX,S,Lake , Park ,Chicago,IL,60653,5,Manufacturing,41.821064248,-87.601609066,"{'latitude': '41.821064', 'longitude': '-87.601609'}",1,10,2,4301,220
+2016-02-16T00:00:00.000,Accion,029XX,W,Pershing,Rd.,Chicago,IL,60632,12,Food/Beverage,41.822807198,-87.69911434,"{'latitude': '41.822807', 'longitude': '-87.699114'}",49,1,55,22248,639
+2016-02-16T00:00:00.000,Accion,057XX,N,Winthrop,Avenue,Chicago,IL,60660,48,Arts/Crafts Production,41.986987321,-87.6582672,"{'latitude': '41.986987', 'longitude': '-87.658267'}",40,16,76,4451,144
+2016-02-16T00:00:00.000,CNI,092XX,S,Commercial, Avenue ,Chicago,IL,60617,7,Transportation,41.726813141,-87.551328661,"{'latitude': '41.726813', 'longitude': '-87.551329'}",47,47,44,21202,493
+,WBDC,038XX,N,Cicero,Avenue,Chicago,IL,60641,38,Retail Sales - Other,41.951291257,-87.74740523,"{'latitude': '41.951291', 'longitude': '-87.747405'}",20,50,15,22618,360

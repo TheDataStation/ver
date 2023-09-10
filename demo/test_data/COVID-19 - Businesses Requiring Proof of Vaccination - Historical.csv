@@ -1,0 +1,22 @@
+id,business_name,address,industry,location,:@computed_region_vrxf_vc4k,:@computed_region_6mkv_f3dw,:@computed_region_bdys_3d7i,:@computed_region_43wa_7qmu,:@computed_region_rpca_8um6
+711436,Luxe Ducts,800 S Wells St,Construction,"{'type': 'Point', 'coordinates': [-87.633718468343, 41.872086352207]}",38,14917,12,26,44
+711435,Luxe Ducts,800 S Wells St,Construction,"{'type': 'Point', 'coordinates': [-87.633718468343, 41.872086352207]}",38,14917,12,26,44
+702400,Chicago Executives LLC,6801 S Winchester Av,Other,"{'type': 'Point', 'coordinates': [-87.672309277937, 41.770183959016]}",65,22257,281,31,23
+705103,NCSBN,111 E Wacker Dr,Healthcare,"{'type': 'Point', 'coordinates': [-87.624047369764, 41.888079426105]}",38,14309,580,36,42
+711815,Vedas Plant Shop,3907 N Damen Av,Retail Trade,"{'type': 'Point', 'coordinates': [-87.678565302653, 41.952630780202]}",46,21538,644,18,53
+705596,Botanical Cafe,3740 N Lincoln Av,Food Service and Bars,"{'type': 'Point', 'coordinates': [-87.675985936782, 41.949937182344]}",46,21186,644,18,53
+705562,Botanical Cafe,3740 N Lincoln Av,Food Service and Bars,"{'type': 'Point', 'coordinates': [-87.675985936782, 41.949937182344]}",46,21186,644,18,53
+705722,Carl Hammer Gallery,740 N Wells St,Art Culture and Recreation,"{'type': 'Point', 'coordinates': [-87.634331972199, 41.895989380249]}",37,4446,652,36,55
+706306,"Nickolas Georgiopoulos, DDS Ltd",561 W Diversey Pw,Healthcare,"{'type': 'Point', 'coordinates': [-87.6434590615, 41.932719426712]}",68,21190,18,34,16
+714808,Color Me Africa Fine Arts,1522 W Howard St,Art Culture and Recreation,"{'type': 'Point', 'coordinates': [-87.669261243424, 42.019473259153]}",10,21853,340,5,9
+714976,Central Plaza Residential Care,321 N Central Av,Healthcare,"{'type': 'Point', 'coordinates': [-87.76493413332, 41.886384278721]}",26,22216,674,45,32
+715041,Rev. Billy’s Chop Shop,4314 N Lincoln Av,Professional,"{'type': 'Point', 'coordinates': [-87.682972004297, 41.959924735646]}",46,21538,623,18,39
+698906,R Public House,1508 W Jarvis Av,Food Service and Bars,"{'type': 'Point', 'coordinates': [-87.668564043287, 42.016152670453]}",10,21853,357,5,9
+703829,Rhythm of the Street Dance Studio,4301 N Kedzie Av,Educational Services,"{'type': 'Point', 'coordinates': [-87.708045295853, 41.959458417473]}",16,21538,214,20,39
+699048,Glenwood Dance Studio,7017 N Glenwood Av,Art Culture and Recreation,"{'type': 'Point', 'coordinates': [-87.665650780006, 42.009678348496]}",10,21853,66,5,9
+699884,Chicago Magic Lounge,5050 N Clark St,Art Culture and Recreation,"{'type': 'Point', 'coordinates': [-87.66830041324, 41.973913618677]}",31,22616,610,18,15
+702039,Spybar,646 N Franklin St,Food Service and Bars,"{'type': 'Point', 'coordinates': [-87.635779341382, 41.893782777377]}",37,4446,652,36,55
+706726,Fire Department,3500 S State St,Public Administration/Government,"{'type': 'Point', 'coordinates': [-87.626791846138, 41.830962369184]}",1,14924,353,9,37
+708696,My Vet Animal Hospital,1643 W Cortland St,Other,"{'type': 'Point', 'coordinates': [-87.669537119984, 41.915975855419]}",23,21560,209,40,4
+709550,Carl Hammer Gallery,740 N Wells St,Art Culture and Recreation,"{'type': 'Point', 'coordinates': [-87.634331972199, 41.895989380249]}",37,4446,652,36,55
+709498,Carl Hammer Gallery,740 N Wells St,Art Culture and Recreation,"{'type': 'Point', 'coordinates': [-87.634331972199, 41.895989380249]}",37,4446,652,36,55

@@ -1,0 +1,765 @@
+reporting_year,bank,rfp_source,data_description,office_address,census_tract,zip_code,location,:@computed_region_rpca_8um6,:@computed_region_vrxf_vc4k,:@computed_region_6mkv_f3dw,:@computed_region_bdys_3d7i,:@computed_region_43wa_7qmu
+2022,Citibank N.A.,Form G,Depository Location,2555 N CLARK ST,17031070102,,,,,,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3335 N Ashland Ave,,60657-2127,"{'type': 'Point', 'coordinates': [-87.66876, 41.94258]}",22,57,4449,742,18
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3714 N Broadway St,170310609.00,,"{'type': 'Point', 'coordinates': [-87.64869, 41.94968]}",53,57,21186,726,39
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2790 N Clybourn Ave,,60614,"{'type': 'Point', 'coordinates': [-87.67803, 41.93222]}",16,68,21190,743,40
+2022,U.S. Bank,Form G,Depository Location,940 E Rand Rd,8027.02,,"{'type': 'Point', 'coordinates': [-87.92249, 42.0671]}",,,17395,,
+2022,Citibank N.A.,Form G,Depository Location,2801 W DEVON AVE,17031020702,,"{'type': 'Point', 'coordinates': [-87.69984, 41.99757]}",12,20,4450,40,27
+2022,Associated Bank,Form G,Depository Location,1763 W Howard St Chicago 60626,102.02,,"{'type': 'Point', 'coordinates': [-87.67535, 42.01939]}",9,10,21853,489,5
+2021,"Bank of America, National Association",Form G,Depository Locations,"5601 S Kedzie Ave., Chicago, IL 60629-2405",17031630800,,"{'type': 'Point', 'coordinates': [-87.70302, 41.79124]}",58,61,21867,764,8
+2022,U.S. Bank,Form G,Depository Location,3515 W Irving Park Rd,1608.00,,"{'type': 'Point', 'coordinates': [-87.71595, 41.95376]}",39,16,21538,325,12
+2022,PNC Bank,Form G,Depository Location,"3337 W NORTH AVE CHICAGO, IL 60647",17031230900,,"{'type': 'Point', 'coordinates': [-87.71095, 41.91006]}",5,24,22535,455,49
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3225 W Addison St,,60618-4328,"{'type': 'Point', 'coordinates': [-87.70895, 41.94662]}",39,22,21538,138,12
+2022,Citibank N.A.,Form G,Depository Location,3535 N CENTRAL AVE,17031151100,,"{'type': 'Point', 'coordinates': [-87.76673, 41.94518]}",21,15,22254,361,44
+2021,BMO Harris Bank National Association,Form G,Depository Locations,1242 N. Ashland Ave,17031241500,,"{'type': 'Point', 'coordinates': [-87.66761, 41.905]}",4,25,21560,482,41
+2021,Amalgamated Bank of Chicago,Form G,Depository Locations,"30 N. LaSalle St., Chicago, IL. 60602",8391,,"{'type': 'Point', 'coordinates': [-87.63244, 41.88287]}",41,38,14310,92,36
+2022,Fifth Third Bank N.A,Form G,Depository Location,4800 N Western Ave,17031040201,,"{'type': 'Point', 'coordinates': [-87.6889, 41.96878]}",20,6,21849,54,18
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,5134 N Clark St,170310310.00,,"{'type': 'Point', 'coordinates': [-87.66835, 41.97548]}",15,31,22616,610,24
+2021,Citibank N.A.,Form G,Depository Locations,4010 W 26TH ST CHICAGO IL 60623,3018.02,,"{'type': 'Point', 'coordinates': [-87.72516, 41.84426]}",57,32,21569,194,28
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5341 N Lincoln Ave,,60625,"{'type': 'Point', 'coordinates': [-87.69264, 41.97898]}",20,6,21849,29,24
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1130 W Taylor St,170318333.00,,"{'type': 'Point', 'coordinates': [-87.65553, 41.86944]}",44,29,14917,87,26
+2021,"Bank of America, National Association",Form G,Depository Locations,"5231 S Pulaski Rd., Chicago, IL 60632",17031620100,,"{'type': 'Point', 'coordinates': [-87.72247, 41.79782]}",56,60,22248,792,6
+2022,U.S. Bank,Form G,Depository Location,25 E Washington St,3201.00,,"{'type': 'Point', 'coordinates': [-87.62669, 41.88325]}",41,38,14310,580,36
+2022,U.S. Bank,Form G,Depository Location,18300 Kedzie Ave,8299.02,,"{'type': 'Point', 'coordinates': [-87.69472, 41.5567]}",,,9301,,
+2022,Bank of America,Form G,Depository Location,4500 W North Ave,17031230500,,"{'type': 'Point', 'coordinates': [-87.73904, 41.91004]}",2,24,22615,285,45
+2021,BMO Harris Bank National Association,Form G,Depository Locations,5960 West Irving Park Road,17031150402,,"{'type': 'Point', 'coordinates': [-87.77637, 41.95308]}",52,15,22254,26,19
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1 E Wacker Dr,17031320100,,"{'type': 'Point', 'coordinates': [-87.6275, 41.88681]}",42,38,14309,580,36
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,3440 SOUTH ARCHER AVENUE,17031840300,,"{'type': 'Point', 'coordinates': [-87.67592, 41.83144]}",43,56,14920,2,1
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,11721 S Halsted St,,60628,"{'type': 'Point', 'coordinates': [-87.64196, 41.68076]}",19,50,21861,255,22
+2021,"PNC Bank, National Association",Form G,Depository Locations,"750 S HALSTED ST CHICAGO, IL 60607",17031841900,,"{'type': 'Point', 'coordinates': [-87.64713, 41.87259]}",44,29,14917,97,48
+2022,Fifth Third Bank N.A,Form G,Depository Location,161 N. Clark,17031839100,,"{'type': 'Point', 'coordinates': [-87.63093, 41.88471]}",42,38,14309,92,36
+2022,Huntington,Form G,Depository Location,"1341 N Paulina St, Chicago, IL, 60622",17031241500,,"{'type': 'Point', 'coordinates': [-87.67002, 41.90655]}",4,25,21560,482,41
+2022,PNC Bank,Form G,Depository Location,"873 N RUSH ST CHICAGO, IL 60611",17031081201,,"{'type': 'Point', 'coordinates': [-87.62653, 41.89867]}",6,37,21182,104,36
+2021,"PNC Bank, National Association",Form G,Depository Locations,"302 W ADAMS ST CHICAGO, IL 60606",17031839100,,"{'type': 'Point', 'coordinates': [-87.63556, 41.87938]}",46,38,14914,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3033 N Pulaski Rd,170312105.01,,"{'type': 'Point', 'coordinates': [-87.72709, 41.93643]}",39,22,22618,215,21
+2022,U.S. Bank,Form G,Depository Location,310 Waukegan Ave,8652.00,,"{'type': 'Point', 'coordinates': [-87.80875, 42.20216]}",,,17014,,
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,2196 N. ELSTON,17031832300,,"{'type': 'Point', 'coordinates': [-87.67209, 41.92135]}",16,23,21190,209,40
+2022,Citibank N.A.,Form G,Depository Location,2801 W DEVON AVE,17031020702,,"{'type': 'Point', 'coordinates': [-87.69984, 41.99757]}",12,20,4450,40,27
+2022,U.S. Bank,Form G,Depository Location,9339 Waukegan Rd,8084.00,,"{'type': 'Point', 'coordinates': [-87.79941, 42.05066]}",,,17392,,
+2022,U.S. Bank,Form G,Depository Location,704 W Main St,8505.00,,"{'type': 'Point', 'coordinates': [-88.19268, 41.88211]}",,,15279,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,800 N Kedzie Ave,,60651,"{'type': 'Point', 'coordinates': [-87.70655, 41.89559]}",4,24,21560,150,46
+2021,"Bank of America, National Association",Form G,Depository Locations,"4500 W North Ave., Chicago, IL 60639-4723",17031230500,,"{'type': 'Point', 'coordinates': [-87.73904, 41.91004]}",2,24,22615,285,45
+2021,Huntington National Bank,Form G,Depository Locations,"1715 W 47th St, Chicago, IL, 60609",17031611300,,"{'type': 'Point', 'coordinates': [-87.66807, 41.80814]}",37,59,14924,740,3
+2022,Huntington,Form G,Depository Location,"102 W Division, Chicago, IL, 60610",17031080202,,"{'type': 'Point', 'coordinates': [-87.63161, 41.90391]}",54,37,14926,17,11
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,353 W 83rd St,,60620,"{'type': 'Point', 'coordinates': [-87.63346, 41.74319]}",59,40,21554,1,13
+2022,Fifth Third Bank N.A,Form G,Depository Location,8140 South Ashland Avenue,17031710500,,"{'type': 'Point', 'coordinates': [-87.66332, 41.74549]}",59,70,21554,574,13
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,2973 N Milwaukee Ave,17031210501,,"{'type': 'Point', 'coordinates': [-87.71791, 41.9355]}",39,22,21538,215,21
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,"1055 W Bryn Mawr Ave, Unit B",170310307.01,,"{'type': 'Point', 'coordinates': [-87.65746, 41.98366]}",15,76,22616,145,16
+2022,U.S. Bank,Form G,Depository Location,26 W North Ave,8118.00,,,,,,,
+2022,U.S. Bank,Form G,Depository Location,10035 Grand Ave,8114.02,,"{'type': 'Point', 'coordinates': [-87.87644, 41.92968]}",,,15610,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3856 W 26th St,170313005.00,,"{'type': 'Point', 'coordinates': [-87.72188, 41.8443]}",57,32,21569,771,28
+2021,BMO Harris Bank National Association,Form G,Depository Locations,5493 South Cornell Street,17031410900,,"{'type': 'Point', 'coordinates': [-87.58541, 41.79544]}",10,8,21192,501,33
+2021,Citibank N.A.,Form G,Depository Locations,2555 N CLARK ST CHICAGO IL 60614,701.02,,"{'type': 'Point', 'coordinates': [-87.64276, 41.92947]}",16,68,21190,18,34
+2021,"Bank of America, National Association",Form G,Depository Locations,"1585 N Milwaukee Ave., Chicago, IL 60622-2009",17031241500,,"{'type': 'Point', 'coordinates': [-87.67706, 41.91015]}",4,25,21560,482,41
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,755 N Larrabee St,,60654-3490,"{'type': 'Point', 'coordinates': [-87.64294, 41.89585]}",55,37,4446,617,36
+2021,Associated Bank,Form G,Depository Locations,1763 W Howard St Chicago 60626,102.02,,"{'type': 'Point', 'coordinates': [-87.67535, 42.01939]}",9,10,21853,489,5
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3868 N Lincoln Ave,,60613-3543,"{'type': 'Point', 'coordinates': [-87.67746, 41.95232]}",53,46,21186,644,18
+2021,"PNC Bank, National Association",Form G,Depository Locations,"1 N FRANKLIN ST CHICAGO, IL 60606",17031839100,,"{'type': 'Point', 'coordinates': [-87.63533, 41.88226]}",46,38,14914,92,36
+2022,U.S. Bank,Form G,Depository Location,5700 N Lincoln Ave,0207.01,,"{'type': 'Point', 'coordinates': [-87.69935, 41.9856]}",50,20,4450,65,24
+2021,BMO Harris Bank National Association,Form G,Depository Locations,3101 N. Broadway,17031063200,,"{'type': 'Point', 'coordinates': [-87.64434, 41.93781]}",22,57,4449,682,25
+2022,Citibank N.A.,Form G,Depository Location,180 N MICHIGAN AVE,17031320102,,"{'type': 'Point', 'coordinates': [-87.62447, 41.88553]}",42,38,14309,580,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2228 S Western Ave,,60608,"{'type': 'Point', 'coordinates': [-87.68643, 41.85123]}",43,33,14920,204,23
+2022,Bank of America,Form G,Depository Location,3051 N Clark St,17031063100,,"{'type': 'Point', 'coordinates': [-87.64876, 41.9376]}",22,57,4449,682,25
+2022,U.S. Bank,Form G,Depository Location,1350 E Sibley Blvd,8264.02,,"{'type': 'Point', 'coordinates': [-87.58319, 41.62296]}",,,26912,,
+2022,Bank of America,Form G,Depository Location,100 S Wacker Dr,17031839100,,"{'type': 'Point', 'coordinates': [-87.63701, 41.88041]}",46,38,14914,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1910 E 95th St,170315103.00,,"{'type': 'Point', 'coordinates': [-87.57749, 41.72247]}",25,48,21202,252,35
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,550 W Adams St,,60661-2602,"{'type': 'Point', 'coordinates': [-87.64174, 41.87931]}",45,29,4452,786,36
+2022,U.S. Bank,Form G,Depository Location,2854 W Cermak Rd,8407.00,,"{'type': 'Point', 'coordinates': [-87.69758, 41.85187]}",57,32,21569,203,1
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1959 W Division St,170312422.00,,"{'type': 'Point', 'coordinates': [-87.6771, 41.90316]}",4,25,21560,462,41
+2022,Huntington,Form G,Depository Location,"1 W Devon Ave, Park Ridge, IL, 60068",17031810400,,,,,,,
+2022,PNC Bank,Form G,Depository Location,"100 W RANDOLPH ST CHICAGO, IL 60601",17031839100,,"{'type': 'Point', 'coordinates': [-87.63138, 41.88447]}",41,38,14310,92,36
+2022,PNC Bank,Form G,Depository Location,"2100 W CHICAGO AVE CHICAGO, IL 60622",17031242300,,"{'type': 'Point', 'coordinates': [-87.67984, 41.89624]}",4,25,21560,476,11
+2021,Citibank N.A.,Form G,Depository Locations,222 W ADAMS ST CHICAGO IL 60606,8391,,"{'type': 'Point', 'coordinates': [-87.63475, 41.87939]}",46,38,14914,92,36
+2022,U.S. Bank,Form G,Depository Location,2201 W 63rd St,8463.07,,"{'type': 'Point', 'coordinates': [-87.67774, 41.77926]}",23,65,22257,282,2
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,7180 W Grand Ave,170318316.00,,"{'type': 'Point', 'coordinates': [-87.80569, 41.92392]}",3,18,4454,136,7
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,600 N Dearborn St,170310817.00,,"{'type': 'Point', 'coordinates': [-87.62968, 41.89269]}",55,37,4446,669,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,330 N Desplaines St,,60661,"{'type': 'Point', 'coordinates': [-87.64427, 41.88756]}",45,29,4452,784,36
+2022,Citibank N.A.,Form G,Depository Location,5812 S ELLIS AVE,17031836200,,,,,,,
+2022,U.S. Bank,Form G,Depository Location,4765 W Cermak Rd,8138.01,,"{'type': 'Point', 'coordinates': [-87.74293, 41.85124]}",,,4458,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2170 N Clybourn Ave,170318325.00,,"{'type': 'Point', 'coordinates': [-87.66342, 41.92092]}",16,68,21190,210,11
+2021,"PNC Bank, National Association",Form G,Depository Locations,"2800 W ARMITAGE AVE CHICAGO, IL 60647",17031221300,,"{'type': 'Point', 'coordinates': [-87.69759, 41.91773]}",1,23,22535,322,41
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,"800 N Kedzie Ave, Ste 218",170318366.00,,"{'type': 'Point', 'coordinates': [-87.70655, 41.89559]}",4,24,21560,150,46
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,936 N Western Ave,17031242500,,"{'type': 'Point', 'coordinates': [-87.68692, 41.89865]}",4,25,21560,542,49
+2022,Bank of America,Form G,Depository Location,7126 W North Ave,17031250500,,"{'type': 'Point', 'coordinates': [-87.80347, 41.9092]}",3,26,4454,598,7
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3340 W ROOSEVELT RD CHICAGO, IL 60624",17031843000,,"{'type': 'Point', 'coordinates': [-87.70975, 41.86659]}",30,30,21572,98,14
+2022,U.S. Bank,Form G,Depository Location,1301 Meijer Dr,8051.07,,"{'type': 'Point', 'coordinates': [-87.99573, 42.04881]}",,,4097,,
+2021,"Bank of America, National Association",Form G,Depository Locations,"2332 W Cermak Rd., Chicago, IL 60608",17031841200,,"{'type': 'Point', 'coordinates': [-87.68436, 41.85203]}",43,33,14920,204,26
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,1000 LAKE SHORE DRIVE,17031081201,,"{'type': 'Point', 'coordinates': [-87.62421, 41.90098]}",6,37,21182,105,11
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,3604 N Southport Ave,17031060400,,"{'type': 'Point', 'coordinates': [-87.66404, 41.94738]}",53,57,21186,724,25
+2021,Huntington National Bank,Form G,Depository Locations,"4012 N Pulaski Rd, Chicago, IL, 60641",17031160300,,"{'type': 'Point', 'coordinates': [-87.72801, 41.95439]}",21,16,22618,269,38
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,230 W Grand Ave,,60654,"{'type': 'Point', 'coordinates': [-87.63538, 41.89157]}",55,37,4446,652,36
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3820 W BELMONT AVE CHICAGO, IL 60618",17031831100,,"{'type': 'Point', 'coordinates': [-87.72321, 41.93915]}",39,22,21538,138,21
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,4723 SOUTH KEDZIE,17031842800,,"{'type': 'Point', 'coordinates': [-87.70395, 41.80732]}",56,55,22248,85,8
+2022,U.S. Bank,Form G,Depository Location,251 E Huron St,0814.01,,"{'type': 'Point', 'coordinates': [-87.62036, 41.895]}",6,37,21182,158,36
+2022,U.S. Bank,Form G,Depository Location,3525 W 63rd St,6605.00,,"{'type': 'Point', 'coordinates': [-87.71167, 41.77857]}",58,64,21867,293,6
+2022,Bank of America,Form G,Depository Location,5601 S Kedzie Ave,17031630800,,"{'type': 'Point', 'coordinates': [-87.70302, 41.79124]}",58,61,21867,764,8
+2021,BMO Harris Bank National Association,Form G,Depository Locations,1400 W 18th St,17031310600,,"{'type': 'Point', 'coordinates': [-87.66151, 41.85786]}",43,33,14920,365,26
+2022,U.S. Bank,Form G,Depository Location,1401 IL Rte 59,8832.15,,"{'type': 'Point', 'coordinates': [-87.59135, 41.78786]}",60,8,22260,477,33
+2022,Bank of America,Form G,Depository Location,3215 N Lincoln Ave,17031062500,,"{'type': 'Point', 'coordinates': [-87.66894, 41.94009]}",22,57,4449,742,18
+2021,Citibank N.A.,Form G,Depository Locations,6222 S KEDZIE AVE CHICAGO IL 60629,6604,,"{'type': 'Point', 'coordinates': [-87.70315, 41.78006]}",58,64,21867,182,2
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,401 N Clark St,,60654-4627,"{'type': 'Point', 'coordinates': [-87.63105, 41.88945]}",55,37,4446,670,36
+2022,Bank of America,Form G,Depository Location,6331 S Archer Ave,17031560800,,"{'type': 'Point', 'coordinates': [-87.77945, 41.79299]}",7,53,22268,587,6
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,550 W Adams St,170312819.00,,"{'type': 'Point', 'coordinates': [-87.64174, 41.87931]}",45,29,4452,786,36
+2022,U.S. Bank,Form G,Depository Location,1125 S York Rd,8407.03,,"{'type': 'Point', 'coordinates': [-87.93965, 41.93267]}",,,10505,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2 N LaSalle St,170318391.00,,"{'type': 'Point', 'coordinates': [-87.63241, 41.88229]}",41,38,14310,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,6155 N Western Ave,170310209.01,,"{'type': 'Point', 'coordinates': [-87.68975, 41.99365]}",50,20,4450,31,24
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,3601 N. Broadway,17031060900,,"{'type': 'Point', 'coordinates': [-87.6472, 41.94726]}",22,57,4449,692,39
+2022,Huntington,Form G,Depository Location,"1715 W 47th St, Chicago, IL, 60609",17031611300,,"{'type': 'Point', 'coordinates': [-87.66807, 41.80814]}",37,59,14924,740,3
+2022,U.S. Bank,Form G,Depository Location,600 W 37th St,8399.00,,"{'type': 'Point', 'coordinates': [-87.64131, 41.82754]}",37,58,14924,172,48
+2022,PNC Bank,Form G,Depository Location,"6401 N HARLEM AVE CHICAGO, IL 60631",17031100200,,"{'type': 'Point', 'coordinates': [-87.80679, 41.99709]}",17,36,22243,657,29
+2022,Citibank N.A.,Form G,Depository Location,4887 N BROADWAY ST,17031031200,,"{'type': 'Point', 'coordinates': [-87.65974, 41.97134]}",15,31,22616,633,39
+2022,Fifth Third Bank N.A,Form G,Depository Location,8300 W Belmont Ave,17031170600,,"{'type': 'Point', 'coordinates': [-87.83395, 41.93762]}",52,17,22254,413,19
+2022,Huntington,Form G,Depository Location,"4718 N Broadway St. Suite C, Chicago, IL, 60640",17031830700,,"{'type': 'Point', 'coordinates': [-87.65896, 41.96775]}",15,31,22616,241,39
+2022,U.S. Bank,Form G,Depository Location,700 Deerfield Rd,8649.01,,"{'type': 'Point', 'coordinates': [-87.84543, 42.16775]}",,,4587,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2235 N Milwaukee Ave,170312214.00,,"{'type': 'Point', 'coordinates': [-87.69541, 41.92171]}",1,23,22535,294,41
+2022,PNC Bank,Form G,Depository Location,"4201 N LINCOLN AVE CHICAGO, IL 60618",17031050200,,"{'type': 'Point', 'coordinates': [-87.68093, 41.95795]}",39,46,21538,623,18
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1130 S Canal St,170318419.00,,"{'type': 'Point', 'coordinates': [-87.63976, 41.86798]}",44,29,14917,97,26
+2022,Citibank N.A.,Form G,Depository Location,4887 N BROADWAY ST,17031031200,,"{'type': 'Point', 'coordinates': [-87.65974, 41.97134]}",15,31,22616,633,39
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,92 E 103Rd St,170314908.00,,"{'type': 'Point', 'coordinates': [-87.62034, 41.70724]}",19,45,21861,570,43
+2022,Fifth Third Bank N.A,Form G,Depository Location,2 S LaSalle St,17031839100,,"{'type': 'Point', 'coordinates': [-87.6324, 41.88173]}",34,38,14311,92,36
+2021,Associated Bank,Form G,Depository Locations,300 N LaSalle Dr Chicago 60654,817,,"{'type': 'Point', 'coordinates': [-87.632468, 41.886245]}",42,38,14309,92,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"5250 N Harlem Ave., Chicago, IL 60656",17031100500,,"{'type': 'Point', 'coordinates': [-87.80704, 41.97602]}",31,36,4448,699,29
+2022,Bank of America,Form G,Depository Location,5250 N Harlem Ave,17031100500,,"{'type': 'Point', 'coordinates': [-87.80704, 41.97602]}",31,36,4448,699,29
+2021,"PNC Bank, National Association",Form G,Depository Locations,"1231 N WELLS ST CHICAGO, IL 60610",17031080300,,"{'type': 'Point', 'coordinates': [-87.6345, 41.90478]}",54,37,14926,290,11
+2022,Bank of America,Form G,Depository Location,6359 W Diversey Ave,17031190601,,"{'type': 'Point', 'coordinates': [-87.78524, 41.931]}",2,19,22615,78,21
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1542 W 47th St,17031842600,,"{'type': 'Point', 'coordinates': [-87.66358, 41.80863]}",37,59,14924,123,3
+2022,U.S. Bank,Form G,Depository Location,808 W State St,8526.01,,"{'type': 'Point', 'coordinates': [-87.62822, 41.89706]}",54,37,4446,230,11
+2022,PNC Bank,Form G,Depository Location,"3450 W 26TH ST CHICAGO, IL 60623",17031300700,,"{'type': 'Point', 'coordinates': [-87.71211, 41.84468]}",57,32,21569,755,28
+2022,U.S. Bank,Form G,Depository Location,4450 Golf Rd,8068.01,,"{'type': 'Point', 'coordinates': [-87.73934, 42.05527]}",,,9458,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,141 W Jackson Blvd,,60604-2929,"{'type': 'Point', 'coordinates': [-87.63228, 41.87814]}",29,38,14912,92,36
+2022,Fifth Third Bank N.A,Form G,Depository Location,601 South Clark,17031839000,,"{'type': 'Point', 'coordinates': [-87.63067, 41.87427]}",35,38,14913,12,10
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,935 W Armitage Ave,,60614-3093,"{'type': 'Point', 'coordinates': [-87.65236, 41.91811]}",16,68,21190,168,34
+2022,Citibank N.A.,Form G,Depository Location,500 W MADISON ST,17031280100,,,,,,,
+2021,"Bank of America, National Association",Form G,Depository Locations,"515 N La Salle Dr., Chicago, IL 60654-7108",17031081700,,"{'type': 'Point', 'coordinates': [-87.6326, 41.89138]}",55,37,4446,670,36
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,2927 WEST ADDISON AVENUE,17031210100,,"{'type': 'Point', 'coordinates': [-87.7017, 41.94665]}",39,16,21538,372,20
+2022,Fifth Third Bank N.A,Form G,Depository Location,5918 N Broadway St,17031030500,,"{'type': 'Point', 'coordinates': [-87.66026, 41.98964]}",14,76,4451,539,16
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,111 WEST MONROE STREET,17031839100,,"{'type': 'Point', 'coordinates': [-87.63148, 41.88068]}",34,38,14311,92,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"7516 N Clark St., Chicago, IL 60626",17031010202,,"{'type': 'Point', 'coordinates': [-87.676, 42.01864]}",9,10,21853,489,5
+2022,U.S. Bank,Form G,Depository Location,2958 N Milwaukee Ave,2105.02,,"{'type': 'Point', 'coordinates': [-87.71744, 41.93522]}",39,22,21538,215,21
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,5241 West 63rd Street,17031640700,,"{'type': 'Point', 'coordinates': [-87.75358, 41.77797]}",7,62,22268,337,15
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,238 N State St,170318391.00,,"{'type': 'Point', 'coordinates': [-87.62807, 41.88646]}",42,38,14309,92,36
+2022,U.S. Bank,Form G,Depository Location,225 N Michigan Ave,3201.00,,"{'type': 'Point', 'coordinates': [-87.62446, 41.88644]}",42,38,14309,580,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"3260 W Belmont Ave., Chicago, IL 60618-5502",17031831100,,"{'type': 'Point', 'coordinates': [-87.70986, 41.93952]}",39,22,21538,138,12
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1420 East 53rd Street,17031410800,,"{'type': 'Point', 'coordinates': [-87.59097, 41.79952]}",10,8,21192,500,10
+2022,Citibank N.A.,Form G,Depository Location,69 W WASHINGTON ST,17031839100,,,,,,,
+2022,U.S. Bank,Form G,Depository Location,9401 S Cicero Ave,8221.02,,"{'type': 'Point', 'coordinates': [-87.74009, 41.72162]}",,,10408,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5352 N Elston Ave,,60630-1637,"{'type': 'Point', 'coordinates': [-87.75741, 41.97873]}",48,11,21869,701,38
+2022,Huntington,Form G,Depository Location,"6141 S Archer Ave, Chicago, IL, 60638",17031560800,,"{'type': 'Point', 'coordinates': [-87.77146, 41.79433]}",7,53,22268,587,6
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,605 N Michigan Ave,170310814.03,,"{'type': 'Point', 'coordinates': [-87.62418, 41.8928]}",6,37,21182,159,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,739 W Madison St,,60661,"{'type': 'Point', 'coordinates': [-87.64682, 41.88179]}",45,29,4452,784,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5813 N Milwaukee Ave,,60646-5413,"{'type': 'Point', 'coordinates': [-87.7794, 41.98842]}",18,36,22532,656,50
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3360 N WESTERN AVE CHICAGO, IL 60618",17031843700,,"{'type': 'Point', 'coordinates': [-87.68823, 41.94276]}",39,46,21538,615,18
+2022,Fifth Third Bank N.A,Form G,Depository Location,1209 North Milwaukee Avenue,17031241600,,"{'type': 'Point', 'coordinates': [-87.66685, 41.90359]}",49,25,22620,483,11
+2022,Huntington,Form G,Depository Location,"7530 S Stony Island Ave, Chicago, IL, 60649",17031834200,,"{'type': 'Point', 'coordinates': [-87.58676, 41.75753]}",61,39,22538,188,35
+2022,U.S. Bank,Form G,Depository Location,350 Commonwealth Dr,8713.01,,"{'type': 'Point', 'coordinates': [-88.3149, 42.23177]}",,,4580,,
+2022,Citibank N.A.,Form G,Depository Location,1751 W 47TH ST,17031611300,,"{'type': 'Point', 'coordinates': [-87.66938, 41.80855]}",37,59,14924,740,3
+2022,U.S. Bank,Form G,Depository Location,9200 S Western Ave,8216.00,,"{'type': 'Point', 'coordinates': [-87.68217, 41.72601]}",59,71,22212,627,42
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1101 W Lawrence Ave,170318307.00,,"{'type': 'Point', 'coordinates': [-87.65786, 41.96905]}",15,31,22616,634,39
+2022,Citibank N.A.,Form G,Depository Location,6222 S KEDZIE AVE,17031660400,,,,,,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1934 S State St,,60616-1613,"{'type': 'Point', 'coordinates': [-87.62715, 41.85562]}",40,34,21194,374,9
+2022,U.S. Bank,Form G,Depository Location,99 Indianwood Blvd,8303.00,,"{'type': 'Point', 'coordinates': [-87.67741, 41.48152]}",,,2310,,
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,5493 SOUTH CORNELL STREET,17031410900,,"{'type': 'Point', 'coordinates': [-87.58541, 41.79544]}",10,8,21192,501,33
+2022,Citibank N.A.,Form G,Depository Location,4010 W 26TH ST,17031301802,,"{'type': 'Point', 'coordinates': [-87.72516, 41.84426]}",57,32,21569,194,28
+2022,U.S. Bank,Form G,Depository Location,536 S York St,8440.02,,"{'type': 'Point', 'coordinates': [-87.94075, 41.88375]}",,,15603,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4363 S Archer Ave,170315805.02,,"{'type': 'Point', 'coordinates': [-87.70381, 41.81434]}",56,55,22248,156,3
+2022,Huntington,Form G,Depository Location,"5516 N Clark St, Chicago, IL, 60640",17031030900,,"{'type': 'Point', 'coordinates': [-87.6686, 41.98274]}",15,76,4451,540,24
+2021,"Bank of America, National Association",Form G,Depository Locations,"5983 N Lincoln Ave, Chicago, IL 60659",17031020701,,"{'type': 'Point', 'coordinates': [-87.70654, 41.9899]}",50,20,4450,65,24
+2021,BMO Harris Bank National Association,Form G,Depository Locations,800 W Washington Blvd,17031833000,,"{'type': 'Point', 'coordinates': [-87.64769, 41.88315]}",44,29,14917,63,46
+2022,PNC Bank,Form G,Depository Location,"2021 N CLARK ST CHICAGO, IL 60614",17031071400,,"{'type': 'Point', 'coordinates': [-87.63692, 41.91971]}",16,68,21190,207,34
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,5687 S Archer Ave,170315607.00,,"{'type': 'Point', 'coordinates': [-87.75357, 41.79686]}",7,53,22268,607,6
+2022,Fifth Third Bank N.A,Form G,Depository Location,1542 W 47th St,17031842600,,"{'type': 'Point', 'coordinates': [-87.66358, 41.80863]}",37,59,14924,123,3
+2022,PNC Bank,Form G,Depository Location,"1231 N WELLS ST CHICAGO, IL 60610",17031080300,,"{'type': 'Point', 'coordinates': [-87.6345, 41.90478]}",54,37,14926,290,11
+2022,Huntington,Form G,Depository Location,"4660 W Irving Park Rd, Chicago, IL, 60641",17031831700,,"{'type': 'Point', 'coordinates': [-87.74441, 41.95345]}",21,15,22618,139,50
+2022,Fifth Third Bank N.A,Form G,Depository Location,4017 Lawrence Avenue,17031140500,,"{'type': 'Point', 'coordinates': [-87.7287, 41.96823]}",48,14,21869,257,38
+2022,U.S. Bank,Form G,Depository Location,798 S Randall Rd,8712.06,,"{'type': 'Point', 'coordinates': [-88.33614, 42.16167]}",,,9878,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,5620 W Belmont Ave,170311512.00,,"{'type': 'Point', 'coordinates': [-87.76734, 41.93905]}",52,15,22254,342,21
+2022,Citibank N.A.,Form G,Depository Location,9449 S WESTERN AVE,17031720100,,"{'type': 'Point', 'coordinates': [-87.68206, 41.72139]}",59,71,22212,627,42
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,150 N Michigan Ave,170313201.00,,"{'type': 'Point', 'coordinates': [-87.62444, 41.88483]}",42,38,14309,580,36
+2022,U.S. Bank,Form G,Depository Location,1999 South Campus Drive,8087.02,,"{'type': 'Point', 'coordinates': [-87.67407, 42.05418]}",,,26293,,
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,1300 SOUTH WABASH,17031330102,,"{'type': 'Point', 'coordinates': [-87.62577, 41.86559]}",35,34,14913,374,9
+2021,"Bank of America, National Association",Form G,Depository Locations,"4200 S Ashland Ave., Chicago, IL 60609",17031610300,,"{'type': 'Point', 'coordinates': [-87.66518, 41.81756]}",37,59,14924,123,48
+2022,U.S. Bank,Form G,Depository Location,4455 Montgomery Rd,8465.13,,"{'type': 'Point', 'coordinates': [-88.20689, 41.73254]}",,,6922,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,"1055 W Bryn Mawr Ave, Unit B",,60660-4631,"{'type': 'Point', 'coordinates': [-87.65746, 41.98366]}",15,76,22616,145,16
+2022,Huntington,Form G,Depository Location,"4930 N Milwaukee Ave, Chicago, IL, 60630",17031110502,,"{'type': 'Point', 'coordinates': [-87.76311, 41.97053]}",48,11,21869,129,50
+2021,BMO Harris Bank National Association,Form G,Depository Locations,99 West Washington Street,17031839100,,"{'type': 'Point', 'coordinates': [-87.63086, 41.88325]}",41,38,14310,92,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,9138 S Commercial Ave,,60617-4307,"{'type': 'Point', 'coordinates': [-87.55158, 41.72876]}",25,42,21202,510,47
+2021,BMO Harris Bank National Association,Form G,Depository Locations,522 West Roosevelt Road,17031841900,,"{'type': 'Point', 'coordinates': [-87.64012, 41.86724]}",44,29,14917,97,48
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,353 W 83rd St,170318424.00,,"{'type': 'Point', 'coordinates': [-87.63346, 41.74319]}",59,40,21554,1,13
+2022,Fifth Third Bank N.A,Form G,Depository Location,3030 E 92nd St,17031461000,,"{'type': 'Point', 'coordinates': [-87.54958, 41.72826]}",25,42,21202,510,47
+2022,U.S. Bank,Form G,Depository Location,1325 Howard St,8103.01,,"{'type': 'Point', 'coordinates': [-87.66432, 42.01928]}",9,10,21853,340,5
+2022,Fifth Third Bank N.A,Form G,Depository Location,936 N Western Ave,17031242500,,"{'type': 'Point', 'coordinates': [-87.68692, 41.89865]}",4,25,21560,542,49
+2022,U.S. Bank,Form G,Depository Location,800 S Wheeling Rd,8030.14,,"{'type': 'Point', 'coordinates': [-87.92767, 42.12386]}",,,9853,,
+2021,BMO Harris Bank National Association,Form G,Depository Locations,2865 N Milwaukee Ave,17031210602,,"{'type': 'Point', 'coordinates': [-87.71449, 41.9334]}",39,22,21538,55,12
+2022,Associated Bank,Form G,Depository Location,743 E 47th St Chicago 60653,8436,,"{'type': 'Point', 'coordinates': [-87.60737, 41.80952]}",36,4,4301,165,10
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5715 N Broadway St,,60660-4301,"{'type': 'Point', 'coordinates': [-87.66014, 41.98596]}",14,76,4451,539,16
+2022,PNC Bank,Form G,Depository Location,"2300 N WESTERN AVE CHICAGO, IL 60647",17031221500,,"{'type': 'Point', 'coordinates': [-87.6876, 41.92367]}",1,23,22535,324,40
+2021,"PNC Bank, National Association",Form G,Depository Locations,"4201 N LINCOLN AVE CHICAGO, IL 60618",17031050200,,"{'type': 'Point', 'coordinates': [-87.68093, 41.95795]}",39,46,21538,623,18
+2022,PNC Bank,Form G,Depository Location,"55 W MONROE ST CHICAGO, IL 60603",17031839100,,"{'type': 'Point', 'coordinates': [-87.62983, 41.88072]}",34,38,14311,92,36
+2022,Citibank N.A.,Form G,Depository Location,2295 N MILWAUKEE AVE,17031221400,,"{'type': 'Point', 'coordinates': [-87.69719, 41.9228]}",1,23,22535,294,41
+2022,U.S. Bank,Form G,Depository Location,745 N Milwaukee Ave,2435.00,,"{'type': 'Point', 'coordinates': [-87.65409, 41.89539]}",49,25,22620,522,46
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1200 N Clybourn Ave,170310804.00,,"{'type': 'Point', 'coordinates': [-87.6394, 41.90369]}",54,37,14926,148,46
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,875 N Michigan Ave,170310813.00,,"{'type': 'Point', 'coordinates': [-87.6241, 41.89875]}",6,37,21182,233,11
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,601 South Clark,17031839000,,"{'type': 'Point', 'coordinates': [-87.63067, 41.87427]}",35,38,14913,12,10
+2022,Bank of America,Form G,Depository Location,203 N La Salle St Lobby G1,17031839100,,"{'type': 'Point', 'coordinates': [-87.63237, 41.88603]}",42,38,14309,92,36
+2021,Citibank N.A.,Form G,Depository Locations,227 W MONROE ST CHICAGO IL 60606,8391,,"{'type': 'Point', 'coordinates': [-87.63472, 41.88067]}",46,38,14914,92,36
+2022,U.S. Bank,Form G,Depository Location,1844 S Mannheim Rd,8184.02,,"{'type': 'Point', 'coordinates': [-87.8819, 41.85252]}",,,14769,,
+2022,Huntington,Form G,Depository Location,"87 W 87th St, Chicago, IL, 60620",17031842400,,"{'type': 'Point', 'coordinates': [-87.62658, 41.73621]}",59,40,21554,1,13
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2228 S Western Ave,170318413.00,,"{'type': 'Point', 'coordinates': [-87.68643, 41.85123]}",43,33,14920,204,23
+2022,U.S. Bank,Form G,Depository Location,135 Smith Road,8413.10,,"{'type': 'Point', 'coordinates': [-88.26206, 41.92402]}",,,16179,,
+2022,Bank of America,Form G,Depository Location,4671 W Irving Park Rd,17031831700,,"{'type': 'Point', 'coordinates': [-87.74544, 41.95315]}",21,15,22618,139,50
+2022,U.S. Bank,Form G,Depository Location,101 Dixie Hwy,8288.01,,"{'type': 'Point', 'coordinates': [-87.65615, 41.52749]}",,,26902,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3856 W 26th St,,60623-3809,"{'type': 'Point', 'coordinates': [-87.72188, 41.8443]}",57,32,21569,771,28
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4363 S Archer Ave,,60632-2826,"{'type': 'Point', 'coordinates': [-87.70381, 41.81434]}",56,55,22248,156,3
+2022,U.S. Bank,Form G,Depository Location,45 W Roosevelt Rd,8443.04,,"{'type': 'Point', 'coordinates': [-87.62882, 41.86732]}",35,34,14913,330,9
+2022,U.S. Bank,Form G,Depository Location,6100 N Northwest Hwy,1002.00,,"{'type': 'Point', 'coordinates': [-87.79969, 41.99214]}",17,36,22243,657,29
+2022,Huntington,Form G,Depository Location,"2130 W North Ave, Chicago, IL, 60647",17031240500,,"{'type': 'Point', 'coordinates': [-87.68113, 41.9104]}",4,25,21560,517,11
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2790 N Clybourn Ave,170310707.00,,"{'type': 'Point', 'coordinates': [-87.67803, 41.93222]}",16,68,21190,743,40
+2022,Citibank N.A.,Form G,Depository Location,539 N MICHIGAN AVE,17031081403,,,,,,,
+2022,Bank of America,Form G,Depository Location,201 S State St,17031320400,,"{'type': 'Point', 'coordinates': [-87.62771, 41.87929]}",29,38,14912,92,36
+2021,"PNC Bank, National Association",Form G,Depository Locations,"4400 N BROADWAY ST CHICAGO, IL 60640",17031830700,,"{'type': 'Point', 'coordinates': [-87.65534, 41.9621]}",15,31,22616,241,39
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3225 W Addison St,170318311.00,,"{'type': 'Point', 'coordinates': [-87.70895, 41.94662]}",39,22,21538,138,12
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,923 W Washington Blvd,170318330.00,,"{'type': 'Point', 'coordinates': [-87.65063, 41.8831]}",44,29,14917,63,46
+2022,U.S. Bank,Form G,Depository Location,720 N Lake Ave,0030.02,,,,,,,
+2022,Fifth Third Bank N.A,Form G,Depository Location,3179 N Clark St,17031063000,,"{'type': 'Point', 'coordinates': [-87.65045, 41.93971]}",22,57,4449,681,25
+2021,Citibank N.A.,Form G,Depository Locations,100 S MICHIGAN AVE CHICAGO IL 60603,3204,,"{'type': 'Point', 'coordinates': [-87.62446, 41.88067]}",34,38,14311,367,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"500 N Michigan Ave., Chicago, IL 60611
+49 E Chicago Ave., Chicago, IL 60611",17031081500,,"{'type': 'Point', 'coordinates': [-87.62412, 41.89099]}",6,37,21182,159,36
+2022,Citibank N.A.,Form G,Depository Location,3430 S HALSTED ST,17031839700,,,,,,,
+2022,Bank of America,Form G,Depository Location,7250-A S Cicero Ave,17031820901,,"{'type': 'Point', 'coordinates': [-87.74259, 41.76067]}",,,21867,,
+2022,U.S. Bank,Form G,Depository Location,1100 W Devon Ave,7702.01,,"{'type': 'Point', 'coordinates': [-88.02876, 41.99296]}",,,4094,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1551 N Kingsbury St,170318422.00,,"{'type': 'Point', 'coordinates': [-87.65259, 41.90954]}",49,37,22620,108,46
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5620 W Belmont Ave,,60634-5301,"{'type': 'Point', 'coordinates': [-87.76734, 41.93905]}",52,15,22254,342,21
+2022,U.S. Bank,Form G,Depository Location,1230 S Naper Blvd,8462.03,,"{'type': 'Point', 'coordinates': [-88.11509, 41.75142]}",,,6520,,
+2022,Associated Bank,Form G,Depository Location,6355 N Central Ave Chicago 60646,1202,,"{'type': 'Point', 'coordinates': [-87.76392, 41.99703]}",18,12,22532,782,38
+2022,PNC Bank,Form G,Depository Location,"5455 W BELMONT AVE CHICAGO, IL 60641",17031190300,,"{'type': 'Point', 'coordinates': [-87.76357, 41.9386]}",21,19,22618,303,17
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1103 W Addison St,,60613,"{'type': 'Point', 'coordinates': [-87.65758, 41.94716]}",22,57,21186,211,25
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,6131 North Lincoln,17031130100,,"{'type': 'Point', 'coordinates': [-87.71199, 41.99322]}",50,13,4450,747,27
+2021,BMO Harris Bank National Association,Form G,Depository Locations,"8300 S. Holland Road, Suite E",17031842400,,"{'type': 'Point', 'coordinates': [-87.63208, 41.74332]}",59,40,21554,1,13
+2022,U.S. Bank,Form G,Depository Location,417 S Water St,8834.01,,"{'type': 'Point', 'coordinates': [-87.6171, 41.88652]}",42,38,14309,580,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"4758 N Racine Ave., Chicago, IL 60640-4912",17031031700,,"{'type': 'Point', 'coordinates': [-87.65958, 41.96829]}",15,31,22616,241,39
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1910 E 95th St,,60617-4787,"{'type': 'Point', 'coordinates': [-87.57749, 41.72247]}",25,48,21202,252,35
+2021,Citibank N.A.,Form G,Depository Locations,539 N MICHIGAN AVE CHICAGO IL 60611,814.03,,"{'type': 'Point', 'coordinates': [-87.62416, 41.89208]}",6,37,21182,159,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,6415 N Sheridan Rd,,60626-5334,"{'type': 'Point', 'coordinates': [-87.66066, 41.99916]}",9,10,21853,267,5
+2022,U.S. Bank,Form G,Depository Location,225 N Weber Rd,8801.20,,"{'type': 'Point', 'coordinates': [-88.12476, 41.70128]}",,,9709,,
+2022,PNC Bank,Form G,Depository Location,"6360 W HIGGINS AVE CHICAGO, IL 60630",17031110300,,"{'type': 'Point', 'coordinates': [-87.78779, 41.97625]}",48,11,21869,779,50
+2022,Huntington,Form G,Depository Location,"5320 S Pulaski Rd, Chicago, IL, 60632",17031620200,,"{'type': 'Point', 'coordinates': [-87.72379, 41.79616]}",56,60,22248,793,6
+2022,Fifth Third Bank N.A,Form G,Depository Location,2401 N Halsted St,17031070200,,"{'type': 'Point', 'coordinates': [-87.64877, 41.92576]}",16,68,21190,794,34
+2021,BMO Harris Bank National Association,Form G,Depository Locations,5711 North Clark Street,17031030500,,"{'type': 'Point', 'coordinates': [-87.66929, 41.98584]}",14,76,4451,539,16
+2021,"PNC Bank, National Association",Form G,Depository Locations,"10701 S WESTERN AVE CHICAGO, IL 60643",17031750200,,"{'type': 'Point', 'coordinates': [-87.68138, 41.69883]}",33,74,22212,314,42
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,2785 North Clybourn Avenue,17031070700,,"{'type': 'Point', 'coordinates': [-87.67751, 41.93178]}",16,68,21190,743,40
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5606 W Montrose Ave,,60634,"{'type': 'Point', 'coordinates': [-87.76762, 41.9611]}",48,15,21869,94,19
+2022,PNC Bank,Form G,Depository Location,"3360 N WESTERN AVE CHICAGO, IL 60618",17031843700,,"{'type': 'Point', 'coordinates': [-87.68823, 41.94276]}",39,46,21538,615,18
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,757 W 35th St,,60616-3437,"{'type': 'Point', 'coordinates': [-87.64537, 41.83077]}",40,58,21194,171,48
+2022,"Albany Bank and Trust Company, N.A.",Form G,Depository Location,4400 N Western Ave,17.031.0408.00,,"{'type': 'Point', 'coordinates': [-87.68904, 41.9616]}",20,6,21849,621,18
+2021,Huntington National Bank,Form G,Depository Locations,"222 N LaSalle St, Chicago, IL, 60601",17031839100,,"{'type': 'Point', 'coordinates': [-87.63257, 41.88631]}",42,38,14309,92,36
+2021,"PNC Bank, National Association",Form G,Depository Locations,"8700 S COTTAGE GROVE AVE CHICAGO, IL 60619",17031440700,,"{'type': 'Point', 'coordinates': [-87.6054, 41.73651]}",61,40,21546,407,35
+2022,U.S. Bank,Form G,Depository Location,1392 Torrence Ave,8262.01,,"{'type': 'Point', 'coordinates': [-87.55878, 41.59576]}",,,26890,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3500 S King Dr,170318396.00,,"{'type': 'Point', 'coordinates': [-87.6173, 41.83092]}",36,1,4301,222,10
+2022,Bank of America,Form G,Depository Location,3425 W 26th St,17031301600,,"{'type': 'Point', 'coordinates': [-87.71078, 41.84446]}",57,32,21569,755,28
+2022,U.S. Bank,Form G,Depository Location,11 Madison St,8130.00,,"{'type': 'Point', 'coordinates': [-87.93366, 41.71127]}",,,6083,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2501 N Clark St,170310701.02,,"{'type': 'Point', 'coordinates': [-87.64186, 41.9279]}",16,68,21190,185,34
+2022,U.S. Bank,Form G,Depository Location,3501 E 106th St,5203.00,,"{'type': 'Point', 'coordinates': [-87.5389, 41.70274]}",25,49,21202,602,47
+2022,Bank of America,Form G,Depository Location,5200 W Fullerton Ave,17031190702,,"{'type': 'Point', 'coordinates': [-87.75744, 41.92411]}",2,19,22615,80,17
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,3957 West 26th Street,17031301701,,"{'type': 'Point', 'coordinates': [-87.72425, 41.84428]}",57,32,21569,771,28
+2022,Citibank N.A.,Form G,Depository Location,100 S MICHIGAN AVE,17031320400,,"{'type': 'Point', 'coordinates': [-87.62446, 41.88067]}",34,38,14311,367,36
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,4017 Lawrence Avenue,17031140500,,"{'type': 'Point', 'coordinates': [-87.7287, 41.96823]}",48,14,21869,257,38
+2022,U.S. Bank,Form G,Depository Location,540 W Lake St,8401.04,,"{'type': 'Point', 'coordinates': [-87.6418, 41.8857]}",45,29,4452,784,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"2163 N Clybourn Ave., Chicago, IL 60614",17031832500,,"{'type': 'Point', 'coordinates': [-87.6629, 41.92055]}",16,68,21190,210,11
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,6400 SOUTH PULASKI ROAD,17031650301,,"{'type': 'Point', 'coordinates': [-87.72308, 41.7764]}",58,63,21867,6,15
+2022,PNC Bank,Form G,Depository Location,"4400 N BROADWAY ST CHICAGO, IL 60640",17031830700,,"{'type': 'Point', 'coordinates': [-87.65534, 41.9621]}",15,31,22616,241,39
+2021,Associated Bank,Form G,Depository Locations,5200 N Central Ave Chicago 60630,1102,,"{'type': 'Point', 'coordinates': [-87.76906, 41.97605]}",48,11,21869,693,50
+2022,Citibank N.A.,Form G,Depository Location,69 W WASHINGTON ST,17031839100,,,,,,,
+2021,"Bank of America, National Association",Form G,Depository Locations,"250 W 83rd St., Chicago, IL 60620-1703",17031842400,,"{'type': 'Point', 'coordinates': [-87.63107, 41.7439]}",59,40,21554,1,13
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,6556 N SHERIDAN RD,17031010503,,"{'type': 'Point', 'coordinates': [-87.66075, 42.00183]}",9,10,21853,267,5
+2022,Fifth Third Bank N.A,Form G,Depository Location,2710 North Narragansett,17031831500,,"{'type': 'Point', 'coordinates': [-87.78566, 41.92935]}",3,19,4454,137,44
+2022,PNC Bank,Form G,Depository Location,"3030 N BROADWAY ST CHICAGO, IL 60657",17031063100,,"{'type': 'Point', 'coordinates': [-87.64431, 41.9373]}",22,57,4449,682,25
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4854 W Irving Park Rd,170311502.00,,"{'type': 'Point', 'coordinates': [-87.74942, 41.95387]}",21,15,22618,259,50
+2021,Citibank N.A.,Form G,Depository Locations,3535 N CENTRAL AVE CHICAGO IL 60634,1511,,"{'type': 'Point', 'coordinates': [-87.76673, 41.94518]}",21,15,22254,361,44
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3450 W 26TH ST CHICAGO, IL 60623",17031300700,,"{'type': 'Point', 'coordinates': [-87.71211, 41.84468]}",57,32,21569,755,28
+2022,Bank of America,Form G,Depository Location,5983 N Lincoln Ave,17031020701,,"{'type': 'Point', 'coordinates': [-87.70654, 41.9899]}",50,20,4450,65,24
+2021,BMO Harris Bank National Association,Form G,Depository Locations,4531 North Broadway,17031830700,,"{'type': 'Point', 'coordinates': [-87.65689, 41.96455]}",15,31,22616,241,39
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,7015 N Western Ave,,60645-3415,"{'type': 'Point', 'coordinates': [-87.69017, 42.00947]}",12,20,22528,268,27
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,7180 W Grand Ave,,60707,"{'type': 'Point', 'coordinates': [-87.80569, 41.92392]}",3,18,4454,136,7
+2021,Associated Bank,Form G,Depository Locations,6355 N Central Ave Chicago 60646,1202,,"{'type': 'Point', 'coordinates': [-87.76392, 41.99703]}",18,12,22532,782,38
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2639 N Milwaukee Ave,,60647-1643,"{'type': 'Point', 'coordinates': [-87.70847, 41.92971]}",1,23,22535,72,12
+2021,BMO Harris Bank National Association,Form G,Depository Locations,3440 South Archer Avenue,17031840300,,"{'type': 'Point', 'coordinates': [-87.67592, 41.83144]}",43,56,14920,2,1
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2170 N Clybourn Ave,,60614-4029,"{'type': 'Point', 'coordinates': [-87.66342, 41.92092]}",16,68,21190,210,11
+2021,"Bank of America, National Association",Form G,Depository Locations,"8422 W Lawrence Ave., Norridge, IL 60706",17031770902,,"{'type': 'Point', 'coordinates': [-87.8381, 41.96658]}",,,4453,181,
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,820 N Western Ave,17031242500,,"{'type': 'Point', 'coordinates': [-87.68725, 41.89635]}",4,25,21560,542,49
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1101 W Lawrence Ave,,60640-5025,"{'type': 'Point', 'coordinates': [-87.65786, 41.96905]}",15,31,22616,634,39
+2021,BMO Harris Bank National Association,Form G,Depository Locations,4723 South Kedzie Ave,17031842800,,"{'type': 'Point', 'coordinates': [-87.70395, 41.80732]}",56,55,22248,85,8
+2022,Fifth Third Bank N.A,Form G,Depository Location,222 South Riverside Plaza,17031281900,,"{'type': 'Point', 'coordinates': [-87.63834, 41.87868]}",46,29,14914,786,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,875 N Michigan Ave,,60611-1803,"{'type': 'Point', 'coordinates': [-87.6241, 41.89875]}",6,37,21182,233,11
+2022,Associated Bank,Form G,Depository Location,1301 Waukegan Rd Glenview 60025,8022,,"{'type': 'Point', 'coordinates': [-87.89178, 42.3075]}",,,18092,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,6155 N Western Ave,,60659,"{'type': 'Point', 'coordinates': [-87.68975, 41.99365]}",50,20,4450,31,24
+2022,U.S. Bank,Form G,Depository Location,450 W 55th St,8201.03,,"{'type': 'Point', 'coordinates': [-87.87445, 41.79036]}",,,6078,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,712 E 87th St,,60619-6246,"{'type': 'Point', 'coordinates': [-87.60715, 41.73662]}",61,40,21546,140,32
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,6245 S Western Ave,,60636-2023,"{'type': 'Point', 'coordinates': [-87.68365, 41.77976]}",23,64,22257,111,2
+2021,"Bank of America, National Association",Form G,Depository Locations,"6359 W Diversey Ave., Chicago, IL 60639-1053",17031190601,,"{'type': 'Point', 'coordinates': [-87.78524, 41.931]}",2,19,22615,78,21
+2021,"PNC Bank, National Association",Form G,Depository Locations,"2021 N CLARK ST CHICAGO, IL 60614",17031071400,,"{'type': 'Point', 'coordinates': [-87.63692, 41.91971]}",16,68,21190,207,34
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4455 S Pulaski Rd,,60632-4010,"{'type': 'Point', 'coordinates': [-87.72266, 41.81246]}",56,54,22248,563,8
+2022,U.S. Bank,Form G,Depository Location,13521 S Route 59,8804.11,,"{'type': 'Point', 'coordinates': [-88.20288, 41.63541]}",,,6526,,
+2022,Bank of America,Form G,Depository Location,4758 N Racine Ave,17031031700,,"{'type': 'Point', 'coordinates': [-87.65958, 41.96829]}",15,31,22616,241,39
+2021,"PNC Bank, National Association",Form G,Depository Locations,"7300 S STONY ISLAND AVE CHICAGO, IL 60649",17031430400,,"{'type': 'Point', 'coordinates': [-87.58621, 41.76223]}",24,39,22538,419,37
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,"712 E 87th St, Ste D2",170314402.02,,"{'type': 'Point', 'coordinates': [-87.60715, 41.73662]}",61,40,21546,140,32
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,3601 NORTH HALSTED STREET,17031060900,,"{'type': 'Point', 'coordinates': [-87.64947, 41.94748]}",53,57,21186,726,39
+2021,Citibank N.A.,Form G,Depository Locations,3430 S HALSTED ST CHICAGO IL 60608,8397,,"{'type': 'Point', 'coordinates': [-87.64612, 41.83151]}",40,58,14920,171,48
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3204 W Irving Park Rd,170311605.02,,"{'type': 'Point', 'coordinates': [-87.70832, 41.95393]}",39,16,21538,23,20
+2022,U.S. Bank,Form G,Depository Location,1301 Irving Park Rd,8048.04,,"{'type': 'Point', 'coordinates': [-87.66237, 41.95435]}",53,57,21186,725,18
+2021,"Bank of America, National Association",Form G,Depository Locations,"7225 W Belmont Ave., Chicago, IL 60634",17031170900,,"{'type': 'Point', 'coordinates': [-87.80779, 41.938]}",52,17,22254,458,7
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1950 West 33rd Street,17031840400,,"{'type': 'Point', 'coordinates': [-87.67437, 41.83406]}",43,56,14920,192,26
+2022,Citibank N.A.,Form G,Depository Location,4010 W 26TH ST,17031301802,,"{'type': 'Point', 'coordinates': [-87.72516, 41.84426]}",57,32,21569,194,28
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,7015 N Western Ave,170310204.00,,"{'type': 'Point', 'coordinates': [-87.69017, 42.00947]}",12,20,22528,268,27
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,4959 WEST NORTH AVENUE,17031250800,,"{'type': 'Point', 'coordinates': [-87.75061, 41.90957]}",2,26,22615,523,45
+2022,U.S. Bank,Form G,Depository Location,801 N Clark St,0810.00,,"{'type': 'Point', 'coordinates': [-87.63123, 41.89685]}",54,37,14926,310,11
+2022,Fifth Third Bank N.A,Form G,Depository Location,6111 N River Rd,17031770700,,"{'type': 'Point', 'coordinates': [-87.86041, 41.98791]}",,,16197,,
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,5960 WEST IRVING PARK ROAD,17031150402,,"{'type': 'Point', 'coordinates': [-87.77637, 41.95308]}",52,15,22254,26,19
+2022,Citibank N.A.,Form G,Depository Location,222 W ADAMS ST,17031839100,,,,,,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1851 N Cicero Ave,170311910.00,,"{'type': 'Point', 'coordinates': [-87.74602, 41.91409]}",2,26,22615,523,45
+2022,Huntington,Form G,Depository Location,"4355 N Sheridan Rd, Chicago, IL, 60613",17031032100,,"{'type': 'Point', 'coordinates': [-87.65426, 41.96132]}",53,31,21186,577,39
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1791 W Howard St,,60626,"{'type': 'Point', 'coordinates': [-87.67585, 42.0194]}",,,21853,,
+2022,U.S. Bank,Form G,Depository Location,11159 S Kedzie Ave,7401.00,,"{'type': 'Point', 'coordinates': [-87.70075, 41.68992]}",33,73,4447,256,42
+2022,Fifth Third Bank N.A,Form G,Depository Location,1420 East 53rd Street,17031410800,,"{'type': 'Point', 'coordinates': [-87.59097, 41.79952]}",10,8,21192,500,10
+2021,"Bank of America, National Association",Form G,Depository Locations,"6115 S Pulaski Rd., Chicago, IL 60629",17031650100,,"{'type': 'Point', 'coordinates': [-87.72284, 41.78176]}",58,63,21867,339,6
+2022,PNC Bank,Form G,Depository Location,"1640 W FULLERTON AVE CHICAGO, IL 60614",17031070700,,"{'type': 'Point', 'coordinates': [-87.66988, 41.92515]}",16,68,21190,743,40
+2021,BMO Harris Bank National Association,Form G,Depository Locations,4959 West North Avenue,17031250800,,"{'type': 'Point', 'coordinates': [-87.75061, 41.90957]}",2,26,22615,523,45
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1959 W Division St,,60622-3148,"{'type': 'Point', 'coordinates': [-87.6771, 41.90316]}",4,25,21560,462,41
+2022,U.S. Bank,Form G,Depository Location,8739 S Harlem Ave,8229.00,,"{'type': 'Point', 'coordinates': [-87.79905, 41.73196]}",,,10411,,
+2021,Citibank N.A.,Form G,Depository Locations,1 E OAK ST CHICAGO IL 60611,812.01,,"{'type': 'Point', 'coordinates': [-87.62804, 41.90077]}",6,37,21182,104,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,600 N Dearborn St,,60654,"{'type': 'Point', 'coordinates': [-87.62968, 41.89269]}",55,37,4446,669,36
+2021,BMO Harris Bank National Association,Form G,Depository Locations,6343 West 63rd Street,17031640600,,"{'type': 'Point', 'coordinates': [-87.78059, 41.77768]}",7,62,22268,266,6
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,5501 North Ashland Avenue,17031030900,,"{'type': 'Point', 'coordinates': [-87.66977, 41.98194]}",15,76,22616,564,24
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4843 N Kedzie Ave,,60625-5206,"{'type': 'Point', 'coordinates': [-87.70852, 41.96993]}",20,14,21849,750,20
+2021,"PNC Bank, National Association",Form G,Depository Locations,"307 N MICHIGAN AVE CHICAGO, IL 60601",17031320100,,"{'type': 'Point', 'coordinates': [-87.62446, 41.88696]}",42,38,14309,580,36
+2022,Huntington,Form G,Depository Location,"233 W 87th St, Chicago, IL, 60620",17031842400,,"{'type': 'Point', 'coordinates': [-87.63042, 41.73602]}",59,40,21554,1,13
+2022,U.S. Bank,Form G,Depository Location,1953 N Clybourn Ave,8326.00,,"{'type': 'Point', 'coordinates': [-87.65742, 41.9166]}",16,68,21190,168,34
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3030 N BROADWAY ST CHICAGO, IL 60657",17031063100,,"{'type': 'Point', 'coordinates': [-87.64431, 41.9373]}",22,57,4449,682,25
+2021,Huntington National Bank,Form G,Depository Locations,"4718 N Broadway St. Suite C, Chicago, IL, 60640",17031830700,,"{'type': 'Point', 'coordinates': [-87.65896, 41.96775]}",15,31,22616,241,39
+2022,U.S. Bank,Form G,Depository Location,115 High St,8415.04,,"{'type': 'Point', 'coordinates': [-88.20279, 41.88484]}",,,15279,,
+2021,"Bank of America, National Association",Form G,Depository Locations,"1439 E 53rd St., Chicago, IL 60615",17031410800,,"{'type': 'Point', 'coordinates': [-87.59013, 41.79953]}",10,8,21192,500,33
+2022,U.S. Bank,Form G,Depository Location,1512 Ogden Ave,8448.02,,"{'type': 'Point', 'coordinates': [-87.66617, 41.88138]}",44,29,14917,91,23
+2022,Bank of America,Form G,Depository Location,2 S Michigan Ave,17031320400,,"{'type': 'Point', 'coordinates': [-87.62448, 41.88188]}",34,38,14311,367,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,5352 N Elston Ave,170311105.01,,"{'type': 'Point', 'coordinates': [-87.75741, 41.97873]}",48,11,21869,701,38
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,6940A S Ashland Ave,170316715.00,,"{'type': 'Point', 'coordinates': [-87.66386, 41.76758]}",23,65,22257,284,2
+2022,Citibank N.A.,Form G,Depository Location,5812 S ELLIS AVE,17031836200,,,,,,,
+2022,Huntington,Form G,Depository Location,"5343 N Broadway St, Chicago, IL, 60640",17031030703,,"{'type': 'Point', 'coordinates': [-87.65953, 41.97886]}",15,76,22616,160,16
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,401 N Clark St,170310817.00,,"{'type': 'Point', 'coordinates': [-87.63105, 41.88945]}",55,37,4446,670,36
+2022,Bank of America,Form G,Depository Location,1651 E 95th St,17031510300,,"{'type': 'Point', 'coordinates': [-87.58372, 41.72236]}",25,48,21202,252,37
+2021,"PNC Bank, National Association",Form G,Depository Locations,"2300 N WESTERN AVE CHICAGO, IL 60647",17031221500,,"{'type': 'Point', 'coordinates': [-87.6876, 41.92367]}",1,23,22535,324,40
+2022,Huntington,Form G,Depository Location,"1655 E 95th St, Chicago, IL, 60617",17031510300,,"{'type': 'Point', 'coordinates': [-87.58359, 41.72236]}",25,48,21202,252,37
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4440 W North Ave,170312305.00,,"{'type': 'Point', 'coordinates': [-87.73764, 41.91008]}",2,24,22615,285,45
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,5918 N Broadway St,17031030500,,"{'type': 'Point', 'coordinates': [-87.66026, 41.98964]}",14,76,4451,539,16
+2022,Bank of America,Form G,Depository Location,110 N Wacker Dr,17031839100,,"{'type': 'Point', 'coordinates': [-87.63708, 41.88411]}",46,38,14914,92,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1200 N Clybourn Ave,,60610,"{'type': 'Point', 'coordinates': [-87.6394, 41.90369]}",54,37,14926,148,46
+2022,Huntington,Form G,Depository Location,"3333 W 26th St, Chicago, IL, 60623",17031840800,,"{'type': 'Point', 'coordinates': [-87.7088, 41.84448]}",57,32,21569,291,1
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,10 S Dearborn,170318391.00,,"{'type': 'Point', 'coordinates': [-87.629399, 41.881628]}",34,38,14311,92,36
+2022,U.S. Bank,Form G,Depository Location,2700 US Highway 34,8901.01,,"{'type': 'Point', 'coordinates': [-87.69718, 41.99048]}",50,20,4450,31,24
+2022,Citibank N.A.,Form G,Depository Location,1310 E 47TH ST,17031390100,,"{'type': 'Point', 'coordinates': [-87.59439, 41.80966]}",10,5,21192,356,10
+2022,U.S. Bank,Form G,Depository Location,1223 E Oakton St,8065.01,,"{'type': 'Point', 'coordinates': [-87.89396, 42.02394]}",,,16197,,
+2021,"PNC Bank, National Association",Form G,Depository Locations,"1156 N ASHLAND AVE CHICAGO, IL 60622",17031242100,,"{'type': 'Point', 'coordinates': [-87.6675, 41.90285]}",4,25,21560,518,41
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,2710 North Narragansett,17031831500,,"{'type': 'Point', 'coordinates': [-87.78566, 41.92935]}",3,19,4454,137,44
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,2 S LaSalle St,17031839100,,"{'type': 'Point', 'coordinates': [-87.6324, 41.88173]}",34,38,14311,92,36
+2021,Citibank N.A.,Form G,Depository Locations,9449 S WESTERN AVE CHICAGO IL 60643,7201,,"{'type': 'Point', 'coordinates': [-87.68206, 41.72139]}",59,71,22212,627,42
+2022,Bank of America,Form G,Depository Location,515 N La Salle Dr,17031081700,,"{'type': 'Point', 'coordinates': [-87.6326, 41.89138]}",55,37,4446,670,36
+2022,U.S. Bank,Form G,Depository Location,130 S Gary Ave,8411.12,,"{'type': 'Point', 'coordinates': [-88.12049, 41.95367]}",,,10509,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3032 N Clark St,,60657-5206,"{'type': 'Point', 'coordinates': [-87.64863, 41.93744]}",22,57,4449,682,25
+2022,Bank of America,Form G,Depository Location,3260 W Belmont Ave,17031831100,,"{'type': 'Point', 'coordinates': [-87.70986, 41.93952]}",39,22,21538,138,12
+2022,U.S. Bank,Form G,Depository Location,1400 Torrence Ave,8262.01,,"{'type': 'Point', 'coordinates': [-87.55873, 41.59505]}",,,26890,,
+2021,"PNC Bank, National Association",Form G,Depository Locations,"2154 W MADISON ST CHICAGO, IL 60612",17031837800,,"{'type': 'Point', 'coordinates': [-87.68112, 41.88124]}",28,29,21184,37,46
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,30 S Wacker Dr,170318391.00,,"{'type': 'Point', 'coordinates': [-87.63702, 41.88091]}",46,38,14914,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,8340 S Kedzie Ave,170317004.02,,"{'type': 'Point', 'coordinates': [-87.70216, 41.74112]}",8,69,4300,217,30
+2022,Huntington,Form G,Depository Location,"9400 S Ashland Ave, Chicago, IL, 60620",17031730300,,"{'type': 'Point', 'coordinates': [-87.66272, 41.72264]}",59,72,21554,632,13
+2021,"PNC Bank, National Association",Form G,Depository Locations,"2100 W CHICAGO AVE CHICAGO, IL 60622",17031242300,,"{'type': 'Point', 'coordinates': [-87.67984, 41.89624]}",4,25,21560,476,11
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,6422 W Archer Ave,17031560900,,"{'type': 'Point', 'coordinates': [-87.78278, 41.79232]}",7,53,22268,589,15
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,902 N State St,,60610,"{'type': 'Point', 'coordinates': [-87.62827, 41.89921]}",54,37,14926,230,11
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1 S Wacker Dr,17031839100,,"{'type': 'Point', 'coordinates': [-87.63678, 41.88152]}",46,38,14914,92,36
+2022,Huntington,Form G,Depository Location,"2520 N Narragansett Ave, Chicago, IL, 60639",17031831500,,"{'type': 'Point', 'coordinates': [-87.78554, 41.92592]}",3,19,22615,137,44
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,739 W Madison St,170312819.00,,"{'type': 'Point', 'coordinates': [-87.64682, 41.88179]}",45,29,4452,784,36
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,352 E. ILLINOIS STREET,17031081403,,"{'type': 'Point', 'coordinates': [-87.61827, 41.89105]}",6,37,21182,159,36
+2022,Huntington,Form G,Depository Location,"6315 W 55th St, Chicago, IL, 60638",17031561100,,"{'type': 'Point', 'coordinates': [-87.78002, 41.79235]}",7,53,22268,587,6
+2022,Fifth Third Bank N.A,Form G,Depository Location,5241 West 63rd Street,17031640700,,"{'type': 'Point', 'coordinates': [-87.75358, 41.77797]}",7,62,22268,337,15
+2021,BMO Harris Bank National Association,Form G,Depository Locations,1000 N. Lake Shore Drive,17031081201,,"{'type': 'Point', 'coordinates': [-87.62421, 41.90098]}",6,37,21182,105,11
+2022,Citibank N.A.,Form G,Depository Location,2022 S ARCHER AVE,17031841100,,,,,,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4645 W Diversey Ave,170311909.00,,"{'type': 'Point', 'coordinates': [-87.74373, 41.93099]}",2,19,22615,305,17
+2022,U.S. Bank,Form G,Depository Location,190 S La Salle St,8391.00,,"{'type': 'Point', 'coordinates': [-87.63235, 41.87976]}",34,38,14311,92,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,340 E Randolph St,,60601-7418,"{'type': 'Point', 'coordinates': [-87.61888, 41.88451]}",42,38,14309,580,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4455 S Pulaski Rd,170315701.00,,"{'type': 'Point', 'coordinates': [-87.72266, 41.81246]}",56,54,22248,563,8
+2022,U.S. Bank,Form G,Depository Location,400 Madison St,8175.00,,"{'type': 'Point', 'coordinates': [-87.63929, 41.88188]}",46,29,14914,786,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3101 W Cermak Rd,170313009.00,,"{'type': 'Point', 'coordinates': [-87.70303, 41.85179]}",57,32,21569,261,1
+2022,U.S. Bank,Form G,Depository Location,55 E Grand Ave,8609.03,,"{'type': 'Point', 'coordinates': [-87.62603, 41.89169]}",6,37,21182,626,36
+2022,U.S. Bank,Form G,Depository Location,4343 N Harlem Ave,8105.02,,"{'type': 'Point', 'coordinates': [-87.80722, 41.95995]}",,,4453,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,"2377 N Lincoln Ave, Ste A1-100",170310712.00,,"{'type': 'Point', 'coordinates': [-87.64823, 41.92507]}",16,68,21190,798,34
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1725 North Harlem Avenue,17031250500,,"{'type': 'Point', 'coordinates': [-87.80585, 41.9115]}",3,26,4454,598,7
+2022,PNC Bank,Form G,Depository Location,"5100 S LAKE PARK AVE CHICAGO, IL 60615",17031410100,,"{'type': 'Point', 'coordinates': [-87.58794, 41.80246]}",10,8,21192,405,10
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,5670 N Milwaukee Ave,17031110100,,"{'type': 'Point', 'coordinates': [-87.7761, 41.98433]}",18,11,22532,701,50
+2022,Citibank N.A.,Form G,Depository Location,500 W MADISON ST,17031280100,,,,,,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4645 W Diversey Ave,,60639-1828,"{'type': 'Point', 'coordinates': [-87.74373, 41.93099]}",2,19,22615,305,17
+2021,"Bank of America, National Association",Form G,Depository Locations,"1705 W 18th St., Chicago, IL 60608-1913",17031310800,,"{'type': 'Point', 'coordinates': [-87.66891, 41.85776]}",43,33,14920,343,26
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,5341 N Lincoln Ave,170310402.02,,"{'type': 'Point', 'coordinates': [-87.69264, 41.97898]}",20,6,21849,29,24
+2022,U.S. Bank,Form G,Depository Location,5621 75th St,0025.00,,,,,,,
+2022,PNC Bank,Form G,Depository Location,"1955 N DAMEN AVE CHICAGO, IL 60647",17031831000,,"{'type': 'Point', 'coordinates': [-87.67761, 41.91756]}",4,23,21560,179,40
+2022,Fifth Third Bank N.A,Form G,Depository Location,5670 N Milwaukee Ave,17031110100,,"{'type': 'Point', 'coordinates': [-87.7761, 41.98433]}",18,11,22532,701,50
+2022,Bank of America,Form G,Depository Location,135 S La Salle St STE LL18,17031839100,,"{'type': 'Point', 'coordinates': [-87.63235, 41.87972]}",34,38,14311,92,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1700 N Wells St,,60614-5806,"{'type': 'Point', 'coordinates': [-87.63476, 41.91309]}",16,68,21190,271,34
+2022,U.S. Bank,Form G,Depository Location,5201 W Madison St,2521.02,,"{'type': 'Point', 'coordinates': [-87.75548, 41.88037]}",32,26,22216,674,23
+2021,BMO Harris Bank National Association,Form G,Depository Locations,6556 N. Sheridan Road,17031010503,,"{'type': 'Point', 'coordinates': [-87.66075, 42.00183]}",9,10,21853,267,5
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,6650 S Stony Island Ave,170318439.00,,"{'type': 'Point', 'coordinates': [-87.58677, 41.77385]}",60,9,22260,134,33
+2022,Bank of America,Form G,Depository Location,2 N Riverside Plz,17031280100,,"{'type': 'Point', 'coordinates': [-87.63873, 41.88196]}",46,29,14914,784,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,92 E 103rd St,,60628,"{'type': 'Point', 'coordinates': [-87.62034, 41.70724]}",19,45,21861,570,43
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,57 East Randolph,17031320100,,"{'type': 'Point', 'coordinates': [-87.62589, 41.88452]}",42,38,14309,580,36
+2022,Bank of America,Form G,Depository Location,105 N Halsted St,17031280100,,"{'type': 'Point', 'coordinates': [-87.64741, 41.88342]}",44,29,4452,784,46
+2022,U.S. Bank,Form G,Depository Location,18300 Dixie Hwy,8286.01,,"{'type': 'Point', 'coordinates': [-87.66538, 41.55721]}",,,9301,,
+2022,Bank of America,Form G,Depository Location,7225 W Belmont Ave,17031170900,,"{'type': 'Point', 'coordinates': [-87.80779, 41.938]}",52,17,22254,458,7
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,5711 NORTH CLARK STREET,17031030500,,"{'type': 'Point', 'coordinates': [-87.66929, 41.98584]}",14,76,4451,539,16
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3500 S King Dr,,60653-1110,"{'type': 'Point', 'coordinates': [-87.6173, 41.83092]}",36,1,4301,222,10
+2022,Fifth Third Bank N.A,Form G,Depository Location,820 N Western Ave,17031242500,,"{'type': 'Point', 'coordinates': [-87.68725, 41.89635]}",4,25,21560,542,49
+2022,Huntington,Form G,Depository Location,"7227 W Addison St, Chicago, IL, 60634",17031170800,,"{'type': 'Point', 'coordinates': [-87.80783, 41.94526]}",52,17,22254,392,19
+2022,U.S. Bank,Form G,Depository Location,2131 S China Pl,8411.00,,"{'type': 'Point', 'coordinates': [-87.6336, 41.85444]}",40,35,21194,3,26
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,300 S Riverside Plz,170312819.00,,"{'type': 'Point', 'coordinates': [-87.63883, 41.87741]}",46,29,14914,786,36
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3556 N ASHLAND AVE CHICAGO, IL 60657",17031831900,,"{'type': 'Point', 'coordinates': [-87.66885, 41.94678]}",22,57,4449,239,25
+2022,U.S. Bank,Form G,Depository Location,3300 Dempster St,8071.00,,"{'type': 'Point', 'coordinates': [-87.71162, 42.04138]}",,,26610,,
+2022,Fifth Third Bank N.A,Form G,Depository Location,3604 N Southport Ave,17031060400,,"{'type': 'Point', 'coordinates': [-87.66404, 41.94738]}",53,57,21186,724,25
+2022,U.S. Bank,Form G,Depository Location,9575 W Higgins Rd,7707.00,,"{'type': 'Point', 'coordinates': [-87.86541, 41.99248]}",,,16197,,
+2022,U.S. Bank,Form G,Depository Location,2253 N Richmond Rd,8706.04,,"{'type': 'Point', 'coordinates': [-88.2673, 42.35965]}",,,17389,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,935 W Armitage Ave,170318326.00,,"{'type': 'Point', 'coordinates': [-87.65236, 41.91811]}",16,68,21190,168,34
+2021,Citibank N.A.,Form G,Depository Locations,500 W MADISON ST CHICAGO IL 60661,2801,,"{'type': 'Point', 'coordinates': [-87.64046, 41.88186]}",45,29,14914,786,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2310 W 95th St,170317201.00,,"{'type': 'Point', 'coordinates': [-87.68022, 41.72167]}",59,71,22212,627,42
+2022,Citibank N.A.,Form G,Depository Location,8650 S STONY ISLAND AVE,17031834300,,"{'type': 'Point', 'coordinates': [-87.58593, 41.73712]}",61,41,21202,133,35
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3337 W NORTH AVE CHICAGO, IL 60647",17031230900,,"{'type': 'Point', 'coordinates': [-87.71095, 41.91006]}",5,24,22535,455,49
+2022,PNC Bank,Form G,Depository Location,"8700 S COTTAGE GROVE AVE CHICAGO, IL 60619",17031440700,,"{'type': 'Point', 'coordinates': [-87.6054, 41.73651]}",61,40,21546,407,35
+2021,"Bank of America, National Association",Form G,Depository Locations,"3425 W 26th St., Chicago, IL 60623",17031301600,,"{'type': 'Point', 'coordinates': [-87.71078, 41.84446]}",57,32,21569,755,28
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1791 W Howard St,170310102.02,,"{'type': 'Point', 'coordinates': [-87.67585, 42.0194]}",,,21853,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2317 W Madison St,,60612,"{'type': 'Point', 'coordinates': [-87.68431, 41.8812]}",28,29,21184,37,46
+2022,U.S. Bank,Form G,Depository Location,136 S Washington St,8461.03,,"{'type': 'Point', 'coordinates': [-87.63197, 41.88325]}",41,38,14310,92,36
+2022,Associated Bank,Form G,Depository Location,5200 N Central Ave Chicago 60630,1102,,"{'type': 'Point', 'coordinates': [-87.76906, 41.97605]}",48,11,21869,693,50
+2021,Huntington National Bank,Form G,Depository Locations,"2130 W North Ave, Chicago, IL, 60647",17031240500,,"{'type': 'Point', 'coordinates': [-87.68113, 41.9104]}",4,25,21560,517,11
+2022,PNC Bank,Form G,Depository Location,"1 N FRANKLIN ST CHICAGO, IL 60606",17031839100,,"{'type': 'Point', 'coordinates': [-87.63533, 41.88226]}",46,38,14914,92,36
+2022,Huntington,Form G,Depository Location,"4042 W Foster Ave, Chicago, IL, 60630",17031130200,,"{'type': 'Point', 'coordinates': [-87.72986, 41.97553]}",48,13,21869,748,38
+2022,Fifth Third Bank N.A,Form G,Depository Location,3957 West 26th Street,17031301701,,"{'type': 'Point', 'coordinates': [-87.72425, 41.84428]}",57,32,21569,771,28
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,244 South Franklin,17031839100,,"{'type': 'Point', 'coordinates': [-87.63521, 41.87882]}",46,38,14914,92,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"3350 W Diversey Ave., Chicago, IL 60647",17031210602,,"{'type': 'Point', 'coordinates': [-87.71173, 41.93224]}",39,22,22535,55,12
+2022,U.S. Bank,Form G,Depository Location,104 N Oak Park Ave,8123.01,,"{'type': 'Point', 'coordinates': [-87.79448, 41.88763]}",,,26611,,
+2021,"Bank of America, National Association",Form G,Depository Locations,"1212 S Ashland Ave., Chicago, IL 60608",17031842900,,"{'type': 'Point', 'coordinates': [-87.66641, 41.86647]}",43,29,14920,96,23
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4809 S Ashland Ave,,60609-4234,"{'type': 'Point', 'coordinates': [-87.66491, 41.80644]}",37,59,14924,677,4
+2022,U.S. Bank,Form G,Depository Location,1586 N Rand Rd,8036.05,,"{'type': 'Point', 'coordinates': [-88.0211, 42.13785]}",,,9456,,
+2021,Citibank N.A.,Form G,Depository Locations,2295 N MILWAUKEE AVE CHICAGO IL 60647,2214,,"{'type': 'Point', 'coordinates': [-87.69719, 41.9228]}",1,23,22535,294,41
+2021,BMO Harris Bank National Association,Form G,Depository Locations,743 N Pulaski Rd,17031231500,,"{'type': 'Point', 'coordinates': [-87.7257, 41.895]}",30,24,21572,584,45
+2022,Associated Bank,Form G,Depository Location,200 E Randolph St,3201.01,,"{'type': 'Point', 'coordinates': [-87.62214, 41.88451]}",42,38,14309,580,36
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1554 W North Ave,17031842300,,"{'type': 'Point', 'coordinates': [-87.66727, 41.91089]}",49,25,21560,109,40
+2022,PNC Bank,Form G,Depository Location,"6511 N SHERIDAN RD CHICAGO, IL 60626",17031010400,,"{'type': 'Point', 'coordinates': [-87.66074, 42.00102]}",9,10,21853,48,5
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,2504 West Cermak,17031840700,,"{'type': 'Point', 'coordinates': [-87.68833, 41.852]}",43,32,14920,263,23
+2022,Citibank N.A.,Form G,Depository Location,3535 N CENTRAL AVE,17031151100,,"{'type': 'Point', 'coordinates': [-87.76673, 41.94518]}",21,15,22254,361,44
+2022,Fifth Third Bank N.A,Form G,Depository Location,244 S Franklin Street,17031839100,,"{'type': 'Point', 'coordinates': [-87.63521, 41.87882]}",46,38,14914,92,36
+2021,"PNC Bank, National Association",Form G,Depository Locations,"100 W RANDOLPH ST CHICAGO, IL 60601",17031839100,,"{'type': 'Point', 'coordinates': [-87.63138, 41.88447]}",41,38,14310,92,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,238 N State St,,60601,"{'type': 'Point', 'coordinates': [-87.62807, 41.88646]}",42,38,14309,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3335 N Ashland Ave,170310624.00,,"{'type': 'Point', 'coordinates': [-87.66876, 41.94258]}",22,57,4449,742,18
+2021,"Bank of America, National Association",Form G,Depository Locations,"7131 S Stony Island Ave., Chicago, IL 60649",17031430500,,"{'type': 'Point', 'coordinates': [-87.58591, 41.76531]}",24,39,22538,452,33
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2235 N Milwaukee Ave,,60647-4035,"{'type': 'Point', 'coordinates': [-87.69541, 41.92171]}",1,23,22535,294,41
+2021,BMO Harris Bank National Association,Form G,Depository Locations,1300 South Wabash Ave,17031330100,,"{'type': 'Point', 'coordinates': [-87.62577, 41.86559]}",35,34,14913,374,9
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2639 N Milwaukee Ave,170312206.02,,"{'type': 'Point', 'coordinates': [-87.70847, 41.92971]}",1,23,22535,72,12
+2022,Fifth Third Bank N.A,Form G,Depository Location,7150 Mannheim Road,17031770602,,"{'type': 'Point', 'coordinates': [-87.88573, 42.00932]}",,,16197,,
+2022,Citibank N.A.,Form G,Depository Location,2555 N CLARK ST,17031070102,,,,,,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3101 W Cermak Rd,,60623-3449,"{'type': 'Point', 'coordinates': [-87.70303, 41.85179]}",57,32,21569,261,1
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2501 N Clark St,,60614-1711,"{'type': 'Point', 'coordinates': [-87.64186, 41.9279]}",16,68,21190,185,34
+2022,"Albany Bank and Trust Company, N.A.",Form G,Depository Location,4100 W Lawrence Ave,17.031.1404.00,,"{'type': 'Point', 'coordinates': [-87.73078, 41.96821]}",48,14,21869,257,38
+2022,Bank of America,Form G,Depository Location,2332 W Cermak Rd,17031841200,,"{'type': 'Point', 'coordinates': [-87.68436, 41.85203]}",43,33,14920,204,26
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,99 WEST WASHINGTON STREET,17031839100,,"{'type': 'Point', 'coordinates': [-87.63086, 41.88325]}",41,38,14310,92,36
+2022,PNC Bank,Form G,Depository Location,"10701 S WESTERN AVE CHICAGO, IL 60643",17031750200,,"{'type': 'Point', 'coordinates': [-87.68138, 41.69883]}",33,74,22212,314,42
+2022,U.S. Bank,Form G,Depository Location,9795 W Lincoln Hwy,8835.16,,"{'type': 'Point', 'coordinates': [-87.85327, 41.50605]}",,,27236,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,549 N McClurg Ct,,60611,"{'type': 'Point', 'coordinates': [-87.61769, 41.89214]}",6,37,21182,534,36
+2021,BMO Harris Bank National Association,Form G,Depository Locations,6400 South Pulaski Road,17031650301,,"{'type': 'Point', 'coordinates': [-87.72308, 41.7764]}",58,63,21867,6,15
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,"8300 S. HOLLAND ROAD, SUITE E",17031842400,,"{'type': 'Point', 'coordinates': [-87.63208, 41.74332]}",59,40,21554,1,13
+2022,U.S. Bank,Form G,Depository Location,11960 S Western Ave,8235.00,,"{'type': 'Point', 'coordinates': [-87.68108, 41.67577]}",,,26633,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4730 W 79th St,,60652-2045,"{'type': 'Point', 'coordinates': [-87.74024, 41.74917]}",8,69,4300,235,30
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1849 W North Ave,,60622-1514,"{'type': 'Point', 'coordinates': [-87.67411, 41.91053]}",4,25,21560,482,11
+2022,Huntington,Form G,Depository Location,"1224 S Wabash Ave, Chicago, IL, 60605",17031330102,,"{'type': 'Point', 'coordinates': [-87.62581, 41.86674]}",35,34,14913,374,9
+2022,U.S. Bank,Form G,Depository Location,755 E Boughton Rd,8801.17,,"{'type': 'Point', 'coordinates': [-88.03858, 41.7231]}",,,9709,,
+2022,Fifth Third Bank N.A,Form G,Depository Location,1725 North Harlem Avenue,17031250500,,"{'type': 'Point', 'coordinates': [-87.80585, 41.9115]}",3,26,4454,598,7
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1209 North Milwaukee Avenue,17031241600,,"{'type': 'Point', 'coordinates': [-87.66685, 41.90359]}",49,25,22620,483,11
+2022,U.S. Bank,Form G,Depository Location,4001 S Harlem Ave,8207.00,,"{'type': 'Point', 'coordinates': [-87.80727, 41.95283]}",52,17,22254,442,19
+2022,PNC Bank,Form G,Depository Location,"3508 S STATE ST CHICAGO, IL 60609",17031351500,,"{'type': 'Point', 'coordinates': [-87.62705, 41.83063]}",37,1,14924,353,9
+2022,Citibank N.A.,Form G,Depository Location,222 W ADAMS ST,17031839100,,,,,,,
+2021,Citibank N.A.,Form G,Depository Locations,4887 N BROADWAY ST CHICAGO IL 60640,312,,"{'type': 'Point', 'coordinates': [-87.65974, 41.97134]}",15,31,22616,633,39
+2022,Huntington,Form G,Depository Location,"1220 S Ashland Ave, Chicago, IL, 60608",17031842900,,"{'type': 'Point', 'coordinates': [-87.66641, 41.86643]}",43,29,14920,96,23
+2022,Fifth Third Bank N.A,Form G,Depository Location,2785 North Clybourn Avenue,17031070700,,"{'type': 'Point', 'coordinates': [-87.67751, 41.93178]}",16,68,21190,743,40
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1225 S Ashland Ave,170318429.00,,"{'type': 'Point', 'coordinates': [-87.66641, 41.86637]}",43,29,14920,96,23
+2022,Huntington,Form G,Depository Location,"3531 N Broadway St, Chicago, IL, 60657",17031061800,,"{'type': 'Point', 'coordinates': [-87.64683, 41.94665]}",22,57,4449,692,39
+2021,"Bank of America, National Association",Form G,Depository Locations,"201 S State St., Chicago, IL 60604
+2 S Michigan Ave., Chicago, IL 60603-3323",17031320400,,"{'type': 'Point', 'coordinates': [-87.62448, 41.88188]}",34,38,14311,367,36
+2022,U.S. Bank,Form G,Depository Location,808 N Route 59,8465.09,,"{'type': 'Point', 'coordinates': [-88.20593, 41.76767]}",,,6520,,
+2022,U.S. Bank,Form G,Depository Location,21 W 2nd St,8453.00,,,,,,,
+2022,Citibank N.A.,Form G,Depository Location,1751 W 47TH ST,17031611300,,"{'type': 'Point', 'coordinates': [-87.66938, 41.80855]}",37,59,14924,740,3
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,850 S Wabash Ave,170313206.00,,"{'type': 'Point', 'coordinates': [-87.6259, 41.87117]}",35,38,14913,368,10
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,923 W Washington Blvd,,60607-2203,"{'type': 'Point', 'coordinates': [-87.65063, 41.8831]}",44,29,14917,63,46
+2022,Bank of America,Form G,Depository Location,2163 N Clybourn Ave,17031832500,,"{'type': 'Point', 'coordinates': [-87.6629, 41.92055]}",16,68,21190,210,11
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1122 N Clark St,170310810.00,,"{'type': 'Point', 'coordinates': [-87.63142, 41.90268]}",54,37,14926,310,11
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4145 W Peterson Ave,,60646-6002,"{'type': 'Point', 'coordinates': [-87.7331, 41.99009]}",18,12,22532,713,38
+2021,Associated Bank,Form G,Depository Locations,525 W Monroe St Chicago 60661,2819,,"{'type': 'Point', 'coordinates': [-87.64051, 41.88057]}",45,29,14914,786,36
+2021,"PNC Bank, National Association",Form G,Depository Locations,"1733 S CLARK ST CHICAGO, IL 60616",17031330200,,"{'type': 'Point', 'coordinates': [-87.62977, 41.85803]}",40,34,21194,330,9
+2021,"Bank of America, National Association",Form G,Depository Locations,"7126 W North Ave., Chicago, IL 60707",17031250500,,"{'type': 'Point', 'coordinates': [-87.80347, 41.9092]}",3,26,4454,598,7
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,"7131 S Jeffery Blvd, Ste E",,60649-2433,"{'type': 'Point', 'coordinates': [-87.5763, 41.7654]}",24,39,22538,452,33
+2022,U.S. Bank,Form G,Depository Location,451 S Schmale Rd,8417.03,,"{'type': 'Point', 'coordinates': [-88.10632, 41.89083]}",,,18507,,
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,7150 Mannheim Road,17031770602,,"{'type': 'Point', 'coordinates': [-87.88573, 42.00932]}",,,16197,,
+2022,Bank of America,Form G,Depository Location,6115 S Pulaski Rd,17031650100,,"{'type': 'Point', 'coordinates': [-87.72284, 41.78176]}",58,63,21867,339,6
+2021,BMO Harris Bank National Association,Form G,Depository Locations,111 West Monroe Street,17031839100,,"{'type': 'Point', 'coordinates': [-87.63148, 41.88068]}",34,38,14311,92,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2 N LaSalle St,,60602-3702,"{'type': 'Point', 'coordinates': [-87.63241, 41.88229]}",41,38,14310,92,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1809 W Lawrence Ave,,60640,"{'type': 'Point', 'coordinates': [-87.67533, 41.96856]}",15,6,22616,225,18
+2021,Citibank N.A.,Form G,Depository Locations,5812 S ELLIS AVE CHICAGO IL 60637,8362,,"{'type': 'Point', 'coordinates': [-87.60128, 41.78993]}",60,8,22260,154,33
+2022,U.S. Bank,Form G,Depository Location,1382 E Prairie Ave,8062.02,,"{'type': 'Point', 'coordinates': [-87.62094, 41.86448]}",35,34,14913,374,9
+2022,Citibank N.A.,Form G,Depository Location,1 E OAK ST,17031081201,,"{'type': 'Point', 'coordinates': [-87.62804, 41.90077]}",6,37,21182,104,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2310 W 95th St,,60643-1004,"{'type': 'Point', 'coordinates': [-87.68022, 41.72167]}",59,71,22212,627,42
+2022,Fifth Third Bank N.A,Form G,Depository Location,2504 West Cermak,17031840700,,"{'type': 'Point', 'coordinates': [-87.68833, 41.852]}",43,32,14920,263,23
+2021,"Bank of America, National Association",Form G,Depository Locations,"5200 W Fullerton Ave., Chicago, IL 60639",17031190702,,"{'type': 'Point', 'coordinates': [-87.75744, 41.92411]}",2,19,22615,80,17
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,1400 W 18TH ST,17031310600,,"{'type': 'Point', 'coordinates': [-87.66151, 41.85786]}",43,33,14920,365,26
+2021,"PNC Bank, National Association",Form G,Depository Locations,"6401 N HARLEM AVE CHICAGO, IL 60631",17031100200,,"{'type': 'Point', 'coordinates': [-87.80679, 41.99709]}",17,36,22243,657,29
+2021,Huntington National Bank,Form G,Depository Locations,"20 N Clark St, Chicago, IL, 60602",17031839100,,"{'type': 'Point', 'coordinates': [-87.63091, 41.88248]}",41,38,14310,92,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"1167 N State St., Chicago, IL 60610",17031081202,,"{'type': 'Point', 'coordinates': [-87.6287, 41.90378]}",54,37,14926,230,11
+2022,U.S. Bank,Form G,Depository Location,3214 N Broadway St,0620.00,,"{'type': 'Point', 'coordinates': [-87.64442, 41.94066]}",22,57,4449,730,25
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,743 N PULASKI RD,17031231500,,,,,,,
+2022,U.S. Bank,Form G,Depository Location,1000 E 111th St,5002.00,,"{'type': 'Point', 'coordinates': [-87.60064, 41.69287]}",19,47,21861,254,43
+2021,"PNC Bank, National Association",Form G,Depository Locations,"1955 N DAMEN AVE CHICAGO, IL 60647",17031831000,,"{'type': 'Point', 'coordinates': [-87.67761, 41.91756]}",4,23,21560,179,40
+2021,Citibank N.A.,Form G,Depository Locations,8650 S STONY ISLAND AVE CHICAGO IL 60617,8343,,"{'type': 'Point', 'coordinates': [-87.58593, 41.73712]}",61,41,21202,133,35
+2022,U.S. Bank,Form G,Depository Location,1103 E 9th St,8806.01,,"{'type': 'Point', 'coordinates': [-87.58987, 41.51483]}",,,26902,,
+2022,Bank of America,Form G,Depository Location,3350 W Diversey Ave,17031210602,,"{'type': 'Point', 'coordinates': [-87.71173, 41.93224]}",39,22,22535,55,12
+2022,Citibank N.A.,Form G,Depository Location,2001 N HALSTED ST,17031071200,,,,,,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4843 N Kedzie Ave,170311401.00,,"{'type': 'Point', 'coordinates': [-87.70852, 41.96993]}",20,14,21849,750,20
+2021,BMO Harris Bank National Association,Form G,Depository Locations,1620 W 95th St,17031730300,,"{'type': 'Point', 'coordinates': [-87.66348, 41.72141]}",59,72,21554,632,13
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3033 N Pulaski Rd,,60641-5444,"{'type': 'Point', 'coordinates': [-87.72709, 41.93643]}",39,22,22618,215,21
+2021,Citibank N.A.,Form G,Depository Locations,1751 W 47TH ST CHICAGO IL 60609,6113,,"{'type': 'Point', 'coordinates': [-87.66938, 41.80855]}",37,59,14924,740,3
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1606 East 79th Street,17031834200,,"{'type': 'Point', 'coordinates': [-87.58495, 41.7515]}",24,39,22538,188,35
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1204 E 53rd St,,60615-4008,"{'type': 'Point', 'coordinates': [-87.59646, 41.79946]}",10,8,21192,499,10
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,5606 W Montrose Ave,170311504.01,,"{'type': 'Point', 'coordinates': [-87.76762, 41.9611]}",48,15,21869,94,19
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,6350 N McCormick Rd,,60659-1308,"{'type': 'Point', 'coordinates': [-87.71187, 41.9966]}",50,13,4450,747,27
+2022,Huntington,Form G,Depository Location,"20 N Clark St, Chicago, IL, 60602",17031839100,,"{'type': 'Point', 'coordinates': [-87.63091, 41.88248]}",41,38,14310,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4730 W 79th St,170317002.00,,"{'type': 'Point', 'coordinates': [-87.74024, 41.74917]}",8,69,4300,235,30
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4824 N Pulaski Rd,,60630-2811,"{'type': 'Point', 'coordinates': [-87.72861, 41.96903]}",48,14,21869,751,38
+2022,Huntington,Form G,Depository Location,"4160 S Archer Ave, Chicago, IL, 60632",17031580501,,"{'type': 'Point', 'coordinates': [-87.69819, 41.81781]}",56,55,22248,196,1
+2022,Citibank N.A.,Form G,Depository Location,2022 S ARCHER AVE,17031841100,,,,,,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,55 E Monroe St,,60603,"{'type': 'Point', 'coordinates': [-87.625676, 41.880807]}",34,38,14311,367,36
+2022,U.S. Bank,Form G,Depository Location,71 S Wacker Dr,8391.00,,"{'type': 'Point', 'coordinates': [-87.63675, 41.88099]}",46,38,14914,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,6245 S Western Ave,170318350.00,,"{'type': 'Point', 'coordinates': [-87.68365, 41.77976]}",23,64,22257,111,2
+2022,PNC Bank,Form G,Depository Location,"3940 N HARLEM AVE CHICAGO, IL 60634",17031170400,,"{'type': 'Point', 'coordinates': [-87.80748, 41.95193]}",52,17,22254,392,19
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3940 N HARLEM AVE CHICAGO, IL 60634",17031170400,,"{'type': 'Point', 'coordinates': [-87.80748, 41.95193]}",52,17,22254,392,19
+2022,U.S. Bank,Form G,Depository Location,4350 Lincoln Hwy,8300.04,,"{'type': 'Point', 'coordinates': [-87.68345, 41.96084]}",39,46,21538,623,18
+2022,Huntington,Form G,Depository Location,"2920 W Peterson Ave, Chicago, IL, 60659",17031020702,,"{'type': 'Point', 'coordinates': [-87.70322, 41.99042]}",50,20,4450,65,24
+2022,PNC Bank,Form G,Depository Location,"2600 N HALSTED ST CHICAGO, IL 60614",17031070300,,"{'type': 'Point', 'coordinates': [-87.64891, 41.92932]}",16,68,21190,769,34
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2968 N Lincoln Ave,170310628.00,,"{'type': 'Point', 'coordinates': [-87.66335, 41.93588]}",22,57,4449,679,40
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4824 N Pulaski Rd,170311404.00,,"{'type': 'Point', 'coordinates': [-87.72861, 41.96903]}",48,14,21869,751,38
+2022,Bank of America,Form G,Depository Location,430 W Roosevelt Rd,17031841900,,"{'type': 'Point', 'coordinates': [-87.63873, 41.86726]}",44,29,14917,97,26
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,2968 N Lincoln Ave,,60657-4109,"{'type': 'Point', 'coordinates': [-87.66335, 41.93588]}",22,57,4449,679,40
+2022,Bank of America,Form G,Depository Location,1705 W 18th St,17031310800,,"{'type': 'Point', 'coordinates': [-87.66891, 41.85776]}",43,33,14920,343,26
+2022,Bank of America,Form G,Depository Location,250 W 83rd St,17031842400,,"{'type': 'Point', 'coordinates': [-87.63107, 41.7439]}",59,40,21554,1,13
+2022,PNC Bank,Form G,Depository Location,"6333 N MILWAUKEE AVE CHICAGO, IL 60646",17031100100,,"{'type': 'Point', 'coordinates': [-87.78645, 41.99586]}",18,36,22532,656,38
+2022,U.S. Bank,Form G,Depository Location,815 S Randall Rd,8519.08,,"{'type': 'Point', 'coordinates': [-88.33466, 42.01223]}",,,15596,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,141 W Jackson Blvd,170318391.00,,"{'type': 'Point', 'coordinates': [-87.63228, 41.87814]}",29,38,14912,92,36
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,2401 N Halsted St,17031070200,,"{'type': 'Point', 'coordinates': [-87.64877, 41.92576]}",16,68,21190,794,34
+2022,U.S. Bank,Form G,Depository Location,850 N Roselle Rd,8047.09,,"{'type': 'Point', 'coordinates': [-88.08093, 42.04392]}",,,15275,,
+2021,"PNC Bank, National Association",Form G,Depository Locations,"55 W MONROE ST CHICAGO, IL 60603",17031839100,,"{'type': 'Point', 'coordinates': [-87.62983, 41.88072]}",34,38,14311,92,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"3051 N Clark St., Chicago, IL 60657",17031063100,,"{'type': 'Point', 'coordinates': [-87.64876, 41.9376]}",22,57,4449,682,25
+2022,U.S. Bank,Form G,Depository Location,1800 22nd Ave,0005.00,,"{'type': 'Point', 'coordinates': [-87.67107, 41.85148]}",43,33,14920,126,26
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,29 N. WACKER DRIVE,17031839100,,"{'type': 'Point', 'coordinates': [-87.63684, 41.88278]}",46,38,14914,92,36
+2022,PNC Bank,Form G,Depository Location,"3556 N ASHLAND AVE CHICAGO, IL 60657",17031831900,,"{'type': 'Point', 'coordinates': [-87.66885, 41.94678]}",22,57,4449,239,25
+2021,Associated Bank,Form G,Depository Locations,743 E 47th St Chicago 60653,8436,,"{'type': 'Point', 'coordinates': [-87.60737, 41.80952]}",36,4,4301,165,10
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,33 W Huron St,17031081600,,"{'type': 'Point', 'coordinates': [-87.6291, 41.89486]}",55,37,4446,669,36
+2022,U.S. Bank,Form G,Depository Location,1357 W 103rd St,7207.00,,"{'type': 'Point', 'coordinates': [-87.65725, 41.70679]}",13,71,22212,628,22
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,850 S Wabash Ave,,60605-2113,"{'type': 'Point', 'coordinates': [-87.6259, 41.87117]}",35,38,14913,368,10
+2021,BMO Harris Bank National Association,Form G,Depository Locations,2927 West Addison Avenue,17031210100,,"{'type': 'Point', 'coordinates': [-87.7017, 41.94665]}",39,16,21538,372,20
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,5715 N Broadway St,170310306.03,,"{'type': 'Point', 'coordinates': [-87.66014, 41.98596]}",14,76,4451,539,16
+2021,"PNC Bank, National Association",Form G,Depository Locations,"873 N RUSH ST CHICAGO, IL 60611",17031081201,,"{'type': 'Point', 'coordinates': [-87.62653, 41.89867]}",6,37,21182,104,36
+2022,PNC Bank,Form G,Depository Location,"7300 S STONY ISLAND AVE CHICAGO, IL 60649",17031430400,,"{'type': 'Point', 'coordinates': [-87.58621, 41.76223]}",24,39,22538,419,37
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3204 W Irving Park Rd,,60618,"{'type': 'Point', 'coordinates': [-87.70832, 41.95393]}",39,16,21538,23,20
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1225 S Ashland Ave,,60608-1329,"{'type': 'Point', 'coordinates': [-87.66641, 41.86637]}",43,29,14920,96,23
+2021,Huntington National Bank,Form G,Depository Locations,"7227 W Addison St, Chicago, IL, 60634",17031170800,,"{'type': 'Point', 'coordinates': [-87.80783, 41.94526]}",52,17,22254,392,19
+2022,"Albany Bank and Trust Company, N.A.",Form G,Depository Location,3400 W Lawrence Ave,17.031.1402.00,,"{'type': 'Point', 'coordinates': [-87.71344, 41.9684]}",20,14,21849,118,20
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,1625 W 18th St,17031310800,,"{'type': 'Point', 'coordinates': [-87.66723, 41.85751]}",43,33,14920,343,26
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1849 W North Ave,170312415.00,,"{'type': 'Point', 'coordinates': [-87.67411, 41.91053]}",4,25,21560,482,11
+2021,"PNC Bank, National Association",Form G,Depository Locations,"6511 N SHERIDAN RD CHICAGO, IL 60626",17031010400,,"{'type': 'Point', 'coordinates': [-87.66074, 42.00102]}",9,10,21853,48,5
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1809 W Lawrence Ave,170318308.00,,"{'type': 'Point', 'coordinates': [-87.67533, 41.96856]}",15,6,22616,225,18
+2022,Bank of America,Form G,Depository Location,49 E Chicago Ave,17031081500,,"{'type': 'Point', 'coordinates': [-87.62619, 41.89671]}",6,37,21182,104,36
+2022,U.S. Bank,Form G,Depository Location,6729 North Ave,8122.00,,"{'type': 'Point', 'coordinates': [-87.79374, 41.90904]}",,,26615,598,
+2022,PNC Bank,Form G,Depository Location,"1733 S CLARK ST CHICAGO, IL 60616",17031330200,,"{'type': 'Point', 'coordinates': [-87.62977, 41.85803]}",40,34,21194,330,9
+2022,U.S. Bank,Form G,Depository Location,750 E Rollins Rd,8612.02,,"{'type': 'Point', 'coordinates': [-88.06513, 42.37924]}",,,9453,,
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,11850 South Marshfield Avenue,17031750500,,"{'type': 'Point', 'coordinates': [-87.66251, 41.6784]}",13,74,22212,378,22
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,8140 South Ashland Avenue,17031710500,,"{'type': 'Point', 'coordinates': [-87.66332, 41.74549]}",59,70,21554,574,13
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,3030 E 92nd St,17031461000,,"{'type': 'Point', 'coordinates': [-87.54958, 41.72826]}",25,42,21202,510,47
+2022,Citibank N.A.,Form G,Depository Location,3430 S HALSTED ST,17031839700,,,,,,,
+2021,"Bank of America, National Association",Form G,Depository Locations,"1651 E 95th St., Chicago, IL 60617",17031510300,,"{'type': 'Point', 'coordinates': [-87.58372, 41.72236]}",25,48,21202,252,37
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,"7131 S Jeffery Blvd, Ste E",170314306.00,,"{'type': 'Point', 'coordinates': [-87.5763, 41.7654]}",24,39,22538,452,33
+2022,Citibank N.A.,Form G,Depository Location,100 S MICHIGAN AVE,17031320400,,"{'type': 'Point', 'coordinates': [-87.62446, 41.88067]}",34,38,14311,367,36
+2022,U.S. Bank,Form G,Depository Location,7701 Green Bay Rd,0025.00,,"{'type': 'Point', 'coordinates': [-87.64534, 41.75406]}",59,70,21554,572,31
+2022,Fifth Third Bank N.A,Form G,Depository Location,3601 N. Broadway,17031060900,,"{'type': 'Point', 'coordinates': [-87.6472, 41.94726]}",22,57,4449,692,39
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,3714 N Broadway St,,60613-4105,"{'type': 'Point', 'coordinates': [-87.64869, 41.94968]}",53,57,21186,726,39
+2022,U.S. Bank,Form G,Depository Location,175 N Milwaukee Ave,8662.00,,"{'type': 'Point', 'coordinates': [-87.63981, 41.88572]}",46,29,14914,784,36
+2022,Associated Bank,Form G,Depository Location,300 N LaSalle Dr Chicago 60654,817,,"{'type': 'Point', 'coordinates': [-87.632468, 41.886245]}",42,38,14309,92,36
+2022,U.S. Bank,Form G,Depository Location,936 Harlem Ave,8021.00,,"{'type': 'Point', 'coordinates': [-87.80553, 42.07184]}",,,13428,,
+2021,Citibank N.A.,Form G,Depository Locations,2022 S ARCHER AVE CHICAGO IL 60616,8411,,"{'type': 'Point', 'coordinates': [-87.63184, 41.85431]}",40,35,21194,3,26
+2021,BMO Harris Bank National Association,Form G,Depository Locations,2196 N. Elston,17031832300,,"{'type': 'Point', 'coordinates': [-87.67209, 41.92135]}",16,23,21190,209,40
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,549 N McClurg Ct,170310814.02,,"{'type': 'Point', 'coordinates': [-87.61769, 41.89214]}",6,37,21182,534,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"1565 N Clybourn Ave., Chicago, IL 60610",17031842200,,"{'type': 'Point', 'coordinates': [-87.64807, 41.90987]}",54,37,22620,108,46
+2022,Fifth Third Bank N.A,Form G,Depository Location,1606 East 79th Street,17031834200,,"{'type': 'Point', 'coordinates': [-87.58495, 41.7515]}",24,39,22538,188,35
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5137 S Pulaski Rd,,60632-4219,"{'type': 'Point', 'coordinates': [-87.72334, 41.79973]}",56,60,22248,792,6
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4854 W Irving Park Rd,,60641-2718,"{'type': 'Point', 'coordinates': [-87.74942, 41.95387]}",21,15,22618,259,50
+2021,BMO Harris Bank National Association,Form G,Depository Locations,352 E. Illinois Street,17031081403,,"{'type': 'Point', 'coordinates': [-87.61827, 41.89105]}",6,37,21182,159,36
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,8300 W Belmont Ave,17031170600,,"{'type': 'Point', 'coordinates': [-87.83395, 41.93762]}",52,17,22254,413,19
+2021,"Bank of America, National Association",Form G,Depository Locations,"9233 S Commercial Ave., Chicago, IL 60617",17031461000,,"{'type': 'Point', 'coordinates': [-87.55063, 41.72725]}",25,42,21202,510,47
+2022,Fifth Third Bank N.A,Form G,Depository Location,33 W Huron St,17031081600,,"{'type': 'Point', 'coordinates': [-87.6291, 41.89486]}",55,37,4446,669,36
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,6343 WEST 63RD STREET,17031640600,,"{'type': 'Point', 'coordinates': [-87.78059, 41.77768]}",7,62,22268,266,6
+2022,U.S. Bank,Form G,Depository Location,3901 Kirchoff Rd,8040.00,,"{'type': 'Point', 'coordinates': [-88.02859, 42.0815]}",,,4097,,
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,837 West North Avenue,17031842200,,"{'type': 'Point', 'coordinates': [-87.64978, 41.91057]}",49,37,22620,108,11
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,30 S Wacker Dr,,60606-7413,"{'type': 'Point', 'coordinates': [-87.63702, 41.88091]}",46,38,14914,92,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"430 W Roosevelt Rd., Chicago, IL 60607-4906",17031841900,,"{'type': 'Point', 'coordinates': [-87.63873, 41.86726]}",44,29,14917,97,26
+2022,PNC Bank,Form G,Depository Location,"1156 N ASHLAND AVE CHICAGO, IL 60622",17031242100,,"{'type': 'Point', 'coordinates': [-87.6675, 41.90285]}",4,25,21560,518,41
+2021,"PNC Bank, National Association",Form G,Depository Locations,"1640 W FULLERTON AVE CHICAGO, IL 60614",17031070700,,"{'type': 'Point', 'coordinates': [-87.66988, 41.92515]}",16,68,21190,743,40
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1204 E 53rd St,170314107.00,,"{'type': 'Point', 'coordinates': [-87.59646, 41.79946]}",10,8,21192,499,10
+2022,PNC Bank,Form G,Depository Location,"302 W ADAMS ST CHICAGO, IL 60606",17031839100,,"{'type': 'Point', 'coordinates': [-87.63556, 41.87938]}",46,38,14914,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,330 N Desplaines St,170312801.00,,"{'type': 'Point', 'coordinates': [-87.64427, 41.88756]}",45,29,4452,784,36
+2022,Citibank N.A.,Form G,Depository Location,1310 E 47TH ST,17031390100,,"{'type': 'Point', 'coordinates': [-87.59439, 41.80966]}",10,5,21192,356,10
+2022,Bank of America,Form G,Depository Location,1167 N State St,17031081202,,"{'type': 'Point', 'coordinates': [-87.6287, 41.90378]}",54,37,14926,230,11
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5134 N Clark St,,60640-2828,"{'type': 'Point', 'coordinates': [-87.66835, 41.97548]}",15,31,22616,610,24
+2022,U.S. Bank,Form G,Depository Location,310 N Pulaski Rd,2602.00,,"{'type': 'Point', 'coordinates': [-87.72582, 41.88589]}",30,27,21572,659,23
+2022,U.S. Bank,Form G,Depository Location,6201 W Cermak Rd,8151.00,,"{'type': 'Point', 'coordinates': [-87.77914, 41.8504]}",,,26624,,
+2022,Bank of America,Form G,Depository Location,1212 S Ashland Ave,17031842900,,"{'type': 'Point', 'coordinates': [-87.66641, 41.86647]}",43,29,14920,96,23
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,6350 N Mccormick Rd,170311301.00,,"{'type': 'Point', 'coordinates': [-87.71187, 41.9966]}",50,13,4450,747,27
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,1620 W 95TH ST,17031720100,,"{'type': 'Point', 'coordinates': [-87.66348, 41.72141]}",59,72,21554,632,13
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,605 N Michigan Ave,,60611-3101,"{'type': 'Point', 'coordinates': [-87.62418, 41.8928]}",6,37,21182,159,36
+2022,U.S. Bank,Form G,Depository Location,8811 159th St,8241.08,,"{'type': 'Point', 'coordinates': [-87.83386, 41.60168]}",,,2727,,
+2022,Bank of America,Form G,Depository Location,4200 S Ashland Ave,17031610300,,"{'type': 'Point', 'coordinates': [-87.66518, 41.81756]}",37,59,14924,123,48
+2022,Citibank N.A.,Form G,Depository Location,9449 S WESTERN AVE,17031720100,,"{'type': 'Point', 'coordinates': [-87.68206, 41.72139]}",59,71,22212,627,42
+2021,"PNC Bank, National Association",Form G,Depository Locations,"401 N LA SALLE DR CHICAGO, IL 60654",17031081700,,"{'type': 'Point', 'coordinates': [-87.63254, 41.88925]}",55,37,4446,670,36
+2022,U.S. Bank,Form G,Depository Location,2263 S Wentworth Ave,8411.00,,"{'type': 'Point', 'coordinates': [-87.63198, 41.85117]}",40,35,21194,3,26
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,9138 S Commercial Ave,170314610.00,,"{'type': 'Point', 'coordinates': [-87.55158, 41.72876]}",25,42,21202,510,47
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,757 W 35th St,170318399.00,,"{'type': 'Point', 'coordinates': [-87.64537, 41.83077]}",40,58,21194,171,48
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4145 W Peterson Ave,170311203.00,,"{'type': 'Point', 'coordinates': [-87.7331, 41.99009]}",18,12,22532,713,38
+2021,Citibank N.A.,Form G,Depository Locations,2801 W DEVON AVE CHICAGO IL 60659,207.02,,"{'type': 'Point', 'coordinates': [-87.69984, 41.99757]}",12,20,4450,40,27
+2022,Huntington,Form G,Depository Location,"3570 N Elston Ave, Chicago, IL, 60618",17031831100,,"{'type': 'Point', 'coordinates': [-87.70797, 41.94603]}",39,22,21538,138,12
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,522 WEST ROOSEVELT ROAD,17031841900,,"{'type': 'Point', 'coordinates': [-87.64012, 41.86724]}",44,29,14917,97,48
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,6415 N Sheridan Rd,170310104.00,,"{'type': 'Point', 'coordinates': [-87.66066, 41.99916]}",9,10,21853,267,5
+2022,U.S. Bank,Form G,Depository Location,6677 N Lincoln Ave,8080.02,,"{'type': 'Point', 'coordinates': [-87.7262, 42.00251]}",,,4455,,
+2022,Fifth Third Bank N.A,Form G,Depository Location,5501 North Ashland Avenue,17031030900,,"{'type': 'Point', 'coordinates': [-87.66977, 41.98194]}",15,76,22616,564,24
+2022,Citibank N.A.,Form G,Depository Location,539 N MICHIGAN AVE,17031081403,,,,,,,
+2022,U.S. Bank,Form G,Depository Location,1026 Ogden Ave,8460.03,,"{'type': 'Point', 'coordinates': [-87.65311, 41.89791]}",49,25,22620,109,46
+2021,"Bank of America, National Association",Form G,Depository Locations,"4671 W Irving Park Rd., Chicago, IL 60641",17031831700,,"{'type': 'Point', 'coordinates': [-87.74544, 41.95315]}",21,15,22618,139,50
+2022,Fifth Third Bank N.A,Form G,Depository Location,1950 West 33rd Street,17031840400,,"{'type': 'Point', 'coordinates': [-87.67437, 41.83406]}",43,56,14920,192,26
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,6650 S Stony Island Ave,,60637-4468,"{'type': 'Point', 'coordinates': [-87.58677, 41.77385]}",60,9,22260,134,33
+2021,"Bank of America, National Association",Form G,Depository Locations,"2 N Riverside Plz., Chicago, IL 60606
+105 N Halsted St., Chicago, IL 60661-2116",17031280100,,"{'type': 'Point', 'coordinates': [-87.63873, 41.88196]}",46,29,14914,784,36
+2022,Huntington,Form G,Depository Location,"4012 N Pulaski Rd, Chicago, IL, 60641",17031160300,,"{'type': 'Point', 'coordinates': [-87.72801, 41.95439]}",21,16,22618,269,38
+2022,U.S. Bank,Form G,Depository Location,7312 W Grand Ave,8107.02,,"{'type': 'Point', 'coordinates': [-87.80944, 41.92479]}",,,4454,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1851 N Cicero Ave,,60639-4515,"{'type': 'Point', 'coordinates': [-87.74602, 41.91409]}",2,26,22615,523,45
+2022,U.S. Bank,Form G,Depository Location,5850 W Belmont Ave,1512.00,,"{'type': 'Point', 'coordinates': [-87.77356, 41.93875]}",52,15,22254,342,21
+2021,Citibank N.A.,Form G,Depository Locations,69 W WASHINGTON ST CHICAGO IL 60602,8391,,"{'type': 'Point', 'coordinates': [-87.63001, 41.88325]}",41,38,14310,92,36
+2021,BMO Harris Bank National Association,Form G,Depository Locations,29 N. Wacker Dr.,17031839100,,"{'type': 'Point', 'coordinates': [-87.63684, 41.88278]}",46,38,14914,92,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1934 S State St,170313302.00,,"{'type': 'Point', 'coordinates': [-87.62715, 41.85562]}",40,34,21194,374,9
+2021,"PNC Bank, National Association",Form G,Depository Locations,"5247 N BROADWAY ST CHICAGO, IL 60640",17031030703,,"{'type': 'Point', 'coordinates': [-87.65991, 41.97771]}",15,76,22616,540,16
+2022,Fifth Third Bank N.A,Form G,Depository Location,1 S Wacker Dr,17031839100,,"{'type': 'Point', 'coordinates': [-87.63678, 41.88152]}",46,38,14914,92,36
+2022,Huntington,Form G,Depository Location,"11730 S Marshfield Ave, Chicago, IL, 60643",17031750500,,"{'type': 'Point', 'coordinates': [-87.66246, 41.68057]}",13,74,22212,378,22
+2022,Citibank N.A.,Form G,Depository Location,2295 N MILWAUKEE AVE,17031221400,,"{'type': 'Point', 'coordinates': [-87.69719, 41.9228]}",1,23,22535,294,41
+2022,PNC Bank,Form G,Depository Location,"307 N MICHIGAN AVE CHICAGO, IL 60601",17031320100,,"{'type': 'Point', 'coordinates': [-87.62446, 41.88696]}",42,38,14309,580,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1551 N Kingsbury St,,60642-2533,"{'type': 'Point', 'coordinates': [-87.65259, 41.90954]}",49,37,22620,108,46
+2021,"PNC Bank, National Association",Form G,Depository Locations,"5075 S ARCHER AVE CHICAGO, IL 60632",17031570300,,"{'type': 'Point', 'coordinates': [-87.72759, 41.80104]}",56,54,22248,697,8
+2022,U.S. Bank,Form G,Depository Location,2000 S Lake St,8645.10,,"{'type': 'Point', 'coordinates': [-87.67692, 41.88498]}",28,29,21184,37,46
+2022,PNC Bank,Form G,Depository Location,"3820 W BELMONT AVE CHICAGO, IL 60618",17031831100,,"{'type': 'Point', 'coordinates': [-87.72321, 41.93915]}",39,22,21538,138,21
+2022,U.S. Bank,Form G,Depository Location,6301 S Cass Ave,8455.06,,"{'type': 'Point', 'coordinates': [-87.97401, 41.77317]}",,,6545,,
+2022,U.S. Bank,Form G,Depository Location,22222 Governors Hwy,8300.07,,"{'type': 'Point', 'coordinates': [-87.71294, 41.48465]}",,,2317,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,230 W Grand Ave,170310818.00,,"{'type': 'Point', 'coordinates': [-87.63538, 41.89157]}",55,37,4446,652,36
+2022,Bank of America,Form G,Depository Location,33 N Dearborn St,17031839100,,"{'type': 'Point', 'coordinates': [-87.62943, 41.88273]}",41,38,14310,92,36
+2022,Citibank N.A.,Form G,Depository Location,180 N MICHIGAN AVE,17031320102,,"{'type': 'Point', 'coordinates': [-87.62447, 41.88553]}",42,38,14309,580,36
+2022,Citibank N.A.,Form G,Depository Location,1 E OAK ST,17031081201,,"{'type': 'Point', 'coordinates': [-87.62804, 41.90077]}",6,37,21182,104,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3032 N Clark St,170310631.00,,"{'type': 'Point', 'coordinates': [-87.64863, 41.93744]}",22,57,4449,682,25
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,3868 N Lincoln Ave,170310506.00,,"{'type': 'Point', 'coordinates': [-87.67746, 41.95232]}",53,46,21186,644,18
+2022,U.S. Bank,Form G,Depository Location,2600 E Sauk Trl,8285.04,,"{'type': 'Point', 'coordinates': [-87.55882, 41.49093]}",,,26902,,
+2022,Bank of America,Form G,Depository Location,6900 S Ashland Ave,17031671500,,"{'type': 'Point', 'coordinates': [-87.66389, 41.76811]}",23,65,22257,283,31
+2022,Bank of America,Form G,Depository Location,500 N Michigan Ave,17031081500,,"{'type': 'Point', 'coordinates': [-87.62412, 41.89099]}",6,37,21182,159,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1103 W Addison St,170318320.00,,"{'type': 'Point', 'coordinates': [-87.65758, 41.94716]}",22,57,21186,211,25
+2022,U.S. Bank,Form G,Depository Location,1250 E Lake St,8411.08,,"{'type': 'Point', 'coordinates': [-87.65833, 41.88549]}",44,29,14917,63,46
+2022,Huntington,Form G,Depository Location,"6430 W Irving Park Rd, Chicago, IL, 60634",17031170100,,"{'type': 'Point', 'coordinates': [-87.78783, 41.95291]}",52,17,22254,442,19
+2022,U.S. Bank,Form G,Depository Location,8500 W Dempster St,8060.04,,"{'type': 'Point', 'coordinates': [-87.83843, 42.04005]}",,,4456,,
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,800 W Madison St,17031833000,,"{'type': 'Point', 'coordinates': [-87.64761, 41.88178]}",44,29,14917,63,46
+2021,"PNC Bank, National Association",Form G,Depository Locations,"6333 N MILWAUKEE AVE CHICAGO, IL 60646",17031100100,,"{'type': 'Point', 'coordinates': [-87.78645, 41.99586]}",18,36,22532,656,38
+2021,Citibank N.A.,Form G,Depository Locations,2001 N HALSTED ST CHICAGO IL 60614,712,,"{'type': 'Point', 'coordinates': [-87.64806, 41.91835]}",16,68,21190,798,34
+2022,PNC Bank,Form G,Depository Location,"750 S HALSTED ST CHICAGO, IL 60607",17031841900,,"{'type': 'Point', 'coordinates': [-87.64713, 41.87259]}",44,29,14917,97,48
+2022,Fifth Third Bank N.A,Form G,Depository Location,1625 W 18th St,17031310800,,"{'type': 'Point', 'coordinates': [-87.66723, 41.85751]}",43,33,14920,343,26
+2022,PNC Bank,Form G,Depository Location,"5075 S ARCHER AVE CHICAGO, IL 60632",17031570300,,"{'type': 'Point', 'coordinates': [-87.72759, 41.80104]}",56,54,22248,697,8
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,4531 NORTH BROADWAY,17031830700,,"{'type': 'Point', 'coordinates': [-87.65689, 41.96455]}",15,31,22616,241,39
+2022,Fifth Third Bank N.A,Form G,Depository Location,6131 North Lincoln,17031130100,,"{'type': 'Point', 'coordinates': [-87.71199, 41.99322]}",50,13,4450,747,27
+2022,Citibank N.A.,Form G,Depository Location,6222 S KEDZIE AVE,17031660400,,,,,,,
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,4809 S Ashland Ave,170316112.00,,"{'type': 'Point', 'coordinates': [-87.66491, 41.80644]}",37,59,14924,677,4
+2022,Huntington,Form G,Depository Location,"222 N LaSalle St, Chicago, IL, 60601",17031839100,,"{'type': 'Point', 'coordinates': [-87.63257, 41.88631]}",42,38,14309,92,36
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,800 W. WASHINGTON BLVD,17031833000,,"{'type': 'Point', 'coordinates': [-87.64769, 41.88315]}",44,29,14917,63,46
+2022,Citibank N.A.,Form G,Depository Location,8650 S STONY ISLAND AVE,17031834300,,"{'type': 'Point', 'coordinates': [-87.58593, 41.73712]}",61,41,21202,133,35
+2022,U.S. Bank,Form G,Depository Location,5340 N Clark St,0309.00,,"{'type': 'Point', 'coordinates': [-87.66833, 41.97921]}",15,76,22616,564,24
+2021,"Bank of America, National Association",Form G,Depository Locations,"6331 S Archer Ave., Chicago, IL 60638",17031560800,,"{'type': 'Point', 'coordinates': [-87.77945, 41.79299]}",7,53,22268,587,6
+2022,Huntington,Form G,Depository Location,"1400 W Fullerton Ave, Chicago, IL, 60614",17031070600,,"{'type': 'Point', 'coordinates': [-87.6635, 41.92524]}",16,68,21190,770,11
+2022,U.S. Bank,Form G,Depository Location,815 W 63rd St,6810.00,,"{'type': 'Point', 'coordinates': [-87.64551, 41.77978]}",11,66,21559,22,2
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,11721 S Halsted St,170315302.00,,"{'type': 'Point', 'coordinates': [-87.64196, 41.68076]}",19,50,21861,255,22
+2022,Bank of America,Form G,Depository Location,1439 E 53rd St,17031410800,,"{'type': 'Point', 'coordinates': [-87.59013, 41.79953]}",10,8,21192,500,33
+2022,U.S. Bank,Form G,Depository Location,7460 Woodward Ave,8463.07,,"{'type': 'Point', 'coordinates': [-88.03196, 41.75159]}",,,5671,,
+2021,Associated Bank,Form G,Depository Locations,1301 Waukegan Rd Glenview 60025,8022,,"{'type': 'Point', 'coordinates': [-87.89178, 42.3075]}",,,18092,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1122 N Clark St,,60610-2857,"{'type': 'Point', 'coordinates': [-87.63142, 41.90268]}",54,37,14926,310,11
+2022,U.S. Bank,Form G,Depository Location,1229 State St,8240.06,,"{'type': 'Point', 'coordinates': [-87.62735, 41.86664]}",35,34,14913,330,9
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,6940A S Ashland Ave,,60636,"{'type': 'Point', 'coordinates': [-87.66386, 41.76758]}",23,65,22257,284,2
+2021,BMO Harris Bank National Association,Form G,Depository Locations,3601 North Halsted Street,17031060900,,"{'type': 'Point', 'coordinates': [-87.64947, 41.94748]}",53,57,21186,726,39
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,"2377 N Lincoln Ave, Ste A1-100",,60614,"{'type': 'Point', 'coordinates': [-87.64823, 41.92507]}",16,68,21190,798,34
+2021,"PNC Bank, National Association",Form G,Depository Locations,"2600 N HALSTED ST CHICAGO, IL 60614",17031070300,,"{'type': 'Point', 'coordinates': [-87.64891, 41.92932]}",16,68,21190,769,34
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,2317 W Madison St,170312809.00,,"{'type': 'Point', 'coordinates': [-87.68431, 41.8812]}",28,29,21184,37,46
+2022,Huntington,Form G,Depository Location,"2538 W 47th St, Chicago, IL, 60632",17031580800,,"{'type': 'Point', 'coordinates': [-87.68846, 41.80865]}",56,55,22248,687,3
+2022,U.S. Bank,Form G,Depository Location,209 S La Salle St,8391.00,,"{'type': 'Point', 'coordinates': [-87.63234, 41.87916]}",29,38,14912,92,36
+2022,U.S. Bank,Form G,Depository Location,5440 W 87th St,8211.01,,"{'type': 'Point', 'coordinates': [-87.757, 41.7347]}",,,10417,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1130 W Taylor St,,60607-4213,"{'type': 'Point', 'coordinates': [-87.65553, 41.86944]}",44,29,14917,87,26
+2021,"PNC Bank, National Association",Form G,Depository Locations,"5100 S LAKE PARK AVE CHICAGO, IL 60615",17031410100,,"{'type': 'Point', 'coordinates': [-87.58794, 41.80246]}",10,8,21192,405,10
+2021,"PNC Bank, National Association",Form G,Depository Locations,"6360 W HIGGINS AVE CHICAGO, IL 60630",17031110300,,"{'type': 'Point', 'coordinates': [-87.78779, 41.97625]}",48,11,21869,779,50
+2022,U.S. Bank,Form G,Depository Location,3314 80th St,0023.00,,"{'type': 'Point', 'coordinates': [-87.62342, 41.74914]}",61,40,21546,406,32
+2022,PNC Bank,Form G,Depository Location,"2800 W ARMITAGE AVE CHICAGO, IL 60647",17031221300,,"{'type': 'Point', 'coordinates': [-87.69759, 41.91773]}",1,23,22535,322,41
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,161 N. Clark,17031839100,,"{'type': 'Point', 'coordinates': [-87.63093, 41.88471]}",42,38,14309,92,36
+2022,U.S. Bank,Form G,Depository Location,736 Roosevelt Rd,8421.00,,"{'type': 'Point', 'coordinates': [-87.64591, 41.86717]}",44,29,14917,97,48
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,3959 N Lincoln Ave,17031050600,,"{'type': 'Point', 'coordinates': [-87.67849, 41.95379]}",53,46,21538,644,18
+2021,BMO Harris Bank National Association,Form G,Depository Locations,901 East 47th Street,17031390400,,"{'type': 'Point', 'coordinates': [-87.6028, 41.80956]}",10,5,4301,461,10
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,5687 S Archer Ave,,60638-1655,"{'type': 'Point', 'coordinates': [-87.75357, 41.79686]}",7,53,22268,607,6
+2022,U.S. Bank,Form G,Depository Location,14169 S Bell Rd,8810.06,,"{'type': 'Point', 'coordinates': [-87.93112, 41.63115]}",,,2731,,
+2021,"PNC Bank, National Association",Form G,Depository Locations,"3508 S STATE ST CHICAGO, IL 60609",17031351500,,"{'type': 'Point', 'coordinates': [-87.62705, 41.83063]}",37,1,14924,353,9
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,338 S. CANAL ST,17031281900,,"{'type': 'Point', 'coordinates': [-87.63956, 41.87731]}",45,29,14914,786,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,340 E Randolph St,170313201.00,,"{'type': 'Point', 'coordinates': [-87.61888, 41.88451]}",42,38,14309,580,36
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,755 N Larrabee St,170310819.00,,"{'type': 'Point', 'coordinates': [-87.64294, 41.89585]}",55,37,4446,617,36
+2022,Bank of America,Form G,Depository Location,7516 N Clark St,17031010202,,"{'type': 'Point', 'coordinates': [-87.676, 42.01864]}",9,10,21853,489,5
+2022,Fifth Third Bank N.A,Form G,Depository Location,11850 South Marshfield Avenu,17031750500,,"{'type': 'Point', 'coordinates': [-87.66251, 41.6784]}",13,74,22212,378,22
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,1700 N Wells St,170310715.00,,"{'type': 'Point', 'coordinates': [-87.63476, 41.91309]}",16,68,21190,271,34
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,5137 S Pulaski Rd,170316201.00,,"{'type': 'Point', 'coordinates': [-87.72334, 41.79973]}",56,60,22248,792,6
+2022,Bank of America,Form G,Depository Location,7131 S Stony Island Ave,17031430500,,"{'type': 'Point', 'coordinates': [-87.58591, 41.76531]}",24,39,22538,452,33
+2022,Huntington,Form G,Depository Location,"29 E Madison St, Chicago, IL, 60602",17031320400,,"{'type': 'Point', 'coordinates': [-87.62649, 41.88207]}",34,38,14311,367,36
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,1130 S Canal St,,60607-4907,"{'type': 'Point', 'coordinates': [-87.63976, 41.86798]}",44,29,14917,97,26
+2022,U.S. Bank,Form G,Depository Location,855 S Randall Rd,8522.02,,"{'type': 'Point', 'coordinates': [-88.33556, 42.1605]}",,,9878,,
+2021,"Bank of America, National Association",Form G,Depository Locations,"6900 S Ashland Ave., Chicago, IL 60636",17031671500,,"{'type': 'Point', 'coordinates': [-87.66389, 41.76811]}",23,65,22257,283,31
+2022,U.S. Bank,Form G,Depository Location,60 S Meacham Rd,8046.10,,"{'type': 'Point', 'coordinates': [-88.04559, 42.02653]}",,,16177,,
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,4800 N Western Ave,17031040201,,"{'type': 'Point', 'coordinates': [-87.6889, 41.96878]}",20,6,21849,54,18
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,55 E Monroe St,170313204.00,,"{'type': 'Point', 'coordinates': [-87.62567, 41.8808]}",34,38,14311,367,36
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,3101 N. BROADWAY,17031063200,,"{'type': 'Point', 'coordinates': [-87.64434, 41.93781]}",22,57,4449,682,25
+2022,Citibank N.A.,Form G,Depository Location,2001 N HALSTED ST,17031071200,,,,,,,
+2022,Fifth Third Bank N.A,Form G,Depository Location,2973 N Milwaukee Ave,17031210501,,"{'type': 'Point', 'coordinates': [-87.71791, 41.9355]}",39,22,21538,215,21
+2022,PNC Bank,Form G,Depository Location,"3340 W ROOSEVELT RD CHICAGO, IL 60624",17031843000,,"{'type': 'Point', 'coordinates': [-87.70975, 41.86659]}",30,30,21572,98,14
+2021,"Bank of America, National Association",Form G,Depository Locations,"140 S Ashland Ave., Chicago, IL 60607",17031838100,,"{'type': 'Point', 'coordinates': [-87.66674, 41.87912]}",44,29,14917,91,23
+2022,PNC Bank,Form G,Depository Location,"401 N LA SALLE DR CHICAGO, IL 60654",17031081700,,"{'type': 'Point', 'coordinates': [-87.63254, 41.88925]}",55,37,4446,670,36
+2022,"BMO HARRIS BANK, N.A.",Form G,Depository Location,901 EAST 47TH STREET,17031390400,,"{'type': 'Point', 'coordinates': [-87.6028, 41.80956]}",10,5,4301,461,10
+2021,Associated Bank,Form G,Depository Locations,208 Oak Creek Plz Mundelein 60060,8645.1,,"{'type': 'Point', 'coordinates': [-87.98937, 42.23999]}",,,18084,,
+2022,U.S. Bank,Form G,Depository Location,9200 S Commercial Ave,4610.00,,"{'type': 'Point', 'coordinates': [-87.55119, 41.72808]}",25,42,21202,510,47
+2022,"JPMorgan Chase Bank, N.A.",Form G,Depository Location,902 N State St,170310811.00,,"{'type': 'Point', 'coordinates': [-87.62827, 41.89921]}",54,37,14926,230,11
+2022,PNC Bank,Form G,Depository Location,"2154 W MADISON ST CHICAGO, IL 60612",17031837800,,"{'type': 'Point', 'coordinates': [-87.68112, 41.88124]}",28,29,21184,37,46
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,150 N Michigan Ave,,60601-7553,"{'type': 'Point', 'coordinates': [-87.62444, 41.88483]}",42,38,14309,580,36
+2021,BMO Harris Bank National Association,Form G,Depository Locations,33 West Ohio Street,17031081600,,"{'type': 'Point', 'coordinates': [-87.62935, 41.89244]}",55,37,4446,669,36
+2022,Fifth Third Bank N.A,Form G,Depository Location,800 W Madison St,17031833000,,"{'type': 'Point', 'coordinates': [-87.64761, 41.88178]}",44,29,14917,63,46
+2021,Citibank N.A.,Form G,Depository Locations,1310 E 47TH ST CHICAGO IL 60653,3901,,"{'type': 'Point', 'coordinates': [-87.59439, 41.80966]}",10,5,21192,356,10
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,4440 W North Ave,,60639,"{'type': 'Point', 'coordinates': [-87.73764, 41.91008]}",2,24,22615,285,45
+2021,"PNC Bank, National Association",Form G,Depository Locations,"5455 W BELMONT AVE CHICAGO, IL 60641",17031190300,,"{'type': 'Point', 'coordinates': [-87.76357, 41.9386]}",21,19,22618,303,17
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,300 S Riverside Plz,,60606-3534,"{'type': 'Point', 'coordinates': [-87.63883, 41.87741]}",46,29,14914,786,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"3215 N Lincoln Ave., Chicago, IL 60657",17031062500,,"{'type': 'Point', 'coordinates': [-87.66894, 41.94009]}",22,57,4449,742,18
+2022,Fifth Third Bank N.A,Form G,Depository Location,837 West North Avenue,17031842200,,"{'type': 'Point', 'coordinates': [-87.64978, 41.91057]}",49,37,22620,108,11
+2021,"Fifth Third Bank, N.A.",Form G,Depository Locations,363 W Ontario St,17031081800,,"{'type': 'Point', 'coordinates': [-87.63802, 41.89313]}",55,37,4446,652,36
+2021,"Bank of America, National Association",Form G,Depository Locations,"33 N Dearborn St., Chicago, IL 60602-3102
+203 N La Salle St. Lobby G1, Chicago, IL 60601
+110 N Wacker Dr., Chicago, IL 60606
+135 S La Salle St. Ste LL18, Chicago, IL 60603
+100 S Wacker Dr., Chicago, IL 60606",17031839100,,,,,,,
+2022,U.S. Bank,Form G,Depository Location,443 N Bolingbrook Dr,8801.07,,"{'type': 'Point', 'coordinates': [-88.06912, 41.70948]}",,,9709,,
+2022,U.S. Bank,Form G,Depository Location,1 W Dundee Rd,8025.03,,"{'type': 'Point', 'coordinates': [-87.95913, 42.13861]}",,,9852,,
+2021,"JPMorgan Chase Bank, N.A.",Form G,Depository Locations,8340 S Kedzie Ave,,60652-3348,"{'type': 'Point', 'coordinates': [-87.70216, 41.74112]}",8,69,4300,217,30
+2022,Fifth Third Bank N.A,Form G,Depository Location,3959 N Lincoln Ave,17031050600,,"{'type': 'Point', 'coordinates': [-87.67849, 41.95379]}",53,46,21538,644,18
+2022,Associated Bank,Form G,Depository Location,525 W Monroe St Chicago 60661,2819,,"{'type': 'Point', 'coordinates': [-87.64051, 41.88057]}",45,29,14914,786,36

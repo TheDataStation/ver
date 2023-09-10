@@ -1,0 +1,1403 @@
+requestor_name,organization,description_of_request,date_received,due_date
+Chris Albrecht,Camp Dresser & McKee,Info re: 401-99 E. Pershing,2011-07-14T00:00:00.000,2011-07-21T00:00:00.000
+Scott Posadzy,Adept Environmental Solutions,"UST records re: 1216-1228 W. 59th ST, 5835-5899 S. Elizabeth",2011-07-14T00:00:00.000,2011-07-21T00:00:00.000
+Kerri Sachtleben,MPE,"Haz waste, UST/AST etc re: 2413. 2425, 2427, 2431 S. Wolcott",2011-07-14T00:00:00.000,2011-07-21T00:00:00.000
+Kurt Martin,Martin & Associates,"UST/LUST, soil remediation re: 1500 W. Monroe, 1501 W. Madison",2011-07-14T00:00:00.000,2011-07-21T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 4701-4821 W. Lemoyne, 1427-1543 N. Keating, 1427-1543 N. Kilpatrick, 1427-1543 N. Cicero",2011-07-14T00:00:00.000,2011-07-21T00:00:00.000
+John Best,EPI,"Info re: 6400-10, 6401-11 & 6412-20 S. Cicero",2011-07-13T00:00:00.000,2011-07-20T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 913 & 915 W. Wilson",2011-07-13T00:00:00.000,2011-07-20T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 2039-57 W. Rascher,2011-07-12T00:00:00.000,2011-07-19T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Info re: 7627, 7629, 7631, 7635, 7637, 7639 S. Cottage Grove",2011-07-12T00:00:00.000,2011-07-19T00:00:00.000
+Phil English,The English Company,"UST, AST, asbestos, violations re: 6117-19 W. Montrose, 7641-47 S. Kedzie",2011-07-12T00:00:00.000,2011-07-19T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 4014-4217 W. Addison, 3600-3651 N. Kedvale, 3600-57 N. Keeler, 4021-58 W. Patterson",2011-07-12T00:00:00.000,2011-07-19T00:00:00.000
+Claire McKendrick,ARCADIS,"UST, LUST, other info re: 9400, 9440, 5200, 5202 W. Foster",2011-07-12T00:00:00.000,2011-07-19T00:00:00.000
+Raymond Deyne,Advanced Environmental,Info re: 1527-31 W. Taylor,2011-07-12T00:00:00.000,2011-07-19T00:00:00.000
+Ben Youra,G2 Consulting Group,"Storage tank, LUST, hazmat etc re: 2724 W. Division",2011-07-11T00:00:00.000,2011-07-18T00:00:00.000
+Andie Moore,EFI Global,Info re: 212-228 W. Illinois,2011-07-11T00:00:00.000,2011-07-18T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 2935-3030 N. Spaulding, 2935-3030 N. Sawyer",2011-07-11T00:00:00.000,2011-07-18T00:00:00.000
+Alexandra Cudzewicz,ETS Environmental & Assoc.,Info re: 5200-08 W. 47th ST,2011-07-11T00:00:00.000,2011-07-18T00:00:00.000
+Craig Edgerley,,"USTs, LUSTs, hazmats re: 820 W. Lake, 200 N. Green",2011-07-11T00:00:00.000,2011-07-18T00:00:00.000
+Mark Krueger,LM Consultants,Info re: 200 W. Jackson,2011-07-11T00:00:00.000,2011-07-18T00:00:00.000
+Aaron Colin,"K-Plus Engineering, LLC","Info re: 4900, 4924, 4939 S. Austin",2011-07-08T00:00:00.000,2011-07-15T00:00:00.000
+Daniel Lee,Environmental Engineering & Contracting ,Info re: 1812 W. 95th ST,2011-07-08T00:00:00.000,2011-07-15T00:00:00.000
+Erik Marquez,PES Associates,Info re: 4755 S. Saint Lawrence,2011-07-08T00:00:00.000,2011-07-15T00:00:00.000
+Daniel Lee,Environmental Engineering & Contracting ,Info re: 240 N. Ashland,2011-07-08T00:00:00.000,2011-07-15T00:00:00.000
+Meg Witt,EBI Consulting,Info re: 505 N. Michigan,2011-07-08T00:00:00.000,2011-07-15T00:00:00.000
+Adam K. Zakroczymski,Stateline Environmental,"UST, hazmat, violations re: 1400 W. 37th ST",2011-07-07T00:00:00.000,2011-07-14T00:00:00.000
+Joanna Licata,CNS Management Corporation,Info re: 40 E. Delaware,2011-07-07T00:00:00.000,2011-07-14T00:00:00.000
+Kerri Sachtleben,MPE,Info re: 2404 S. Wolcott,2011-07-07T00:00:00.000,2011-07-14T00:00:00.000
+Jim Miller,AEI Consultants,Info re: 8 S. Michigan,2011-07-07T00:00:00.000,2011-07-14T00:00:00.000
+Kristine Arch,Kendall Safety Group,Info re: 4335-59 W. Armitage,2011-07-07T00:00:00.000,2011-07-14T00:00:00.000
+Kristine Arch,Kendall Safety Group,Info re: 5526-46 N. Milwaukee,2011-07-07T00:00:00.000,2011-07-14T00:00:00.000
+Kristine Arch,Kendall Safety Group,Info re: 5201-19 W. Fullerton,2011-07-07T00:00:00.000,2011-07-14T00:00:00.000
+Laurel Eidemiller,Sierra Delta Consultants,Info re: 8900 S. Stony Island,2011-07-06T00:00:00.000,2011-07-13T00:00:00.000
+Dale Schmidt,Illinois State Geological Survey,"Storage tank info re: 3501, 3401-11, 3601-11, 2835, 2950, 2801-15 N. Western, 2501 W. Addison, 2750-52 N. Elston, 2344 W. Wolfram, 2401 W. Diversey",2011-07-06T00:00:00.000,2011-07-13T00:00:00.000
+Scott Lloyd,,UST re: 8057 S. Carpenter,2011-07-06T00:00:00.000,2011-07-13T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST re: 4604-14 N. Hermitage, 2834-44 N. Mildred, 900-06 W. Wolfram, 4821-31 W. Addison, 1243-51 N. State",2011-07-06T00:00:00.000,2011-07-13T00:00:00.000
+Darby Nafziger,Blackstone Consulting,Info re: 4607 N. Sheridan,2011-07-06T00:00:00.000,2011-07-13T00:00:00.000
+Jack Hughes,Environmental Solutions,"UST, LUST re: 3331-35 W. Fullerton",2011-07-06T00:00:00.000,2011-07-13T00:00:00.000
+Julie Lagvankar,,"Storage tanks & ACM record re: 1919-35 S. Wabash, 44-60 E. Cullerton",2011-07-05T00:00:00.000,2011-07-12T00:00:00.000
+Julie Lagvankar,,"Storage tanks & ACM record re: 4400-08 N. Magnolia, 1248-50 W. Montrose",2011-07-05T00:00:00.000,2011-07-12T00:00:00.000
+Nohemi Melero,Carnow Conibear,Info re: 1507-1535 W. Roosevelt,2011-07-05T00:00:00.000,2011-07-12T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 5958-6257 S. Harlem, 5958-6257 S. Nottingham, 7001-7135 W. 61st ST, 7002-7135 W. 60th ST, 7002-7145 w. 60th PL",2011-07-05T00:00:00.000,2011-07-12T00:00:00.000
+Joe Selinger,Partner Engineering and Science,"USTs/ASTs, hazmat re: 100 W. Randolph",2011-07-05T00:00:00.000,2011-07-12T00:00:00.000
+Thomas Doyle,EDI,"Info re: 4255-59 N. Lincoln, 4258 N. Monitor",2011-07-05T00:00:00.000,2011-07-12T00:00:00.000
+Maria Chavez,Pilsen Environmental Rights & Reform Organization,2010 & 2011 Inspection reports re: 1345 W. 21st ST,2011-07-05T00:00:00.000,2011-07-12T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 1900-2057 W. Division, 1120-1215 N. Damen, 1120-1215 N. Winchester, 1120-1215 N. Wolcott",2011-07-01T00:00:00.000,2011-07-11T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 1311 & 1313 W. Randolph, 114 & 116 N. Elizabeth, 1276 & 1260 W. Washington",2011-07-01T00:00:00.000,2011-07-11T00:00:00.000
+Kristine Arch,Kendall Safety Group,Info re: 2550 S. Ashland,2011-07-01T00:00:00.000,2011-07-11T00:00:00.000
+Henry Adamiak,RemTech,"UST, AST, inspections etc re: 2621 W. 15th PL",2011-07-01T00:00:00.000,2011-07-11T00:00:00.000
+Nicole Andrade,Pioneer,UST re: 1302-50 W .Walton,2011-07-01T00:00:00.000,2011-07-11T00:00:00.000
+Chris Albrecht,Camp Dresser & McKee,"Demo, violations, USTs etc re: 4343-59 S. Cicero, 4745-99 W. 44th ST",2011-07-01T00:00:00.000,2011-07-11T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 1601-1700 W. Grand, 1601-1700 W. Hubbard, 1601-1700 W. Ferdinand, 450-500 N. Ashland",2011-07-01T00:00:00.000,2011-07-11T00:00:00.000
+Erin Leslie,Pioneer,"UST, hzamat re: 835-843 W. Diversey Parkway, 828-846 W. Diversey Parkway, 2744 N. Dayton",2011-07-01T00:00:00.000,2011-07-11T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 2570-2707 N.Kildare, 4156-4353 W. Drummond, 4156-4323 W. Schubert, 4156-4323 W. Wrightwood",2011-06-30T00:00:00.000,2011-07-08T00:00:00.000
+Siraa Smadi,Anderson Environmental Consulting,Info re: 900 S. Cicero,2011-06-29T00:00:00.000,2011-07-07T00:00:00.000
+Anne Erdmann,Illinois State Geological Survey,"USTs, hazmat incidents re: 10602 & 10619 S. Buffalo, 3245 E. 103rd ST, 3200, 3226, 3229, 3301, 3309,  3325 E. 106th ST",2011-06-29T00:00:00.000,2011-07-07T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 5401-25 N. Hoyne, 2030-60 & 2031-61 W. Balmoral",2011-06-29T00:00:00.000,2011-07-07T00:00:00.000
+Juan C. Rodriguez,University of Illinois at Chicago,"Tank info re: 1100, 1120, 1351 S. Morgan, 1717 W. Taylor, 900 S. Ashland",2011-06-29T00:00:00.000,2011-07-07T00:00:00.000
+Henry Adamiak,RemTech,"USTs, ASTs, etc re: 2621 W. 15th PL",2011-06-29T00:00:00.000,2011-07-07T00:00:00.000
+Kristian Webb,The English Company,Info re: 3000 S. Ashland,2011-06-27T00:00:00.000,2011-07-05T00:00:00.000
+Laura Seeber,,"Info re: 4400 W. Diversey, 4400 W. Armitage, 5159 S. Pulaski, 1040 W. Belmont, 740 N. Rush, 6314 S. Cicero",2011-06-27T00:00:00.000,2011-07-05T00:00:00.000
+Mark Kelker,AEI Consultants,"Info re: 2955 N. Ashland, 25 E. Washington",2011-06-27T00:00:00.000,2011-07-05T00:00:00.000
+Brian Mihelich,True North Consultants,"USTs, ASTs, hazmat, etc re: 2860 S. Ashland, 2860 & 2920 S. Damen",2011-06-27T00:00:00.000,2011-07-05T00:00:00.000
+Nicole Andrade,Pioneer EES,"USTs re: 984 N. Milwaukee, 1301-45 W .walton, 1001 N. Milwaukee",2011-06-24T00:00:00.000,2011-07-01T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 3632-3725 W. Fullerton, 2331-2424 N. Lawndale, 2331-2424 N. Monticello",2011-06-24T00:00:00.000,2011-07-01T00:00:00.000
+Stacy McCance,URS Corporation,"Info re: 4650 S. Racine, 4450-4700 S. Racine",2011-06-24T00:00:00.000,2011-07-01T00:00:00.000
+Thomas Dehn,PES Associates,"UST, AST, hazmat re: 210 W. 103rd ST",2011-06-24T00:00:00.000,2011-07-01T00:00:00.000
+Kristian Webb,The English Company,Info re: 3225 S. Western,2011-06-24T00:00:00.000,2011-07-01T00:00:00.000
+John-Patrick Farrell,AEI Consultants,Info re: 2133 W. 18th ST,2011-06-24T00:00:00.000,2011-07-01T00:00:00.000
+Kelly Anderson,ETS Environmental & Assoc.,"UST, AST, spills re: 1610 W. Jarvis",2011-06-23T00:00:00.000,2011-06-30T00:00:00.000
+Linda Lehman,URS Corporation,"USTs, ASTs, EPCRA, enforcement and complaints re: 19, 21, 27 E. Bellevue, 1015 N. Rush",2011-06-23T00:00:00.000,2011-06-30T00:00:00.000
+Kimberly Wasserman Nieto,LVEJO,"Permits, violations, fines since 2005 re: 4544 W. 26th ST, 2001. 1330, 1440, 3200, 1846, 3100, 2100, 2000, 1645, 1250, 2816, 1821 S. Kilbourn; 3345, 3315, 3355, 4421, 2825, 3455, 2945, 3300, 4401-61 W. 31st ST; 3030, 2106, 3101 S. Kedzie; 3741, 3501, 3741 S. Pulaski; 4501, 2558 W. 16th ST, 3045 S. Sacramento, 1615 S. Kostner, 1537 S, Wood, 1930 S. Fairfield, 3757 W. 34th ST; 3445, 3443, 3307, S. Lawndale; 3201 S. Millard; 3114-26 S. Kolin, 3555-71, 3561 W. Ogden; 2324 S. Kenneth; 3130 S. Saint Louis; 2875 W. 19th ST, 2136 S. Sawyer",2011-06-23T00:00:00.000,2011-06-30T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 4831-97 N. Broadway",2011-06-23T00:00:00.000,2011-06-30T00:00:00.000
+Kelly Anderson,ETS Environmental & Assoc.,"UST, AST, spills re: 824 S. Western",2011-06-23T00:00:00.000,2011-06-30T00:00:00.000
+Kristian Webb,The English Company,Info re: 4848-52 W. Lawrence,2011-06-23T00:00:00.000,2011-06-30T00:00:00.000
+Laura Brooks,AECOM,"Info re: 3600 W. Belmont, 416 W. Tremont",2011-06-22T00:00:00.000,2011-06-29T00:00:00.000
+Dana Zbyszynski,Pioneer EES,"Tanks, hazmat spills re: 6660 S. Nashville ",2011-06-22T00:00:00.000,2011-06-29T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 9 & 11 E. 79th ST",2011-06-22T00:00:00.000,2011-06-29T00:00:00.000
+Dana Zbyszynski,Pioneer EES,"Tanks, hazmat spills re: 6800 W. 68th PL, 5350 W. 70th PL",2011-06-22T00:00:00.000,2011-06-29T00:00:00.000
+Jim Miller,AEI Consultants,Info re: 6210 S. Kimbark,2011-06-22T00:00:00.000,2011-06-29T00:00:00.000
+Jim Miller,AEI Consultants,Info re: 4651-59 S. Lake Park Avenue,2011-06-22T00:00:00.000,2011-06-29T00:00:00.000
+Anthony McDaniel,GRS Group,Tank records re: 1434 N. Western,2011-06-22T00:00:00.000,2011-06-29T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 2700-45 N. Campbell, 2714-53 N. Maplewood, 2501-24 W. diversey",2011-06-21T00:00:00.000,2011-06-28T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 2722-43 W. Harrison,2011-06-21T00:00:00.000,2011-06-28T00:00:00.000
+Bill Lennon,EGSL,Info re: 319-331 W. Ohio,2011-06-21T00:00:00.000,2011-06-28T00:00:00.000
+Mary Cappellini,EGSL,Info re: 4240 W. Irving Park,2011-06-21T00:00:00.000,2011-06-28T00:00:00.000
+David Copp,Pinnacle Environmental,"USTs, LUSTs, hazmats re: 6900 W. Belmont",2011-06-21T00:00:00.000,2011-06-28T00:00:00.000
+Nicole Andrade,Pioneer EES,"USTs re: 400-501 W. Diversey, 2809-23 N. Pine Grove, 2800-24 N. Sheridan, 423-425 W. Surf",2011-06-21T00:00:00.000,2011-06-28T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST re: 2830-40 N. Mildred, 1243-51 N. State Parkway, 4819-33 W. Addison, 4604-14 N. Hermitage",2011-06-21T00:00:00.000,2011-06-28T00:00:00.000
+Frank Trinidad,Odic Environmental & Energy,Info re: 1629 W. Grand,2011-06-21T00:00:00.000,2011-06-28T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 9114-22 S. Commercial",2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Phillip Hoeksema,Carlson Envrionmental,"USTs, asbestos, violations, complaints, lead paint re: 6016-20 N. Nina ",2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 5550 S. Dorchester",2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+David Tomlinson,,"Complaint, enforcement, inspection re: 205 W. Randolph",2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 820 S. Park Terrace",2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Bill Lennon,EGSL,Info re: 333 W. Ohio,2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Judie Wilson,MIONX,Info re: 4500-38 W. Roosevelt,2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Judie Wilson,MIONX,"Info re: 4955-59 W. Belmont, 4237 W. Ann Lurie Place",2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Judie Wilson,MIONX,"Info re: 4237 W42nd PL, 4248 W. 43rd ST",2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Nicole Andrade,Pioneer,"USTs re: 350-517 E. Illinois, 500-525 N. Peshtigo Ct., 400-501 N. MCClurg",2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc",UST re: 2722-43 W. Harrison,2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Anthony McDaniel,,Tank records re: 1237-41 W. Lake,2011-06-20T00:00:00.000,2011-06-27T00:00:00.000
+Kristian Webb,The English Company,Info re: 4516 & 4518 W. Fullerton,2011-06-17T00:00:00.000,2011-06-24T00:00:00.000
+Adam K. Zakroczymski,Stateline Environmental,"USTs, hazmats, violations re: 3956-58 N. Elston, 4835-41 W. Grand",2011-06-17T00:00:00.000,2011-06-24T00:00:00.000
+Raymond Deyne,Advanced Environmental,Info re: 11600 S. Avenue O,2011-06-16T00:00:00.000,2011-06-23T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 4510-34 & 4511-35 N. Ravenswood, 4519-35 N. Wolcott",2011-06-16T00:00:00.000,2011-06-23T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 7535 S. Saginaw,2011-06-16T00:00:00.000,2011-06-23T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Info re: 11227 & 11235 S. Cottage Grove, 517 E. 113th ST, 11228 S. Forrestville",2011-06-16T00:00:00.000,2011-06-23T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 2000 W. 22nd PL,2011-06-16T00:00:00.000,2011-06-23T00:00:00.000
+Kelly Anderson,ETS Environmental & Assoc.,Info re: 6933 W. 59th ST,2011-06-16T00:00:00.000,2011-06-23T00:00:00.000
+Kelly Anderson,ETS Environmental & Assoc.,Info re: 4711 N. Lamon,2011-06-16T00:00:00.000,2011-06-23T00:00:00.000
+Ron McMillon,Elite Charging Systems,"I'd like to request the bid information submitted and awarded to 350 Green in Feb of 2011. For Electric Vehicle charging stations.
+
+",2011-06-15T00:00:00.000,2011-06-22T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 7400-7531 S. Stony Island, 1509-1637 E. 75th ST, 1513-1631 E. 74th PL",2011-06-10T00:00:00.000,2011-06-17T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 4619-27 N. Broadway",2011-06-10T00:00:00.000,2011-06-17T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 426-454 & 427-453 E. 47th ST,2011-06-10T00:00:00.000,2011-06-17T00:00:00.000
+Julie Brown,KPRG and Associates,Info re: 3400-3500 W. Division,2011-06-09T00:00:00.000,2011-06-16T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 1200-1313 S. State, 1200-1313 S. Wabash, 2-51 E. Roosevelt",2011-06-09T00:00:00.000,2011-06-16T00:00:00.000
+Andrea Kleinaitis,,"Info re: 401-449 & 400-432 N. Michigan, 101-125 E. Hubbard, 401-425 N. Rush, 120-160 & 139-199 E. North Water",2011-06-09T00:00:00.000,2011-06-16T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 1816-30 & 1817-31 W. Newport, 1800-50 W. Roscoe",2011-06-09T00:00:00.000,2011-06-16T00:00:00.000
+Dana Zbyszynski,Pioneer,"Tanks, spills re: 835-981 & 818-982 W. 36th ST, 3539-3731 & 3540-3730 S. Sangamon",2011-06-09T00:00:00.000,2011-06-16T00:00:00.000
+Joe Selinger,Partner Engineering and Science,Info re: 8911 S. Marshfield,2011-06-09T00:00:00.000,2011-06-16T00:00:00.000
+Julie Brown,KPRG and Associates,Info re: 1200-28 N. Homan,2011-06-09T00:00:00.000,2011-06-16T00:00:00.000
+Jack Hughes,Environmental Solutions,"Info re: 3101-09 N. Cicero, 3335 W. Fullerton",2011-06-08T00:00:00.000,2011-06-15T00:00:00.000
+Elizabeth Langan,Atwell,Info re: 840 E. 48th ST,2011-06-08T00:00:00.000,2011-06-15T00:00:00.000
+Elizabeth Ashworth,EBI Consulting,"ASTs, USTs, spills re: 6501 & 6503 N. Richmond, 2916 & 2918 W. Arthur",2011-06-08T00:00:00.000,2011-06-15T00:00:00.000
+Elizabeth Ashworth,EBI Consulting,"ASTs, USTs, spills re: 10301,10303,10313,10315 S. Commercial",2011-06-08T00:00:00.000,2011-06-15T00:00:00.000
+Laura Seeber,Cenvir Environmental,Info re: 2210 W. 95th ST,2011-06-08T00:00:00.000,2011-06-15T00:00:00.000
+Sara Locke,Terracon,"Info re: 633 N. St. Clair, 165,226,247, E. Ontario, 151 E. Erie, 211,230,255 E. Ohio",2011-06-08T00:00:00.000,2011-06-15T00:00:00.000
+Dana Zbyszynski,Pioneer,"Tanks, hazmat spills re: 6110-40 & 6113-45 S. Dorchester, 1409-29 & 1400-48 E. 61st PL",2011-06-07T00:00:00.000,2011-06-14T00:00:00.000
+Tom Brecheisen,Brecheisen Engineering,"UST, AST, inspections, violations re: 2331-35 W. Fullerton",2011-06-07T00:00:00.000,2011-06-14T00:00:00.000
+Mark Krueger,LM Consultants,Info re: 4501 N. Milwaukee,2011-06-07T00:00:00.000,2011-06-14T00:00:00.000
+John Chitwood,ARCADIS,"UST/AST, hazmat re: 5742 & 5744 W. Belmont",2011-06-07T00:00:00.000,2011-06-14T00:00:00.000
+Brooke Adamek,Pioneer,"UST re: 944-1020 & 945-1021 W. Monroe, 28-122 & 31-123 S. Morgan",2011-06-06T00:00:00.000,2011-06-13T00:00:00.000
+Lydia Liniewicz,Benchmark Environmental,"UST, hazmat re: 8500 S. Stewart",2011-06-06T00:00:00.000,2011-06-13T00:00:00.000
+Lydia Liniewicz,Benchmark Environmental,"UST, hazmat re: 6155-57 N. Broadway",2011-06-06T00:00:00.000,2011-06-13T00:00:00.000
+Dan Tonissen,ECS Midwest,Info re: 8301 S. Stewart,2011-06-04T00:00:00.000,2011-06-11T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 1513-17 W. 76th ST",2011-06-03T00:00:00.000,2011-06-10T00:00:00.000
+David Copp,Pinnacle Environmental,"Info re: 7600-10 S. Halsted, 8253-57 S. Halsted",2011-06-03T00:00:00.000,2011-06-10T00:00:00.000
+Lara Hoffman,EPS Environmental,"Info re: 6203-6302 N. Winthrop, 1000-1201 W. Rosemont, 6200-6301 N. Kenmore",2011-06-03T00:00:00.000,2011-06-10T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 1517-33 W. 76th ST, 7601-11 S.Ashland",2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Adam K. Zakroczymski,Stateline Environmental,Info re: 2054-58 W. Grand,2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Morgan Vogt,ARCADIS,Info re: 505 N. State,2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Lisa Ponkin,Liesch Associates,"Tanks, spills, env issues re: 801 S. Cicero",2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Elizabeth Langan,Atwell,"Info re: 4351, 4353, 4355, 4357 N. Cicero",2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Elizabeth Langan,Atwell,Info re: 4359 N. Cicero,2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST re: 7847-59 S. Constance, 1801-11 E. 79th ST, 1800-30 E. 79th ST, 1832-48 E. 79th ST",2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Nicole Andrade,Pioneer,"Info re: 350-500 E. Illinois, 400-500 N. McClurg",2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Nicole Andrade,Pioneer,"Info re: 3106-19 N. Sheffield, 3105-17 N. Kenmore",2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Dana Zbyszynski,Pioneer,"Tanks, hazmat spills re: 1413-47 & 1418-50 E. 57th ST, 5701-09, 5658-64, 5700-08 & 5657-65 S. Blackstone",2011-06-02T00:00:00.000,2011-06-09T00:00:00.000
+Lisa Ponkin,Liesch Associates,"Tanks, spills, env issues re: 2800 W. Peterson",2011-06-01T00:00:00.000,2011-06-08T00:00:00.000
+Lisa Ponkin,Liesch Associates,"Tanks, spills, env issues re: 2738 N.Laramie",2011-06-01T00:00:00.000,2011-06-08T00:00:00.000
+Paul Dell'Aquila,Urban Concepts,"Info re: 633 N. St. Clair, 212 & 215 E. Erie",2011-05-31T00:00:00.000,2011-06-07T00:00:00.000
+Katie Klocksin,Carlson Envrionmental,"Info re: 3107 N.Brodway, 3000 N. Broadway",2011-05-31T00:00:00.000,2011-06-07T00:00:00.000
+Julie Epifano,Enercon,"USTs, ASTs, env issues re: 5438 N. Broadway",2011-05-31T00:00:00.000,2011-06-07T00:00:00.000
+Brooke Adamek,Pioneer,"UST re: 2801-35 & 2800-48 N. Ashland, 1539-1613 & 1540-1626 W. Wolfram, 1540-1612 W. Diversey Parkway",2011-05-31T00:00:00.000,2011-06-07T00:00:00.000
+Richard Rotianno,AES Due Diligence,Info re: 211 E. 79th ST,2011-05-31T00:00:00.000,2011-06-07T00:00:00.000
+Richard Rotianno,AES Due Diligence,Info re: 1632 W. 63rd ST,2011-05-31T00:00:00.000,2011-06-07T00:00:00.000
+John Goin,Goin Env. Sci.,"Info re: 600 N.Pulaski, 812 & 814 N. Franklin, 1700 W. Hubbard, 1900 W. Kinzie, 412 N. Wolcott",2011-05-26T00:00:00.000,2011-06-02T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 2001-20 N. Leavitt, 2213-48 W. McLean, 2001-20 N.Oakley, 2211-46 W. Armitage",2011-05-26T00:00:00.000,2011-06-02T00:00:00.000
+Richard Panosh,Foth Infrastructure & Environmental LLC,"Complaints, hazmats, illegal dumping re: 10600, 10625, 10635 S. Torrence, 3830 E. 108th ST, 10700 & 10701 S. Muskegon, 2405, 2729, 3019, 3157 E. 106th ST ",2011-05-26T00:00:00.000,2011-06-02T00:00:00.000
+Kevin Hammond,Tetra Tech,Info re: 3311 S. Michigan,2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+Adam K. Zakroczymski,Stateline Environmental,"USTs, hazmats, violations re: 2431-41 W. Belmont",2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+Josh Ryals,EBI Consulting,"Tanks, hazmat, spills re: 4701 N. Ashland",2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 3230-58 & 3231-57 W. Leland, 519-555 & 520-550 E. Pershing, 3900-42 S. Vincennes, 3022-52 & 3021-51 E. 79th ST, 7870-74 S. Coles",2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+Brian Mihelich,True North Consultants,"USTs, ASTs, haz waste, spills etc re: 6041, 6043, 6107 S. Western, 6104 & 6101 S. Claremont",2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+Patrick Sward,Alfred Benesch & Company,Info re: 333 S. Halsted,2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+Brian Mihelich,True North Consultants,"USTs, ASTs, haz waste, spills etc re: 2900 S. Damen",2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+Todd Napoli,Grand Property Maintence and Repair,Info re: 5514 S. California ,2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+John-Patrick Farrell,AEI Consultants,"Info re: 2858 W. Roosevelt, 1147 & 1149 S. Francisco ",2011-05-25T00:00:00.000,2011-06-01T00:00:00.000
+Christine Karlovitz,Carlson Envrionmental,Info re: 533 W. Barry,2011-05-24T00:00:00.000,2011-05-31T00:00:00.000
+Colleen Bohlin,GaiaTech,"Info re: 915 & 920 S. Campbell, 2500 W. Taylor",2011-05-24T00:00:00.000,2011-05-31T00:00:00.000
+Judie Wilson,Kendall Safety Group,Info re: 4237 W. 42nd PL,2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Jim Miller,AEI Consultants,Info re: 4721-29 S. Ellis,2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Andy Bryan,GRS Group,Info re: 7340 W. Hoyne,2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Andy Bryan,GRS Group,Info re: 533 W. Barry,2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Jeff Goeden,PSI,Info re: 850 W. Jackson,2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 1501 W. Madison,2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 303 W. Ohio,2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"UST/AST, hazmat spills re: 2500 W. North, 670 W. Diversey, 3435 N. Southport",2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"UST/AST, hazmat spills re: 2525, 5151, 5228, 5247, 5347, 5349, 5400, 5402, 5429, 5420 N. Clark",2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, hazmat re: 2348-58 S. Wentworth, 200-210 W. 24th ST",2011-05-23T00:00:00.000,2011-05-30T00:00:00.000
+Thomas Doyle,EDI,Info re: 1661 N. Elston,2011-05-20T00:00:00.000,2011-05-27T00:00:00.000
+Mark Neuses,Trileaf Corporation,"Spills, dumping, UST re: 1735 W. Diversey",2011-05-20T00:00:00.000,2011-05-27T00:00:00.000
+Brooke Adamek,Pioneer,"UST re: 6434-6558 & 6451-59 N. Western, 2348-2428 & 2349-2427 W. Arthur, 6453-49 N. Artesian, 2401-15 W. Albion",2011-05-20T00:00:00.000,2011-05-27T00:00:00.000
+Shrey Patel,Clean World Engineering,Tank info re: 12045 S. Emerald,2011-05-20T00:00:00.000,2011-05-27T00:00:00.000
+Trevor Hornbacher,Shaw Environmental,Info re: 12100 S. Loomis,2011-05-19T00:00:00.000,2011-05-26T00:00:00.000
+Kristian Webb,The English Company,Info re: 4546-58 N. Kedzie,2011-05-19T00:00:00.000,2011-05-26T00:00:00.000
+Trevor Hornbacher,Shaw Environmental,Info re: 1401 W. 121st ST,2011-05-19T00:00:00.000,2011-05-26T00:00:00.000
+Mary Cappellini,EGSL,"Info re: 7001-11 N. Clark, 1718-38 W. Lunt",2011-05-19T00:00:00.000,2011-05-26T00:00:00.000
+Lydia Liniewicz,Benchmark Environmental,"UST, hazmat re: 4815-17 W. Cortez",2011-05-18T00:00:00.000,2011-05-25T00:00:00.000
+Linda Lehman,URS Corporation,"USTs, ASTs, etc re: 3349 & 3351 W. Addison, 3555 N. Kimball",2011-05-18T00:00:00.000,2011-05-25T00:00:00.000
+Neil Yodnane,Partner Engineering and Science,"UST, etc re: 819 W. Armitage",2011-05-18T00:00:00.000,2011-05-25T00:00:00.000
+Julia Koltun,,Application submissions re: EV Infrastructure . . .,2011-05-18T00:00:00.000,2011-05-25T00:00:00.000
+Jessica VanHeel,David T. Cohen & Associates,Demo records re: 5226 S. Justine,2011-05-18T00:00:00.000,2011-05-25T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 533 W. Barry",2011-05-18T00:00:00.000,2011-05-25T00:00:00.000
+Lydia Liniewicz,Benchmark Environmental,"UST, hazmat re: 3425-27 N. Pulaski",2011-05-18T00:00:00.000,2011-05-25T00:00:00.000
+Phillip Pecelunas,Eldertree Enveco,"Info re: 5001-51 W. Fullerton, 2300-2400 N. Lavergne",2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Warren Gary,4700 Winchester Condominium Association,"4700-08 N.Winchester, 1944-52 W. Leland",2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Mark H. Elliott,MH Environmental,"Info re: 1939 W. 13th ST, 1900-2000 W. Hastings",2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Victor Fernandez,Fernandez Law Firm,Info re: 2527 N. Washtenaw,2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Paul Sambanis,Weaver Boos Consultants ,"Info re: 7501 S. Pulaski, 3740 W. 74th ",2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 4500-99 W. 60th ST, 5950-6046 S. Kolmar, 5959-6101 S. Knox",2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Aaron Simpson,SEECO ,Info re: 2260-2300 E. 99th ST,2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Aaron Simpson,SEECO ,Info re: 1242 S. Kedzie,2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Aaron Simpson,SEECO ,Info re: 7301 S. University,2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"ASTs, USTs, spills re: 953-1001 S. Wells, 800-1000 S. Sherman, 141-175 W. Polk, 455-582 S. 5th Ave, 100-130 W. Taylor, 190-238 W. Roosevelt",2011-05-17T00:00:00.000,2011-05-24T00:00:00.000
+Nicole Andrade,Pioneer EES,"UST re: 5964-6000 & 5975-6001 N. Elston, 5929-6001 & 5928-6004 N. Austin, 5932-6021 & 5931-6022 W. Peterson",2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+Matthew Toth,Carnow Conibear,Info re: 3600-50 S. State,2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+Elizabeth Langan,Atwell,Info re: 1424 N. Maplewood,2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+David Streich,Underground Storage Tank Specialists,UST re: 4343-57 N. Ravenswood,2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+Kristine Arch,Kendall Safety Group,Info re: 4237 W. Ann Lurie Way,2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+Judie Wilson,IEM Corp,Info re: 3611-25 N. Halsted,2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+Kellen Stanger,Midco International,Installation permits re: 4140 W. Victoria,2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+Raymond Deyne,Advanced Environmental,"Info re: 3100-06 E. 83rd ST, 8257 S. Coles",2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 1005-35 & 1010-36 N.Pulaski, 1008-30 N. Harding",2011-05-16T00:00:00.000,2011-05-23T00:00:00.000
+Brian Mihelich,True North Consultants,"USTs, ASTs, spills, hazmat re: 6057 S. Western",2011-05-14T00:00:00.000,2011-05-21T00:00:00.000
+John-Patrick Farrell,AEI Consultants,"Info re: 1202-1212 W. 82nd ST, 8154-60 S. Racine",2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 5012 S. Hermitage,2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 1335 W. 49th ST,2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Kristian Webb,,Info re: 4825-29 W. Division,2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Aman Ansari,Howard Dean Weisman,Info re: 3470 N. Lake Shore Drive,2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Meredith Horn,Property Solutions,"UST records re: 1501-15 W. Madison, 2-26 S. Laflin, 1500-20 W. Monroe",2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Lydia Liniewicz,Benchmark Environmental,"UST, hazmat re: 5335 W. Chicago",2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Elizabeth Langan,Atwell,Info re: 4757 W. Montrose,2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Any info re: 8100-8044 & 8101-8045 S. Cottage Grove, 736-812 E. 81st ST, 5420-38 N. Broadway, 5419-37 N. Magnolia",2011-05-13T00:00:00.000,2011-05-20T00:00:00.000
+Katie Klocksin,Carlson Envrionmental,"UST/AST, spills etc re: 900 E. 103rd ST",2011-05-12T00:00:00.000,2011-05-19T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4644 S. Marshfield,2011-05-12T00:00:00.000,2011-05-19T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4848 S. Ashland,2011-05-12T00:00:00.000,2011-05-19T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 900-945 W. Oakdale, 901-948 W. Wellington, 2901-3000 N. Sheffield",2011-05-12T00:00:00.000,2011-05-19T00:00:00.000
+Josh Ryals,EBI Consulting,"Tanks, spills re: 5650 N. Canfield",2011-05-12T00:00:00.000,2011-05-19T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 5915-6010 W. Grand, 2140-2239 N. Austin, 2140-2239 N. Mason",2011-05-11T00:00:00.000,2011-05-18T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 33 S. Wabash",2011-05-11T00:00:00.000,2011-05-18T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 525 Stratford PL",2011-05-11T00:00:00.000,2011-05-18T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 1206, 1202, 1200 W. Granville, 6200 & 6210 N. Broadway",2011-05-11T00:00:00.000,2011-05-18T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST re: 2464-76 N. Orchard,2011-05-11T00:00:00.000,2011-05-18T00:00:00.000
+Brian M. Begley,,Info re: 17 E. Monroe,2011-05-11T00:00:00.000,2011-05-18T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 1051-1063 W. Rosemont, 6251-59 N. Winthrop",2011-05-11T00:00:00.000,2011-05-18T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 6716-46 & 6715-45 S. Jeffery, 1945-53 E. 67th ST, 6717-41 S. Euclid",2011-05-10T00:00:00.000,2011-05-17T00:00:00.000
+Jason Roth,Atwell,Info re: 1210 W. Henderson,2011-05-10T00:00:00.000,2011-05-17T00:00:00.000
+Jason Roth,Atwell,Info re: 413 N. Noble,2011-05-10T00:00:00.000,2011-05-17T00:00:00.000
+Megha Patel,AECOM,"Info re: 5676 S. Normal, 425 & 429 W. 56th PL",2011-05-10T00:00:00.000,2011-05-17T00:00:00.000
+Bill Lennon,EGSL,Info re: 4606-10 W. 16th ST,2011-05-10T00:00:00.000,2011-05-17T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 3301-49 & 3302-48 N. Elston,2011-05-10T00:00:00.000,2011-05-17T00:00:00.000
+Judie Wilson,MIONX,Info re: 872-876 N. Franklin,2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Aaron Simpson,SEECO ,"Info re: 7245-55 S. University, 7246-56 S. Woodlawn",2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 2416-2525 W. Division, 1140-1229 N. Campbell, 1140-1229 N. Artesian",2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Joe Selinger,Partner Engineering and Science,Info re: 200 N. Michigan,2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+George Noble,Weaver Boos Consultants ,Info re: 605 N. Clark,2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Andy Bryan,,"UST re: 4453 W. Diversey, 2755 & 2765 N. Kilbourn",2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Kristine Arch,Kendall Safety Group,Records re: 4813-15 N. Milwaukee,2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 10447-61 & 10446-62 S. Western, 2351-2405 & 2350-2406 W. 105th ST",2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 716-901 W. Wilson, 4505-44 N. Hazel, 4505-44 N. Clarendon",2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Dane Volden,EPS Environmental,Info re: 800-900 W. Windsor,2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Judie Wilson,IEM Corp,"Info re: 4400 N. Monticello, 3630 W. Montrose",2011-05-09T00:00:00.000,2011-05-16T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 3628-58 & 3625-59 W. Montrose, 4346-4414 & 4347-4415 N. Monticello, 4401-29 N. Lawndale",2011-05-06T00:00:00.000,2011-05-13T00:00:00.000
+Mike Wan,Hydrodynamics,UST and haz waste re: 5210-38 W. Division,2011-05-06T00:00:00.000,2011-05-13T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 4844-4928 & 4841-4907 S. Cottage Grove, 744-806 & 743-807 E. 49th ST",2011-05-05T00:00:00.000,2011-05-12T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 2101-35 & 2100-36 S. Peoria, 815-831 W. 21st ST, 2101-31 S. Canalport",2011-05-05T00:00:00.000,2011-05-12T00:00:00.000
+Michael J. Hughes,Neal Gerber & Eisenberg,Citations regarding dumping complaints re: 5400 N. Pulaski,2011-05-04T00:00:00.000,2011-05-11T00:00:00.000
+Lindsey Oliver,"GSG Consultants, Inc","Tank records re: 5653-59 S. Indiana, 200-214 E. 57th ST",2011-05-04T00:00:00.000,2011-05-11T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 3836-3955 N. Western, 3838-3943 N. Claremont, 2415-2426 W. Dakin",2011-05-04T00:00:00.000,2011-05-11T00:00:00.000
+George Kobylarcik,EPI,"Tanks, env issues re: 10408 S. Indianapolis",2011-05-04T00:00:00.000,2011-05-11T00:00:00.000
+Allie McDavid,Trileaf Corporation,"Spills, dumping, ust etc re: 105 E. Delaware",2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Judie Wilson,MIONX,Info re: 6420-36 N. Milwaukee,2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Erin Grady,Terracon,Info re: 6517 S. University,2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Ryan P. Theriault ,"Foote, Meyers, Mielke & Flowers, LLC",1744 E. 75th ST,2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4716 S. Throop,2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Douglas McVey,SES,Info re: 2540 N. Lincoln,2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Kim Janson,Mostardi Platt Environmental,"UST, haz waste, violations re: 4034-50 W. Parker, 2737 N. Karlov",2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Ben Shapiro,Canton Tire,UST re: 3333 W. 47th PL,2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Dan Horvath,Resource Consulting Inc,"UST, permits, violations etc re: 921 S. Wabash",2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 6145 S. Sangamon",2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Phil English,The English Company,"UST, AST, asbestos, spills, violtions re: 248-60 E. 35th ST",2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"AST, UST, chemical spills, hazmat re: 6800-14 S. Pulaski, 4001-11 W. 68th ST",2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 8246 & 8248 S. Maryland,2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Erin Grady,Terracon,Info re: 6219 S. Rhodes,2011-05-03T00:00:00.000,2011-05-10T00:00:00.000
+Douglas McVey,SES,Info re: 4500 W. Belmont,2011-05-02T00:00:00.000,2011-05-09T00:00:00.000
+Bill Lennon,EGSL,Info re: 307-316 E. 137th ST,2011-05-02T00:00:00.000,2011-05-09T00:00:00.000
+Douglas McVey,SES,Info re: 4454 W. Belomont,2011-05-02T00:00:00.000,2011-05-09T00:00:00.000
+James Loring,"K-Plus Engineering, LLC","UST/AST, asbestos re: 340-360 W. Grand",2011-05-02T00:00:00.000,2011-05-09T00:00:00.000
+Dave Glowacz,Chicago Reader,"I request that you provide to me any documents that identify:
+ 
+1. In the City of Chicago 2010 budget: (a) the fund number and name; (b) the
+section number and name; and (c) the subsection number and name through
+which these employees' positions were funded:
+Director of Project Development Scott A Mehaffey
+Deputy Commissioner Victor A Rojas
+ 
+2. In the City of Chicago 2011 budget: (a) the fund number and name; (b) the
+section number and name; and (c) the subsection number and name through
+which these employees' positions are funded:
+Director of Project Development Scott A Mehaffey (until he left city
+employment)
+Deputy Commissioner Victor A Rojas
+ 
+3. How the City of Chicago spent the budgeted amount for the position of the
+predecessor of Deputy Commissioner Victor Rojas, between the date in 2009 on
+which Mr Rojas's predecessor left the position to the date on which Mr Rojas
+took the position.
+",2011-05-02T00:00:00.000,2011-05-09T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc",UST re: 4853 S. Bishop,2011-04-29T00:00:00.000,2011-05-06T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc",UST re: 4611 S. Winchester,2011-04-29T00:00:00.000,2011-05-06T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 2434-2523 W. Peterson, 5923-6042 N. Campbell",2011-04-29T00:00:00.000,2011-05-06T00:00:00.000
+Lynn M. Gierek,AECOM,"Info re: 101-113 W. Division, 1148-80 N. Clark",2011-04-29T00:00:00.000,2011-05-06T00:00:00.000
+Kristian Webb,The English Company,Info re: 1637-53 N. Damen,2011-04-29T00:00:00.000,2011-05-06T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"AST, UST, spills re: 5438-58 W. Montrose, 5425-99 W. Montrose, 4355-4401 N. Linder",2011-04-28T00:00:00.000,2011-05-05T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"AST, UST, spills re: 1321 S. Paulina, 1600-68 W. Hastings, 1600-55 W. 13th ST, 1300-32 S. Ashland",2011-04-28T00:00:00.000,2011-05-05T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills, releases, env concerns re: 4234 W. 25th ST",2011-04-28T00:00:00.000,2011-05-05T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 6048-52 S. Prairie,2011-04-28T00:00:00.000,2011-05-05T00:00:00.000
+Kristian Webb,The English Company,Info re: 219 N. Justine,2011-04-28T00:00:00.000,2011-05-05T00:00:00.000
+Brandon Brown,"Macuga, Liddle & Dubin","Violations, complaints of odors, etc re: 3501 S. Pulaski",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 4900-55 S. Paulina, 1631-1704 W. 49th ST, 4900-5000 S. Hermitage",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Matthew Toth,Carnow Conibear,"USTs, ASTs, hazmats, violations and enforcements re: 3602 S. State",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Elizabeth Ashworth,Enviro Business,"ASTs, USTs, chemical spills, hazmat releases re: 3800 N. California",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+James Edwards,Better Government Association,"Data showing total number complaints filed with Department of Environment regarding illegal dumping, fly dumping for years 2009, 2010, 2011
+List of complaints filed, with date the complaint was filed and location of dumping, with Department of Environment regarding illegal dumping, fly dumping for years 2009, 2010, 2011
+",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Brandon Brown,"Macuga, Liddle & Dubin","Violations, complaints of odors, etc re: 1111 W. Cermak",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Raymond Deyne,Advanced Environmental,"UST, AST, hazmat re: 7739 S. Kedzie",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Raymond Deyne,Advanced Environmental,"UST, AST, hazmat re: 4014-22 N. Central Park",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Alexandra Shea,Mayer Brown,UST info re: 8301 S. Stewart,2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Allie McDavid,Trileaf Corporation,"Spills, dumping, UST etc re: 440 N. Drake",2011-04-27T00:00:00.000,2011-05-04T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 4200-38 & 4201-39 W. Division, 6029-39 S. Indiana, 6848-64 S. Perry, 118-144 W. 69th ST",2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Julie Wernau,Chicago Tribune,"""All information provided to the City of Chicago by 350Green LLC regarding the company’s finances, cash flow, budget and expenditures. This request includes financial statements, receipts, investor information, investor correspondence, signed contracts with third parties, financial agreements with third parties and a copy of 350Green LLC’s notarized Economic Disclosure Statement and Affidavit.
+I also request a map and listing of the locations of 350Green’s charging stations, indicating which charging stations have been installed as of today’s date, whether those charging stations are level 2 or fast-charging stations and if they are operational . . . . """,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Michael Fischer,EDI,Info re: 1121 E. 76th ST,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Nohemi Melero,Carnow Conibear,"Records re: 353 N. Clark, 63 W. Kinzie, 341-359 N. Clark, 340-356 N. Dearborn",2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 2323 W.Pershing,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4758 S. Marshfield,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4644 S. Marshfield,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4848 S. Ashland,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4611 S. Winchester,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4853 S. Bishop,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Brian Voss,GEI Consultants ,Info re: 3650 N. Clark,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Brian Voss,GEI Consultants ,Info re: 3620 N. Clark,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Mike DeBraske ,GEI Consultants ,Info re: 2900 N. Sheridan,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Judie Wilson,MIONX,Info re: 351 W. Huron,2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Brandon Brown,"Macuga, Liddle & Dubin","Violations, complaints of odors, etc re: 1345 W. 21st ST",2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Aaron Colin,"K-Plus Engineering, LLC","USTs, ASTs, env violations etc re: 2319-25 W. Howard",2011-04-26T00:00:00.000,2011-05-03T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 1968, 1966, 1962, 1958 W. Montrose, 4405 N. Damen",2011-04-25T00:00:00.000,2011-05-02T00:00:00.000
+Thomas Doyle,EDI,Info re: 3849-51 W. Hirsch ,2011-04-25T00:00:00.000,2011-05-02T00:00:00.000
+James Loring,"K-Plus Engineering, LLC","UST/AST, hazmat re: 4558 S. Cicero",2011-04-25T00:00:00.000,2011-05-02T00:00:00.000
+Phillip Montana,"K-Plus Engineering, LLC","USTs, ASTs, env violations etc re: 2633 W. Addison",2011-04-25T00:00:00.000,2011-05-02T00:00:00.000
+Jeff Goeden,PSI,Info re: 17 N. State,2011-04-22T00:00:00.000,2011-04-29T00:00:00.000
+Susan Lueck,Maddin Hauser Wartell Roth & Heller,Info re: 6720-30 S. Jeffery Blvd,2011-04-22T00:00:00.000,2011-04-29T00:00:00.000
+Heide Radke,URS Corporation,"Info re: 111 W. Monroe, 115 S. LaSalle, 108 S. Clark",2011-04-22T00:00:00.000,2011-04-29T00:00:00.000
+John Best,EPI,"USTs, notifications, incidents, problems re: 9701-31 S. Cottage Grove, 800-858 S. Ingleside",2011-04-21T00:00:00.000,2011-04-28T00:00:00.000
+Matthew Otto,Terracon,"UST re: 2605-15 W. Belmont, 1800 N. Ashland",2011-04-21T00:00:00.000,2011-04-28T00:00:00.000
+Peter G. Karahallos,Law Offices of Peter G. Karahallos & Associates,Info re: 4012 S. Packers,2011-04-21T00:00:00.000,2011-04-28T00:00:00.000
+Kristian Webb,,"Info re: 1655,1648,1657,1701 N. Damen, 1953,1959,1949 W. Wabansia",2011-04-21T00:00:00.000,2011-04-28T00:00:00.000
+Don Richards,ECS Midwest,"Info re: 150 W. Roosevelt, 1001 & 953 S. Wells",2011-04-21T00:00:00.000,2011-04-28T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 1100-59 W. Grand, 446-519 N. May, 440-540 N. Aberdeen, 1050-1120 W. Hubbard",2011-04-20T00:00:00.000,2011-04-27T00:00:00.000
+Valerie Dougados,Pioneer,"Tanks, spills re: 6325-47 & 6326-46 N. Broadway, 6330-42 N. Winthrop, 1127-31 W. Sheridan",2011-04-20T00:00:00.000,2011-04-27T00:00:00.000
+Lindy Trigg,,Noise complaint re: 333 N. Canal,2011-04-20T00:00:00.000,2011-04-27T00:00:00.000
+Joe Selinger,Partner Engineering and Science,Info re: 900-908 S. California,2011-04-20T00:00:00.000,2011-04-27T00:00:00.000
+Alexandra Shea,Mayer Brown,Info re: 8301 S. Stewart,2011-04-20T00:00:00.000,2011-04-27T00:00:00.000
+Matthew Rose,Stellato & Schwartz,Info re: incident at 2950 W. Washington,2011-04-19T00:00:00.000,2011-04-26T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 1816 N. Clark",2011-04-19T00:00:00.000,2011-04-26T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 4301-4466 W. Montrose, 4317-4454 N. Kostner, 4333-4446 N. Kenmore",2011-04-19T00:00:00.000,2011-04-26T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 3828-40 & 3801-47 N. Sheffield, 3829-37 N. Kenmore, 947-957 W. Sheridan",2011-04-19T00:00:00.000,2011-04-26T00:00:00.000
+Anthony Claveria,Partner Engineering and Science,Info re: 30 E. Roosevelt,2011-04-19T00:00:00.000,2011-04-26T00:00:00.000
+John Best,EPI,Info re: 4501-59 W. 42nd PL,2011-04-18T00:00:00.000,2011-04-25T00:00:00.000
+Laura Seeber,Cenvir Environmental,"USTs, ASTs, demolition, inspection etc re: 4323-51 W. 16th ST",2011-04-18T00:00:00.000,2011-04-25T00:00:00.000
+Judie Wilson,MIONX,"Info re: 639 W. Pershing, 3939 S. Union",2011-04-18T00:00:00.000,2011-04-25T00:00:00.000
+Judie Wilson,MIONX,Info re: 3250 N. Kedzie,2011-04-18T00:00:00.000,2011-04-25T00:00:00.000
+Scott Posadzy,Adept Environmental Solutions,UST re: 401-525 E. 130th ST,2011-04-15T00:00:00.000,2011-04-22T00:00:00.000
+Kim Janson,Mostardi Platt Environmental,"UST, env violations re: 4336-50 W. Ogden",2011-04-15T00:00:00.000,2011-04-22T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"AST/UST, spills, releases re: 2401-31 W. Blue Island, 2402-24 S. Damen",2011-04-15T00:00:00.000,2011-04-22T00:00:00.000
+Jodi Slough,Weaver Boos Consultants ,"Inspection reports, permits, permit applications, UST re: 14652-58 S. Lake Park",2011-04-15T00:00:00.000,2011-04-22T00:00:00.000
+Michael Glenn,UAS,"Info re: 5315, 5323, 5329 S. Lake Park, 1535 & 1539 E. 53rd ST",2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Jessica Madsen,"K-Plus Engineering, LLC","UST, AST, hazmat re: 568, 570, 580 E. 115th ST",2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc",Tanks re: 2900-12 N. Cicero,2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc","Tanks re: 2534-60 W. Van Buren, 2535-61 W. Jefferson, 300-44 S. Maplewood",2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Janice Levy,Northwestern University,"Info re: 8555 S. Green Bay Road, 2701 E. 106th, 10459 S. Muskegon, 3141 E. 96th, 11600 S. Burley, 12600 S. Torrence",2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Jean Schultz,Giles Engineering Associates,"AST/USTs, hazmat spills, env concerns re: 3525 & 3531 N. Cicero",2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Anthony McDaniel,ETS Environmental & Assoc.,"Tank records re: 4541-53 N. Elston, 5830-46 N. Norhtwest Highway",2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 163-183 & 160-182 N. Morgan, 162-174 N. Sangamon, 943-1007 W. Lake ",2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 3800-18 & 3801-17 W. North Ave,2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 4718 S. Pulaski,2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Laura Brooks,AECOM,"Info re: 535 W. Tremont, 528 W. 58th ST, 547 W. 56th ST",2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Siraa Smadi,Anderson Environmental Consulting,Info re: 3732 N. Ashland,2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Siraa Smadi,Anderson Environmental Consulting,Info re: 1114 W. Roscoe,2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Siraa Smadi,Anderson Environmental Consulting,Info re: 2433 N. Talman,2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+Mike Wan,Hydrodynamics,UST and haz waste re: 6044 N. Broadway,2011-04-14T00:00:00.000,2011-04-21T00:00:00.000
+David Streich,Underground Storage Tank Specialists,UST info re: 2301 S. Michigan,2011-04-13T00:00:00.000,2011-04-20T00:00:00.000
+Erin Grady,Terracon,"Info re: 6237, 6238 S. Rhodes, 536, 524-526, 458 E. 63rd ST, 6251 S. Eberhart",2011-04-13T00:00:00.000,2011-04-20T00:00:00.000
+Valerie Dougados,Pioneer,"Tank records, spills re: 6333-59, 6401-59, 6501-07, 6400-58, 6500-10 W. Devon, 6400-58, 6401-59, 6500-05, 6501-07 W. Palatine, 6500-06, 6501-07 W. Highland",2011-04-13T00:00:00.000,2011-04-20T00:00:00.000
+Valerie Dougados,Pioneer,"Tank records, spills re: 6300-58, 6301-59, 6262-64 N. Nagel, 6342-78 W. Haft, 6320-88, 6400-22, 6357-77, 6401-15 N. Milwaukee, 6253-59, 6254-58, 6300-58, 6301-59 N. Neemah",2011-04-13T00:00:00.000,2011-04-20T00:00:00.000
+Linda Lehman,URS Corporation,"USTs, ASTs, complaints etc re: 233 N. Michigan",2011-04-13T00:00:00.000,2011-04-20T00:00:00.000
+Jodi Katch,EBI Consulting,"UST, AST, spills, hazmat releases re: 10 & 120 S. Riverside Plaza",2011-04-13T00:00:00.000,2011-04-20T00:00:00.000
+Erin Grady,Terracon,"Info re: 6418 S. Maryland, 810 E. 64th ST, 6455, 6401, 6501-12 S. Cottage Grove, 808 E. 65th ST",2011-04-13T00:00:00.000,2011-04-20T00:00:00.000
+Alexandra Cudzewicz,ETS Environmental & Assoc.,Info re: 2510 W. Irving Park,2011-04-12T00:00:00.000,2011-04-19T00:00:00.000
+Catherine Cox,CDM,"Tanks and spills info re: 1309-27 N. Clybourn, 1334-62 N. Mohawk, 1409-37 N. Larrabee, 1292-1308 N. Clybourn",2011-04-12T00:00:00.000,2011-04-19T00:00:00.000
+Judie Wilson,MIONX,Info re: 1218 W. Fletcher,2011-04-11T00:00:00.000,2011-04-18T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 5801 N.Pulaski,2011-04-11T00:00:00.000,2011-04-18T00:00:00.000
+Julie Brown,KPRG and Associates,Info re: 118 W. Grand,2011-04-11T00:00:00.000,2011-04-18T00:00:00.000
+John Best,EPI,"USTs, notifications, incidents re: 1540-48 N. Western",2011-04-11T00:00:00.000,2011-04-18T00:00:00.000
+Julie Lagvankar,,"Tanks re: 1934-36 W. Garfield, 5446-60 S. Winchester, 1001-25 W. 76th ST, 7600-04 S. Morgan",2011-04-11T00:00:00.000,2011-04-18T00:00:00.000
+Julie Lagvankar,,Tanks re: 3910-26 S. King Drive,2011-04-11T00:00:00.000,2011-04-18T00:00:00.000
+Judie Wilson,MIONX,"Info re: 5001 N. California, 2780 W. Argyle",2011-04-11T00:00:00.000,2011-04-18T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"Info re: 3952-58 W. 47th ST, 4639-59 S. Pulaski",2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills, releases re: 3605 W. 63rd ST",2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 5515-90 N. Lynch, 5514-53 N. Leavenworth, 5558-73 N. Leonard, 5445-5520 N. Elston",2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Lindsey Oliver,"GSG Consultants, Inc","Tank records re: 2534-60 W. Van Buren, 2536-61 W. Jackson, 300-44 S. Maplewood",2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Julie Brown,KPRG and Associates,Info re: 1111 W. Cermak,2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Julie Brown,KPRG and Associates,Info re: 3501 S. Pulaski,2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Doug Snower,,"UST, env hazards etc re: 1540 & 1542 N. Western",2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Michael Kolleng,GaiaTech,"UST, violations etc re: 5333-37 N. Clark, 1476-82 W. Summerdale ",2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST re: 3211-19 W. Armitage,2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"Info re: 1955-59 W. 35th ST, 3501-05 S. Damen",2011-04-08T00:00:00.000,2011-04-15T00:00:00.000
+Victor Fernandez,Fernandez Law Firm,UST & Violations re: 4913 & 4911 W. Fullerton,2011-04-07T00:00:00.000,2011-04-14T00:00:00.000
+Rob Bachkosky,Superior Damen Condo Association,Info re: 2001-03 W. Superior,2011-04-07T00:00:00.000,2011-04-14T00:00:00.000
+Heather Nilles,Testing Service Corp,Info re: 10-40 W. Kinzie,2011-04-07T00:00:00.000,2011-04-14T00:00:00.000
+Henry Adamiak,RemTech,UST re: 2558 W. 16th ST,2011-04-07T00:00:00.000,2011-04-14T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 600-620 & 601-619 N. Wells, 200-218 W. Ohio, 201-219 W. Ontario",2011-04-06T00:00:00.000,2011-04-13T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 701-711 N. Christiana, 3298-3312 & 3297-3311 W. Huron, 702-712 N. Spaulding",2011-04-06T00:00:00.000,2011-04-13T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 9001-17 & 9000-18 S. Brandon,2011-04-06T00:00:00.000,2011-04-13T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST re: 4451-59 S. Indiana, 200-12 E. 45th ST",2011-04-06T00:00:00.000,2011-04-13T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 1-30 N. Michigan, 1-38 S. Michigan, 1-42 N. Wabash, 1-38 S. Wabash, 2-81 E. Madison",2011-04-06T00:00:00.000,2011-04-13T00:00:00.000
+Erica Baker,EDI,"Info re: 7531, 7501-59 S. Ashland, 1512 & 1518 W. 76th ST",2011-04-06T00:00:00.000,2011-04-13T00:00:00.000
+Daniel Shani,"University of Chicago, Booth School of Business","Info re: ""records/files pertaining to outdoor advertising . . . "" ",2011-04-05T00:00:00.000,2011-04-12T00:00:00.000
+Paul Aronson,GRS Group,Any info re: 1001 & 1003 N. Ashland,2011-04-05T00:00:00.000,2011-04-12T00:00:00.000
+Pamela Thurman,Solid Waste Solutions,TOR #11-DOE-11 submitted by CDM,2011-04-05T00:00:00.000,2011-04-12T00:00:00.000
+Neil Yodnane,Partner Engineering and Science,UST re: 1133 W. 101st ST,2011-04-05T00:00:00.000,2011-04-12T00:00:00.000
+Siraa Smadi,Anderson Environmental Consulting,Info re: 6259 S. Calumet,2011-04-05T00:00:00.000,2011-04-12T00:00:00.000
+Julie Brown,KPRG and Associates,"Info re: 6600-10 & 6654-56 N. Ashland, 1600-10 W. Albion, 1607-09 W. North Shore",2011-04-05T00:00:00.000,2011-04-12T00:00:00.000
+Jodi Slough,Weaver Boos Consultants ,"Inspection reports, permits, permit applications, UST re: 1326-38 E. 47th ST",2011-04-05T00:00:00.000,2011-04-12T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 3900-4099 S. King Drive, 400-525 E. 40th ST, 405-525 E. Oakwood",2011-04-05T00:00:00.000,2011-04-12T00:00:00.000
+Kristine Arch,Kendall Safety Group,"UST, AST, env concerns re: 633 S. Laflin",2011-04-04T00:00:00.000,2011-04-11T00:00:00.000
+Kristine Arch,Kendall Safety Group,"UST, AST, env concerns re: 5679-89 N. Milwaukee",2011-04-04T00:00:00.000,2011-04-11T00:00:00.000
+Kristine Arch,Kendall Safety Group,"UST, AST, env concerns re: 5777-91 N. Milwaukee",2011-04-04T00:00:00.000,2011-04-11T00:00:00.000
+Kristine Arch,Kendall Safety Group,"UST, AST, env concerns re: 3216-18 N. Lincoln Ave",2011-04-04T00:00:00.000,2011-04-11T00:00:00.000
+Kristine Arch,Kendall Safety Group,"UST, AST, env concerns re: 3727-31 N. Pine Grove",2011-04-04T00:00:00.000,2011-04-11T00:00:00.000
+Judie Wilson,MIONX,Info re: 1604 W. North,2011-04-04T00:00:00.000,2011-04-11T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"AST/UST, env health violations, re: 1201 S. Prairie",2011-04-04T00:00:00.000,2011-04-11T00:00:00.000
+Jeff Goeden,PSI,Info re: 508 N. State,2011-04-01T00:00:00.000,2011-04-08T00:00:00.000
+Richard C. Bean ,Aaron & Wright Assessment LLC,"Violation re: 3510, 3550, 3620 S. Rhodes",2011-04-01T00:00:00.000,2011-04-08T00:00:00.000
+Benjamin Kelderhouse,Integrity Environmental Services,Records re: 7301-59 S. Hamlin,2011-04-01T00:00:00.000,2011-04-08T00:00:00.000
+Marcella Bondie Keenan,Carnow Conibear,"USTs, ASTs, haz mat, compaints, violations and enforcements re: 617-633 E. Pershing, 630-640 E. 37th PL, 716-724 E. 38th ST, 3740 S. Ellis, 849-859 E. 38th PL, 3720 S. Cottage Grove",2011-04-01T00:00:00.000,2011-04-08T00:00:00.000
+Daniel Tonnisen,ECS Midwest,"Records re: 1309-27, 1300-08, 1400-1425 N. Clybourn, 1334-62 N. Mohawk, 1409-37, 1400-36 N. Larrabee",2011-04-01T00:00:00.000,2011-04-08T00:00:00.000
+Scott Posadzy,Adept Environmental Solutions,UST re: 6141-61 S. Michigan,2011-03-31T00:00:00.000,2011-04-07T00:00:00.000
+Mark Kupiec,Mark J. Kupiec & Associates,UST re: 1800 E. 79th ST,2011-03-31T00:00:00.000,2011-04-07T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"USTs, ASTs, permits, violations re: 2250-80 N. Milwaukee",2011-03-31T00:00:00.000,2011-04-07T00:00:00.000
+Matthew Woskey,Columbia College Chicago,"Inspection results, env code violation etc re: 130, 239, 200, 212 S. Halsted",2011-03-31T00:00:00.000,2011-04-07T00:00:00.000
+Phillip Pecelunas,Eldertree Enveco,"Info re: 6700-99 W. North Ave, 1600-99 N. Rutherford, 1600-99 N. Oak Park",2011-03-31T00:00:00.000,2011-04-07T00:00:00.000
+Grant Villanueva,Sheats & Kellogg,"Inspections, installation, or similare records for electrical work . . . . Re: 1200 N. Ashland",2011-03-31T00:00:00.000,2011-04-07T00:00:00.000
+Amanda Zoumaya ,EPS Environmental,"Info re: 2418-2525 W. Division, 1140-1225 N. Campbell, 1140-1225 N. Artesian",2011-03-30T00:00:00.000,2011-04-06T00:00:00.000
+Adam K. Zakroczymski,Stateline Environmental,UST & haz materials re: 716-720 W. 47th ST,2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Dane Volden,EPS Environmental,"Info re: 1101-1200 S. Wabash, 22-61 E. Roosevelt, 1100-1208 S. Michigan",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Mike Roche,Bureau Veritas,"UST, haz materials, env, asbestos re: 400 N. McClurg, 500-518 E. North Water",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Audrey Myers ,First National Assets,"UST, haz waste re: 157-211 W. 119th ST, 11844-11912 S. Wentworth",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Neil Yodnane,Partner Engineering and Science,"UST re: 100-151 W. Illinois, 81-93 & 500-508 N. Clark",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Benjamin Kelderhouse,Integrity Environmental Services,"Records re: 7350 S. Hamlin, 3625 W. 73rd ST",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Marcella Bondie Keenan,Carnow Conibear,"Info re: 314 W. Whiting, 314 W. Walton, 932 N. Franklin",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Ben Wiggins,Fountainhead Engineering,Info re: 2100 S. Kilbourn,2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 1912-18 & 1901-17 N. Damen, 1950-2012 W. Cortland",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 1601-19 & 1600-22 N. Damen, 1610-20 N. Winchester, 1942-58 W. North Ave, 1601-15 N. Milwaukee",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 4309-17 & 4405-09 S. Wabash, 4300-42, 4317-41, 4400-08, 4401-09 S. Michigan, 4310-44 & 4319-55 S. Indiana, 4316-4402 & 4319-4401 S. Prairie, 4338-4400 S. Calumet",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 51-107, 224-332, 223-321 E. 44th ST, 105-125, 106-126, 57-77 E. 43rd ST",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 924 & 926 N. California ",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills, releases re: 3629 W. 63rd ST",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST info re: 6106-24 N. Kenmore,2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Valerie Dougados,Pioneer,"Info re: 2201-99 & 2301-65 S. Blue Island, 2230-58, 2231-59, 2300-64, 2301-65, 2400-98, 2401-66, 2500-66 S. Paulina",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Valerie Dougados,Pioneer,"Info re: 2301-65, 2300-64, 2401-65, 2400-64, 2501-65, 2500-64, 2601-25, 2600-34 S. Wood, 2347-69, 2401-65, 2501-69, 2601-59 S. Wolcott",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Claire McKendrick,"ARCADIS US, Inc","UST records, permits, violations re: 1646, 1652, 1656 N. Bosworth",2011-03-29T00:00:00.000,2011-04-05T00:00:00.000
+Michael Glenn,UAS,"Info re: 5608-14, 5622-32 S. Drexel",2011-03-28T00:00:00.000,2011-04-04T00:00:00.000
+Frannie Kell,URS Corporation,Info re: 11759 S. Racine,2011-03-28T00:00:00.000,2011-04-04T00:00:00.000
+Phil English,The English Company,"Asbestos, UST, AST, spills, violations re: 3300 & 3306 W. 26th ST",2011-03-28T00:00:00.000,2011-04-04T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 3330-50 & 3329-51 W. 48th PL,2011-03-28T00:00:00.000,2011-04-04T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills, env concerns re: 4221 S. Western",2011-03-28T00:00:00.000,2011-04-04T00:00:00.000
+Judie Wilson,MIONX,Info re: 1217-19 W. Monroe,2011-03-28T00:00:00.000,2011-04-04T00:00:00.000
+Mike Wan,Hydrodynamics,UST and haz waste re: 7901 S. Komensky,2011-03-28T00:00:00.000,2011-04-04T00:00:00.000
+Mark Collier,Illinois State Geological Survey,"Info regarding haz materials and UST re: 5555 N. Cumberland, 8337 W. Bryn Mawr",2011-03-28T00:00:00.000,2011-04-04T00:00:00.000
+Aaron Colin,"K-Plus Engineering, LLC",Info re: 11151-75 S. Ashland,2011-03-25T00:00:00.000,2011-04-01T00:00:00.000
+Emily Synal,V3 Companies,Info re: 8010 S. Kostner,2011-03-25T00:00:00.000,2011-04-01T00:00:00.000
+Phillip Pecelunas,Eldertree Enveco,Info re: 3231-3301 W. Lawrence ,2011-03-25T00:00:00.000,2011-04-01T00:00:00.000
+Phillip Pecelunas,Eldertree Enveco,"Info re: 6400-99 N. Avondale, 6500-99 N. Olmsted, 6500-99 N. Ogallah",2011-03-25T00:00:00.000,2011-04-01T00:00:00.000
+Aaron Colin,"K-Plus Engineering, LLC",Info re: 2033 W. North Ave,2011-03-25T00:00:00.000,2011-04-01T00:00:00.000
+Aaron Colin,"K-Plus Engineering, LLC",Info for years 2007-2011 re: 1251-55 S. Michigan,2011-03-25T00:00:00.000,2011-04-01T00:00:00.000
+Andrea Kleinaitis,GaiaTech,"Info re: 5060-92 & 5079-93 N. Kimberly, 5090-5146 & 5089-5145 N. Kenton, 4601-53 W. Foster",2011-03-25T00:00:00.000,2011-04-01T00:00:00.000
+Colleen Bohlin,GaiaTech,"Records re: 1357-1421 W. 103rd ST, 10319-59 S. Charles",2011-03-24T00:00:00.000,2011-03-31T00:00:00.000
+George Bouchie,EBI Consulting,Info re: 133 S. State,2011-03-24T00:00:00.000,2011-03-31T00:00:00.000
+Jeff Goeden,PSI,Info re: 6116-34 S. King Drive,2011-03-24T00:00:00.000,2011-03-31T00:00:00.000
+Mark Brumwell,ESI,"Info re: 1800-56 & 1805-11 N. Kostner, 4419 W. Cortland",2011-03-24T00:00:00.000,2011-03-31T00:00:00.000
+Eric Brousseau,GaiaTech,"Tanks, spills, inspections, USTs, ASTs, re: 4045 W. Thorndale",2011-03-24T00:00:00.000,2011-03-31T00:00:00.000
+Siraa Smadi,Anderson Environmental Consulting,Env issues re: 344 E. 63rd ST,2011-03-24T00:00:00.000,2011-03-31T00:00:00.000
+Nohemi Melero,Carnow Conibear,"Records re: 8848, 8852, 8854, 8929, 8935, 8939, 8945, 8959 S. Loomis",2011-03-24T00:00:00.000,2011-03-31T00:00:00.000
+Mike DeBraske ,GEI Consultants ,Info re: 4200 & 4300 W. 35th PL,2011-03-23T00:00:00.000,2011-03-30T00:00:00.000
+John-Patrick Farrell,AEI Consultants,Info re: 1506 W. Fulton,2011-03-23T00:00:00.000,2011-03-30T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 6730, 6750, 6770, 6790, 6810 S. Keating",2011-03-23T00:00:00.000,2011-03-30T00:00:00.000
+Erin Grady,Terracon,"Info re: 4821, 4844, 4840, 4822, 4880, 4801, 4900 W. North Ave, 1606 N. Cicero",2011-03-23T00:00:00.000,2011-03-30T00:00:00.000
+Erin Grady,Terracon,"Info re: 727, 173-179, 724, 730, 729-733 W. Lake, 222 N. Halsted",2011-03-23T00:00:00.000,2011-03-30T00:00:00.000
+Raymond Deyne,Advanced Environmental,Info re: 2232-42 W. Lawrence,2011-03-23T00:00:00.000,2011-03-30T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,"Info re: 6000-16 S. Halsted, 6001-25 & 6000-36 S. Green",2011-03-23T00:00:00.000,2011-03-30T00:00:00.000
+David Streich,Underground Storage Tank Specialists,UST info re: 2655 W. Touhy,2011-03-23T00:00:00.000,2011-03-30T00:00:00.000
+Judie Wilson,Kendall Safety Group,"Info re: 3146-48 W. 63rd ST, 2380 S. Halsted",2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Judie Wilson,IEM Corp,Info re: 1128 W. Armitage,2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Kelly Connolly,Conestega-Rovers & Associates,Info re: 2324 S. Kenneth,2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 3315-57 & 3314-58 W. 47th PL, 4637-37 & 4636-38 S. Christiana",2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Alexandra Ide,Pioneer,"UST info re: 7600-7800 S. Avalon, 1101-1301 & 1100-1300 E. 77th ST, 1101-1301 & 1100-1300 E. 78th ST, 7700-7800 & 7701-7803 S. Woodlawn",2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Alexandra Ide,Pioneer,"UST info re: 6301-6407 & 6300-6402 S. Peoria ST, 6301-6407 & 6300-6402 S. Peoria DR, 6300-6402 & 6301-6401 S. Green, 815-921 E. 63rd ST",2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Andrea Kleinaitis,GaiaTech,"Tank info re: 5080-92 N. Kimberly, 5090-5100 N. Kenton",2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Anthony McDaniel,Nova,Storage tank records re: 2035-2037 N. Kildare,2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Alayne Weingartz,City of Aurora Law Department,Info re: 4932 S. Pulaski,2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Mike DeBraske ,GEI Consultants ,"Info re: 1217-1221 W. Albion, 1201-1245 W. Loyola, 6321-6335 N. Kenmore, 6338-6340 N.Kenmore, 6358 N. Sheridan",2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+John Belter,,Info re: 1601 W. School,2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Hilary Taghap,EDI,"UST, LUST, other info re: 8445 S. Kolin, 4325 W. 84th ST",2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Judie Wilson,"Environment, Inc","Info re: 224 N. Maplewood, 2700 W. Fulton",2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc",UST re: 2900 N. Cicero,2011-03-22T00:00:00.000,2011-03-29T00:00:00.000
+Marcella Bondie Keenan,Carnow Conibear,Env records re: 301 & 312 W. Oak,2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Bill Lennon,EGSL,"Info re: 4800-10 N. Christiana, 5939-45 N. Greenview",2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Alexandra Cudzewicz,ETS Environmental & Assoc.,Info re: 2153-55 W. Irving Park,2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST re: 4327-39 W. Division, 5500-14 S. Homan, 3347-59 N. Bell, 3401-07 W. 55th ST",2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Mohammed Abdullah,,Env records re: 8301 S. Cottage Grove,2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Mindy Olivares,TRC,Info re: 10 E. Grand,2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Brooke Adamek,Pioneer,UST records re: 6600-39 W. Raven,2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 401-431 & 400-430 N. Ogden, 400 & 401-431 N. Ada, 400-430 & 401-431 N. Elizabeth, 1301-1393 W. Hubbard, 1238-1344 & 1239-1343 W. Kinzie",2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Ryan O'Toole,JRO Real Estate,Inspection report and citation re: 3314 N. Hamilton,2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Marcella Bondie Keenan,Carnow Conibear,Env records re: 312 W. Walton,2011-03-21T00:00:00.000,2011-03-28T00:00:00.000
+Valerie Dougados,Pioneer,"Tanks, hazmat spills re: 3915-59 W. Sunnyside, 4454-4460 N. Harding, 4457-61 N. Pulaski",2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Valerie Dougados,Pioneer,"Tanks, hazmat spills re: 4420-4452 & 4421-53 N. Harding, 4415-57 N. Pulaski",2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Valerie Dougados,Pioneer,"Tanks, hazmat spills re: 2600-2630 & 2601-21 S. Trumbull, 2601-21 S. St.Louis, 3415-45 W. 26th ST",2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Anthony McDaniel,GRS Group,"Storage tank records re: 521-539 S. Dearborn, 520-540 S. Plymouth Ct.",2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Barbara Raisanen,Raisanen & Associates,"Info re: 5001, 5007, 5009, 5011, 5017, 5019, 5021 W. 47th ST",2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"Info re: 7015-57 S. Stony Island, 1600-14 E. 71st ST",2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Bill Lennon,EGSL,"Info re: 3334-36 W. Lawrence, 1456-58 W. Thorndale",2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4954 S. Wood,2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4610 S. Wood,2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4929 S. Seeley,2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4744 S. Loomis,2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4949 S. Justine,2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4551 S. Hermitage,2011-03-18T00:00:00.000,2011-03-25T00:00:00.000
+David Miller,Eckland Consultants,"USTs, ASTs, hazmats, spills etc re: 1 W. Superior",2011-03-17T00:00:00.000,2011-03-24T00:00:00.000
+David Miller,Eckland Consultants,"USTs, ASTs, hazmats, spills etc re: 61 W. Superior",2011-03-17T00:00:00.000,2011-03-24T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"Info re: 7015-59 S. Western, 2344 W. 71st ST",2011-03-17T00:00:00.000,2011-03-24T00:00:00.000
+Marie Mueller,Bureau Veritas,UST/AST records and env issues re: 3758 & 3746 W. Belmont,2011-03-17T00:00:00.000,2011-03-24T00:00:00.000
+Jeff Goeden,PSI,Info re: 4113 S. Union,2011-03-17T00:00:00.000,2011-03-24T00:00:00.000
+Valerie Dougados,Pioneer,"Tanks, hazmat spills re: 6244-58, 6251-59, 6300-42 & 6301-47 N. Winthrop, 6301-43 N. Broadway, 1054-70, 1100-30, 1055-69, 1101-29 W. Rosemont",2011-03-17T00:00:00.000,2011-03-24T00:00:00.000
+Kenneth Benson,,Records re 2906-08 W. Warren,2011-03-16T00:00:00.000,2011-03-23T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST records re: 2221-29 W. Roscoe,2011-03-16T00:00:00.000,2011-03-23T00:00:00.000
+Rachel Roszina,ENVIRON International Corp.,Info re: 6650 S. Narragansett,2011-03-11T00:00:00.000,2011-03-18T00:00:00.000
+Kristian Webb,,Info re: 4248 W. Montrose,2011-03-11T00:00:00.000,2011-03-18T00:00:00.000
+Raymond Deyne,Advanced Environmental,"UST,AST,hazmat etc re: 68-72 W. Hubbard, 431-439 & 411-421 N. Clark",2011-03-11T00:00:00.000,2011-03-18T00:00:00.000
+Phil English,The English Company,Info re: 2410 S. Blue Island,2011-03-11T00:00:00.000,2011-03-18T00:00:00.000
+Michael Glenn,UAS,Info re: 1447 & 1451 E. 53rd ST,2011-03-11T00:00:00.000,2011-03-18T00:00:00.000
+Raymond Deyne,Advanced Environmental,"UST,AST,hazmat etc re: 4012 S. Packers",2011-03-11T00:00:00.000,2011-03-18T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 540-614 & 541-603 W. Randolph, 559-571 W. Lake, 153-165 N. Des Plaines, 132-160 N. Clinton, 134-166 & 127-199 N. Jefferson",2011-03-11T00:00:00.000,2011-03-18T00:00:00.000
+John Best,EPI,"USTs, notifications, incidents etc re: 4431-59 & 4501-59 W. 42nd PL",2011-03-10T00:00:00.000,2011-03-17T00:00:00.000
+John-Patrick Farrell,AEI Consultants,Info re: 1508-14 E. 87th ST ,2011-03-10T00:00:00.000,2011-03-17T00:00:00.000
+Heather Nilles,Testing Service Corp,"Info re: 5045, 5051, 5055, 5035 W. 47th PL",2011-03-10T00:00:00.000,2011-03-17T00:00:00.000
+Jeffrey P. Gray,"Wildman, Harrold, Allen & Dixon LLP",Info re: 3636 & 3638 N. Broadway,2011-03-10T00:00:00.000,2011-03-17T00:00:00.000
+Jeff Goeden,PSI,"Info re: 5656 S. Damen, 5655 S. Robey, 1958 & 1950 W. 57th ST",2011-03-09T00:00:00.000,2011-03-16T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 4625-49 & 4624-48 N. Ravenswood,2011-03-09T00:00:00.000,2011-03-16T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 4553 S. Ashland,2011-03-09T00:00:00.000,2011-03-16T00:00:00.000
+Anthony McDaniel,ETS Environmental & Assoc.,"Storage tank records re: 2732-44 N. Pulaski, 4000-12 W. Parker",2011-03-08T00:00:00.000,2011-03-15T00:00:00.000
+Mark Kupiec,Mark J. Kupiec & Associates,UST re: 6501-03 S. Kedzie,2011-03-08T00:00:00.000,2011-03-15T00:00:00.000
+Alexandra Ide,Pioneer,"UST permits re: 5400-5490 & 5401-5491 S. South Shore, 5423-5481 S. Everett, 1780-1800 E. 55th ST",2011-03-08T00:00:00.000,2011-03-15T00:00:00.000
+Michael Glenn,UAS,Info re: 5707 & 5711 S. Woodlawn,2011-03-04T00:00:00.000,2011-03-14T00:00:00.000
+LeeAnn Kruszynski,,"Info re: 151-169 N. Wacker, 312-332 W. Randolph",2011-03-04T00:00:00.000,2011-03-14T00:00:00.000
+Judie Wilson,Environment Inc,Info re: 3302 W. Peterson,2011-03-04T00:00:00.000,2011-03-14T00:00:00.000
+Julie Lagvankar,EFI Global,Storgae tanks & asbestos re: 2014 W. Wabansia,2011-03-04T00:00:00.000,2011-03-14T00:00:00.000
+Aaron Minjares,ESE Partners,Violations re: 5626 S. Damen,2011-03-04T00:00:00.000,2011-03-14T00:00:00.000
+Elizabeth Langan,Atwell,Info re: 3352 N. Western,2011-03-04T00:00:00.000,2011-03-14T00:00:00.000
+Elizabeth Langan,Atwell,Info re: 3346 N. Western,2011-03-04T00:00:00.000,2011-03-14T00:00:00.000
+Yon S. Choe,Law Offices of CK & Associates,Permits for UST re: 6430-40 S. Pulaski,2011-03-03T00:00:00.000,2011-03-11T00:00:00.000
+Jeff Fitzgibbons,Weaver Boos Consultants ,"AST/UST, permits, inspections, violations re: 328 W. 40th PL",2011-03-03T00:00:00.000,2011-03-11T00:00:00.000
+Jason Roth,Atwell,Info re: 2700 E. 75th ST,2011-03-03T00:00:00.000,2011-03-11T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","Tank info re: 4808-18 S. Kedzie, 1649-57 N. Damen",2011-03-03T00:00:00.000,2011-03-11T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 5233 & 5239 S. Kedzie,2011-03-02T00:00:00.000,2011-03-10T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 3056-3106 & 3055-3105 E. 87th ST, 8642-8700 & 8643-8701 S. Baltimore",2011-03-02T00:00:00.000,2011-03-10T00:00:00.000
+Robert Johnson,ECG,UST/AST re: 839-841 W. Diversey,2011-03-02T00:00:00.000,2011-03-10T00:00:00.000
+Dave Glowacz,,". . . 1. The positions currently held by these employees, and the date upon which . . .
+",2011-03-01T00:00:00.000,2011-03-09T00:00:00.000
+John-Patrick Farrell,AEI Consultants,Info re: 5201 W. Division,2011-03-01T00:00:00.000,2011-03-09T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Info re: 4952, 5010, 5016 W. North Ave",2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST re: 4633-43 N. Dover,2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Info re: 111, 113, 117 S. Peoria; 114, 116 S. Green",2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+John-Patrick Farrell,AEI Consultants,Info re: 1516 & 1518 E. 87th ST,2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Elizabeth Langan,Atwell,Info re: 3330 N. Western,2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 300 W. 83rd ST",2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 320-340 W. 83rd ST",2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 250 W. 83rd ST",2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 8301 S. Stewart",2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 4911 W. Diversey,2011-02-28T00:00:00.000,2011-03-08T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 223-233 W. Chicago",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 3624 N. Broadway",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 3620 N. Broadway",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 3716-58 & 3701-59 W. Cortland, 1801-1917 & 1842-1918 N. Ridgeway, 1800-58 N. Lawndale, 1801-59 N. Hamlin, 3700-58 W. Bloomingdale",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 3636-38 N. Broadway",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 3226-38, 3225-39, 3421-3505 & 3420-3504 W. Armitage, 1938-2012 & 1939-2013 N. Saint Louis, 2015 N. Sawyer, 3229 W. McLean",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 3631 N. Halsted ",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Valerie Dougados,Pioneer,"Tank permits, spills re: 5109-59, 5104-58, 5201-05 & 5200-02 S. Ashland, 5114-58 & 5200-02 S. Justine, 1520-58 & 1521-59 W. 52nd ST",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, env records re: 260 W. Superior",2011-02-25T00:00:00.000,2011-03-04T00:00:00.000
+Keith Harley,Chicago Legal Clinic,"Records regarding 2727 S. Troy . . . Since your response to LVEJO's September 28, 2009 Freedom of Information Act request . . . ",2011-02-24T00:00:00.000,2011-03-03T00:00:00.000
+Alpana Chaudhary,EDI,"Info re: 303-345 S. Western, 300-345 S. Oakley, 2308-58 W. Van Buren, 2305-59 W. Jackson",2011-02-24T00:00:00.000,2011-03-03T00:00:00.000
+Christine Karlovitz,Carlson Envrionmental,Info re: 9712 W. Foster,2011-02-24T00:00:00.000,2011-03-03T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST re: 3401-07 W. 55th ST, 1649-57 N. Damen",2011-02-24T00:00:00.000,2011-03-03T00:00:00.000
+Alexandra Ide,Pioneer,"Info re: 813-947 & 900-940 W. 19th ST, 900-914 & 917-941 W. 19th PL, 1840-1922 & 1901-1917 S. Sangamon, 1901-1917 & 1840-1922 S. Peoria",2011-02-24T00:00:00.000,2011-03-03T00:00:00.000
+Alexandra Ide,Pioneer,"Info re: 4000-4180 & 4001-4161 S. Morgan, 920-1150 & 921-1151 W. Exchange",2011-02-24T00:00:00.000,2011-03-03T00:00:00.000
+Timothy Dahlstrand,AES Due Diligence,"Spills, innspections, violations re: 1248 S. Canal",2011-02-24T00:00:00.000,2011-03-03T00:00:00.000
+Lori Schulz,EPS Environmental,"info re: 1216-1405 N. Cicero, 4814-4855 W. Kamerling, 4814-4855 W. Potomac",2011-02-23T00:00:00.000,2011-03-02T00:00:00.000
+Joe Selinger,Partner Engineering and Science,UST/AST etc re: 3416 W. Belmont,2011-02-23T00:00:00.000,2011-03-02T00:00:00.000
+Jeff Goeden,PSI,Info re: 6560 W. Fullerton,2011-02-23T00:00:00.000,2011-03-02T00:00:00.000
+Shrey Patel,Clean World Engineering,Env records re: 1 N. Hamlin,2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Tara Sengamalay,Shaw Environmental,"UST/AST, spills, releases re: 4600 S. Michigan",2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Micki Hughes,"K-Plus Engineering, LLC","USTs, ASTs, environmental violations re: 6200 S. Western",2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Ben Youra,G2 Consulting Group,"Storage tank, LUST, hazmat, violations re: 6335 N. Western",2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Darby Nafziger,,Recrods re: 315-325 S. Kilpatrick,2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Darby Nafziger,,Records re: 10212-14 S. King Drive,2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Darby Nafziger,,Records re: 6022 S. Indiana,2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Timothy Dahlstrand,AES Due Diligence,"UST, spills, releases re: 1955 N. Damen, 1955 W. Armitage",2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Timothy Dahlstrand,AES Due Diligence,"UST, spills, releases re: 3544,3548,3552,3558,3562,3564,3566,3568,3574,3578 W. Armitage",2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Elizabeth Langan,Atwell,Info re: 2800 E. 81st ST,2011-02-22T00:00:00.000,2011-03-01T00:00:00.000
+Matt Kunz,G2 Consulting Group,Info re: 10314-10324 S. Kedzie,2011-02-17T00:00:00.000,2011-02-25T00:00:00.000
+Phil English,The English Company,"UST, spills, violations re: 4501 N. Clark",2011-02-17T00:00:00.000,2011-02-25T00:00:00.000
+Robert Johnson,ECG,"UST, AST, hazmat re: 2727 & 2729 N. Pine Grove",2011-02-17T00:00:00.000,2011-02-25T00:00:00.000
+Alexandra Cudzewicz,ETS Environmental & Assoc.,Records for: 910 E. 87th ST,2011-02-17T00:00:00.000,2011-02-25T00:00:00.000
+Robert Anderson,GaiaTech,"Complaint, inspections, enforcement, UST, etc re: 328 S. Jefferson",2011-02-17T00:00:00.000,2011-02-25T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 2208-2321 W. Howard, 7518-57 N. Oakley, 7518-57 N. Bell",2011-02-17T00:00:00.000,2011-02-25T00:00:00.000
+John Best,EPI,"Info re: 4717-19, 4701-15, 4721-27 S. Ashland",2011-02-17T00:00:00.000,2011-02-25T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 818 S. Cicero,2011-02-17T00:00:00.000,2011-02-25T00:00:00.000
+Scott Waldenmyer,MeritCorp Group,Info re: 1135-37 W. Madison,2011-02-16T00:00:00.000,
+John Best,EPI,"USTs, notifications, incidents etc re: 5545-47 & 5539-43 N. Clark",2011-02-16T00:00:00.000,
+Alan Gunter,ATC Associates,Info re: 200 N. Michigan,2011-02-16T00:00:00.000,
+Jill Ostrowski,ENVIRON,"Info re: 2720, 2755, 2705, 2735 W. 15th ST, 1401-1407 S. California, 1500, 1401, 1407 S. Fairfield, 1512 S. Washtenaw, 2742, 2749, 2756, 2754 W. Ogden",2011-02-16T00:00:00.000,
+Jennifer Farris,Bureau Veritas,"Info re: 1377 W. 15th ST, 1359-77 W. 15th ST",2011-02-16T00:00:00.000,
+Tim Stohner,KPRG and Associates,Info re: 4800 N. Kilpatrick,2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 1642-1931 N. Kostner, 1642-1931 N. Kilbourn, 1642-1931 N. Lowell, 4216-4547 W. Cortland, 1900-1955 W. Homer",2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+Mark Krueger,LM Consultants,Info re: 4807 N. Central Park,2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+Laura Brooks,AECOM,"Info re: 5601 & 5638 S. Normal, 511, 530, 532 W. Tremont, 528 W. 58th ST",2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+Jason Roth,Atwell,Info re: 1617-21 S. Carpenter,2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+June Pankow,Consulting Solutions,UST re: 525 W. Deming,2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+June Pankow,Consulting Solutions,UST re: 421-431 W. Barry,2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+Heide Radke,URS Corporation,"Info re: 225 (196,198,200-206,223-235) W. Washington, 23, 27, 31-41, 101-117 N. Franklin",2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+Tim Stohner,KPRG and Associates,Info re: 4724 W. Lawrence,2011-02-15T00:00:00.000,2011-02-23T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 2305-2321 & 2304-2322 W. Howard, 7556-60 & 7555-61 N. Claremont",2011-02-14T00:00:00.000,2011-02-22T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills, env concerns re: 3920 & 3924 N. Western",2011-02-14T00:00:00.000,2011-02-22T00:00:00.000
+Rebecca Howard,URS Corporation,"Storage tank, env issues etc re: 225 W. Washington",2011-02-10T00:00:00.000,2011-02-17T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST permits re: 1915-27 W. Estes,2011-02-10T00:00:00.000,2011-02-17T00:00:00.000
+Bill Lennon,EGSL,"Info re: 1012 W. RANDOLPH STREET
+ CHICAGO
+ 60607
+ 
+712 S ABERDEEN
+ CHICAGO
+ 60607
+ 
+846 S. LOOMIS ST.
+ CHICAGO
+ 60607
+ 
+1913 WEST 17TH ST.
+ CHICAGO
+ 60608
+ 
+1924 SOUTH LOOMIS
+ CHICAGO
+ 60608
+ 
+1926 S. RACINE AVENUE
+ CHICAGO
+ 60608
+ 
+2954 S ARCHER AVE
+ CHICAGO
+ 60608
+ 
+2300 W. GARFIELD BLVD.
+ CHICAGO
+ 60609
+ 
+3551-61 S. ARCHER  & & 3536-40 AKA HAMILTON (CORNER LOT)
+ CHICAGO
+ 60609
+ 
+3831 S. WALLACE AVENUE
+ CHICAGO
+ 60609
+ 
+821-823 S. CLAREMONT
+ CHICAGO
+ 60612
+ 
+4325-29 N HERMITAGE
+ CHICAGO
+ 60613
+ 
+4339-49 N. WOLCOTT
+ CHICAGO
+ 60613
+ 
+2617-19 CORNELIA AVENUE
+ CHICAGO
+ 60618
+ 
+7152-54 S. CALUMET AVE
+ CHICAGO
+ 60619
+ 
+8100 S. EVANS AVE
+ CHICAGO
+ 60619
+ 
+8134 S. MARYLAND
+ CHICAGO
+ 60619
+ 
+8100-06 S JUSTINE
+ CHICAGO
+ 60620
+ 
+8535 S. GREEN STREET
+ CHICAGO
+ 60620
+ 
+8601 S. JUSTINE
+ CHICAGO
+ 60620
+ 
+8757-75 S. BEVERLY
+ CHICAGO
+ 60620
+ 
+7148-50 S EMERALD AVENUE
+ CHICAGO
+ 60621
+ 
+7304-06 S. HARVARD
+ CHICAGO
+ 60621
+ 
+1018 W. FRY
+ CHICAGO
+ 60622
+ 
+1239 W OHIO
+ CHICAGO
+ 60622
+ 
+1269 NORTH WOLCOTT
+ CHICAGO
+ 60622
+ 
+1304 W OHIO
+ CHICAGO
+ 60622
+ 
+1322 N WOLCOTT AVE
+ CHICAGO
+ 60622
+ 
+1376 W GRAND AVE
+ CHICAGO
+ 60622
+ 
+1432 N ELK GROVE AVENUE
+ CHICAGO
+ 60622
+ 
+1449 N. WOOD ST
+ CHICAGO
+ 60622
+ 
+1503 N. PAULINA ST.
+ CHICAGO
+ 60622
+ 
+1512 W ERIE STREET
+ CHICAGO
+ 60622
+ 
+1523 N CAMPBELL
+ CHICAGO
+ 60622
+ 
+1631 N. PAULINA AVE
+ CHICAGO
+ 60622
+ 
+1807 W NORTH AVE
+ CHICAGO
+ 60622
+ 
+1929 W EVERGREEN
+ CHICAGO
+ 60622
+ 
+1941 W. EVERGREEN
+ CHICAGO
+ 60622
+ 
+1971-75 N. LINCOLN AVE
+ CHICAGO
+ 60622
+ 
+2042 W. AUGUSTA BLVD
+ CHICAGO
+ 60622
+ 
+2130 W. CHICAGO AVE.
+ CHICAGO
+ 60622
+ 
+3157 W AUGUSTA BLVD
+ CHICAGO
+ 60622
+ 
+820-824 N. MOZART STREET
+ CHICAGO
+ 60622
+ 
+952 N NOBLE
+ CHICAGO
+ 60622
+ 
+956-958 N. WINCHESTER
+ CHICAGO
+ 60622
+ 
+2425 N. KEDZIE
+ CHICAGO
+ 60623
+ 
+601 N HOMAN
+ CHICAGO
+ 60624
+ 
+4451-53 N. DRAKE
+ CHICAGO
+ 60625
+ 
+11341- 11343 SOUTH KING DRIVE
+ CHICAGO
+ 60628
+ 
+4135 W. 63RD ST
+ CHICAGO
+ 60629
+ 
+6400-02 S. ROCKWELL AVE.
+ CHICAGO
+ 60629
+ 
+3525 SOUTH CALIFORNIA
+ CHICAGO
+ 60632
+ 
+4355 SOUTH SAWYER
+ CHICAGO
+ 60632
+ 
+2957-59 N. PARKSIDE
+ CHICAGO
+ 60634
+ 
+5810 W MONTROSE AVE
+ CHICAGO
+ 60634
+ 
+6000-12 W. IRVING PARK ROAD & 4002-18 N. AUSTIN AVE.
+ CHICAGO
+ 60634
+ 
+8314 W. IRVING PARK
+ CHICAGO
+ 60634
+ 
+6231-33 S KING DRIVE
+ CHICAGO
+ 60637
+ 
+6119-23 W 64TH PL
+ CHICAGO
+ 60638
+ 
+6214-26 EBERHART
+ CHICAGO
+ 60638
+ 
+6252 S. CENTRAL AVE
+ CHICAGO
+ 60638
+ 
+6946 W 65TH STREET
+ CHICAGO
+ 60638
+ 
+1620-22 N. LECLAIRE
+ CHICAGO
+ 60639
+ 
+1706-08 N NARRAGANSETT AVE
+ CHICAGO
+ 60639
+ 
+2024-26 N KOSTNER AVE
+ CHICAGO
+ 60639
+ 
+4353-57 W PARKER
+ CHICAGO
+ 60639
+ 
+4452 W. PARKER AVE
+ CHICAGO
+ 60639
+ 
+5233-35 WEST NORTH AVE.
+ CHICAGO
+ 60639
+ 
+4904-08 N. MAGNOLIA
+ CHICAGO
+ 60640
+ 
+3501-07 N. CICERO & & 4758-66 CORNELIA AVE.
+ CHICAGO
+ 60641
+ 
+4015-23 W SCHOOL ST
+ CHICAGO
+ 60641
+ 
+4021 W. BELLE PLAINE
+ CHICAGO
+ 60641
+ 
+4041-43 W SCHOOL ST
+ CHICAGO
+ 60641
+ 
+4045-55 W SCHOOL ST
+ CHICAGO
+ 60641
+ 
+10931 S. WESTERN
+ CHICAGO
+ 60643
+ 
+1800-10 W. 103RD.
+ CHICAGO
+ 60643
+ 
+5448- 50 W. CONGRESS PKWY
+ CHICAGO
+ 60644
+ 
+1645 N. CLYBOURN
+ CHICAGO
+ 60647
+ 
+1700 W. DIVERSEY PARKWAY
+ CHICAGO
+ 60647
+ 
+2015 N. DAMEN
+ CHICAGO
+ 60647
+ 
+2033 N. WESTERN AVENUE
+ CHICAGO
+ 60647
+ 
+2133-45 W. CONCORD
+ CHICAGO
+ 60647
+ 
+2301-15 MILWAUKEE AVE.
+ CHICAGO
+ 60647
+ 
+2339 N. SAWYER
+ CHICAGO
+ 60647
+ 
+2430-32 N. WASHTENAW AVE.
+ CHICAGO
+ 60647
+ 
+3919-21 W. FULLERTON
+ CHICAGO
+ 60647
+ 
+2605-07 EAST 73RD STREET
+ CHICAGO
+ 60649
+ 
+7214-18 S. YATES BLVD.
+ CHICAGO
+ 60649
+ 
+7401-11 S. EXCHANGE
+ CHICAGO
+ 60649
+ 
+7936 S CAMPBELL
+ CHICAGO
+ 60652
+ 
+2345 N NEWCASTLE
+ 
+",2011-02-10T00:00:00.000,2011-02-17T00:00:00.000
+Jeff Goeden,PSI,Info re: 7601 S. Cicero,2011-02-10T00:00:00.000,2011-02-17T00:00:00.000
+Elizabeth Ashworth,EBI Consulting,"ASTs, USTs, complaints, chemical spills, releases re: 3255 & 3257 W. 111th ST",2011-02-10T00:00:00.000,2011-02-17T00:00:00.000
+Emily Synal,V3 Companies,Info re: 3520 W. Lake,2011-02-09T00:00:00.000,2011-02-17T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 4335-4484 W. Lawrence, 4669-4854 N. Elston, 4669-4854 N. Kostner",2011-02-09T00:00:00.000,2011-02-17T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4921 S. Marshfield,2011-02-09T00:00:00.000,2011-02-17T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4808 S. Damen,2011-02-09T00:00:00.000,2011-02-17T00:00:00.000
+Jill Ostrowski,ENVIRON International Corp.,Info re: 2700 W. Ogden,2011-02-09T00:00:00.000,2011-02-17T00:00:00.000
+Judie Wilson,Environmental Inc.,"Info re: 3212 N. Broadway, 624 W. Belmont",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Sara Locke,Terracon,"Spills, leaks, UST, etc re: 648-654 E. 50th ST, 4841, 4950-58 S. Langley, 4949 S. Cottage Grove",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Sara Locke,Terracon,"Spills, leaks, UST, etc re: 727-737 E. 50th PL, 5033-39 S. Evans, 4930 S. Langley, 4906 S. Saint Lawrence",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Alexandra Ide,Pioneer Environmental,"UST records re: 2401-25 & 2400-2532 N. Elston, 2601-09 N. Leavitt, 2000-2020 W. Fullerton, 2400-50 & 2401-2501 N. Damen",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Thomas Dehn,PES Associates,"UST, AST, spills re: 2100 S. Indiana",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 550-731 W. 41st ST, 550-731 W. Root, 4040-4191 S. Emerald, 4040-4191 S. Union",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Mark Kelker,AEI Consultants,Info re: 300 W. Grand,2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Joe Selinger,Partner Engineering and Science,"UST, AST, spills re: 3424 W. Belmont",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Chris Heynen,EBI Consulting,"Spills, dumping, UST etc re: 440 N. McClurg",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Alexandra Ide,Pioneer Environmental,"UST records re: 1230-52 & 1231-35 W. Melrose, 1223-45 W. School",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Enforcement, spills, UST etc re: 7826 & 7828 S. Claremont",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Enforcement, spills, UST etc re: 7313 & 7315 S. Western",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Enforcement, spills, UST etc re: 4401 N. Pulaski, 3952 & 3956 W. Montrose",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Anne Erdmann,Illinois State Geological Survey,"UST, hazmat incidents re: 3149-57 W. 71st ST",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Mark Neuses,Trileaf Corporation,"Spills, dumping, UST etc re: 3159 N. Elston",2011-02-08T00:00:00.000,2011-02-16T00:00:00.000
+Douglas McVey,SES Environmental,Info re: 1818 W. 103rd ST,2011-02-07T00:00:00.000,2011-02-15T00:00:00.000
+John Best,EPI,"USTs, notifications, incidents re: 4800-10 W. Addison, 3600-10 N. Cicero",2011-02-07T00:00:00.000,2011-02-15T00:00:00.000
+Jason Roth,Atwell,Info re: 7050-60 W. Belmont,2011-02-07T00:00:00.000,2011-02-15T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills re: 3918 N. Western",2011-02-07T00:00:00.000,2011-02-15T00:00:00.000
+Judie Wilson,MIONX,"UST info re: 1744-54 W. Montrose, 3435 N. Kimball",2011-02-07T00:00:00.000,2011-02-15T00:00:00.000
+Jennifer Farris,Bureau Veritas,"Info re: 3570, 3568, 3566 N. Milwaukee, 3529, 3535 N. Kildare",2011-02-07T00:00:00.000,2011-02-15T00:00:00.000
+Adam K. Zakroczymski,Stateline Environmental,"UAT, AST info re: 6500 N. Claremont",2011-02-07T00:00:00.000,2011-02-15T00:00:00.000
+Mark Krueger,LM Consultants,Info re: 3554 W. Lawrence,2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Raymond Deyne,Advanced Environmental,Info re: 300-358 N. California,2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills re: 5237-43 W. Diversey",2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 1558-1624 E. 56th ST, 5514-58 S. Cornell",2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 6110-28 & 6113-27 S. Kimbark, 6146-6212 & 6147-6203 S. Kenwood, 1319-67 & 1316-66 E. 62nd ST, 6113-29 S. Woodlawn, 6140-58 S. Dorchester",2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 6149-6215 & 6146-6206 S. Greenwood, 1020-1108 & 1029-1109 E. 62nd ST, 1113-53 & 1112-50 E. 62nd ST, 6154-6216 & 6157-6217 S. University",2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 6131-6215 & 6156-6212 S. Ingleside, 928-966 & 927-967 E. 62nd ST, 6100-6116 & 6101-6119 S. Ellis, 911-1023 E. 61st ST, 6100-18 S. Greenwood",2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 6046-6108 & 6047-6111 W. Irving Park, 3948-4012 & 3957-4015 N. Meade",2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Mark Krueger,LM Consultants,"Info re: 3558 W. Lawrence, 4809, 4811, 4813 N. Central Park",2011-02-04T00:00:00.000,2011-02-14T00:00:00.000
+Lillian McCarthy ,Troutman Sanders LLP,Info re: 133 S. State,2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Anthony McDaniel,GRS Group,Storage tank records re: 937-939 W. Cornelia,2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Melissa Jacques-Bibeault,The Orin Group LLC,"USTs, ASTs, haz spills re: 1 W. Washington",2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Mark Kupiec,Mark J. Kupiec & Associates,Permits re: 3906-08 N. Broadway,2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Paul Sambanis,Weaver Boos Consultants ,"Info re: 1759-07 W. Hastings, 1700-59 W. 14th ST, 1700-59 W. 14th PL, 1700-59 W. 15th ST",2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Raymond Deyne,Advanced Environmental,"Info re: 2727-47 W. Chicago, 2757 W. Chicago",2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"AST, releases re: 2400 E. 130th ST",2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Jason Roth,Atwell,Info re: 426 W. Belmont,2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Loren Casale,Tetra Tech,"Env incidents, spills, complaints, etc re: 687 S. Cicero, 4300 W. 72nd ST",2011-02-03T00:00:00.000,2011-02-10T00:00:00.000
+Kristian Webb,The English Company,"Demo permits, env info, tanks etc re: 1161-69 N. State",2011-02-02T00:00:00.000,2011-02-10T00:00:00.000
+Kristian Webb,The English Company,"Demo permits, env info, tanks etc re: 6836-48 S. Pulaski",2011-02-02T00:00:00.000,2011-02-10T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 1400-30 & 1401-31 N.Elston, 1400-30 & 1401-31 N. Magnolia",2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Vernon Brown,O'Brien & Associates,Info re: 190-1610 W. Pershing,2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST info re: 3515-23 N. Long, 5353-59 W. Eddy, 3231-47 N. Lockwood, 5250-64 W. Melrose, 1530-38 W. Greenleaf",2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Ben Youra,G2 Consulting Group,"Storage tank, LUST, hazmat, violations re: 2351, 2355, 2357 W. Devon",2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Ben Youra,G2 Consulting Group,"Storage tank, LUST, hazmat, violations re: 6349, 6351, 6353, 6355, 6359 N. Western",2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Robert Anderson,GaiaTech,"Complaints, UST/AST, enforcement actions re: 4045 W. Thorndale",2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"AST/UST, spills, releases re: 101-123 W. Jackson, 301-317 S. LaSalle, 300-312 S. Clark",2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Chris Heynen,EBI Consulting,"Material spills, dumping, UST etc re: 227 E. Walton",2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 5632 W. Lawrence,2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Valerie Dougados,Pioneer,"Tank info, spills re: 7110-40 W. North Ave, 1601-63 N. Neva, 1600-64 N. Nordica",2011-02-01T00:00:00.000,2011-02-08T00:00:00.000
+Timothy Lagousakos,ISO Tech,UST re: 4070 N. Clark,2011-01-31T00:00:00.000,2011-02-07T00:00:00.000
+John Best,EPI,"USTs, incidents, etc re: 4300-4330 W. Chicago Ave.",2011-01-31T00:00:00.000,2011-02-07T00:00:00.000
+Alpana Chaudhary,EDI,Info re: 3743-55 S. Cottage Grove,2011-01-31T00:00:00.000,2011-02-07T00:00:00.000
+Ron Horan,Terracon,"LUST/UST files re: 5120, 5134, 5142, 5152 W. 47th ST",2011-01-31T00:00:00.000,2011-02-07T00:00:00.000
+Judie Wilson,IEM Corp,"Info re: 2350-58, 2356 S. Kedzie",2011-01-28T00:00:00.000,2011-02-04T00:00:00.000
+Sara Locke,Terracon,"Info re: 3020, 2942, 3142 W. North Ave, 2675, 2708, 2706 E. 75th ST, 7501 S. South Shore",2011-01-28T00:00:00.000,2011-02-04T00:00:00.000
+Anne Erdmann,Illinois State Geological Survey,"UST, hazmat incidents re: 3145, 3201, 3215, 3540 W. 71st ST, 6640, 6643, 6655, 6737, 7100, 7101 S. Kedzie, 3148, 3200, 3551 W. Marquette",2011-01-28T00:00:00.000,2011-02-04T00:00:00.000
+Craig Cabrera ,MACTEC Engineering and Consulting,"USTs, ASTs, violations, complaints re: 940-950 N. Rush",2011-01-28T00:00:00.000,2011-02-04T00:00:00.000
+Craig Cabrera ,MACTEC Engineering and Consulting,"USTs, ASTs, violations, complaints re: 1-15 E. Oak",2011-01-28T00:00:00.000,2011-02-04T00:00:00.000
+Craig Cabrera ,MACTEC Engineering and Consulting,"USTs, ASTs, violations, complaints re: 947-951 N. State",2011-01-28T00:00:00.000,2011-02-04T00:00:00.000
+Scott McSorley,Carlson Envrionmental,Spill records re: 3041 N. Monticello,2011-01-28T00:00:00.000,2011-02-04T00:00:00.000
+E. Giovani Del Rivero,EBI Consulting,"Material spills, dumping, UST info re: 222 W. Cermak",2011-01-28T00:00:00.000,2011-02-04T00:00:00.000
+Tom Brecheisen,Brecheisen Engineering,"UST, AST, inspections, violations re: 3924-66 & 3925-45 W. Grand, 1331-1409 N. Pulaski",2011-01-27T00:00:00.000,2011-02-03T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"AST, UST, spills re: 2250 E. 130th ST",2011-01-27T00:00:00.000,2011-02-03T00:00:00.000
+Erin Grady,Terracon,"Info re: 1622 N. Whipple, 2700 E. 75th ST, 545 N. Central Park",2011-01-27T00:00:00.000,2011-02-03T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 2900-3025 N. Clark, 636-811 W. Wellington, 636-811 W. Oakdale, 2934-2951 N. Halsted",2011-01-27T00:00:00.000,2011-02-03T00:00:00.000
+Mary Cappellini,EGSL,Info re: 10115 S. Torrence,2011-01-27T00:00:00.000,2011-02-03T00:00:00.000
+Beth Place,Conestega-Rovers & Associates,"Info re: 4709-4757, 4722-4730, 4740-4746 S. Pulaski",2011-01-27T00:00:00.000,2011-02-03T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 3200-3353 W. Grand, 1020-1107 N. Christiana, 1020-1107 N. Spaulding",2011-01-26T00:00:00.000,2011-02-02T00:00:00.000
+Valerie Hofmann,"Hygieneering, Inc","UST, haz mat spills re: 8248 S. Paulina",2011-01-26T00:00:00.000,2011-02-02T00:00:00.000
+Valerie Hofmann,"Hygieneering, Inc","UST, haz mat spills re: 1700 W. 83rd ST, 8253-8255 S. Paulina",2011-01-26T00:00:00.000,2011-02-02T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc",UST records re: 6153-59 S. Ebert,2011-01-25T00:00:00.000,2011-02-01T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST info re: 5153-65 S. Pulaski, 3350-58 S. Bell, 2238-46 W. 34th ST",2011-01-25T00:00:00.000,2011-02-01T00:00:00.000
+Shrey Patel,Clean World Engineering,Env records re: 4534 & 4528 N. Elston,2011-01-25T00:00:00.000,2011-02-01T00:00:00.000
+Mark Kupiec,Mark J. Kupiec & Associates,"Permits re: 954 N. Western, 2405 W. Augusta",2011-01-25T00:00:00.000,2011-02-01T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 4628-4706 & 4627-4707 S. Drexel, 820-920 & 825-905 E. 47th ST",2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Aaron Colin,"K-Plus Engineering, LLC","USTs, ASTs, violations, hazmat re: 852-858 W. Belle Plaine",2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Lindsey Oliver,"GSG Consultants, Inc",Tank records re: 3262 & 3320 W. Belmont,2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Alexandra Cudzewicz,ETS Environmental & Assoc.,Any env info re: 3449 W. 48th PL,2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,Info re: 101 E. 35th ST,2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,"Info re: 2700-2900 N. Elston, 3000-3200 N. Clybourn",2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Demtrios Pullos,,UST info re: 4001 W. Jackson,2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 800-850 W. Pershing, 3840-3860 S. Halsted",2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Ben Youra,G2 Consulting Group,"Storage tank, LUST, hazmat, violations re: 2349 W. Devon",2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Benjamin Kelderhouse,Integrity Environmental Services,All records re: 814-834 W. 120th ST,2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,LUST/UST files re: 5140-5198 S. Cicero,2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 8209-8282 S. Ellis,2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 5001 W. Chicago,2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Info re: 5001 & 5003 W. Chicago, 748 & 756 N. Lavergne",2011-01-24T00:00:00.000,2011-01-31T00:00:00.000
+Chrystine Shelton,Weaver Boos Consultants ,Info re: 1221-1255 N. Wells,2011-01-21T00:00:00.000,2011-01-28T00:00:00.000
+Darrell Green,,Info re: 8641 S. Yates,2011-01-21T00:00:00.000,2011-01-28T00:00:00.000
+Darby Nafziger,Nova,Any records re: 10212-10214 S. King Drive,2011-01-21T00:00:00.000,2011-01-28T00:00:00.000
+Sara Locke,Terracon,"Env info re: 6140 S. Drexel, 727 E. 60th ST",2011-01-21T00:00:00.000,2011-01-28T00:00:00.000
+Kerri Sachtleben,MPE,"UST, AST, haz waste re: 12, 14, 18, 36 E. Monroe, 1-23 E. Madison",2011-01-20T00:00:00.000,2011-01-27T00:00:00.000
+Mark Neuses,Trileaf Corporation,"Spills, dumping, UST etc re: 3333 W. Harrison",2011-01-20T00:00:00.000,2011-01-27T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,"AST, UST, haz waste re: 2300-2500 W. Nelson, 2300-2500 W. George, 2300-2500 W. Diversey",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,"AST, UST, haz waste re: 2300-2500 W. Waveland, 2300-2500 W. Fletcher, 2300-2500 W. Barry",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,"AST, UST, haz waste re: 2300-2500 W. Belmont, 2300-2500 W. Melrose, 2300-2500 W. School",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,"AST, UST, haz waste re: 2300-2500 W. Roscoe, 2300-2500 W. Cornelia, 2300-2500 W. Addison",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Raymond Deyne,Advanced Environmental,Info re: 1621S. Carpenter,2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST records re: 2815-23 W. 63rd ST,2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Valerie Dougados,Pioneer,"Tank permits, hazmat spills re: 714-720 & 713-719 W. Liberty, 712-720 & 713-731 W. 14th ST",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 310 N. Michigan",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 635-655 E. 108th ST, 635-655 E. 107th ST",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 4001-19 & 4000-20 S. Archer, 4001-19 & 4000-20 S. Montgomery",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Kelly Anderson,ETS Environmental & Assoc.,"UST, AST, emergency spill response re: 2201-19 W. Chicago",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Michael Glenn,UAS,"UST, AST, permits etc. re: 5701 S. Woodlawn",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Sean McLellan,Mostardi Platt Environmental,"AST, UST, hazmat releases, env. Incidents or violations re: 1-35 S. State, 18-44 S. Wabash",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Joe Madden,Abbey Paving,Env info S/W corner of 45th & Halsted,2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Sara Locke,Terracon,"Env info re: 6150 & 6248 S. Langley, 646-648 W. 62nd ST, 6254 S. Champlain, 700, 636, 706, 610 & 714 E. 61st ST",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Erin Grady,Terracon,Env info re: 365-399 & 541-589 E. Illinois,2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,"AST, UST, haz waste re: 2600-2900 N. Western, 2300-2500 W. Schubert",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Emma Kowalenko,Kowalenko Conuslting Group,"AST, UST, haz waste re: 3000-3600 N. Western",2011-01-19T00:00:00.000,2011-01-26T00:00:00.000
+Jason Abel,SLR International Corp,"Asbestos, UST, AST, spills, violations re: 11136 S. Ashland",2011-01-18T00:00:00.000,2011-01-25T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 5240-5415 W. Irving Park, 5300-5400 W. Cuyler, 3940-4020 N. Long, 3940-4020 N. Lockwood",2011-01-18T00:00:00.000,2011-01-25T00:00:00.000
+Lara Hoffman,EPS Environmental,"Info re: 2700-3101 South Ashland Avenue
+2700-3101 South Marshfield Avenue
+2700-3101 South Robinson Street
+2700-3101 South Honore Street
+2700-3101 South Wood Street
+2700-3101 South Wolcott Avenue
+2700-3101 South Hermitage Avenue
+2700-3101 South Winchester Avenue
+2700-3101 South Paulina Street
+2700-3101 South Damen Avenue
+1500-2001 West 28th Street/Place
+1500-2001 West 29th Street/Place
+1500-2001 West 30th Street/Place
+1500-2001 West 31st Street/Place
+3020-3181 South Archer Avenue",2011-01-18T00:00:00.000,2011-01-25T00:00:00.000
+Julie Brown,KPRG and Associates,Info re: 1201-15 W. Roosevelt,2011-01-18T00:00:00.000,2011-01-25T00:00:00.000
+Helena Gren,"GSG Consultants, Inc","UST records re: 6154-58 S. Rhodes, 448-458 E. 62nd ST",2011-01-18T00:00:00.000,2011-01-25T00:00:00.000
+Judie Wilson,MIONX,UST info re: 3335-59 W. 48th PL,2011-01-18T00:00:00.000,2011-01-25T00:00:00.000
+Valerie Dougados,Pioneer,"Tank permits, hazmat spills re: 1334-58 & 1337-59 S. Union, 622-672 & 700-710, 663-671, 701-711 W. 14th, 1400-1402 & 1401-09 S. Union, 663-671 W. Liberty, 662-672, 700-712, 701-713 W. Liberty",2011-01-18T00:00:00.000,2011-01-25T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 1450-1620 W. Adams, 1450-1620 W. Monroe, 95-220 S. Ashland, 95-220 S. Laflin",2011-01-14T00:00:00.000,2011-01-22T00:00:00.000
+Mick Dumke,Chicago News Cooperative,"A copy of all studies, reports, research and analysis documents commissioned and generated since 2006 that relate to franchising waste and recycling collection in the city of Chicago.
+",2011-01-14T00:00:00.000,2011-01-22T00:00:00.000
+Colleen Bohlin,GaiaTech,Env. Info re: 10225 & 10227 S. Western,2011-01-14T00:00:00.000,2011-01-22T00:00:00.000
+Helena Gren,"GSG Consultants, Inc","UST records re: 6200-6206 S. Rhodes, 515-519 E. 62nd ST",2011-01-14T00:00:00.000,2011-01-22T00:00:00.000
+Helena Gren,"GSG Consultants, Inc","UST records re: 6153-59 S. St. Lawrence, 600-610 E 62nd",2011-01-14T00:00:00.000,2011-01-22T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 5323, 5325, 5333 & 5337 N. Broadway",2011-01-14T00:00:00.000,2011-01-22T00:00:00.000
+Donald Milton,Propert Owner,Inspection report re: 2019 W. 111th ST,2011-01-14T00:00:00.000,2011-01-22T00:00:00.000
+Jack Hughes,Environmental Solutions,Info re: 4009 N. Sheridan,2011-01-13T00:00:00.000,2011-01-21T00:00:00.000
+Brooke Adamek,Pioneer EES,"UST records re: 6114-38 & 6123-39 S. Kimbark, 6121-33 S. Woodlawn",2011-01-13T00:00:00.000,2011-01-21T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST records re: 715-729 & 729-41 W. Wrightwood, 2546-58 & 2547-59 N. Burling",2011-01-13T00:00:00.000,2011-01-21T00:00:00.000
+Phillip Hoeksema,Carlson Envrionmental,UST records re: 600 N. Kingsbury,2011-01-13T00:00:00.000,2011-01-21T00:00:00.000
+Meredith Horn,Property Solutions,"UST records re: 1600-59 W. Blackhawk, 1244-1360 N. Ashland, 1300-75 N. Bauwans, 1265-1315 N. Milwaukee, 1321-63 N. Paulina, 1639-57 W. Evergreen, 1219-55 N. Mautene Ct., 1634-48 W. Division",2011-01-13T00:00:00.000,2011-01-21T00:00:00.000
+Mary Cappellini,EGSL,"Info re: 1500-1526 N. Claremont, 2300-2320 W. LeMoyne",2011-01-13T00:00:00.000,2011-01-21T00:00:00.000
+Eric Hasman,"Laicon, Inc",Storage tanks re: 2600-2646 W. Pershing,2011-01-13T00:00:00.000,2011-01-21T00:00:00.000
+Lindsey Oliver,"GSG Consultants, Inc","Tank records re: 417-423 E. 62nd ST,6200-6204 S. Vernon",2011-01-12T00:00:00.000,2011-01-20T00:00:00.000
+Kristen Templin,Apex Companies,"UST, other environmental info re: 365 N. Halsted",2011-01-12T00:00:00.000,2011-01-20T00:00:00.000
+Lindsey Oliver,"GSG Consultants, Inc","Tank records re: 416 & 418 E. 62nd ST, 6156 & 6158 S. Vernon",2011-01-12T00:00:00.000,2011-01-20T00:00:00.000
+Judie Wilson,MIONX,UST re: 914-916 W. Madison ,2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Ted Cagney,"GSG Consultants, Inc",Tank records re: 6201-03 S. Eberhart,2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc",UST re: 10015 S. Leavitt,2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 5343 N. Broadway",2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs re: 300 N. Michigan",2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Erin Grady,Terracon,"Info re: 401-465, 400-500, 500-540, 501-541 E. Illinois, 400-480, 500-540 N. McClurg, 401-461 E. Grand, 500-520 N. Peshtigo",2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Info re: 5402 & 5410 S. Archer,2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Valerie Dougados,Pioneer,"Tank info, spills re: 650-678 & 649-679 W. Diversey, 2816-26 N. Clark, 2801-17 N. Abbott",2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Joe Selinger,Partner Engineering and Science,"UST, AST info re: 10 S. Wabash",2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Julie Lagvankar,,Storage tanks and asbestos info re: 1755-69 N. Elston,2011-01-11T00:00:00.000,2011-01-19T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 7143-64 N. Washtenaw, 2635-2708 W. Touhy, 7109-46 N. Western, 2339-2354 W. Touhy, 1300-15 W. 16th ST, 1600-13 S. Blue Island, 1600-13 S. Ada, 1600-13 S. Throop",2011-01-10T00:00:00.000,2011-01-18T00:00:00.000
+Yvonne Flores,Underground Storage Tank Specialists,Tank info re: 7000 S. South Chicago,2011-01-10T00:00:00.000,2011-01-18T00:00:00.000
+Alexandra Ide,Pioneer,"UST permits re: 318-360 N. Lotus, 319-359 N. Lotus, 5401-75 W. Lake",2011-01-10T00:00:00.000,2011-01-18T00:00:00.000
+Thomas Tucker,Terracon,"USTs, LUSTs, spillage etc re: 3311, 3323, 3333 S. Archer",2011-01-10T00:00:00.000,2011-01-18T00:00:00.000
+Lori Schulz,EPS Environmental,Info re: 6250-6355 S. Lawndale,2011-01-10T00:00:00.000,2011-01-18T00:00:00.000
+Heather Nilles,Testing Service Corp,"Tank, hazmat, spills, permits etc re: 2513 W. Madison",2011-01-10T00:00:00.000,2011-01-18T00:00:00.000
+Christina Garrett,ERM,"ASTs, USTs, complaints, inspections etc re: 214-228 W. Erie, 659 N. Franklin",2011-01-10T00:00:00.000,2011-01-18T00:00:00.000
+Micki Hughes,"K-Plus Engineering, LLC",Info re: 1455 W. Willow,2011-01-10T00:00:00.000,2011-01-18T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 3325-3337 & 3324-3338 W. Armitage, 1945-59 & 1944-60 N. Kimball, 4312-28 & 4311-29 W. North, 1601-15 & 1602-16 N. Lowell",2011-01-07T00:00:00.000,2011-01-14T00:00:00.000
+Raymond Deyne,Advanced Environmental,"Info re: 2727 & 2757 W. Chicago, 4100 W. Ferdinand",2011-01-07T00:00:00.000,2011-01-14T00:00:00.000
+Anthony McDaniel,GRS Group,"Storage tank records re: 3804-10 W. Dickens, 2100-02 N. Hamlin",2011-01-06T00:00:00.000,2011-01-13T00:00:00.000
+Anthony McDaniel,GRS Group,Storage tank records re: 7704-10 S. Saginaw,2011-01-06T00:00:00.000,2011-01-13T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 1144-43 & 1132-48 W. Pratt, 1132-42 W. Columbia",2011-01-05T00:00:00.000,2011-01-12T00:00:00.000
+Dan Tonissen,"ECS Illinois, LLC","Tank records, spills re: 330 & 320 W. Webster",2011-01-05T00:00:00.000,2011-01-12T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Info re: 1034-46 & 1033-47 W. Wellington,2011-01-05T00:00:00.000,2011-01-12T00:00:00.000
+Alexandra Ide,Pioneer,UST info re: 5001-43 N. Elston,2011-01-04T00:00:00.000,2011-01-11T00:00:00.000
+Phillip Pecelunas,Eldertree Enveco,"Any info re: 41-99 N. Central, 5500-99 W. Washington",2011-01-04T00:00:00.000,2011-01-11T00:00:00.000
+Yvonne Flores,Underground Storage Tank Specialists,Tank info re: 7001 S. South Chicago,2011-01-04T00:00:00.000,2011-01-11T00:00:00.000
+Thomas Doyle,EDI,Info re: 4400 W. Ohio,2011-01-03T00:00:00.000,2011-01-10T00:00:00.000
+Siraa Smadi,Anderson Environmental Consulting,Records re: 6501 N. Avondale,2011-01-03T00:00:00.000,2011-01-10T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST info re: 345-55 W. Huron,2011-01-03T00:00:00.000,2011-01-10T00:00:00.000
+George Gilsdorf,IVI Assesment Svcs,Any info re: 1319-29 W. Wilson,2011-01-03T00:00:00.000,2011-01-10T00:00:00.000
+George Gilsdorf,IVI Assesment Svcs,Any info re: 5718 N. Winthrop,2011-01-03T00:00:00.000,2011-01-10T00:00:00.000
+George Gilsdorf,IVI Assesment Svcs,"Any info re: 196 & 198 E. Deleware, 191 W. Walton, 900 & 920 N. Seneca",2011-01-03T00:00:00.000,2011-01-10T00:00:00.000
+Lori Schulz,EPS Environmental,"Info re: 3600-3759 W. 63rd ST, 3600-3759 W. 63rd PL",2011-01-03T00:00:00.000,2011-01-10T00:00:00.000
+Lara Hoffman,EPS Environmental,"Info re: 1734-1907 W. Fulton, 1757-1863 W. Carroll",2011-01-03T00:00:00.000,2011-01-10T00:00:00.000
+Yvonne Flores,Underground Storage Tank Specialists,Tank info re: 2647 W. Ogden,2010-12-30T00:00:00.000,2011-01-07T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,"Info re: 1360,1500,1238 N. Ashland, 1341 & 1251 N. Paulina, 1287,1279,1265 N. Milwaukee, 1346 & 1369 N. Bauwans",2010-12-30T00:00:00.000,2011-01-07T00:00:00.000
+David Russian,EDI,Info re: 720 E. 111th ST,2010-12-29T00:00:00.000,2011-01-06T00:00:00.000
+June Pankow,Consulting Solutions,UST info re: 6415 S. Martin Luther King Drive,2010-12-29T00:00:00.000,2011-01-06T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST info re: 1650-58 S. Allport,2010-12-29T00:00:00.000,2011-01-06T00:00:00.000
+Thomas Tucker,Terracon,"Info re: 2334, 2346-56, 2400 S. Wabash, 18 E. 24th ST, 2301-37 S. Wabash",2010-12-29T00:00:00.000,2011-01-06T00:00:00.000
+Carla Bachunas,GaiaTech,"USTs/ASTs info re: 800-824 W. Bradly Place, 3734-52 N. Halsted",2010-12-29T00:00:00.000,2011-01-06T00:00:00.000
+Anthony McDaniel,GRS Group,"Storage tank records re: 6454-58 S. Honore, 1830-40 W. 65th ST",2010-12-27T00:00:00.000,2011-01-04T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills re: 416-420 W. Deming",2010-12-27T00:00:00.000,2011-01-04T00:00:00.000
+Lori Schulz,EPS Environmental,"Any info re: 2348-2508 W. Pratt, 6701-60 N. Artesian, 6701-60 N. Western",2010-12-27T00:00:00.000,2011-01-04T00:00:00.000
+Nori Greenstein,1237 WEST,"Any info re: 1950-52 W. North Ave, 2412 W. North Ave, 1951 W.Schiller, 1515 W. Haddon",2010-12-27T00:00:00.000,2011-01-04T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 1478-1514 & 1475-1515 N. Milwaukee, 1400-1512 & 1401-1515 N. Honore, 1437-1501 N. Wicker Park",2010-12-27T00:00:00.000,2011-01-04T00:00:00.000
+Tim Cramer,ECG,"UST, AST, asbetos re: 225 & 227 E. Ontario",2010-12-27T00:00:00.000,2011-01-04T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 615-617 S. Halsted",2010-12-27T00:00:00.000,2011-01-04T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 3615-17 S. Halsted",2010-12-27T00:00:00.000,2011-01-04T00:00:00.000
+Kelly Anderson,ETS Environmental & Assoc.,"UST, AST, spills etc re: 6210 S. Dorchester",2010-12-23T00:00:00.000,2011-01-03T00:00:00.000
+Siraa Smadi,Anderson Environmental Consulting,"Complaints, UST/AST, enforcement actions re: 1925 N. Hudson",2010-12-23T00:00:00.000,2011-01-03T00:00:00.000
+John Best,EPI,"USTs, notifications, incidents re: 110-116 S. Parkside, 7001-11 S. Stony Island, 1601-17 E. 70th ST",2010-12-23T00:00:00.000,2011-01-03T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Any info re: 6496-6504 S. Pulaski,2010-12-23T00:00:00.000,2011-01-03T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Any info re: 2505-15 & 2506-16 W. North Ave,2010-12-23T00:00:00.000,2011-01-03T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,Any info re: 2823-35 & 2816-44 N. Clark,2010-12-23T00:00:00.000,2011-01-03T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","Tank records re: 1401-11 W. Winona, 7661-7719 N. Sheridan, 5110-24 N. Glenwood",2010-12-23T00:00:00.000,2011-01-03T00:00:00.000
+Judie Wilson,MIONX,UST re: 3062-70 N. Clybourn,2010-12-23T00:00:00.000,2011-01-03T00:00:00.000
+Mary Cappellini,EGSL,Info re: 4235-4245 W. Lawrence,2010-12-22T00:00:00.000,2010-12-30T00:00:00.000
+Donald Richards,"ECS Illinois, LLC",Info re: 917 W. 18th ST,2010-12-22T00:00:00.000,2010-12-30T00:00:00.000
+Chris Heynen,EBI Consulting,"Material spills, dumping, UST info re: 5001 N. Leavitt",2010-12-22T00:00:00.000,2010-12-30T00:00:00.000
+Vilma Morkunas,AES Due Diligence,"Spills, releases, UST, AST re: 929 W. Exchange, 4161 S. Morgan",2010-12-21T00:00:00.000,2010-12-29T00:00:00.000
+Valerie Dougados,Pioneer,"Tank info, spills re: 6231-59, 6301-49, 6230-56, 6300-30 N. Kenmore, 6224-58 & 6300-6330 N. Sheridan, 1000-58 & 1001-59 W. Rosemont",2010-12-21T00:00:00.000,2010-12-29T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"UST, AST, spills etc re: 4542-4552 & 4551 W. Carroll",2010-12-21T00:00:00.000,2010-12-29T00:00:00.000
+Terry Liles,CrossPointe Consulting,"USTs, spills, hazmat, inspections, violations re: 5493 S. Cornell, 1601-21 E. 55th ST",2010-12-21T00:00:00.000,2010-12-29T00:00:00.000
+Thomas Brecheisen,Brecheisen Engineering,"UST, AST, inspections, violations re: 7535-55 N. Western",2010-12-21T00:00:00.000,2010-12-29T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs, lead paint re: 225 W. Ontario",2010-12-21T00:00:00.000,2010-12-29T00:00:00.000
+Judie Wilson,MIONX,UST re: 921-935 W. 49th PL,2010-12-20T00:00:00.000,2010-12-28T00:00:00.000
+Brooke Adamek,Pioneer,"UST re: 2050-72 & 2069-83 N. Stave, 2100-30 N. Bingham, 2007-21 N. Point",2010-12-20T00:00:00.000,2010-12-28T00:00:00.000
+Carla Bachunas,GaiaTech,"USTs, ASTs, haz waste, spills etc re: 847 W. Grace",2010-12-20T00:00:00.000,2010-12-28T00:00:00.000
+Elizabeth Ashworth,EBI Consulting,"ASTs, USTs, spills re: 517, 519, 523 N. Halsted, 733, 735 W. Ohio",2010-12-20T00:00:00.000,2010-12-28T00:00:00.000
+Jeffrey Tock,Harrington & Tock,UST info re: 5343 N. Broadway,2010-12-17T00:00:00.000,2010-12-27T00:00:00.000
+John Best,EPI,"USTs, notifications, incidents, problems re: 3143-69 N. Elston",2010-12-17T00:00:00.000,2010-12-27T00:00:00.000
+Helena Gren,"GSG Consultants, Inc","UST records re: 4837 S. Honore, 4850 S. Hermitage",2010-12-17T00:00:00.000,2010-12-27T00:00:00.000
+Lori Schulz,EPS Environmental,"Any info re: 10855-11040 S. Halsted, 10855-11040 S. Emerald, 705-744 W. 109th ST",2010-12-16T00:00:00.000,2010-12-23T00:00:00.000
+Lara Hoffman,EPS Environmental,245-390 N. Oakley Blvd. / 245-390 N. Claremont Ave. / 2240-2359 W. Fulton St./ 2240-2359W. Walnut St.  ,2010-12-16T00:00:00.000,2010-12-22T00:00:00.000
+Laura Brooks,AECOM,"UST, chemical releases etc re: 542 W. 57th ST",2010-12-15T00:00:00.000,2010-12-22T00:00:00.000
+Mike Wan,Hydrodynamics,"Tank info re: 5817-5829 N. Tripp, 5820-5838 N. Pulaski",2010-12-15T00:00:00.000,2010-12-22T00:00:00.000
+Jason Roth,Atwell,"Any info re: 419-427 W. Belmont, 3171-3199 N. Hudson",2010-12-15T00:00:00.000,2010-12-22T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","Tank records re: 2011-19 S. Marshall, 2864-86 W. 21st ST",2010-12-15T00:00:00.000,2010-12-22T00:00:00.000
+Mary Cappellini,EGSL,Any info re: 828-900 W. 79th ST,2010-12-14T00:00:00.000,2010-12-21T00:00:00.000
+Donna Christides,GreenSeal,Tank & hazmat re: 4453-57 S. Wabash,2010-12-14T00:00:00.000,2010-12-21T00:00:00.000
+Lori Schulz,EPS Environmental,"Any info re: 3200-3357 W. 63rd ST, 6236-6253 S. Spaulding, 3298-3357 W. 63rd ST",2010-12-14T00:00:00.000,2010-12-21T00:00:00.000
+Valerie Dougados,Pioneer,"UST, AST, hazmat spills, violations re: 4826-48 & 4825-49 N. Sheridan, 4835-43 N. Kenmore, 947-959 & 942-958 W. Gunnison, 941-959 W. Castlewood",2010-12-14T00:00:00.000,2010-12-21T00:00:00.000
+Mary Cappellini,EGSL,Any info re: 7856 S. Peoria,2010-12-13T00:00:00.000,2010-12-20T00:00:00.000
+Alexandra Ide,Pioneer ,UST permits re: 4669-4799 W. Foster,2010-12-13T00:00:00.000,2010-12-20T00:00:00.000
+Julie Epifano,Enercon Services,"ASTs, USTs, any other environmental issues re: 3234 N. Elston",2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Lori Schulz,EPS Environmental,"Any info re: 101-157 W. 84th ST, 8314-8361 S. Perry, 8314-8361 S. LaSalle, 8314-8361 S. Wentworth, 8314-8525 S. Lafayette",2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Thomas Doyle,EDI,Any info re: 4815 W. Diversey,2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Phil English,The English Company,"UST, AST, asbestos, haz spills, violations re: 4201 W. Lawrence",2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Mike Wan,Hydrodynamics,"UST, haz waste re: 1230 S. Western",2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Raymond Deyne,Advanced Environmental,Any info re: 2445-49 N. Harlem,2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Darby Nafziger,Blackstone Consulting,Info re: 215-225 N. Columbus,2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Julie Lagvankar,Nova,Info re: 1438-56 W. Cortland,2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Tim Cramer,ECG,"USTs, ASTs, asbestos re: 225 E. Ontario, 426 W. Belmont",2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+Natalie Gillman,Encore Environmental Consortium,"AST, USTs, spills, releases, permits env non compliance re: 2644 S. Wabash",2010-12-10T00:00:00.000,2010-12-17T00:00:00.000
+John-Patrick Farrell,AEI Consultants,"Any info re: 318-338 S. Jefferson, 600-612 W. Van Buren",2010-12-09T00:00:00.000,2010-12-16T00:00:00.000
+Valerie Dougados,Pioneer,"UST, AST, hazmat spills, violations re: 926-958, 929-959, 1000-1020 & 1001-1013 W. Fulton",2010-12-09T00:00:00.000,2010-12-16T00:00:00.000
+Allie McDavid,Trileaf Corporation,"Spills, dumping, UST etc. re: 10835 S. Pulaski",2010-12-09T00:00:00.000,2010-12-16T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST re: 3430-40 W. Bryn Mawr, 3311-21 N. Karlov, 5001-21 N. Rockwell, 3914-24 N. Ashland, 5600-10 N. Bernard, 2574-84 W. Argyle, 7661-7719 N. Sheridan",2010-12-09T00:00:00.000,2010-12-16T00:00:00.000
+Matthew Toth,Carnow Conibear,All records re: 3458 S. Lawndale,2010-12-08T00:00:00.000,2010-12-15T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"AST, UST, chemical spills or releases, environmental issues re: 221-225 N. Columbus",2010-12-08T00:00:00.000,2010-12-15T00:00:00.000
+Timothy Lagousakos,ISO Tech,UST records re: 4330 & 4410 W. Irving Park,2010-12-08T00:00:00.000,2010-12-15T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 1219-1251 & 1218-1250 N.Wells, 159-165 W. Goethe, 1220-1258 N. LaSalle",2010-12-08T00:00:00.000,2010-12-15T00:00:00.000
+Jeff Goeden,PSI,Any info re: 134 N. LaSalle,2010-12-08T00:00:00.000,2010-12-15T00:00:00.000
+Lara Hoffman,EPS Environmental,"Any records re: 5938-5013 S. King Drive, 4940-5001 S. Calumet, 370-416 E. 50th ST",2010-12-07T00:00:00.000,2010-12-14T00:00:00.000
+Brian Walker,Testing Service Corp,"UST, AST, hazmat, asbestos etc. re: 5101, 5107, & 5113 N. Francisco",2010-12-07T00:00:00.000,2010-12-14T00:00:00.000
+Thomas Doyle,EDI,Info re: 641 E. 108th ST,2010-12-07T00:00:00.000,2010-12-14T00:00:00.000
+Katie Klocksin,Carlson Envrionmental,Info re: 3753 & 3763 N. Clark,2010-12-07T00:00:00.000,2010-12-14T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4837 S. Wolcott,2010-12-06T00:00:00.000,2010-12-13T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4528 S. Hermitage,2010-12-06T00:00:00.000,2010-12-13T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4325 S. Paulina,2010-12-06T00:00:00.000,2010-12-13T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 4820 S. Damen,2010-12-06T00:00:00.000,2010-12-13T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST re: 5031 S. Wood,2010-12-06T00:00:00.000,2010-12-13T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 5228-5304 & 5231-5305 S. Cornell, 1548-1640 & 1549-1637 E. 53rd ST",2010-12-06T00:00:00.000,2010-12-13T00:00:00.000
+Lyla Gray-Etherson,Property Solutions,Any records re: 108 N. State,2010-12-06T00:00:00.000,2010-12-13T00:00:00.000
+Matthew Otto,Terracon,"Violations, inspection reports, complaints, enforcement re: 1 W. Wacker",2010-12-06T00:00:00.000,2010-12-13T00:00:00.000
+Lara Hoffman,EPS Environmental,"Any records re: 3722-3845 W. 16th ST, 1530-1609 S. Hamlin, 1530-1609 S. Ridgeway",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Nohemi Melero,Carnow Conibear,"Envrionmental records re: 188, 194 W. Randolph, 151,157, 159, 161, 165, 167, 169 N. Wells",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Linda Lehman,EBI Consulting,"USTs, ASTS, violations, complaints re: 127-145 S. Wells",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Linda Lehman,EBI Consulting,"USTs, ASTS, violations, complaints re: 6241 S. Drexel, 6134-44, 6139-43, 6201-07, 6245 S. Kimbark, 1311-17 E. 62nd, 1359-61 E. 62nd",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Linda Lehman,EBI Consulting,"USTs, ASTS, violations, complaints re: 536 W. Addison, 3601 N. Pine Grove, 455 W. Wellington, 3510 N. Pine Grove, 2628-34 N. Hampden",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Ivona Minossora,Apex Companies,"UST, AST, violations re: 3001-3025 N. Clark",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Lara Hoffman,EPS Environmental,"Any info re: 2350-2501 W. Warren, 2350-2501 W. Madison, 5 South thru 50 North Western",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Stephany Lane,GaiaTech,Any info re: 14 N. Peoria,2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Lori Schulz,EPS Environmental,"Any records re: 4320-4465 N. Pulaski, 4320-4465 N. Harding, 4320-4465 N. Keystone, 3900-4017 W. Montrose",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+John Goin,Goin Env. Sci.,Any records re: 233 E. Erie,2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Lara Hoffman,EPS Environmental,"Any records re: 245-390 N. Oakley, 245-390 N. Claremont, 2240-2359 W. Fulton, 2240-2359 W. Walnut",2010-12-03T00:00:00.000,2010-12-10T00:00:00.000
+Jodi Katch,EBI Consulting,"Permits, spills & releases re: 300 S. Riverside Plaza, 420 W. Van Buren, 301-351 S. Canal",2010-12-02T00:00:00.000,2010-12-09T00:00:00.000
+Natalie Gillman,Encore Environmental Consortium,"AST, USTs, spills, releases, permits env non compliance re: 2700 & 2711 S. Wabash",2010-12-02T00:00:00.000,2010-12-09T00:00:00.000
+Thomas Doyle,EDI,Any info re: 2440-60 S. Kedzie,2010-12-02T00:00:00.000,2010-12-09T00:00:00.000
+Lindsey Oliver,"GSG Consultants, Inc","Tank records re: 3100, 3108-28 W. North Ave",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Anthony McDaniel,Nova,Storage tanks records re: 162-166 N. Clinton,2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Lara Hoffman,EPS Environmental,"Any records re: 3250-3335 W. 26th ST, 2550-2649 S. Spaulding, 2550-2649 S. Christiana",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Sanjiv Chadha,NWS Architects ,Any records re: 555 W. Roosevelt,2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Donna Christides,GreenSeal,"Tank and hazmat records re: 4401-51 S. Wabash, 51-59 E. 44th ST, 50-58 E. 45th ST",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Info re: 5410-20 N. Broadway, 5410-20 N. Magnolia",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Darby Nafziger,Blackstone Consulting,All records re: 2555 N. Clark,2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Darby Nafziger,Blackstone Consulting,All records re: 255 N. Columbus,2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Valerie Dougados,Pioneer,"Tank permits, spills re: 926-958, 929-959, 1000-1010 & 1001-1013 W. Fulton Market, 1000-1011 W. Carroll, 310-330 N. Sangamon, 301-329, 300-328, 212-292 & 223-293 N. Morgan",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Judie Wilson,MIONX,"UST re: 2624 N. Lincoln, 4931-5021 W. Armitage",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Matt Kunz,G2 Consulting Group,"Tank, hazmat, violatons re: 2524 S. Central Park",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Alexandra Ide,Pioneer,"Any records re: 4549-4667 W. Foster, 5031-5101 N. Kimberly, 5060-5100 N. Kimberly",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Allie McDavid,Trileaf Corporation,"Spills, dumping, UST etc. re: 3434 W. 77th ST",2010-12-01T00:00:00.000,2010-12-08T00:00:00.000
+Katie McBride,Atwell,Any records re: 3018 W. Armitage,2010-11-30T00:00:00.000,2010-12-07T00:00:00.000
+Claire McKendrick,Arcadis,"UST, permits, violations re: 2663 E. 106th ST",2010-11-30T00:00:00.000,2010-12-07T00:00:00.000
+Kristen Templin,Apex Companies,"UST, other environmental concerns re: 3322 N. Western",2010-11-30T00:00:00.000,2010-12-07T00:00:00.000
+Kristen Templin,Apex Companies,"UST, other environmental concerns re: 3125-45 S. Ashland",2010-11-30T00:00:00.000,2010-12-07T00:00:00.000
+Stacy McCance,URS Corporation,"Any records re: 4070, 4062, 4068 N. Clark",2010-11-30T00:00:00.000,2010-12-07T00:00:00.000
+John Chitwood,Arcadis,Any records re: 5803 & 5805 S. Halsted,2010-11-30T00:00:00.000,2010-12-07T00:00:00.000
+Judie Wilson,MIONX,UST records re: 2807-13 W. Lawrence,2010-11-30T00:00:00.000,2010-12-07T00:00:00.000
+Judie Wilson,MIONX,"UST re: 2600-18 N. Lincoln, 1004-1020 W. Wrightwood",2010-11-30T00:00:00.000,2010-12-07T00:00:00.000
+Anthony McDaniel,Nova,"Storage tank records re: 146-160 N. Clinton, 540-552 W. Randolph",2010-11-29T00:00:00.000,2010-12-06T00:00:00.000
+Stacey Gluck ,Titan Management Group,"Air permits re: 560 Bessie Coleman Drive, 6400 N. Schilling, 4625 W. 55th ST, 6501 S. Cicero",2010-11-29T00:00:00.000,2010-12-06T00:00:00.000
+Lara Hoffman,EPS Environmental,"Any records re: 3250-3335 W. 47th ST, 2550-2649 S. Spaulding, 2550-2649 S. Christiana",2010-11-29T00:00:00.000,2010-12-06T00:00:00.000
+John Best,EPI,"UST, notifications, incidents re: 4228-4254 W. 45th ST, 4420-4458 S. Tripp",2010-11-29T00:00:00.000,2010-12-06T00:00:00.000
+Allison Wade,TRC Environmental,Environmental records re: 21 E. Bellevue,2010-11-29T00:00:00.000,2010-12-06T00:00:00.000
+Anthony McDaniel,Nova,"Storage tank records re: 558-572 W. Randolph, 145-155 N. Jefferson",2010-11-29T00:00:00.000,2010-12-06T00:00:00.000
+Judie Wilson,IEM Corp,Any records re: 349 W. Belden,2010-11-26T00:00:00.000,2010-12-03T00:00:00.000
+John Best,EPI,"UST, notifications, incidents re: 816-818 S. Michigan, 815-819 S. Wabash",2010-11-26T00:00:00.000,2010-12-03T00:00:00.000
+Valerie Dougados,Pioneer ,"Tank permits, spills re: 2900-36 & 2933-39 W. Grand, 810-818 N. Francisco, 801-829 N. Richmond, 2901-31 W. Grand, 2901-59, 2900-42 & 2858 W. Chicago",2010-11-26T00:00:00.000,2010-12-03T00:00:00.000
+Scott Posadzy,Adept Environmental Solutions,"UST records re: 5815-29 W. North,  1545-59 N. Monitor",2010-11-26T00:00:00.000,2010-12-03T00:00:00.000
+Alexandra Ide,Pioneer ,"UST permits re: 5501-37 & 5500-32 S. Everett, 1743-65 E. 55th ST, 5500-32 S. South Shore, 5320-46 & 5321-43 S. Cornell, 5300-20 S. Lake Park",2010-11-24T00:00:00.000,2010-12-03T00:00:00.000
+Alexandra Ide,Pioneer,UST permits re: 5301-5321 S. Lake Park ,2010-11-24T00:00:00.000,2010-12-03T00:00:00.000
+Lara Hoffman,EPS Environmental,"All records re: 620-715 W. 47th ST, 4629-4714 S. Langley, 4629-4714 S. Champlain",2010-11-24T00:00:00.000,2010-12-03T00:00:00.000
+Lori Schulz,EPS Environmental,"All records re: 5899-6010 W. Irving Park, 5899-6010 W. Dakin, 3941-52 N. Austin, 3941-52 N. Marmora",2010-11-24T00:00:00.000,2010-12-03T00:00:00.000
+Erin Grady,Terracon,"Environmental records re: 4700, 4750, 4701 S. Central, 5504, 5503, 5502, 5448, 5401, 5400 W. 47th ST",2010-11-24T00:00:00.000,2010-12-03T00:00:00.000
+Yvonne Flores,Underground Storage Tank Specialists,UST records re: 3600 W. Belmont,2010-11-23T00:00:00.000,2010-12-02T00:00:00.000
+Michael J. Saldarell,GaiaTech,"Records re: 4500 W. Palmer, 4545 W. Dickens",2010-11-23T00:00:00.000,2010-12-02T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.",UST permits re: 2412-22 W. North Ave,2010-11-23T00:00:00.000,2010-12-02T00:00:00.000
+Julie Lagvankar,Azland Risk Management,"Storage tanks, asbestos, complaints re: 857-859 W. Armitage",2010-11-23T00:00:00.000,2010-12-02T00:00:00.000
+Robert Mancilla,Tristan & Cervantes,All documents related to Citatation No. E 000011082 etc. ,2010-11-23T00:00:00.000,2010-12-02T00:00:00.000
+John Best,EPI,"UST, notifications, incidents re: 2701-59 N. Rockwell, 2700-58 N. Maplewood, 2539-59 W. Diversey",2010-11-23T00:00:00.000,2010-12-02T00:00:00.000
+John Best,EPI,"UST, notifications, incidents re: 817-819 & 821-859 S. Wabash, 818-820 S. Michigan",2010-11-22T00:00:00.000,2010-12-01T00:00:00.000
+Zubair Ahmed,Pak Investment,Records re: 5035 S. Western,2010-11-22T00:00:00.000,2010-12-01T00:00:00.000
+Renee Hix Mays ,Alpha Environmental,"LUST, UST, inspections, installation, removal, violations re: 1947-1961 N. Damen",2010-11-22T00:00:00.000,2010-12-01T00:00:00.000
+Bill Lennon,EGSL,Any records re: 5852 W. 51st ST,2010-11-22T00:00:00.000,2010-12-01T00:00:00.000
+Ann Marie Johnson,Golder Associates,"Any records re: 2635 S. Western, 2658 S. Leavitt",2010-11-22T00:00:00.000,2010-12-01T00:00:00.000
+John Best,EPI,"UST, notifications, incidents re: 1001-25 S. Wabash, 1-63 E. 9th ST",2010-11-22T00:00:00.000,2010-12-01T00:00:00.000
+Judie Wilson,MIONX,"UST records re: 1026 W. Wrightwood, 2618 N. Lincoln",2010-11-19T00:00:00.000,2010-11-30T00:00:00.000
+Ivona Minossora,Apex Companies,"UST, AST, violations re: 3310 S. Western",2010-11-19T00:00:00.000,2010-11-30T00:00:00.000
+Adam K. Zakroczymski,Stateline Environmental,"UST records, violations, spills re: 527, 529, 531, 535 W. Chicago",2010-11-19T00:00:00.000,2010-11-30T00:00:00.000
+Scott Posadzy,Adept Environmental Solutions,"UST records re: 3201-25 W. Devon, 6348-58 N. Kedzie",2010-11-19T00:00:00.000,2010-11-30T00:00:00.000
+Judie Wilson,MIONX,UST records re: 2526 & 2628 N. Lincoln,2010-11-19T00:00:00.000,2010-11-30T00:00:00.000
+Vilma Morkunas,AES Due Diligence,"Records of spills and release of haz. Materials, UST/AST re: 3748 W. North Ave",2010-11-18T00:00:00.000,2010-11-29T00:00:00.000
+Brooke Adamek,Pioneer,"UST records re: 3339-3459 & 3400-60 S. Cottage Grove, 601-669 E. Groveland Park, 600-648 & 601-645 E. Woodland Park, 600-648 E. 35th ST, 559-573 & 538-568 E. 34th PL, 553-573 & 552-568 E. 34th ST",2010-11-18T00:00:00.000,2010-11-29T00:00:00.000
+Benjamin Kelderhouse,Integrity Environmental Services,Records on file re: 1027 W. Madison,2010-11-18T00:00:00.000,2010-11-29T00:00:00.000
+Armando Gonalez,,Permits and records re: 3405 S. Lawndale,2010-11-18T00:00:00.000,2010-11-29T00:00:00.000
+Vilma Morkunas,AES Due Diligence,"Records of spills and release of haz. Materials, UST/AST re: 3826 W. Wabansia",2010-11-18T00:00:00.000,2010-11-29T00:00:00.000
+Katie Larsen,Applied GeoScience ,Any records re: 7324 N. Western,2010-11-17T00:00:00.000,2010-11-24T00:00:00.000
+Jennifer Rovzar,DAI Environmental,"AST, UST, chemical spills or releases, environmental issues re: 840 W. 35th ST",2010-11-17T00:00:00.000,2010-11-24T00:00:00.000
+Aaron Colin,"K-Plus Engineering, LLC","USTs, ASTs, environmental violations re: 5322-5336 S. Western",2010-11-17T00:00:00.000,2010-11-24T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4701-05 W. Washington,2010-11-17T00:00:00.000,2010-11-24T00:00:00.000
+Helena Gren,"GSG Consultants, Inc",UST records re: 4701 W. Washington,2010-11-17T00:00:00.000,2010-11-24T00:00:00.000
+Julie Epifano,Enercon Services,"ASTs, USTs, any other environmental issues re: 1165 N. Milwaukee",2010-11-17T00:00:00.000,2010-11-24T00:00:00.000
+Melissa Lettiere,Stahl Cowen Attorneys,"Complaint, reports re: 5400 N. Pulaski",2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Rebekah Schulenberg,Burns & McDonnell,"Any info re: 2812 W. Foster, 5208 N. California",2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Eric Hasman,"Laicon, Inc",Tank info re: 555 W. Roosevelt,2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+John Best,EPI,"USTs, notifications, incidents, problems re: 2553-59 W. Diversey",2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Sean McLellan,Mostardi Platt Environmental,"UAT/AST, hazmat releases, environmental incidents, violations re: 6530, 6471, 6548, 6547, 6549 & 6453 W. Grand, 6357 W. Fullerton",2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, environmental permits, violations re: 555 W. Madison, 554-570 W. Monroe, 25-39 S. Jefferson",2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, environmental permits, violations re: 4600-26 W. Diversey",2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, environmental permits, violations re: 2830-44 N. Broadway",2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Walter Karla,Manhard Consulting Ltd.,"UST/AST, environmental permits, violations re: 2551-59 W. Cermak, 2235-2257 S. Rockwell",2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Harold Horton,Chicago Aluminum Casting Co.,Soil testing re: 2647 W. Ogden,2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Darby Nafziger,Blackstone Consulting,Any and all info re: 300 W. Adams,2010-11-16T00:00:00.000,2010-11-23T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Available info re: 4107-4135 & 4108-4136 W. 63rd ST, 6301-15 & 6302-6316 S. Kedvale",2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+Yvonne Flores,Underground Storage Tank Specialists,Tank info re: 7256-7270 S. South Chicago,2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+Morgan L. Vogt,Arcadis,"UST, hazmat spills, incidents, violations, permits re: 5801 S. Halsted",2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+Marissa Ambrosius,Gabriel Envrionmental,"Available info re: 7701-25 & 7702-26 S. Western, 7701-25 S. Claremont",2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+Timothy Tuzik,"Aspen Environmental, Inc.","UST records re: 3211-27 W. 48th PL, 3200-14 N. Major, 5700-14 W. Belmont, 3215-37 W. 48th PL",2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+Julie Lagvankar,Nova,"Storage tanks, asbestos, complaints re: 7952 S. Ashland",2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+Laura Brooks,AECOM,"All available info re: 5701, 5742, 5747, & 5749 S. Normal",2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+Tim Cramer,ECG,"UST/AST re: 2824, 2849 & 2851 N. Orchard, 2858, 2860 & 2862 N. Clark, 801-813 W. Cornelia, 3448-3458 N. Halsted",2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+LeeAnn Kruszynski,ATC Associates,"Available info re: 133-149 W. Jackson, 301-341 Financial Place, 312-338 S. Clark, 100-148 W. Van Buren",2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+Jason Roth,Atwell,Available info re: 2050 N. Burling ,2010-11-15T00:00:00.000,2010-11-22T00:00:00.000
+David Streich,Underground Storage Tank Specialists,"UST, environmental info re: 2759 N. California",2010-11-12T00:00:00.000,2010-11-19T00:00:00.000
+Anjum Ahmed,"GSG Consultants, Inc",Records re: 1856-1902 S. Lumber,2010-11-12T00:00:00.000,2010-11-19T00:00:00.000
+Allie McDavid,Trileaf Corporation,"Material spills, dumping, UST info re: 1200 W. 87th ST, 8805 S. Throop, 1201 W. 87th ST",2010-11-12T00:00:00.000,2010-11-19T00:00:00.000
+Brooke Adamek,Pioneer,"UST permits re: 1044-1160 & 1045-1159 S. Oakley, 2300-16 W. Roosevelt, 2300-16 & 2301-17 W. Grenshaw, 2258-90 W. Ogden",2010-11-12T00:00:00.000,2010-11-19T00:00:00.000
+Adam K. Zakroczymski,Stateline Environmental,"UST/AST, violations, spills re: 500 W. Superior",2010-11-12T00:00:00.000,2010-11-19T00:00:00.000
+Sean McLellan,Mostardi Platt Environmental,"UST, hazmat releases, violations re: 6559 W. Fullerton, 2343 N. Natchez",2010-11-12T00:00:00.000,2010-11-19T00:00:00.000
+Aaron Colin,"K-Plus Engineering, LLC",Any records re: 652-658 W. Oakdale,2010-11-12T00:00:00.000,2010-11-19T00:00:00.000
+Paul Hess,,"Permits, hazmats re: 10300 S. Michigan",2010-11-12T00:00:00.000,2010-11-19T00:00:00.000
+Julie Brown,KPRG and Associates,Environmental records re: 935 N. Dearborn,2010-11-10T00:00:00.000,2010-11-18T00:00:00.000
+Matthew Toth,Carnow Conibear,All environmental records re: 6156-6160 S. Ingleside,2010-11-10T00:00:00.000,2010-11-18T00:00:00.000
+Lori Schulz,EPS Environmental,"Any records re: 1700-61 N. Springfield, 1700-61 N. Harding, 1700-61 N. Avers, 3831-3940 W. Wabansia, 3831-3940 W. Bloomingdale",2010-11-10T00:00:00.000,2010-11-18T00:00:00.000
+Christine Karlovitz,Carlson Envrionmental,"Available info re: 2965-93 N. Milwaukee, 3000-32 N. Central Park, 3009-15 N. Monticello",2010-11-10T00:00:00.000,2010-11-18T00:00:00.000
+Ron Horan,Terracon,Any info re: 4600 W. Diversey,2010-11-10T00:00:00.000,2010-11-18T00:00:00.000
+Judie Wilson,MIONX,UST info re: 11601 S. Halsted,2010-11-10T00:00:00.000,2010-11-18T00:00:00.000
+Mark Krueger,LM Consultants,Any records re: 2407-11 N. Clark,2010-11-10T00:00:00.000,2010-11-18T00:00:00.000
+Lori Schulz,EPS Environmental,"Any records re: 417-560 W. Belmont, 417-560 W. Melrose, 3135-3240 N. Broadway, 3135-3240 N. Cambridge, 3135-3240 N. Pine Grove",2010-11-10T00:00:00.000,2010-11-18T00:00:00.000
+Yvonne Flores,Underground Storage Tank Specialists,"Tank info re: 6859 S. Loomis, 2750 W. Grand, 3401 S. King Drive, 8066 S. South Chicago",2010-11-09T00:00:00.000,2010-11-17T00:00:00.000
+Renee Hix Mays ,Alpha Environmental,"LUST, UST, inspections, installation, removal, violations re: 1951-59 W. Armitage",2010-11-09T00:00:00.000,2010-11-17T00:00:00.000
+Julie Brown,KPRG and Associates,All records re: 935 N. Dearborn,2010-11-09T00:00:00.000,2010-11-17T00:00:00.000
+Sara Locke,Terracon,"Any info re: 1100-10 N. Clark, 1111 W. Division",2010-11-09T00:00:00.000,2010-11-17T00:00:00.000
+Timothy Lagousakos,ISO Tech,Tanks re: 1419-25 W. Howard,2010-11-09T00:00:00.000,2010-11-17T00:00:00.000

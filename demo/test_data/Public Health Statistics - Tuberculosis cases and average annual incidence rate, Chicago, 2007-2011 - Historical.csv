@@ -1,0 +1,79 @@
+community_area,community_area_name,cases_2006,cases_2007,cases_2008,cases_2009,cases_2010,cases_2006_2010,average_annual_incidence_rate_2006_2010,incidence_rate_lower_ci,incidence_rate_upper_ci,warning
+1,Rogers Park,8,7,4,6,7,32,11.4,7.8,16.1,
+2,West Ridge,8,7,5,3,9,32,8.9,6.1,12.5,
+3,Uptown,6,8,13,2,10,39,13.6,9.7,18.6,
+4,Lincoln Square,5,3,6,2,1,17,8.5,4.9,13.6,
+5,North Center,0,0,2,0,1,3,1.9,0.4,5.5,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+6,Lake View,6,2,1,4,2,15,3.2,1.8,5.2,
+7,Lincoln Park,1,2,0,1,0,4,1.2,0.3,3.2,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+8,Near North Side,5,5,9,1,2,22,5.5,3.5,8.4,
+9,Edison Park,0,0,1,0,0,1,1.8,0,10,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+10,Norwood Park,1,1,0,1,0,3,1.6,0.3,4.7,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+11,Jefferson Park,3,2,0,0,4,9,7.1,3.2,13.4,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+12,Forest Glen,0,0,0,0,2,2,2.2,0.3,7.8,
+13,North Park,2,2,3,0,1,8,8.9,3.8,17.5,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+14,Albany Park,8,10,4,13,9,44,16.8,12.2,22.6,
+15,Portage Park,4,3,5,1,0,13,4,2.2,6.9,
+16,Irving Park,4,8,6,5,2,25,9.3,6,13.7,
+17,Dunning,2,2,0,0,1,5,2.4,0.8,5.6,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+18,Montclaire,1,0,1,0,0,2,3,0.4,10.8,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+19,Belmont Cragin,10,5,9,7,6,37,9.4,6.6,13,
+20,Hermosa,2,8,6,3,1,20,15.8,9.7,24.5,
+21,Avondale,2,3,5,8,2,20,10.1,6.2,15.6,
+22,Logan Square,7,8,6,4,6,31,8.4,5.7,11.9,
+23,Humboldt park,10,7,6,3,2,28,9.7,6.5,14.1,
+24,West Town,1,6,5,0,3,15,3.6,2,6,
+25,Austin,14,3,4,2,6,29,5.8,3.9,8.3,
+26,West Garfield Park,2,1,1,0,2,6,6.5,2.4,14,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+27,East Garfield Park,1,4,6,0,3,14,13.6,7.4,22.8,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+28,Near West Side,11,12,6,3,6,38,14.1,10,19.4,
+29,North Lawndale,3,6,3,3,2,17,9.3,5.4,14.9,
+30,South Lawndale,9,6,4,6,7,32,7.9,5.4,11.2,
+31,Lower West Side,7,1,5,5,3,21,11.4,7.1,17.5,
+32,Loop,4,1,0,4,0,9,6.5,3,12.3,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+33,Near South Side,0,0,2,3,0,5,5,1.6,11.7,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+34,Armour Square,3,3,1,2,6,15,22.7,12.7,37.4,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+35,Douglas,0,2,0,0,2,4,4.2,1.1,10.7,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+36,Oakland,0,0,1,1,0,2,6.7,0.8,24.3,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+37,Fuller Park,0,0,0,0,0,0,0,,,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+38,Grand Boulevard,6,1,2,5,1,15,13.2,7.4,21.8,
+39,Kenwood,0,0,0,0,0,0,0,,,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+40,Washington Park,2,1,0,0,0,3,5,1,14.6,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+41,Hyde Park,0,2,3,1,1,7,5.3,2.1,11,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+42,Woodlawn,6,4,7,2,2,21,17.4,10.8,26.6,
+43,South Shore,11,5,5,9,1,31,11.7,7.9,16.6,
+44,Chatham,2,5,0,5,1,13,8.2,4.4,14,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+45,Avalon Park,0,0,0,1,0,1,1.9,0,10.8,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+46,South Chicago,2,2,0,4,3,11,6.9,3.4,12.3,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+47,Burnside,0,0,0,0,1,1,6.8,0.2,37.6,
+48,Calumet Heights,1,0,0,1,0,2,2.8,0.3,10.3,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+49,Roseland,6,2,4,4,2,18,7.9,4.7,12.5,
+50,Pullman,0,0,0,0,1,1,2.7,0.1,14.8,
+51,South Deering,1,0,0,1,0,2,2.6,0.3,9.4,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+52,East Side,1,1,0,1,3,6,5.2,1.9,11.3,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+53,West Pullman,5,5,1,1,2,14,9.2,5,15.4,
+54,Riverdale,0,1,0,1,0,2,5.8,0.7,21,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+55,Hegewisch,0,0,0,1,0,1,2.1,0.1,11.8,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+56,Garfield Ridge,2,0,2,0,2,6,3.5,1.3,7.5,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+57,Archer Heights,0,0,0,1,0,1,1.5,0,8.4,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+58,Brighton Park,6,8,5,5,2,26,11.5,7.5,16.8,
+59,McKinley Park,4,1,0,1,3,9,11.5,5.3,21.8,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+60,Bridgeport,5,3,2,2,4,16,9.9,5.7,16.1,
+61,New City,5,5,5,5,1,21,9.3,5.7,14.2,
+62,West Elsdon,1,1,1,0,1,4,4.5,1.2,11.5,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+63,Gage Park,7,1,2,2,2,14,7,3.8,11.8,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+64,Clearing,1,0,0,0,0,1,0.9,0,4.8,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+65,West Lawn,0,1,3,2,1,7,4.3,1.7,8.8,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+66,Chicago Lawn,5,3,4,2,1,15,5.3,3,8.8,
+67,West Englewood,4,3,5,1,7,20,10.9,6.7,16.8,
+68,Englewood,7,2,5,2,2,18,11.3,6.7,17.9,
+69,Greater Grand Crossing,1,3,1,1,2,8,4.8,2.1,9.5,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+70,Ashburn,4,2,1,1,1,9,4.4,2,8.4,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+71,Auburn Gresham,4,4,3,2,5,18,7.3,4.3,11.5,
+72,Beverly,0,0,0,0,0,0,0,,,
+73,Washington Heights,0,1,2,1,0,4,3,0.8,7.6,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+74,Mount Greenwood,0,0,0,0,0,0,0,,,
+75,Morgan Park,1,1,0,0,1,3,2.6,0.5,7.7,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+76,O'Hare,1,1,2,0,0,4,6.3,1.7,16.2,Rate and confidence interval estimates are unreliable due to the very low number of reported tuberculosis cases during this period.
+77,Edgewater,8,7,7,3,5,30,10.5,7.1,15,
+0,Chicago,259,214,202,161,166,1002,7.4,6.9,7.8,

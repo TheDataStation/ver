@@ -1,0 +1,1001 @@
+fund_type,fund_code,fund_description,department_number,department_description,appropriation_authority,appropriation_authority_description,appropriation_account,appropriation_account_description,appropriation,revised_appropriation,recommendation
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0005,SALARIES AND WAGES - ON PAYROLL,10206075.00,10206075.00,10831269.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0039,STUDENT AS TRAINEES,180200.00,180200.00,180200.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0126,OFFICE CONVENIENCES,1600.00,1600.00,1600.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0130,POSTAGE,5500.00,5500.00,5500.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0140,PROFESSIONAL AND TECHNICAL SERVICES,30000.00,30000.00,30000.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0149,SOFTWARE MAINTENANCE AND LICENSING,2500.00,2500.00,2500.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0150,OUTSIDE GRAPHIC SERVICES,1600.00,1600.00,1600.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0157,RENTAL EQUIPMENT AND SERVICES,46000.00,46000.00,46000.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0159,LEASE/PURCHASE EQUIPMENT,52000.00,52000.00,52000.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0162,REPAIR/MAINT EQUIPMENT,6984.00,6984.00,6984.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0166,DUES  SUBSC & MEM,249511.00,249511.00,249511.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0169,TECHNICAL MEETING COSTS,6000.00,6000.00,6000.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0245,REIMBURSEMENT TO TRAVELERS,100000.00,100000.00,100000.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0270,LOCAL TRANSPORTATION,3000.00,3000.00,3000.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,0350,STATIONERY AND OFFICE SUPPLIES,30000.00,30000.00,30000.00
+LOCAL,0100,Corporate Fund,1,Office of the Mayor,2005,Office of the Mayor,9121,LOBBYIST COSTS,200000.00,200000.00,200000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,1,Office of the Mayor,2005,Office of the Mayor,0005,SALARIES AND WAGES - ON PAYROLL,454296.00,454296.00,439584.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0005,SALARIES AND WAGES - ON PAYROLL,6575057.00,6575057.00,7309626.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0015,SCHEDULE SALARY ADJUSTMENTS,65084.00,65084.00,71454.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0020,OVERTIME,3000.00,3000.00,3000.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0130,POSTAGE,1879.00,1879.00,1879.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0138,IT MAINTENANCE,514088.00,514088.00,121349.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0140,PROFESSIONAL AND TECHNICAL SERVICES,706446.00,706446.00,353253.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0143,COURT REPORTING,52500.00,52500.00,52500.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0149,SOFTWARE MAINTENANCE AND LICENSING,1170827.00,1170827.00,958008.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0150,OUTSIDE GRAPHIC SERVICES,6000.00,6000.00,6000.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0157,RENTAL EQUIPMENT AND SERVICES,48779.00,48779.00,48779.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0159,LEASE/PURCHASE EQUIPMENT,549914.00,549914.00,129501.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0161,MAINT FACILITIES,1000000.00,1000000.00,0
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0162,REPAIR/MAINT EQUIPMENT,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0166,DUES  SUBSC & MEM,18282.00,18282.00,18282.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0169,TECHNICAL MEETING COSTS,115299.00,115299.00,140874.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0181,MOBILE COMMUNICATION SERVICES,28435.00,28435.00,28435.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0189,TELEPHONE - NON-CENTREX BILLINGS,64975.00,64975.00,64975.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0245,REIMBURSEMENT TO TRAVELERS,15821.00,15821.00,15821.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0270,LOCAL TRANSPORTATION,31025.00,31025.00,31025.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0312,SOFTWARE PURCHASES,416000.00,416000.00,0
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0320,GASOLINE,2506.00,2506.00,2506.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0340,MATERIAL AND SUPPLIES,5423.00,5423.00,5423.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0348,BOOKS AND RELATED MATERIAL,1273.00,1273.00,1273.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0350,STATIONERY AND OFFICE SUPPLIES,28326.00,28326.00,28326.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0424,FURNITURE AND FURNISHINGS,50000.00,50000.00,0
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0446,PURCHASE - DATA HARDWARE,88477.00,88477.00,88477.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,0700,CONTINGENCIES,97060.00,97060.00,97060.00
+LOCAL,0100,Corporate Fund,3,Office of Inspector General,2005,Office of Inspector General,9438,REIMBURSEMENT - AIS,2000.00,2000.00,2000.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0005,SALARIES AND WAGES - ON PAYROLL,1116345.00,1116345.00,1135473.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0015,SCHEDULE SALARY ADJUSTMENTS,12100.00,12100.00,9677.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0130,POSTAGE,309.00,309.00,309.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0140,PROFESSIONAL AND TECHNICAL SERVICES,1268.00,1268.00,1268.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0143,COURT REPORTING,9808.00,9808.00,9808.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0149,SOFTWARE MAINTENANCE AND LICENSING,35801.00,35801.00,35801.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0157,RENTAL EQUIPMENT AND SERVICES,7307.00,7307.00,7307.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0159,LEASE/PURCHASE EQUIPMENT,1295.00,1295.00,1295.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0162,REPAIR/MAINT EQUIPMENT,1632.00,1632.00,1632.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0166,DUES  SUBSC & MEM,2390.00,2390.00,2390.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0169,TECHNICAL MEETING COSTS,14867.00,14867.00,20868.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0181,MOBILE COMMUNICATION SERVICES,4155.00,4155.00,4155.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0189,TELEPHONE - NON-CENTREX BILLINGS,7596.00,7596.00,7596.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0245,REIMBURSEMENT TO TRAVELERS,126.00,126.00,126.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0270,LOCAL TRANSPORTATION,948.00,948.00,948.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0320,GASOLINE,386.00,386.00,386.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0340,MATERIAL AND SUPPLIES,821.00,821.00,821.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0348,BOOKS AND RELATED MATERIAL,288.00,288.00,288.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0350,STATIONERY AND OFFICE SUPPLIES,3133.00,3133.00,3133.00
+LOCAL,0200,Water Fund,3,Office of Inspector General,2005,Office of Inspector General,0700,CONTINGENCIES,1215.00,1215.00,1215.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0005,SALARIES AND WAGES - ON PAYROLL,699622.00,699622.00,686338.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0015,SCHEDULE SALARY ADJUSTMENTS,1898.00,1898.00,3653.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0130,POSTAGE,173.00,173.00,173.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0140,PROFESSIONAL AND TECHNICAL SERVICES,1269.00,1269.00,1269.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0143,COURT REPORTING,9808.00,9808.00,9808.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0149,SOFTWARE MAINTENANCE AND LICENSING,20623.00,20623.00,20623.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0157,RENTAL EQUIPMENT AND SERVICES,5813.00,5813.00,5813.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0159,LEASE/PURCHASE EQUIPMENT,601.00,601.00,601.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0162,REPAIR/MAINT EQUIPMENT,54.00,54.00,54.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0166,DUES  SUBSC & MEM,1337.00,1337.00,1337.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0169,TECHNICAL MEETING COSTS,8045.00,8045.00,12173.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0181,MOBILE COMMUNICATION SERVICES,2719.00,2719.00,2719.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0189,TELEPHONE - NON-CENTREX BILLINGS,3321.00,3321.00,3321.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0245,REIMBURSEMENT TO TRAVELERS,105.00,105.00,105.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0270,LOCAL TRANSPORTATION,397.00,397.00,397.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0320,GASOLINE,386.00,386.00,386.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0340,MATERIAL AND SUPPLIES,322.00,322.00,322.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0348,BOOKS AND RELATED MATERIAL,173.00,173.00,173.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0350,STATIONERY AND OFFICE SUPPLIES,1225.00,1225.00,1225.00
+LOCAL,0314,Sewer Fund,3,Office of Inspector General,2005,Office of Inspector General,0700,CONTINGENCIES,1725.00,1725.00,1725.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0005,SALARIES AND WAGES - ON PAYROLL,161885.00,161885.00,210672.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0015,SCHEDULE SALARY ADJUSTMENTS,4050.00,4050.00,6140.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0130,POSTAGE,72.00,72.00,72.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0140,PROFESSIONAL AND TECHNICAL SERVICES,847.00,847.00,847.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0143,COURT REPORTING,6538.00,6538.00,6538.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0149,SOFTWARE MAINTENANCE AND LICENSING,9183.00,9183.00,9183.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0157,RENTAL EQUIPMENT AND SERVICES,3876.00,3876.00,3876.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0159,LEASE/PURCHASE EQUIPMENT,254.00,254.00,254.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0166,DUES  SUBSC & MEM,457.00,457.00,457.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0169,TECHNICAL MEETING COSTS,3011.00,3011.00,5217.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0181,MOBILE COMMUNICATION SERVICES,1330.00,1330.00,1330.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0189,TELEPHONE - NON-CENTREX BILLINGS,1568.00,1568.00,1568.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0245,REIMBURSEMENT TO TRAVELERS,63.00,63.00,63.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0270,LOCAL TRANSPORTATION,210.00,210.00,210.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0320,GASOLINE,257.00,257.00,257.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0340,MATERIAL AND SUPPLIES,135.00,135.00,135.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0348,BOOKS AND RELATED MATERIAL,16.00,16.00,16.00
+LOCAL,0610,Chicago Midway Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0350,STATIONERY AND OFFICE SUPPLIES,512.00,512.00,512.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0005,SALARIES AND WAGES - ON PAYROLL,1071726.00,1071726.00,1108004.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0015,SCHEDULE SALARY ADJUSTMENTS,7732.00,7732.00,11427.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0130,POSTAGE,299.00,299.00,299.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0140,PROFESSIONAL AND TECHNICAL SERVICES,2116.00,2116.00,2116.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0143,COURT REPORTING,16346.00,16346.00,16346.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0149,SOFTWARE MAINTENANCE AND LICENSING,24085.00,24085.00,24085.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0157,RENTAL EQUIPMENT AND SERVICES,10187.00,10187.00,10187.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0159,LEASE/PURCHASE EQUIPMENT,1109.00,1109.00,1109.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0162,REPAIR/MAINT EQUIPMENT,65.00,65.00,65.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0166,DUES  SUBSC & MEM,2029.00,2029.00,2029.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0169,TECHNICAL MEETING COSTS,13674.00,13674.00,20868.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0181,MOBILE COMMUNICATION SERVICES,3929.00,3929.00,3929.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0189,TELEPHONE - NON-CENTREX BILLINGS,6424.00,6424.00,6424.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0245,REIMBURSEMENT TO TRAVELERS,210.00,210.00,210.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0270,LOCAL TRANSPORTATION,732.00,732.00,732.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0320,GASOLINE,642.00,642.00,642.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0340,MATERIAL AND SUPPLIES,635.00,635.00,635.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0348,BOOKS AND RELATED MATERIAL,160.00,160.00,160.00
+LOCAL,0740,Chicago O'Hare Airport Fund,3,Office of Inspector General,2005,Office of Inspector General,0350,STATIONERY AND OFFICE SUPPLIES,2315.00,2315.00,2315.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0005,SALARIES AND WAGES - ON PAYROLL,3190204.00,3190204.00,3245030.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0015,SCHEDULE SALARY ADJUSTMENTS,12346.00,12346.00,16347.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0039,STUDENT AS TRAINEES,37500.00,37500.00,37500.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0130,POSTAGE,5000.00,5000.00,5000.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,5500.00,5500.00,5500.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0152,ADVERTISING,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0157,RENTAL EQUIPMENT AND SERVICES,10000.00,10000.00,10000.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0169,TECHNICAL MEETING COSTS,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0270,LOCAL TRANSPORTATION,500.00,500.00,500.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0348,BOOKS AND RELATED MATERIAL,400.00,400.00,400.00
+LOCAL,0100,Corporate Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0350,STATIONERY AND OFFICE SUPPLIES,5400.00,5400.00,5400.00
+LOCAL,0200,Water Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0005,SALARIES AND WAGES - ON PAYROLL,136872.00,136872.00,241596.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0005,SALARIES AND WAGES - ON PAYROLL,172140.00,172140.00,183600.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,5,Office of Budget and Management,2005,Office of Budget and Management,0015,SCHEDULE SALARY ADJUSTMENTS,1650.00,1650.00,1074.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0005,SALARIES AND WAGES - ON PAYROLL,7001621.00,7001621.00,7439952.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0017,WARD STAFF WAGE ALLOWANCE,10026046.00,10026046.00,10326827.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0039,STUDENT AS TRAINEES,225000.00,225000.00,225000.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0126,OFFICE CONVENIENCES,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0157,RENTAL EQUIPMENT AND SERVICES,27000.00,27000.00,27000.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0165,GRAPHIC DESIGN SERV,1500.00,1500.00,1500.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0340,MATERIAL AND SUPPLIES,7000.00,7000.00,7000.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0700,CONTINGENCIES,5000.00,5000.00,5000.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,0982,RECOGNITION FOR HEROSIM,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,9008,Aldermanic Expense Allowance for Ordinary and Necessary Expenses Incurred in Connection with the Performance of an Alderman's Official Duties. Warrant...,6100000.00,6100000.00,6100000.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,9072,Contingent and Other Expenses for Corporate Purposes Not Otherwise Provided For. To Be Expended Under the Direction of the President Pro Tempore ...,4000.00,4000.00,4000.00
+LOCAL,0100,Corporate Fund,15,City Council,2005,City Council,9231,HUMAN INFRASTRUCTURE MENU,5000000.00,5000000.00,5000000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0000,PERSONNEL SERVICES,774070.00,774070.00,797292.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0130,POSTAGE,3000.00,3000.00,3000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0140,PROFESSIONAL AND TECHNICAL SERVICES,61520.00,61520.00,61520.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0143,COURT REPORTING,60000.00,60000.00,60000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0157,RENTAL EQUIPMENT AND SERVICES,65000.00,65000.00,65000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0166,DUES  SUBSC & MEM,3000.00,3000.00,3000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0169,TECHNICAL MEETING COSTS,1500.00,1500.00,1500.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,4000.00,4000.00,4000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0340,MATERIAL AND SUPPLIES,3500.00,3500.00,3500.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0348,BOOKS AND RELATED MATERIAL,3000.00,3000.00,3000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0350,STATIONERY AND OFFICE SUPPLIES,35000.00,35000.00,35000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,0700,CONTINGENCIES,2000.00,2000.00,2000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,9005,LEGAL FEES - COMMITTE ON FINANCE,50000.00,50000.00,50000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,9006,LEGAL ASSISTANCE - COMMITTEE ON FINANCE,50000.00,50000.00,50000.00
+LOCAL,0100,Corporate Fund,15,City Council,2010,Committee on Finance,9010,For Legal  Technical  Medical and Professional Services  Appraisals  Consultants  Printers  Court Reporters  and Other Incidental Contractual Services...,35500.00,35500.00,35500.00
+LOCAL,0100,Corporate Fund,15,City Council,2012,Council Office of Financial Analysis,0005,SALARIES AND WAGES - ON PAYROLL,276732.00,276732.00,285036.00
+LOCAL,0100,Corporate Fund,15,City Council,2012,Council Office of Financial Analysis,0700,CONTINGENCIES,32644.00,32644.00,32644.00
+LOCAL,0100,Corporate Fund,15,City Council,2214,Committee on the Budget and Government Operations,0000,PERSONNEL SERVICES,294000.00,294000.00,302820.00
+LOCAL,0100,Corporate Fund,15,City Council,2214,Committee on the Budget and Government Operations,0100,CONTRACTUAL SERVICES,15000.00,15000.00,15000.00
+LOCAL,0100,Corporate Fund,15,City Council,2214,Committee on the Budget and Government Operations,0300,COMMODITIES AND MATERIALS,12000.00,12000.00,12000.00
+LOCAL,0100,Corporate Fund,15,City Council,2214,Committee on the Budget and Government Operations,0400,EQUIPMENT,9500.00,9500.00,9500.00
+LOCAL,0100,Corporate Fund,15,City Council,2214,Committee on the Budget and Government Operations,0700,CONTINGENCIES,15000.00,15000.00,15000.00
+LOCAL,0100,Corporate Fund,15,City Council,2216,Committee on Contracting  Oversight  and Equity,0000,PERSONNEL SERVICES,199500.00,199500.00,205485.00
+LOCAL,0100,Corporate Fund,15,City Council,2216,Committee on Contracting  Oversight  and Equity,0100,CONTRACTUAL SERVICES,1500.00,1500.00,1500.00
+LOCAL,0100,Corporate Fund,15,City Council,2220,Committee on Aviation,0000,PERSONNEL SERVICES,189000.00,189000.00,194670.00
+LOCAL,0100,Corporate Fund,15,City Council,2220,Committee on Aviation,0100,CONTRACTUAL SERVICES,200.00,200.00,200.00
+LOCAL,0100,Corporate Fund,15,City Council,2220,Committee on Aviation,0300,COMMODITIES AND MATERIALS,500.00,500.00,500.00
+LOCAL,0100,Corporate Fund,15,City Council,2220,Committee on Aviation,0700,CONTINGENCIES,750.00,750.00,750.00
+LOCAL,0100,Corporate Fund,15,City Council,2225,Committee on License and Consumer Protection,0000,PERSONNEL SERVICES,150675.00,150675.00,155195.00
+LOCAL,0100,Corporate Fund,15,City Council,2225,Committee on License and Consumer Protection,0100,CONTRACTUAL SERVICES,46500.00,46500.00,46500.00
+LOCAL,0100,Corporate Fund,15,City Council,2225,Committee on License and Consumer Protection,0300,COMMODITIES AND MATERIALS,1500.00,1500.00,1500.00
+LOCAL,0100,Corporate Fund,15,City Council,2235,Committee on Public Safety,0000,PERSONNEL SERVICES,221865.00,221865.00,228520.00
+LOCAL,0100,Corporate Fund,15,City Council,2235,Committee on Public Safety,0100,CONTRACTUAL SERVICES,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,15,City Council,2235,Committee on Public Safety,0300,COMMODITIES AND MATERIALS,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,15,City Council,2235,Committee on Public Safety,0700,CONTINGENCIES,500.00,500.00,500.00
+LOCAL,0100,Corporate Fund,15,City Council,2245,Committee on Committees and Rules,0000,PERSONNEL SERVICES,134631.00,134631.00,138670.00
+LOCAL,0100,Corporate Fund,15,City Council,2245,Committee on Committees and Rules,0100,CONTRACTUAL SERVICES,20000.00,20000.00,20000.00
+LOCAL,0100,Corporate Fund,15,City Council,2245,Committee on Committees and Rules,0300,COMMODITIES AND MATERIALS,500.00,500.00,500.00
+LOCAL,0100,Corporate Fund,15,City Council,2255,Committee on Economic  Capital and Technology Development,0000,PERSONNEL SERVICES,404250.00,404250.00,416377.00
+LOCAL,0100,Corporate Fund,15,City Council,2255,Committee on Economic  Capital and Technology Development,0100,CONTRACTUAL SERVICES,1000.00,2500.00,1000.00
+LOCAL,0100,Corporate Fund,15,City Council,2255,Committee on Economic  Capital and Technology Development,0300,COMMODITIES AND MATERIALS,500.00,0,500.00
+LOCAL,0100,Corporate Fund,15,City Council,2255,Committee on Economic  Capital and Technology Development,0700,CONTINGENCIES,1000.00,0,1000.00
+LOCAL,0100,Corporate Fund,15,City Council,2257,Committee on Environmental Protection and Energy,0000,PERSONNEL SERVICES,215460.00,215460.00,221924.00
+LOCAL,0100,Corporate Fund,15,City Council,2257,Committee on Environmental Protection and Energy,0300,COMMODITIES AND MATERIALS,800.00,800.00,800.00
+LOCAL,0100,Corporate Fund,15,City Council,2258,Committee on Ethics and Government Oversight,0000,PERSONNEL SERVICES,190255.00,190255.00,195963.00
+LOCAL,0100,Corporate Fund,15,City Council,2258,Committee on Ethics and Government Oversight,0300,COMMODITIES AND MATERIALS,1500.00,1500.00,1500.00
+LOCAL,0100,Corporate Fund,15,City Council,2260,Committee on Education and Child Development,0000,PERSONNEL SERVICES,176806.00,176806.00,182110.00
+LOCAL,0100,Corporate Fund,15,City Council,2260,Committee on Education and Child Development,0100,CONTRACTUAL SERVICES,3000.00,3000.00,3000.00
+LOCAL,0100,Corporate Fund,15,City Council,2260,Committee on Education and Child Development,0700,CONTINGENCIES,2000.00,2000.00,2000.00
+LOCAL,0100,Corporate Fund,15,City Council,2275,Committee on Zoning  Landmarks and Building Standards,0000,PERSONNEL SERVICES,335886.00,335886.00,345963.00
+LOCAL,0100,Corporate Fund,15,City Council,2275,Committee on Zoning  Landmarks and Building Standards,0100,CONTRACTUAL SERVICES,74700.00,74700.00,74700.00
+LOCAL,0100,Corporate Fund,15,City Council,2275,Committee on Zoning  Landmarks and Building Standards,0300,COMMODITIES AND MATERIALS,15300.00,15300.00,15300.00
+LOCAL,0100,Corporate Fund,15,City Council,2277,Committee on Health and Human Relations,0000,PERSONNEL SERVICES,136500.00,136500.00,140595.00
+LOCAL,0100,Corporate Fund,15,City Council,2277,Committee on Health and Human Relations,0100,CONTRACTUAL SERVICES,7000.00,7000.00,7000.00
+LOCAL,0100,Corporate Fund,15,City Council,2277,Committee on Health and Human Relations,0300,COMMODITIES AND MATERIALS,4000.00,4000.00,4000.00
+LOCAL,0100,Corporate Fund,15,City Council,2278,Committee on Immigrant and Refugee Rights,0000,PERSONNEL SERVICES,115500.00,115500.00,118965.00
+LOCAL,0100,Corporate Fund,15,City Council,2278,Committee on Immigrant and Refugee Rights,0300,COMMODITIES AND MATERIALS,1500.00,1500.00,1500.00
+LOCAL,0100,Corporate Fund,15,City Council,2280,Committee on Housing and Real Estate,0000,PERSONNEL SERVICES,214314.00,214314.00,220743.00
+LOCAL,0100,Corporate Fund,15,City Council,2280,Committee on Housing and Real Estate,0300,COMMODITIES AND MATERIALS,8000.00,8000.00,8000.00
+LOCAL,0100,Corporate Fund,15,City Council,2290,Committee on Workforce Development and Audit,0000,PERSONNEL SERVICES,322476.00,322476.00,332150.00
+LOCAL,0100,Corporate Fund,15,City Council,2290,Committee on Workforce Development and Audit,0100,CONTRACTUAL SERVICES,2980.00,2980.00,2980.00
+LOCAL,0100,Corporate Fund,15,City Council,2290,Committee on Workforce Development and Audit,0300,COMMODITIES AND MATERIALS,5000.00,5000.00,5000.00
+LOCAL,0100,Corporate Fund,15,City Council,2295,Legislative Reference Bureau,0000,PERSONNEL SERVICES,379058.00,379058.00,390430.00
+LOCAL,0100,Corporate Fund,15,City Council,2295,Legislative Reference Bureau,0100,CONTRACTUAL SERVICES,0,3000.00,3000.00
+LOCAL,0100,Corporate Fund,15,City Council,2295,Legislative Reference Bureau,0300,COMMODITIES AND MATERIALS,16000.00,13000.00,13000.00
+LOCAL,0300,Vehicle Tax Fund,15,City Council,2230,Committee on Transportation and Public Way,0000,PERSONNEL SERVICES,294000.00,294000.00,302820.00
+LOCAL,0300,Vehicle Tax Fund,15,City Council,2230,Committee on Transportation and Public Way,0100,CONTRACTUAL SERVICES,15000.00,15000.00,15000.00
+LOCAL,0300,Vehicle Tax Fund,15,City Council,2230,Committee on Transportation and Public Way,0300,COMMODITIES AND MATERIALS,15000.00,15000.00,15000.00
+LOCAL,0300,Vehicle Tax Fund,15,City Council,2265,Committee on Pedestrian and Traffic Safety,0000,PERSONNEL SERVICES,294000.00,294000.00,302820.00
+LOCAL,0300,Vehicle Tax Fund,15,City Council,2265,Committee on Pedestrian and Traffic Safety,0300,COMMODITIES AND MATERIALS,5000.00,5000.00,5000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,15,City Council,2155,Committee on Special Events  Cultural Affairs and Recreation,0000,PERSONNEL SERVICES,171140.00,171140.00,176274.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,15,City Council,2155,Committee on Special Events  Cultural Affairs and Recreation,0300,COMMODITIES AND MATERIALS,3720.00,3720.00,3720.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0005,SALARIES AND WAGES - ON PAYROLL,1606523.00,1606523.00,2121351.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0015,SCHEDULE SALARY ADJUSTMENTS,8383.00,8383.00,10860.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0039,STUDENT AS TRAINEES,78000.00,78000.00,78000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0135,DELEGATE AGENCIES,1144881.00,1144881.00,7087898.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0140,PROFESSIONAL AND TECHNICAL SERVICES,582998.00,582998.00,220250.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0141,APPRAISALS,15000.00,15000.00,15000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0149,SOFTWARE MAINTENANCE AND LICENSING,52580.00,52580.00,0
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0152,ADVERTISING,10500.00,10500.00,9000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0169,TECHNICAL MEETING COSTS,24900.00,24900.00,14700.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,0,0,1000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0245,REIMBURSEMENT TO TRAVELERS,9000.00,9000.00,9000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0446,PURCHASE - DATA HARDWARE,0,0,65000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,0938,LOW INCOME HOUSING,5000000.00,5000000.00,0
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,9103,REHABILITATION LOANS GT,320700.00,320700.00,320700.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,9110,PROPERT MANAGEMENT MAIN,100000.00,100000.00,100000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,9183,FORECLOSURE PREVENTION,407000.00,407000.00,0
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,9211,SINGLE-FAMILY TROUBLED BUILDING INITIATI,75000.00,75000.00,75000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,9212,MULTI-FAMILY TROUBLED BUILDING INITIATIV,100000.00,100000.00,175000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,9224,MICRO MARKET RECOVERY,700000.00,700000.00,700000.00
+LOCAL,0100,Corporate Fund,21,Department of Housing,2010,Department of Housing,9438,REIMBURSEMENT - AIS,15000.00,15000.00,24000.00
+LOCAL,0996,Affordable Housing Opportunity Fund,21,Department of Housing,2010,Department of Housing,0005,SALARIES AND WAGES - ON PAYROLL,388693.00,388693.00,466502.00
+LOCAL,0996,Affordable Housing Opportunity Fund,21,Department of Housing,2010,Department of Housing,0015,SCHEDULE SALARY ADJUSTMENTS,1404.00,1404.00,1836.00
+LOCAL,0996,Affordable Housing Opportunity Fund,21,Department of Housing,2010,Department of Housing,0140,PROFESSIONAL AND TECHNICAL SERVICES,530000.00,530000.00,0
+LOCAL,0996,Affordable Housing Opportunity Fund,21,Department of Housing,2010,Department of Housing,0169,TECHNICAL MEETING COSTS,9000.00,9000.00,0
+LOCAL,0996,Affordable Housing Opportunity Fund,21,Department of Housing,2010,Department of Housing,9213,AFFORDABLE HOUSING DENSITY PROGRAM,21882932.00,21882932.00,32728876.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,21,Department of Housing,2010,Department of Housing,0005,SALARIES AND WAGES - ON PAYROLL,371165.00,371165.00,565935.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,21,Department of Housing,2010,Department of Housing,0015,SCHEDULE SALARY ADJUSTMENTS,584.00,584.00,4576.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,21,Department of Housing,2010,Department of Housing,0138,IT MAINTENANCE,0,0,40000.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,21,Department of Housing,2010,Department of Housing,0139,IT DEVELOPMENT,440000.00,440000.00,0
+LOCAL,0B21,Tax Increment Financing Administration Fund,21,Department of Housing,2010,Department of Housing,0140,PROFESSIONAL AND TECHNICAL SERVICES,25000.00,25000.00,0
+LOCAL,0B21,Tax Increment Financing Administration Fund,21,Department of Housing,2010,Department of Housing,0149,SOFTWARE MAINTENANCE AND LICENSING,200000.00,200000.00,0
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0005,SALARIES AND WAGES - ON PAYROLL,6412863.00,6412863.00,6758822.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0015,SCHEDULE SALARY ADJUSTMENTS,32412.00,32412.00,54353.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0039,STUDENT AS TRAINEES,50000.00,50000.00,50000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0125,OFFICE AND BUILDING SERVICES,25000.00,25000.00,25000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0130,POSTAGE,25000.00,25000.00,25000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0138,IT MAINTENANCE,71550.00,71550.00,117000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0140,PROFESSIONAL AND TECHNICAL SERVICES,4145352.00,4145352.00,4753259.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0150,OUTSIDE GRAPHIC SERVICES,40000.00,40000.00,76000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0152,ADVERTISING,189000.00,189000.00,189000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0153,PROMOTIONS,12000.00,12000.00,12000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0159,LEASE/PURCHASE EQUIPMENT,31524.00,31524.00,19032.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0161,MAINT FACILITIES,100000.00,100000.00,100000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0166,DUES  SUBSC & MEM,66000.00,66000.00,66000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0172,INSURANCE PREMIUMS,464750.00,464750.00,489750.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,4500.00,4500.00,4500.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0245,REIMBURSEMENT TO TRAVELERS,6000.00,6000.00,6000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0340,MATERIAL AND SUPPLIES,30000.00,30000.00,30000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,0350,STATIONERY AND OFFICE SUPPLIES,30000.00,30000.00,30000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,9188,MILLENNIUM PARK OPERATIONS,3300000.00,3300000.00,3538000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,9219,IMPLEMENTATION OF CULTURAL PLAN,2575000.00,2575000.00,2575000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,9288,MILLENNIUM PARK PROGRAMMING,265500.00,265500.00,265500.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,9803,FOR PROGRAMMING/MARKETG,1976296.00,1976296.00,1976296.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,9805,FOR FESTIVAL PRODUCTION,6332653.00,6332653.00,6332653.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,9807,FOR REDEMPTION EXPENSES,2200000.00,2200000.00,2200000.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,23,Department of Cultural Affairs and Special Events,2015,Department of Cultural Affairs and Special Events,9813,LOCAL PROMOTION/MARKETG,793720.00,793720.00,793720.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0005,SALARIES AND WAGES - ON PAYROLL,2544942.00,2544942.00,2520118.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0015,SCHEDULE SALARY ADJUSTMENTS,6899.00,6899.00,8950.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0020,OVERTIME,70000.00,70000.00,85000.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0130,POSTAGE,24015.00,24015.00,24015.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0135,DELEGATE AGENCIES,447000.00,447000.00,350000.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0140,PROFESSIONAL AND TECHNICAL SERVICES,555215.00,555215.00,331821.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0149,SOFTWARE MAINTENANCE AND LICENSING,325648.00,325648.00,575774.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0150,OUTSIDE GRAPHIC SERVICES,6000.00,6000.00,7000.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0152,ADVERTISING,75000.00,75000.00,75000.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0157,RENTAL EQUIPMENT AND SERVICES,22024.00,22024.00,22024.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0159,LEASE/PURCHASE EQUIPMENT,97800.00,97800.00,97800.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0162,REPAIR/MAINT EQUIPMENT,21121.00,21121.00,30094.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0166,DUES  SUBSC & MEM,13200.00,13200.00,13200.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0171,MISCELLANEOUS SUPPLIES,108250.00,108250.00,108250.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0340,MATERIAL AND SUPPLIES,2095.00,2095.00,2095.00
+LOCAL,0100,Corporate Fund,25,Office of City Clerk,2005,Office of City Clerk,0350,STATIONERY AND OFFICE SUPPLIES,72500.00,72500.00,78500.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0005,SALARIES AND WAGES - ON PAYROLL,4182585.00,4182585.00,4241522.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0015,SCHEDULE SALARY ADJUSTMENTS,25973.00,25973.00,33065.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0020,OVERTIME,50000.00,50000.00,50000.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0039,STUDENT AS TRAINEES,63000.00,63000.00,90000.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0130,POSTAGE,1028773.00,1028773.00,1082773.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0138,IT MAINTENANCE,350000.00,350000.00,350000.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0140,PROFESSIONAL AND TECHNICAL SERVICES,213445.00,213445.00,258750.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0149,SOFTWARE MAINTENANCE AND LICENSING,810000.00,810000.00,931000.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0154,RENTAL-DATA HARDWARE EQ,12125.00,12125.00,12125.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0157,RENTAL EQUIPMENT AND SERVICES,93024.00,93024.00,93024.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0159,LEASE/PURCHASE EQUIPMENT,45000.00,45000.00,45000.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0162,REPAIR/MAINT EQUIPMENT,11250.00,11250.00,5750.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,18000.00,18000.00,18000.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0338,LICENSE STICKER TAG AND PLATES,423000.00,423000.00,460141.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0340,MATERIAL AND SUPPLIES,12350.00,12350.00,14500.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,0350,STATIONERY AND OFFICE SUPPLIES,112500.00,112500.00,112500.00
+LOCAL,0300,Vehicle Tax Fund,25,Office of City Clerk,2005,Office of City Clerk,9438,REIMBURSEMENT - AIS,30000.00,30000.00,5000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0005,SALARIES AND WAGES - ON PAYROLL,3260013.00,3260013.00,2985919.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0015,SCHEDULE SALARY ADJUSTMENTS,8646.00,8646.00,16068.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0039,STUDENT AS TRAINEES,0,0,17000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0140,PROFESSIONAL AND TECHNICAL SERVICES,50000.00,50000.00,25000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0149,SOFTWARE MAINTENANCE AND LICENSING,0,0,8000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0166,DUES  SUBSC & MEM,5185.00,5185.00,6000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0169,TECHNICAL MEETING COSTS,885.00,885.00,885.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0171,MISCELLANEOUS SUPPLIES,0,0,4000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0270,LOCAL TRANSPORTATION,250.00,250.00,250.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0348,BOOKS AND RELATED MATERIAL,100.00,100.00,100.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2011,City Comptroller,0350,STATIONERY AND OFFICE SUPPLIES,7000.00,7000.00,7000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0005,SALARIES AND WAGES - ON PAYROLL,4181831.00,4181831.00,4458529.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0015,SCHEDULE SALARY ADJUSTMENTS,26486.00,26486.00,31264.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0020,OVERTIME,10000.00,10000.00,20000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0140,PROFESSIONAL AND TECHNICAL SERVICES,101000.00,101000.00,101000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0142,ACCOUNTING AND AUDITING,609925.00,609925.00,609925.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0149,SOFTWARE MAINTENANCE AND LICENSING,25000.00,25000.00,25000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0166,DUES  SUBSC & MEM,1450.00,1450.00,1450.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0169,TECHNICAL MEETING COSTS,13750.00,13750.00,13750.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0245,REIMBURSEMENT TO TRAVELERS,3000.00,3000.00,3000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0348,BOOKS AND RELATED MATERIAL,600.00,600.00,600.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0350,STATIONERY AND OFFICE SUPPLIES,6000.00,6000.00,6000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0005,SALARIES AND WAGES - ON PAYROLL,6390822.00,6390822.00,6631123.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0015,SCHEDULE SALARY ADJUSTMENTS,29971.00,29971.00,45460.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0039,STUDENT AS TRAINEES,10000.00,10000.00,17000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0130,POSTAGE,100000.00,100000.00,100000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,513819.00,513819.00,513819.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,277170.00,277170.00,277170.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0150,OUTSIDE GRAPHIC SERVICES,40000.00,40000.00,40000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0152,ADVERTISING,7500.00,7500.00,9500.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0162,REPAIR/MAINT EQUIPMENT,400.00,400.00,400.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0166,DUES  SUBSC & MEM,9163.00,9163.00,9656.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0169,TECHNICAL MEETING COSTS,39779.00,39779.00,40779.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0178,FREIGHT AND EXPRESS CHARGES,3500.00,3500.00,3500.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0179,MESSENGER SERVICES,12000.00,12000.00,12000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0245,REIMBURSEMENT TO TRAVELERS,13000.00,13000.00,20200.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0340,MATERIAL AND SUPPLIES,13240.00,13240.00,13240.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0348,BOOKS AND RELATED MATERIAL,1300.00,1300.00,1315.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,0350,STATIONERY AND OFFICE SUPPLIES,15000.00,15000.00,15000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2015,Financial Strategy and Operations,9067,PHYSICAL EXAMS,400.00,400.00,400.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0005,SALARIES AND WAGES - ON PAYROLL,23855951.00,23855951.00,23550337.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0012,CONTRACT WAGE - PREVAILING RATE,43664.00,43664.00,43443.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0015,SCHEDULE SALARY ADJUSTMENTS,115109.00,115109.00,138006.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0020,OVERTIME,143015.00,143015.00,163015.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0039,STUDENT AS TRAINEES,7500.00,7500.00,17000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0091,UNIFORM ALLOWANCE,97900.00,97900.00,97900.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0130,POSTAGE,156000.00,156000.00,156000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0138,IT MAINTENANCE,22210060.00,21945060.00,22464190.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,5349746.00,5614746.00,6280946.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,96040.00,96040.00,96040.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0152,ADVERTISING,2500.00,2500.00,5500.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0156,LOCK BOX RENTAL,15574.00,15574.00,15574.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0157,RENTAL EQUIPMENT AND SERVICES,5000.00,5000.00,5040.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0159,LEASE/PURCHASE EQUIPMENT,109500.00,109500.00,109500.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0162,REPAIR/MAINT EQUIPMENT,1263747.00,1263747.00,1263747.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0169,TECHNICAL MEETING COSTS,11210.00,11210.00,11210.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0178,FREIGHT AND EXPRESS CHARGES,1300.00,1300.00,1300.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0179,MESSENGER SERVICES,21000.00,21000.00,21000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0228,OUT OF TOWN TRAVEL FOR AUDITORS ONLY,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,2000.00,2000.00,2000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0319,CLOTHING,6083.00,6083.00,6083.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0339,REVENUE STAMPS,45150.00,45150.00,26180.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0340,MATERIAL AND SUPPLIES,79100.00,79100.00,161350.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0350,STATIONERY AND OFFICE SUPPLIES,104900.00,104900.00,104900.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,0421,MACHINERY AND EQUIPMENT,55000.00,55000.00,55000.00
+LOCAL,0100,Corporate Fund,27,Department of Finance,2020,Revenue Services and Operations,9438,REIMBURSEMENT - AIS,40000.00,40000.00,40000.00
+LOCAL,0200,Water Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0005,SALARIES AND WAGES - ON PAYROLL,292001.00,292001.00,298322.00
+LOCAL,0200,Water Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0015,SCHEDULE SALARY ADJUSTMENTS,0,0,3623.00
+LOCAL,0200,Water Fund,27,Department of Finance,2015,Financial Strategy and Operations,0005,SALARIES AND WAGES - ON PAYROLL,447021.00,447021.00,443985.00
+LOCAL,0200,Water Fund,27,Department of Finance,2015,Financial Strategy and Operations,0015,SCHEDULE SALARY ADJUSTMENTS,0,0,1140.00
+LOCAL,0200,Water Fund,27,Department of Finance,2015,Financial Strategy and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,146250.00,146250.00,221250.00
+LOCAL,0200,Water Fund,27,Department of Finance,2015,Financial Strategy and Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,10640.00,10640.00,10640.00
+LOCAL,0200,Water Fund,27,Department of Finance,2015,Financial Strategy and Operations,0154,RENTAL-DATA HARDWARE EQ,20000.00,20000.00,20000.00
+LOCAL,0200,Water Fund,27,Department of Finance,2015,Financial Strategy and Operations,0166,DUES  SUBSC & MEM,432.00,432.00,432.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0005,SALARIES AND WAGES - ON PAYROLL,2527688.00,2527688.00,2416998.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0015,SCHEDULE SALARY ADJUSTMENTS,4365.00,4365.00,18554.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0125,OFFICE AND BUILDING SERVICES,750.00,750.00,750.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0130,POSTAGE,1400000.00,1400000.00,1460000.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,5569915.00,5569915.00,6029626.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0156,LOCK BOX RENTAL,1577.00,1577.00,1577.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0159,LEASE/PURCHASE EQUIPMENT,18542.00,18542.00,18542.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0340,MATERIAL AND SUPPLIES,3400.00,3400.00,3400.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,0350,STATIONERY AND OFFICE SUPPLIES,20000.00,20000.00,20000.00
+LOCAL,0200,Water Fund,27,Department of Finance,2020,Revenue Services and Operations,9438,REIMBURSEMENT - AIS,15000.00,15000.00,15000.00
+LOCAL,0300,Vehicle Tax Fund,27,Department of Finance,2015,Financial Strategy and Operations,0005,SALARIES AND WAGES - ON PAYROLL,439154.00,439154.00,459613.00
+LOCAL,0300,Vehicle Tax Fund,27,Department of Finance,2015,Financial Strategy and Operations,0015,SCHEDULE SALARY ADJUSTMENTS,1470.00,1470.00,1470.00
+LOCAL,0300,Vehicle Tax Fund,27,Department of Finance,2020,Revenue Services and Operations,0005,SALARIES AND WAGES - ON PAYROLL,440318.00,440318.00,407751.00
+LOCAL,0300,Vehicle Tax Fund,27,Department of Finance,2020,Revenue Services and Operations,0015,SCHEDULE SALARY ADJUSTMENTS,998.00,998.00,1715.00
+LOCAL,0300,Vehicle Tax Fund,27,Department of Finance,2020,Revenue Services and Operations,0350,STATIONERY AND OFFICE SUPPLIES,250.00,250.00,250.00
+LOCAL,0300,Vehicle Tax Fund,27,Department of Finance,2020,Revenue Services and Operations,0421,MACHINERY AND EQUIPMENT,1177575.00,1177575.00,1201127.00
+LOCAL,0314,Sewer Fund,27,Department of Finance,2015,Financial Strategy and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,16000.00,16000.00,16000.00
+LOCAL,0314,Sewer Fund,27,Department of Finance,2015,Financial Strategy and Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,8000.00,8000.00,8000.00
+LOCAL,0314,Sewer Fund,27,Department of Finance,2015,Financial Strategy and Operations,0154,RENTAL-DATA HARDWARE EQ,10000.00,10000.00,10000.00
+LOCAL,0314,Sewer Fund,27,Department of Finance,2015,Financial Strategy and Operations,0166,DUES  SUBSC & MEM,300.00,300.00,300.00
+LOCAL,0314,Sewer Fund,27,Department of Finance,2020,Revenue Services and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,1628237.00,1628237.00,1628237.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0005,SALARIES AND WAGES - ON PAYROLL,170933.00,170933.00,170933.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0015,SCHEDULE SALARY ADJUSTMENTS,0,0,179.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0020,OVERTIME,500.00,500.00,500.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0039,STUDENT AS TRAINEES,6500.00,6500.00,6500.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0140,PROFESSIONAL AND TECHNICAL SERVICES,10000.00,10000.00,0
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0142,ACCOUNTING AND AUDITING,0,0,10000.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0166,DUES  SUBSC & MEM,300.00,300.00,300.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0169,TECHNICAL MEETING COSTS,420.00,420.00,420.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0270,LOCAL TRANSPORTATION,420.00,420.00,420.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0350,STATIONERY AND OFFICE SUPPLIES,500.00,500.00,500.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0005,SALARIES AND WAGES - ON PAYROLL,208112.00,208112.00,208112.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,26000.00,26000.00,26000.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,6588.00,6588.00,6588.00
+LOCAL,0610,Chicago Midway Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0166,DUES  SUBSC & MEM,350.00,350.00,350.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0005,SALARIES AND WAGES - ON PAYROLL,1915029.00,1915029.00,1983391.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0015,SCHEDULE SALARY ADJUSTMENTS,14209.00,14209.00,15002.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0020,OVERTIME,2000.00,2000.00,2000.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0039,STUDENT AS TRAINEES,23500.00,23500.00,23500.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0140,PROFESSIONAL AND TECHNICAL SERVICES,69650.00,69650.00,0
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0142,ACCOUNTING AND AUDITING,0,0,69560.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0149,SOFTWARE MAINTENANCE AND LICENSING,1500.00,1500.00,1500.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0159,LEASE/PURCHASE EQUIPMENT,15000.00,15000.00,15000.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0166,DUES  SUBSC & MEM,425.00,425.00,425.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0169,TECHNICAL MEETING COSTS,1500.00,1500.00,1500.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0348,BOOKS AND RELATED MATERIAL,500.00,500.00,500.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0350,STATIONERY AND OFFICE SUPPLIES,3500.00,3500.00,3500.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0005,SALARIES AND WAGES - ON PAYROLL,357611.00,357611.00,453676.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0015,SCHEDULE SALARY ADJUSTMENTS,5690.00,5690.00,7639.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,100509.00,100509.00,100509.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,38000.00,38000.00,38000.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0154,RENTAL-DATA HARDWARE EQ,20000.00,20000.00,20000.00
+LOCAL,0740,Chicago O'Hare Airport Fund,27,Department of Finance,2015,Financial Strategy and Operations,0166,DUES  SUBSC & MEM,1500.00,1500.00,1500.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0005,SALARIES AND WAGES - ON PAYROLL,513754.00,513754.00,449085.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0015,SCHEDULE SALARY ADJUSTMENTS,0,0,2160.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,27,Department of Finance,2012,Accounting and Financial Reporting,0142,ACCOUNTING AND AUDITING,221701.00,221701.00,221701.00
+LOCAL,0B26,Chicago Parking Meters Fund,27,Department of Finance,2015,Financial Strategy and Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,6500000.00,6500000.00,6500000.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0005,SALARIES AND WAGES - ON PAYROLL,1277692.00,1277692.00,1553997.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0015,SCHEDULE SALARY ADJUSTMENTS,2288.00,2288.00,2568.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0039,STUDENT AS TRAINEES,13440.00,13440.00,15000.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0130,POSTAGE,131.00,131.00,131.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0138,IT MAINTENANCE,112597.00,112597.00,120037.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0140,PROFESSIONAL AND TECHNICAL SERVICES,289193.00,289193.00,327801.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0142,ACCOUNTING AND AUDITING,92000.00,92000.00,92000.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0149,SOFTWARE MAINTENANCE AND LICENSING,31721.00,31721.00,31721.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0150,OUTSIDE GRAPHIC SERVICES,0,0,3000.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0157,RENTAL EQUIPMENT AND SERVICES,40000.00,40000.00,51000.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0159,LEASE/PURCHASE EQUIPMENT,17671.00,17671.00,26346.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0166,DUES  SUBSC & MEM,307371.00,307371.00,333090.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0169,TECHNICAL MEETING COSTS,30000.00,30000.00,33000.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0179,MESSENGER SERVICES,500.00,500.00,500.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0245,REIMBURSEMENT TO TRAVELERS,15000.00,15000.00,16500.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0270,LOCAL TRANSPORTATION,1500.00,1500.00,1500.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0350,STATIONERY AND OFFICE SUPPLIES,6500.00,6500.00,6500.00
+LOCAL,0100,Corporate Fund,28,City Treasurer's Office,2005,Office of City Treasurer,9438,REIMBURSEMENT - AIS,6000.00,6000.00,7000.00
+LOCAL,0200,Water Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0005,SALARIES AND WAGES - ON PAYROLL,329005.00,329005.00,354984.00
+LOCAL,0200,Water Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0138,IT MAINTENANCE,86954.00,86954.00,92767.00
+LOCAL,0200,Water Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0140,PROFESSIONAL AND TECHNICAL SERVICES,65289.00,65289.00,118729.00
+LOCAL,0314,Sewer Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0005,SALARIES AND WAGES - ON PAYROLL,140142.00,140142.00,155906.00
+LOCAL,0314,Sewer Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0138,IT MAINTENANCE,53565.00,53565.00,56471.00
+LOCAL,0314,Sewer Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0140,PROFESSIONAL AND TECHNICAL SERVICES,31360.00,31360.00,57611.00
+LOCAL,0610,Chicago Midway Airport Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0005,SALARIES AND WAGES - ON PAYROLL,238596.00,238596.00,247000.00
+LOCAL,0610,Chicago Midway Airport Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0015,SCHEDULE SALARY ADJUSTMENTS,3003.00,3003.00,6807.00
+LOCAL,0610,Chicago Midway Airport Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0138,IT MAINTENANCE,72271.00,72271.00,78084.00
+LOCAL,0610,Chicago Midway Airport Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0140,PROFESSIONAL AND TECHNICAL SERVICES,50172.00,50172.00,97943.00
+LOCAL,0740,Chicago O'Hare Airport Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0005,SALARIES AND WAGES - ON PAYROLL,816325.00,816325.00,874582.00
+LOCAL,0740,Chicago O'Hare Airport Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0015,SCHEDULE SALARY ADJUSTMENTS,1980.00,1980.00,0
+LOCAL,0740,Chicago O'Hare Airport Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0138,IT MAINTENANCE,113433.00,113433.00,125058.00
+LOCAL,0740,Chicago O'Hare Airport Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0140,PROFESSIONAL AND TECHNICAL SERVICES,164718.00,164718.00,291175.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0005,SALARIES AND WAGES - ON PAYROLL,302260.00,302260.00,353390.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0138,IT MAINTENANCE,75224.00,75224.00,81908.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,28,City Treasurer's Office,2005,Office of City Treasurer,0140,PROFESSIONAL AND TECHNICAL SERVICES,18666.00,18666.00,35513.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0005,SALARIES AND WAGES - ON PAYROLL,3056698.00,3056698.00,3064585.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0015,SCHEDULE SALARY ADJUSTMENTS,16982.00,16982.00,10325.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0020,OVERTIME,2450.00,2450.00,2450.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0039,STUDENT AS TRAINEES,8400.00,8400.00,8624.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0130,POSTAGE,69622.00,69622.00,69622.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0138,IT MAINTENANCE,1182845.00,1182845.00,1069057.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0140,PROFESSIONAL AND TECHNICAL SERVICES,3736372.00,3736372.00,4047688.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0143,COURT REPORTING,64917.00,64917.00,64917.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0159,LEASE/PURCHASE EQUIPMENT,37403.00,37403.00,51284.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0162,REPAIR/MAINT EQUIPMENT,600.00,600.00,600.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0166,DUES  SUBSC & MEM,2350.00,2350.00,2350.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0169,TECHNICAL MEETING COSTS,470.00,470.00,470.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0179,MESSENGER SERVICES,2850.00,2850.00,2850.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,1750.00,1750.00,1750.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0340,MATERIAL AND SUPPLIES,14682.00,14682.00,15618.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0348,BOOKS AND RELATED MATERIAL,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,0350,STATIONERY AND OFFICE SUPPLIES,12440.00,12440.00,12440.00
+LOCAL,0100,Corporate Fund,30,Department of Administrative Hearings,2005,Department of Administrative Hearings,9438,REIMBURSEMENT - AIS,21850.00,21850.00,21850.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0005,SALARIES AND WAGES - ON PAYROLL,28161247.00,28161247.00,29264453.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0015,SCHEDULE SALARY ADJUSTMENTS,138371.00,138371.00,132489.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0020,OVERTIME,5000.00,5000.00,5000.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0130,POSTAGE,136500.00,136500.00,151545.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0138,IT MAINTENANCE,836500.00,836500.00,552000.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0140,PROFESSIONAL AND TECHNICAL SERVICES,940386.00,940386.00,970158.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0141,APPRAISALS,16000.00,16000.00,16000.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0143,COURT REPORTING,805982.00,805982.00,800478.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0145,LEGAL EXPENSES,99710.00,84380.00,96189.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0149,SOFTWARE MAINTENANCE AND LICENSING,289280.00,289280.00,561680.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0150,OUTSIDE GRAPHIC SERVICES,14000.00,14000.00,14000.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0157,RENTAL EQUIPMENT AND SERVICES,47393.00,47393.00,49883.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0159,LEASE/PURCHASE EQUIPMENT,151292.00,151292.00,118812.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0162,REPAIR/MAINT EQUIPMENT,1202.00,1202.00,1202.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0166,DUES  SUBSC & MEM,8204.00,8204.00,19704.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0169,TECHNICAL MEETING COSTS,21090.00,36420.00,46540.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0178,FREIGHT AND EXPRESS CHARGES,7680.00,7680.00,7378.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,4010.00,4010.00,4010.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0245,REIMBURSEMENT TO TRAVELERS,35000.00,35000.00,35000.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0270,LOCAL TRANSPORTATION,33100.00,33100.00,31750.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0348,BOOKS AND RELATED MATERIAL,3100.00,3100.00,1800.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,0350,STATIONERY AND OFFICE SUPPLIES,59778.00,59778.00,54078.00
+LOCAL,0100,Corporate Fund,31,Department of Law,2005,Department of Law,9438,REIMBURSEMENT - AIS,10000.00,10000.00,11000.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0005,SALARIES AND WAGES - ON PAYROLL,1521063.00,1521063.00,1614043.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0015,SCHEDULE SALARY ADJUSTMENTS,6357.00,6357.00,2730.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0020,OVERTIME,470.00,470.00,470.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0130,POSTAGE,4235.00,4235.00,4900.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0138,IT MAINTENANCE,15700.00,15700.00,3200.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0140,PROFESSIONAL AND TECHNICAL SERVICES,50517.00,50517.00,48517.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0141,APPRAISALS,2500.00,2500.00,2500.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0143,COURT REPORTING,54458.00,54458.00,49458.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0145,LEGAL EXPENSES,12813.00,12813.00,12813.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0149,SOFTWARE MAINTENANCE AND LICENSING,16800.00,16800.00,30600.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0150,OUTSIDE GRAPHIC SERVICES,1000.00,1000.00,1000.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0157,RENTAL EQUIPMENT AND SERVICES,672.00,672.00,772.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0159,LEASE/PURCHASE EQUIPMENT,8832.00,8832.00,7832.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0162,REPAIR/MAINT EQUIPMENT,1202.00,1202.00,1202.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0166,DUES  SUBSC & MEM,286.00,286.00,1786.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0169,TECHNICAL MEETING COSTS,4140.00,4140.00,5740.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0178,FREIGHT AND EXPRESS CHARGES,644.00,644.00,644.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,230.00,230.00,230.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0245,REIMBURSEMENT TO TRAVELERS,2200.00,2200.00,2200.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0270,LOCAL TRANSPORTATION,1788.00,1788.00,1788.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0348,BOOKS AND RELATED MATERIAL,150.00,150.00,150.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,0350,STATIONERY AND OFFICE SUPPLIES,3689.00,3689.00,3689.00
+LOCAL,0200,Water Fund,31,Department of Law,2005,Department of Law,9438,REIMBURSEMENT - AIS,1323.00,1323.00,1323.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0005,SALARIES AND WAGES - ON PAYROLL,1654467.00,1654467.00,1961713.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0015,SCHEDULE SALARY ADJUSTMENTS,16013.00,16013.00,10976.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0020,OVERTIME,360.00,360.00,360.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0130,POSTAGE,4801.00,4801.00,7380.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0138,IT MAINTENANCE,13033.00,13033.00,2200.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0140,PROFESSIONAL AND TECHNICAL SERVICES,61107.00,61107.00,42620.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0141,APPRAISALS,3000.00,3000.00,3000.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0143,COURT REPORTING,45963.00,45963.00,45963.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0145,LEGAL EXPENSES,3390.00,3390.00,3390.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0149,SOFTWARE MAINTENANCE AND LICENSING,12880.00,12880.00,27270.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0150,OUTSIDE GRAPHIC SERVICES,800.00,800.00,1190.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0157,RENTAL EQUIPMENT AND SERVICES,263.00,263.00,360.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0159,LEASE/PURCHASE EQUIPMENT,6720.00,6720.00,9783.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0162,REPAIR/MAINT EQUIPMENT,100.00,100.00,100.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0166,DUES  SUBSC & MEM,1223.00,1223.00,1723.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0169,TECHNICAL MEETING COSTS,2700.00,2700.00,4300.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0178,FREIGHT AND EXPRESS CHARGES,310.00,310.00,310.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,175.00,175.00,175.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0245,REIMBURSEMENT TO TRAVELERS,1500.00,1500.00,1500.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0270,LOCAL TRANSPORTATION,816.00,816.00,816.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0348,BOOKS AND RELATED MATERIAL,150.00,150.00,150.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,0350,STATIONERY AND OFFICE SUPPLIES,2797.00,2797.00,2886.00
+LOCAL,0300,Vehicle Tax Fund,31,Department of Law,2005,Department of Law,9438,REIMBURSEMENT - AIS,1006.00,1006.00,1006.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0005,SALARIES AND WAGES - ON PAYROLL,826090.00,826090.00,858405.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0015,SCHEDULE SALARY ADJUSTMENTS,1227.00,1227.00,0
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0020,OVERTIME,200.00,200.00,200.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0130,POSTAGE,2757.00,2757.00,2757.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0138,IT MAINTENANCE,10900.00,10900.00,2000.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0140,PROFESSIONAL AND TECHNICAL SERVICES,28404.00,28404.00,27404.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0141,APPRAISALS,800.00,800.00,800.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0143,COURT REPORTING,21578.00,21578.00,21578.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0145,LEGAL EXPENSES,4685.00,4685.00,4685.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0149,SOFTWARE MAINTENANCE AND LICENSING,9800.00,9800.00,23600.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0150,OUTSIDE GRAPHIC SERVICES,800.00,800.00,800.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0157,RENTAL EQUIPMENT AND SERVICES,210.00,210.00,210.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0159,LEASE/PURCHASE EQUIPMENT,5376.00,5376.00,5376.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0162,REPAIR/MAINT EQUIPMENT,100.00,100.00,100.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0166,DUES  SUBSC & MEM,1250.00,1250.00,1750.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0169,TECHNICAL MEETING COSTS,2420.00,2420.00,4020.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0178,FREIGHT AND EXPRESS CHARGES,270.00,270.00,270.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,140.00,140.00,140.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0245,REIMBURSEMENT TO TRAVELERS,1750.00,1750.00,1750.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0270,LOCAL TRANSPORTATION,932.00,932.00,932.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0348,BOOKS AND RELATED MATERIAL,150.00,150.00,150.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,0350,STATIONERY AND OFFICE SUPPLIES,2244.00,2244.00,2244.00
+LOCAL,0314,Sewer Fund,31,Department of Law,2005,Department of Law,9438,REIMBURSEMENT - AIS,805.00,805.00,805.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0005,SALARIES AND WAGES - ON PAYROLL,335638.00,335638.00,387180.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0015,SCHEDULE SALARY ADJUSTMENTS,1284.00,1284.00,1347.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0130,POSTAGE,2018.00,2018.00,2370.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0138,IT MAINTENANCE,10450.00,10450.00,1800.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0140,PROFESSIONAL AND TECHNICAL SERVICES,28197.00,28197.00,27197.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0141,APPRAISALS,1200.00,1200.00,1200.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0143,COURT REPORTING,5138.00,5138.00,5138.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0145,LEGAL EXPENSES,3272.00,3272.00,3272.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0149,SOFTWARE MAINTENANCE AND LICENSING,7840.00,7840.00,21640.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0150,OUTSIDE GRAPHIC SERVICES,800.00,800.00,800.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0157,RENTAL EQUIPMENT AND SERVICES,225.00,225.00,325.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0159,LEASE/PURCHASE EQUIPMENT,5760.00,5760.00,5760.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0162,REPAIR/MAINT EQUIPMENT,100.00,100.00,100.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0166,DUES  SUBSC & MEM,1205.00,1205.00,1705.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0169,TECHNICAL MEETING COSTS,3515.00,3515.00,4165.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0178,FREIGHT AND EXPRESS CHARGES,301.00,301.00,301.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,150.00,150.00,150.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0245,REIMBURSEMENT TO TRAVELERS,4200.00,4200.00,4200.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0270,LOCAL TRANSPORTATION,777.00,777.00,777.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0348,BOOKS AND RELATED MATERIAL,100.00,100.00,100.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,0350,STATIONERY AND OFFICE SUPPLIES,2398.00,2398.00,2398.00
+LOCAL,0610,Chicago Midway Airport Fund,31,Department of Law,2005,Department of Law,9438,REIMBURSEMENT - AIS,863.00,863.00,863.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0005,SALARIES AND WAGES - ON PAYROLL,2119842.00,2119842.00,2329234.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0015,SCHEDULE SALARY ADJUSTMENTS,11295.00,11295.00,614.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0020,OVERTIME,400.00,400.00,400.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0130,POSTAGE,2370.00,2370.00,2788.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0138,IT MAINTENANCE,20450.00,20450.00,3800.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0140,PROFESSIONAL AND TECHNICAL SERVICES,51265.00,51265.00,49576.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0141,APPRAISALS,1500.00,1500.00,1500.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0143,COURT REPORTING,14385.00,14385.00,14385.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0145,LEGAL EXPENSES,4651.00,4651.00,4651.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0149,SOFTWARE MAINTENANCE AND LICENSING,8400.00,8400.00,22200.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0150,OUTSIDE GRAPHIC SERVICES,1600.00,1600.00,1600.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0157,RENTAL EQUIPMENT AND SERVICES,450.00,450.00,450.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0159,LEASE/PURCHASE EQUIPMENT,11520.00,11520.00,7500.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0162,REPAIR/MAINT EQUIPMENT,100.00,100.00,100.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0166,DUES  SUBSC & MEM,1375.00,1375.00,2875.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0169,TECHNICAL MEETING COSTS,10000.00,10000.00,4680.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0178,FREIGHT AND EXPRESS CHARGES,597.00,597.00,597.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,295.00,295.00,295.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0245,REIMBURSEMENT TO TRAVELERS,5350.00,5350.00,5350.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0270,LOCAL TRANSPORTATION,1437.00,1437.00,1437.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0348,BOOKS AND RELATED MATERIAL,150.00,150.00,150.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,0350,STATIONERY AND OFFICE SUPPLIES,4794.00,4794.00,4794.00
+LOCAL,0740,Chicago O'Hare Airport Fund,31,Department of Law,2005,Department of Law,9438,REIMBURSEMENT - AIS,1725.00,1725.00,1253.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,31,Department of Law,2005,Department of Law,0005,SALARIES AND WAGES - ON PAYROLL,1112304.00,1112304.00,1172509.00
+LOCAL,0B21,Tax Increment Financing Administration Fund,31,Department of Law,2005,Department of Law,0015,SCHEDULE SALARY ADJUSTMENTS,2798.00,2798.00,4395.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0005,SALARIES AND WAGES - ON PAYROLL,6446377.00,6446377.00,8602266.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0015,SCHEDULE SALARY ADJUSTMENTS,65661.00,65661.00,68575.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0039,STUDENT AS TRAINEES,50000.00,50000.00,50000.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0050,STIPENDS,21000.00,21000.00,21000.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0130,POSTAGE,13100.00,13100.00,13100.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0140,PROFESSIONAL AND TECHNICAL SERVICES,240273.00,240273.00,240273.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0143,COURT REPORTING,55993.00,55993.00,55993.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0149,SOFTWARE MAINTENANCE AND LICENSING,35551.00,35551.00,43578.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0152,ADVERTISING,92000.00,92000.00,103000.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0159,LEASE/PURCHASE EQUIPMENT,42860.00,42860.00,82860.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0162,REPAIR/MAINT EQUIPMENT,3500.00,3500.00,3500.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0166,DUES  SUBSC & MEM,33985.00,33985.00,36255.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0169,TECHNICAL MEETING COSTS,0,0,75600.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0178,FREIGHT AND EXPRESS CHARGES,500.00,500.00,500.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0270,LOCAL TRANSPORTATION,2560.00,2560.00,2560.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0340,MATERIAL AND SUPPLIES,18475.00,18475.00,18475.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,0350,STATIONERY AND OFFICE SUPPLIES,11300.00,11300.00,11300.00
+LOCAL,0100,Corporate Fund,33,Department of Human Resources,2005,Department of Human Resources,9438,REIMBURSEMENT - AIS,40000.00,40000.00,10000.00
+LOCAL,0200,Water Fund,33,Department of Human Resources,2005,Department of Human Resources,0005,SALARIES AND WAGES - ON PAYROLL,200837.00,200837.00,303173.00
+LOCAL,0200,Water Fund,33,Department of Human Resources,2005,Department of Human Resources,0140,PROFESSIONAL AND TECHNICAL SERVICES,3808.00,3808.00,3808.00
+LOCAL,0200,Water Fund,33,Department of Human Resources,2005,Department of Human Resources,0350,STATIONERY AND OFFICE SUPPLIES,208.00,208.00,208.00
+LOCAL,0300,Vehicle Tax Fund,33,Department of Human Resources,2005,Department of Human Resources,0005,SALARIES AND WAGES - ON PAYROLL,0,0,51168.00
+LOCAL,0610,Chicago Midway Airport Fund,33,Department of Human Resources,2005,Department of Human Resources,0005,SALARIES AND WAGES - ON PAYROLL,118449.00,118449.00,118449.00
+LOCAL,0740,Chicago O'Hare Airport Fund,33,Department of Human Resources,2005,Department of Human Resources,0005,SALARIES AND WAGES - ON PAYROLL,308204.00,308204.00,415452.00
+LOCAL,0740,Chicago O'Hare Airport Fund,33,Department of Human Resources,2005,Department of Human Resources,0015,SCHEDULE SALARY ADJUSTMENTS,621.00,621.00,795.00
+LOCAL,0740,Chicago O'Hare Airport Fund,33,Department of Human Resources,2005,Department of Human Resources,0130,POSTAGE,295.00,295.00,295.00
+LOCAL,0740,Chicago O'Hare Airport Fund,33,Department of Human Resources,2005,Department of Human Resources,0140,PROFESSIONAL AND TECHNICAL SERVICES,5950.00,5950.00,5950.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0005,SALARIES AND WAGES - ON PAYROLL,6663672.00,6663672.00,8725827.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0012,CONTRACT WAGE - PREVAILING RATE,2415.00,2415.00,2493.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0015,SCHEDULE SALARY ADJUSTMENTS,41990.00,41990.00,83750.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0130,POSTAGE,5500.00,5500.00,5721.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0138,IT MAINTENANCE,195760.00,195760.00,195760.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0140,PROFESSIONAL AND TECHNICAL SERVICES,645100.00,645100.00,833300.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0149,SOFTWARE MAINTENANCE AND LICENSING,2800.00,2800.00,29315.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0152,ADVERTISING,51000.00,51000.00,56000.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0157,RENTAL EQUIPMENT AND SERVICES,38497.00,38497.00,38497.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0159,LEASE/PURCHASE EQUIPMENT,0,0,21250.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0160,REPAIR/MAINT PROPERTY,21280.00,21280.00,22280.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0162,REPAIR/MAINT EQUIPMENT,41118.00,41118.00,41118.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0166,DUES  SUBSC & MEM,14140.00,14140.00,20305.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0168,EDUCATION DEVELOPMENT,2500.00,2500.00,2500.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0169,TECHNICAL MEETING COSTS,21000.00,21000.00,0
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0171,MISCELLANEOUS SUPPLIES,3500.00,3500.00,26500.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0178,FREIGHT AND EXPRESS CHARGES,500.00,500.00,500.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,200.00,200.00,200.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0245,REIMBURSEMENT TO TRAVELERS,0,0,10000.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0270,LOCAL TRANSPORTATION,290.00,290.00,290.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0340,MATERIAL AND SUPPLIES,2250.00,2250.00,3250.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0350,STATIONERY AND OFFICE SUPPLIES,17044.00,17044.00,21023.00
+LOCAL,0100,Corporate Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0446,PURCHASE - DATA HARDWARE,2009.00,2009.00,9660.00
+LOCAL,0200,Water Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0005,SALARIES AND WAGES - ON PAYROLL,320157.00,320157.00,433174.00
+LOCAL,0200,Water Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0015,SCHEDULE SALARY ADJUSTMENTS,5682.00,5682.00,3900.00
+LOCAL,0300,Vehicle Tax Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0005,SALARIES AND WAGES - ON PAYROLL,0,0,130483.00
+LOCAL,0300,Vehicle Tax Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0015,SCHEDULE SALARY ADJUSTMENTS,0,0,3900.00
+LOCAL,0610,Chicago Midway Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0005,SALARIES AND WAGES - ON PAYROLL,432880.00,432880.00,308312.00
+LOCAL,0610,Chicago Midway Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0015,SCHEDULE SALARY ADJUSTMENTS,4938.00,4938.00,990.00
+LOCAL,0610,Chicago Midway Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0140,PROFESSIONAL AND TECHNICAL SERVICES,11000.00,11000.00,10000.00
+LOCAL,0610,Chicago Midway Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0350,STATIONERY AND OFFICE SUPPLIES,200.00,200.00,200.00
+LOCAL,0740,Chicago O'Hare Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0005,SALARIES AND WAGES - ON PAYROLL,1678648.00,1678648.00,1429565.00
+LOCAL,0740,Chicago O'Hare Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0015,SCHEDULE SALARY ADJUSTMENTS,13071.00,13071.00,14508.00
+LOCAL,0740,Chicago O'Hare Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0140,PROFESSIONAL AND TECHNICAL SERVICES,44000.00,44000.00,38000.00
+LOCAL,0740,Chicago O'Hare Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0270,LOCAL TRANSPORTATION,300.00,300.00,300.00
+LOCAL,0740,Chicago O'Hare Airport Fund,35,Department of Procurement Services,2005,Department of Procurement Services,0350,STATIONERY AND OFFICE SUPPLIES,600.00,600.00,600.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0005,SALARIES AND WAGES - ON PAYROLL,3530547.00,3530547.00,3398579.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0015,SCHEDULE SALARY ADJUSTMENTS,13737.00,13737.00,16868.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0140,PROFESSIONAL AND TECHNICAL SERVICES,17525.00,17525.00,11525.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0143,COURT REPORTING,2000.00,2000.00,0
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0148,TESTING AND INSPECTING,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0152,ADVERTISING,1200.00,1200.00,1200.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0159,LEASE/PURCHASE EQUIPMENT,88238.00,88238.00,88238.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0340,MATERIAL AND SUPPLIES,4500.00,4500.00,4500.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2103,Bureau of Finance and Administration,0350,STATIONERY AND OFFICE SUPPLIES,38750.00,38750.00,53750.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0005,SALARIES AND WAGES - ON PAYROLL,33293165.00,33293165.00,34950253.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0012,CONTRACT WAGE - PREVAILING RATE,302585.00,302585.00,328034.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0015,SCHEDULE SALARY ADJUSTMENTS,25572.00,25572.00,31345.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0020,OVERTIME,1305140.00,1305140.00,1305140.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0125,OFFICE AND BUILDING SERVICES,25671290.00,25671290.00,28307136.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0130,POSTAGE,20000.00,20000.00,25000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,7013668.00,7013668.00,18678536.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0149,SOFTWARE MAINTENANCE AND LICENSING,417911.00,417911.00,430000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0157,RENTAL EQUIPMENT AND SERVICES,547829.00,547829.00,1582640.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0160,REPAIR/MAINT PROPERTY,1825000.00,1825000.00,2537000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0161,MAINT FACILITIES,825000.00,825000.00,2000000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0162,REPAIR/MAINT EQUIPMENT,3060930.00,3060930.00,3338000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0313,CLEANING AND SANITATION SUPPLIES,786159.00,786159.00,1153583.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0319,CLOTHING,85000.00,85000.00,85000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0340,MATERIAL AND SUPPLIES,3615000.00,3615000.00,3965000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0342,DRUGS  MEDICINE AND CHEMICAL MATERIALS,1440.00,1440.00,1440.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0005,SALARIES AND WAGES - ON PAYROLL,3641264.00,3641264.00,4055501.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0015,SCHEDULE SALARY ADJUSTMENTS,19966.00,19966.00,17021.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0020,OVERTIME,10980.00,10980.00,10980.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,1340040.00,1340040.00,1322040.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0141,APPRAISALS,30000.00,30000.00,30000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0149,SOFTWARE MAINTENANCE AND LICENSING,47500.00,47500.00,46550.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0155,RENTAL OF PROPERTY,13040426.00,13040426.00,15944215.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0159,LEASE/PURCHASE EQUIPMENT,390000.00,390000.00,350000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0160,REPAIR/MAINT PROPERTY,670000.00,670000.00,728600.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0162,REPAIR/MAINT EQUIPMENT,60000.00,60000.00,60000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0166,DUES  SUBSC & MEM,1170.00,1170.00,1475.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0169,TECHNICAL MEETING COSTS,40620.00,40620.00,40480.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0179,MESSENGER SERVICES,1000.00,1000.00,2500.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0185,WASTE DISPOSAL SERVICES,1000.00,1000.00,1000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0315,MOTOR VEHICLE DIESEL FUEL,3204876.00,3204876.00,4889272.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0319,CLOTHING,45000.00,45000.00,45000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0320,GASOLINE,15585490.00,15585490.00,19870390.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0322,NATURAL GAS,3894990.00,3894990.00,4059463.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0325,ALTERNATIVE FUEL,211354.00,211354.00,253960.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0331,ELECTRICITY,12570059.00,12570059.00,14340370.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0340,MATERIAL AND SUPPLIES,264915.00,264915.00,263915.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0350,STATIONERY AND OFFICE SUPPLIES,490000.00,490000.00,525000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,9067,PHYSICAL EXAMS,14280.00,14280.00,10500.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,9160,PBC,752735.00,752735.00,752735.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0005,SALARIES AND WAGES - ON PAYROLL,37095880.00,37095880.00,38241429.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0012,CONTRACT WAGE - PREVAILING RATE,345188.00,345188.00,362237.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0015,SCHEDULE SALARY ADJUSTMENTS,37290.00,37290.00,53579.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0020,OVERTIME,2437755.00,2437755.00,2437755.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,4754772.00,4754772.00,4814381.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0148,TESTING AND INSPECTING,42750.00,42750.00,47025.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,374699.00,374699.00,399763.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0157,RENTAL EQUIPMENT AND SERVICES,268000.00,268000.00,240000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0159,LEASE/PURCHASE EQUIPMENT,2915608.00,2915608.00,2821608.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0161,MAINT FACILITIES,109322.00,109322.00,115755.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0162,REPAIR/MAINT EQUIPMENT,1540895.00,1540895.00,987065.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0166,DUES  SUBSC & MEM,5500.00,5500.00,5500.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0176,MAINTENANCE AND OPERATION - VEHICLES,12483526.00,12483526.00,13303949.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0185,WASTE DISPOSAL SERVICES,5275.00,5275.00,7400.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0245,REIMBURSEMENT TO TRAVELERS,10000.00,10000.00,10000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0319,CLOTHING,10000.00,10000.00,10000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0322,NATURAL GAS,0,0,102045.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0338,LICENSE STICKER TAG AND PLATES,105000.00,105000.00,105000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0340,MATERIAL AND SUPPLIES,49320.00,49320.00,61650.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0342,DRUGS  MEDICINE AND CHEMICAL MATERIALS,4230.00,4230.00,4230.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0345,APPARATUS AND INSTRUMENTS,39000.00,39000.00,39000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0360,REPAIR PARTS AND MATERIAL,23004237.00,23004237.00,23590495.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0446,PURCHASE - DATA HARDWARE,35000.00,35000.00,35000.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0005,SALARIES AND WAGES - ON PAYROLL,8425795.00,8425795.00,4629543.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0015,SCHEDULE SALARY ADJUSTMENTS,37917.00,37917.00,41969.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0130,POSTAGE,100.00,100.00,0
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0138,IT MAINTENANCE,3557859.00,3398020.00,3303546.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0140,PROFESSIONAL AND TECHNICAL SERVICES,1331475.00,1331475.00,1181224.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0149,SOFTWARE MAINTENANCE AND LICENSING,10885569.00,10885569.00,10391129.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0162,REPAIR/MAINT EQUIPMENT,1247904.00,1247904.00,1547198.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0166,DUES  SUBSC & MEM,198500.00,358339.00,408354.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0169,TECHNICAL MEETING COSTS,34000.00,34000.00,46998.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0181,MOBILE COMMUNICATION SERVICES,1811711.00,1811711.00,1380668.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0188,VEHICLE TRACKING SERVICE,650804.00,650804.00,860906.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0189,TELEPHONE - NON-CENTREX BILLINGS,143550.00,143550.00,109397.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0190,TELEPHONE - CENTREX BILLINGS,1864730.00,1864730.00,1421073.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0196,DATA CIRCUITS,1124310.00,1124310.00,856814.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0197,TELEPHONE - MAINTENANCE,263546.00,263546.00,200843.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0340,MATERIAL AND SUPPLIES,7650.00,7650.00,7621.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0348,BOOKS AND RELATED MATERIAL,2700.00,2700.00,3810.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0350,STATIONERY AND OFFICE SUPPLIES,6750.00,6750.00,11431.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2150,Bureau of Centralized Information Technology,0005,SALARIES AND WAGES - ON PAYROLL,0,0,5339406.00
+LOCAL,0100,Corporate Fund,38,Department of Assets  Information  and Services,2150,Bureau of Centralized Information Technology,0015,SCHEDULE SALARY ADJUSTMENTS,0,0,1512.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0125,OFFICE AND BUILDING SERVICES,395852.00,395852.00,400542.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,93001.00,93001.00,151788.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0313,CLEANING AND SANITATION SUPPLIES,7056.00,7056.00,8114.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,171104.00,171104.00,171104.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0155,RENTAL OF PROPERTY,569684.00,569684.00,582459.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0315,MOTOR VEHICLE DIESEL FUEL,1215698.00,1215698.00,1756650.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0320,GASOLINE,323481.00,323481.00,480985.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0322,NATURAL GAS,10759722.00,10759722.00,11542398.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0331,ELECTRICITY,15388310.00,15388310.00,17037991.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0005,SALARIES AND WAGES - ON PAYROLL,4477430.00,4477430.00,4574735.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0012,CONTRACT WAGE - PREVAILING RATE,43699.00,43699.00,44767.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0015,SCHEDULE SALARY ADJUSTMENTS,1320.00,1320.00,420.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0020,OVERTIME,487637.00,487637.00,487637.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,419033.00,419033.00,442670.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,24992.00,24992.00,26746.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0162,REPAIR/MAINT EQUIPMENT,116487.00,116487.00,69752.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0176,MAINTENANCE AND OPERATION - VEHICLES,317652.00,317652.00,351835.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0322,NATURAL GAS,0,0,13606.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0360,REPAIR PARTS AND MATERIAL,1879511.00,1879511.00,1921927.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0138,IT MAINTENANCE,1342880.00,1342880.00,1175798.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0139,IT DEVELOPMENT,838000.00,838000.00,470966.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0140,PROFESSIONAL AND TECHNICAL SERVICES,4758135.00,4758135.00,3626078.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0149,SOFTWARE MAINTENANCE AND LICENSING,195454.00,195454.00,148952.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0181,MOBILE COMMUNICATION SERVICES,228700.00,228700.00,174288.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0188,VEHICLE TRACKING SERVICE,211321.00,211321.00,262255.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0189,TELEPHONE - NON-CENTREX BILLINGS,26200.00,26200.00,19966.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0190,TELEPHONE - CENTREX BILLINGS,201447.00,201447.00,153519.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0196,DATA CIRCUITS,450000.00,450000.00,342936.00
+LOCAL,0200,Water Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0197,TELEPHONE - MAINTENANCE,40580.00,40580.00,30925.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0125,OFFICE AND BUILDING SERVICES,918851.00,918851.00,1035204.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,991451.00,991451.00,1214617.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0313,CLEANING AND SANITATION SUPPLIES,41989.00,41989.00,48287.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0340,MATERIAL AND SUPPLIES,300000.00,300000.00,300000.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,6126206.00,6126206.00,6516834.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0155,RENTAL OF PROPERTY,2285215.00,2285215.00,2325615.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0315,MOTOR VEHICLE DIESEL FUEL,6171774.00,6171774.00,9401897.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0320,GASOLINE,1295456.00,1295456.00,1795190.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0322,NATURAL GAS,1185117.00,1185117.00,1228024.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0325,ALTERNATIVE FUEL,285327.00,285327.00,342846.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0331,ELECTRICITY,1854172.00,1854172.00,1874871.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0159,LEASE/PURCHASE EQUIPMENT,52000.00,52000.00,52000.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0162,REPAIR/MAINT EQUIPMENT,58768.00,58768.00,35190.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0322,NATURAL GAS,0,0,20409.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0181,MOBILE COMMUNICATION SERVICES,379500.00,379500.00,289209.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0188,VEHICLE TRACKING SERVICE,17658.00,17658.00,88065.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0189,TELEPHONE - NON-CENTREX BILLINGS,2750.00,2750.00,2096.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0190,TELEPHONE - CENTREX BILLINGS,96052.00,96052.00,73199.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0196,DATA CIRCUITS,11800.00,11800.00,8993.00
+LOCAL,0300,Vehicle Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0197,TELEPHONE - MAINTENANCE,10120.00,10120.00,7712.00
+LOCAL,0310,Motor Fuel Tax Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0332,ELECTRICITY - STREET LIGHTING,13904155.00,13904155.00,16596923.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,123194.00,123194.00,123194.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0155,RENTAL OF PROPERTY,427560.00,427560.00,438774.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0315,MOTOR VEHICLE DIESEL FUEL,598777.00,598777.00,865216.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0320,GASOLINE,310796.00,310796.00,462123.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0325,ALTERNATIVE FUEL,15852.00,15852.00,19047.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0005,SALARIES AND WAGES - ON PAYROLL,2774486.00,2774486.00,2825053.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0012,CONTRACT WAGE - PREVAILING RATE,28386.00,28386.00,28854.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0020,OVERTIME,341145.00,341145.00,341145.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,205842.00,205842.00,219756.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,12496.00,12496.00,13373.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0162,REPAIR/MAINT EQUIPMENT,105993.00,105993.00,63468.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0176,MAINTENANCE AND OPERATION - VEHICLES,817523.00,817523.00,1024481.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0360,REPAIR PARTS AND MATERIAL,927543.00,927543.00,972600.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0188,VEHICLE TRACKING SERVICE,0,0,34123.00
+LOCAL,0314,Sewer Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0190,TELEPHONE - CENTREX BILLINGS,31602.00,31602.00,24083.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0020,OVERTIME,340000.00,340000.00,0
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0125,OFFICE AND BUILDING SERVICES,4626216.00,4626216.00,5418430.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,5289651.00,5289651.00,6972310.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0160,REPAIR/MAINT PROPERTY,631000.00,631000.00,1144800.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0161,MAINT FACILITIES,100000.00,100000.00,500000.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0162,REPAIR/MAINT EQUIPMENT,300000.00,300000.00,300000.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0313,CLEANING AND SANITATION SUPPLIES,233287.00,233287.00,268280.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,0340,MATERIAL AND SUPPLIES,670000.00,670000.00,710000.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0155,RENTAL OF PROPERTY,1814559.00,1814559.00,1852943.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0315,MOTOR VEHICLE DIESEL FUEL,21366.00,21366.00,26924.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0320,GASOLINE,21021.00,21021.00,38683.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0322,NATURAL GAS,705989.00,705989.00,703201.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0331,ELECTRICITY,3439115.00,3439115.00,3884003.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0176,MAINTENANCE AND OPERATION - VEHICLES,11964.00,11964.00,13960.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0360,REPAIR PARTS AND MATERIAL,23312.00,23312.00,26550.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0005,SALARIES AND WAGES - ON PAYROLL,1329709.00,1329709.00,0
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0015,SCHEDULE SALARY ADJUSTMENTS,2255.00,2255.00,0
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0181,MOBILE COMMUNICATION SERVICES,5700.00,5700.00,4344.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0188,VEHICLE TRACKING SERVICE,0,0,6362.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0189,TELEPHONE - NON-CENTREX BILLINGS,86000.00,86000.00,65539.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0190,TELEPHONE - CENTREX BILLINGS,249000.00,249000.00,189758.00
+LOCAL,0346,Library Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0197,TELEPHONE - MAINTENANCE,18110.00,18110.00,13801.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,38,Department of Assets  Information  and Services,2126,Bureau of Facility Management,9188,MILLENNIUM PARK OPERATIONS,8400000.00,8400000.00,5879200.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0181,MOBILE COMMUNICATION SERVICES,12720.00,12720.00,9694.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0188,VEHICLE TRACKING SERVICE,0,0,3470.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0189,TELEPHONE - NON-CENTREX BILLINGS,48600.00,48600.00,37037.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0190,TELEPHONE - CENTREX BILLINGS,45200.00,45200.00,34446.00
+LOCAL,0355,Special Events and Municipal Hotel Operators' Occupation Tax Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0197,TELEPHONE - MAINTENANCE,5200.00,5200.00,3963.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,20533.00,20533.00,20533.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0315,MOTOR VEHICLE DIESEL FUEL,289324.00,289324.00,520323.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0320,GASOLINE,463832.00,463832.00,667605.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0322,NATURAL GAS,1039550.00,1039550.00,1077803.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0331,ELECTRICITY,5237808.00,5237808.00,6696856.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0005,SALARIES AND WAGES - ON PAYROLL,1383347.00,1383347.00,1370309.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0012,CONTRACT WAGE - PREVAILING RATE,13421.00,13421.00,13991.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0015,SCHEDULE SALARY ADJUSTMENTS,4001.00,4001.00,0
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0020,OVERTIME,186351.00,186351.00,186351.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,248851.00,248851.00,354851.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0148,TESTING AND INSPECTING,3750.00,3750.00,4688.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,15910.00,15910.00,16787.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0162,REPAIR/MAINT EQUIPMENT,25420.00,25420.00,900000.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0176,MAINTENANCE AND OPERATION - VEHICLES,430927.00,430927.00,549927.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0338,LICENSE STICKER TAG AND PLATES,3600.00,3600.00,3600.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0350,STATIONERY AND OFFICE SUPPLIES,835.00,835.00,835.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0360,REPAIR PARTS AND MATERIAL,743960.00,743960.00,988611.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0440,MACHINERY AND EQUIPMENT,21011.00,21011.00,29050.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0450,VEHICLES,380000.00,380000.00,430000.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0188,VEHICLE TRACKING SERVICE,0,0,88488.00
+LOCAL,0610,Chicago Midway Airport Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0190,TELEPHONE - CENTREX BILLINGS,4073.00,4073.00,3104.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0140,PROFESSIONAL AND TECHNICAL SERVICES,41064.00,41064.00,41064.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0155,RENTAL OF PROPERTY,401287.00,401287.00,494870.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0315,MOTOR VEHICLE DIESEL FUEL,1353383.00,1353383.00,2433922.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0320,GASOLINE,1082276.00,1082276.00,1557745.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0322,NATURAL GAS,7079253.00,7079253.00,7222318.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0325,ALTERNATIVE FUEL,15852.00,15852.00,19047.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2131,Bureau of Asset Management,0331,ELECTRICITY,22696247.00,22696247.00,24139725.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0005,SALARIES AND WAGES - ON PAYROLL,8456052.00,8456052.00,9031869.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0012,CONTRACT WAGE - PREVAILING RATE,90326.00,90326.00,96961.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0015,SCHEDULE SALARY ADJUSTMENTS,6512.00,6512.00,4149.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0020,OVERTIME,1287002.00,1287002.00,1287002.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0140,PROFESSIONAL AND TECHNICAL SERVICES,1094481.00,1094481.00,1273058.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0148,TESTING AND INSPECTING,5250.00,5250.00,5663.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0149,SOFTWARE MAINTENANCE AND LICENSING,56829.00,56829.00,59752.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0162,REPAIR/MAINT EQUIPMENT,80000.00,80000.00,65000.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0176,MAINTENANCE AND OPERATION - VEHICLES,1696806.00,1696806.00,2858137.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0338,LICENSE STICKER TAG AND PLATES,9600.00,9600.00,9600.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0350,STATIONERY AND OFFICE SUPPLIES,945.00,945.00,1245.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0360,REPAIR PARTS AND MATERIAL,3973970.00,3973970.00,5445260.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2140,Bureau of Fleet Operations,0440,MACHINERY AND EQUIPMENT,35612.00,35612.00,221224.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0188,VEHICLE TRACKING SERVICE,0,0,352796.00
+LOCAL,0740,Chicago O'Hare Airport Fund,38,Department of Assets  Information  and Services,2145,Bureau of Information Technology,0190,TELEPHONE - CENTREX BILLINGS,9147.00,9147.00,6971.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0005,SALARIES AND WAGES - ON PAYROLL,6306832.00,6306832.00,6796502.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0015,SCHEDULE SALARY ADJUSTMENTS,990.00,990.00,0
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0020,OVERTIME,752491.00,752491.00,978008.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0055,EXTRA HIRE,2019040.00,2019040.00,10023200.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0125,OFFICE AND BUILDING SERVICES,250000.00,250000.00,500000.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0130,POSTAGE,800975.00,800975.00,3757705.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0138,IT MAINTENANCE,1627664.00,1627664.00,1733757.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0140,PROFESSIONAL AND TECHNICAL SERVICES,924016.00,924016.00,9808244.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0143,COURT REPORTING,123131.00,123131.00,227793.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0145,LEGAL EXPENSES,2955906.00,2955906.00,4197001.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0149,SOFTWARE MAINTENANCE AND LICENSING,1303453.00,1303453.00,2456461.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0150,OUTSIDE GRAPHIC SERVICES,13000.00,13000.00,1628900.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0152,ADVERTISING,51000.00,51000.00,505000.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0154,RENTAL-DATA HARDWARE EQ,1835953.00,1835953.00,1953533.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0155,RENTAL OF PROPERTY,3433617.00,3433617.00,4599784.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0157,RENTAL EQUIPMENT AND SERVICES,78380.00,78380.00,413000.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0159,LEASE/PURCHASE EQUIPMENT,561132.00,561132.00,643573.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0162,REPAIR/MAINT EQUIPMENT,324284.00,324284.00,351832.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0166,DUES  SUBSC & MEM,22999.00,22999.00,31084.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0169,TECHNICAL MEETING COSTS,65270.00,65270.00,219960.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0172,INSURANCE PREMIUMS,3560.00,3560.00,3560.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0178,FREIGHT AND EXPRESS CHARGES,7376.00,7376.00,2210376.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0181,MOBILE COMMUNICATION SERVICES,1218180.00,1218180.00,1609380.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0190,TELEPHONE - CENTREX BILLINGS,364429.00,364429.00,365629.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,13600.00,13600.00,34400.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0245,REIMBURSEMENT TO TRAVELERS,3800.00,3800.00,4050.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0270,LOCAL TRANSPORTATION,4060.00,4060.00,4560.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0340,MATERIAL AND SUPPLIES,444566.00,444566.00,1069180.00
+LOCAL,0100,Corporate Fund,39,Board of Election Commissioners,2005,Election and Administration Division,0350,STATIONERY AND OFFICE SUPPLIES,318900.00,318900.00,476348.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0005,SALARIES AND WAGES - ON PAYROLL,22112687.00,22112687.00,22244907.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0015,SCHEDULE SALARY ADJUSTMENTS,64936.00,64936.00,113366.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0020,OVERTIME,129270.00,129270.00,138998.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0050,STIPENDS,43700.00,43700.00,43700.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0091,UNIFORM ALLOWANCE,11300.00,11300.00,16500.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0125,OFFICE AND BUILDING SERVICES,292090.00,292090.00,292090.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0130,POSTAGE,21000.00,21000.00,28000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0135,DELEGATE AGENCIES,19049666.00,19125845.00,19141428.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0140,PROFESSIONAL AND TECHNICAL SERVICES,4796571.00,4691847.00,7414510.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0148,TESTING AND INSPECTING,2000.00,2000.00,2000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0149,SOFTWARE MAINTENANCE AND LICENSING,23863.00,52408.00,42627.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0150,OUTSIDE GRAPHIC SERVICES,70000.00,70000.00,70000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0159,LEASE/PURCHASE EQUIPMENT,153000.00,153000.00,106788.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0162,REPAIR/MAINT EQUIPMENT,17300.00,17300.00,17300.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0166,DUES  SUBSC & MEM,89174.00,89174.00,90539.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0169,TECHNICAL MEETING COSTS,33497.00,33497.00,34997.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0179,MESSENGER SERVICES,5000.00,5000.00,5000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0181,MOBILE COMMUNICATION SERVICES,438972.00,438972.00,438972.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,11500.00,11500.00,16000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0245,REIMBURSEMENT TO TRAVELERS,5000.00,5000.00,15000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0270,LOCAL TRANSPORTATION,3150.00,3150.00,3150.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0330,FOOD,5720.00,5720.00,1220.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0340,MATERIAL AND SUPPLIES,36588.00,36588.00,49088.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0342,DRUGS  MEDICINE AND CHEMICAL MATERIALS,857692.00,857692.00,907692.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0350,STATIONERY AND OFFICE SUPPLIES,30000.00,30000.00,30000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0424,FURNITURE AND FURNISHINGS,180000.00,180000.00,530000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,0446,PURCHASE - DATA HARDWARE,76015.00,76015.00,146015.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,9254,VIOLENCE REDUCTION PROGRAM,14460000.00,14460000.00,14460000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,9283,CO-RESPONDER PILOT PROGRAM,1000000.00,1000000.00,1000000.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,9296,REPRODUCTIVE HEALTH INITIATIVE,0,0,2820458.00
+LOCAL,0100,Corporate Fund,41,Chicago Department of Public Health,1005,Department of Public Health,9438,REIMBURSEMENT - AIS,50000.00,50000.00,50000.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0005,SALARIES AND WAGES - ON PAYROLL,1014249.00,1014249.00,1065916.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0015,SCHEDULE SALARY ADJUSTMENTS,3492.00,3492.00,8048.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0130,POSTAGE,3000.00,3000.00,3000.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0139,IT DEVELOPMENT,35013.00,35013.00,35013.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0140,PROFESSIONAL AND TECHNICAL SERVICES,43267.00,43267.00,50590.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0143,COURT REPORTING,4000.00,4000.00,4000.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0149,SOFTWARE MAINTENANCE AND LICENSING,1857.00,1857.00,2043.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0152,ADVERTISING,4400.00,4400.00,4400.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0159,LEASE/PURCHASE EQUIPMENT,4994.00,4994.00,3777.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0166,DUES  SUBSC & MEM,16536.00,16536.00,16950.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0169,TECHNICAL MEETING COSTS,4410.00,4410.00,6435.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0229,TRANSPORTATION AND EXPENSE ALLOWANCE,0,0,500.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0245,REIMBURSEMENT TO TRAVELERS,0,0,3000.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0270,LOCAL TRANSPORTATION,700.00,700.00,1800.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0350,STATIONERY AND OFFICE SUPPLIES,2600.00,2600.00,2600.00
+LOCAL,0100,Corporate Fund,45,Chicago Commission on Human Relations,2005,Chicago Commission on Human Relations,0424,FURNITURE AND FURNISHINGS,11000.00,11000.00,5500.00

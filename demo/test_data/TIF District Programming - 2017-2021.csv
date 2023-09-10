@@ -1,0 +1,1001 @@
+tif_number,tif_name,time_period,type,description,amount,designation_date,expiration_date
+T-177,Foster/California,2017,Current Obligations,Program administration,-500.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-173,Montrose/Clarendon,2017,Current Obligations,Program administration,-6400.00,2010-06-30T00:00:00.000,2034-12-31T00:00:00.000
+T-180,Red Purple Transit,2017,Current Obligations,Program administration,-120400.00,2016-11-20T00:00:00.000,2052-12-31T00:00:00.000
+T-180,Red Purple Transit,2017,Current Obligations,CTA IGA Red Purple Modernization,-3403800.00,2016-11-20T00:00:00.000,2052-12-31T00:00:00.000
+T-179,Diversey Chicago River,2017,Current Obligations,Bridge repairs - Diversey Parkway,-200000.00,2016-10-05T00:00:00.000,2040-12-31T00:00:00.000
+T-176,107th/Halsted,2017,Current Obligations,Program administration,-13200.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-176,107th/Halsted,2017,Current Obligations,Retail Thrive Zone,-600000.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-174,67th/Wentworth,2017,Current Obligations,Retail Thrive Zone,-1125000.00,2011-05-04T00:00:00.000,2035-12-31T00:00:00.000
+T-178,Washington Park,2017,Current Obligations,Small Business Improvement Fund,-300000.00,2014-10-08T00:00:00.000,2038-12-31T00:00:00.000
+T-178,Washington Park,2017,Current Obligations,Delegate Agencies,-2200.00,2014-10-08T00:00:00.000,2038-12-31T00:00:00.000
+T-172,Randolph/Wells,2017,Current Obligations,Program administration,-11100.00,2010-06-09T00:00:00.000,2034-12-31T00:00:00.000
+T-177,Foster/California,2017,Current Obligations,RA - Swedish Covenant Hospital,-926700.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-177,Foster/California,2017,Current Obligations,Traffic signal - Foster/Washtenaw,-375000.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-175,51st/Lake Park,2017,Current Obligations,Program administration,-3400.00,2012-11-15T00:00:00.000,2036-12-31T00:00:00.000
+T-178,Washington Park,2017,Current Obligations,Program administration,-7900.00,2014-10-08T00:00:00.000,2038-12-31T00:00:00.000
+T-171,West Woodlawn,2017,Current Obligations,Small Business Improvement Fund,-250000.00,2010-05-12T00:00:00.000,2034-12-31T00:00:00.000
+T-171,West Woodlawn,2017,Current Obligations,Delegate Agencies,-1500.00,2010-05-12T00:00:00.000,2034-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2017,Current Obligations,Program administration,-122200.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Current Obligations,RA - Logan Theater,-200000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Current Obligations,Small Business Improvement Fund,-500000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-057,Jefferson Park Business District,2017,Current Obligations,CTA IGA - Blue Line - Jefferson Park Station - station improvements,-5000000.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-013,Bryn Mawr/Broadway,2017,Current Obligations,Small Business Improvement Fund,-500000.00,1996-12-11T00:00:00.000,2019-12-11T00:00:00.000
+T-056,79th Street Corridor,2017,Current Obligations,Vision Zero - design,-5000.00,1998-07-08T00:00:00.000,2021-07-08T00:00:00.000
+T-056,79th Street Corridor,2017,Current Obligations,Small Business Improvement Fund,-500000.00,1998-07-08T00:00:00.000,2021-07-08T00:00:00.000
+T-056,79th Street Corridor,2017,Current Obligations,Enviromental study - Auburn Metra station,-15000.00,1998-07-08T00:00:00.000,2021-07-08T00:00:00.000
+T-055,43rd/Cottage Grove,2017,Current Obligations,Retail Thrive Zone,-625000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2017,Current Obligations,Program administration,-56300.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2017,Current Obligations,Park District IGA - Sumac Park,-350000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2017,Current Obligations,Delegate Agencies,-6500.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2017,Current Obligations,Delegate Agencies,-5200.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,Kinzie Industrial Modernization Study,-437000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2017,Current Obligations,Park District IGA - Kiwanis Park Field Turf,-475000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Current Obligations,MSAC DS - Lorca,-3099200.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2017,Current Obligations,Walk to Transit - Phase I/II - construction,-2600.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Current Obligations,Street resurfacing - 9700-9800 University Av; sidewalks - 8400-8500 Stony Island,-380000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Current Obligations,Small Business Improvement Fund,-250000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Current Obligations,RA - A Finkl & Sons Co,-1000000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Current Obligations,Program administration,-61500.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Current Obligations,Local Industrial Retention Initiative,-700.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Current Obligations,Delegate Agencies,-600.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Current Obligations,CVCA school based health clinic,-500000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Viaduct closure - 2401 Archer and 2332 Archer,-85000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,"Streetscape - Blue Island, 19th to 21st",-1194000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Street resurfacing - 2200 S Ford Av,-465000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Small Business Improvement Fund,-500000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2017,Current Obligations,MSAC DS - Albany Park Acad / Peterson ES,-3964200.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-059,Calumet Avenue/Cermak Road,2017,Current Obligations,Program administration,-219500.00,1998-07-29T00:00:00.000,2021-07-29T00:00:00.000
+T-093,South Chicago,2017,Current Obligations,Program administration,-26800.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,MSAC program costs,-2000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,Neighborhood Improvement Program,-500000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,Program administration,-388900.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,RA - Horner Homes Ph. IIA2,-165000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,RA - McCrory Senior Apts,-1025000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,RA - Rush University Medical Center,-15000000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-060,71st/Stony Island,2017,Current Obligations,Street construction - 77th/Avalon,-2500.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-060,71st/Stony Island,2017,Current Obligations,Program administration,-50600.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-060,71st/Stony Island,2017,Current Obligations,MSAC program costs,-4800.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-060,71st/Stony Island,2017,Current Obligations,MSAC DS - South Shore HS - TIF share,-2739800.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-060,71st/Stony Island,2017,Current Obligations,MSAC DS - South Shore HS - other TIF(s),-5567000.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Current Obligations,Program administration,-141800.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-059,Calumet Avenue/Cermak Road,2017,Current Obligations,"Streetscape - Cermak, Prairie to Calumet",-306000.00,1998-07-29T00:00:00.000,2021-07-29T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Current Obligations,MSAC program costs,-3400.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-059,Calumet Avenue/Cermak Road,2017,Current Obligations,Prairie District Park - 21st St / Prairie Av,-2000000.00,1998-07-29T00:00:00.000,2021-07-29T00:00:00.000
+T-058,Portage Park,2017,Current Obligations,Program administration,-36600.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-058,Portage Park,2017,Current Obligations,CPS IGA - Schurz athletic field,-2700000.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-058,Portage Park,2017,Current Obligations,CPS IGA - ADA Ph3 - Schurz,-2852800.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-013,Bryn Mawr/Broadway,2017,Current Obligations,Program administration,-39700.00,1996-12-11T00:00:00.000,2019-12-11T00:00:00.000
+T-013,Bryn Mawr/Broadway,2017,Current Obligations,RA - Bryn Mawr - Bellshore,-142700.00,1996-12-11T00:00:00.000,2019-12-11T00:00:00.000
+T-057,Jefferson Park Business District,2017,Current Obligations,Program administration,-20800.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-057,Jefferson Park Business District,2017,Current Obligations,Jefferson Park Transit Orientated Development Study,-25000.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-057,Jefferson Park Business District,2017,Current Obligations,Delegate Agencies,-3000.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Current Obligations,CPS IGA - ADA Ph3 - Darwin,-1000000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Current Obligations,Delegate Agencies,-1200.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Current Obligations,Local Industrial Retention Initiative,-800.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Local Industrial Retention Initiative,-16300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-010,126th and Torrence,2017,Current Obligations,RA - Chicago Manufacturing Campus (Ford),-186100.00,1994-12-21T00:00:00.000,2017-12-21T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2017,Current Obligations,Local Industrial Retention Initiative,-2600.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Program administration,-251800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,"Arterial resurfacing - Halsted, Chicago River to Lake St",-1100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-091,Peterson/Pulaski,2017,Current Obligations,Delegate Agencies,-300.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-091,Peterson/Pulaski,2017,Current Obligations,Local Industrial Retention Initiative,-8600.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-091,Peterson/Pulaski,2017,Current Obligations,Program administration,-24800.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-048,Western/Ogden,2017,Current Obligations,Traffic signal - 15th & Ashland,-350000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-048,Western/Ogden,2017,Current Obligations,Small Business Improvement Fund,-500000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-048,Western/Ogden,2017,Current Obligations,"Sidewalk - Ogden, Rockwell to Washtenaw",-8000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-048,Western/Ogden,2017,Current Obligations,Program administration,-167600.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-048,Western/Ogden,2017,Current Obligations,Local Industrial Retention Initiative,-6400.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-048,Western/Ogden,2017,Current Obligations,CPS IGA - Orozco,-500000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-048,Western/Ogden,2017,Current Obligations,CPS IGA - ADA Ph2 - Plamondon,-3000000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,CTA IGA - Green Line - Damen station,-5000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2017,Current Obligations,Program administration,-30700.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Delegate Agencies,-900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-021,Englewood Mall,2017,Current Obligations,Program administration,-12600.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2017,Current Obligations,Retail Thrive Zone,-100000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-043,Stockyards Annex,2017,Current Obligations,RA - Experimur,-300000.00,1996-12-11T00:00:00.000,2020-12-31T00:00:00.000
+T-043,Stockyards Annex,2017,Current Obligations,Program administration,-27800.00,1996-12-11T00:00:00.000,2020-12-31T00:00:00.000
+T-043,Stockyards Annex,2017,Current Obligations,Local Industrial Retention Initiative,-13900.00,1996-12-11T00:00:00.000,2020-12-31T00:00:00.000
+T-043,Stockyards Annex,2017,Current Obligations,Delegate Agencies,-500.00,1996-12-11T00:00:00.000,2020-12-31T00:00:00.000
+T-092,Greater Southwest Industrial Corridor (West),2017,Current Obligations,Delegate Agencies,-500.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-092,Greater Southwest Industrial Corridor (West),2017,Current Obligations,Local Industrial Retention Initiative,-12300.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-092,Greater Southwest Industrial Corridor (West),2017,Current Obligations,Program administration,-5500.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-092,Greater Southwest Industrial Corridor (West),2017,Current Obligations,Sidewalk/bus pad construction - 7200-7300 S Cicero,-100000.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2017,Current Obligations,Program administration,-13900.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2017,Current Obligations,Local Industrial Retention Initiative,-500.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-093,South Chicago,2017,Current Obligations,Local Industrial Retention Initiative,-1500.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-048,Western/Ogden,2017,Current Obligations,Business Affairs and Consumer Services,-350000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Site remediation/fencing - 2527 W Lake,-818000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,Delegate Agencies,-1100.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Delegate Agencies,-5700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Debt service - Series 2014,-4580000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,CPS IGA - Perez,-800000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Bridge repairs - Western Av bridge (additional funding),-167800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Bridge repairs - Western Av bridge,-313000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-089,Midway Industrial Corridor,2017,Current Obligations,Local Industrial Retention Initiative,-12600.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-089,Midway Industrial Corridor,2017,Current Obligations,MSAC program costs,-100.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-089,Midway Industrial Corridor,2017,Current Obligations,Program administration,-71800.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-089,Midway Industrial Corridor,2017,Current Obligations,Small Business Improvement Fund,-300000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Water & sewer main replacement - Fulton Market,-4475000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Traffic signals - 1000/1100 W Lake,-700000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,"Arterial resurfacing - Sacramento, Chicago to Carrol; Racine, Lake to Randolph",-44800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Small Business Improvement Fund,-1000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Current Obligations,Pilsen-Little Village Industrial Modernization Study,-1000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,RA - Peppercorn 240 LLC Note B,-60000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,RA - Peppercorn 240 LLC Note A,-103100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,RA - Nelson Mandela Apts,-2454000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,RA - Harold Washington Unity Coop,-73000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Program administration,-583600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,North Branch Transportation Study,-17500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-090,Peterson/Cicero,2017,Current Obligations,Delegate Agencies,-800.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-090,Peterson/Cicero,2017,Current Obligations,Program administration,-11100.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-090,Peterson/Cicero,2017,Current Obligations,Sauganash Gateway identifier,100.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,MSAC program costs,-800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Local Industrial Retention Initiative,-12200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Library - Richard M. Daley,-156400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,Kinzie Industrial Modernization Study,-984900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Current Obligations,"Street improvements - Grand, Fullerton to DesPlaines",-240000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Current Obligations,TIF Works,-500000.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-079,35th and Wallace,2017,Current Obligations,Alley reconstruction - 3362-3500 S Wallace St,-123000.00,1999-12-15T00:00:00.000,2023-12-31T00:00:00.000
+T-079,35th and Wallace,2017,Current Obligations,CPS IGA - McClellan - site improvement/interior renovations,-3173000.00,1999-12-15T00:00:00.000,2023-12-31T00:00:00.000
+T-079,35th and Wallace,2017,Current Obligations,Program administration,-20600.00,1999-12-15T00:00:00.000,2023-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Current Obligations,Local Industrial Retention Initiative,-5000.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-070,Clark/Montrose,2017,Current Obligations,Program administration,-63400.00,1999-07-07T00:00:00.000,2022-07-07T00:00:00.000
+T-070,Clark/Montrose,2017,Current Obligations,Delegate Agencies,-1900.00,1999-07-07T00:00:00.000,2022-07-07T00:00:00.000
+T-081,Belmont/Central,2017,Current Obligations,Belmont/Central residential street resurfacing,-102300.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-081,Belmont/Central,2017,Current Obligations,Delegate Agencies,-5800.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-081,Belmont/Central,2017,Current Obligations,Local Industrial Retention Initiative,-800.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-081,Belmont/Central,2017,Current Obligations,MSAC program costs,-1500.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-081,Belmont/Central,2017,Current Obligations,Program administration,-52100.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-081,Belmont/Central,2017,Current Obligations,Sidewalk - Chopin Park - Roscoe/Cornelia/Long/Linder,-235000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,Local Industrial Retention Initiative,-300.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-070,Clark/Montrose,2017,Current Obligations,CPS IGA - Courtenay ES,-200000.00,1999-07-07T00:00:00.000,2022-07-07T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Current Obligations,MSAC program costs,-2900.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Current Obligations,Street resurfacing - 11 blocks - Ward 37,-40000.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Current Obligations,Street improvemetns - Grand,-525000.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Current Obligations,Small Business Improvement Fund,-1000000.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Current Obligations,Program administration,-67100.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Current Obligations,Local Industrial Retention Initiative,-5500.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Current Obligations,Delegate Agencies,-3600.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-068,Roosevelt/Union,2017,Current Obligations,Viaduct improvement - Peoria St,-750000.00,1999-05-12T00:00:00.000,2022-05-12T00:00:00.000
+T-068,Roosevelt/Union,2017,Current Obligations,RA - UIC Board of Trustees,-4567700.00,1999-05-12T00:00:00.000,2022-05-12T00:00:00.000
+T-068,Roosevelt/Union,2017,Current Obligations,Program administration,-101400.00,1999-05-12T00:00:00.000,2022-05-12T00:00:00.000
+T-009,95th and Western,2017,Current Obligations,Delegate Agencies,-3300.00,1995-07-13T00:00:00.000,2019-12-31T00:00:00.000
+T-009,95th and Western,2017,Current Obligations,Program administration,-18100.00,1995-07-13T00:00:00.000,2019-12-31T00:00:00.000
+T-082,Belmont/Cicero,2017,Current Obligations,Delegate Agencies,-200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-081,Belmont/Central,2017,Current Obligations,Small Business Improvement Fund,-500000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-077,Lincoln Avenue,2017,Current Obligations,MSAC DS - Mather HS - other TIF(s),-1753200.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-076,Devon/Western,2017,Current Obligations,MSAC program costs,-1100.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-076,Devon/Western,2017,Current Obligations,Program administration,-41800.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-076,Devon/Western,2017,Current Obligations,"Streetscape - Devon (Sec.4), Western to Leavitt",-2780400.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-076,Devon/Western,2017,Current Obligations,TIF Works,-14300.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2017,Current Obligations,Program administration,-39200.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2017,Current Obligations,MSAC DS - Austin HS & DePriest ES - TIF share,-1132500.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2017,Current Obligations,MSAC DS - Austin HS & DePriest Elementary - other TIF(s),-4492800.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2017,Current Obligations,Delegate Agencies,-4500.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Current Obligations,Small Business Improvement Fund,-500000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Current Obligations,Program administration,-40600.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Current Obligations,Lighting - 6600-6800 N Clark St,-35600.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Current Obligations,Delegate Agencies,-3100.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Current Obligations,MSAC DS - Prieto Elementary - other TIF(s),-2196700.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Current Obligations,CPS IGA - ADA Ph3 - Hayt,-1000000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Current Obligations,MSAC DS - Prieto ES - TIF share,-1418600.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-077,Lincoln Avenue,2017,Current Obligations,MSAC DS - Mather HS - TIF share,-1193800.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-077,Lincoln Avenue,2017,Current Obligations,Program administration,-58200.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-073,111th Street/Kedzie Avenue Business District,2017,Current Obligations,Special Service Area 55,-14000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-073,111th Street/Kedzie Avenue Business District,2017,Current Obligations,Program administration,-14600.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-072,24th/Michigan,2017,Current Obligations,Program administration,-34900.00,1999-07-21T00:00:00.000,2022-07-21T00:00:00.000
+T-072,24th/Michigan,2017,Current Obligations,CPS IGA - National Teachers Academy,-4500000.00,1999-07-21T00:00:00.000,2022-07-21T00:00:00.000
+T-005,60th and Western,2017,Current Obligations,Program administration,-5900.00,1996-05-09T00:00:00.000,2019-05-09T00:00:00.000
+T-004,49th Street/St. Lawrence Avenue,2017,Current Obligations,RA - Willard Square,-171000.00,1996-01-10T00:00:00.000,2020-12-31T00:00:00.000
+T-004,49th Street/St. Lawrence Avenue,2017,Current Obligations,Program administration,-10700.00,1996-01-10T00:00:00.000,2020-12-31T00:00:00.000
+T-078,South Works Industrial,2017,Current Obligations,Program administration,-3700.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Current Obligations,Small Business Improvement Fund,-1000000.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Current Obligations,Program administration,-60800.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-023,Goose Island,2017,Current Obligations,Delegate Agencies,-200.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-082,Belmont/Cicero,2017,Current Obligations,RA - Cicero & George Elderly Housing,-2000000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Current Obligations,CPS IGA - Pierce ES,-350000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-062,Roosevelt/Racine,2017,Current Obligations,Program administration,-33700.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-082,Belmont/Cicero,2017,Current Obligations,Local Industrial Retention Initiative,-1300.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Current Obligations,Local Industrial Retention Initiative,-3500.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Current Obligations,Delegate Agencies,-900.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-001,35th/Halsted,2017,Current Obligations,Bridge repair - 35th/S Fork Chicago River,-1400000.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-063,Canal/Congress,2017,Current Obligations,Program administration,-498700.00,1998-11-12T00:00:00.000,2022-12-31T00:00:00.000
+T-063,Canal/Congress,2017,Current Obligations,Local Industrial Retention Initiative,-200.00,1998-11-12T00:00:00.000,2022-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Current Obligations,Bridge - North Branch Riverview Bridge,-1994800.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Current Obligations,CPS IGA - ADA Ph3 - Coonley,-1294800.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Current Obligations,CPS IGA - Lane Tech renovations,-2000000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Current Obligations,Irving Park Rd Bridge replacement,-100000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Current Obligations,Local Industrial Retention Initiative,-200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Current Obligations,Park District IGA - Revere Park Fieldhouse,-200000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Current Obligations,Park District IGA - Augusta Park,-145000.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Current Obligations,Vision Zero - design,-22500.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Current Obligations,Program administration,-129400.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-062,Roosevelt/Racine,2017,Current Obligations,"Lighting - Roosevelt, Blue Island to Morgan",-2000.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-062,Roosevelt/Racine,2017,Current Obligations,Addams-Medill Sports Center,-1380000.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-061,Bronzeville,2017,Current Obligations,Program administration,-66700.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-061,Bronzeville,2017,Current Obligations,Professional services - Michael Reese Development RFP,-135000.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-061,Bronzeville,2017,Current Obligations,Police Public Safety Headquarters,-1100000.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-061,Bronzeville,2017,Current Obligations,Library - Chicago Bee,-245000.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-010,126th and Torrence,2017,Current Obligations,Program administration,-22800.00,1994-12-21T00:00:00.000,2017-12-21T00:00:00.000
+T-010,126th and Torrence,2017,Current Obligations,RA - Chicago Manufacturing Campus (CMC),-850600.00,1994-12-21T00:00:00.000,2017-12-21T00:00:00.000
+T-086,Central West,2017,Current Obligations,2141-43 W Adams reverter,-35000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,Building repairs - 2045 W Washington,-2705000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,CPS IGA - ADA Ph3 - Brown,-332000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,CPS IGA - Skinner West,-350000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2017,Current Obligations,CTA IGA - Blue Line - IMD Station - station improvements,-10808900.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Current Obligations,Program administration,-144200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2017,Current Obligations,Delegate Agencies,-500.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-056,79th Street Corridor,2017,Current Obligations,Delegate Agencies,-800.00,1998-07-08T00:00:00.000,2021-07-08T00:00:00.000
+T-082,Belmont/Cicero,2017,Current Obligations,Small Business Improvement Fund,-500000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-067,Archer Courts,2017,Current Obligations,RA - Community Housing Partners V,-108500.00,1999-05-12T00:00:00.000,2023-12-31T00:00:00.000
+T-067,Archer Courts,2017,Current Obligations,Program administration,-10500.00,1999-05-12T00:00:00.000,2023-12-31T00:00:00.000
+T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",2017,Current Obligations,Program administration,-6300.00,1994-07-13T00:00:00.000,2018-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2017,Current Obligations,Street - resurfacing - Kedzie/79th/80th Pl/Claremont,-103900.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-083,West Irving Park,2017,Current Obligations,Delegate Agencies,-200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-083,West Irving Park,2017,Current Obligations,Park District IGA - Merrimac Park,-615000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-083,West Irving Park,2017,Current Obligations,Program administration,-19400.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-083,West Irving Park,2017,Current Obligations,Small Business Improvement Fund,-500000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2017,Current Obligations,RA - Gateway Park LLC,-513400.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2017,Current Obligations,Program administration,-19000.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Current Obligations,MSAC program costs,-100.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2017,Current Obligations,Local Industrial Retention Initiative,-15200.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-082,Belmont/Cicero,2017,Current Obligations,Program administration,-20300.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-065,Woodlawn,2017,Current Obligations,Small Business Improvement Fund,-500000.00,1999-01-20T00:00:00.000,2022-01-20T00:00:00.000
+T-065,Woodlawn,2017,Current Obligations,Program administration,-58300.00,1999-01-20T00:00:00.000,2022-01-20T00:00:00.000
+T-065,Woodlawn,2017,Current Obligations,Delegate Agencies,-5000.00,1999-01-20T00:00:00.000,2022-01-20T00:00:00.000
+T-084,Western Avenue North,2017,Current Obligations,CPS IGA - ADA Ph3 - Amundsen,-1083100.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Current Obligations,CPS IGA - ADA Ph3 - Chappell,-760100.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Current Obligations,CPS IGA - Amundsen HS - IT,-760000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Current Obligations,Delegate Agencies,-200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Current Obligations,Library repairs - Sulzer,-2500000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Current Obligations,Park District IGA - Welles Park,-400000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Current Obligations,Program administration,-87000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Current Obligations,Vision Zero - design,-22500.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Current Obligations,RA - MLRP-Merlin LLC,-69200.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Current Obligations,Public Safety Training Academy,-10850000.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2017,Current Obligations,Parallel parking - 2938-3326 W Columbus Av,-157400.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Small Business Improvement Fund,-750000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Program administration,-283800.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,RA - City Gardens,-535500.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-037,River South,2017,Current Obligations,Bridge/viaduct maintenance - 406 W Van Buren,-49300.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-096,Cicero/Archer,2017,Current Obligations,Local Industrial Retention Initiative,-300.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,RA - East Park SRO,-2606000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,RA - Harvest Homes,-1039500.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,RA - Heritage Homes,-103400.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,RA - Mt Sinai Hospital,-13500000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-023,Goose Island,2017,Current Obligations,North Branch Transportation Study,-117500.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-096,Cicero/Archer,2017,Current Obligations,RA - Midway Pointe Senior Residences,-2000000.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Police station - 11th District,-150000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-027,Irving/Cicero,2017,Current Obligations,Program administration,-14500.00,1996-06-10T00:00:00.000,2020-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Walk to Transit - Phase I/II - construction,-355900.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Walk To Transit III - design and construction,-201700.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-001,35th/Halsted,2017,Current Obligations,Delegate Agencies,-500.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2017,Current Obligations,CPS IGA - South Loop ES,-26567000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-037,River South,2017,Current Obligations,Harrision Street Bridge repairs,-200000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-023,Goose Island,2017,Current Obligations,RA - Wrigley Innovation Center,-707000.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-037,River South,2017,Current Obligations,Program administration,-475000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-001,35th/Halsted,2017,Current Obligations,Lighting - Morgan & Halsted,-133000.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-096,Cicero/Archer,2017,Current Obligations,Program administration,-14600.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-037,River South,2017,Current Obligations,Bridge/viaduct maintenance - 315 W Roosevelt,-131400.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-024,Homan-Arthington,2017,Current Obligations,Program administration,-14300.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-024,Homan-Arthington,2017,Current Obligations,RA - Uhlich Children's Advantage Network,-1000000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-036,Read-Dunning,2017,Current Obligations,Read-Dunning TIF land use project,-150000.00,1991-01-11T00:00:00.000,2027-12-31T00:00:00.000
+T-001,35th/Halsted,2017,Current Obligations,Program administration,-131000.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-001,35th/Halsted,2017,Current Obligations,Local Industrial Retention Initiative,-1300.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,CPS IGA - Sumner,-300000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Delegate Agencies,-200.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Kinzie Industrial Modernization Study,-328000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Library repairs - Douglas,-800000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-096,Cicero/Archer,2017,Current Obligations,CPS IGA - ADA Ph3 - Hearst,-1681200.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Lighting - Smart - residential - Ward 24,-3655000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-001,35th/Halsted,2017,Current Obligations,Building rehab - Pershing Tower,-1626400.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Local Industrial Retention Initiative,-3600.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-094,Chicago/Kingsbury,2017,Current Obligations,Small Business Improvement Fund,-250000.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-094,Chicago/Kingsbury,2017,Current Obligations,Program administration,-462700.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-094,Chicago/Kingsbury,2017,Current Obligations,Park District IGA - Erie Park,-172400.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-094,Chicago/Kingsbury,2017,Current Obligations,North Branch Transportation Study,-22500.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,MSAC DS - Collins HS,-3924300.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,MSAC program costs,-4500.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Neighborhood Improvement Program,-1000000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-023,Goose Island,2017,Current Obligations,Local Industrial Retention Initiative,-500.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-095,Midwest,2017,Current Obligations,Lighting - 10 blocks,-1944300.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-034,North Branch (South),2017,Current Obligations,North Branch Industrial Corridor Planning Study,-75000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-030,Near North,2017,Current Obligations,North Branch Transportation Study,-21100.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-023,Goose Island,2017,Current Obligations,Program administration,-97400.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-030,Near North,2017,Current Obligations,PBC IGA - new HS site survey costs,-520000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-001,35th/Halsted,2017,Current Obligations,CPS IGA - ADA Ph3 - Armour,-1532100.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-030,Near North,2017,Current Obligations,Program administration,-565600.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-030,Near North,2017,Current Obligations,RA - Clybourn & Division,-4050000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-030,Near North,2017,Current Obligations,"Resurfacing - Oak, Orleans to Wells; Hobbie, Crosby to Larrabee",-100.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-034,North Branch (South),2017,Current Obligations,"Traffic signal - left turn arrow - Clybourn, Racine & Cortland",-105000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-034,North Branch (South),2017,Current Obligations,Program administration,-161500.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-028,Lincoln-Belmont-Ashland,2017,Current Obligations,Debt service,-763000.00,1994-11-02T00:00:00.000,2018-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2017,Current Obligations,Program administration,-56000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-030,Near North,2017,Current Obligations,Fire Station repairs - Engine Co. 4,-825000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-034,North Branch (South),2017,Current Obligations,Local Industrial Retention Initiative,-13800.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-034,North Branch (South),2017,Current Obligations,Bridge repairs - 847 N Halsted,-197700.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-034,North Branch (South),2017,Current Obligations,AAA Boatyard/river edge stabilization (aka Goose Island Overlook Park),-500000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-033,North Branch (North),2017,Current Obligations,Bridge - Cortland St - Phase II - design,-900000.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2017,Current Obligations,TIF Works,-160000.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2017,Current Obligations,Program administration,-100700.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2017,Current Obligations,North Branch Transportation Study,-39100.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2017,Current Obligations,Delegate Agencies,-500.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2017,Current Obligations,Bridge - Webster St - Phase II - design,-1200000.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-034,North Branch (South),2017,Current Obligations,North Branch Transportation Study,-142500.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-036,Read-Dunning,2017,Current Obligations,Program administration,-49800.00,1991-01-11T00:00:00.000,2027-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2017,Current Obligations,CPS IGA - Rockne Stadium,-700000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-037,River South,2017,Current Obligations,Riverfront Trail - South Branch - implementation plan,-655900.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-023,Goose Island,2017,Current Obligations,Debt service - Taxable Bond Series 2000,-2441700.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-037,River South,2017,Current Obligations,"Street improvements - Wells, Roosevelt to Archer",-11445000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-029,Michigan/Cermak,2017,Current Obligations,Program administration,-31300.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-030,Near North,2017,Current Obligations,Park District IGA - Seward Park,-400000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-028,Lincoln-Belmont-Ashland,2017,Current Obligations,Program administration,-24300.00,1994-11-02T00:00:00.000,2018-12-31T00:00:00.000
+T-037,River South,2017,Current Obligations,River South alley reconstruction,-386000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-056,79th Street Corridor,2017,Current Obligations,Program administration,-18300.00,1998-07-08T00:00:00.000,2021-07-08T00:00:00.000
+T-036,Read-Dunning,2017,Current Obligations,Open Space Impact Fee reimbursement,-219200.00,1991-01-11T00:00:00.000,2027-12-31T00:00:00.000
+T-036,Read-Dunning,2017,Current Obligations,Local Industrial Retention Initiative,-300.00,1991-01-11T00:00:00.000,2027-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2017,Current Obligations,Lighting - Smart - residential - Ward 24,-890000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-038,Roosevelt/Cicero,2017,Current Obligations,Local Industrial Retention Initiative,-10400.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-035,North-Cicero,2017,Current Obligations,Street resurfacing - 11 blocks - Ward 37,-39400.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-035,North-Cicero,2017,Current Obligations,Program administration,-29100.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-035,North-Cicero,2017,Current Obligations,Local Industrial Retention Initiative,-300.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-030,Near North,2017,Current Obligations,CPS IGA - Manierre,-600000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-030,Near North,2017,Current Obligations,CPS IGA - Payton HS,-4600200.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-140,79th/Cicero,2017,Current Obligations,Program administration,-12100.00,2005-06-08T00:00:00.000,2029-12-31T00:00:00.000
+T-108,Humboldt Park Commercial,2017,Current Obligations,CPS IGA - Jose De Diego ES,-400000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Current Obligations,Acquisition costs,-818000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Current Obligations,Delegate Agencies,-9400.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Current Obligations,Program administration,-133700.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Current Obligations,RA - 300 East 51st LLC,-1200000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-107,Division/Homan,2017,Current Obligations,Street reconstruction - Grand,-1575000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-107,Division/Homan,2017,Current Obligations,Program administration,-24200.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-107,Division/Homan,2017,Current Obligations,Park District IGA - Humboldt Park,-325000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Current Obligations,Neighborhood Improvement Program,-1000000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Current Obligations,RA - Paul G Stewart Apts Ph 3,-1000000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-124,67th/Cicero,2017,Current Obligations,Program administration,-7300.00,2002-10-02T00:00:00.000,2026-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Current Obligations,RA - Rosenwald Apts,-5000000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-158,Weed/Freemont,2017,Current Obligations,Program administration,-16600.00,2008-01-08T00:00:00.000,2032-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Current Obligations,Retail Thrive Zone,-500000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Current Obligations,Walk To Transit III - design and construction,-201700.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Current Obligations,Walk to Transit - Phase I/II - construction,-141500.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Current Obligations,Retail Thrive Zone,-971800.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Current Obligations,Purchase Rehab Program - SF,-500000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Current Obligations,Riverfront Trail - South Branch - implementation plan,-344100.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-107,Division/Homan,2017,Current Obligations,Local Industrial Retention Initiative,-800.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-127,87th/Cottage Grove,2017,Current Obligations,Delegate Agencies,-300.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-149,Stevenson/Brighton,2017,Current Obligations,Local Industrial Retention Initiative,-2000.00,2007-04-11T00:00:00.000,2031-12-31T00:00:00.000
+T-149,Stevenson/Brighton,2017,Current Obligations,CPS IGA - Brighton Pk II,-2400000.00,2007-04-11T00:00:00.000,2031-12-31T00:00:00.000
+T-148,Harlem Industrial Park Conservation Area,2017,Current Obligations,Local Industrial Retention Initiative,-200.00,2007-03-14T00:00:00.000,2031-12-31T00:00:00.000
+T-117,47th/Ashland,2017,Current Obligations,MSAC DS - Back of the Yards HS,-1812600.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-117,47th/Ashland,2017,Current Obligations,MSAC program costs,-1500.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-117,47th/Ashland,2017,Current Obligations,Program administration,-47900.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-117,47th/Ashland,2017,Current Obligations,Retail Thrive Zone,-1125000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-109,Lawrence/Broadway,2017,Current Obligations,RA - Leland Hotel,-17800.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-108,Humboldt Park Commercial,2017,Current Obligations,Delegate Agencies,-300.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-141,26th and King Drive,2017,Current Obligations,Program administration,-17300.00,2006-01-11T00:00:00.000,2030-12-31T00:00:00.000
+T-108,Humboldt Park Commercial,2017,Current Obligations,Program administration,-65400.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-127,87th/Cottage Grove,2017,Current Obligations,Program administration,-34000.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-127,87th/Cottage Grove,2017,Current Obligations,Retail Thrive Zone,-1125000.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-157,Hollywood/Sheridan,2017,Current Obligations,Delegate Agencies,-600.00,2007-11-07T00:00:00.000,2031-12-31T00:00:00.000
+T-157,Hollywood/Sheridan,2017,Current Obligations,Program administration,-3000.00,2007-11-07T00:00:00.000,2031-12-31T00:00:00.000
+T-157,Hollywood/Sheridan,2017,Current Obligations,RA - CHA Fisher Apts - site improvements,-296900.00,2007-11-07T00:00:00.000,2031-12-31T00:00:00.000
+T-128,Commercial Avenue,2017,Current Obligations,CPS IGA - ADA Ph3 - Bowen,-468200.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-128,Commercial Avenue,2017,Current Obligations,Program administration,-21800.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-128,Commercial Avenue,2017,Current Obligations,Small Business Improvement Fund,-500000.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Current Obligations,Library repairs - Kelly,-1950000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-109,Lawrence/Broadway,2017,Current Obligations,Program administration,-69600.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-130,Edgewater/Ashland,2017,Current Obligations,Land acquisition/demolition/remediation - 5700 Ashland,-2823800.00,2003-10-01T00:00:00.000,2027-12-31T00:00:00.000
+T-139,Ravenswood Corridor,2017,Current Obligations,Program administration,-30400.00,2005-03-09T00:00:00.000,2029-12-31T00:00:00.000
+T-139,Ravenswood Corridor,2017,Current Obligations,Local Industrial Retention Initiative,-700.00,2005-03-09T00:00:00.000,2029-12-31T00:00:00.000
+T-139,Ravenswood Corridor,2017,Current Obligations,Delegate Agencies,-1600.00,2005-03-09T00:00:00.000,2029-12-31T00:00:00.000
+T-104,River West,2017,Current Obligations,Viaduct improvements - Chicago Av / Halsted St,-1723900.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-104,River West,2017,Current Obligations,RA - WaterSaver Faucet,-150000.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-104,River West,2017,Current Obligations,Program administration,-334200.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-104,River West,2017,Current Obligations,North Branch Transportation Study,-22800.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-104,River West,2017,Current Obligations,Delegate Agencies,-700.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Current Obligations,Program administration,-89000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-104,River West,2017,Current Obligations,CTA IGA - Blue line - Grand Station - improvements,-4000000.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,Reimbursement for TIF designation costs,-100000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-130,Edgewater/Ashland,2017,Current Obligations,Program administration,-29200.00,2003-10-01T00:00:00.000,2027-12-31T00:00:00.000
+T-163,Archer/Western,2017,Current Obligations,Program administration,-3200.00,2009-02-11T00:00:00.000,2033-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Current Obligations,Program administration,-54300.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Current Obligations,Local Industrial Retention Initiative,-6900.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Current Obligations,Industrial Growth Zone,1000000.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Current Obligations,Calumet Dredged Material Storage Facility - design,-350000.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Current Obligations,Bridge repairs - 130th St/Calumet River,-1000000.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Current Obligations,TIF Works,-2000000.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-104,River West,2017,Current Obligations,CTA IGA - Blue Line - tunnel improvements,-2500000.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-123,Avalon Park/South Shore,2017,Current Obligations,Lighting - 7900 & 8000 blocks of Chappell,-64000.00,2002-07-31T00:00:00.000,2026-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Current Obligations,Delegate Agencies,-600.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-129,Diversey/Narragansett,2017,Current Obligations,Delegate Agencies,-200.00,2003-02-05T00:00:00.000,2027-12-31T00:00:00.000
+T-129,Diversey/Narragansett,2017,Current Obligations,Program administration,-40400.00,2003-02-05T00:00:00.000,2027-12-31T00:00:00.000
+T-105,53rd Street,2017,Current Obligations,Small Business Improvement Fund,-500000.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-105,53rd Street,2017,Current Obligations,RA - Smart Hotels,-249600.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-105,53rd Street,2017,Current Obligations,Program administration,-73400.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-105,53rd Street,2017,Current Obligations,Delegate Agencies,-9700.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-105,53rd Street,2017,Current Obligations,CPS IGA - ADA Ph3 - Kenwood Academy,-246800.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-139,Ravenswood Corridor,2017,Current Obligations,Small Business Improvement Fund,-750000.00,2005-03-09T00:00:00.000,2029-12-31T00:00:00.000
+T-123,Avalon Park/South Shore,2017,Current Obligations,Program administration,-9500.00,2002-07-31T00:00:00.000,2026-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,Walk To Transit III - design and construction,-201700.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-145,73rd/University,2017,Current Obligations,Program administration,-8900.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,"Alley construction - Cullerton, Kildare, 21st St, Kostner",-295000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,"Alley reconstruction - 13th St, Karlov, Kevdale, 14th St",-219000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,CPS IGA - ADA Ph3 - Mason,-916900.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,CPS IGA - Crown,-440000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,"Lighting - Harding, 16th to Ogden",-260000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,Lighting - Smart - residential - Ward 24,-800000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Current Obligations,RA - Montclare Sr - Lawndale,-2000000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-156,Austin Commercial,2017,Current Obligations,Vision Zero - design,-107500.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-123,Avalon Park/South Shore,2017,Current Obligations,Retail Thrive Zone,-1020000.00,2002-07-31T00:00:00.000,2026-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Current Obligations,CPS IGA - Earle,-287000.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Current Obligations,Program administration,-21200.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Current Obligations,Neighborhood Improvement Program,-500000.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Current Obligations,Local Industrial Retention Initiative,-700.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Current Obligations,Englewood Line,-700000.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Current Obligations,Delegate Agencies,-9600.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-150,Addison South,2017,Current Obligations,Local Industrial Retention Initiative,-6900.00,2007-05-09T00:00:00.000,2031-12-31T00:00:00.000
+T-150,Addison South,2017,Current Obligations,Bridge repairs - Diversey Parkway,-300000.00,2007-05-09T00:00:00.000,2031-12-31T00:00:00.000
+T-114,119th and Halsted,2017,Current Obligations,RA - Maple Park Market Place,-250000.00,2002-02-06T00:00:00.000,2026-12-31T00:00:00.000
+T-149,Stevenson/Brighton,2017,Current Obligations,Program administration,-43300.00,2007-04-11T00:00:00.000,2031-12-31T00:00:00.000
+T-114,119th and Halsted,2017,Current Obligations,Neighborhood Improvement Program,-783600.00,2002-02-06T00:00:00.000,2026-12-31T00:00:00.000
+T-150,Addison South,2017,Current Obligations,RA - Green Exchange Note R-1 pmts,-640900.00,2007-05-09T00:00:00.000,2031-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Current Obligations,Building stabilization/demolition,-127000.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-126,Madden/Wells,2017,Current Obligations,Program administration,-25300.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-152,Little Village Industrial Corridor,2017,Current Obligations,Local Industrial Retention Initiative,-1800.00,2007-06-13T00:00:00.000,2031-12-31T00:00:00.000
+T-126,Madden/Wells,2017,Current Obligations,"RA - Phase 1A ""For Sale"" Note-1",-221000.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-126,Madden/Wells,2017,Current Obligations,RA - Phase 1A rental interest subsidy,-45100.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-126,Madden/Wells,2017,Current Obligations,RA - Phase 1B rental interest subsidy,-78900.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-126,Madden/Wells,2017,Current Obligations,RA - Phase 2A rental interest subsidy pmts,-96700.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-113,Roseland/Michigan,2017,Current Obligations,Program administration,-10100.00,2002-01-16T00:00:00.000,2026-12-31T00:00:00.000
+T-114,119th and Halsted,2017,Current Obligations,Program administration,-25500.00,2002-02-06T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,MSAC program costs,-8000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-150,Addison South,2017,Current Obligations,Traffic signal - left turn arrow - Elston/Logan,-101000.00,2007-05-09T00:00:00.000,2031-12-31T00:00:00.000
+T-150,Addison South,2017,Current Obligations,"Sidewalk improvements - Campbell, 2900-3000 N",-112400.00,2007-05-09T00:00:00.000,2031-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,TIF Works,-385100.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,Street resurfacing - 11 blocks - Ward 37,-607800.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,Small Business Improvement Fund,-1100000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,Retail Thrive Zone,-1125000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,RA - Nelson Mandela Apts,-1513000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,RA - Breakthrough Urban Ministries,-714300.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Current Obligations,Vision Zero - design,-45000.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,Park District IGA - Skate Park - 3349 W Rice St,-1260000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-150,Addison South,2017,Current Obligations,Program administration,-70000.00,2007-05-09T00:00:00.000,2031-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,MSAC DS - Westinghouse - TIF share,-3303300.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,MSAC DS - Westinghouse - other TIF(s),-9357300.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,MSAC DS - Raby Horticultural - other TIF(s),-222900.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,MSAC DS - Raby Horticultural,-905600.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,CPS MSAC IGA - Raby,8251600.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,Chicago Av HSIP - pedestrial safety - design/construction,-327600.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-151,Armitage/Pulaski,2017,Current Obligations,Delegate Agencies,-4000.00,2007-06-13T00:00:00.000,2031-12-31T00:00:00.000
+T-151,Armitage/Pulaski,2017,Current Obligations,Program administration,-5000.00,2007-06-13T00:00:00.000,2031-12-31T00:00:00.000
+T-126,Madden/Wells,2017,Current Obligations,RA - Phase 2C taxable note pmts,-126000.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Current Obligations,Program administration,-107500.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-110,Wilson Yard,2017,Current Obligations,Delegate Agencies,-3800.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-113,Roseland/Michigan,2017,Current Obligations,Lighting - Dauphin to Wentworth,-46000.00,2002-01-16T00:00:00.000,2026-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Current Obligations,Park District IGA - Morgan Park Sports Center,-1500000.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Current Obligations,Park District IGA - Firemen's Memorial Park,-675000.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Current Obligations,CPS IGA - Morgan Park HS,-44000.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-155,79th/Vincennes,2017,Current Obligations,Program administration,-4900.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-155,79th/Vincennes,2017,Current Obligations,Vision Zero - design,-15000.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-144,Harrison/Central,2017,Current Obligations,Program administration,-8200.00,2006-07-26T00:00:00.000,2030-12-31T00:00:00.000
+T-110,Wilson Yard,2017,Current Obligations,"Streetscape - Broadway, Wilson to Leland",-1380900.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Current Obligations,RA - Buona Beef,-90000.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-110,Wilson Yard,2017,Current Obligations,Program administration,-140300.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Current Obligations,RA - Home Run Inn,-87500.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-110,Wilson Yard,2017,Current Obligations,CTA IGA - Red Line - Wilson Station,-3000000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-146,Touhy/Western,2017,Current Obligations,Program administration,-9800.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-149,Stevenson/Brighton,2017,Current Obligations,Traffic signal installaion - 4821 S Western Blv,-175000.00,2007-04-11T00:00:00.000,2031-12-31T00:00:00.000
+T-156,Austin Commercial,2017,Current Obligations,Delegate Agencies,-700.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-156,Austin Commercial,2017,Current Obligations,Program administration,-13500.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-156,Austin Commercial,2017,Current Obligations,Retail Thrive Zone,-1145000.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-156,Austin Commercial,2017,Current Obligations,Small Business Improvement Fund,-500000.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-156,Austin Commercial,2017,Current Obligations,TIF Works,-250000.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-107,Division/Homan,2017,Current Obligations,Small Business Improvement Fund,-400000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-110,Wilson Yard,2017,Current Obligations,RA - 4400 N Broadway,-4838500.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-112,79th Street/Southwest Highway,2017,Current Obligations,Local Industrial Retention Initiative,-400.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-149,Stevenson/Brighton,2017,Current Obligations,RA - Pulaski Promenade,-1000000.00,2007-04-11T00:00:00.000,2031-12-31T00:00:00.000
+T-126,Madden/Wells,2017,Current Obligations,RA - Phase 2C tax-exempt note pmts,-379000.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-153,Elston/Armstrong Industrial Corridor,2017,Current Obligations,Local Industrial Retention Initiative,-2300.00,2007-07-19T00:00:00.000,2031-12-31T00:00:00.000
+T-153,Elston/Armstrong Industrial Corridor,2017,Current Obligations,Program administration,-10000.00,2007-07-19T00:00:00.000,2031-12-31T00:00:00.000
+T-125,119th/I-57,2017,Current Obligations,RA - Renaissance Estates PayGo,-495100.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-125,119th/I-57,2017,Current Obligations,Program administration,-73700.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-125,119th/I-57,2017,Current Obligations,Neighborhood Improvement Program,-500000.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-112,79th Street/Southwest Highway,2017,Current Obligations,Street - resurfacing - Kedzie/79th/80th Pl/Claremont,-792700.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Current Obligations,Program administration,-15400.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-112,79th Street/Southwest Highway,2017,Current Obligations,Parallel parking - 2938-3326 W Columbus Av,-74000.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-113,Roseland/Michigan,2017,Current Obligations,"Lighting - 111th, Michigan Av to State St",-18000.00,2002-01-16T00:00:00.000,2026-12-31T00:00:00.000
+T-112,79th Street/Southwest Highway,2017,Current Obligations,Delegate Agencies,-600.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-116,Lawrence/Pulaski,2017,Current Obligations,Delegate Agencies,-300.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-116,Lawrence/Pulaski,2017,Current Obligations,Park District IGA - Eugene Field Park - I,-250000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-116,Lawrence/Pulaski,2017,Current Obligations,Program administration,-26600.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-116,Lawrence/Pulaski,2017,Current Obligations,RA - Thai Town,-418000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-111,105th/Vincennes,2017,Current Obligations,RA - Renaissance Beverly Ridge,-1200000.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-111,105th/Vincennes,2017,Current Obligations,Program administration,-24000.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-111,105th/Vincennes,2017,Current Obligations,Delegate Agencies,-700.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-154,Pershing/King,2017,Current Obligations,Traffic signal - Pershing / Rhodes,-100000.00,2007-09-05T00:00:00.000,2031-12-31T00:00:00.000
+T-112,79th Street/Southwest Highway,2017,Current Obligations,Program administration,-25300.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-097,51st/Archer,2017,Current Obligations,MSAC DS - Hernandez - TIF share,-824500.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-098,63rd/Pulaski,2017,Current Obligations,Delegate Agencies,-213100.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-098,63rd/Pulaski,2017,Current Obligations,Local Industrial Retention Initiative,-100.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-097,51st/Archer,2017,Current Obligations,Program administration,-31300.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-136,47th/State,2017,Current Obligations,RA - XS Tennis,-2943800.00,2004-07-21T00:00:00.000,2028-12-31T00:00:00.000
+T-098,63rd/Pulaski,2017,Current Obligations,MSAC program costs,-500.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-097,51st/Archer,2017,Current Obligations,MSAC program costs,-4200.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-098,63rd/Pulaski,2017,Current Obligations,Program administration,-31300.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-131,35th/State,2017,Current Obligations,RA - Townsend Chicago LLC,-566900.00,2004-01-14T00:00:00.000,2028-12-31T00:00:00.000
+T-101,Jefferson/Roosevelt,2017,Current Obligations,Program administration,-125500.00,2000-08-30T00:00:00.000,2024-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Current Obligations,CPS IGA - Tilden HS,-2000000.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Current Obligations,Park District IGA - Lowe Park,-550000.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-098,63rd/Pulaski,2017,Current Obligations,Small Business Improvement Fund,-500000.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-169,Ewing Avenue,2017,Current Obligations,CPS IGA - Addams,-1043300.00,2010-03-10T00:00:00.000,2034-12-31T00:00:00.000
+T-164,Little Village East,2017,Current Obligations,Local Industrial Retention Initiative,-800.00,2009-04-22T00:00:00.000,2033-12-31T00:00:00.000
+T-169,Ewing Avenue,2017,Current Obligations,Delegate Agencies,-300.00,2010-03-10T00:00:00.000,2034-12-31T00:00:00.000
+T-169,Ewing Avenue,2017,Current Obligations,Program administration,-7900.00,2010-03-10T00:00:00.000,2034-12-31T00:00:00.000
+T-131,35th/State,2017,Current Obligations,Program administration,-47100.00,2004-01-14T00:00:00.000,2028-12-31T00:00:00.000
+T-097,51st/Archer,2017,Current Obligations,MSAC DS - Hernandez MS - other TIF(s),-5238000.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Current Obligations,Delegate Agencies,-1100.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Current Obligations,MSAC program costs,-100.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-166,North Pullman,2017,Current Obligations,Program administration,-22800.00,2009-06-30T00:00:00.000,2033-12-31T00:00:00.000
+T-134,Devon/Sheridan,2017,Current Obligations,Program administration,-5000.00,2004-03-31T00:00:00.000,2028-12-31T00:00:00.000
+T-134,Devon/Sheridan,2017,Current Obligations,Delegate Agencies,-1700.00,2004-03-31T00:00:00.000,2028-12-31T00:00:00.000
+T-146,Touhy/Western,2017,Current Obligations,MSAC DS - West Ridge Elementary - other TIF(s),-2042600.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-146,Touhy/Western,2017,Current Obligations,MSAC DS - West Ridge ES - TIF share,-403300.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-146,Touhy/Western,2017,Current Obligations,MSAC program costs,-400.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Current Obligations,Bridge repairs - Lake St,-4600000.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Current Obligations,CTA IGA - Quincy/Wells Station - station improvements,-8133100.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Current Obligations,CPS IGA - Hope HS,-287000.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Current Obligations,Program administration,-59700.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Current Obligations,Street resurfacing - New City/Woodlawn - various locations,-469000.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-167,Avondale,2017,Current Obligations,Program administration,-2900.00,2009-07-29T00:00:00.000,2033-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Current Obligations,Local Industrial Retention Initiative,-400.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-136,47th/State,2017,Current Obligations,CPS IGA - Burke Child Parent Center,-1000000.00,2004-07-21T00:00:00.000,2028-12-31T00:00:00.000
+T-136,47th/State,2017,Current Obligations,Delegate Agencies,-7200.00,2004-07-21T00:00:00.000,2028-12-31T00:00:00.000
+T-136,47th/State,2017,Current Obligations,Program administration,-28400.00,2004-07-21T00:00:00.000,2028-12-31T00:00:00.000
+T-097,51st/Archer,2017,Current Obligations,Local Industrial Retention Initiative,-1000.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Current Obligations,Neighborhood Improvement Program,-750000.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-100,Ohio/Wabash,2017,Current Obligations,Program administration,-2700.00,2000-06-07T00:00:00.000,2024-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Current Obligations,RA - JMC Steel Group,-168100.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-102,Montclare,2017,Current Obligations,Program administration,-8100.00,2000-08-30T00:00:00.000,2024-12-31T00:00:00.000
+T-122,Drexel Boulevard,2017,Current Obligations,Program administration,-6800.00,2002-07-10T00:00:00.000,2026-12-31T00:00:00.000
+T-099,Archer/Central,2017,Current Obligations,Program administration,-8700.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-099,Archer/Central,2017,Current Obligations,Local Industrial Retention Initiative,-900.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-099,Archer/Central,2017,Current Obligations,Fire station repairs - Engine Co. 127,-135000.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-100,Ohio/Wabash,2017,Current Obligations,RA - Medinah Temple,-1717300.00,2000-06-07T00:00:00.000,2024-12-31T00:00:00.000
+T-135,Pratt/Ridge Industrial Park Conservation Area,2017,Current Obligations,RA - S&C Electric,-995000.00,2004-06-23T00:00:00.000,2028-12-31T00:00:00.000
+T-135,Pratt/Ridge Industrial Park Conservation Area,2017,Current Obligations,Program administration,-9000.00,2004-06-23T00:00:00.000,2028-12-31T00:00:00.000
+T-119,Lakefront,2017,Current Obligations,Program administration,-9700.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Current Obligations,Program administration,-730700.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-133,83rd/Stewart,2017,Current Obligations,Program administration,-25100.00,2004-03-31T00:00:00.000,2028-12-31T00:00:00.000
+T-023,Goose Island,2017,Fund Balance,Surplus TIF funds,-307100.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-036,Read-Dunning,2017,Fund Balance,Surplus TIF funds,-2000000.00,1991-01-11T00:00:00.000,2027-12-31T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Fund Balance,Surplus TIF funds,-2000000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-057,Jefferson Park Business District,2017,Fund Balance,Surplus TIF funds,-45900.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-085,Western Avenue South,2017,Fund Balance,Surplus TIF funds,-3945200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-094,Chicago/Kingsbury,2017,Fund Balance,Surplus TIF funds,-20000000.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-059,Calumet Avenue/Cermak Road,2017,Fund Balance,Surplus TIF funds,-3000000.00,1998-07-29T00:00:00.000,2021-07-29T00:00:00.000
+T-139,Ravenswood Corridor,2017,Fund Balance,Surplus TIF funds,-500000.00,2005-03-09T00:00:00.000,2029-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Fund Balance,Surplus TIF funds,-5000000.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-101,Jefferson/Roosevelt,2017,Fund Balance,Surplus TIF funds,-4000000.00,2000-08-30T00:00:00.000,2024-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Proposed Projects,LIRI infrastructure - street resurfacing,-750000.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2017,Proposed Projects,Small Business Improvement Fund,-750000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2017,Proposed Projects,Small Business Improvement Fund,-500000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-095,Midwest,2017,Proposed Projects,Purchase Rehab Program - SF,-500000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2017,Proposed Projects,TIF Works,-150000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Proposed Projects,Small Business Improvement Fund,-500000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-057,Jefferson Park Business District,2017,Proposed Projects,Small Business Improvement Fund,-750000.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-058,Portage Park,2017,Proposed Projects,Small Business Improvement Fund,-1000000.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-061,Bronzeville,2017,Proposed Projects,Small Business Improvement Fund,-500000.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-095,Midwest,2017,Proposed Projects,Purchase Rehab Program - MF,-1000000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-093,South Chicago,2017,Proposed Projects,Small Business Improvement Fund,-500000.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-094,Chicago/Kingsbury,2017,Proposed Projects,Bridge replacement - Chicago Av / Chicago River N Branch,-21200000.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Proposed Projects,Small Business Improvement Fund,-500000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Proposed Projects,LIRI infrastructure,-750000.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Proposed Projects,Purchase Rehab Program - MF,-1000000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Proposed Projects,Small Business Improvement Fund,-300000.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Proposed Projects,Proposed school project,-5400000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Proposed Projects,Small Business Improvement Fund,-500000.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-172,Randolph/Wells,2017,Revenue,Property tax,460600.00,2010-06-09T00:00:00.000,2034-12-31T00:00:00.000
+T-178,Washington Park,2017,Revenue,Property tax,359200.00,2014-10-08T00:00:00.000,2038-12-31T00:00:00.000
+T-173,Montrose/Clarendon,2017,Revenue,Property tax,198900.00,2010-06-30T00:00:00.000,2034-12-31T00:00:00.000
+T-177,Foster/California,2017,Revenue,Property tax,22000.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-176,107th/Halsted,2017,Revenue,Property tax,655300.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-175,51st/Lake Park,2017,Revenue,Property tax,186400.00,2012-11-15T00:00:00.000,2036-12-31T00:00:00.000
+T-180,Red Purple Transit,2017,Revenue,Property tax,6514600.00,2016-11-20T00:00:00.000,2052-12-31T00:00:00.000
+T-086,Central West,2017,Revenue,Property tax,21313000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-060,71st/Stony Island,2017,Revenue,Property tax,2573600.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-004,49th Street/St. Lawrence Avenue,2017,Revenue,Property tax,437100.00,1996-01-10T00:00:00.000,2020-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2017,Revenue,Property tax,2044500.00,1996-12-11T00:00:00.000,2019-12-11T00:00:00.000
+T-087,Fullerton/Milwaukee,2017,Revenue,Property tax,7626800.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-048,Western/Ogden,2017,Revenue,Property tax,9126700.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-036,Read-Dunning,2017,Revenue,Property tax,2750000.00,1991-01-11T00:00:00.000,2027-12-31T00:00:00.000
+T-009,95th and Western,2017,Revenue,Property tax,850500.00,1995-07-13T00:00:00.000,2019-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Revenue,Property tax,3137000.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-078,South Works Industrial,2017,Revenue,Property tax,51800.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",2017,Revenue,Property tax,190400.00,1994-07-13T00:00:00.000,2018-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Revenue,Property tax,3561200.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-024,Homan-Arthington,2017,Revenue,Property tax,639900.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-035,North-Cicero,2017,Revenue,Property tax,1456200.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-028,Lincoln-Belmont-Ashland,2017,Revenue,Property tax,1338800.00,1994-11-02T00:00:00.000,2018-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2017,Revenue,Property tax,1942800.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-067,Archer Courts,2017,Revenue,Property tax,425600.00,1999-05-12T00:00:00.000,2023-12-31T00:00:00.000
+T-082,Belmont/Cicero,2017,Revenue,Property tax,970200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2017,Revenue,Property tax,2961800.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-092,Greater Southwest Industrial Corridor (West),2017,Revenue,Property tax,150300.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-057,Jefferson Park Business District,2017,Revenue,Property tax,994700.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-053,Pilsen Industrial Corridor,2017,Revenue,Property tax,13720700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-068,Roosevelt/Union,2017,Revenue,Property tax,5462400.00,1999-05-12T00:00:00.000,2022-05-12T00:00:00.000
+T-058,Portage Park,2017,Revenue,Property tax,2019700.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2017,Revenue,Property tax,614100.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-029,Michigan/Cermak,2017,Revenue,Property tax,1581800.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-089,Midway Industrial Corridor,2017,Revenue,Property tax,3819400.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-091,Peterson/Pulaski,2017,Revenue,Property tax,1221300.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-001,35th/Halsted,2017,Revenue,Property tax,7098700.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-059,Calumet Avenue/Cermak Road,2017,Revenue,Property tax,12002400.00,1998-07-29T00:00:00.000,2021-07-29T00:00:00.000
+T-094,Chicago/Kingsbury,2017,Revenue,Property tax,25472400.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-079,35th and Wallace,2017,Revenue,Property tax,987800.00,1999-12-15T00:00:00.000,2023-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2017,Revenue,Property tax,897200.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-010,126th and Torrence,2017,Revenue,Property tax,1107600.00,1994-12-21T00:00:00.000,2017-12-21T00:00:00.000
+T-023,Goose Island,2017,Revenue,Property tax,5166700.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-063,Canal/Congress,2017,Revenue,Property tax,27466800.00,1998-11-12T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2017,Revenue,Property tax,2941900.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-005,60th and Western,2017,Revenue,Property tax,171300.00,1996-05-09T00:00:00.000,2019-05-09T00:00:00.000
+T-037,River South,2017,Revenue,Property tax,26154800.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-093,South Chicago,2017,Revenue,Property tax,1325400.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-090,Peterson/Cicero,2017,Revenue,Property tax,461900.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-027,Irving/Cicero,2017,Revenue,Property tax,795100.00,1996-06-10T00:00:00.000,2020-12-31T00:00:00.000
+T-065,Woodlawn,2017,Revenue,Property tax,3073500.00,1999-01-20T00:00:00.000,2022-01-20T00:00:00.000
+T-077,Lincoln Avenue,2017,Revenue,Property tax,2996600.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-043,Stockyards Annex,2017,Revenue,Property tax,1384800.00,1996-12-11T00:00:00.000,2020-12-31T00:00:00.000
+T-085,Western Avenue South,2017,Revenue,Property tax,7831400.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-070,Clark/Montrose,2017,Revenue,Property tax,3358700.00,1999-07-07T00:00:00.000,2022-07-07T00:00:00.000
+T-096,Cicero/Archer,2017,Revenue,Property tax,656600.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-033,North Branch (North),2017,Revenue,Property tax,5420900.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-021,Englewood Mall,2017,Revenue,Property tax,545700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Revenue,Property tax,7013100.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2017,Revenue,Property tax,6536900.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2017,Revenue,Property tax,1542700.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Revenue,Property tax,4660600.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Revenue,Property tax,32174400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-056,79th Street Corridor,2017,Revenue,Property tax,856500.00,1998-07-08T00:00:00.000,2021-07-08T00:00:00.000
+T-076,Devon/Western,2017,Revenue,Property tax,2160200.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-083,West Irving Park,2017,Revenue,Property tax,921300.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-034,North Branch (South),2017,Revenue,Property tax,8790300.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Revenue,Property tax,3251100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-073,111th Street/Kedzie Avenue Business District,2017,Revenue,Property tax,655600.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-061,Bronzeville,2017,Revenue,Property tax,3541700.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-081,Belmont/Central,2017,Revenue,Property tax,2733600.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-030,Near North,2017,Revenue,Property tax,31104000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-072,24th/Michigan,2017,Revenue,Property tax,1777600.00,1999-07-21T00:00:00.000,2022-07-21T00:00:00.000
+T-095,Midwest,2017,Revenue,Property tax,15493500.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Revenue,Property tax,2091600.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-062,Roosevelt/Racine,2017,Revenue,Property tax,1711800.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-127,87th/Cottage Grove,2017,Revenue,Property tax,1726100.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-141,26th and King Drive,2017,Revenue,Property tax,803500.00,2006-01-11T00:00:00.000,2030-12-31T00:00:00.000
+T-125,119th/I-57,2017,Revenue,Property tax,3926300.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-109,Lawrence/Broadway,2017,Revenue,Property tax,3700600.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-117,47th/Ashland,2017,Revenue,Property tax,2426300.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-153,Elston/Armstrong Industrial Corridor,2017,Revenue,Property tax,395300.00,2007-07-19T00:00:00.000,2031-12-31T00:00:00.000
+T-122,Drexel Boulevard,2017,Revenue,Property tax,370900.00,2002-07-10T00:00:00.000,2026-12-31T00:00:00.000
+T-105,53rd Street,2017,Revenue,Property tax,3909300.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-123,Avalon Park/South Shore,2017,Revenue,Property tax,373000.00,2002-07-31T00:00:00.000,2026-12-31T00:00:00.000
+T-157,Hollywood/Sheridan,2017,Revenue,Property tax,9200.00,2007-11-07T00:00:00.000,2031-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Revenue,Property tax,3153400.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-166,North Pullman,2017,Revenue,Property tax,1107000.00,2009-06-30T00:00:00.000,2033-12-31T00:00:00.000
+T-134,Devon/Sheridan,2017,Revenue,Property tax,120400.00,2004-03-31T00:00:00.000,2028-12-31T00:00:00.000
+T-126,Madden/Wells,2017,Revenue,Property tax,1241900.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-100,Ohio/Wabash,2017,Revenue,Property tax,1826300.00,2000-06-07T00:00:00.000,2024-12-31T00:00:00.000
+T-112,79th Street/Southwest Highway,2017,Revenue,Property tax,1246500.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Revenue,Property tax,699000.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-131,35th/State,2017,Revenue,Property tax,2456400.00,2004-01-14T00:00:00.000,2028-12-31T00:00:00.000
+T-155,79th/Vincennes,2017,Revenue,Property tax,114400.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-140,79th/Cicero,2017,Revenue,Property tax,514700.00,2005-06-08T00:00:00.000,2029-12-31T00:00:00.000
+T-098,63rd/Pulaski,2017,Revenue,Property tax,1582000.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-144,Harrison/Central,2017,Revenue,Property tax,299200.00,2006-07-26T00:00:00.000,2030-12-31T00:00:00.000
+T-110,Wilson Yard,2017,Revenue,Property tax,7616300.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-133,83rd/Stewart,2017,Revenue,Property tax,1232800.00,2004-03-31T00:00:00.000,2028-12-31T00:00:00.000
+T-119,Lakefront,2017,Revenue,Property tax,378900.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-149,Stevenson/Brighton,2017,Revenue,Property tax,2246500.00,2007-04-11T00:00:00.000,2031-12-31T00:00:00.000
+T-124,67th/Cicero,2017,Revenue,Property tax,251400.00,2002-10-02T00:00:00.000,2026-12-31T00:00:00.000
+T-108,Humboldt Park Commercial,2017,Revenue,Property tax,3469700.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-129,Diversey/Narragansett,2017,Revenue,Property tax,2082600.00,2003-02-05T00:00:00.000,2027-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Revenue,Property tax,7250200.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Revenue,Property tax,4771700.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-111,105th/Vincennes,2017,Revenue,Property tax,1172400.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-116,Lawrence/Pulaski,2017,Revenue,Property tax,1320200.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-156,Austin Commercial,2017,Revenue,Property tax,589700.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-158,Weed/Freemont,2017,Revenue,Property tax,762900.00,2008-01-08T00:00:00.000,2032-12-31T00:00:00.000
+T-099,Archer/Central,2017,Revenue,Property tax,328600.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-128,Commercial Avenue,2017,Revenue,Property tax,1052500.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-107,Division/Homan,2017,Revenue,Property tax,1183800.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-167,Avondale,2017,Revenue,Property tax,2200.00,2009-07-29T00:00:00.000,2033-12-31T00:00:00.000
+T-135,Pratt/Ridge Industrial Park Conservation Area,2017,Revenue,Property tax,342900.00,2004-06-23T00:00:00.000,2028-12-31T00:00:00.000
+T-146,Touhy/Western,2017,Revenue,Property tax,315300.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Revenue,Property tax,2851800.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-169,Ewing Avenue,2017,Revenue,Property tax,283000.00,2010-03-10T00:00:00.000,2034-12-31T00:00:00.000
+T-102,Montclare,2017,Revenue,Property tax,293100.00,2000-08-30T00:00:00.000,2024-12-31T00:00:00.000
+T-136,47th/State,2017,Revenue,Property tax,1418400.00,2004-07-21T00:00:00.000,2028-12-31T00:00:00.000
+T-104,River West,2017,Revenue,Property tax,18360100.00,2001-01-10T00:00:00.000,2025-12-31T00:00:00.000
+T-151,Armitage/Pulaski,2017,Revenue,Property tax,122200.00,2007-06-13T00:00:00.000,2031-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Revenue,Property tax,5726800.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-097,51st/Archer,2017,Revenue,Property tax,1509700.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Revenue,Property tax,1017900.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-163,Archer/Western,2017,Revenue,Property tax,17900.00,2009-02-11T00:00:00.000,2033-12-31T00:00:00.000
+T-130,Edgewater/Ashland,2017,Revenue,Property tax,1464200.00,2003-10-01T00:00:00.000,2027-12-31T00:00:00.000
+T-114,119th and Halsted,2017,Revenue,Property tax,1258500.00,2002-02-06T00:00:00.000,2026-12-31T00:00:00.000
+T-150,Addison South,2017,Revenue,Property tax,3718700.00,2007-05-09T00:00:00.000,2031-12-31T00:00:00.000
+T-101,Jefferson/Roosevelt,2017,Revenue,Property tax,6796100.00,2000-08-30T00:00:00.000,2024-12-31T00:00:00.000
+T-147,LaSalle Central,2017,Revenue,Property tax,40320200.00,2006-11-15T00:00:00.000,2030-12-31T00:00:00.000
+T-145,73rd/University,2017,Revenue,Property tax,335800.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-139,Ravenswood Corridor,2017,Revenue,Property tax,1526700.00,2005-03-09T00:00:00.000,2029-12-31T00:00:00.000
+T-113,Roseland/Michigan,2017,Revenue,Property tax,405600.00,2002-01-16T00:00:00.000,2026-12-31T00:00:00.000
+T-171,West Woodlawn,2017,Transfers Between TIF Districts,From Woodlawn (SBIF),250000.00,2010-05-12T00:00:00.000,2034-12-31T00:00:00.000
+T-179,Diversey Chicago River,2017,Transfers Between TIF Districts,From Addison South (Bridge repairs),200000.00,2016-10-05T00:00:00.000,2040-12-31T00:00:00.000
+T-176,107th/Halsted,2017,Transfers Between TIF Districts,From 119th/I-57 (Retail Thrive Zone),600000.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-174,67th/Wentworth,2017,Transfers Between TIF Districts,From 79th/Vincennes (Retail Thrive Zone),625000.00,2011-05-04T00:00:00.000,2035-12-31T00:00:00.000
+T-177,Foster/California,2017,Transfers Between TIF Districts,From Western Ave. North (RA - Swedish Covenant Hospital),926700.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-174,67th/Wentworth,2017,Transfers Between TIF Districts,From 63rd/Ashland (Retail Thrive Zone),500000.00,2011-05-04T00:00:00.000,2035-12-31T00:00:00.000
+T-178,Washington Park,2017,Transfers Between TIF Districts,From 47th/King (SBIF),300000.00,2014-10-08T00:00:00.000,2038-12-31T00:00:00.000
+T-177,Foster/California,2017,Transfers Between TIF Districts,From Western Ave. North (Traffic signals),375000.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-021,Englewood Mall,2017,Transfers Between TIF Districts,From Englewood Neighborhood (Retail Thrive Zone),175000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2017,Transfers Between TIF Districts,To Hollywood/Sheridan (CHA Fisher Apts),-297000.00,1996-12-11T00:00:00.000,2019-12-11T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Transfers Between TIF Districts,From Devon/Sheridan (Repay prior transfer),3111800.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-095,Midwest,2017,Transfers Between TIF Districts,To Chicago/Central Park (MSAC DS - Raby Horticultural),-222900.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-081,Belmont/Central,2017,Transfers Between TIF Districts,To Galewood/Armitage (MSAC DS - Prieto Elementary),-2196700.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-095,Midwest,2017,Transfers Between TIF Districts,To Chicago/Central Park (MSAC DS - Westinghouse),-1690300.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-069,Pulaski Corridor,2017,Transfers Between TIF Districts,To Chicago/Central Park (MSAC DS - Westinghouse),-919500.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2017,Transfers Between TIF Districts,To Edgewater/Ashland (Park - 5700 Ashland),-1500000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-095,Midwest,2017,Transfers Between TIF Districts,From Western/Ogden (RA - Mt Sinai Hospital),6750000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2017,Transfers Between TIF Districts,From Midwest (MSAC DS - Austin HS & DePriest Elementary),1633000.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Transfers Between TIF Districts,To Madison/Austin (MSAC DS - Austin HS & DePriest Elementary),-2859800.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2017,Transfers Between TIF Districts,To Chicago/Central Park (MSAC DS - Westinghouse),-1048200.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2017,Transfers Between TIF Districts,To Ogden/Pulaski (CPS - Crown),-440000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-084,Western Avenue North,2017,Transfers Between TIF Districts,To Lincoln Ave. (MSAC DS - Mather HS),-1753200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Transfers Between TIF Districts,To Foster/California (Traffic signals),-375000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2017,Transfers Between TIF Districts,To Foster/California (RA - Swedish Covenant Hospital),-926700.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-065,Woodlawn,2017,Transfers Between TIF Districts,To 71st/Stony Island (MSAC DS - South Shore HS),-1851100.00,1999-01-20T00:00:00.000,2022-01-20T00:00:00.000
+T-065,Woodlawn,2017,Transfers Between TIF Districts,To West Woodlawn (SBIF),-250000.00,1999-01-20T00:00:00.000,2022-01-20T00:00:00.000
+T-062,Roosevelt/Racine,2017,Transfers Between TIF Districts,From Western/Ogden (Addams-Medill Sports Center),1046700.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2017,Transfers Between TIF Districts,To Harrison/Central (RA - Loretto Hospital),-144000.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2017,Transfers Between TIF Districts,From Northwest Ind. Corr. (MSAC DS - Austin HS & DePriest Elementary),2859800.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-060,71st/Stony Island,2017,Transfers Between TIF Districts,From 87th/Cottage Grove (MSAC DS - South Shore HS),1892700.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-061,Bronzeville,2017,Transfers Between TIF Districts,From 47th/Halsted (Quad Communities Arts and Rec Center),2500000.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-095,Midwest,2017,Transfers Between TIF Districts,To Madison/Austin (MSAC DS - Austin HS & DePriest Elementary),-1633000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-076,Devon/Western,2017,Transfers Between TIF Districts,From Lincoln Ave. (Streetscape - Devon),2090000.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-076,Devon/Western,2017,Transfers Between TIF Districts,To Touhy/Western (MSAC DS - West Ridge Elementary),-2042600.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2017,Transfers Between TIF Districts,To Harrison/Central (RA - Loretto Hospital),-144000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-035,North-Cicero,2017,Transfers Between TIF Districts,To Austin Commercial (Retail Thrive Zone),-2140000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-009,95th and Western,2017,Transfers Between TIF Districts,To Western/Rock Island (Morgan Park Sports Center),-1000000.00,1995-07-13T00:00:00.000,2019-12-31T00:00:00.000
+T-060,71st/Stony Island,2017,Transfers Between TIF Districts,To 87th/Cottage Grove (Retail Thrive Zone),-500000.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-060,71st/Stony Island,2017,Transfers Between TIF Districts,From Woodlawn (MSAC DS - South Shore HS),1851100.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-097,51st/Archer,2018,Current Obligations,Program administration,-32200.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-060,71st/Stony Island,2017,Transfers Between TIF Districts,From Stony Island/Burnside (MSAC DS - South Shore HS),1823200.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-010,126th and Torrence,2017,Transfers Between TIF Districts,From Lake Calumet (Bridge repairs),400000.00,1994-12-21T00:00:00.000,2017-12-21T00:00:00.000
+T-058,Portage Park,2017,Transfers Between TIF Districts,To Jefferson Park (CTA Blue Line Modernization),-2500000.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-057,Jefferson Park Business District,2017,Transfers Between TIF Districts,From Portage Park (CTA Blue Line Modernization),2500000.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-095,Midwest,2017,Transfers Between TIF Districts,To Ogden/Pulaski (CPS ADA Phase 3),-916900.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2017,Transfers Between TIF Districts,To Ogden/Pulaski (RA - Montclare Sr - Lawndale),-1000000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2017,Transfers Between TIF Districts,To 71st/Stony Island (MSAC DS - South Shore HS),-1823200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-037,River South,2017,Transfers Between TIF Districts,To 24th/Michigan (CPS - National Teachers Academy),-4310000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-073,111th Street/Kedzie Avenue Business District,2017,Transfers Between TIF Districts,To Western/Rock Island (Morgan Park Sports Center),-500000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-089,Midway Industrial Corridor,2017,Transfers Between TIF Districts,To 51st/Archer (MSAC DS - Hernandez MS),-3315500.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-048,Western/Ogden,2017,Transfers Between TIF Districts,To Midwest (RA - Mt Sinai Hospital),-6750000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-072,24th/Michigan,2017,Transfers Between TIF Districts,From River South (CPS - National Teachers Academy),4310000.00,1999-07-21T00:00:00.000,2022-07-21T00:00:00.000
+T-048,Western/Ogden,2017,Transfers Between TIF Districts,To Roosevelt/Racine (Addams-Medill Sports Center),-1046700.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Transfers Between TIF Districts,To Chicago/Central Park (MSAC DS - Westinghouse),-5699300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Transfers Between TIF Districts,To Chicago/Central Park (SBIF),-1100000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2017,Transfers Between TIF Districts,From Belmont/Central (MSAC DS - Prieto Elementary),2196700.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Transfers Between TIF Districts,To Chicago/Central Park (Skate Park - 3349 W Rice St),-1260000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2017,Transfers Between TIF Districts,To Chicago/Central Park (TIF Works),-385100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-077,Lincoln Avenue,2017,Transfers Between TIF Districts,From Western Ave. North (MSAC DS - Mather HS),1753200.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-077,Lincoln Avenue,2017,Transfers Between TIF Districts,To Devon/Western (Streetscape - Devon),-2090000.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-111,105th/Vincennes,2017,Transfers Between TIF Districts,From 119th/I-57 (RA - Renaissance Beverly Ridge),706800.00,2001-10-03T00:00:00.000,2025-12-31T00:00:00.000
+T-134,Devon/Sheridan,2017,Transfers Between TIF Districts,To Clark/Ridge (Repay prior transfer),-3111800.00,2004-03-31T00:00:00.000,2028-12-31T00:00:00.000
+T-143,63rd/Ashland,2017,Transfers Between TIF Districts,To 67th/Wentworth (Retail Thrive Zone),-500000.00,2006-03-29T00:00:00.000,2030-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Transfers Between TIF Districts,From Pulaski Corridor (MSAC DS - Westinghouse),919500.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-146,Touhy/Western,2017,Transfers Between TIF Districts,From Devon/Western (MSAC DS - West Ridge Elementary),2042600.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-144,Harrison/Central,2017,Transfers Between TIF Districts,From Roosevelt/Cicero (RA - Loretto Hospital),144000.00,2006-07-26T00:00:00.000,2030-12-31T00:00:00.000
+T-166,North Pullman,2017,Transfers Between TIF Districts,From Roseland/Michigan (RA - Whole Foods Distribution),273800.00,2009-06-30T00:00:00.000,2033-12-31T00:00:00.000
+T-155,79th/Vincennes,2017,Transfers Between TIF Districts,To 67th/Wentworth (Retail Thrive Zone),-625000.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Transfers Between TIF Districts,From Kinzie Ind. Corr. (MSAC DS - Westinghouse),5699300.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-100,Ohio/Wabash,2018,Current Obligations,RA - Medinah Temple,-1751600.00,2000-06-07T00:00:00.000,2024-12-31T00:00:00.000
+T-145,73rd/University,2017,Transfers Between TIF Districts,To 87th/Cottage Grove (Retail Thrive Zone),-625000.00,2006-09-13T00:00:00.000,2030-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Transfers Between TIF Districts,From 111th/Kedzie (Morgan Park Sports Center),500000.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Transfers Between TIF Districts,To 126th/Torrence (Bridge repairs),-400000.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-127,87th/Cottage Grove,2017,Transfers Between TIF Districts,From 71st/Stony Island (Retail Thrive Zone),500000.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-127,87th/Cottage Grove,2017,Transfers Between TIF Districts,From 73rd/University (Retail Thrive Zone),625000.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-072,24th/Michigan,2018,Current Obligations,RA - BSB Holdings,-157000.00,1999-07-21T00:00:00.000,2022-07-21T00:00:00.000
+T-156,Austin Commercial,2017,Transfers Between TIF Districts,From North/Cicero (Retail Thrive Zone),2140000.00,2007-09-27T00:00:00.000,2031-12-31T00:00:00.000
+T-113,Roseland/Michigan,2017,Transfers Between TIF Districts,To North Pullman (RA - Whole Foods Distribution),-273800.00,2002-01-16T00:00:00.000,2026-12-31T00:00:00.000
+T-098,63rd/Pulaski,2017,Transfers Between TIF Districts,To 51st/Archer (MSAC DS - Hernandez MS),-1922500.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Transfers Between TIF Districts,From Ewing Ave. (Repay prior transfer),450000.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-169,Ewing Avenue,2017,Transfers Between TIF Districts,From Lake Calumet (CPS - Gallistel),1700000.00,2010-03-10T00:00:00.000,2034-12-31T00:00:00.000
+T-169,Ewing Avenue,2017,Transfers Between TIF Districts,To Lake Calumet (Repay prior transfer),-450000.00,2010-03-10T00:00:00.000,2034-12-31T00:00:00.000
+T-142,Western Avenue/Rock Island,2017,Transfers Between TIF Districts,From 95th/Western (Morgan Park Sports Center),1000000.00,2006-02-08T00:00:00.000,2030-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Transfers Between TIF Districts,From Northwest Ind. Corr. (MSAC DS - Westinghouse),1048200.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-144,Harrison/Central,2017,Transfers Between TIF Districts,From Madison/Austin (RA - Loretto Hospital),144000.00,2006-07-26T00:00:00.000,2030-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Transfers Between TIF Districts,From Kinzie Ind. Corr. (TIF Works),385100.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-157,Hollywood/Sheridan,2017,Transfers Between TIF Districts,From Bryn Mawr/Broadway (CHA Fisher Apts),297000.00,2007-11-07T00:00:00.000,2031-12-31T00:00:00.000
+T-157,Hollywood/Sheridan,2017,Transfers Between TIF Districts,From Lawrence/Broadway (RA - Hollywood House),575800.00,2007-11-07T00:00:00.000,2031-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Transfers Between TIF Districts,From Kinzie Ind. Corr. (Skate Park - 3349 W Rice St),1260000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-127,87th/Cottage Grove,2017,Transfers Between TIF Districts,To 71st/Stony Island (MSAC DS - South Shore HS),-1892700.00,2002-11-13T00:00:00.000,2026-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Transfers Between TIF Districts,From Midwest (CPS ADA Phase 3),916900.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Transfers Between TIF Districts,From Roosevelt/Cicero (CPS - Crown),440000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-150,Addison South,2017,Transfers Between TIF Districts,To Diversey Chicago River (Bridge repairs),-200000.00,2007-05-09T00:00:00.000,2031-12-31T00:00:00.000
+T-125,119th/I-57,2017,Transfers Between TIF Districts,To 105th/Vincennes (RA - Renaissance Beverly Ridge),-706800.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-106,Englewood Neighborhood,2017,Transfers Between TIF Districts,To Englewood Mall (Retail Thrive Zone),-175000.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-109,Lawrence/Broadway,2017,Transfers Between TIF Districts,To Hollywood/Sheridan (RA - Hollywood House),-575800.00,2001-06-27T00:00:00.000,2025-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Transfers Between TIF Districts,From Midwest (MSAC DS - Westinghouse),1690300.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-097,51st/Archer,2017,Transfers Between TIF Districts,From 63rd/Pulaski (MSAC DS - Hernandez MS),1922500.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Transfers Between TIF Districts,From Midwest (MSAC DS - Raby Horticultural),222900.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-115,Chicago/Central Park,2017,Transfers Between TIF Districts,From Kinzie Ind. Corr. (SBIF),1100000.00,2002-02-27T00:00:00.000,2026-12-31T00:00:00.000
+T-130,Edgewater/Ashland,2017,Transfers Between TIF Districts,From Clark/Ridge (Park - 5700 Ashland),1500000.00,2003-10-01T00:00:00.000,2027-12-31T00:00:00.000
+T-097,51st/Archer,2017,Transfers Between TIF Districts,From Midway Ind. Corr. (MSAC DS - Hernandez MS),3315500.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-118,47th/King Drive,2017,Transfers Between TIF Districts,To Washington Park (SBIF),-300000.00,2002-03-27T00:00:00.000,2026-12-31T00:00:00.000
+T-121,47th/Halsted,2017,Transfers Between TIF Districts,To Bronzeville (Quad Communities Arts and Rec Center),-2500000.00,2002-05-29T00:00:00.000,2026-12-31T00:00:00.000
+T-103,Lake Calumet Area Industrial,2017,Transfers Between TIF Districts,To Ewing Ave. (CPS - Gallistel),-1700000.00,2000-12-13T00:00:00.000,2024-12-31T00:00:00.000
+T-161,Ogden/Pulaski,2017,Transfers Between TIF Districts,From Roosevelt/Cicero (RA - Montclare Sr - Lawndale),1000000.00,2008-04-09T00:00:00.000,2032-12-31T00:00:00.000
+T-125,119th/I-57,2017,Transfers Between TIF Districts,To 107th/Halsted (Retail Thrive Zone),-600000.00,2002-11-06T00:00:00.000,2026-12-31T00:00:00.000
+T-173,Montrose/Clarendon,2018,Current Obligations,Program administration,-6500.00,2010-06-30T00:00:00.000,2034-12-31T00:00:00.000
+T-176,107th/Halsted,2018,Current Obligations,Program administration,-17200.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-177,Foster/California,2018,Current Obligations,RA - Swedish Covenant Hospital,-733400.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-178,Washington Park,2018,Current Obligations,Life Center Artists Residences,-3175000.00,2014-10-08T00:00:00.000,2038-12-31T00:00:00.000
+T-177,Foster/California,2018,Current Obligations,Program administration,-1000.00,2014-03-05T00:00:00.000,2038-12-31T00:00:00.000
+T-178,Washington Park,2018,Current Obligations,Program administration,-10200.00,2014-10-08T00:00:00.000,2038-12-31T00:00:00.000
+T-172,Randolph/Wells,2018,Current Obligations,Program administration,-11600.00,2010-06-09T00:00:00.000,2034-12-31T00:00:00.000
+T-175,51st/Lake Park,2018,Current Obligations,Program administration,-3600.00,2012-11-15T00:00:00.000,2036-12-31T00:00:00.000
+T-180,Red Purple Transit,2018,Current Obligations,CTA IGA Red Purple Modernization,-6188800.00,2016-11-20T00:00:00.000,2052-12-31T00:00:00.000
+T-175,51st/Lake Park,2018,Current Obligations,RA - City Hyde Park,-177100.00,2012-11-15T00:00:00.000,2036-12-31T00:00:00.000
+T-180,Red Purple Transit,2018,Current Obligations,Program administration,-199000.00,2016-11-20T00:00:00.000,2052-12-31T00:00:00.000
+T-172,Randolph/Wells,2018,Current Obligations,RA - Randolph Tower,-460300.00,2010-06-09T00:00:00.000,2034-12-31T00:00:00.000
+T-023,Goose Island,2018,Current Obligations,RA - Wrigley Innovation Center,-721200.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-086,Central West,2018,Current Obligations,CPS IGA - Whitney Young HS - athletic field,-4300000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2018,Current Obligations,CTA IGA - Blue Line - IMD Station - station improvements,-2513000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-078,South Works Industrial,2018,Current Obligations,Program administration,-3900.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2018,Current Obligations,Industrial Growth Zone,-500000.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-024,Homan-Arthington,2018,Current Obligations,RA - Uhlich Children's Advantage Network,-500000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-035,North-Cicero,2018,Current Obligations,Program administration,-29300.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-024,Homan-Arthington,2018,Current Obligations,Program administration,-14500.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-086,Central West,2018,Current Obligations,Neighborhood Improvement Program,-500000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-021,Englewood Mall,2018,Current Obligations,Retail Thrive Zone,-150000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-086,Central West,2018,Current Obligations,RA - Rush University Medical Center,-7500000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-076,Devon/Western,2018,Current Obligations,Program administration,-44500.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2018,Current Obligations,RA - The Hatchery - site development,-7172200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2018,Current Obligations,RA - Peppercorn 240 LLC Note B,-61200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2018,Current Obligations,RA - Peppercorn 240 LLC Note A,-105200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-005,60th and Western,2018,Current Obligations,Program administration,-6000.00,1996-05-09T00:00:00.000,2019-05-09T00:00:00.000
+T-060,71st/Stony Island,2018,Current Obligations,MSAC DS - South Shore HS - other TIF(s),-5565600.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-091,Peterson/Pulaski,2018,Current Obligations,Program administration,-26200.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-082,Belmont/Cicero,2018,Current Obligations,Program administration,-21400.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-001,35th/Halsted,2018,Current Obligations,Program administration,-133900.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-059,Calumet Avenue/Cermak Road,2018,Current Obligations,Program administration,-219300.00,1998-07-29T00:00:00.000,2021-07-29T00:00:00.000
+T-094,Chicago/Kingsbury,2018,Current Obligations,Program administration,-463300.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-023,Goose Island,2018,Current Obligations,RA - Guardian Equipment,-96400.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2018,Current Obligations,Program administration,-14200.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2018,Current Obligations,MSAC DS - Prieto Elementary - other TIF(s),-2267800.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-067,Archer Courts,2018,Current Obligations,RA - Community Housing Partners V,-105000.00,1999-05-12T00:00:00.000,2023-12-31T00:00:00.000
+T-004,49th Street/St. Lawrence Avenue,2018,Current Obligations,Program administration,-10800.00,1996-01-10T00:00:00.000,2020-12-31T00:00:00.000
+T-086,Central West,2018,Current Obligations,RA - Horner Homes Ph. IIA2,-166000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-089,Midway Industrial Corridor,2018,Current Obligations,Program administration,-73300.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-086,Central West,2018,Current Obligations,Program administration,-391300.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-060,71st/Stony Island,2018,Current Obligations,MSAC DS - South Shore HS - TIF share,-2739100.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-060,71st/Stony Island,2018,Current Obligations,Program administration,-52700.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-060,71st/Stony Island,2018,Current Obligations,RA - Montclare Sr - Avalon Park,-41500.00,1998-10-07T00:00:00.000,2021-10-07T00:00:00.000
+T-067,Archer Courts,2018,Current Obligations,Program administration,-10600.00,1999-05-12T00:00:00.000,2023-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2018,Current Obligations,Program administration,-61600.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-009,95th and Western,2018,Current Obligations,Program administration,-18800.00,1995-07-13T00:00:00.000,2019-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2018,Current Obligations,RA - Gateway Park LLC,-523700.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-066,Greater Southwest Industrial Corridor (East),2018,Current Obligations,Program administration,-19600.00,1999-03-10T00:00:00.000,2023-12-31T00:00:00.000
+T-086,Central West,2018,Current Obligations,RA - McCrory Senior Apts,-3075000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2018,Current Obligations,RA - Harold Washington Unity Coop,-72000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-071,Galewood/Armitage Industrial,2018,Current Obligations,MSAC DS - Prieto ES - TIF share,-2218100.00,1999-07-07T00:00:00.000,2023-12-31T00:00:00.000
+T-084,Western Avenue North,2018,Current Obligations,Program administration,-87800.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-093,South Chicago,2018,Current Obligations,Program administration,-27300.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-090,Peterson/Cicero,2018,Current Obligations,Program administration,-11200.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-030,Near North,2018,Current Obligations,RA - Parkside IIA Rental,-752400.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-072,24th/Michigan,2018,Current Obligations,CPS IGA - National Teachers Academy,-548900.00,1999-07-21T00:00:00.000,2022-07-21T00:00:00.000
+T-072,24th/Michigan,2018,Current Obligations,Program administration,-35500.00,1999-07-21T00:00:00.000,2022-07-21T00:00:00.000
+T-063,Canal/Congress,2018,Current Obligations,CTA IGA - Blue Line - tunnel improvements,-1250000.00,1998-11-12T00:00:00.000,2022-12-31T00:00:00.000
+T-063,Canal/Congress,2018,Current Obligations,Program administration,-499100.00,1998-11-12T00:00:00.000,2022-12-31T00:00:00.000
+T-063,Canal/Congress,2018,Current Obligations,RA - Hillshire Brands,-1000000.00,1998-11-12T00:00:00.000,2022-12-31T00:00:00.000
+T-083,West Irving Park,2018,Current Obligations,Portage Park - baseball field lighting,-400000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-084,Western Avenue North,2018,Current Obligations,CPS IGA - Winnemac Park - athletic field,-1400000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-073,111th Street/Kedzie Avenue Business District,2018,Current Obligations,Program administration,-15300.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-084,Western Avenue North,2018,Current Obligations,RA - 4800 Damen LLC,-232800.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-033,North Branch (North),2018,Current Obligations,Program administration,-101500.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2018,Current Obligations,Program administration,-476500.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-075,Madison/Austin Corridor,2018,Current Obligations,MSAC DS - Austin HS & DePriest ES - TIF share,-1180500.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-075,Madison/Austin Corridor,2018,Current Obligations,Program administration,-40400.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-037,River South,2018,Current Obligations,"Street Improvements - Wells, Roosevelt to Archer",-20000000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-064,Northwest Industrial Corridor,2018,Current Obligations,Industrial Growth Zone,-2500000.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2018,Current Obligations,Program administration,-133800.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2018,Current Obligations,RA - MLRP-Merlin LLC,-70600.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-037,River South,2018,Current Obligations,CTA IGA - Blue Line - tunnel improvements,-1250000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-048,Western/Ogden,2018,Current Obligations,RA - CCIL,-755600.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-029,Michigan/Cermak,2018,Current Obligations,Program administration,-31600.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-034,North Branch (South),2018,Current Obligations,Program administration,-162900.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-036,Read-Dunning,2018,Current Obligations,Program administration,-49900.00,1991-01-11T00:00:00.000,2027-12-31T00:00:00.000
+T-061,Bronzeville,2018,Current Obligations,Program administration,-68400.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-061,Bronzeville,2018,Current Obligations,RA - Metropolis,-2000000.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-061,Bronzeville,2018,Current Obligations,RA - Pershing & State LP,-30100.00,1998-11-04T00:00:00.000,2022-12-31T00:00:00.000
+T-083,West Irving Park,2018,Current Obligations,Program administration,-20800.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2018,Current Obligations,Program administration,-57600.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-038,Roosevelt/Cicero,2018,Current Obligations,Industrial Growth Zone,-2500000.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-037,River South,2018,Current Obligations,CPS IGA - South Loop ES,-28300000.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-030,Near North,2018,Current Obligations,Program administration,-566200.00,1997-07-30T00:00:00.000,2020-07-30T00:00:00.000
+T-075,Madison/Austin Corridor,2018,Current Obligations,MSAC DS - Austin HS & DePriest Elementary - other TIF(s),-4756400.00,1999-09-29T00:00:00.000,2023-12-31T00:00:00.000
+T-073,111th Street/Kedzie Avenue Business District,2018,Current Obligations,Special Service Area 55,-14000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-062,Roosevelt/Racine,2018,Current Obligations,1340 W Taylor Apts (CHA/CPL),-3500000.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-062,Roosevelt/Racine,2018,Current Obligations,Addams-Medill Sports Center,-2760000.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-062,Roosevelt/Racine,2018,Current Obligations,Program administration,-34000.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-062,Roosevelt/Racine,2018,Current Obligations,RA - Roosevelt Square,-875100.00,1998-11-04T00:00:00.000,2034-12-31T00:00:00.000
+T-065,Woodlawn,2018,Current Obligations,Program administration,-59100.00,1999-01-20T00:00:00.000,2022-01-20T00:00:00.000
+T-073,111th Street/Kedzie Avenue Business District,2018,Current Obligations,RA - Gendell Partners Mt Greenwood,-122500.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-085,Western Avenue South,2018,Current Obligations,RA - North Center Senior Housing LP,-32100.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-085,Western Avenue South,2018,Current Obligations,Program administration,-146700.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2018,Current Obligations,Program administration,-587900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2018,Current Obligations,Program administration,-168900.00,1998-02-05T00:00:00.000,2021-02-05T00:00:00.000
+T-023,Goose Island,2018,Current Obligations,Program administration,-97800.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-095,Midwest,2018,Current Obligations,Program administration,-290600.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2018,Current Obligations,Program administration,-40400.00,1996-12-11T00:00:00.000,2019-12-11T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2018,Current Obligations,Program administration,-63000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2018,Current Obligations,Program administration,-31500.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-069,Pulaski Corridor,2018,Current Obligations,Program administration,-70100.00,1999-06-09T00:00:00.000,2023-12-31T00:00:00.000
+T-021,Englewood Mall,2018,Current Obligations,Program administration,-12800.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2018,Current Obligations,CTA IGA - Red Line - Bryn Mawr station improvements,-7100000.00,1996-12-11T00:00:00.000,2019-12-11T00:00:00.000
+T-001,35th/Halsted,2018,Current Obligations,RA - ACRE Development,-228200.00,1997-01-14T00:00:00.000,2021-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2018,Current Obligations,RA - A Finkl & Sons Co,-350000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-023,Goose Island,2018,Current Obligations,Debt service - Taxable Bond Series 2000,-2439100.00,1996-07-10T00:00:00.000,2019-07-10T00:00:00.000
+T-081,Belmont/Central,2018,Current Obligations,Small Business Improvement Fund,-500000.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2018,Current Obligations,Program administration,-42000.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-074,Clark Street and Ridge Avenue,2018,Current Obligations,RA - Ravenswood Partners of Illinois,-635900.00,1999-09-29T00:00:00.000,2022-09-29T00:00:00.000
+T-087,Fullerton/Milwaukee,2018,Current Obligations,RA - Logan Theater,-200000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2018,Current Obligations,RA - Footwear Factory / Florsheim Lofts,-503000.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2018,Current Obligations,Program administration,-144800.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-087,Fullerton/Milwaukee,2018,Current Obligations,MSAC DS - Lorca,-3142600.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2018,Current Obligations,RA - Target - 33rd/Damen,-468800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-095,Midwest,2018,Current Obligations,MSAC DS - Collins HS,-3926700.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-079,35th and Wallace,2018,Current Obligations,Program administration,-21000.00,1999-12-15T00:00:00.000,2023-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2018,Current Obligations,RA - Hearts United II LP,-22600.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-004,49th Street/St. Lawrence Avenue,2018,Current Obligations,RA - Willard Square,-170000.00,1996-01-10T00:00:00.000,2020-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2018,Current Obligations,MSAC DS - Albany Park Acad / Peterson ES,-4122300.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-088,Lawrence/Kedzie,2018,Current Obligations,Program administration,-125900.00,2000-02-16T00:00:00.000,2024-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2018,Current Obligations,TIF Works,-633700.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-096,Cicero/Archer,2018,Current Obligations,Program administration,-15500.00,2000-05-17T00:00:00.000,2024-12-31T00:00:00.000
+T-070,Clark/Montrose,2018,Current Obligations,RA - Black Ensemble Theater,-870800.00,1999-07-07T00:00:00.000,2022-07-07T00:00:00.000
+T-070,Clark/Montrose,2018,Current Obligations,Program administration,-64300.00,1999-07-07T00:00:00.000,2022-07-07T00:00:00.000
+T-043,Stockyards Annex,2018,Current Obligations,Program administration,-29400.00,1996-12-11T00:00:00.000,2020-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2018,Current Obligations,RA - Bryn Mawr - Bellshore,-73500.00,1996-12-11T00:00:00.000,2019-12-11T00:00:00.000
+T-055,43rd/Cottage Grove,2018,Current Obligations,Program administration,-56800.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-056,79th Street Corridor,2018,Current Obligations,Program administration,-19100.00,1998-07-08T00:00:00.000,2021-07-08T00:00:00.000
+T-055,43rd/Cottage Grove,2018,Current Obligations,RA - Hearts United III LP,-50600.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2018,Current Obligations,RA - Shops & Lofts at 47th (Commercial),-159400.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2018,Current Obligations,RA - Shops & Lofts at 47th (Residential),-1263300.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2018,Current Obligations,Retail Thrive Zone,-625000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-027,Irving/Cicero,2018,Current Obligations,Program administration,-14700.00,1996-06-10T00:00:00.000,2020-12-31T00:00:00.000
+T-027,Irving/Cicero,2018,Current Obligations,RA - Klee Building,-43500.00,1996-06-10T00:00:00.000,2020-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2018,Current Obligations,RA - Greenwood Associates LLC,-145100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-081,Belmont/Central,2018,Current Obligations,Program administration,-57200.00,2000-01-12T00:00:00.000,2024-12-31T00:00:00.000
+T-064,Northwest Industrial Corridor,2018,Current Obligations,Ward 28 - lighting - 24 blocks / poles - 10 blocks,-1984000.00,1998-12-02T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2018,Current Obligations,Debt service - Series 2014,-4625200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-068,Roosevelt/Union,2018,Current Obligations,Program administration,-101400.00,1999-05-12T00:00:00.000,2022-05-12T00:00:00.000
+T-058,Portage Park,2018,Current Obligations,Program administration,-38500.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-095,Midwest,2018,Current Obligations,RA - East Park SRO,-2606100.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-057,Jefferson Park Business District,2018,Current Obligations,Program administration,-21700.00,1998-09-09T00:00:00.000,2021-09-09T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2018,Current Obligations,Industrial Growth Zone,-500000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-092,Greater Southwest Industrial Corridor (West),2018,Current Obligations,Industrial Growth Zone,-875000.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-092,Greater Southwest Industrial Corridor (West),2018,Current Obligations,Program administration,-7000.00,2000-04-12T00:00:00.000,2024-12-31T00:00:00.000
+T-077,Lincoln Avenue,2018,Current Obligations,MSAC DS - Mather HS - TIF share,-1264700.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-077,Lincoln Avenue,2018,Current Obligations,MSAC DS - Mather HS - other TIF(s),-1754400.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2018,Current Obligations,Program administration,-254800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",2018,Current Obligations,RA - Paul Stewart Ph V,-117000.00,1994-07-13T00:00:00.000,2018-12-31T00:00:00.000
+T-068,Roosevelt/Union,2018,Current Obligations,RA - UIC Board of Trustees,-4659000.00,1999-05-12T00:00:00.000,2022-05-12T00:00:00.000
+T-002,"Forty-first Street and Dr. Martin Luther King, Jr. Drive",2018,Current Obligations,Program administration,-6400.00,1994-07-13T00:00:00.000,2018-12-31T00:00:00.000
+T-077,Lincoln Avenue,2018,Current Obligations,Program administration,-60200.00,1999-11-03T00:00:00.000,2023-12-31T00:00:00.000
+T-095,Midwest,2018,Current Obligations,RA - Heritage Homes,-105000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-095,Midwest,2018,Current Obligations,RA - Liberty Square Apts,-51600.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-028,Lincoln-Belmont-Ashland,2018,Current Obligations,Program administration,-24300.00,1994-11-02T00:00:00.000,2018-12-31T00:00:00.000
+T-095,Midwest,2018,Current Obligations,RA - Mt Sinai Hospital,-4500000.00,2000-05-17T00:00:00.000,2036-12-31T00:00:00.000
+T-149,Stevenson/Brighton,2018,Current Obligations,CPS IGA - Brighton Pk II,-2200000.00,2007-04-11T00:00:00.000,2031-12-31T00:00:00.000
+T-135,Pratt/Ridge Industrial Park Conservation Area,2018,Current Obligations,Program administration,-9600.00,2004-06-23T00:00:00.000,2028-12-31T00:00:00.000
+T-149,Stevenson/Brighton,2018,Current Obligations,Program administration,-44900.00,2007-04-11T00:00:00.000,2031-12-31T00:00:00.000

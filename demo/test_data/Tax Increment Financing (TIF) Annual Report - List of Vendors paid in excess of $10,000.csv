@@ -1,0 +1,1001 @@
+tif_number,tif_district,report_year,vendor_name,vendor_service,payment
+T-001,35th/Halsted,2021,36Squared Business Incubator,Professional Service,13200.00
+T-001,35th/Halsted,2021,ACRE Development LLC,Development,297381.42
+T-001,35th/Halsted,2021,Aldridge Electric Inc,Public Improvement,542199.08
+T-001,35th/Halsted,2021,Carnow Conibear & Associates Ltd,Public Improvement,63335.50
+T-001,35th/Halsted,2021,Chicago Department of Fleet & Facilities Management,Public Improvement,384530.52
+T-001,35th/Halsted,2021,Ciorba Group Inc,Public Improvement,84000.00
+T-001,35th/Halsted,2021,City Lights Ltd,Public Improvement,174053.52
+T-001,35th/Halsted,2021,City Program Management Costs,Administration,27050.00
+T-001,35th/Halsted,2021,City Staff Costs,Administration,128865.00
+T-001,35th/Halsted,2021,CNECT LLC,Public Improvement,60738.93
+T-001,35th/Halsted,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,10812434.29
+T-001,35th/Halsted,2021,Globetrotters Engineering Corp,Public Improvement,102973.76
+T-001,35th/Halsted,2021,Gordian Group,Public Improvement,151954.67
+T-001,35th/Halsted,2021,Granite Construction Company,Public Improvement,943796.61
+T-001,35th/Halsted,2021,Luse Environmental Services Inc,Public Improvement,1371254.00
+T-001,35th/Halsted,2021,McDonagh Demolition Inc,Public Improvement,180813.83
+T-001,35th/Halsted,2021,MQ Sewer & Water Contractors,Public Improvement,163207.95
+T-001,35th/Halsted,2021,SET Environmental Inc,Public Improvement,117479.53
+T-001,35th/Halsted,2021,"Somercor 504, Inc.",Rehabilitation Program,516894.14
+T-001,35th/Halsted,2021,Southwest Industries,Public Improvement,43243.38
+T-001,35th/Halsted,2021,Transystems Corp,Public Improvement,12641.81
+T-001,35th/Halsted,2021,Wiss Janney Elstner & Associates,Public Improvement,191762.55
+T-013,Bryn Mawr/Broadway,2021,Aldridge Electric Inc,Public Improvement,249737.60
+T-013,Bryn Mawr/Broadway,2021,Chicago Transit Authority,Public Improvement,15166745.28
+T-013,Bryn Mawr/Broadway,2021,City Staff Costs,Administration,33039.00
+T-013,Bryn Mawr/Broadway,2021,Globetrotters Engineering Corp,Public Improvement,59773.65
+T-013,Bryn Mawr/Broadway,2021,"Somercor 504, Inc.",Rehabilitation Program,185181.42
+T-023,Goose Island,2021,City Program Management Costs,Administration,19485.00
+T-023,Goose Island,2021,City Staff Costs,Administration,92817.00
+T-023,Goose Island,2021,CNECT LLC,Public Improvement,168239.71
+T-023,Goose Island,2021,Globetrotters Engineering Corp,Public Improvement,11980.00
+T-023,Goose Island,2021,HW Lochner Inc,Public Improvement,351901.23
+T-023,Goose Island,2021,John Burns Construction Co,Public Improvement,20000.00
+T-023,Goose Island,2021,SB Friedman Development Advisors,Professional Service,15680.75
+T-023,Goose Island,2021,Stanley Consultants Inc,Public Improvement,17749.90
+T-024,Homan/Arthington,2021,Globetrotters Engineering Corp,Public Improvement,25197.52
+T-024,Homan/Arthington,2021,John Burns Construction Co,Public Improvement,20924.00
+T-024,Homan/Arthington,2021,Sidmore Owings & Merrill,Professional Service,45000.00
+T-029,Michigan/Cermak,2021,Aldridge Electric Inc,Public Improvement,49999.99
+T-029,Michigan/Cermak,2021,City Staff Costs,Administration,39145.00
+T-030,Near North,2021,Chicago Department of Transportation,Public Improvement,17228.00
+T-030,Near North,2021,Chicago Park District,Public Improvement,871711.50
+T-030,Near North,2021,City Program Management Costs,Administration,81888.00
+T-030,Near North,2021,City Staff Costs,Administration,390151.00
+T-030,Near North,2021,CNECT LLC,Public Improvement,20000.00
+T-030,Near North,2021,John McDonough,Public Improvement,93701.90
+T-030,Near North,2021,Johnson Research Group,Professional Service,137535.75
+T-030,Near North,2021,MQ Sewer & Water Contractors,Public Improvement,30043.13
+T-030,Near North,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,155549.22
+T-030,Near North,2021,Parkside Four II LP,Development,4750000.00
+T-030,Near North,2021,Sebis Direct,Professional Service,29759.98
+T-030,Near North,2021,Wheatland Title Guaramty  Co,Public Improvement,1221520.60
+T-033,North Branch North,2021,Ameresco Inc,Public Improvement,15093.20
+T-033,North Branch North,2021,City Program Management Costs,Administration,19939.00
+T-033,North Branch North,2021,City Staff Costs,Administration,94996.00
+T-033,North Branch North,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,5001637.39
+T-033,North Branch North,2021,Globetrotters Engineering Corp,Public Improvement,59959.17
+T-033,North Branch North,2021,Munster Steel Co Inc,Public Improvement,17077.59
+T-033,North Branch North,2021,Transystems Corp,Public Improvement,31140.81
+T-033,North Branch North,2021,Ty Lin International Great Lakes Inc,Public Improvement,98267.18
+T-033,North Branch North,2021,WSP USA Inc.,Public Improvement,42629.00
+T-034,North Branch South,2021,City Program Management Costs,Administration,21958.00
+T-034,North Branch South,2021,City Staff Costs,Administration,104607.00
+T-034,North Branch South,2021,HW Lochner Inc,Public Improvement,39512.51
+T-034,North Branch South,2021,John Burns Construction Co,Public Improvement,43297.40
+T-034,North Branch South,2021,SB Friedman Development Advisors,Professional Service,51762.50
+T-035,North/Cicero,2021,Aldridge Electric Inc,Public Improvement,51155.26
+T-035,North/Cicero,2021,City Staff Costs,Administration,21875.00
+T-035,North/Cicero,2021,Globetrotters Engineering Corp,Public Improvement,14250.00
+T-035,North/Cicero,2021,Stanley Consultants Inc,Public Improvement,14210.54
+T-037,River South,2021,Aldridge Electric Inc,Public Improvement,86600.69
+T-037,River South,2021,Chicago Department of Transportation,Public Improvement,521660.86
+T-037,River South,2021,City Program Management Costs,Administration,51582.00
+T-037,River South,2021,City Staff Costs,Administration,245779.00
+T-037,River South,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,7821491.01
+T-037,River South,2021,Illinois Central Railroad,Public Improvement,495420.00
+T-037,River South,2021,Jacobs Engineering Group Inc,Public Improvement,56017.74
+T-037,River South,2021,John McDonough,Public Improvement,11448.60
+T-037,River South,2021,Knight E/A Inc,Public Improvement,74356.19
+T-037,River South,2021,Paul Borg Construction Co Inc,Public Improvement,802064.57
+T-037,River South,2021,Sprint Communication Company LP,Public Improvement,153031.04
+T-037,River South,2021,Sumit Construction Co Inc,Public Improvement,108650.48
+T-037,River South,2021,The Gordian Group Inc,Public Improvement,14899.03
+T-037,River South,2021,Transystems Corp,Public Improvement,211964.84
+T-037,River South,2021,WSP USA Inc.,Public Improvement,1312122.29
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Ameresco Inc,Public Improvement,283686.18
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Bigane Paving Co,Public Improvement,656315.13
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Chicago Department of Transportation,Public Improvement,60688.19
+T-038,Roosevelt/Cicero Industrial Corridor,2021,City Program Management Costs,Administration,11570.00
+T-038,Roosevelt/Cicero Industrial Corridor,2021,City Staff Costs,Administration,55115.00
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Globetrotters Engineering Corp,Public Improvement,29924.63
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Milhouse Engineering & Construction Inc,Public Improvement,61402.92
+T-038,Roosevelt/Cicero Industrial Corridor,2021,SET Environmental Inc,Public Improvement,26209.04
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Skidmore Owings & Merrill,Professional Service,105000.00
+T-038,Roosevelt/Cicero Industrial Corridor,2021,"Somercor 504, Inc.",Rehabilitation Program,291111.16
+T-038,Roosevelt/Cicero Industrial Corridor,2021,Transystems Corp,Public Improvement,19078.43
+T-042,Sanitary and Ship Canal,2021,Aldridge Electric Inc,Public Improvement,33603.72
+T-042,Sanitary and Ship Canal,2021,Chicago Department of Transportation,Public Improvement,273194.62
+T-042,Sanitary and Ship Canal,2021,City Staff Costs,Administration,13538.00
+T-042,Sanitary and Ship Canal,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,161140.98
+T-042,Sanitary and Ship Canal,2021,Production Distribution Companies,Public Improvement,10000.00
+T-042,Sanitary and Ship Canal,2021,SET Environmental Inc,Public Improvement,110118.50
+T-045,Stockyards Southeast Quadrant Industrial,2021,Aldridge Electric Inc,Public Improvement,129367.18
+T-045,Stockyards Southeast Quadrant Industrial,2021,City Staff Costs,Administration,26179.00
+T-045,Stockyards Southeast Quadrant Industrial,2021,CNECT LLC,Public Improvement,78125.00
+T-045,Stockyards Southeast Quadrant Industrial,2021,Globetrotters Engineering Corp,Public Improvement,16000.00
+T-045,Stockyards Southeast Quadrant Industrial,2021,MQ Sewer & Water Contractors,Public Improvement,191210.38
+T-048,Western/Ogden,2021,Aldridge Electric Inc,Public Improvement,52547.40
+T-048,Western/Ogden,2021,Ameresco Inc,Public Improvement,24899.78
+T-048,Western/Ogden,2021,Chicago Department of Transportation,Public Improvement,130211.59
+T-048,Western/Ogden,2021,Ciorba Group Inc,Public Improvement,63000.00
+T-048,Western/Ogden,2021,City Program Management Costs,Administration,27069.00
+T-048,Western/Ogden,2021,City Staff Costs,Administration,128977.00
+T-048,Western/Ogden,2021,Granite Construction Company,Public Improvement,800905.99
+T-048,Western/Ogden,2021,Lawndale Business Renaissance Association,Professional Service,18327.05
+T-048,Western/Ogden,2021,McDonagh Demolition Inc,Public Improvement,32752.41
+T-048,Western/Ogden,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,16872.77
+T-048,Western/Ogden,2021,Paul Borg Construction Co Inc,Public Improvement,507329.35
+T-048,Western/Ogden,2021,Skidmore Owings & Merrill,Professional Service,50000.00
+T-048,Western/Ogden,2021,"Somercor 504, Inc.",Rehabilitation Program,333203.62
+T-048,Western/Ogden,2021,St. Augustine College,Job Training,52816.37
+T-048,Western/Ogden,2021,The Gordian Group Inc,Public Improvement,11421.18
+T-052,Kinzie Industrial Corridor,2021,Accurate Group Inc,Public Improvement,317296.19
+T-052,Kinzie Industrial Corridor,2021,Alfred Benesch & Co.,Public Improvement,374690.13
+T-052,Kinzie Industrial Corridor,2021,Ameresco Inc,Public Improvement,315829.45
+T-052,Kinzie Industrial Corridor,2021,Bauer Latoza Studio Ltd,Professional Service,45016.16
+T-052,Kinzie Industrial Corridor,2021,Capitol Cement,Public Improvement,557496.80
+T-052,Kinzie Industrial Corridor,2021,City Program Management Costs,Administration,148315.00
+T-052,Kinzie Industrial Corridor,2021,City Staff Costs,Administration,706605.00
+T-052,Kinzie Industrial Corridor,2021,CNECT LLC,Public Improvement,393761.64
+T-052,Kinzie Industrial Corridor,2021,Elgin Sweeping Services,Public Improvement,22906.10
+T-052,Kinzie Industrial Corridor,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,859608.81
+T-052,Kinzie Industrial Corridor,2021,Graybar Electric Co Inc,Public Improvement,23215.75
+T-052,Kinzie Industrial Corridor,2021,HNTB Corp,Public Improvement,303848.63
+T-052,Kinzie Industrial Corridor,2021,Illinois Central Sweeping,Public Improvement,70546.33
+T-052,Kinzie Industrial Corridor,2021,Industrial Council of Nearwest Chicago,Professional Service,14985.84
+T-052,Kinzie Industrial Corridor,2021,John Burns Construction Co,Public Improvement,451336.10
+T-052,Kinzie Industrial Corridor,2021,KLF Enterprises Inc,Public Improvement,10536.00
+T-052,Kinzie Industrial Corridor,2021,Knight E/A Inc,Public Improvement,30571.92
+T-052,Kinzie Industrial Corridor,2021,METRA,Public Improvement,580744.86
+T-052,Kinzie Industrial Corridor,2021,Milhouse Engineering & Construction Inc,Public Improvement,47661.64
+T-052,Kinzie Industrial Corridor,2021,Mintex Inc.,Job Training,188804.60
+T-052,Kinzie Industrial Corridor,2021,MQ Sewer & Water Contractors,Public Improvement,31924.35
+T-052,Kinzie Industrial Corridor,2021,Old Veterans Construction Inc,Site Remediation,278030.48
+T-052,Kinzie Industrial Corridor,2021,Ozinga Ready Mix Concrete Inc,Public Improvement,111013.28
+T-052,Kinzie Industrial Corridor,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,735953.32
+T-052,Kinzie Industrial Corridor,2021,Peppercorn 240 LLC,Development,296253.54
+T-052,Kinzie Industrial Corridor,2021,Production Distribution Companies,Public Improvement,10000.00
+T-052,Kinzie Industrial Corridor,2021,Public Building Commission,Public Improvement,8194359.00
+T-052,Kinzie Industrial Corridor,2021,Reliable Asphalt Corp,Public Improvement,19248.14
+T-052,Kinzie Industrial Corridor,2021,Rubinos & Mesia Engineer Inc,Public Improvement,35677.36
+T-052,Kinzie Industrial Corridor,2021,Sam Schwartz Engineering DPC,Public Improvement,83906.02
+T-052,Kinzie Industrial Corridor,2021,"Somercor 504, Inc.",Rehabilitation Program,318882.71
+T-052,Kinzie Industrial Corridor,2021,St. Augustine College,Job Training,272804.60
+T-052,Kinzie Industrial Corridor,2021,Sumit Construction Co Inc,Public Improvement,366944.01
+T-052,Kinzie Industrial Corridor,2021,West Central Business Association,Professional Service,34350.00
+T-053,Pilsen Industrial Corridor,2021,Amalgamated Bank of Chicago,Financing,4868625.00
+T-053,Pilsen Industrial Corridor,2021,Bauer Latoza Studio Ltd,Professional Service,89731.95
+T-053,Pilsen Industrial Corridor,2021,Capitol Cement Co Inc,Public Improvement,108829.97
+T-053,Pilsen Industrial Corridor,2021,Chicago Department of Transportation,Public Improvement,320526.44
+T-053,Pilsen Industrial Corridor,2021,Christopher B. Burke Engineering Ltd,Public Improvement,41439.61
+T-053,Pilsen Industrial Corridor,2021,City Program Management Costs,Administration,57080.00
+T-053,Pilsen Industrial Corridor,2021,City Staff Costs,Administration,271888.00
+T-053,Pilsen Industrial Corridor,2021,CNECT LLC,Public Improvement,48537.00
+T-053,Pilsen Industrial Corridor,2021,Eighteenth Street Development Corporation,Professional Service,13650.00
+T-053,Pilsen Industrial Corridor,2021,Goodale Corp,Public Improvement,1612494.00
+T-053,Pilsen Industrial Corridor,2021,Granite Construction Company,Public Improvement,1082463.82
+T-053,Pilsen Industrial Corridor,2021,Holabird & Root LLC,Public Improvement,351137.71
+T-053,Pilsen Industrial Corridor,2021,John McDonough,Professional Service,11877.00
+T-053,Pilsen Industrial Corridor,2021,MAT Construction,Public Improvement,137298.15
+T-053,Pilsen Industrial Corridor,2021,MQ Sewer & Water Contractors,Public Improvement,103438.64
+T-053,Pilsen Industrial Corridor,2021,Munster Steel Co Inc,Public Improvement,91217.18
+T-053,Pilsen Industrial Corridor,2021,"Somercor 504, Inc.",Rehabilitation Program,119503.01
+T-053,Pilsen Industrial Corridor,2021,Target Corp.,Development,532703.32
+T-054,Stony Island Commercial/Burnside Industrial,2021,A. Finkl & Sons Co,Development,280886.00
+T-054,Stony Island Commercial/Burnside Industrial,2021,Ameresco Inc,Public Improvement,175828.40
+T-054,Stony Island Commercial/Burnside Industrial,2021,Chicago Department of Transportation,Public Improvement,121851.89
+T-054,Stony Island Commercial/Burnside Industrial,2021,Ciorba Group Inc,Public Improvement,20000.00
+T-054,Stony Island Commercial/Burnside Industrial,2021,City Program Management Costs,Administration,11246.00
+T-054,Stony Island Commercial/Burnside Industrial,2021,City Staff Costs,Administration,53560.00
+T-054,Stony Island Commercial/Burnside Industrial,2021,Milhouse Engineering & Construction Inc,Public Improvement,11438.79
+T-054,Stony Island Commercial/Burnside Industrial,2021,Montclare Calumet Heights LLC,Development,600000.00
+T-054,Stony Island Commercial/Burnside Industrial,2021,"Somercor 504, Inc.",Rehabilitation Program,131340.53
+T-055,43rd/Cottage Grove,2021,Chicago Park District,Public Improvement,180291.00
+T-055,43rd/Cottage Grove,2021,City Staff Costs,Administration,47251.00
+T-055,43rd/Cottage Grove,2021,Hearts United Limited Partnership,Development,167389.73
+T-055,43rd/Cottage Grove,2021,LISC Chicago,Professional Service,50642.81
+T-055,43rd/Cottage Grove,2021,Mahogany Chicago 47 LLC,Development,39248.76
+T-055,43rd/Cottage Grove,2021,"Somercor 504, Inc.",Rehabilitation Program,218608.50
+T-055,43rd/Cottage Grove,2021,TCB Development Services LLC,Development,1263330.84
+T-057,Jefferson Park,2021,AECOM Technical Services,Public Improvement,17212.81
+T-057,Jefferson Park,2021,Ameresco Inc,Public Improvement,39036.37
+T-057,Jefferson Park,2021,Chicago Transit Authority,Public Improvement,265127.00
+T-057,Jefferson Park,2021,City Staff Costs,Administration,18546.00
+T-057,Jefferson Park,2021,CNECT LLC,Public Improvement,35000.00
+T-057,Jefferson Park,2021,Leopardo Companies Inc,Public Improvement,295742.71
+T-057,Jefferson Park,2021,"Somercor 504, Inc.",Rehabilitation Program,125273.99
+T-057,Jefferson Park,2021,Upland Design,Public Improvement,21220.43
+T-058,Portage Park,2021,Aldridge Electric Inc,Public Improvement,98930.54
+T-058,Portage Park,2021,City Staff Costs,Administration,40314.00
+T-058,Portage Park,2021,CNECT LLC,Public Improvement,151256.14
+T-058,Portage Park,2021,G&V Construction Co Inc,Public Improvement,144492.37
+T-058,Portage Park,2021,Peterson Pulaski Business and Industrial Council,Professional Service,11423.58
+T-058,Portage Park,2021,"Somercor 504, Inc.",Rehabilitation Program,12094.84
+T-058,Portage Park,2021,Sumit Construction Co Inc,Public Improvement,22463.04
+T-060,71st/Stony Island,2021,A Epstein & Sons Int'l Inc,Public Improvement,21612.91
+T-060,71st/Stony Island,2021,Capitol Cement Co Inc,Public Improvement,132103.09
+T-060,71st/Stony Island,2021,City Staff Costs,Administration,46027.00
+T-060,71st/Stony Island,2021,Jeffery Advisors LLC,Development,2000000.00
+T-060,71st/Stony Island,2021,Knight E/A Inc,Public Improvement,35860.48
+T-060,71st/Stony Island,2021,Leopardo Companies Inc,Public Improvement,23118.42
+T-060,71st/Stony Island,2021,LISC Chicago,Professional Service,51294.37
+T-060,71st/Stony Island,2021,Milhouse Engineering & Construction Inc,Public Improvement,117665.61
+T-060,71st/Stony Island,2021,Montclare Senior Residences of Avalon Park Phase I LLC,Development,115431.89
+T-060,71st/Stony Island,2021,Sebis Direct,Professional Service,17746.65
+T-060,71st/Stony Island,2021,Transystems Corp,Public Improvement,17089.33
+T-061,Bronzeville,2021,AECOM Technical Services,Public Improvement,53681.53
+T-061,Bronzeville,2021,Chicago United Industries Ltd,Public Improvement,15430.27
+T-061,Bronzeville,2021,City Program Management Costs,Administration,13202.00
+T-061,Bronzeville,2021,City Staff Costs,Administration,62895.00
+T-061,Bronzeville,2021,CNECT LLC,Public Improvement,19000.00
+T-061,Bronzeville,2021,Granite Construction Company,Public Improvement,144158.41
+T-061,Bronzeville,2021,Pershing & State LP,Development,36002.46
+T-061,Bronzeville,2021,SB Friedman Development Advisors,Professional Service,204051.25
+T-061,Bronzeville,2021,Southwest Industries,Public Improvement,598723.68
+T-061,Bronzeville,2021,Sumit Construction Co Inc,Public Improvement,148909.89
+T-061,Bronzeville,2021,Tetra Tech Inc,Public Improvement,533741.09
+T-061,Bronzeville,2021,Traffic Signal Co,Public Improvement,47025.00
+T-062,Roosevelt/Racine,2021,Aldridge Electric Inc,Public Improvement,241367.46
+T-062,Roosevelt/Racine,2021,City Staff Costs,Administration,28805.00
+T-062,Roosevelt/Racine,2021,Globetrotters Engineering Corp,Public Improvement,29119.66
+T-062,Roosevelt/Racine,2021,Granite Construction Company,Public Improvement,23388.86
+T-062,Roosevelt/Racine,2021,John Burns Construction Co,Public Improvement,422217.17
+T-062,Roosevelt/Racine,2021,"RS Homes I, LLC",Development,960102.82
+T-063,Canal/Congress,2021,AECOM Technical Services,Public Improvement,58128.38
+T-063,Canal/Congress,2021,Aldridge Electric Inc,Public Improvement,143737.60
+T-063,Canal/Congress,2021,Alfred Benesch & Co.,Public Improvement,75053.26
+T-063,Canal/Congress,2021,AMTRAK,Public Improvement,437184.00
+T-063,Canal/Congress,2021,Capitol Cement Co Inc,Public Improvement,502189.52
+T-063,Canal/Congress,2021,Chicago Department of Transportation,Public Improvement,33393.32
+T-063,Canal/Congress,2021,Ciorba Group Inc,Public Improvement,54750.00
+T-063,Canal/Congress,2021,City Program Management Costs,Administration,104317.00
+T-063,Canal/Congress,2021,City Staff Costs,Administration,496948.00
+T-063,Canal/Congress,2021,Collins Engineers Inc,Public Improvement,534964.07
+T-063,Canal/Congress,2021,Globetrotters Engineering Corp,Public Improvement,18400.00
+T-063,Canal/Congress,2021,HNTB Corp,Public Improvement,42114.10
+T-063,Canal/Congress,2021,Munster Steel Co Inc,Public Improvement,2041553.21
+T-063,Canal/Congress,2021,Parsons Transportation Group,Public Improvement,1153844.30
+T-064,Northwest Industrial Corridor,2021,Bigane Paving Co,Public Improvement,236400.30
+T-064,Northwest Industrial Corridor,2021,Chicago Department of Transportation,Public Improvement,41050.98
+T-064,Northwest Industrial Corridor,2021,Ciorba Group Inc,Public Improvement,67000.00
+T-064,Northwest Industrial Corridor,2021,City Program Management Costs,Administration,24224.00
+T-064,Northwest Industrial Corridor,2021,City Staff Costs,Administration,115401.00
+T-064,Northwest Industrial Corridor,2021,CNECT LLC,Public Improvement,62982.98
+T-064,Northwest Industrial Corridor,2021,Greater Northwest Chicago Development Corp,Professional Service,33145.45
+T-064,Northwest Industrial Corridor,2021,Leopardo Companies Inc,Public Improvement,1784112.02
+T-064,Northwest Industrial Corridor,2021,LISC Chicago,Professional Service,36679.83
+T-064,Northwest Industrial Corridor,2021,Milhouse Engineering & Construction Inc,Public Improvement,17158.19
+T-064,Northwest Industrial Corridor,2021,MLRP Merlin LLC,Development,163116.00
+T-064,Northwest Industrial Corridor,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,73305.00
+T-064,Northwest Industrial Corridor,2021,"Somercor 504, Inc.",Rehabilitation Program,86272.62
+T-064,Northwest Industrial Corridor,2021,Sumit Construction Co Inc,Public Improvement,58837.18
+T-064,Northwest Industrial Corridor,2021,The Gordian Group Inc,Public Improvement,28728.67
+T-064,Northwest Industrial Corridor,2021,Transystems Corp,Public Improvement,14889.63
+T-064,Northwest Industrial Corridor,2021,Transystems Corp,Public Improvement,11616.74
+T-064,Northwest Industrial Corridor,2021,Wood Environment & Infrastructure Solutions,Public Improvement,118397.13
+T-065,Woodlawn,2021,Chicago Department of Transportation,Public Improvement,64874.28
+T-065,Woodlawn,2021,Ciorba Group Inc,Public Improvement,60500.00
+T-065,Woodlawn,2021,City Lights Ltd,Public Improvement,340786.62
+T-065,Woodlawn,2021,City Program Management Costs,Administration,10289.00
+T-065,Woodlawn,2021,City Staff Costs,Administration,49018.00
+T-065,Woodlawn,2021,John Burns Construction Co,Public Improvement,11424.32
+T-065,Woodlawn,2021,Milhouse Engineering & Construction Inc,Public Improvement,23830.82
+T-065,Woodlawn,2021,Stanley Consultants Inc,Public Improvement,151733.55
+T-066,Greater Southwest Industrial (East),2021,Capitol Cement Co Inc,Public Improvement,14775.84
+T-066,Greater Southwest Industrial (East),2021,City Staff Costs,Administration,15129.00
+T-066,Greater Southwest Industrial (East),2021,Gateway Park LLC,Development,757417.31
+T-066,Greater Southwest Industrial (East),2021,Globetrotters Engineering Corp,Public Improvement,10000.00
+T-066,Greater Southwest Industrial (East),2021,John Burns Construction Co,Public Improvement,12000.00
+T-066,Greater Southwest Industrial (East),2021,Stanley Consultants Inc,Public Improvement,65000.00
+T-067,Archer Courts,2021,"Community Housing Partners V, LP",Development,108493.00
+T-068,Roosevelt/Union,2021,Board of Trustees University of Illinois,Development,6088409.95
+T-068,Roosevelt/Union,2021,City Program Management Costs,Administration,14569.00
+T-068,Roosevelt/Union,2021,City Staff Costs,Administration,69416.00
+T-068,Roosevelt/Union,2021,Globetrotters Engineering Corp,Public Improvement,20000.00
+T-069,Pulaski Industrial Corridor,2021,Ameresco Inc,Public Improvement,33212.46
+T-069,Pulaski Industrial Corridor,2021,Chicago Department of Transportation,Public Improvement,10860.71
+T-069,Pulaski Industrial Corridor,2021,Chicago Park District,Public Improvement,960447.95
+T-069,Pulaski Industrial Corridor,2021,City Program Management Costs,Administration,14904.00
+T-069,Pulaski Industrial Corridor,2021,City Staff Costs,Administration,70997.00
+T-069,Pulaski Industrial Corridor,2021,CNECT LLC,Public Improvement,14500.00
+T-069,Pulaski Industrial Corridor,2021,Greater Northwest Chicago Development Corp,Professional Service,15333.38
+T-069,Pulaski Industrial Corridor,2021,Industrial Fence Inc,Demolition,78598.22
+T-069,Pulaski Industrial Corridor,2021,John Burns Construction Co,Public Improvement,255247.32
+T-069,Pulaski Industrial Corridor,2021,LISC Chicago,Professional Service,13231.84
+T-069,Pulaski Industrial Corridor,2021,McDonagh Demolition Inc,Demolition,296500.00
+T-069,Pulaski Industrial Corridor,2021,MQ Sewer & Water Contractors,Public Improvement,17520.69
+T-069,Pulaski Industrial Corridor,2021,Openlands,Public Improvement,19070.92
+T-069,Pulaski Industrial Corridor,2021,Ozinga Ready Mix Concrete Inc,Public Improvement,50141.49
+T-069,Pulaski Industrial Corridor,2021,"Somercor 504, Inc.",Rehabilitation Program,113900.35
+T-069,Pulaski Industrial Corridor,2021,St. Augustine College,Job Training,37285.65
+T-069,Pulaski Industrial Corridor,2021,Sumit Construction Co Inc,Public Improvement,98915.58
+T-069,Pulaski Industrial Corridor,2021,Terracon Consultants Inc,Professional Service,41312.15
+T-070,Clark/Montrose,2021,Aldridge Electric Inc,Public Improvement,15423.24
+T-070,Clark/Montrose,2021,Bigane Paving Co,Public Improvement,330364.60
+T-070,Clark/Montrose,2021,Chicago Park District,Public Improvement,2183834.33
+T-070,Clark/Montrose,2021,City Program Management Costs,Administration,10481.00
+T-070,Clark/Montrose,2021,City Staff Costs,Administration,49932.00
+T-070,Clark/Montrose,2021,CNECT LLC,Public Improvement,10000.00
+T-070,Clark/Montrose,2021,Globetrotters Engineering Corp,Public Improvement,15828.46
+T-070,Clark/Montrose,2021,G&V Construction Co Inc,Public Improvement,38927.38
+T-070,Clark/Montrose,2021,John Burns Construction Co,Public Improvement,31000.00
+T-070,Clark/Montrose,2021,SB Friedman Development Advisors,Professional Service,114384.62
+T-070,Clark/Montrose,2021,Stanley Consultants Inc,Public Improvement,120000.00
+T-071,Galewood/Armitage Industrial,2021,Aldridge Electric Inc,Public Improvement,167499.87
+T-071,Galewood/Armitage Industrial,2021,Amalgamated Bank of Chicago,Financing,1108478.00
+T-071,Galewood/Armitage Industrial,2021,Bigane Paving Co,Public Improvement,18338.72
+T-071,Galewood/Armitage Industrial,2021,City Program Management Costs,Administration,11804.00
+T-071,Galewood/Armitage Industrial,2021,City Staff Costs,Administration,56241.00
+T-071,Galewood/Armitage Industrial,2021,CNECT LLC,Public Improvement,10000.00
+T-071,Galewood/Armitage Industrial,2021,Design Consulting Engineers,Public Improvement,55751.25
+T-071,Galewood/Armitage Industrial,2021,Globetrotters Engineering Corp,Public Improvement,39933.16
+T-071,Galewood/Armitage Industrial,2021,John Burns Construction Co,Public Improvement,262891.75
+T-071,Galewood/Armitage Industrial,2021,Leopardo Companies Inc,Public Improvement,327362.43
+T-071,Galewood/Armitage Industrial,2021,Sumit Construction Co Inc,Public Improvement,37847.38
+T-072,24th/Michigan,2021,AECOM Technical Services,Public Improvement,173339.09
+T-072,24th/Michigan,2021,Aldridge Electric Inc,Public Improvement,232834.33
+T-072,24th/Michigan,2021,Chicago Department of Transportation,Public Improvement,16627.00
+T-072,24th/Michigan,2021,City Program Management Costs,Administration,11932.00
+T-072,24th/Michigan,2021,City Staff Costs,Administration,56861.00
+T-072,24th/Michigan,2021,Globetrotters Engineering Corp,Public Improvement,48048.62
+T-072,24th/Michigan,2021,Milhouse Engineering & Construction Inc,Public Improvement,14298.49
+T-072,24th/Michigan,2021,Southbridge 4 Master Owner,Development,6375000.00
+T-072,24th/Michigan,2021,Southbridge 9 Master Owner,Development,2125000.00
+T-072,24th/Michigan,2021,Sumit Construction Co Inc,Public Improvement,754138.94
+T-072,24th/Michigan,2021,Terracon Consultants Inc,Professional Service,72579.92
+T-072,24th/Michigan,2021,Transystems Corp,Public Improvement,13226.28
+T-073,111th/Kedzie,2021,Christopher B. Burke Engineering Ltd,Public Improvement,129481.05
+T-073,111th/Kedzie,2021,Gendall Partners-Mt Greenwood LLC,Development,121653.40
+T-073,111th/Kedzie,2021,Knight E/A Inc,Public Improvement,101304.18
+T-073,111th/Kedzie,2021,Mount Greenwood Community & Business Association,Professional Service,24282.00
+T-074,Clark/Ridge,2021,Bigane Paving Co,Public Improvement,208273.33
+T-074,Clark/Ridge,2021,Builders Chicago Corp,Public Improvement,299774.47
+T-074,Clark/Ridge,2021,Chicago Department of Transportation,Public Improvement,100662.43
+T-074,Clark/Ridge,2021,Christopher B. Burke Engineering Ltd,Public Improvement,318903.97
+T-074,Clark/Ridge,2021,City Staff Costs,Administration,38118.00
+T-074,Clark/Ridge,2021,CNECT LLC,Public Improvement,10000.00
+T-074,Clark/Ridge,2021,G&V Construction Co Inc,Public Improvement,75634.14
+T-074,Clark/Ridge,2021,John Burns Construction Co,Public Improvement,40993.12
+T-074,Clark/Ridge,2021,Knight E/A Inc,Public Improvement,55006.23
+T-074,Clark/Ridge,2021,"Somercor 504, Inc.",Rehabilitation Program,30566.25
+T-074,Clark/Ridge,2021,Southwest Industries,Public Improvement,12700.00
+T-074,Clark/Ridge,2021,St. Augustine College,Job Training,43540.00
+T-075,Madison/Austin Corridor,2021,City Staff Costs,Administration,34677.00
+T-075,Madison/Austin Corridor,2021,CNECT LLC,Public Improvement,10000.00
+T-075,Madison/Austin Corridor,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,16033.18
+T-075,Madison/Austin Corridor,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,69945.44
+T-075,Madison/Austin Corridor,2021,"Somercor 504, Inc.",Rehabilitation Program,10512.06
+T-076,Devon/Western,2021,Aldridge Electric Inc,Public Improvement,87499.38
+T-076,Devon/Western,2021,Chicago Department of Transportation,Public Improvement,770500.00
+T-076,Devon/Western,2021,Chicago Department of Water Management,Public Improvement,11388.37
+T-076,Devon/Western,2021,City Staff Costs,Administration,43585.00
+T-076,Devon/Western,2021,CNECT LLC,Public Improvement,10400.00
+T-076,Devon/Western,2021,Site Design Group,Professional Service,32548.67
+T-077,Lincoln Avenue,2021,Aldridge Electric Inc,Public Improvement,189220.96
+T-077,Lincoln Avenue,2021,Bigane Paving Co,Public Improvement,35909.18
+T-077,Lincoln Avenue,2021,Christopher B. Burke Engineering Ltd,Public Improvement,126699.84
+T-077,Lincoln Avenue,2021,City Staff Costs,Administration,40592.00
+T-077,Lincoln Avenue,2021,CNECT LLC,Public Improvement,20000.00
+T-077,Lincoln Avenue,2021,Globetrotters Engineering Corp,Public Improvement,83967.06
+T-077,Lincoln Avenue,2021,G&V Construction Co Inc,Public Improvement,121488.90
+T-077,Lincoln Avenue,2021,Knight E/A Inc,Public Improvement,29765.00
+T-077,Lincoln Avenue,2021,"Somercor 504, Inc.",Rehabilitation Program,55740.52
+T-077,Lincoln Avenue,2021,Transystems Corp,Public Improvement,182577.26
+T-079,35th/Wallace,2021,Chicago Department of Transportation,Public Improvement,44698.44
+T-079,35th/Wallace,2021,Ciorba Group Inc,Public Improvement,42644.02
+T-079,35th/Wallace,2021,City Lights Ltd,Public Improvement,316821.59
+T-079,35th/Wallace,2021,City Staff Costs,Administration,16175.00
+T-079,35th/Wallace,2021,Granite Construction Company,Public Improvement,13668.27
+T-081,Belmont/Central,2021,Aldridge Electric Inc,Public Improvement,545003.48
+T-081,Belmont/Central,2021,Belmont-Central Chamber of Commerce,Professional Service,16200.00
+T-081,Belmont/Central,2021,Bigane Paving Co,Public Improvement,38461.58
+T-081,Belmont/Central,2021,Ciorba Group Inc,Public Improvement,91842.56
+T-081,Belmont/Central,2021,City Program Management Costs,Administration,12516.00
+T-081,Belmont/Central,2021,City Staff Costs,Administration,59636.00
+T-081,Belmont/Central,2021,Civiltech Engineering Inc,Public Improvement,12059.31
+T-081,Belmont/Central,2021,Globetrotters Engineering Corp,Public Improvement,89826.27
+T-081,Belmont/Central,2021,John Burns Construction Co,Public Improvement,71911.12
+T-081,Belmont/Central,2021,Northwest Side Housing Center,Professional Service,35400.00
+T-081,Belmont/Central,2021,"Somercor 504, Inc.",Rehabilitation Program,75895.76
+T-082,Belmont/Cicero,2021,City Staff Costs,Administration,14054.00
+T-082,Belmont/Cicero,2021,"Somercor 504, Inc.",Rehabilitation Program,11128.76
+T-082,Belmont/Cicero,2021,Sumit Construction Co Inc,Public Improvement,11554.68
+T-083,West Irving Park,2021,City Staff Costs,Administration,15869.00
+T-083,West Irving Park,2021,CNECT LLC,Public Improvement,10000.00
+T-083,West Irving Park,2021,John Burns Construction Co,Public Improvement,73237.16
+T-083,West Irving Park,2021,"Somercor 504, Inc.",Rehabilitation Program,36565.35
+T-083,West Irving Park,2021,Sumit Construction Co Inc,Public Improvement,60872.22
+T-084,Western Avenue North,2021,4800 N. Damen LLC,Development,288159.02
+T-084,Western Avenue North,2021,Aldridge Electric Inc,Public Improvement,28663.98
+T-084,Western Avenue North,2021,Christopher B. Burke Engineering Ltd,Public Improvement,183159.29
+T-084,Western Avenue North,2021,City Program Management Costs,Administration,25369.00
+T-084,Western Avenue North,2021,City Staff Costs,Administration,120847.00
+T-084,Western Avenue North,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,322814.65
+T-084,Western Avenue North,2021,Granite Construction Company,Public Improvement,129088.35
+T-084,Western Avenue North,2021,Greater Ravenswood Chamber of Commerce NFP,Professional Service,15300.00
+T-084,Western Avenue North,2021,G&V Construction Co Inc,Public Improvement,168316.08
+T-084,Western Avenue North,2021,Knight E/A Inc,Public Improvement,119081.97
+T-084,Western Avenue North,2021,Lincoln Square Ravenswood Chamber of Commerce,Professional Service,24750.00
+T-084,Western Avenue North,2021,Site Design Group,Professional Service,18907.79
+T-085,Western Avenue South,2021,AECOM Technical Services,Public Improvement,60222.60
+T-085,Western Avenue South,2021,Chicago Park District,Public Improvement,2557469.42
+T-085,Western Avenue South,2021,City Program Management Costs,Administration,25830.00
+T-085,Western Avenue South,2021,City Staff Costs,Administration,123075.00
+T-085,Western Avenue South,2021,CNECT LLC,Public Improvement,10000.00
+T-085,Western Avenue South,2021,G&V Construction Co Inc,Public Improvement,18971.58
+T-085,Western Avenue South,2021,ICC Group Inc,Public Improvement,384329.55
+T-085,Western Avenue South,2021,John Burns Construction,Public Improvement,176079.76
+T-085,Western Avenue South,2021,North Branch Works,Professional Service,14400.00
+T-085,Western Avenue South,2021,North Center Senior Housing LP,Development,78041.59
+T-085,Western Avenue South,2021,Site Design Group,Professional Service,23932.84
+T-085,Western Avenue South,2021,"Somercor 504, Inc.",Rehabilitation Program,51322.92
+T-086,Central West,2021,Aldridge Electric Inc,Public Improvement,684573.43
+T-086,Central West,2021,Chicago Department of Transportation,Public Improvement,504365.42
+T-086,Central West,2021,Chicago Public Schools,Public Improvement,312712.32
+T-086,Central West,2021,Ciorba Group Inc,Public Improvement,46080.21
+T-086,Central West,2021,City Program Management Costs,Administration,74588.00
+T-086,Central West,2021,City Staff Costs,Administration,355371.00
+T-086,Central West,2021,CNECT LLC,Public Improvement,10000.00
+T-086,Central West,2021,Globetrotters Engineering Corp,Public Improvement,304577.31
+T-086,Central West,2021,Granite Construction Company,Public Improvement,520616.32
+T-086,Central West,2021,Knight E/A Inc,Public Improvement,29159.67
+T-086,Central West,2021,Leopardo Companies Inc,Public Improvement,336242.94
+T-086,Central West,2021,MAT Construction,Public Improvement,119335.87
+T-086,Central West,2021,Milhouse Engineering & Construction Inc,Public Improvement,24307.44
+T-086,Central West,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,80994.22
+T-086,Central West,2021,SB Friedman Development Advisors,Professional Service,19626.55
+T-086,Central West,2021,Sumit Construction Co Inc,Public Improvement,314558.80
+T-086,Central West,2021,Transystems Corp,Public Improvement,19276.94
+T-087,Fullerton/Milwaukee,2021,2650 Milwaukee LLC,Development,200000.00
+T-087,Fullerton/Milwaukee,2021,Amalgamated Bank of Chicago,Financing,838892.00
+T-087,Fullerton/Milwaukee,2021,City Program Management Costs,Administration,32883.00
+T-087,Fullerton/Milwaukee,2021,City Staff Costs,Administration,156639.00
+T-087,Fullerton/Milwaukee,2021,CNECT LLC,Public Improvement,10000.00
+T-087,Fullerton/Milwaukee,2021,Jacobs Engineering Group Inc,Public Improvement,383887.65
+T-087,Fullerton/Milwaukee,2021,MQ Sewer & Water Contractors,Public Improvement,49728.74
+T-087,Fullerton/Milwaukee,2021,"Somercor 504, Inc.",Rehabilitation Program,108777.78
+T-087,Fullerton/Milwaukee,2021,St. Augustine College,Job Training,58117.29
+T-088,Lawrence/Kedzie,2021,Chicago Department of Transportation,Public Improvement,25266.87
+T-088,Lawrence/Kedzie,2021,City Program Management Costs,Administration,19589.00
+T-088,Lawrence/Kedzie,2021,City Staff Costs,Administration,93336.00
+T-088,Lawrence/Kedzie,2021,CNECT LLC,Public Improvement,22772.41
+T-088,Lawrence/Kedzie,2021,G&V Construction Co Inc,Public Improvement,12319.66
+T-088,Lawrence/Kedzie,2021,John Burns Construction Co,Public Improvement,188477.27
+T-088,Lawrence/Kedzie,2021,"Somercor 504, Inc.",Rehabilitation Program,106089.02
+T-088,Lawrence/Kedzie,2021,Zions Bank,Financing,3966750.00
+T-089,Midway Industrial Corridor,2021,Ameresco Inc,Public Improvement,204745.97
+T-089,Midway Industrial Corridor,2021,City Staff Costs,Administration,41244.00
+T-089,Midway Industrial Corridor,2021,Civiltech Engineering Inc,Public Improvement,45032.58
+T-091,Peterson/Pulaski,2021,City Staff Costs,Administration,20740.00
+T-091,Peterson/Pulaski,2021,CNECT LLC,Public Improvement,138092.00
+T-091,Peterson/Pulaski,2021,G&V Construction Co Inc,Public Improvement,63137.99
+T-091,Peterson/Pulaski,2021,Knight E/A Inc,Public Improvement,20635.59
+T-091,Peterson/Pulaski,2021,Peterson Pulaski Business and Industrial Council,Professional Service,23663.13
+T-091,Peterson/Pulaski,2021,"Somercor 504, Inc.",Rehabilitation Program,185514.15
+T-091,Peterson/Pulaski,2021,Stanley Consultants Inc,Public Improvement,11765.99
+T-091,Peterson/Pulaski,2021,Sumit Construction Co Inc,Public Improvement,199746.06
+T-092,Greater Southwest Industrial (West),2021,"Somercor 504, Inc.",Rehabilitation Program,78845.45
+T-093,South Chicago,2021,City Staff Costs,Administration,14062.00
+T-093,South Chicago,2021,CNECT LLC,Public Improvement,23717.90
+T-093,South Chicago,2021,G&V Construction Co Inc,Public Improvement,170331.55
+T-093,South Chicago,2021,LISC Chicago,Professional Service,38527.15
+T-093,South Chicago,2021,Transystems Corp,Public Improvement,59926.00
+T-094,Chicago/Kingsbury,2021,City Program Management Costs,Administration,81958.00
+T-094,Chicago/Kingsbury,2021,City Staff Costs,Administration,390465.00
+T-095,Midwest,2021,Chicago Department of Transportation,Public Improvement,224297.65
+T-095,Midwest,2021,Chicago Park District,Public Improvement,851420.67
+T-095,Midwest,2021,Ciorba Group Inc,Public Improvement,87391.45
+T-095,Midwest,2021,City Program Management Costs,Administration,37259.00
+T-095,Midwest,2021,City Staff Costs,Administration,177502.00
+T-095,Midwest,2021,City Utility Equipment,Public Improvement,12466.47
+T-095,Midwest,2021,CNECT LLC,Public Improvement,30000.00
+T-095,Midwest,2021,John Burns Construction Co,Public Improvement,1305701.90
+T-095,Midwest,2021,Leopardo Companies Inc,Public Improvement,347911.77
+T-095,Midwest,2021,Liberty Square Apartments,Development,91101.55
+T-095,Midwest,2021,Ozinga Ready Mix Concrete Inc,Public Improvement,26863.03
+T-095,Midwest,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,598623.88
+T-095,Midwest,2021,Reliable Asphalt Corp,Public Improvement,44322.55
+T-095,Midwest,2021,Roosevelt Road Veterans Housing LP,Development,1500000.00
+T-095,Midwest,2021,SB Friedman Development Advisors,Professional Service,16057.95
+T-095,Midwest,2021,Skidmore Owings & Merrill,Professional Service,83615.63
+T-095,Midwest,2021,"Somercor 504, Inc.",Rehabilitation Program,40864.93
+T-095,Midwest,2021,Terracon Consultants Inc,Professional Service,88385.47
+T-095,Midwest,2021,Transystems Corp,Public Improvement,37611.91
+T-097,51st/Archer,2021,Amalgamated Bank of Chicago,Financing,309995.00
+T-097,51st/Archer,2021,Chicago Department of Transportation,Public Improvement,143159.38
+T-097,51st/Archer,2021,City Lights Ltd,Public Improvement,419370.24
+T-097,51st/Archer,2021,City Staff Costs,Administration,25578.00
+T-097,51st/Archer,2021,CNECT LLC,Public Improvement,27000.00
+T-097,51st/Archer,2021,Graybar Electric Co Inc,Public Improvement,40520.79
+T-097,51st/Archer,2021,Highway Safety Corp,Public Improvement,15815.00
+T-097,51st/Archer,2021,John Burns Construction Co,Public Improvement,18366.95
+T-097,51st/Archer,2021,Traffic Signal Co,Public Improvement,29397.00
+T-098,63rd/Pulaski,2021,City Lights Ltd,Public Improvement,257981.13
+T-098,63rd/Pulaski,2021,City Staff Costs,Administration,24419.00
+T-098,63rd/Pulaski,2021,Greater Southwest Development Corp,Professional Service,15050.00
+T-098,63rd/Pulaski,2021,"Somercor 504, Inc.",Rehabilitation Program,10000.00
+T-100,Ohio/Wabash,2021,Allstate Insurance Company,Development,2047109.74
+T-101,Jefferson/Roosevelt,2021,Chicago Department of Water Management,Public Improvement,22781.66
+T-101,Jefferson/Roosevelt,2021,City Program Management Costs,Administration,27208.00
+T-101,Jefferson/Roosevelt,2021,City Staff Costs,Administration,129586.00
+T-101,Jefferson/Roosevelt,2021,Home Depot USA,Development,237967.48
+T-101,Jefferson/Roosevelt,2021,Jacobs Engineering Group Inc,Public Improvement,33026.01
+T-101,Jefferson/Roosevelt,2021,Leopardo Companies Inc,Public Improvement,74328.20
+T-102,Montclare,2021,"Montclare Senior Residences Phase II, LP",Development,134159.53
+T-102,Montclare,2021,"Montclare Senior Residences Phase I, LP",Development,123352.22
+T-103,Lake Calumet Area Industrial,2021,Chicago Department of Transportation,Public Improvement,201314.19
+T-103,Lake Calumet Area Industrial,2021,City Program Management Costs,Administration,12652.00
+T-103,Lake Calumet Area Industrial,2021,City Staff Costs,Administration,60269.00
+T-103,Lake Calumet Area Industrial,2021,Civiltech Engineering Inc,Public Improvement,34032.25
+T-103,Lake Calumet Area Industrial,2021,Highway Safety Corp,Public Improvement,11506.53
+T-103,Lake Calumet Area Industrial,2021,LISC Chicago,Professional Service,47585.96
+T-104,River West,2021,AECOM Technical Services,Public Improvement,111037.04
+T-104,River West,2021,Aldridge Electric Inc,Public Improvement,254102.62
+T-104,River West,2021,Ameresco Inc,Public Improvement,12999.35
+T-104,River West,2021,Capitol Cement,Public Improvement,17423.46
+T-104,River West,2021,Chicago Transit Authority,Public Improvement,233140.00
+T-104,River West,2021,City Program Management Costs,Administration,66366.00
+T-104,River West,2021,City Staff Costs,Administration,316157.00
+T-104,River West,2021,Globetrotters Engineering Corp,Public Improvement,36473.71
+T-104,River West,2021,HNTB Corp,Public Improvement,31585.45
+T-104,River West,2021,John Burns Construction,Public Improvement,93774.36
+T-104,River West,2021,Production Distribution Companies,Public Improvement,10000.00
+T-105,53rd Street,2021,City Program Management Costs,Administration,14798.00
+T-105,53rd Street,2021,City Staff Costs,Administration,70520.00
+T-105,53rd Street,2021,CJUF III Harper Court LLC,Development,726513.89
+T-105,53rd Street,2021,Hyde Park Chamber of Commerce,Professional Service,10350.00
+T-105,53rd Street,2021,Smart Hotels/Olympia Chicago,Development,153306.66
+T-106,Englewood Neighborhood,2021,Ameresco Inc,Public Improvement,712719.32
+T-106,Englewood Neighborhood,2021,Ciorba Group Inc,Public Improvement,121000.00
+T-106,Englewood Neighborhood,2021,City Staff Costs,Administration,30881.00
+T-106,Englewood Neighborhood,2021,CNECT LLC,Public Improvement,17772.27
+T-106,Englewood Neighborhood,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,26599.61
+T-106,Englewood Neighborhood,2021,LISC Chicago,Professional Service,26200.39
+T-106,Englewood Neighborhood,2021,Milhouse Engineering & Construction Inc,Public Improvement,17158.19
+T-106,Englewood Neighborhood,2021,MQ Sewer & Water Contractors,Public Improvement,82142.80
+T-106,Englewood Neighborhood,2021,St. Augustine College,Job Training,21477.85
+T-107,Division/Homan,2021,Aldridge Electric Inc,Public Improvement,163226.68
+T-107,Division/Homan,2021,Bigane Paving Co,Public Improvement,154238.92
+T-107,Division/Homan,2021,City Staff Costs,Administration,22449.00
+T-107,Division/Homan,2021,CNECT LLC,Public Improvement,10802.44
+T-107,Division/Homan,2021,Globetrotters Engineering Corp,Public Improvement,34976.87
+T-107,Division/Homan,2021,HPR Preservation LP,Development,1900000.00
+T-107,Division/Homan,2021,Milhouse Engineering & Construction Inc,Public Improvement,14099.17
+T-107,Division/Homan,2021,MQ Sewer & Water Contractors,Public Improvement,54403.83
+T-108,Humboldt Park Commercial,2021,Aldridge Electric Inc,Public Improvement,40387.00
+T-108,Humboldt Park Commercial,2021,Ameresco Inc,Public Improvement,111081.93
+T-108,Humboldt Park Commercial,2021,City Program Management Costs,Administration,11857.00
+T-108,Humboldt Park Commercial,2021,City Staff Costs,Administration,56489.00
+T-108,Humboldt Park Commercial,2021,Globetrotters Engineering Corp,Public Improvement,55042.64
+T-108,Humboldt Park Commercial,2021,La Casa Norte,Development,1750000.00
+T-108,Humboldt Park Commercial,2021,LISC Chicago,Professional Service,22502.29
+T-108,Humboldt Park Commercial,2021,MQ Sewer & Water Contractors,Public Improvement,19794.19
+T-108,Humboldt Park Commercial,2021,North & Talman Elderly Limited Partnership,Development,253837.54
+T-108,Humboldt Park Commercial,2021,Resurrection University,Development,333416.86
+T-108,Humboldt Park Commercial,2021,"Somercor 504, Inc.",Rehabilitation Program,321750.00
+T-108,Humboldt Park Commercial,2021,Transystems Corp,Public Improvement,17651.98
+T-109,Lawrence/Broadway,2021,Aldridge Electric Inc,Public Improvement,43546.24
+T-109,Lawrence/Broadway,2021,Chicago Department of Transportation,Public Improvement,22129.13
+T-109,Lawrence/Broadway,2021,Chicago Transit Authority,Public Improvement,18175205.07
+T-109,Lawrence/Broadway,2021,City Program Management Costs,Administration,14583.00
+T-109,Lawrence/Broadway,2021,City Staff Costs,Administration,69463.00
+T-109,Lawrence/Broadway,2021,Gunnison St. Lofts LLC,Development,141408.74
+T-109,Lawrence/Broadway,2021,Leland Hotel,Development,18504.61
+T-109,Lawrence/Broadway,2021,St. Augustine College,Job Training,50544.24
+T-109,Lawrence/Broadway,2021,Theus Property Holdings LLC,Development,71239.67
+T-110,Wilson Yard,2021,Board of Trustees of Community College District 508,Development,1135659.57
+T-110,Wilson Yard,2021,Chicago Community Development Corp,Development,263338.26
+T-110,Wilson Yard,2021,Chicago Transit Authority,Public Improvement,6532143.10
+T-110,Wilson Yard,2021,City Program Management Costs,Administration,25502.00
+T-110,Wilson Yard,2021,City Staff Costs,Administration,121490.00
+T-110,Wilson Yard,2021,CNECT LLC,Public Improvement,10000.00
+T-110,Wilson Yard,2021,Granite Construction Company,Public Improvement,818171.50
+T-110,Wilson Yard,2021,G&V Construction Co Inc,Public Improvement,94443.90
+T-110,Wilson Yard,2021,Sarah's on Sheridan LLC,Development,786956.22
+T-110,Wilson Yard,2021,"Wilson Yard Development I, LLC",Development,10932824.96
+T-112,79th/Southwest Highway,2021,City Staff Costs,Administration,20655.00
+T-112,79th/Southwest Highway,2021,CNECT LLC,Public Improvement,45632.78
+T-112,79th/Southwest Highway,2021,"Somercor 504, Inc.",Rehabilitation Program,58447.51
+T-113,Roseland/Michigan,2021,Adrian Smith & Gordon Gill ARC,Professional Service,75000.00
+T-113,Roseland/Michigan,2021,CNECT LLC,Public Improvement,18792.80
+T-113,Roseland/Michigan,2021,LISC Chicago,Professional Service,46420.82
+T-114,119th/Halsted,2021,"Somercor 504, Inc.",Rehabilitation Program,55846.01
+T-115,Chicago/Central Park,2021,Amalgamated Bank of Chicago,Financing,2149276.00
+T-115,Chicago/Central Park,2021,Ameresco Inc,Public Improvement,24966.23
+T-115,Chicago/Central Park,2021,Bigane Paving Co,Public Improvement,142086.04
+T-115,Chicago/Central Park,2021,City Program Management Costs,Administration,14302.00
+T-115,Chicago/Central Park,2021,City Staff Costs,Administration,68140.00
+T-115,Chicago/Central Park,2021,CNECT LLC,Public Improvement,16724.34
+T-115,Chicago/Central Park,2021,Globetrotters Engineering Corp,Public Improvement,24408.50
+T-115,Chicago/Central Park,2021,LISC Chicago,Professional Service,45117.47
+T-115,Chicago/Central Park,2021,Milhouse Engineering & Construction Inc,Public Improvement,19594.29
+T-115,Chicago/Central Park,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,56849.30
+T-115,Chicago/Central Park,2021,"Somercor 504, Inc.",Rehabilitation Program,12677.78
+T-116,Lawrence/Pulaski,2021,Aldridge Electric Inc,Public Improvement,188741.93
+T-116,Lawrence/Pulaski,2021,City Staff Costs,Administration,25368.00
+T-116,Lawrence/Pulaski,2021,CNECT LLC,Public Improvement,10000.00
+T-116,Lawrence/Pulaski,2021,"Somercor 504, Inc.",Rehabilitation Program,129615.84
+T-117,47th/Ashland,2021,Aldridge Electric Inc,Public Improvement,1055464.57
+T-117,47th/Ashland,2021,Amalgamated Bank of Chicago,Financing,680810.00
+T-117,47th/Ashland,2021,Ameresco Inc,Public Improvement,184854.45
+T-117,47th/Ashland,2021,Bishop Plaza LLC,Development,264770.96
+T-117,47th/Ashland,2021,Capitol Cement Co Inc,Public Improvement,17665.51
+T-117,47th/Ashland,2021,Ciorba Group Inc,Public Improvement,74000.00
+T-117,47th/Ashland,2021,City Staff Costs,Administration,33548.00
+T-117,47th/Ashland,2021,Globetrotters Engineering Corp,Public Improvement,131525.54
+T-117,47th/Ashland,2021,Gloria Talamantes,Public Improvement,10500.00
+T-117,47th/Ashland,2021,LISC Chicago,Professional Service,46178.23
+T-117,47th/Ashland,2021,Luftwerk Ltd,Public Improvement,60000.00
+T-118,47th/King Drive,2021,Ciorba Group Inc,Public Improvement,12000.00
+T-118,47th/King Drive,2021,City Program Management Costs,Administration,24320.00
+T-118,47th/King Drive,2021,City Staff Costs,Administration,115862.00
+T-118,47th/King Drive,2021,Neighborhood Housing Chicago,Rehabilitation Program,89546.67
+T-118,47th/King Drive,2021,"Somercor 504, Inc.",Rehabilitation Program,43855.00
+T-119,Lakefront,2021,Lakefront Associates I LLC,Development,198805.93
+T-119,Lakefront,2021,Lake Park Crescent LP,Development,292879.74
+T-121,47th/Halsted,2021,Chicago Park District,Public Improvement,336000.00
+T-121,47th/Halsted,2021,Ciorba Group Inc,Public Improvement,67000.00
+T-121,47th/Halsted,2021,City Staff Costs,Administration,40255.00
+T-121,47th/Halsted,2021,CNECT LLC,Public Improvement,47500.00
+T-121,47th/Halsted,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,24562.71
+T-121,47th/Halsted,2021,MQ Sewer & Water Contractors,Public Improvement,280745.81
+T-121,47th/Halsted,2021,Pacific Construction Services,Public Improvement,186186.49
+T-121,47th/Halsted,2021,"Somercor 504, Inc.",Rehabilitation Program,115993.46
+T-123,Avalon Park/South Shore,2021,Aldridge Electric Inc,Public Improvement,57238.87
+T-123,Avalon Park/South Shore,2021,Ameresco Inc,Public Improvement,110994.52
+T-123,Avalon Park/South Shore,2021,CNECT LLC,Public Improvement,22520.00
+T-123,Avalon Park/South Shore,2021,"Somercor 504, Inc.",Rehabilitation Program,91117.26
+T-123,Avalon Park/South Shore,2021,Transystems Corp,Public Improvement,12389.23
+T-124,67th/Cicero,2021,MAT Construction,Public Improvement,107866.64
+T-124,67th/Cicero,2021,SL Midway LLC,Development,343560.20
+T-125,119th/I-57,2021,Chicago Department of Transportation,Public Improvement,71127.36
+T-125,119th/I-57,2021,City Staff Costs,Administration,29722.00
+T-125,119th/I-57,2021,"Primestor 119, LLC",Development,1847517.73
+T-126,Madden/Wells,2021,Arches Retail Development LLC,Development,226517.00
+T-126,Madden/Wells,2021,Ciorba Group Inc,Public Improvement,35000.00
+T-126,Madden/Wells,2021,City Staff Costs,Administration,16810.00
+T-126,Madden/Wells,2021,John Burns Construction Co,Public Improvement,48552.18
+T-126,Madden/Wells,2021,Madden Wells Phase 1B,Development,241156.00
+T-127,87th/Cottage Grove,2021,Aldridge Electric Inc,Public Improvement,20939.94
+T-127,87th/Cottage Grove,2021,Ameresco Inc,Public Improvement,152784.19
+T-127,87th/Cottage Grove,2021,Chicago Department of Transportation,Public Improvement,24097.46
+T-127,87th/Cottage Grove,2021,City Staff Costs,Administration,25072.00
+T-127,87th/Cottage Grove,2021,"Somercor 504, Inc.",Rehabilitation Program,24755.00
+T-128,Commercial Avenue,2021,Aldridge Electric Inc,Public Improvement,143490.27
+T-128,Commercial Avenue,2021,Chicago Department of Transportation,Public Improvement,126773.66
+T-128,Commercial Avenue,2021,City Staff Costs,Administration,21891.00
+T-128,Commercial Avenue,2021,CNECT LLC,Public Improvement,22600.00
+T-128,Commercial Avenue,2021,Globetrotters Engineering Corp,Public Improvement,10225.27
+T-128,Commercial Avenue,2021,LISC Chicago,Professional Service,13839.71
+T-128,Commercial Avenue,2021,"Somercor 504, Inc.",Rehabilitation Program,58782.00
+T-128,Commercial Avenue,2021,St. Augustine College,Job Training,68029.41
+T-129,Diversey/Narragansett,2021,Amalgamated Bank of Chicago,Development,1999240.15
+T-129,Diversey/Narragansett,2021,City Staff Costs,Administration,32883.00
+T-129,Diversey/Narragansett,2021,John Burns Construction Co,Public Improvement,112025.78
+T-131,35th/State,2021,Alliance Demolition Services,Demolition,580195.19
+T-131,35th/State,2021,Carnow Conibear & Associates Ltd,Professional Service,14943.51
+T-131,35th/State,2021,City Staff Costs,Administration,26693.00
+T-131,35th/State,2021,Park Boulevard LLC,Development,366774.92
+T-131,35th/State,2021,Townsend Chicago LLC,Development,1269132.56
+T-133,83rd/Stewart,2021,City Staff Costs,Administration,10206.00
+T-133,83rd/Stewart,2021,W2005 CMK Realty LLC,Development,1303860.01
+T-134,Devon/Sheridan,2021,Chicago Transit Authority,Public Improvement,1970640.64
+T-134,Devon/Sheridan,2021,City Staff Costs,Administration,18191.00
+T-134,Devon/Sheridan,2021,Loyola University of Chicago,Development,1305162.13
+T-134,Devon/Sheridan,2021,"Somercor 504, Inc.",Rehabilitation Program,23929.63
+T-136,47th/State,2021,Aldridge Electric Inc,Public Improvement,87225.00
+T-136,47th/State,2021,Carnow Conibear & Associates Ltd,Remediation,14848.27
+T-136,47th/State,2021,Ciorba Group Inc,Public Improvement,37465.80
+T-136,47th/State,2021,City Lights Ltd,Public Improvement,199422.79
+T-136,47th/State,2021,City Staff Costs,Administration,25527.00
+T-136,47th/State,2021,Old Veterans Construction Inc,Remediation,55515.28
+T-140,79th/Cicero,2021,Scottsdale Center  LLC,Development,574077.95
+T-142,Western/Rock Island,2021,Beverly Area Planning Association,Professional Service,22450.00
+T-142,Western/Rock Island,2021,Beverly Western Partners LLC,Development,90000.00
+T-142,Western/Rock Island,2021,City Staff Costs,Administration,14182.00
+T-142,Western/Rock Island,2021,CNECT LLC,Public Improvement,10000.00
+T-142,Western/Rock Island,2021,Morgan Park/Beverly Hills Association,Professional Service,12450.00
+T-142,Western/Rock Island,2021,The Far South Community Development Corporation,Professional Service,10300.00
+T-143,63rd/Ashland,2021,City Staff Costs,Administration,10070.00
+T-143,63rd/Ashland,2021,CNECT LLC,Public Improvement,24827.59
+T-143,63rd/Ashland,2021,"Somercor 504, Inc.",Rehabilitation Program,112250.00
+T-144,Harrison/Central,2021,Aldridge Electric Inc,Public Improvement,14743.90
+T-144,Harrison/Central,2021,Ameresco Inc,Public Improvement,66161.20
+T-144,Harrison/Central,2021,Globetrotters Engineering Corp,Public Improvement,10611.00
+T-146,Touhy/Western,2021,Amalgamated Bank of Chicago,Financing,650180.00
+T-146,Touhy/Western,2021,City Staff Costs,Administration,10489.00
+T-146,Touhy/Western,2021,G&V Construction Co Inc,Public Improvement,15491.84
+T-146,Touhy/Western,2021,Site Design Group,Professional Service,20103.58
+T-146,Touhy/Western,2021,Stanley Consultants Inc,Public Improvement,100000.00
+T-146,Touhy/Western,2021,Zions Bank,Financing,790400.00
+T-147,LaSalle Central,2021,AECOM Technical Services,Public Improvement,901512.81
+T-147,LaSalle Central,2021,Aldridge Electric Inc,Public Improvement,497823.58
+T-147,LaSalle Central,2021,Chicago Department of Transportation,Public Improvement,185843.00
+T-147,LaSalle Central,2021,Chicago Department of Water Management,Public Improvement,12552.00
+T-147,LaSalle Central,2021,City Program Management Costs,Administration,333312.82
+T-147,LaSalle Central,2021,City Staff Costs,Administration,1587345.50
+T-147,LaSalle Central,2021,DB Sterlin Consultants Inc,Public Improvement,40301.81
+T-147,LaSalle Central,2021,F H Paschen S N Nielsen & Associates LLC,Public Improvement,745090.80
+T-147,LaSalle Central,2021,Gabe's Installation Inc,Public Improvement,43546.50
+T-147,LaSalle Central,2021,Globetrotters Engineering Corp,Public Improvement,99960.20
+T-147,LaSalle Central,2021,Granite Construction Company,Public Improvement,2874028.61
+T-147,LaSalle Central,2021,Graybar Electric Co Inc,Public Improvement,414549.98
+T-147,LaSalle Central,2021,HNTB Corp,Public Improvement,10528.65
+T-147,LaSalle Central,2021,Kamaltech Incorporation,Public Improvement,168428.05
+T-147,LaSalle Central,2021,Luse Environmental Services Inc,Public Improvement,213221.00
+T-147,LaSalle Central,2021,Munster Steel Co Inc,Public Improvement,113793.44
+T-147,LaSalle Central,2021,River Point LLC,Development,4075700.00
+T-147,LaSalle Central,2021,Root Bros. Mfg & Supply Co,Public Improvement,16379.04
+T-147,LaSalle Central,2021,S&J Construction Co,Public Improvement,276284.15
+T-147,LaSalle Central,2021,Southwest Industries,Public Improvement,104074.71
+T-147,LaSalle Central,2021,The Gordian Group Inc,Public Improvement,20776.76
+T-147,LaSalle Central,2021,Trane US Inc,Public Improvement,77843.90
+T-147,LaSalle Central,2021,Transmart Inc,Public Improvement,20223.89
+T-147,LaSalle Central,2021,Transystems Corp,Public Improvement,15897.80
+T-149,Stevenson Brighton,2021,Chicago Public Schools,Public Improvement,6298043.00
+T-149,Stevenson Brighton,2021,City Staff Costs,Administration,46290.00
+T-149,Stevenson Brighton,2021,CNECT LLC,Public Improvement,37000.00
+T-149,Stevenson Brighton,2021,Pulaski Promenade LLC,Development,936890.67
+T-150,Addison South,2021,City Program Management Costs,Administration,14505.00
+T-150,Addison South,2021,City Staff Costs,Administration,69100.00
+T-150,Addison South,2021,Coyote Logistics LLC,Development,224637.32
+T-150,Addison South,2021,John Burns Construction Co,Public Improvement,399745.89
+T-150,Addison South,2021,Paul Borg Construction Co Inc,Public Improvement,26045.97
+T-150,Addison South,2021,"Somercor 504, Inc.",Rehabilitation Program,105835.40
+T-151,Armitage/Pulaski,2021,Chicago Department of Transportation,Public Improvement,72500.00
+T-151,Armitage/Pulaski,2021,Chicago Department of Water Management,Public Improvement,33576.61
+T-151,Armitage/Pulaski,2021,"Somercor 504, Inc.",Rehabilitation Program,189050.92
+T-152,Little Village Industrial Corridor,2021,City Staff Costs,Administration,14387.00
+T-152,Little Village Industrial Corridor,2021,MAT Construction,Public Improvement,107517.78
+T-153,Elston/Armstrong Industrial Corridor,2021,City Staff Costs,Administration,11316.00
+T-153,Elston/Armstrong Industrial Corridor,2021,John Burns Construction Co,Public Improvement,166583.73
+T-153,Elston/Armstrong Industrial Corridor,2021,"Somercor 504, Inc.",Rehabilitation Program,208367.36
+T-153,Elston/Armstrong Industrial Corridor,2021,Sumit Construction Co Inc,Public Improvement,31901.92
+T-155,79th/Vincennes,2021,Ameresco Inc,Public Improvement,12964.05
+T-155,79th/Vincennes,2021,Capitol Cement,Public Improvement,21486.90
+T-155,79th/Vincennes,2021,Milhouse Engineering & Construction Inc,Public Improvement,20001.79
+T-156,Austin Commercial,2021,Ameresco Inc,Public Improvement,236584.06
+T-156,Austin Commercial,2021,Chicago Department of Transportation,Public Improvement,108626.29
+T-156,Austin Commercial,2021,City Staff Costs,Administration,15293.00
+T-156,Austin Commercial,2021,Civiltech Engineering Inc,Public Improvement,430366.85
+T-156,Austin Commercial,2021,CNECT LLC,Public Improvement,70931.08
+T-156,Austin Commercial,2021,CNR Advisors LLC,Property Assemblage,500000.00
+T-156,Austin Commercial,2021,LISC Chicago,Professional Service,37719.71
+T-156,Austin Commercial,2021,Pan-Oceanic Engineering Co Inc,Public Improvement,82515.51
+T-156,Austin Commercial,2021,Seven-D Construction Co,Public Improvement,175285.80
+T-156,Austin Commercial,2021,"Somercor 504, Inc.",Rehabilitation Program,387049.44
+T-156,Austin Commercial,2021,Transystems Corp,Public Improvement,11857.00
+T-157,Hollywood/Sheridan,2021,Aldridge Electric Inc,Public Improvement,27216.16
+T-157,Hollywood/Sheridan,2021,Chicago Transit Authority,Public Improvement,12660904.07
+T-157,Hollywood/Sheridan,2021,City Staff Costs,Administration,15220.00
+T-157,Hollywood/Sheridan,2021,Hollywood House Limited,Development,575824.12
+T-161,Ogden/Pulaski,2021,Bigane Paving Co,Public Improvement,45185.61
+T-161,Ogden/Pulaski,2021,Brecheisen Engineering,Professional Service,70826.18
+T-161,Ogden/Pulaski,2021,Ciorba Group Inc,Public Improvement,54000.00
+T-161,Ogden/Pulaski,2021,CNECT LLC,Public Improvement,73816.47
+T-161,Ogden/Pulaski,2021,LISC Chicago,Professional Service,50221.88
+T-161,Ogden/Pulaski,2021,Milhouse Engineering & Construction Inc,Public Improvement,19854.92
+T-161,Ogden/Pulaski,2021,Seven-D Construction Co,Public Improvement,96216.09
+T-161,Ogden/Pulaski,2021,"Somercor 504, Inc.",Rehabilitation Program,39850.92
+T-161,Ogden/Pulaski,2021,Transystems Corp,Public Improvement,20268.20
+T-163,Archer/Western,2021,Chicago Park District,Public Improvement,1621041.67
+T-163,Archer/Western,2021,City Staff Costs,Administration,16444.00
+T-163,Archer/Western,2021,Granite Construction Company,Public Improvement,552681.41
+T-163,Archer/Western,2021,MQ Sewer & Water Contractors,Public Improvement,32198.92
+T-164,Little Village East,2021,Aldridge Electric Inc,Public Improvement,309671.27
+T-164,Little Village East,2021,Ameresco Inc,Public Improvement,88893.02
+T-164,Little Village East,2021,Globetrotters Engineering Corp,Public Improvement,65996.48
+T-164,Little Village East,2021,Stanley Consultants Inc,Public Improvement,20569.03
+T-166,North Pullman,2021,Chicago Neighborhood Initiatives-Gotham Greens,Development,312203.75
+T-166,North Pullman,2021,Chicago Neighborhood Initiatives-Whole Foods,Development,759053.00
+T-166,North Pullman,2021,Chicago Park District,Public Improvement,2000000.00
+T-166,North Pullman,2021,City Staff Costs,Administration,28563.00
+T-166,North Pullman,2021,Pullman Park Development,Development,754832.00
+T-171,West Woodlawn,2021,Ameresco Inc,Public Improvement,233195.91
+T-171,West Woodlawn,2021,Ciorba Group Inc,Public Improvement,12500.00
+T-172,Randolph/Wells,2021,City Program Management Costs,Administration,29667.00
+T-172,Randolph/Wells,2021,City Staff Costs,Administration,141329.00
+T-173,Montrose/Clarendon,2021,City Staff Costs,Administration,20028.00
+T-174,67th/Wentworth,2021,"Somercor 504, Inc.",Rehabilitation Program,10081.70
+T-175,51st/Lake Park,2021,1525 HP LLC,Development,1207170.79
+T-175,51st/Lake Park,2021,City Staff Costs,Administration,15080.00
+T-176,107th/Halsted,2021,Adrian Smith & Gordon Gill ARC,Professional Service,29940.01
+T-176,107th/Halsted,2021,Aldridge Electric Inc,Public Improvement,166513.50
+T-176,107th/Halsted,2021,LISC Chicago,Professional Service,13115.96
+T-178,Washington Park,2021,Ciorba Group Inc,Public Improvement,35950.00
+T-178,Washington Park,2021,City Staff Costs,Administration,17762.00
+T-180,Red Purple Modernization Phase One (Transit TIF),2021,City Program Management Costs,Administration,117081.00
+T-180,Red Purple Modernization Phase One (Transit TIF),2021,City Staff Costs,Administration,557779.00
+T-184,Roosevelt/Clark,2021,Chicago Department of Transportation,Public Improvement,358600.85
+T-184,Roosevelt/Clark,2021,City Staff Costs,Administration,22395.00
+T-184,Roosevelt/Clark,2021,Munster Steel Co Inc,Public Improvement,244749.14
+T-001,35th/Halsted,2020,ACRE Development LLC,Development,285413.89
+T-001,35th/Halsted,2020,Acura Inc.,Public Improvement,19241.04
+T-001,35th/Halsted,2020,Builders Chicago Corp.,Public Improvement,11258.32
+T-001,35th/Halsted,2020,City Program Management Costs,Administration,10756.00
+T-001,35th/Halsted,2020,City Staff Costs,Administration,122837.00
+T-001,35th/Halsted,2020,FH Paschen/SN Nielsen & Associates,Public Improvement,28433.24
+T-001,35th/Halsted,2020,Granite Construction,Public Improvement,1189361.08
+T-001,35th/Halsted,2020,Leopardo Companies Inc.,Development,377012.00
+T-001,35th/Halsted,2020,Leopardo Companies Inc.,Public Improvement,377012.00
+T-001,35th/Halsted,2020,"Somercor 504, Inc.",Rehabilitation Pogram,107250.00
+T-001,35th/Halsted,2020,Southwest Industries,Public Improvement,97516.57
+T-001,35th/Halsted,2020,Wiss Janney Elstner,Public Improvement,124748.27
+T-004,49th/St. Lawrence,2020,Willard Square Limited Partnership,Development,156892.94
+T-009,95th/Western,2020,AECOM Technical Services,Public Improvement,146608.85
+T-009,95th/Western,2020,Chicago Department of Transportation,Public Improvement,662541.55
+T-009,95th/Western,2020,City Staff Costs,Administration,16884.00
+T-009,95th/Western,2020,Knight E/A Inc.,Public Improvement,95420.71
+T-009,95th/Western,2020,Sumit Construction Co. Inc.,Public Improvement,2222858.77
+T-009,95th/Western,2020,Transystems Corp.,Public Improvement,40861.75
+T-013,Bryn Mawr/Broadway,2020,Aldridge Electric,Public Improvement,647559.49
+T-013,Bryn Mawr/Broadway,2020,Chicago Transit Authority,Public Improvement,25592919.70
+T-013,Bryn Mawr/Broadway,2020,City Staff Costs,Administration,32431.00
+T-013,Bryn Mawr/Broadway,2020,Globetrotters Engineering Corp.,Public Improvement,108697.79
+T-013,Bryn Mawr/Broadway,2020,"Somercor 504, Inc.",Rehabilitation Pogram,11261.25
+T-023,Goose Island,2020,"Ameresco, Inc",Public Improvement,109661.20
+T-023,Goose Island,2020,Chicago Department of Transportation,Public Improvement,366492.90
+T-023,Goose Island,2020,City Staff Costs,Administration,83200.00
+T-023,Goose Island,2020,CNECT LLC,Public Improvement,25000.00
+T-023,Goose Island,2020,FH Paschen/SN Nielsen & Associates,Public Improvement,29644.84
+T-023,Goose Island,2020,HW Lochner Inc,Public Improvement,2903583.91
+T-023,Goose Island,2020,Jacobs Engineering,Public Improvement,87493.20
+T-023,Goose Island,2020,Milhouse Engineering,Public Improvement,12875.00
+T-023,Goose Island,2020,Seven-D Construction,Public Improvement,510863.13
+T-023,Goose Island,2020,Stanley Consultants,Public Improvement,34750.10
+T-024,Homan/Arthington,2020,John Burns Construction,Public Improvement,122531.44
+T-024,Homan/Arthington,2020,Milhouse Engineering,Public Improvement,18290.00
+T-024,Homan/Arthington,2020,Stanley Consultants,Public Improvement,81250.00
+T-024,Homan/Arthington,2020,St. Augustine College,Job Training,28251.29
+T-024,Homan/Arthington,2020,Uhlich Children's Advantage Network,Development,500000.00
+T-027,Irving/Cicero,2020,Aldridge Electric,Public Improvement,39426.53
+T-027,Irving/Cicero,2020,Chicago Klee Development,Development,201089.06
+T-027,Irving/Cicero,2020,Ciorba Group Inc.,Public Improvement,16000.00
+T-027,Irving/Cicero,2020,CNECT LLC,Public Improvement,91914.66
+T-027,Irving/Cicero,2020,G&V Construction,Public Improvement,299425.09
+T-027,Irving/Cicero,2020,John Burns Construction,Public Improvement,27291.07
+T-027,Irving/Cicero,2020,Knight E/A Inc.,Public Improvement,15834.73
+T-027,Irving/Cicero,2020,"Somercor 504, Inc.",Rehabilitation Pogram,27872.77
+T-029,Michigan/Cermak,2020,"Ameresco, Inc",Public Improvement,14621.83
+T-029,Michigan/Cermak,2020,City Staff Costs,Administration,32414.00
+T-029,Michigan/Cermak,2020,Floating Collective,Public Improvement,10000.00
+T-029,Michigan/Cermak,2020,Milhouse Engineering,Public Improvement,12000.00
+T-029,Michigan/Cermak,2020,Sumit Construction Co. Inc.,Public Improvement,629711.41
+T-030,Near North,2020,"Ameresco, Inc",Public Improvement,260544.66
+T-030,Near North,2020,Chicago Housing Authority,Demolition,1926853.49
+T-030,Near North,2020,Chicago Park District,Public Improvement,197297.82
+T-030,Near North,2020,Ciorba Group Inc.,Public Improvement,72207.85
+T-030,Near North,2020,City Program Management Costs,Administration,33731.00
+T-030,Near North,2020,City Staff Costs,Administration,385219.00
+T-030,Near North,2020,John Burns Construction,Public Improvement,124541.39
+T-030,Near North,2020,John McDonough,Public Improvement,19210.50
+T-030,Near North,2020,Old Town Merchants & Residents Association,Professional Service,17850.00
+T-030,Near North,2020,Parkside Nine Phase II,Development,855195.26
+T-033,North Branch North,2020,Chicago Department of Transportation,Public Improvement,99460.00
+T-033,North Branch North,2020,Ciorba Group Inc.,Public Improvement,50000.00
+T-033,North Branch North,2020,City Staff Costs,Administration,92237.00
+T-033,North Branch North,2020,Collins Engineering,Public Improvement,17110.00
+T-033,North Branch North,2020,Middle River Marine Co,Public Improvement,10375.04
+T-033,North Branch North,2020,Ty Lin International,Public Improvement,393905.12
+T-033,North Branch North,2020,WSP USA Inc.,Public Improvement,159288.32
+T-034,North Branch South,2020,"Ameresco, Inc",Public Improvement,90312.46
+T-034,North Branch South,2020,Ciorba Group Inc.,Public Improvement,40000.00
+T-034,North Branch South,2020,City Staff Costs,Administration,99520.00
+T-034,North Branch South,2020,HW Lochner Inc,Public Improvement,739547.90
+T-034,North Branch South,2020,Jacobs Engineering,Public Improvement,57524.79
+T-034,North Branch South,2020,North Branch Works,Job Training,38212.50
+T-035,North/Cicero,2020,Aldridge Electric,Public Improvement,510115.37
+T-035,North/Cicero,2020,City Staff Costs,Administration,20874.00
+T-035,North/Cicero,2020,Globetrotters Engineering Corp.,Public Improvement,84499.99
+T-035,North/Cicero,2020,Seven-D Construction,Public Improvement,25105.04
+T-035,North/Cicero,2020,Stanley Consultants,Public Improvement,18289.46
+T-037,River South,2020,AECOM Technical Services,Public Improvement,13891.85
+T-037,River South,2020,"Ameresco, Inc",Public Improvement,52998.79
+T-037,River South,2020,Burlington Northern Railroad,Public Improvement,24469.06
+T-037,River South,2020,Capitol Cement,Public Improvement,178445.00
+T-037,River South,2020,Chicago Department of Transportation,Public Improvement,327934.84
+T-037,River South,2020,Ciorba Group Inc.,Public Improvement,10000.00
+T-037,River South,2020,City Program Management Costs,Administration,22127.00
+T-037,River South,2020,City Staff Costs,Administration,252693.00
+T-037,River South,2020,Commonwealth Edison,Public Improvement,921073.89
+T-037,River South,2020,FH Paschen/SN Nielsen & Associates,Public Improvement,15462446.87
+T-037,River South,2020,Illinois Central Railroad,Public Improvement,11000.00
+T-037,River South,2020,John McDonough,Public Improvement,45476.65
+T-037,River South,2020,Knight E/A Inc.,Public Improvement,213224.76
+T-037,River South,2020,Metra,Public Improvement,114414.00
+T-037,River South,2020,Michael Baker International,Public Improvement,131472.99
+T-037,River South,2020,Munster Steel,Public Improvement,16378.49
+T-037,River South,2020,Sumit Construction Co. Inc.,Public Improvement,788423.00
+T-037,River South,2020,Union Pacific Railroad,Public Improvement,10734.45
+T-037,River South,2020,WSP USA Inc.,Public Improvement,1977971.87
+T-038,Roosevelt/Cicero Industrial Corridor,2020,Chicago Department of Transportation,Public Improvement,128050.57
+T-038,Roosevelt/Cicero Industrial Corridor,2020,Ciorba Group Inc.,Public Improvement,48000.00
+T-038,Roosevelt/Cicero Industrial Corridor,2020,City Staff Costs,Administration,49362.00
+T-038,Roosevelt/Cicero Industrial Corridor,2020,Globetrotters Engineering Corp.,Public Improvement,29924.63
+T-038,Roosevelt/Cicero Industrial Corridor,2020,Lawndale Business Renaissance Association,Professional Service,22596.30
+T-038,Roosevelt/Cicero Industrial Corridor,2020,Milhouse Engineering,Public Improvement,35000.00
+T-042,Sanitary and Ship Canal,2020,Aldridge Electric,Public Improvement,213157.85
+T-042,Sanitary and Ship Canal,2020,Bailey Bridges,Public Improvement,410151.60
+T-042,Sanitary and Ship Canal,2020,Chicago Department of Transportation,Public Improvement,32420.00
+T-042,Sanitary and Ship Canal,2020,Ciorba Group Inc.,Public Improvement,36500.00
+T-042,Sanitary and Ship Canal,2020,City Staff Costs,Administration,11834.00
+T-042,Sanitary and Ship Canal,2020,Globetrotters Engineering Corp.,Public Improvement,39607.01
+T-042,Sanitary and Ship Canal,2020,Industrial Fence,Public Improvement,60259.61
+T-043,Stockyards Annex,2020,Aldridge Electric,Public Improvement,931411.14
+T-043,Stockyards Annex,2020,"Carnow, Conibear & Associates",Public Improvement,34130.50
+T-043,Stockyards Annex,2020,Casey Equipment,Public Improvement,47900.19
+T-043,Stockyards Annex,2020,Chicago Department of Transportation,Public Improvement,463980.08
+T-043,Stockyards Annex,2020,Christofano Equipment,Public Improvement,13886.00
+T-043,Stockyards Annex,2020,Ciorba Group Inc.,Public Improvement,36000.00
+T-043,Stockyards Annex,2020,City Staff Costs,Administration,26710.00
+T-043,Stockyards Annex,2020,CNECT LLC,Public Improvement,287166.47
+T-043,Stockyards Annex,2020,Granite Construction,Public Improvement,129384.48
+T-043,Stockyards Annex,2020,HDR Engineering,Public Improvement,33810.64
+T-043,Stockyards Annex,2020,Leopardo Companies Inc.,Public Improvement,69508.49
+T-043,Stockyards Annex,2020,Luse Environmental,Public Improvement,440572.00
+T-043,Stockyards Annex,2020,Milhouse Engineering,Public Improvement,10000.00
+T-043,Stockyards Annex,2020,Ozinga Ready Mix,Public Improvement,11974.01
+T-043,Stockyards Annex,2020,"Somercor 504, Inc.",Rehabilitation Pogram,403219.58
+T-043,Stockyards Annex,2020,Sumit Construction Co. Inc.,Public Improvement,967399.37
+T-043,Stockyards Annex,2020,Transystems Corp.,Public Improvement,23400.00
+T-043,Stockyards Annex,2020,Wight & Co.,Public Improvement,443470.48
+T-045,Stockyards Southeast Quadrant Industrial,2020,Aldridge Electric,Public Improvement,332325.51
+T-045,Stockyards Southeast Quadrant Industrial,2020,"Ameresco, Inc",Public Improvement,139809.27
+T-045,Stockyards Southeast Quadrant Industrial,2020,Ciorba Group Inc.,Public Improvement,20000.00
+T-045,Stockyards Southeast Quadrant Industrial,2020,City Staff Costs,Administration,23627.00
+T-045,Stockyards Southeast Quadrant Industrial,2020,Globetrotters Engineering Corp.,Public Improvement,75000.00
+T-045,Stockyards Southeast Quadrant Industrial,2020,Milhouse Engineering,Public Improvement,30000.00
+T-045,Stockyards Southeast Quadrant Industrial,2020,"Somercor 504, Inc.",Rehabilitation Pogram,162026.44
+T-048,Western/Ogden,2020,Aldridge Electric,Public Improvement,418085.89
+T-048,Western/Ogden,2020,"Ameresco, Inc",Public Improvement,553729.77
+T-048,Western/Ogden,2020,Chicago Department of Transportation,Public Improvement,32543.55
+T-048,Western/Ogden,2020,City Program Management Costs,Administration,11410.00
+T-048,Western/Ogden,2020,City Staff Costs,Administration,130307.00
+T-048,Western/Ogden,2020,FH Paschen/SN Nielsen & Associates,Public Improvement,273249.85
+T-048,Western/Ogden,2020,Globetrotters Engineering Corp.,Public Improvement,41639.01
+T-048,Western/Ogden,2020,Granite Construction,Public Improvement,377284.96
+T-048,Western/Ogden,2020,Illinois Central Sweeping,Public Improvement,17860.43
+T-048,Western/Ogden,2020,Leopardo Companies Inc.,Public Improvement,12120.90
+T-048,Western/Ogden,2020,St. Augustine College,Job Training,127404.77
+T-052,Kinzie Industrial Corridor,2020,AECOM Technical Services,Public Improvement,259500.58
+T-052,Kinzie Industrial Corridor,2020,AECOM Technical Services,Professional Service,71462.20
+T-052,Kinzie Industrial Corridor,2020,Alfred Benesch & Co.,Public Improvement,198305.41
+T-052,Kinzie Industrial Corridor,2020,"Ameresco, Inc",Public Improvement,30040.00
+T-052,Kinzie Industrial Corridor,2020,Baurer Latoza Studio,Professional Service,55641.84
+T-052,Kinzie Industrial Corridor,2020,Capitol Cement,Public Improvement,2289271.32
+T-052,Kinzie Industrial Corridor,2020,Chicago Department of Transportation,Public Improvement,1939765.57
+T-052,Kinzie Industrial Corridor,2020,Chicago Department of Water Management,Public Improvement,320332.61
+T-052,Kinzie Industrial Corridor,2020,Ciorba Group Inc.,Public Improvement,104000.00
+T-052,Kinzie Industrial Corridor,2020,City Program Management Costs,Administration,59943.00
+T-052,Kinzie Industrial Corridor,2020,City Staff Costs,Administration,684567.00
+T-052,Kinzie Industrial Corridor,2020,CNECT LLC,Public Improvement,10000.00
+T-052,Kinzie Industrial Corridor,2020,Commonwealth Edison,Public Improvement,684545.40
+T-052,Kinzie Industrial Corridor,2020,Erie Cooperative Ltd.,Development,37344.40
+T-052,Kinzie Industrial Corridor,2020,Graybar Electric,Public Improvement,30688.00
+T-052,Kinzie Industrial Corridor,2020,HNTB Corp.,Public Improvement,187026.90
+T-052,Kinzie Industrial Corridor,2020,Illinois Central Sweeping,Public Improvement,19048.11
+T-052,Kinzie Industrial Corridor,2020,Illinois Environmental Protection Agency,Public Improvement,10670.17
+T-052,Kinzie Industrial Corridor,2020,Industrial Council of Nearwest Chicago,Professional Service,26858.67
+T-052,Kinzie Industrial Corridor,2020,Industrial Council of Nearwest Chicago,Job Training,24896.64
+T-052,Kinzie Industrial Corridor,2020,Knight E/A Inc.,Public Improvement,39297.13
+T-052,Kinzie Industrial Corridor,2020,Markspec-Roadsafe,Public Improvement,50000.00
+T-052,Kinzie Industrial Corridor,2020,Mintex Inc.,Job Training,78597.73
+T-052,Kinzie Industrial Corridor,2020,Peppercorn 240 LLC,Development,198291.65
+T-052,Kinzie Industrial Corridor,2020,Perkins & Will,Public Improvement,444246.52
+T-052,Kinzie Industrial Corridor,2020,Production Distribution,Public Improvement,243000.00
+T-052,Kinzie Industrial Corridor,2020,Public Building Commission,Public Improvement,2475551.00
+T-052,Kinzie Industrial Corridor,2020,"Somercor 504, Inc.",Rehabilitation Pogram,964734.76
+T-052,Kinzie Industrial Corridor,2020,St. Augustine College,Job Training,37194.00
+T-052,Kinzie Industrial Corridor,2020,Transystems Corp.,Public Improvement,63380.73
+T-053,Pilsen Industrial Corridor,2020,AECOM Technical Services,Professional Service,183590.00
+T-053,Pilsen Industrial Corridor,2020,Amalgamated Bank of Chicago,Financing,4841375.00
+T-053,Pilsen Industrial Corridor,2020,Anchor Mechanical,Public Improvement,58239.55
+T-053,Pilsen Industrial Corridor,2020,Baurer Latoza Studio,Professional Service,18097.05
+T-053,Pilsen Industrial Corridor,2020,Chicago Department of Transportation,Public Improvement,1643330.84
+T-053,Pilsen Industrial Corridor,2020,Christofano Equipment,Public Improvement,64132.03
+T-053,Pilsen Industrial Corridor,2020,Christopher B. Burke Engineering,Public Improvement,31859.35
+T-053,Pilsen Industrial Corridor,2020,City Program Management Costs,Administration,20920.00
+T-053,Pilsen Industrial Corridor,2020,City Staff Costs,Administration,238920.00
+T-053,Pilsen Industrial Corridor,2020,CNECT LLC,Public Improvement,64101.54
+T-053,Pilsen Industrial Corridor,2020,D.B. Sterlin Consultants,Public Improvement,70000.00
+T-053,Pilsen Industrial Corridor,2020,Eighteenth Street Development Corporation,Professional Service,31000.00
+T-053,Pilsen Industrial Corridor,2020,Granite Construction,Public Improvement,47313.11
+T-053,Pilsen Industrial Corridor,2020,Herc Rentals,Public Improvement,56952.53
+T-053,Pilsen Industrial Corridor,2020,Highway Safety Corp.,Public Improvement,36367.57
+T-053,Pilsen Industrial Corridor,2020,John Burns Construction,Public Improvement,64288.32
+T-053,Pilsen Industrial Corridor,2020,Knight E/A Inc.,Public Improvement,32951.33
+T-053,Pilsen Industrial Corridor,2020,LB Foster Co.,Public Improvement,131314.00
+T-053,Pilsen Industrial Corridor,2020,Leopardo Companies Inc.,Public Improvement,227316.39
+T-053,Pilsen Industrial Corridor,2020,Munster Steel,Public Improvement,117103.48

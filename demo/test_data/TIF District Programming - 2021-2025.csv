@@ -1,0 +1,1001 @@
+tif_number,tif_name,time_period,type,description,amount,designation_date,expiration_date
+T-001,35th/Halsted,2021,Current Obligations,AIS - Building Renovation - 1869 W Pershing,-2000000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,AIS - DSS - Ward Yard - Improvements - McDonagh Demolition,25000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,AIS - Police Station - District 09 - 3120 S Halsted Ave - MEP,-630000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,Building rehab - Pershing Tower,-508400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,"CDOT - Arterial Resurfacing - 35th, Ashland to Racine",84900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,CDOT - Bridge - 35th/S Fork Chicago River - Repairs,504200.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,CDOT - Bridge - Structural Rehab - 1200 W 35th St - additional funding,53300.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,CDOT - Daley Library/Wilson Park - ADA Polling Place (2 projects),-138000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,CDOT - Industrial street improvements - 37th & Racine,5400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,"CDOT - Resurfacing - Benson, 38th Pl to 37th Pl",256900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,CDOT - Signage for Stockyards Area Truck Route,88700.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,"CDOT - Streetscape - Morgan, 31st to 35th",714000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,CDOT - Traffic Signal - Modernization - 37th Halsted,-180000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,DPD - Study - SW Industrial Corridors - Transportation/Distribution/Logistics Uses,-18300.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,Planned Manufacturing District study,300.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,Program Administration,-140900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,RDA - Acre Development,-313300.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,RDA - Ramova Theater,-6815000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,SBIF,-1500000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Current Obligations,TIF Works,276100.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Revenue,Property tax,12156900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-911800.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Current Obligations,DPD - TIF Plan Amendment - 12-Year Extension - 35th Halsted,-300000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Current Obligations,Environmental remediation,6200.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Current Obligations,IGA - CPD - Donovan Park,-850000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Current Obligations,IGA - CPD - Park 0594 - New Park - 3159 S Halsted St,-350000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Current Obligations,IGA - CPS - Armour ES - chimney/stack reduction,-750000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Current Obligations,Program Administration,-145100.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Fund Balance,Surplus TIF Funds - 2022,-7398400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Proposed Transfers,Port to Archer Western TIF - Proposed Park Park Projects,-550000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Revenue,Property tax,12691400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-634800.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Transfers Between TIF Districts,From 35th/Wallace (Police facility rehab),4500000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Transfers Between TIF Districts,Port to Archer Western TIF - Proposed Park Project,-1369400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Transfers Between TIF Districts,To Archer/Western (CPD - McKinley Park),-400000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Transfers Between TIF Districts,To Archer/Western (CPS - Holden ES),-3100000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2022,Transfers Between TIF Districts,To Archer/Western (CTA - Orange Line - 35th/Archer Station),-1262100.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2023,Current Obligations,Program Administration,-149500.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2023,Revenue,Property tax,12691400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2024,Current Obligations,Program Administration,-154000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2024,Revenue,Property tax,12691400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2025,Current Obligations,Program Administration,-158600.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2025,Revenue,Property tax,13241900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2026,Current Obligations,Program Administration,-163300.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2026,Revenue,Property tax,13241900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2027,Current Obligations,Program Administration,-168200.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2027,Revenue,Property tax,13241900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2028,Current Obligations,Program Administration,-173300.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2028,Revenue,Property tax,13808900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2029,Current Obligations,Program Administration,-178500.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2029,Revenue,Property tax,13808900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2030,Current Obligations,Program Administration,-183900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2030,Revenue,Property tax,13808900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2031,Current Obligations,Program Administration,-189400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2031,Revenue,Property tax,14392900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2032,Current Obligations,Program Administration,-195000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2032,Revenue,Property tax,14392900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2033,Current Obligations,Program Administration,-200900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,2033,Revenue,Property tax,14392900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,AIS - Building Renovation - 1869 W Pershing,-11136200.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,"AIS - CPL - Library - Daley Library - 3400 S Halsted - envelope repairs, mechanicals, new layout",-3500000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,AIS - DSS - Ward Yard - Improvements - McDonagh Demolition,-25000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,Building rehab - Pershing Tower,-703700.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,"CDOT - Arterial Resurfacing - 35th, Ashland to Racine",-84900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,CDOT - Bridge - 35th/S Fork Chicago River - Repairs,-486000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,CDOT - Bridge - Structural Rehab - 1200 W 35th St - additional funding,-53300.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,CDOT - Industrial street improvements - 37th & Racine,-5400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,CDOT - Lighting - Decorative Pole Replacement,-100000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,CDOT - Lighting - Neighborhood Lighting Improvements,-2000000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,"CDOT - Resurfacing - Benson, 38th Pl to 37th Pl",-256900.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,CDOT - Signage for Stockyards Area Truck Route,-88700.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,"CDOT - Streetscape - Morgan, 31st to 35th",-609200.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,"CDOT - Traffic Calming - Racine, 35th to Pershing",-300000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,CDOT - Traffic Signal - Modernization - 37th Halsted,-434000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,Environmental remediation,-6200.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,Planned Manufacturing District study,-300.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,Professional services,-1000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,RDA - Acre Development,-297400.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,SBIF,-269200.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Current Obligations,TIF Works,-324800.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,38095800.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-001,35th/Halsted,Fund / Project Balances,Transfers Between TIF Districts,To Archer/Western (McGuane Park),-5770000.00,1997-01-14T00:00:00.000,2033-12-31T00:00:00.000
+T-009,95th and Western,2021,Current Obligations,AIS - CPL - Library - Beverly Library - 1962 W 95th St - Interior/Exterior/MEP/BAS/Life-Safety,-525000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2021,Current Obligations,AIS - Environmental Remediation - 2105 W 95th St - McDonagh Demolition,24700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2021,Current Obligations,AIS - Fire Station - Engine Co. 121 - 1724 W 95th St - MEP,-200000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2021,Current Obligations,CDOT - Streetscape - 95th St - (Phase 3) - 2018/2020,93000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2021,Current Obligations,"CDOT - Streetscape - 95th St - (Phase 4) - 95th St, Wood to St. Charles - Design",-400000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2021,Current Obligations,Program Administration,-22000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2021,Revenue,Property tax,1551600.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-116400.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2022,Current Obligations,"CDOT - Streetscape - 95th St Streetscape - 95t St, Damen to Wood - Supplemental Request",-175000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2022,Current Obligations,Program Administration,-22600.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2022,Current Obligations,SBIF,-500000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2022,Proposed Projects,"CDOT - Streetscape - 95th St - (Phase 4) - 95th St, Wood to St. Charles - Construction",-900000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2022,Revenue,Property tax,1631500.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-81600.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2023,Current Obligations,Program Administration,-23300.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2023,Proposed Projects,"CDOT - Streetscape - 95th St - (Phase 4) - 95th St, Wood to St. Charles - Construction",-1800000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2023,Revenue,Property tax,1631500.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2024,Current Obligations,Program Administration,-24000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2024,Proposed Projects,"CDOT - Streetscape - 95th St - (Phase 4) - 95th St, Wood to St. Charles - Construction",-900000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2024,Revenue,Property tax,1631500.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2025,Current Obligations,Program Administration,-24700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2025,Revenue,Property tax,1713700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2026,Current Obligations,Program Administration,-25500.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2026,Revenue,Property tax,1713700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2027,Current Obligations,Program Administration,-26200.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2027,Revenue,Property tax,1713700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2028,Current Obligations,Program Administration,-27000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2028,Revenue,Property tax,1798400.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2029,Current Obligations,Program Administration,-27800.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2029,Revenue,Property tax,1798400.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2030,Current Obligations,Program Administration,-28700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2030,Revenue,Property tax,1798400.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2031,Current Obligations,Program Administration,-29500.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,2031,Revenue,Property tax,1885700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,Fund / Project Balances,Current Obligations,AIS - Environmental Remediation - 2105 W 95th St - McDonagh Demolition,-24700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-230000.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,Fund / Project Balances,Current Obligations,CDOT - Streetscape - 95th St - (Phase 3) - 2018/2020,-797600.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,Fund / Project Balances,Current Obligations,DPD - TIF Plan Amendment - 12-Year Extension - 95th Western TIF,-295600.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-009,95th and Western,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,1891700.00,1995-07-13T00:00:00.000,2031-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Current Obligations,Divvy station installation,48100.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Current Obligations,IGA - CTA - Red Purple Transit - Red Line reconstruction,-15289300.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Current Obligations,Professional services,4700.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Current Obligations,Program Administration,-39400.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Current Obligations,SBIF,-500000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Current Obligations,Utility relocation - 5556 N Sheridan,78900.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Fund Balance,Surplus TIF Funds - 2021,-3124200.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Revenue,Property tax,3061400.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-229600.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2021,Transfers Between TIF Districts,From Red Purple Transit (Red Purple Modernization Transit TIF),15289300.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2022,Current Obligations,Program Administration,-40600.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2022,Current Obligations,SBIF,-500000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2022,Current Obligations,Utility relocation - 5556 N Sheridan,5100.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2022,Current Obligations,Viaduct - improvements - CTA Argyle station,87600.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2022,Proposed Projects,DPD - RDA - Proposed Redevelopment Project,-3333400.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2022,Revenue,Property tax,3190700.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-159500.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2023,Current Obligations,Program Administration,-41800.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2023,Current Obligations,SBIF,-500000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2023,Proposed Projects,DPD - RDA - Proposed Redevelopment Project,-1666700.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2023,Revenue,Property tax,3190700.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2024,Current Obligations,Program Administration,-43100.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2024,Revenue,Property tax,3190700.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2025,Current Obligations,Program Administration,-44400.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2025,Revenue,Property tax,3323800.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2026,Current Obligations,Program Administration,-45700.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2026,Revenue,Property tax,3323800.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2027,Current Obligations,Program Administration,-47100.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2027,Revenue,Property tax,3323800.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2028,Current Obligations,Program Administration,-48500.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2028,Revenue,Property tax,3461000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2029,Current Obligations,Program Administration,-49900.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2029,Revenue,Property tax,3461000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2030,Current Obligations,Program Administration,-51400.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2030,Revenue,Property tax,3461000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2031,Current Obligations,Program Administration,-53000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2031,Revenue,Property tax,3602300.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2032,Current Obligations,Program Administration,-54600.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,2032,Revenue,Property tax,3602300.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-530000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,Divvy station installation,-48100.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,Intersection improvements - Bryn Mawr/Sheridan,-230000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-343800.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,Professional services,-4700.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,Retail Corridor Study - Ward 48,-6800.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,SBIF,-830200.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,TIF Works,-62300.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,Utility relocation - 5556 N Sheridan,-84000.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Current Obligations,Viaduct - improvements - CTA Argyle station,-87700.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-013,Bryn Mawr/Broadway,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,5696500.00,1996-12-11T00:00:00.000,2032-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Current Obligations,AIS - Fire Station - 6204 S Green - Repairs,2600.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Current Obligations,Program Administration,-12400.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Current Obligations,RA - Halsted Parkways,24500.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Current Obligations,RDA - Halsted Parkways - Site Preparation,292500.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Current Obligations,Retail Thrive Zone,8300.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Current Obligations,SBIF,495000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Current Obligations,"Sidewalks - 62nd, Green to Halsted",588500.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Revenue,Property tax,763600.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-57300.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2022,Current Obligations,ISW - Admin,-49600.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2022,Current Obligations,Program Administration,-12700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2022,Proposed Projects,DWM - Water Main Expansion - Englewood Connect Project,-482700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2022,Proposed Projects,Proposed Redevelopment Project #1,-2166700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2022,Revenue,Property tax,793700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-39700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2022,Transfers Between TIF Districts,From Englewood Neighborhood (Invest South West Program),2000000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2023,Current Obligations,Program Administration,-13100.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2023,Proposed Projects,Proposed ISW Project(s),200.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2023,Proposed Projects,Proposed Redevelopment Project #1,-4333400.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2023,Proposed Projects,Proposed Redevelopment Project #2,-3333400.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2023,Revenue,Property tax,793700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2023,Transfers Between TIF Districts,From Englewood Neighborhood (Invest South West Program),5000000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2024,Current Obligations,Program Administration,-13500.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2024,Proposed Projects,Proposed ISW Project(s),-2575400.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2024,Proposed Projects,Proposed Redevelopment Project #2,-1666700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2024,Revenue,Property tax,793700.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2025,Current Obligations,Program Administration,-13900.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,2025,Revenue,Property tax,824600.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,AIS - Fire Station - 6204 S Green - Repairs,-2600.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,CDOT - Sidewalk/curb/gutter repairs - ISW - Corridor 07,-123100.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,ISW - Admin,-150800.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-200000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,RA - Halsted Parkways,-24500.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,RDA - Halsted Parkways - Site Preparation,-292500.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,Retail Thrive Zone,-8300.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,SBIF,-500000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,"Sidewalks - 62nd, Green to Halsted",-588500.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Current Obligations,TIF Works,-75000.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-021,Englewood Mall,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,5596500.00,1989-11-29T00:00:00.000,2025-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,AIS - CDPH - Household Hazardous Waste Recycling Center - 1140 N North Branch - Lighting/Interior Renovations,-105000.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,CDOT - Bridge - Division St,-1750000.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,CDOT - RR Track Removal - 1100-1600 N Cherry Ave,-459300.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,Pedestrial safety improvements,27400.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,Planned Manufacturing District study,100.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,Program Administration,-96400.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,RDA - Guardian Equipment,-131800.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,RDA - Wrigley Innovation Center,-750300.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Current Obligations,TIF Works,65600.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Fund Balance,Surplus TIF Funds - 2021,-9367100.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Revenue,Property tax,8714900.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-653600.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2021,Transfers Between TIF Districts,From North Branch South (Bridge replacement - Division/N Branch River),20000000.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2022,Current Obligations,CDOT - Bridge - Division St,-25900000.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2022,Current Obligations,Program Administration,-99300.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2022,Fund Balance,Surplus TIF Funds - 2022,-4970300.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2022,Revenue,Property tax,9004400.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-450200.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2023,Current Obligations,CDOT - Bridge - Division St,-8800000.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2023,Current Obligations,Program Administration,-102300.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2023,Revenue,Property tax,9004400.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2024,Current Obligations,CDOT - Bridge - Division St,-8800000.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2024,Current Obligations,Program Administration,-105400.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2024,Revenue,Property tax,9004400.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2025,Current Obligations,Program Administration,-108500.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2025,Revenue,Property tax,9302600.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2026,Current Obligations,Program Administration,-111800.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2026,Revenue,Property tax,9302600.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2027,Current Obligations,Program Administration,-115100.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2027,Revenue,Property tax,9302600.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2028,Current Obligations,Program Administration,-118600.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2028,Revenue,Property tax,9609700.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2029,Current Obligations,Program Administration,-122100.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2029,Revenue,Property tax,9609700.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2030,Current Obligations,Program Administration,-125800.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2030,Revenue,Property tax,9609700.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2031,Current Obligations,Program Administration,-129600.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2031,Revenue,Property tax,9926100.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2032,Current Obligations,Program Administration,-133500.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,2032,Revenue,Property tax,9926100.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,CDOT - Bridge - Division St,-4048700.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,CDOT - RR Track Removal - 1100-1600 N Cherry Ave,-604800.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,DPD - TIF Plan Amendment - 12-Year Extension - Goose Island TIF,-294700.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-318300.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,North Branch Industrial Corridor Planning Study,-15900.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,North Branch Transportation Study,-2500.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,Pedestrial safety improvements,-28800.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,Planned Manufacturing District study,-100.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Current Obligations,TIF Works,-65600.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-023,Goose Island,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,14167900.00,1996-07-10T00:00:00.000,2032-12-31T00:00:00.000
+T-024,Homan-Arthington,2021,Current Obligations,DPD - TIF Plan Amendment - 12 Year Extension - Homan Arthington TIF,-250000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2021,Current Obligations,Lawndale RR Line - Development Framework Plan,-45000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2021,Current Obligations,Program Administration,-10700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2021,Current Obligations,TIF Works,103100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2021,Fund Balance,Surplus TIF Funds - 2021,-366900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2021,Revenue,Property tax,704800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-52900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2022,Current Obligations,Program Administration,-11000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2022,Proposed Projects,OBM Hold - Critical Neighborhood Infrastructure,-1500000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2022,Revenue,Property tax,731400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-36600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-80000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,Fund / Project Balances,Current Obligations,Lawndale RR Line - Preliminary RR Study,-90000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-589600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,Fund / Project Balances,Current Obligations,Professional Services - 24th Year Extension,-1900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,Fund / Project Balances,Current Obligations,TIF Works,-120700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-024,Homan-Arthington,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,2728600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-029,Michigan/Cermak,2021,Current Obligations,IGA - CTA - Green Line - Cermak Station,453600.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2021,Current Obligations,Program Administration,-39400.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2021,Fund Balance,Surplus TIF Funds - 2021,-4412500.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2021,Revenue,Property tax,3545800.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-265900.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2022,Current Obligations,Program Administration,-40600.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2022,Revenue,Property tax,3663700.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-183200.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2023,Current Obligations,Program Administration,-41800.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2023,Revenue,Property tax,3663700.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2024,Current Obligations,Program Administration,-43100.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2024,Revenue,Property tax,3663700.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2025,Current Obligations,Program Administration,-44400.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,2025,Revenue,Property tax,3785200.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-70000.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,Fund / Project Balances,Current Obligations,"CDOT - Streetscape - Michigan, 23rd to 24th",-59200.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,Fund / Project Balances,Current Obligations,Cermak Rd public art installation,-472500.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,Fund / Project Balances,Current Obligations,IGA - CTA - Green Line - Cermak Station,-453600.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-118400.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,Fund / Project Balances,Current Obligations,SBIF,-607300.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-029,Michigan/Cermak,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,6504100.00,1989-09-13T00:00:00.000,2025-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,AIS - CPL - Library - Near North Library - 310 W Division St - Exterior Renovations/MEP,-400000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,AIS - Fire Air Mask Service - 1044 N Orleans Facility - MEP Upgrades/Interior Exterior Renovations,-1000000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,AIS - Fire Station - Engine Co. 004 - Repairs,110600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,AIS - Police Station - District 18 - 1160 N Larrabee St - MEP,-1500000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,CDOT - ADA Polling Place - Jenner/Skinner/Payton/Franklin,-365000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,Fire station repairs - Engine Co. 4,11200.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,IGA - CPS - Payton H.S.,300000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,"Lighting - Sedgwick, North to Division",92000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,Program Administration,-435400.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,RDA - Clybourn & Division,101600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,RDA - Parkside IIA Rental,-873900.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,TIF Works,125000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Current Obligations,Traffic signal - Halsted/Blackhawk,191000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Fund Balance,Surplus TIF Funds - 2021,-68858500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Revenue,Property tax,38354600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-2876600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,CDOT - Bridge - Division St,-15985000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,CHA Transformation - Demolition - old Near North H.S.,-200000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,IGA - CPD - Park 1037 - Durso (John) - New play equipment with EWF surfacing,-250000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,IGA - CPD - Seward Park,-400000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,"IGA - CPS - Building Automation System (""BAS"") - Near North TIF",-405000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,IGA - CPS - Skinner North - Roof/Masonry,-4700000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,Program Administration,-448500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,RDA - Parkside IIA Rental,-376500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Current Obligations,"Resurfacing - Oak, Orleans to Wells; Hobbie, Crosby to Larrabee",-100.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Proposed Projects,ADA Polling Place,-125800.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Proposed Projects,AIS - Fire Station - Engine Co. 004 - 548 W Division St - ambulance related upgrades,-1100000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Proposed Projects,AIS - Fire Station - Engine Co. 004 - 548 W Division St - MEP,-200000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Proposed Projects,CHA Transformation Residential Project,-8500000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Proposed Projects,Proposed Redevelopment Project #2,-8751400.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Proposed Projects,Proposed Redevelopment Project #3,-6383300.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Revenue,Property tax,39589500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-1979500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2023,Current Obligations,CDOT - Bridge - Division St,-15985000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2023,Current Obligations,Program Administration,-461900.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2023,Proposed Projects,CHA Transformation Residential Project,-13000000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2023,Proposed Projects,Proposed Redevelopment Project #2,-17502800.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2023,Proposed Projects,Proposed Redevelopment Project #3,-12766600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2023,Proposed Projects,Proposed school project #1,-15562000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2023,Revenue,Property tax,39589500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2024,Current Obligations,Program Administration,-475800.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2024,Proposed Projects,CHA Transformation Residential Project,-52000000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2024,Proposed Projects,Proposed Redevelopment Project #1,-6958300.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2024,Revenue,Property tax,39589500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2025,Current Obligations,Program Administration,-490100.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2025,Proposed Projects,CHA Transformation Residential Project,-26000000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2025,Proposed Projects,Proposed Redevelopment Project #1,-13916600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2025,Revenue,Property tax,40861500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2026,Current Obligations,Program Administration,-504800.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2026,Proposed Projects,CHA Transformation Residential Project,-20000000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2026,Revenue,Property tax,40861500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2027,Current Obligations,Program Administration,-519900.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2027,Proposed Projects,CHA Transformation Residential Project,-25000000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2027,Revenue,Property tax,40861500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2028,Current Obligations,Program Administration,-535500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2028,Proposed Projects,CHA Transformation Residential Project,-30000000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2028,Revenue,Property tax,42171600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2029,Current Obligations,Program Administration,-551600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2029,Proposed Projects,CHA Transformation Residential Project,-20000000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2029,Revenue,Property tax,42171600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2030,Current Obligations,Program Administration,-568100.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2030,Revenue,Property tax,42171600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2031,Current Obligations,Program Administration,-585200.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2031,Revenue,Property tax,43521000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2032,Current Obligations,Program Administration,-602700.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2032,Revenue,Property tax,43521000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2033,Current Obligations,Program Administration,-620800.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,2033,Revenue,Property tax,43521000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,AIS - Fire Station - Engine Co. 004 - Repairs,-110600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,CDOT - Bridge - Division St,-2646100.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-30000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,CHA Transformation - Demolition - old Near North H.S.,-2073100.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,DPD - TIF Plan Amendment - 12 Year Extension - Near North TIF,-300000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,Fire station repairs - Engine Co. 4,-500000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,IGA - CPD - Near North Park Athletic Field,-3150000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,IGA - CPD - Seward Park,-3802700.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,IGA - CPS - Payton H.S.,-1876200.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-547800.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,"Lighting - Sedgwick, North to Division",-92000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,North Branch Industrial Corridor Planning Study,-300.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,Professional Services - 24th Year Extension,-1900.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,RDA - Clybourn & Division,-101600.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,RDA - Parkside at Old Town Ph II-B,-357200.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,RDA - Parkside IIA Rental,-873800.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,RDA - Parkside II - Halsted,-9500000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,"Resurfacing - Oak, Orleans to Wells; Hobbie, Crosby to Larrabee",-100.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,TIF Works,-125000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Current Obligations,Traffic signal - Halsted/Blackhawk,-191000.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-030,Near North,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,136607500.00,1997-07-30T00:00:00.000,2033-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,Bike lanes - protected,31300.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,CDOT - Bridge - Cortland St - Design/Construction,20226900.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,CDOT - Bridge - Webster,18637200.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,CDOT - Intersection Realignment - Damen/Elston/Fullerton,1301100.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,CDOT - Streetscape - Study - Elston & Armitage,21500.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,Intersection improvements - Armitage/Elston/Ashland,1035300.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,Lighting - Neighborhood Lighting Improvements,551000.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,North Branch Industrial Corridor Planning Study,2600.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,Planned Manufacturing District study,500.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,Program Administration,-106600.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,TIF Works,67500.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Current Obligations,Traffic study - Elston/Fullerton/Damen,700.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Revenue,Property tax,8920700.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-669100.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Transfers Between TIF Districts,CDOT - Bridge - Cortland St - Design/Construction,-20131300.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Transfers Between TIF Districts,CDOT - Bridge - Cortland/Webster,-5000000.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Transfers Between TIF Districts,CDOT - Bridge - Webster,-24637200.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),2021,Transfers Between TIF Districts,To Cortland Chicago River (Intersection Reconfiguration - Armitage/Elston/Ashland),-6046100.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,Bike lanes - protected,-31300.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,CDOT - Bridge - Cortland St - Design/Construction,-20328900.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,CDOT - Bridge - Webster,-20701800.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,CDOT - Intersection Realignment - Damen/Elston/Fullerton,-1300700.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,CDOT - Streetscape - Study - Elston & Armitage,-10800.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,Intersection improvements - Armitage/Elston/Ashland,-1035300.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-1060000.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,North Branch Industrial Corridor Planning Study,-2600.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,Planned Manufacturing District study,-500.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,TIF Works,-67500.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Current Obligations,Traffic study - Elston/Fullerton/Damen,-700.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-033,North Branch (North),Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,50904600.00,1997-07-02T00:00:00.000,2021-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,Bike lanes - protected,24000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,CDOT - Bridge - Cherry Ave - rehab,203600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,CDOT - Bridge - Division St,-1250000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,Divvy station installation,96100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,Halsted Triangle Parking Study (Phase 2),1200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,Intersection improvements - Cortland/Marcy,1400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,North Branch truckway study,4900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,Program Administration,-114700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,SBIF,-500000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Current Obligations,TIF Works,6000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Revenue,Property tax,9966900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-747500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Transfers Between TIF Districts,To Cortland Chicago River (DPD - Study - North Branch Park Study),-1000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Transfers Between TIF Districts,To Cortland Chicago River (Intersection Reconfiguration - Armitage/Elston/Ashland),-7600000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2021,Transfers Between TIF Districts,To Goose Island (Bridge replacement - Division/N Branch River),-20000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Current Obligations,"CDOT - Traffic Signal - Left-Turn - Clybourn, Racine & Cortland",-105000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Current Obligations,Goose Island Overlook Park - AAA Boatyard/river edge stabilization,-500000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Current Obligations,Program Administration,-118200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Current Obligations,RDA - Morton Salt Infrastructure Improvements,-3500000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Current Obligations,Traffic signal - Sheffield/Kingsbury/Weed,130700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Fund Balance,Surplus TIF Funds - 2022,-3361800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Proposed Projects,AIS - Environmental Remediation - City Lot - 1111 N Elston Ave,-700000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Proposed Transfers,To Cortland Chicago River (Infrastructure),-11000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Revenue,Property tax,10322000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-516100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),2022,Transfers Between TIF Districts,Port To Cortland Chicago River TIF - CDOT - Cortland Bridge/Webster Bridge - Construction Contingency,-10000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,Bike lanes - protected,-24000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,CDOT - Bridge - Cherry Ave - rehab,-203600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,CDOT - Bridge - Division St,-1780700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-100000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,Divvy station installation,-96100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,Halsted Triangle Parking Study (Phase 2),-1200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,Intersection improvements - Cortland/Marcy,-1400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-794500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,North Branch Industrial Corridor Planning Study,-46500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,North Branch truckway study,-4900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,Professional services,-82000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,SBIF,-138100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,TIF Works,-54800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Current Obligations,Traffic signal - Sheffield/Kingsbury/Weed,-130700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-034,North Branch (South),Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,44949500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-035,North-Cicero,2021,Current Obligations,Debt Service - Interest Pmts,32500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Current Obligations,Professional Services - 24th Year Extension,1900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Current Obligations,Program Administration,-26500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Current Obligations,SBIF,261600.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Revenue,Property tax,2045400.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-153400.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Transfers Between TIF Districts,To Austin Commercial (Invest South West Program),-3000000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Transfers Between TIF Districts,To Northwest Ind. Corr. (AIS - DSS - Ferdinand Maintenance Garage - 4233 W Ferdinand - improvements),-1000000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Transfers Between TIF Districts,To Northwest Ind. Corr. (AIS - Northwest Material Recycling - 750 N Kilbourn Ave),-2000000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,2021,Transfers Between TIF Districts,To Northwest Ind. Corr. (Invest South West Program),-5231400.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,Fund / Project Balances,Current Obligations,CDOT - Sidewalk/curb/gutter repairs - ISW - Corridor 03,-33600.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,Fund / Project Balances,Current Obligations,Debt Service - Interest Pmts,-32500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-264600.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,Fund / Project Balances,Current Obligations,Professional Services - 24th Year Extension,-1900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,Fund / Project Balances,Current Obligations,SBIF,-264600.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-035,North-Cicero,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,9752000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,AIS - Fire Station - Engine Co. 001 - 419 S Wells St - MEP/Tuckpointing/Fire Alarm/Interior Repairs,-1250000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Bike lanes - protected,20500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Bike lanes - Protected Bikeways Program,23100.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Bridge/viaduct - 200-500 W Taylor St - Design,577800.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Bridge/viaduct - 315 W Roosevelt - maintenance,48400.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Bridge/viaduct - 406 W Van Buren - maintenance,26200.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,CDOT - Bridge - 18th St / Chicago River - repairs,66900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,CDOT - Bridge - Harrision Street - repairs,27900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,CDOT - Bridge - Roosevelt Rd - repairs,405200.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,CDOT - Bridge - Van Buren - repairs,400000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,CDOT - Streetscape - Congress Pkwy,192600.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Divvy station installation,90300.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Industrial Corridor / PMD study,200.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Program Administration,-286700.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Riverfront Trail - South Branch - Implementation Plan,112900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,River South alley reconstruction,146900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,The 78 Development - technical assistance,115000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,TIF Works,111500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Traffic signal - Roosevelt/LaSalle,84000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Viaduct - improvements - Clark & Roosevelt,252300.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Wells St/LaSalle Park infrastructure,20700.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Current Obligations,Wells Wentworth Connector,26700100.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Fund Balance,Surplus TIF Funds - 2021,-6942200.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Revenue,Property tax,24262100.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-1819700.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Transfers Between TIF Districts,Port to Roosevelt Clark TIF - Wells Wentworth Connector,-55240500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,2021,Transfers Between TIF Districts,To Roosevelt Clark (Bridge - Taylor St),-577800.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Bike lanes - protected,-20500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Bike lanes - Protected Bikeways Program,-23100.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Bridge/viaduct - 200-500 W Taylor St - Design,-600000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Bridge/viaduct - 315 W Roosevelt - maintenance,-48500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Bridge/viaduct - 406 W Van Buren - maintenance,-26200.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,CDOT - Bridge - 18th St / Chicago River - repairs,-344900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,CDOT - Bridge - Harrision Street - repairs,-27900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,CDOT - Bridge - Roosevelt Rd - repairs,-405200.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,CDOT - Bridge - Van Buren - repairs,-632500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,CDOT - Bridge - Van Buren - Repairs - Design,-1500000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-250000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,CDOT - Streetscape - Congress Pkwy,-192500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Divvy station installation,-90300.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Industrial Corridor / PMD study,-200.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-675500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Riverfront Trail - South Branch - Implementation Plan,-112900.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,River South alley reconstruction,-154600.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Street resurfacing - 36-100 W Polk St,-247700.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,The 78 Development - technical assistance,-115000.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,TIF Works,-111500.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Traffic signal - Roosevelt/LaSalle,-104700.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Underpass - 9th Street - design,-2888100.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Viaduct - improvements - Clark & Roosevelt,-252300.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,"Viaduct - repairs - 18th St, Wentworth to E side of Chicago River",-1314200.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Wells St/LaSalle Park infrastructure,-68600.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Current Obligations,Wells Wentworth Connector,-35056700.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-037,River South,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,79531400.00,1997-07-30T00:00:00.000,2021-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,"CDOT - Arterial Resurfacing - 16th St, 4400-4600 W",-328000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,CDOT - Viaduct Clearance - Kostner CSX Viaduct (Supplemental Request - Public Notice),-2000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,Industrial Growth Zone,2301800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,Lawndale RR Line - Development Framework Plan,-105000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,Lighting - Smart - residential - Ward 24,-328600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,Planned Manufacturing District study,700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,Program Administration,-58400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,"Resurfacing - Polk, Leamington, Lavergne",17100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Current Obligations,SBIF,-3000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Fund Balance,Surplus TIF Funds - 2021,-441400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Revenue,Property tax,5273500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-395500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Current Obligations,DPD - Study - SW Industrial Corridors - Transportation/Distribution/Logistics Uses,-24500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Current Obligations,Lighting - Smart - residential - Ward 24,405400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Current Obligations,Program Administration,-60200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Current Obligations,SBIF,-1000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Proposed Projects,CDOT - Viaduct Clearance - Kostner CSX Viaduct (Supplemental Request),-2000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Proposed Projects,DPD - TIF Plan Amendment - 12-Year Extension - Roosevelt Cicero,-250000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Proposed Transfers,To Ogden/Pulaski (Disposition services),-100000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Proposed Transfers,To Ogden/Pulaski (Traffic signals),-450000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Revenue,Property tax,5522700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-276100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,2022,Transfers Between TIF Districts,To Ogden/Pulaski (Invest South West Program),-12000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,AIS - Environmental Remediation - Roosevelt Kostner - 4300 W Roosevelt Rd/916 S Kildare Ave,-110000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,"CDOT - Arterial Resurfacing - Kostner, 1500-2200 S",-614600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,CDOT - Viaduct Clearance - Kostner CSX Viaduct,-2000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,Industrial Growth Zone,-2301800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,Lawndale RR Line - Preliminary RR Study,-105000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-1677000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,Lighting - Smart - residential - Ward 24,-515500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,Planned Manufacturing District study,-700.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,Professional Services - 24th Year Extension,-1900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,"Resurfacing - Polk, Leamington, Lavergne",-17100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,SBIF,-119200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Current Obligations,TIF Works,-74200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-038,Roosevelt/Cicero,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,16645600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2021,Current Obligations,AIS - Fire Dept - SLD - 3015 W 31st,-1200000.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2021,Current Obligations,Program Administration,-16300.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2021,Revenue,Property tax,1251400.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-93900.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2022,Current Obligations,AIS - DWM - Meter Shop - 3148 S Sacramento Ave - MEP/Exterior/Interior Repairs,-1050000.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2022,Current Obligations,DPD - Study - SW Industrial Corridors - Transportation/Distribution/Logistics Uses,-12700.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2022,Current Obligations,Program Administration,-16800.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2022,Revenue,Property tax,1307800.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-65400.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2023,Current Obligations,Program Administration,-17300.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2023,Revenue,Property tax,1307800.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2024,Current Obligations,Program Administration,-17800.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2024,Revenue,Property tax,1307800.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2025,Current Obligations,Program Administration,-18400.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2025,Revenue,Property tax,1365900.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2026,Current Obligations,Program Administration,-18900.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2026,Revenue,Property tax,1365900.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2027,Current Obligations,Program Administration,-19500.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,2027,Revenue,Property tax,1365900.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,Fund / Project Balances,Current Obligations,AIS - Environmental Remediation - 3148 S Sacramento,-175000.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,Fund / Project Balances,Current Obligations,AIS - Fire Dept - SLD - 3015 W 31st,-439700.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,Fund / Project Balances,Current Obligations,CDOT - Bridge - 3300 S California Bridge - structural repairs,-838100.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-580000.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,Fund / Project Balances,Current Obligations,TIF Works,-100000.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-042,Sanitary Drainage and Ship Canal,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,2194000.00,1991-07-24T00:00:00.000,2027-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Current Obligations,"Arterial resurfacing - 47th, Racine to Normal",45400.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Current Obligations,Bike lanes - Protected Bikeways Program,16800.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Current Obligations,Planned Manufacturing District study,100.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Current Obligations,Program Administration,-29500.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Current Obligations,Resurfacing - Stockyards area,147400.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Fund Balance,Surplus TIF Funds - 2021,-186400.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Revenue,Property tax,2581600.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-193600.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2022,Current Obligations,DPD - Study - SW Industrial Corridors - Transportation/Distribution/Logistics Uses,-13800.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2022,Current Obligations,Program Administration,-30400.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2022,Proposed Projects,AIS - Environmental Remediation - City Lot - 4512 S Halsted St,-750000.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2022,Proposed Projects,OBM Hold - Critical Neighborhood Infrastructure,-2100000.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2022,Proposed Projects,Proposed Redevelopment Project #1,-3200000.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2022,Revenue,Property tax,2719200.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-136000.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2023,Current Obligations,Program Administration,-31300.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2023,Proposed Projects,Proposed Redevelopment Project #1,-3200000.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2023,Revenue,Property tax,2719200.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2024,Current Obligations,Program Administration,-32300.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2024,Revenue,Property tax,2719200.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2025,Current Obligations,Program Administration,-33300.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2025,Revenue,Property tax,2860900.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2026,Current Obligations,Program Administration,-34300.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2026,Revenue,Property tax,2860900.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2027,Current Obligations,Program Administration,-35300.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2027,Revenue,Property tax,2860900.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2028,Current Obligations,Program Administration,-36300.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,2028,Revenue,Property tax,3006800.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,Fund / Project Balances,Current Obligations,"Arterial resurfacing - 47th, Racine to Normal",-45400.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,Fund / Project Balances,Current Obligations,Bike lanes - Protected Bikeways Program,-16800.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,Fund / Project Balances,Current Obligations,CDOT - Lighting - Neighborhood Lighting Improvements,-299200.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,Fund / Project Balances,Current Obligations,"CDOT - Traffic Calming - Racine, 43rd to 47th",-400000.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,Fund / Project Balances,Current Obligations,Planned Manufacturing District study,-100.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,Fund / Project Balances,Current Obligations,Resurfacing - Stockyards area,-147400.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,Fund / Project Balances,Current Obligations,SBIF,-338000.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-045,Stockyards Southeast Quadrant Industrial,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,8409200.00,1992-02-26T00:00:00.000,2028-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,AIS - Fire Station - Engine Co. 107 - 1101 S California Ave - MEP/Fencing/Apron/Interior Repairs,-630000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,AIS - OEMC - 311 Center - 2111 W Lexington St - MEP,-735000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,CDOT - Altgeld Park - ADA Polling Place,-69000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Divvy station installation,144200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Facility rehab - 2350 W Ogden Ave,29600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Lawndale RR Line - Development Framework Plan,-50000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Lawndale RR Line - Preliminary RR Study,-30000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Planned Manufacturing District study,600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Program Administration,-149300.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Street improvements - 2400-2500 W Cullerton,-20400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,"Street improvements - Damen, 14th St to 18th",39000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Street resurfacing / sidewalk repairs - Ward 28,51100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,TIF Works,37400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Vertical clearance improvements - 1010 S California,220300.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Current Obligations,Viaduct - improvements - Wood & Paulina,19500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Revenue,Property tax,12279400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-921000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,AIS - Business Affairs and Consumer Services - 2350 W Ogden - HVAC,-350000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,CDOT - CTA - Bus Priority Zone - Ogden / Polk - Bus Route 49/x49,-660000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,"CDOT - Sidewalk - Ogden, Rockwell to Washtenaw",-8000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,CDOT - Traffic signal - 15th & Ashland,-350000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,Children's Advocacy Center,-56300.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,DPD - Study - SW Industrial Corridors - Transportation/Distribution/Logistics Uses,-21300.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,Facility rehab - 2350 W Ogden Ave,800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,IGA - CPS - Simpson Academy - chimney/stack reduction,-750000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,Program Administration,-153800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Current Obligations,Street resurfacing / sidewalk repairs - Ward 28,102500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Proposed Projects,DPD - TIF Plan Amendment - 12-Year Extension - Western Ogden,-300000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Proposed Transfers,To Roosevelt/Racine (RDA - ABLA - Phase - Future),-12000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Revenue,Property tax,12731500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-636600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Transfers Between TIF Districts,Port to Roosevelt Racine TIF - CHA Transformation project,-17000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Transfers Between TIF Districts,Port to Roosevelt Racine TIF - Park project,-3500000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Transfers Between TIF Districts,To Roosevelt/Racine (Fire facility rehab),-700000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Transfers Between TIF Districts,To Roosevelt/Racine (Lighting),-280000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Transfers Between TIF Districts,To Roosevelt/Racine (Police facility rehab),-1000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,2022,Transfers Between TIF Districts,To Roosevelt/Racine (RDA - Barbara Jean Wright Apts),-4000000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,AIS - Children's Advocacy Center - mechanical/HVAC/roof/masonry,-1250000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,AIS - Fire Station - Engine Co. 107 - 1101 S California Ave - MEP,-200000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,AIS - Fire Station - Engine Co. 107 - Equal Access rehab - 1101 S California Ave,-53900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,"AIS - OEMC - 311 Center - 2111 W Lexington St - Flooring, Mechanicals, Lighting, Elevator Improvements, Parking Lot Improvements",-140800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-60000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Children's Advocacy Center,-56300.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Curb/Gutter - Maplewood/Taylor,-58800.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Divvy station installation,-144200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Facility rehab - 2350 W Ogden Ave,-196900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Lighting - improvements - Garfield Park Neighborhood,-407900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-2611400.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Planned Manufacturing District study,-600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Professional Services - 24th Year Extension,-1900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,"Resurfacing - Western, 16th St to 18th Place",-158900.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,SBIF,-1628000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Street improvements - 2400-2500 W Cullerton,-135100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,"Street improvements - Damen, 14th St to 18th",-39000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Street resurfacing / sidewalk repairs - Ward 28,-153600.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,TIF Works,-273100.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Vertical clearance improvements - 1010 S California,-220300.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Viaduct - improvements - 1900-2000 S California Ave,-18000.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,Viaduct - improvements - Wood & Paulina,-19500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Current Obligations,"West Nile Abatement Center - 2133 W Lexington - roof, flooring, mechanicals, lighting, elevator improvements, parking lot improvements",-65200.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-048,Western/Ogden,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,26684500.00,1998-02-05T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,AIS - Chicago Center For Green Technology - 445 N Sacramento Ave - Windows/ADA/Elevators/Flooring,-1875000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,AIS - DSS - Ward Yard - 01st/27th Ward - 2502 W Grand Ave - MEP/Tuckpointing/Interior Repairs,-525000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,CDOT - ADA Polling Place - Morton/Cather/Otis Schools et Smith Park,-198500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,CDOT - Metra Fulton Market Area In-fill Station - 355 N Ashland Ave - Acquisition Land / FMIS Planning,-500000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,"CDOT - Streetscape - Fulton Market, Halsted to Morgan",227700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,"CDOT - Streetscape - Fulton Market, Morgan to Ogden",70400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,"CDOT - Streetscape - Western, Lake to Monroe",30600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,CDOT - West Side Infrastructure Improvements - Green Alley,-300000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,CDOT - West Side Infrastructure Improvements - Lighting - Arterial,-1740000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,CDOT - West Side Infrastructure Improvements - Streetscape Signage,-10000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,CDOT - West Side Infrastructure Improvements - viaduct/street resurfacing/curb/gutter/lighting/sidewalk,-4950000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,Diagonal parking,34000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,DPD - Study - Traffic - Fulton Market Area,-300000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,DPD - TIF Plan Amendment - 12 Year Extension - Kinzie TIF,-500000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,Parking Improvement Plan,11900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,Planned Manufacturing District study,600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,Program Administration,-771400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,RDA - Harold Washington Unity Coop,-36800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,RDA - Peppercorn 240 LLC Note A,-187300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,RDA - Peppercorn 240 LLC Note B,-108900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,SBIF,-2000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,Street improvements - Hatchery vicinity,138600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,"Street improvements - Kinzie, Ogden to Carpenter; Racine, Carroll to Hubbard",409300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Current Obligations,"Street resurfacing/sidewalk/viaduct - Oakley Blvd, 300-400 N Oakley Ave",75000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Fund Balance,Surplus TIF Funds - 2021,-2911900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Revenue,Property tax,69487800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-5211600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Transfers Between TIF Districts,To Chicago/Central Park (MSAC DS - 2010 - Westinghouse HS),-5347500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2021,Transfers Between TIF Districts,To Midwest (Street improvements),-5100000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,"""606"" Bloomingdale Trail - rail spur and relocation costs",18800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,AIS - Environmental assessment/remediation - Lake/Maypole - additional,-1221000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,Alley reconstruction - Phase 1 - Ward 27,12600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,CDOT - Metra Fulton Market Area In-fill Station - 355 N Ashland Ave - Acquisition Land / FMIS Planning,-20000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,CDOT - Traffic signal - 1000/1100 W Lake,67000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,CDOT - Traffic signal - Halsted / Fulton Market,111600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,DPD - Kinzie Industrial Improvements,-1150000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,DPD - Study - Redevelopment Kinzie/Lake - Hatchery Area - 17 City Owned Sites,-66000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,Environmental assessment/remediation,3100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,Green Alley Program - 27th Ward,38800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPD - Bickerdike Square Park - Water Service / Lighting,-135000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPD - Joseph Higgins Smith Park - pool deck and liner,-150000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPS - Beidler - turf retrofit/replacement,-400000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,"IGA - CPS - Building Automation System (""BAS"") - Kinzie Industrial TIF",-280000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPS - Cather - Masonry/Roof/Envelope,-4200000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPS - Cather - Mechanical,-4700000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPS - Morton - masonry/roof/envelope,-3100000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPS - Otis - chimney/stack reduction,-750000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPS - Otis - masonry/roof/envelope,-3500000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CPS - Otis - MEP,-6800000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CTA - Green Line - Morgan Station - construction,200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,IGA - CTA - Green Line - track/structural upgrades - Phase 1,-17266000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,Lighting - 3100 W Lake,27700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,"Lighting - Grand, Central Pk to Western",202500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,Professional services,125600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,Program Administration,-794600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,RDA - Chicago Greenworks LLC,13400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,"Street improvements - Grand, Damen to Racine (Section 7)",-3253300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,"Street improvements - Kinzie, Carpenter, Peoria, Green",246400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,"Street reconstruction - Lake, Damen to Ashland",870100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,Street resurfacing - Westside,2000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Current Obligations,Vaulted sidewalks - 1052 Fulton Market,20600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Proposed Projects,ADA Polling Place,-96000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Proposed Projects,CDOT - Traffic Signal - 800 W Hubbard St,-600000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Proposed Projects,DPD - Pre-Development Services Consultant - Opportunity Sites,-100000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Revenue,Property tax,71865100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-3593300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Transfers Between TIF Districts,To Chicago/Central Park (Invest South West Program),-15000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Transfers Between TIF Districts,To Chicago/Central Park (MSAC DS - 2010 - Westinghouse HS),-1370500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Transfers Between TIF Districts,To Midwest (AIS - Garfield Community Center - 10 S Kedzie Ave),-2200000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Transfers Between TIF Districts,To Midwest (CTA - Green Line - Track/Structural Improvements),-2833500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,2022,Transfers Between TIF Districts,To Midwest (IGA - CPS - Frazier E.S.),-6000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"""606"" Bloomingdale Trail - rail spur and relocation costs",-18800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,AIS - CPL - Library - Richard M. Daley Library - 733 N Kedzie Ave - fire/life safety/MEP,-500000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Alley reconstruction - Phase 1 - Ward 27,-12600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-880000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Metra - Crossing Improvements - Study,-850000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"CDOT - Streetscape - Fulton Market, Halsted to Morgan",-1556000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"CDOT - Streetscape - Fulton Market, Morgan to Ogden",-379300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"CDOT - Streetscape - Western, Lake to Monroe",-30600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Traffic signal - 1000/1100 W Lake,-67000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Traffic signal - Halsted / Fulton Market,-111600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Chicago Farmworks Ph II,-76800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,CTA lighting improvements - Lake St,-1437000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Damen/Lake Green Line Station - power upgrade,-5000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Diagonal parking,-34000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,DSS - Salt Dome - 2555 W Grand Ave - Salt Dome,-9524400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Environmental assessment/remediation,-3100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Fulton Market Metra In-Fill Station feasibility study,-313000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Green Alley Program - 27th Ward,-38800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Green Line - Damen station - construction,-62261700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Green Line - Damen station - design,-624200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,IGA - CTA - Green Line - Morgan Station - construction,-200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Kinzie Industrial Modernization Study,-574600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Lighting - 3100 W Lake,-44200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"Lighting - Grand, Central Pk to Western",-202500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-4838900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Parking Improvement Plan,-11900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Planned Manufacturing District study,-600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Professional services,-125500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Randolph St Corridor Imrovement Study,-173000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,RDA - Chicago Greenworks LLC,-13400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,RDA - Peppercorn 240 LLC Note A,-127600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,RDA - Peppercorn 240 LLC Note B,-74200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,RDA - The Hatchery - site development,-10300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Resurfacing/curb/gutter/ADA ramps - multiple locations,-34000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,SBIF,-1714000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Site remediation/fencing - 2527 W Lake,-671400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"Street improvements - Grand, Chicago Ave to Damen",-14750000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"Street improvements - Grand, Damen to Racine (Section 7)",-1001700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Street improvements - Hatchery vicinity,-215900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"Street improvements - Kinzie, Carpenter, Peoria, Green",-246400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"Street improvements - Kinzie, Ogden to Carpenter; Racine, Carroll to Hubbard",-409300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"Street reconstruction - Lake, Ashland to Halsted",-12000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"Street reconstruction - Lake, Damen to Ashland",-1520200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,"Street resurfacing/sidewalk/viaduct - Oakley Blvd, 300-400 N Oakley Ave",-149100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Street resurfacing - Westside,-2000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,TIF Works,-1245800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Current Obligations,Vaulted sidewalks - 1052 Fulton Market,-20600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-052,Kinzie Industrial Corridor,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,165381000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,AIS - DSS - Facility Relocation - 1635 S Canal St (18th St Clark Relocation) - New Construction,-4800000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,"Arterial resurfacing - Loomis, Eleanor to Blue Island",390900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Bike lanes - protected,191100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Bike lanes - Protected Bikeways Program,67000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,CDOT - Bridge - Western Ave - repairs,19000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,CDOT - EPA Remediation - Resurfacing - 21st & Loomis,158900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,"CDOT - Streetscape - Blue Island, Wolcott to Western",664000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,"CDOT - Streetscape - Cermak, Halsted to Ashland; Blue Island, Ashland to Wolcott",72900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Debt service - Series 2014 - Pilsen Ind Corr,-4868600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,DSS - Ward Yard - Improvements,41600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Environmental assessment/remediation,7700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Industrial Corridor / PMD study,500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Lee Animal Care & Control,230100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Pre-acquisition costs,2600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Program Administration,-271200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,SBIF,-500000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,Street resurfacing - 2200 S Ford Ave,35500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Current Obligations,TIF Works,248700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Revenue,Property tax,25442700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-1908200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,CDOT - Sangamon Paseo - Acquisition - Railroad Parcel,-5000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,Debt service - Series 2014 - Pilsen Ind Corr,-7877100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,DPD - Acquisition - 1600-1800 S Peoria St,-12150000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,DPD - Pilsen development - legal fees,-200000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,DPD - Study - SW Industrial Corridors - Transportation/Distribution/Logistics Uses,-53800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,DPD - TIF Plan Amendment - 12-Year Extension - Pilsen,-1750000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,"IGA - CPS - Building Automation System (""BAS"") - Pilsen Industrial TIF",-431000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,IGA - CPS - Perez - windows/envelope,-5000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,IGA - CPS - Ruiz - mechanical,-3800000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,IGA - CPS - Walsh - masonry/roof/envelope,-3500000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,IGA - CPS - Whittier E.S. - chimney reduction,-750000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,Professional services,15600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,Program Administration,-279300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,RDA - Target - 33rd/Damen,-1113000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,SBIF,-1500000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,Street improvements - 25th & Damen,52300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Current Obligations,Traffic signal - Leavitt & Blue Island,27700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Proposed Projects,CDOT - Bridge - Canal St Bascule - 2021 S Canal St - structural repairs and sidewalk replacement,-2750000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Proposed Projects,"CDOT - Street Resurfacing - Hoyne Ave, S Blue Island to Dead End - 2432-2700 S Hoyne Ave",-2250000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Revenue,Property tax,26394800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-1319700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,AIS - DSS - Facility Relocation - 1635 S Canal St (18th St Clark Relocation) - Acquisition,-1794400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,AIS - DSS - Facility Relocation - 1635 S Canal St (18th St Clark Relocation) - New Construction,-5000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Alley reconstruction - 925 W 18th St,-117300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,"Arterial resurfacing - Loomis, Eleanor to Blue Island",-390900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Bike lanes - protected,-191100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Bike lanes - Protected Bikeways Program,-67000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Arterial resurfacing - 2020,-185000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Bridge - Cermak Rd Bascule - 501 W Cermak - sidewalk replacement,-2618700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Bridge - Halsted St bridge - replacement - design/environmental,-3441800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Bridge - Loomis St - repairs,-1272500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Bridge - Structural Rehab - 3100 S Western Ave,-4000000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Bridge - Western Ave - repairs,-19000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - EPA Remediation - Resurfacing - 21st & Loomis,-158900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,CDOT - Lighting - decorative pole replacement,-280000.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,"CDOT - Streetscape - Blue Island, 19th to 21st",-654900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,"CDOT - Streetscape - Blue Island, Wolcott to Western",-648700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,"CDOT - Streetscape - Cermak, Halsted to Ashland; Blue Island, Ashland to Wolcott",-72900.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,"DSS - Forestry/Rodent HQ - 2352 S Ashland - life/safety, MEP, interior & exterior renovations",-1952700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,DSS - Ward Yard - Improvements,-41600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Environmental assessment/remediation,-7700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,IGA - CPD - Dvorak Park,-458500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Industrial Corridor / PMD study,-500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Lee Animal Care & Control,-2230100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-1960600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Pilsen-Little Village Industrial Modernization Study,-646300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Pre-acquisition costs,-2600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Professional services,-15600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,RDA - Target - 33rd/Damen,-541700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Sangamon Paseo,-965800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Sangamon Paseo - lighting/street improvements,-730500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Sangamon Paseo - Phase I - engineering,-901800.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,SBIF,-504100.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Street improvements - 25th & Damen,-52300.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Street resurfacing - 2200 S Ford Ave,-89600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,TIF Works,-430400.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Traffic signal - Leavitt & Blue Island,-27700.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,Viaduct - closure - 2401 Archer and 2332 Archer,-114200.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Current Obligations,"Viaduct Improvements - Normal, Archer to Grove",-342600.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-053,Pilsen Industrial Corridor,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,46330500.00,1998-06-10T00:00:00.000,2022-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,CDOT - ADA Polling Place - Jesse Owens Park/Schmidt School,-136100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Industrial Corridor / PMD study,1100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Industrial Growth Zone,457800.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Lake Calumet Industrial Area - Industrial Use Study,-19700.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Lighting - 8900 to 9100 S Woodlawn Ave,29900.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Program Administration,-52200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,RDA - Montclare Sr - Calumet Heights,-600000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Resurface/sidewalk - CVCA - 8500-8700 S Chappel Ave,78500.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,"Resurfacing - Clyde, 87th to 89th St",52400.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,"Resurfacing/sidewalks - 99th, Cottage Grove to Dobson",34800.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,SBIF,-750000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Sidewalks - 8000-8200 S Stony Island,173000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Street resurfacing - 9700-9800 University Ave; sidewalks - 8400-8500 Stony Island,57200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Current Obligations,Traffic signal,72700.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Revenue,Property tax,5219700.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-391500.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2021,Transfers Between TIF Districts,To North Pullman (Gately Park),-2000000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Current Obligations,IGA - CPD - Park 0237 - Owens Park - Remove tiles / Retop PIP / Play Equipment Repairs - 2100 E 88th St,-300000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Current Obligations,IGA - CPD - Park 0363 - Burnside Park - Improvements/Water Features - 9400 S Greenwood Ave,-800000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Current Obligations,"IGA - CPS - Chicago Vocational H.S. - Building Automation System (""BAS"")",-238000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Current Obligations,Program Administration,-53800.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Current Obligations,RDA - A Finkl & Sons Co,-410000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Current Obligations,RDA - Montclare Sr - Calumet Heights,-600000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Current Obligations,"Resurfacing/sidewalks - 99th, Cottage Grove to Dobson",6400.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Current Obligations,SBIF,-250000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Proposed Projects,ADA Polling Place,-85400.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Revenue,Property tax,5458300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-272900.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2022,Transfers Between TIF Districts,To North Pullman (Gately Park),-5500000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2023,Current Obligations,Program Administration,-55400.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2023,Current Obligations,RDA - A Finkl & Sons Co,-420000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2023,Current Obligations,RDA - Montclare Sr - Calumet Heights,-600000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2023,Proposed Projects,Proposed Redevelopment Project #1,-1700000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2023,Revenue,Property tax,5458300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2024,Current Obligations,Program Administration,-57000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2024,Current Obligations,RDA - A Finkl & Sons Co,-420000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2024,Current Obligations,RDA - Montclare Sr - Calumet Heights,-600000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2024,Proposed Projects,Proposed Redevelopment Project #1,-3400000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2024,Revenue,Property tax,5458300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2025,Current Obligations,Program Administration,-58800.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2025,Current Obligations,RDA - A Finkl & Sons Co,-420000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2025,Revenue,Property tax,5704100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2026,Current Obligations,Program Administration,-60500.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2026,Current Obligations,RDA - A Finkl & Sons Co,-430000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2026,Revenue,Property tax,5704100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2027,Current Obligations,Program Administration,-62300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2027,Current Obligations,RDA - A Finkl & Sons Co,-430000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2027,Revenue,Property tax,5704100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2028,Current Obligations,Program Administration,-64200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2028,Current Obligations,RDA - A Finkl & Sons Co,-430000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2028,Revenue,Property tax,5957300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2029,Current Obligations,Program Administration,-66100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2029,Current Obligations,RDA - A Finkl & Sons Co,-440000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2029,Revenue,Property tax,5957300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2030,Current Obligations,Program Administration,-68100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2030,Current Obligations,RDA - A Finkl & Sons Co,-440000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2030,Revenue,Property tax,5957300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2031,Current Obligations,Program Administration,-70200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2031,Current Obligations,RDA - A Finkl & Sons Co,-440000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2031,Revenue,Property tax,6218100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2032,Current Obligations,Program Administration,-72300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2032,Current Obligations,RDA - A Finkl & Sons Co,-450000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2032,Revenue,Property tax,6218100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2033,Current Obligations,Program Administration,-74400.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2033,Current Obligations,RDA - A Finkl & Sons Co,-13450000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2033,Revenue,Property tax,6218100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2034,Current Obligations,Program Administration,-76700.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,2034,Revenue,Property tax,6489200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,AIS - CPL - Library - Avalon Library - 8148 S Stony Island Ave - MEP,-200000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Industrial Corridor / PMD study,-1100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Industrial Growth Zone,-457800.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Lighting - 8900 to 9100 S Woodlawn Ave,-51300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Lighting - Neighborhood Lighting Improvements,-1899400.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,RDA - A Finkl & Sons Co,-419100.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Resurface/sidewalk - CVCA - 8500-8700 S Chappel Ave,-178900.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,"Resurfacing - Clyde, 87th to 89th St",-52400.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,"Resurfacing/sidewalks - 99th, Cottage Grove to Dobson",-41200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,SBIF,-159300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Sidewalk installation / repair - 8220 S Stony Island perimeter,-127300.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Sidewalk repair - 9101-9131 S Stony Island,-42500.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Sidewalks - 8000-8200 S Stony Island,-173000.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Street resurfacing - 9700-9800 University Ave; sidewalks - 8400-8500 Stony Island,-57200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,TIF Works,-305200.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Current Obligations,Traffic signal,-72700.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-054,Stony Island Avenue Commercial and Burnside Industrial Corridors,Fund / Project Balances,Fund Balance,FY 2020 Year End Available Fund Balance,7412700.00,1998-06-10T00:00:00.000,2034-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,AIS - DFSS - Community Service Center - M.L. King - 4314 S Cottage Grove - mechanical/cooling/life safety/interior,-300000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,AIS - DSS - Ward Yard - Ward 4 - 4352 S Cottage Grove Ave - HVAC/Interior/Life Safety,-200000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,AIS - Fire Station - Engine Co. 045 - 4600 S Cottage Grove Ave - MEP,-200000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,AIS - Fire Station - Engine Co. 045 - Repairs,35700.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,DPD - TIF Plan Amendment - 12 Year Extension - 43rd Cottage Grove TIF,-300000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,Program Administration,-51500.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,RDA - Hearts United III LP,-111000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,RDA - Hearts United I LP,-67900.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,RDA - Shops & Lofts at 47th (commercial),-39200.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,Retail Thrive Zone,20000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,Street improvements - Drexel Blvd,79900.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Current Obligations,TIF Works,171500.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Revenue,Property tax,4451400.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2021,Revenue,Property Tax - 2021 - 7.5% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-333900.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,DOH - Purchase Rehab Program,-2000000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,ISW - Admin,-123800.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,Program Administration,-53000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,RDA - Hearts United III LP,-120800.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,RDA - Hearts United II LP,-285300.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,RDA - Lillian Marcie Center - ISW-05,-3000000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,RDA - Shops & Lofts at 47th (commercial),-60600.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,RDA - Shops & Lofts at 47th (residential),-1951200.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Current Obligations,SBIF,-1000000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Proposed Projects,AIS - DSS - Ward Yard - 04th Ward - 4352 S Cottage Grove Ave - MEP/Life-Safety/Exterior/Interior Repairs,-525000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Proposed Projects,CDOT - Lighting - Neighborhood Lighting Improvements,-1800000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Proposed Projects,DPD - Pre-Development Services Consultant - Opportunity Sites,-100000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Proposed Projects,Proposed ISW Project(s),-7500000.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Revenue,Property tax,4615300.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Revenue,Property Tax - 2022 - 5.0% Reserve For COVID-19 Tax Revenue Uncertainty - Tax Amounts/Collection Loss/Appeals/Refunds,-230800.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000
+T-055,43rd/Cottage Grove,2022,Transfers Between TIF Districts,From 47th/King (Invest South West Program),7673800.00,1998-07-08T00:00:00.000,2022-12-31T00:00:00.000

@@ -1,0 +1,552 @@
+date_received,requestor,event_location,event_date,event_end_date,permit_status,approved_or_denied
+2017-04-03T00:00:00.000,Tax March Chicago,Daley Center,2017-04-15T00:00:00.000,2017-04-15T00:00:00.000,Pending,
+2017-03-28T00:00:00.000,Enosis - Hellenic Flag Raising Ceremony,Daley Center,2017-04-28T00:00:00.000,2017-04-28T00:00:00.000,Pending,
+2017-03-28T00:00:00.000,Asian American Coalition of Chicago,Daley Center,2017-05-22T00:00:00.000,2017-05-26T00:00:00.000,Pending,
+2017-03-23T00:00:00.000,BH Club of Chicago,Daley Center,2017-07-11T00:00:00.000,2017-07-11T00:00:00.000,Pending,
+2017-03-17T00:00:00.000,Polish Constitution Day Parade Committee,Daley Center,2017-05-06T00:00:00.000,2017-05-06T00:00:00.000,Pending,
+2017-03-16T00:00:00.000,IL N.O.R.M.C.,Daley Center,2017-05-06T00:00:00.000,2017-05-06T00:00:00.000,Pending,
+2017-03-16T00:00:00.000,"Engage & Resonate, LLC - ComEd IceBox Derby",Daley Center,2017-08-05T00:00:00.000,2017-08-05T00:00:00.000,Pending,
+2017-03-16T00:00:00.000,8th Day Center for Justice,Daley Center,2017-04-14T00:00:00.000,2017-04-14T00:00:00.000,,Approved
+2017-03-16T00:00:00.000,Thomas More Society - Divine Mercey,Daley Center,2017-04-13T00:00:00.000,2017-04-24T00:00:00.000,,Approved
+2017-03-14T00:00:00.000,Freedom From Religion Foundation,Daley Center,2017-04-13T00:00:00.000,2017-04-22T00:00:00.000,,Approved
+2017-03-13T00:00:00.000,Shire,Daley Center,2017-04-17T00:00:00.000,2017-04-17T00:00:00.000,Pending,
+2017-03-04T00:00:00.000,City Year Chicago,Daley Center,2017-03-17T00:00:00.000,2017-03-17T00:00:00.000,,Approved
+2017-02-28T00:00:00.000,The Ancona School,Daley Center,2017-05-01T00:00:00.000,2017-05-01T00:00:00.000,,Approved
+2017-02-28T00:00:00.000,Assyrian American National Federation,Daley Center,2017-04-01T00:00:00.000,2017-04-01T00:00:00.000,,Approved
+2017-02-24T00:00:00.000,Lincoln United Methodist Church,Daley Center,2017-05-01T00:00:00.000,2017-05-01T00:00:00.000,Pending,
+2017-02-23T00:00:00.000,Chicago Federation of Labor,Daley Center,2017-05-01T00:00:00.000,2017-05-01T00:00:00.000,,Approved
+2017-02-21T00:00:00.000,Martha Neary - Your Are My Neighbor,Daley Center,2017-03-18T00:00:00.000,2017-03-18T00:00:00.000,,Approved
+2017-02-13T00:00:00.000,Human Adventure Corporation - Way of the Cross,Daley Center,2017-04-14T00:00:00.000,2017-04-14T00:00:00.000,Pending,
+2017-02-10T00:00:00.000,Alzheimer's Association,Daley Center,2017-06-07T00:00:00.000,2017-06-07T00:00:00.000,Pending,
+2017-02-07T00:00:00.000,Not My President's Day,Daley Center,2017-02-20T00:00:00.000,2017-02-20T00:00:00.000,,Withdrew
+2017-02-03T00:00:00.000,Ryan A. Rock - Political Rally,Daley Center,2017-05-05T00:00:00.000,2017-05-05T00:00:00.000,Pending,
+2017-01-30T00:00:00.000,The Markham Group,Daley Center,2017-02-01T00:00:00.000,2017-02-01T00:00:00.000,,Withdrew
+2017-01-25T00:00:00.000,Chicago Cares,Daley Center,2017-06-24T00:00:00.000,2017-06-24T00:00:00.000,Pending,
+2017-01-23T00:00:00.000,Consulate General of the Republic of Turkey & Turkish American Cultural Alliance,Daley Center,2017-09-08T00:00:00.000,2017-09-09T00:00:00.000,Pending,
+2017-01-23T00:00:00.000,American Kidney Fund,Daley Center,2017-06-06T00:00:00.000,2017-06-06T00:00:00.000,Pending,
+2017-01-20T00:00:00.000,American Heart Association,Daley Center,2017-06-15T00:00:00.000,2017-06-15T00:00:00.000,Pending,
+2017-01-13T00:00:00.000,Illinois Judicial Concil,Daley Center,2017-02-01T00:00:00.000,2017-02-28T00:00:00.000,,Approved
+2017-01-13T00:00:00.000,Cradles to Crayons,Daley Center,2017-08-09T00:00:00.000,2017-08-10T00:00:00.000,Pending,
+2017-01-11T00:00:00.000,Chicago Transit Authority,Daley Center,2017-06-06T00:00:00.000,2017-06-06T00:00:00.000,Pending,
+2017-01-11T00:00:00.000,Consulate General of Bulgaria,Daley Center,2017-03-04T00:00:00.000,2017-03-04T00:00:00.000,,Approved
+2017-01-11T00:00:00.000,Chicago Ideas Week,Daley Center,2017-10-09T00:00:00.000,2017-10-24T00:00:00.000,Pending,
+2017-01-10T00:00:00.000,Rape Victim Advocates,Daley Center,2017-04-28T00:00:00.000,2017-04-28T00:00:00.000,Pending,
+2017-01-10T00:00:00.000,City of Chicago Dept. of Business Affairs & Consumer Protection - Food Trucks,Daley Center,2017-03-24T00:00:00.000,2017-10-27T00:00:00.000,Pending,
+2017-01-09T00:00:00.000,Chalk Art,Daley Center,2017-05-26T00:00:00.000,2017-05-26T00:00:00.000,Pending,
+2017-01-05T00:00:00.000,The Morton Arboretum ,Daley Center,2017-04-28T00:00:00.000,2017-04-28T00:00:00.000,Pending,
+2017-01-03T00:00:00.000,"Gernam American Evetns, LLC - Christkindlmarket ",Daley Center,2017-10-26T00:00:00.000,2018-01-10T00:00:00.000,Pending,
+2016-12-06T00:00:00.000,Consulate General of the Republic of Serbia,Daley Center,2017-02-15T00:00:00.000,2017-02-15T00:00:00.000,Pending,
+2016-12-06T00:00:00.000,The ALS Association Greater Chicago  ,Daley Center,2017-05-24T00:00:00.000,2017-05-24T00:00:00.000,Pending,
+2016-11-26T00:00:00.000,Lubavitch Chabad of the Loop - Menorah Display,Daley Center,2016-12-19T00:00:00.000,2017-01-09T00:00:00.000,,Approved
+2016-11-21T00:00:00.000,"Amdur Productions, Inc.",Daley Center,2017-05-02T00:00:00.000,2017-08-04T00:00:00.000,Pending,
+2016-11-14T00:00:00.000,Lincoln United Methodist Church,Daley Center,2017-01-20T00:00:00.000,2017-01-20T00:00:00.000,,Approved
+2016-11-01T00:00:00.000,Ziff A. Sistrunk - Prayer Vigil,Daley Center,2016-11-16T00:00:00.000,2016-11-16T00:00:00.000,,Withdrew
+2016-11-01T00:00:00.000,MASOM Parade,Daley Center,2016-11-20T00:00:00.000,2016-11-20T00:00:00.000,,Approved
+2016-10-27T00:00:00.000,Consulate General of India,Daley Center,2017-08-15T00:00:00.000,2017-08-15T00:00:00.000,Pending,
+2016-10-26T00:00:00.000,Dominica Independence Flag Raising,Daley Center,2016-11-03T00:00:00.000,2016-11-10T00:00:00.000,,Withdrew
+2016-10-20T00:00:00.000,Active Transportation Alliance,Daley Center,2017-06-16T00:00:00.000,2017-06-16T00:00:00.000,Pending,
+2016-10-20T00:00:00.000,Active Transportation Alliance,Daley Center,2017-01-13T00:00:00.000,2017-01-13T00:00:00.000,,Approved
+2016-10-20T00:00:00.000,Forest Preserve of Cook County,Daley Center,2017-06-06T00:00:00.000,2017-06-13T00:00:00.000,Pending,
+2016-10-11T00:00:00.000,Deep Dish Productions of Chicago - Steve Harvey Filming,Daley Center,2016-10-13T00:00:00.000,2016-10-13T00:00:00.000,,Approved
+2016-10-11T00:00:00.000,"Spark Program, Inc.",Daley Center,2017-06-02T00:00:00.000,2017-06-02T00:00:00.000,,Approved
+2016-10-07T00:00:00.000,Holy Replica of Shaine Display,Daley Center,2016-10-13T00:00:00.000,2016-10-13T00:00:00.000,,Withdrew
+2016-10-06T00:00:00.000,Cretan Fraternity of Chicago,Daley Center,2016-11-18T00:00:00.000,2016-11-18T00:00:00.000,,Withdrew
+2016-10-04T00:00:00.000,Lumbrida Bangi - Rosary Group Prayer,Daley Center,2016-10-15T00:00:00.000,2016-10-15T00:00:00.000,,Withdrew
+2016-10-04T00:00:00.000,Department of Cultural Affairs & Special Events - Chicago Cubs,Daley Center,2016-10-05T00:00:00.000,2016-10-05T00:00:00.000,,Approved
+2016-10-03T00:00:00.000,Sukkah ,Daley Center,2016-10-13T00:00:00.000,2016-10-26T00:00:00.000,,Approved
+2016-10-03T00:00:00.000,City Year Chicago,Daley Center,2016-11-04T00:00:00.000,2016-11-04T00:00:00.000,,Withdrew
+2016-09-29T00:00:00.000,SGA Youth & Family Services,Daley Center,2016-11-18T00:00:00.000,2016-11-18T00:00:00.000,,Approved
+2016-09-27T00:00:00.000,MASOM Parade,Daley Center,2016-10-12T00:00:00.000,2016-10-12T00:00:00.000,,Approved
+2016-09-27T00:00:00.000,Department of Cultural Affairs and Special Events - Fountain Dying,Daley Center,2016-10-05T00:00:00.000,2016-11-07T00:00:00.000,,Approved
+2016-09-22T00:00:00.000,Freedom From Religion Foundation,Daley Center,2016-11-22T00:00:00.000,2016-12-28T00:00:00.000,,Approved
+2016-09-21T00:00:00.000,"Moving Parts, Inc. - Chicago Justice",Daley Center,2016-10-01T00:00:00.000,2016-10-01T00:00:00.000,,Approved
+2016-09-06T00:00:00.000,Chicago Votes,Daley Center,2016-09-27T00:00:00.000,2016-09-27T00:00:00.000,,Withdrew
+2016-08-30T00:00:00.000,"Paul Mitchell the School Chicago ""Free Hugs Day""",Daley Center,2016-10-11T00:00:00.000,2016-10-11T00:00:00.000,,Approved
+2016-08-25T00:00:00.000,CDOT and Department of Cultural Affairs & Special Events - National Drive Electrical Week,Daley Center,2016-09-14T00:00:00.000,2016-09-14T00:00:00.000,,Approved
+2016-08-17T00:00:00.000,Larry Crost Articipation Event,Daley Center,2016-08-31T00:00:00.000,2016-09-07T00:00:00.000,,Approved
+2016-07-29T00:00:00.000,Sing London Limited,Daley Center,2016-08-01T00:00:00.000,2017-08-03T00:00:00.000,Pending,
+2016-07-29T00:00:00.000,Clerk of the Circuit Court,Daley Center,2016-12-01T00:00:00.000,2016-12-01T00:00:00.000,,Withdrew
+2016-07-27T00:00:00.000,Turkish Consulate General Event,Daley Center,2017-04-14T00:00:00.000,2017-04-21T00:00:00.000,Pending,
+2016-07-27T00:00:00.000,ISKCON of Illinois,Daley Center,2016-09-17T00:00:00.000,2016-09-17T00:00:00.000,,Approved
+2016-07-25T00:00:00.000,Mexican Civic Society of Illinois   ,Daley Center,2016-09-15T00:00:00.000,2016-09-15T00:00:00.000,,Approved
+2016-07-14T00:00:00.000,Improving Birth,Daley Center,2016-09-10T00:00:00.000,2016-09-10T00:00:00.000,,Approved
+2016-07-07T00:00:00.000,"Global March for Elephants, Rhinos and Lions",Daley Center,2016-09-18T00:00:00.000,2016-09-18T00:00:00.000,,Withdrew
+2016-06-27T00:00:00.000,Chicago Event Management - International Chicago 5K Run,Daley Center,2016-10-08T00:00:00.000,2016-10-08T00:00:00.000,,Approved
+2016-06-23T00:00:00.000,Consulate General of Hungary,Daley Center,2016-08-25T00:00:00.000,2016-09-04T00:00:00.000,,Approved
+2016-06-20T00:00:00.000,Smalls Museum Services /American Friends Service Committee,Daley Center,2017-04-28T00:00:00.000,2017-06-02T00:00:00.000,Pending,
+2016-06-20T00:00:00.000,Department of Cultural Affairs and Special Events - Picasso Dedication Event,Daley Center,2017-08-15T00:00:00.000,2017-08-15T00:00:00.000,Pending,
+2016-06-20T00:00:00.000,Chicago Ideas,Daley Center,2016-10-14T00:00:00.000,2016-10-24T00:00:00.000,,Approved
+2016-06-20T00:00:00.000,Nativity Scene Committee,Daley Center,2016-11-26T00:00:00.000,2016-12-31T00:00:00.000,,Approved
+2016-06-08T00:00:00.000,Cook County Department of Homeland Security & Emergency Management,Daley Center,2016-09-20T00:00:00.000,2016-09-20T00:00:00.000,,Approved
+2016-06-06T00:00:00.000,Al-Quds Mosque Rally,Daley Center,2016-07-01T00:00:00.000,2016-07-01T00:00:00.000,,Withdrew
+2016-06-06T00:00:00.000,The Field Museum of Natural History,Daley Center,2016-07-13T00:00:00.000,2016-07-14T00:00:00.000,,Approved
+2016-05-31T00:00:00.000,Lakeside Baptist Church,Daley Center,2016-06-16T00:00:00.000,2016-06-16T00:00:00.000,,Withdrew
+2016-05-24T00:00:00.000,Revolution World UFC Event,Daley Center,2016-07-13T00:00:00.000,2016-07-13T00:00:00.000,,Withdrew
+2016-05-23T00:00:00.000,Department of Cultural Affairs & Special Events - Taste of Chicago,Daley Center,2016-06-28T00:00:00.000,2016-06-28T00:00:00.000,,Approved
+2016-05-23T00:00:00.000,Grub Hub,Daley Center,2016-06-24T00:00:00.000,2016-06-24T00:00:00.000,,Withdrew
+2016-05-17T00:00:00.000,Chicago Commission on Human Relations,Daley Lobby,2017-03-31T00:00:00.000,2017-05-01T00:00:00.000,Pending,
+2016-05-17T00:00:00.000,Chicago Commission on Human Relations,Daley Lobby,2016-08-01T00:00:00.000,2016-08-31T00:00:00.000,,Approved
+2016-05-17T00:00:00.000,Pravin Action Committee,Daley Center,2016-07-29T00:00:00.000,2016-07-29T00:00:00.000,,Approved
+2016-05-12T00:00:00.000,Walk a Mile in Her Shoes,Daley Center,2016-06-11T00:00:00.000,2016-06-11T00:00:00.000,,Approved
+2016-05-06T00:00:00.000,Department of Cultural Affairs and Special Events - Farmers Market,Daley Center,2016-05-12T00:00:00.000,2016-10-27T00:00:00.000,,Approved
+2016-05-06T00:00:00.000,City of Chicago Department of Cultural Affairs and Special Events-Memorial Day Wreath Event,Daley Center,2016-05-23T00:00:00.000,2016-06-03T00:00:00.000,,Approved
+2016-05-02T00:00:00.000,Angel Trevino - Election Day Rally,Daley Center,2016-05-13T00:00:00.000,2016-05-13T00:00:00.000,,Withdrew
+2016-05-02T00:00:00.000,NoStigmas,Daley Center,2016-06-18T00:00:00.000,2016-06-18T00:00:00.000,,Approved
+2016-04-27T00:00:00.000,OPRF Film,Daley Center,2016-05-10T00:00:00.000,2016-05-10T00:00:00.000,,Approved
+2016-04-27T00:00:00.000,Bosniak Genocide Rally,Daley Center,2016-07-11T00:00:00.000,2016-07-11T00:00:00.000,,Withdrew
+2016-04-27T00:00:00.000,Ferris Fest,Daley Center,2016-05-22T00:00:00.000,2016-05-22T00:00:00.000,,Approved
+2016-04-27T00:00:00.000,Illinois Corn Marketing Board,Daley Center,2016-08-02T00:00:00.000,2016-08-02T00:00:00.000,,Approved
+2016-04-27T00:00:00.000,Bahamas Flag Raising Ceremony,Daley Center,2016-07-08T00:00:00.000,2016-07-08T00:00:00.000,,Withdrew
+2016-04-20T00:00:00.000,Consulate General of Peru in Chicago,Daley Center,2016-07-28T00:00:00.000,2016-07-28T00:00:00.000,,Approved
+2016-04-11T00:00:00.000,Bosnian Cultural Center,Daley Center,2016-05-30T00:00:00.000,2016-05-30T00:00:00.000,,Approved
+2016-04-07T00:00:00.000,Music Show Case,Daley Center,2016-06-23T00:00:00.000,2016-06-23T00:00:00.000,,Withdrew
+2016-04-07T00:00:00.000,Polish Parade Committee - Polish Flag Raising,Daley Center,2016-05-07T00:00:00.000,2016-05-07T00:00:00.000,,Approved
+2016-04-07T00:00:00.000,Elim Romanian Pentecostal Church,Daley Center,2016-04-16T00:00:00.000,2016-04-16T00:00:00.000,,Approved
+2016-04-01T00:00:00.000,Simon  Wisenthal Center,Daley Center,2016-05-09T00:00:00.000,2016-05-09T00:00:00.000,,Approved
+2016-03-31T00:00:00.000,Brave Faces Productions,Daley Center,2016-04-06T00:00:00.000,2016-04-06T00:00:00.000,,Approved
+2016-03-14T00:00:00.000,Chicago Jobs with Justice Rally,Daley Center,2016-05-01T00:00:00.000,2016-05-01T00:00:00.000,,Withdrew
+2016-03-07T00:00:00.000,8th Day Center for Justice,Daley Center,2016-03-25T00:00:00.000,2016-03-25T00:00:00.000,,Approved
+2016-03-04T00:00:00.000,The Realm Company Ltd/Fred Martin Sr. - Fall Festival,Daley Center,2016-09-27T00:00:00.000,2016-09-30T00:00:00.000,,Withdrew
+2016-03-04T00:00:00.000,The Realm Company Ltd/Fred Martin Sr. - Arts Festival,Daley Center,2016-08-14T00:00:00.000,2016-08-19T00:00:00.000, ,Approved
+2016-03-02T00:00:00.000,Cheryl Williams - Chalk Art Event ,Daley Center,2016-06-24T00:00:00.000,2016-06-24T00:00:00.000,,Approved
+2016-03-02T00:00:00.000,Key Tov Orchestra,Daley Center,2016-03-29T00:00:00.000,2016-03-29T00:00:00.000,,Approved
+2016-03-02T00:00:00.000,"Thomas Moore Society, Karl Fritz Family, Divine Mercy 33",Daley Center,2016-03-24T00:00:00.000,2016-04-03T00:00:00.000,,Approved
+2016-02-27T00:00:00.000,American Kidney Fund,Daley Center,2016-08-09T00:00:00.000,2016-08-10T00:00:00.000,,Approved
+2016-02-26T00:00:00.000,Urban Prep Charter School,Daley Center,2016-03-03T00:00:00.000,2016-03-03T00:00:00.000,,Withdrew
+2016-02-25T00:00:00.000,Casa Aztlan,Daley Center,2016-03-10T00:00:00.000,2016-03-10T00:00:00.000,,Withdrew
+2016-02-25T00:00:00.000,Active Transportation Alliance - Bike to Work Rally,Daley Center,2016-06-17T00:00:00.000,2016-06-17T00:00:00.000,,Approved
+2016-02-24T00:00:00.000,"Picrow Features, Inc.",Daley Center,2016-03-04T00:00:00.000,2016-03-04T00:00:00.000,,Withdrew
+2016-02-24T00:00:00.000,Alzheimer's Association,Daley Center,2016-06-13T00:00:00.000,2016-06-13T00:00:00.000,,Approved
+2016-02-24T00:00:00.000,Freedom From Religion Foundation,Daley Center,2016-03-26T00:00:00.000,2016-04-03T00:00:00.000,,Approved
+2016-02-23T00:00:00.000,Friends for Foxx,Daley Center,2016-02-29T00:00:00.000,2016-02-29T00:00:00.000,,Approved
+2016-02-17T00:00:00.000,The Remix Project,Daley Center,2016-03-09T00:00:00.000,2016-03-09T00:00:00.000,,Withdrew
+2016-02-15T00:00:00.000,Anthony LaPiana - The Movement Exhibit,Daley Center,2016-10-02T00:00:00.000,2016-10-31T00:00:00.000,,Approved
+2016-02-08T00:00:00.000,Human Adventure Corporation - Way of the Cross,Daley Center,2016-03-25T00:00:00.000,2016-03-25T00:00:00.000,,Approved
+2016-02-03T00:00:00.000,"Spark Program, Inc.",Daley Center,2016-06-10T00:00:00.000,2016-06-10T00:00:00.000,,Approved
+2016-02-03T00:00:00.000,Consulate General of Bulgaria flag raising,Daley Center,2016-02-26T00:00:00.000,2016-02-26T00:00:00.000,,Approved
+2016-02-02T00:00:00.000,Rush Hour Concerts - Make Music Chicago,Daley Center,2016-06-21T00:00:00.000,2016-06-21T00:00:00.000,,Approved
+2016-02-01T00:00:00.000,Americans Against Abusive Probate Guardianship - Illinois,Daley Center,2016-03-15T00:00:00.000,2016-03-15T00:00:00.000,,Approved
+2016-01-26T00:00:00.000,Divided Films,Daley Center,,,,Approved
+2016-01-25T00:00:00.000,The Morton Arboretum - Arbor Day,Daley Center,2016-04-29T00:00:00.000,2016-04-29T00:00:00.000,,Approved
+2016-01-22T00:00:00.000,Amdur Productions - Amdur Weekly Shows,Daley Center,2016-05-11T00:00:00.000,2016-10-26T00:00:00.000,,Approved
+2016-01-22T00:00:00.000,City Year of Chicago,Daley Center,2016-02-12T00:00:00.000,2016-02-12T00:00:00.000,,Approved
+2016-01-22T00:00:00.000,City Year of Chicago,Daley Center,2016-01-29T00:00:00.000,2016-01-29T00:00:00.000,,Approved
+2016-01-22T00:00:00.000,ALS Association Greater Chicago Chapter,Daley Center,2016-05-23T00:00:00.000,2016-05-24T00:00:00.000,,Approved
+2016-01-19T00:00:00.000,Office of Business Affairs and Consumer Protection - Food Trucks,Daley Center,2016-03-04T00:00:00.000,2016-10-26T00:00:00.000,,Approved
+2016-01-14T00:00:00.000,Chicago Cares,Daley Center,2016-06-25T00:00:00.000,2016-06-25T00:00:00.000,,Approved
+2016-01-13T00:00:00.000,Disability Pride Parade Association - Disability Pride Festival and Parade,Daley Center,2016-07-23T00:00:00.000,2016-07-23T00:00:00.000,,Approved
+2016-01-13T00:00:00.000,Courtside Ministries,Daley Center,2016-01-06T00:00:00.000,2016-03-30T00:00:00.000,,Approved
+2016-01-12T00:00:00.000,Consulate General of India,Daley Center,2016-08-15T00:00:00.000,2016-08-16T00:00:00.000,,Approved
+2016-01-12T00:00:00.000,Amdur Productions - Art Festival,Daley Center,2016-05-06T00:00:00.000,2016-05-07T00:00:00.000,,Approved
+2016-01-11T00:00:00.000,Turkish American Cultural Alliance - Turkish Festival,Daley Center,2016-08-24T00:00:00.000,2016-08-27T00:00:00.000,,Approved
+2016-01-11T00:00:00.000,Bob Rogers Travel / Showstoppers of SE MO,Daley Center,2016-05-29T00:00:00.000,2016-05-29T00:00:00.000,,Approved
+2016-01-11T00:00:00.000,Concept Schools,Daley Center,2016-05-27T00:00:00.000,2016-05-27T00:00:00.000,,Approved
+2016-01-05T00:00:00.000,German American Services - Christkindlmarket 2016,Daley Center,2016-11-17T00:00:00.000,2016-12-24T00:00:00.000,,Approved
+2016-01-05T00:00:00.000,Rape Victim Advocates,Daley Center,2016-04-29T00:00:00.000,2016-04-29T00:00:00.000,,Withdrew
+2016-01-05T00:00:00.000,The Women's Project,Daley Center,2016-02-14T00:00:00.000,2016-02-14T00:00:00.000,,Withdrew
+2016-01-04T00:00:00.000,Active Transportation Alliance,Daley Center,2016-01-22T00:00:00.000,2016-01-22T00:00:00.000,,Approved
+2016-01-04T00:00:00.000,Forest Preserves of Cook County,Daley Center,2016-06-07T00:00:00.000,2016-06-07T00:00:00.000,,Approved
+2016-01-04T00:00:00.000,Chicago Children's Advocacy Center,Daley Center,2016-04-06T00:00:00.000,2016-04-06T00:00:00.000,,Approved
+2016-01-04T00:00:00.000,Committee of French Speaking Societies - Bastille Day,Daley Center,2016-07-14T00:00:00.000,2016-07-14T00:00:00.000,,Withdrew
+2015-11-24T00:00:00.000,Deep Dish Productions of Chicago - Steve Harvey Filming,Daley Center,2015-12-01T00:00:00.000,2015-12-01T00:00:00.000,,Approved
+2015-11-05T00:00:00.000,MASOM,Daley Center,2015-11-29T00:00:00.000,2015-11-29T00:00:00.000,,Approved
+2015-10-08T00:00:00.000,MASOM,Daley Center,2015-10-24T00:00:00.000,2015-10-24T00:00:00.000,,Approved
+2015-10-06T00:00:00.000,The Remix Project,Daley Center,2015-10-28T00:00:00.000,2015-10-28T00:00:00.000,,Withdrew
+2015-09-21T00:00:00.000,Catholic Extension,Daley Center,2015-09-22T00:00:00.000,2015-09-22T00:00:00.000,,Approved
+2015-09-18T00:00:00.000,"Lubavitch Chabad of the Loop, Gold Coast & Lincoln Park - Sukka Display",Daley Center,2015-09-24T00:00:00.000,2015-10-08T00:00:00.000,,Approved
+2015-09-15T00:00:00.000,Kleo Foundation,Daley Center,2015-10-23T00:00:00.000,2015-10-23T00:00:00.000,,Approved
+2015-09-15T00:00:00.000,Freedom From Religion Foundation,Daley Center,2015-11-23T00:00:00.000,2015-12-27T00:00:00.000,,Approved
+2015-09-09T00:00:00.000,Chicago Votes,Daley Center,2015-09-22T00:00:00.000,2015-09-22T00:00:00.000,,Approved
+2015-08-31T00:00:00.000,Department of Homeland Security and Emergency Management,Daley Center,2015-09-08T00:00:00.000,2015-09-08T00:00:00.000,,Approved
+2015-08-28T00:00:00.000,Paul Mitchell the School Chicago,Daley Center,2015-10-13T00:00:00.000,2015-10-13T00:00:00.000,,Approved
+2015-08-25T00:00:00.000,"Lubavitch Chabad of the Loop, Gold Coast & Lincoln Park - Menorah 2015",Daley Center,2015-11-30T00:00:00.000,2015-12-21T00:00:00.000,,Approved
+2015-08-20T00:00:00.000,City Year Chicago,Daley Center,2015-08-28T00:00:00.000,2015-08-28T00:00:00.000, ,Approved
+2015-08-20T00:00:00.000,Rotary International,Daley Center,2015-09-24T00:00:00.000,2015-09-24T00:00:00.000,,Approved
+2015-08-19T00:00:00.000,The Realm Company LTD - Fall Festival,Daley Center,2015-09-30T00:00:00.000,2015-10-02T00:00:00.000,,Approved
+2015-08-19T00:00:00.000,"Da Chi Lite Joint, Inc.",Daley Center,2015-08-22T00:00:00.000,2015-08-22T00:00:00.000, ,Approved
+2015-08-10T00:00:00.000,"Global March for Elephants, Rhinos and Lions",Daley Center,2015-10-03T00:00:00.000,2015-10-03T00:00:00.000,,Approved
+2015-08-03T00:00:00.000,Courtside Ministries,Daley Center,2015-07-01T00:00:00.000,2015-09-30T00:00:00.000,,Approved
+2015-07-28T00:00:00.000,American Kidney Fund,Daley Center,2015-08-26T00:00:00.000,2015-08-26T00:00:00.000,,Approved
+2015-07-24T00:00:00.000,"The Realm Company, LTD",Daley Center,2015-08-10T00:00:00.000,2015-08-14T00:00:00.000,,Approved
+2015-07-22T00:00:00.000,MUM,Daley Center,2015-07-24T00:00:00.000,2015-07-24T00:00:00.000,,Approved
+2015-07-21T00:00:00.000,Sing London United / DCASE,Daley Center,2015-08-03T00:00:00.000,2016-07-31T00:00:00.000,,Approved
+2015-07-15T00:00:00.000,Department of Cultural Affairs and Special Events - Geek Street,Daley Center,2015-07-22T00:00:00.000,2015-07-22T00:00:00.000,,Approved
+2015-07-15T00:00:00.000,Renacer Boliviano,Daley Center,2015-08-02T00:00:00.000,2015-08-02T00:00:00.000,,Approved
+2015-06-30T00:00:00.000,Improving Birth Rally,Daley Center,2015-09-07T00:00:00.000,2015-09-07T00:00:00.000,,Approved
+2015-06-26T00:00:00.000,Rizvi Rally,Daley Center,2015-07-10T00:00:00.000,2015-07-10T00:00:00.000,,Approved
+2015-06-17T00:00:00.000,Dept. of Cultural Affairs & Special Events DCASE / Taste Preview,Daley Center,2015-06-24T00:00:00.000,2015-06-24T00:00:00.000,,Approved
+2015-06-12T00:00:00.000,Forest Productions - TLC Filming,Daley Center,2015-06-24T00:00:00.000,2015-06-24T00:00:00.000,,Approved
+2015-06-09T00:00:00.000,American Heart Association,Daley Center,2015-07-29T00:00:00.000,2015-07-29T00:00:00.000,,Approved
+2015-06-09T00:00:00.000,Dept. of Cultural Affairs & Special Events DCASE / Sidewalk Sale,Daley Center,2015-08-31T00:00:00.000,2015-09-01T00:00:00.000,,Approved
+2015-05-28T00:00:00.000,Trust for Public Land / CDOT / City of Chicago,Daley Center,2015-06-05T00:00:00.000,2015-06-05T00:00:00.000,,Approved
+2015-05-28T00:00:00.000,Bosniak Brotherhood of Genocide Survivors,Daley Center,2015-07-11T00:00:00.000,2015-07-11T00:00:00.000,,Approved
+2015-05-28T00:00:00.000,Nativity Scene Committee,Daley Center,2015-11-28T00:00:00.000,2015-12-26T00:00:00.000,,Approved
+2015-05-27T00:00:00.000,Velasquez Rally,Daley Center,2015-07-28T00:00:00.000,2015-07-28T00:00:00.000,,Withdrew
+2015-05-27T00:00:00.000,City Year Chicago,Daley Center,2015-05-29T00:00:00.000,2015-05-29T00:00:00.000,,Approved
+2015-05-18T00:00:00.000,Nepal Earthquake Relief Fund,Daley Center,2015-05-19T00:00:00.000,2015-05-19T00:00:00.000,,Approved
+2015-05-07T00:00:00.000,Central American Fine Arts Center,Daley Center,2015-07-31T00:00:00.000,2015-07-31T00:00:00.000,,Withdrew
+2015-05-05T00:00:00.000,Ogilvy & Mather - ALS Filming,Daley Center,2015-05-12T00:00:00.000,2015-05-12T00:00:00.000,,Approved
+2015-04-30T00:00:00.000,Secretary of State Jesse White - Nepal Rally,Daley Center,2015-05-08T00:00:00.000,2015-05-08T00:00:00.000,,Withdrew
+2015-04-23T00:00:00.000,U.S. Army,Daley Center,2015-06-10T00:00:00.000,2015-06-10T00:00:00.000,,Approved
+2015-04-23T00:00:00.000,Eye on India / BACP,Daley Center,2015-06-21T00:00:00.000,2015-06-21T00:00:00.000,,Approved
+2015-04-15T00:00:00.000,Courtside Ministries,Daley Center,2015-04-08T00:00:00.000,2015-06-26T00:00:00.000,,Approved
+2015-04-15T00:00:00.000,Red Hydrant Films,Daley Center,2015-04-17T00:00:00.000,2015-04-17T00:00:00.000,,Approved
+2015-04-15T00:00:00.000,Department of Cultural Affairs & Special Events DCASE / Wreath Laying Ceremony,Daley Center,2015-05-23T00:00:00.000,2015-05-23T00:00:00.000,,Approved
+2015-04-15T00:00:00.000,Department of Cultural Affairs & Special Events DCASE / Bike to Work Rally,Daley Center,2015-06-19T00:00:00.000,2015-06-19T00:00:00.000,,Approved
+2015-04-13T00:00:00.000,Disability Pride Parade Association,Daley Center,2015-07-18T00:00:00.000,2015-07-18T00:00:00.000,,Approved
+2015-04-09T00:00:00.000,Department of Cultural Affairs & Special Events DCASE / Farmers Market,Daley Center,2015-05-14T00:00:00.000,2015-10-29T00:00:00.000,,Approved
+2015-04-09T00:00:00.000,Future Founders,Daley Center,2015-05-29T00:00:00.000,2015-05-29T00:00:00.000,,Approved
+2015-04-08T00:00:00.000,Pravin Action Committee,Daley Center,2015-05-09T00:00:00.000,2015-05-09T00:00:00.000,,Approved
+2015-03-31T00:00:00.000,Mexican Civic Society of Illinois and City of Chicago,Daley Center,2015-09-15T00:00:00.000,2015-09-15T00:00:00.000,,Approved
+2015-03-31T00:00:00.000,ISKCON of Illinois,Daley Center,2015-06-28T00:00:00.000,2015-06-28T00:00:00.000,,Approved
+2015-03-26T00:00:00.000,Asian American Coalition of Chicago,Daley Center,2015-05-18T00:00:00.000,2015-05-22T00:00:00.000,,Approved
+2015-03-26T00:00:00.000,Polish Rally,Daley Center,2015-04-10T00:00:00.000,2015-04-10T00:00:00.000,,Approved
+2015-03-25T00:00:00.000,Chicago Alliance Against Racial and Political Repression,Daley Center,2015-08-29T00:00:00.000,2015-08-29T00:00:00.000,,Approved
+2015-03-24T00:00:00.000,Nehemiah Leaders,Daley Center,2015-05-04T00:00:00.000,2015-05-04T00:00:00.000,,Approved
+2015-03-18T00:00:00.000,Siskel / Jacobs Productions,Daley Center,2015-03-24T00:00:00.000,2015-03-24T00:00:00.000,,Approved
+2015-03-17T00:00:00.000,City Year Chicago,Daley Center,2015-03-20T00:00:00.000,2015-03-20T00:00:00.000,,Approved
+2015-03-13T00:00:00.000,Turkish American Cultural Alliance,Daley Center,2015-09-02T00:00:00.000,2015-09-05T00:00:00.000,,Approved
+2015-03-10T00:00:00.000,Consulate General of India,Daley Center,2015-08-15T00:00:00.000,2015-08-15T00:00:00.000,,Approved
+2015-03-09T00:00:00.000,8th Day Center for Justice,Daley Center,2015-04-03T00:00:00.000,2015-04-03T00:00:00.000,,Approved
+2015-03-06T00:00:00.000,Freedom From Religion Foundation,Daley Center,2015-04-04T00:00:00.000,2015-04-14T00:00:00.000,,Approved
+2015-03-04T00:00:00.000,Assyrian American National Federation,Daley Center,2015-03-10T00:00:00.000,2015-03-10T00:00:00.000,,Withdrew
+2015-03-04T00:00:00.000,Divine Mercy Project,Daley Center,2015-04-03T00:00:00.000,2015-04-13T00:00:00.000,,Approved
+2015-02-24T00:00:00.000,Illinois NoRML / Rok Steady,Daley Center,2015-05-02T00:00:00.000,2015-05-02T00:00:00.000,,Approved
+2015-02-24T00:00:00.000,"Vasta & Associates, INC / DCASE - Big Ten Letters",Daley Center,2015-03-09T00:00:00.000,2015-03-15T00:00:00.000,,Approved
+2015-02-24T00:00:00.000,Office of Business Affairs & Consumer Protection - World Fair Trade,Daley Center,2015-05-06T00:00:00.000,2015-05-07T00:00:00.000,,Approved
+2015-02-24T00:00:00.000,Office of Business Affairs & Consumer Protection - Food Truck Rallies,Daley Center,2015-03-06T00:00:00.000,2015-10-28T00:00:00.000,,Approved
+2015-02-24T00:00:00.000,Demoiselle 2 Femme,Daley Center,,2015-10-10T00:00:00.000,,Withdrew
+2015-02-18T00:00:00.000,Joffrey Ballet / Pi Cow So Sculpture,Daley Center,2015-03-01T00:00:00.000,2015-05-31T00:00:00.000,,Approved
+2015-02-17T00:00:00.000,Croatian American Day,Daley Center,2015-05-08T00:00:00.000,2015-05-08T00:00:00.000,,Approved
+2015-02-13T00:00:00.000,Communion and Liberation,Daley Center,2015-04-03T00:00:00.000,2015-04-03T00:00:00.000,,Approved
+2015-02-13T00:00:00.000,CDOT / One Earth Film Festival,Daley Center,2015-03-07T00:00:00.000,2015-03-07T00:00:00.000,,Approved
+2015-02-09T00:00:00.000,Consulate General of Bulgaria,Daley Center,2015-03-01T00:00:00.000,2015-03-01T00:00:00.000,,Approved
+2015-02-09T00:00:00.000,We Can Together PAC,Daley Center,2015-02-14T00:00:00.000,2015-02-14T00:00:00.000,,Denied
+2015-01-26T00:00:00.000,Awakening America Alliance,Daley Center,2015-09-11T00:00:00.000,2015-09-11T00:00:00.000,,Approved
+2015-01-16T00:00:00.000,Courtside Ministries,Daley Center,2015-01-21T00:00:00.000,2015-03-27T00:00:00.000,,Approved
+2015-01-16T00:00:00.000,Dept. of Cultural Affairs & special Events DCASE / Ernie Banks Statue 2015,Daley Center,2015-01-28T00:00:00.000,2015-01-31T00:00:00.000,,Approved
+2015-01-16T00:00:00.000,ALS Association Greater Chicago Chapter,Daley Center,2015-06-23T00:00:00.000,2015-06-23T00:00:00.000,,Approved
+2015-01-05T00:00:00.000,Chicago Cares,Daley Center,2015-06-27T00:00:00.000,2015-06-27T00:00:00.000,,Approved
+2015-01-05T00:00:00.000,"German American Services, Inc. / Christkindle Market",Daley Center,2015-11-29T00:00:00.000,2016-01-10T00:00:00.000,,Approved
+2015-01-05T00:00:00.000,Active Transportation Alliance,Daley Center,2015-01-23T00:00:00.000,2015-01-23T00:00:00.000,,Approved
+2015-01-02T00:00:00.000,Armenian All Saints Apostolic Church & Community Center,Daley Center,2015-04-24T00:00:00.000,2015-04-24T00:00:00.000,,Approved
+2015-01-02T00:00:00.000,Forest Preserves of Cook County,Daley Center,2015-06-09T00:00:00.000,2015-06-09T00:00:00.000,,Approved
+2015-01-02T00:00:00.000,Chicago Children's Advocacy Center,Daley Center,2015-04-01T00:00:00.000,2015-04-01T00:00:00.000,,Approved
+2015-01-02T00:00:00.000,Bastille Day / Committee of French Speaking Societies,Daley Center,2015-07-14T00:00:00.000,2015-07-14T00:00:00.000,,Approved
+2014-12-02T00:00:00.000,Forest Production,Daley Center,2014-12-03T00:00:00.000,2014-12-03T00:00:00.000,,Approved
+2014-11-19T00:00:00.000,DCASE / Tree Lighting,Daley Center,2014-11-25T00:00:00.000,2014-11-25T00:00:00.000,,Approved
+2014-11-17T00:00:00.000,MASOM,Daley Center,2014-12-07T00:00:00.000,2014-12-07T00:00:00.000,,Approved
+2014-11-01T00:00:00.000,"German American Services, Inc. / Christkindle Market",Daley Center,2014-11-21T00:00:00.000,2014-12-24T00:00:00.000,,Approved
+2014-10-28T00:00:00.000,Eternal Flame cleaning and Maintenance,Daley Center,2014-10-28T00:00:00.000,2014-10-28T00:00:00.000,,Approved
+2014-10-17T00:00:00.000,Elliot Dvorin / Music Video Filming,Daley Center,2014-10-30T00:00:00.000,2014-10-30T00:00:00.000,,Approved
+2014-10-16T00:00:00.000,Chicago Packing Supply,Daley Center,2014-11-07T00:00:00.000,2014-11-07T00:00:00.000,,Approved
+2014-10-16T00:00:00.000,MASOM,Daley Center,2014-11-03T00:00:00.000,2014-11-03T00:00:00.000,,Approved
+2014-10-13T00:00:00.000,National Runaway Safeline,Daley Center,2014-11-13T00:00:00.000,2014-11-13T00:00:00.000,,Approved
+2014-10-02T00:00:00.000,Free Hugs / Paul Mitchell School,Daley Center,2014-10-14T00:00:00.000,2014-10-14T00:00:00.000,,Approved
+2014-09-30T00:00:00.000,Sukka Display,Daley Center,2014-10-05T00:00:00.000,2014-10-19T00:00:00.000,,Approved
+2014-09-30T00:00:00.000,Block 37 Photo Shoot,Daley Center,2014-10-02T00:00:00.000,2014-10-02T00:00:00.000,,Withdrew
+2014-09-23T00:00:00.000,BuildOn,Daley Center,2014-09-27T00:00:00.000,2014-09-24T00:00:00.000,,Approved
+2014-09-18T00:00:00.000,Freedom of Religion Foundation,Daley Center,2014-11-25T00:00:00.000,2014-12-28T00:00:00.000,,Approved
+2014-09-18T00:00:00.000,WLS TV Channel 7,Daley Center,2014-09-25T00:00:00.000,2014-09-25T00:00:00.000,,Approved
+2014-09-18T00:00:00.000,Planned Parenthood Federation of America,Daley Center,2014-10-01T00:00:00.000,2014-10-02T00:00:00.000,,Approved
+2014-09-18T00:00:00.000,October 22nd Coalition Chicago,Daley Center,2014-10-22T00:00:00.000,2014-10-22T00:00:00.000,,Approved
+2014-09-10T00:00:00.000,Jane Addams Senior Caucus,Daley Center,2014-10-07T00:00:00.000,2014-10-07T00:00:00.000,,Approved
+2014-09-09T00:00:00.000,CDOT / Office of the Mayor / Electric Car Week,Daley Center,2014-09-19T00:00:00.000,2014-09-19T00:00:00.000,,Approved
+2014-09-09T00:00:00.000,Created Equal,Daley Center,2014-10-09T00:00:00.000,2014-10-09T00:00:00.000,,Withdrew
+2014-09-03T00:00:00.000,Food Truck Rally / Business Affairs and Consumer Protection,Daley Center,2014-09-26T00:00:00.000,2014-09-26T00:00:00.000,,Approved
+2014-08-26T00:00:00.000,Bulls Filming / Chicago Bulls,Daley Center,2014-09-03T00:00:00.000,2014-09-03T00:00:00.000,,Approved
+2014-08-26T00:00:00.000,Climate Change Rally / climate Change: Connections for Actions,Daley Center,2014-09-27T00:00:00.000,2014-09-27T00:00:00.000,,Approved
+2014-08-18T00:00:00.000,Polish Newspaper Club,Daley Center,2014-09-13T00:00:00.000,2014-09-13T00:00:00.000,,Approved
+2014-08-08T00:00:00.000,Bear Necessities Pediatric Cancer Foundation,Daley Center,2014-09-12T00:00:00.000,2014-09-12T00:00:00.000,,Approved
+2014-08-08T00:00:00.000,The Joffrey Ballet / Pi Cow So,Daley Center,2014-08-14T00:00:00.000,2014-09-14T00:00:00.000,,Approved
+2014-08-08T00:00:00.000,Pray Chicago,Daley Center,2014-09-05T00:00:00.000,2014-09-05T00:00:00.000,,Approved
+2014-08-08T00:00:00.000,City Year Chicago,Daley Center,2014-09-05T00:00:00.000,2014-09-05T00:00:00.000,,Approved
+2014-08-06T00:00:00.000,DCASE - Food Truck Rally,Daley Center,2014-10-10T00:00:00.000,2014-10-10T00:00:00.000,,Approved
+2014-08-04T00:00:00.000,Improving Birth Chicago,Daley Center,2014-09-01T00:00:00.000,2014-09-01T00:00:00.000,,Approved
+2014-08-04T00:00:00.000,Great march for Climate Action,Daley Center,2014-09-06T00:00:00.000,2014-09-06T00:00:00.000,,Approved
+2014-07-31T00:00:00.000,Mexican Civic Society of IL and City of Chicago,Daley Center,2014-09-15T00:00:00.000,2014-09-15T00:00:00.000,,Approved
+2014-07-31T00:00:00.000,Nativity Scene Committee,Daley Center,2014-11-29T00:00:00.000,2014-12-27T00:00:00.000,,Approved
+2014-07-31T00:00:00.000,Assyrian American National Federation ,Daley Center,2014-08-08T00:00:00.000,2014-08-08T00:00:00.000,,Approved
+2014-07-29T00:00:00.000,Active Transportation Alliance,Daley Center,2014-07-26T00:00:00.000,2014-07-26T00:00:00.000,,Approved
+2014-07-28T00:00:00.000,"Global March for Elephants, Rhinos and Lions",Daley Center,2014-10-04T00:00:00.000,2014-10-14T00:00:00.000,,Approved
+2014-07-15T00:00:00.000,Albanian-American Civic League,Daley Center,2014-08-04T00:00:00.000,2014-08-04T00:00:00.000,,Approved
+2014-07-14T00:00:00.000,Albanian-American Community of IL (AACI),Daley Center,2014-07-16T00:00:00.000,2014-07-16T00:00:00.000,,Approved
+2014-07-09T00:00:00.000,American Heart Association,Daley Center,2014-07-30T00:00:00.000,2014-07-30T00:00:00.000,,Approved
+2014-07-09T00:00:00.000,Rape Victim Advocates,Daley Center,2014-08-19T00:00:00.000,2014-08-19T00:00:00.000,,Approved
+2014-07-02T00:00:00.000,Ali Bakhtiari,Daley Center,2014-07-25T00:00:00.000,2014-07-25T00:00:00.000,,Approved
+2014-06-30T00:00:00.000,Dance for Life Chicago,Daley Center,2014-08-07T00:00:00.000,2014-08-07T00:00:00.000,,Approved
+2014-06-17T00:00:00.000,Assyrian American National Federation,Daley Center,2014-06-20T00:00:00.000,2014-06-20T00:00:00.000,,Approved
+2014-06-12T00:00:00.000,Courtside Ministries,Daley Center,2014-06-06T00:00:00.000,2014-12-31T00:00:00.000,,Approved
+2014-06-11T00:00:00.000,Philippines Flag Raising,Daley Center,2014-06-12T00:00:00.000,2014-06-12T00:00:00.000,,Approved
+2014-06-11T00:00:00.000,City Year Chicago,Daley Center,2014-06-12T00:00:00.000,2014-06-12T00:00:00.000,,Approved
+2014-06-11T00:00:00.000,Chicago Symphony Orchestra,Daley Center,2014-06-13T00:00:00.000,2014-06-13T00:00:00.000,,Approved
+2014-06-05T00:00:00.000,D-Day Wreath Laying Ceremony,Daley Center,2014-06-06T00:00:00.000,2014-06-06T00:00:00.000,,Approved
+2014-06-04T00:00:00.000,DCASE / Sidewalk Sale,Daley Center,2014-07-22T00:00:00.000,2014-07-23T00:00:00.000,,Approved
+2014-06-04T00:00:00.000,DCASE / Taste of Chicago Preview,Daley Center,2014-06-25T00:00:00.000,2014-06-25T00:00:00.000,,Approved
+2014-06-03T00:00:00.000,Bike to Work,Daley Center,2014-06-20T00:00:00.000,2014-06-20T00:00:00.000,,Approved
+2014-05-14T00:00:00.000,DCASE / Farmers Market,Daley Center,2014-05-15T00:00:00.000,2014-10-30T00:00:00.000,,Approved
+2014-05-11T00:00:00.000,RPA / Man on the Street,Daley Center,2014-05-15T00:00:00.000,2014-05-15T00:00:00.000,,Approved
+2014-05-09T00:00:00.000,Croatian American Day Committee,Daley Center,2014-05-09T00:00:00.000,2014-05-09T00:00:00.000,,Approved
+2014-05-08T00:00:00.000,Art Daughters for Daughters of Africa,Daley Center,2014-05-12T00:00:00.000,2014-05-12T00:00:00.000,,Approved
+2014-05-06T00:00:00.000,West African Rally,Daley Center,2014-05-10T00:00:00.000,2014-05-10T00:00:00.000,,Approved
+2014-05-02T00:00:00.000,City Year Chicago / Unity Rally for Corps Members,Daley Center,2014-05-02T00:00:00.000,2014-05-02T00:00:00.000,,Approved
+2014-05-01T00:00:00.000,Oromo Community of Chicago,Daley Center,2014-05-06T00:00:00.000,2014-05-06T00:00:00.000,,Approved
+2014-04-30T00:00:00.000,Polish Constitution Day,Daley Center,2014-05-03T00:00:00.000,2014-05-03T00:00:00.000,,Approved
+2014-04-29T00:00:00.000,Nancy Pochis Bank Art Studio,Daley Center,2014-05-16T00:00:00.000,2014-05-16T00:00:00.000,,Withdrew
+2014-04-28T00:00:00.000,"Devin Super Tramp, LLC / Filming",Daley Center,2014-05-06T00:00:00.000,2014-05-06T00:00:00.000,,Approved
+2014-04-16T00:00:00.000,Mosaic Salles Solutions,Daley Center,2014-11-04T00:00:00.000,2014-11-16T00:00:00.000,,Withdrew
+2014-04-12T00:00:00.000,Plaza Art,Daley Center,2014-06-27T00:00:00.000,2014-06-27T00:00:00.000,,Denied
+2014-04-09T00:00:00.000,DCASE / Wreath Laying Ceremony,Daley Center,2014-05-24T00:00:00.000,2014-05-24T00:00:00.000,,Approved
+2014-04-08T00:00:00.000,JILOTA Worldwide Ministries,Daley Center,2014-08-16T00:00:00.000,2014-08-16T00:00:00.000,,Withdrew
+2014-04-02T00:00:00.000,ALS Association Greater Chicago Chapter,Daley Center,2014-05-14T00:00:00.000,2014-05-14T00:00:00.000,,Approved
+2014-04-02T00:00:00.000,US Army,Daley Center,2014-06-13T00:00:00.000,2014-06-13T00:00:00.000,,Approved
+2014-04-01T00:00:00.000,Jewish Federation of Metropolitan Chicago,Daley Center,2014-05-06T00:00:00.000,2014-05-06T00:00:00.000,,Approved
+2014-03-31T00:00:00.000,DCASE / Food Truck Rally,Daley Center,2014-05-05T00:00:00.000,2014-05-05T00:00:00.000,,Approved
+2014-03-28T00:00:00.000,8th Day Center for Justice,Daley Center,2014-04-18T00:00:00.000,2014-04-18T00:00:00.000,,Approved
+2014-03-26T00:00:00.000,Menorah Display / Lubavitch Chabad of the Loop,Daley Center,2014-11-08T00:00:00.000,2014-12-29T00:00:00.000,,Approved
+2014-03-26T00:00:00.000,Swing Dancing on the Plaza,Daley Center,2014-04-26T00:00:00.000,2014-04-26T00:00:00.000,,Approved
+2014-03-26T00:00:00.000,Indigenous People of Biafoa / Rally & Memorial,Daley Center,2014-05-30T00:00:00.000,2014-05-30T00:00:00.000,,Approved
+2014-03-25T00:00:00.000,Consulate General of the republic of Lithuania in Chicago / Freedom Way,Daley Center,2014-08-23T00:00:00.000,2014-08-26T00:00:00.000,,Approved
+2014-03-25T00:00:00.000,Friday Walk for Justice,Daley Center,2014-04-18T00:00:00.000,2014-04-18T00:00:00.000,,Approved
+2014-03-20T00:00:00.000,Flag Lowering Honoring Illinois' Fallen,Daley Center,2014-03-20T00:00:00.000,2014-03-22T00:00:00.000,,Approved
+2014-03-18T00:00:00.000,Asian American Festival,Daley Center,2014-05-19T00:00:00.000,2014-05-23T00:00:00.000,,Approved
+2014-03-18T00:00:00.000,Polish Memorial,Daley Center,2014-04-12T00:00:00.000,2014-04-12T00:00:00.000,,Approved
+2014-03-18T00:00:00.000,International Art Festival,Daley Center,2014-08-11T00:00:00.000,2014-08-15T00:00:00.000,,Approved
+2014-03-18T00:00:00.000,Freedom of Religion Foundation,Daley Center,2014-04-17T00:00:00.000,2014-04-26T00:00:00.000,,Approved
+2014-03-18T00:00:00.000,Breaking Limits,Daley Center,2014-05-14T00:00:00.000,2014-05-14T00:00:00.000,,Denied
+2014-03-12T00:00:00.000,Active Transportation Alliance / Bike to Brew Event,Daley Center,2014-07-26T00:00:00.000,2014-07-26T00:00:00.000,,Denied
+2014-03-12T00:00:00.000,Demoiselle 2 Femme,Daley Center,2014-10-11T00:00:00.000,2014-10-11T00:00:00.000,,Approved
+2014-03-11T00:00:00.000,Chicago Fire Filming,Daley Center,2014-03-18T00:00:00.000,2014-03-18T00:00:00.000,,Approved
+2014-03-06T00:00:00.000,Make Music Chicago,Daley Center,2014-06-21T00:00:00.000,2014-06-21T00:00:00.000,,Approved
+2014-03-06T00:00:00.000,The Divine Mercy Project ,Daley Center,2014-04-17T00:00:00.000,2014-04-28T00:00:00.000,,Approved
+2014-02-26T00:00:00.000,Communion & Liberation,Daley Center,2014-04-18T00:00:00.000,2014-04-18T00:00:00.000,,Approved
+2014-02-21T00:00:00.000,Disability Pride Parade Association,Daley Center,2014-07-18T00:00:00.000,2014-07-20T00:00:00.000,,Approved
+2014-02-20T00:00:00.000,"Elemento L2, State of IL",Daley Center,2014-03-03T00:00:00.000,2014-03-31T00:00:00.000,,Denied
+2014-02-11T00:00:00.000,Committee of French Speaking Societies,Daley Center,2014-07-14T00:00:00.000,2014-07-14T00:00:00.000,,Approved
+2014-02-07T00:00:00.000,Consulate General of Bulgaria,Daley Center,2014-03-02T00:00:00.000,2014-03-02T00:00:00.000,,Approved
+2014-02-05T00:00:00.000,American Muslims for Palestine,Daley Center,2014-05-31T00:00:00.000,2014-05-31T00:00:00.000,,Withdrew
+2014-02-05T00:00:00.000,Office of Business Affairs and Consumer Protection,Daley Center,2014-05-07T00:00:00.000,2014-05-08T00:00:00.000,,Approved
+2014-02-05T00:00:00.000,NBC Studios,Daley Center,2014-02-03T00:00:00.000,2014-02-13T00:00:00.000,,Approved
+2014-02-05T00:00:00.000,Chicago Cares,Daley Center,2014-06-06T00:00:00.000,2014-06-07T00:00:00.000,,Approved
+2014-01-27T00:00:00.000,Awakening America Alliance  ,Daley Center,2014-09-11T00:00:00.000,2014-09-11T00:00:00.000,,Approved
+2014-01-24T00:00:00.000,DCASE / City Birthday,Daley Center,2014-03-04T00:00:00.000,2014-03-04T00:00:00.000,,Approved
+2014-01-24T00:00:00.000,Rape Victim Advocates,Daley Center,2014-02-14T00:00:00.000,2014-02-14T00:00:00.000,,Approved
+2014-01-24T00:00:00.000,Nehemial Leaders,Daley Center,2014-04-30T00:00:00.000,2014-04-30T00:00:00.000,,Approved
+2014-01-23T00:00:00.000,Chicago Children's Advocacy Center,Daley Center,2014-04-10T00:00:00.000,2014-04-10T00:00:00.000,,Approved
+2014-01-21T00:00:00.000,Courtside Ministries,Daley Center,2014-01-22T00:00:00.000,2014-04-30T00:00:00.000,,Approved
+2014-01-21T00:00:00.000,Rape Victim Advocates,Daley Center,2014-04-25T00:00:00.000,2014-04-25T00:00:00.000,,Approved
+2014-01-21T00:00:00.000,Forest Preserves of Cook County,Daley Center,2014-06-10T00:00:00.000,2014-06-10T00:00:00.000,,Approved
+2014-01-17T00:00:00.000,Forest Preserves of Cook County,Daley Center,2014-06-17T00:00:00.000,2014-06-17T00:00:00.000,,Withdrew
+2014-01-13T00:00:00.000,City Year Chicago,Daley Center,2014-01-31T00:00:00.000,2014-01-31T00:00:00.000,,Approved
+2014-01-10T00:00:00.000,Illinois NoRML / Rok Steady,Daley Center,2014-05-03T00:00:00.000,2014-05-03T00:00:00.000,,Approved
+2014-01-03T00:00:00.000,Citizen's Official Services,Daley Center,2014-03-25T00:00:00.000,2014-03-25T00:00:00.000,,Approved
+2014-01-03T00:00:00.000,Citizen's Official Services,Daley Center,2014-03-28T00:00:00.000,2014-03-28T00:00:00.000,,Approved
+2014-01-03T00:00:00.000,Citizen's Official Services,Daley Center,2014-03-20T00:00:00.000,2014-03-20T00:00:00.000,,Approved
+2014-01-02T00:00:00.000,The  American Kidney Fund,Daley Center,2014-08-27T00:00:00.000,2014-08-17T00:00:00.000,,Approved
+2013-12-03T00:00:00.000,Choose Chicago / Filming on Daley Plaza,Daley Center,2013-12-02T00:00:00.000,2013-12-03T00:00:00.000,,Approved
+2013-11-26T00:00:00.000,M.A.S.O.M.,Daley Center,2013-12-22T00:00:00.000,2013-12-22T00:00:00.000,,Approved
+2013-11-18T00:00:00.000,DCASE / Tree Lighting,Daley Center,2013-11-26T00:00:00.000,2013-11-26T00:00:00.000,,Approved
+2013-11-18T00:00:00.000,Ahlul Bait Center,Daley Center,2013-12-20T00:00:00.000,2013-12-20T00:00:00.000,,Withdrew
+2013-11-14T00:00:00.000,Lincoln United Methodist Church,Daley Center,2013-11-14T00:00:00.000,2013-11-14T00:00:00.000,,Withdrew
+2013-11-08T00:00:00.000,City Year Chicago,Daley Center,2013-11-08T00:00:00.000,2013-11-08T00:00:00.000,,Approved
+2013-10-29T00:00:00.000,Holodomor Memorial / New Ukrainian Wave,Daley Center,2013-11-02T00:00:00.000,2013-11-02T00:00:00.000,,Withdrew
+2013-10-28T00:00:00.000,M.A.S.O.M.,Daley Center,2013-11-14T00:00:00.000,2013-11-14T00:00:00.000,,Approved
+2013-10-17T00:00:00.000,DCASE / Farmer's Food Day,Daley Center,2013-10-24T00:00:00.000,2013-10-24T00:00:00.000,,Approved
+2013-10-17T00:00:00.000,Death to Life,Daley Center,2013-11-02T00:00:00.000,2013-11-02T00:00:00.000,,Withdrew
+2013-10-17T00:00:00.000,CAF - Open House Chicago,Daley Center,2013-10-19T00:00:00.000,2013-10-19T00:00:00.000,,Approved
+2013-10-16T00:00:00.000,Chinese Consolidate3d Benevolent Associate of Chicago,Daley Center,2013-10-18T00:00:00.000,2013-10-18T00:00:00.000,,Denied
+2013-10-02T00:00:00.000,Revolution Books - Coalition Chicago / Richard Newberger,Daley Center,2013-10-22T00:00:00.000,2013-10-22T00:00:00.000,,Approved
+2013-10-01T00:00:00.000,"Lubavitch Chabad of the Loop, Gold Coast & Lincoln Park",Daley Center,2013-11-18T00:00:00.000,2013-12-12T00:00:00.000,,Approved
+2013-09-18T00:00:00.000,Archdiocese of Chicago,Daley Center,2013-10-19T00:00:00.000,2013-10-19T00:00:00.000,,Approved
+2013-09-17T00:00:00.000,Fierce women of Faith / St. Sabina's,Daley Center,2013-09-24T00:00:00.000,2013-09-24T00:00:00.000,,Approved
+2013-09-17T00:00:00.000,Kwanzaa Market / VAAIC,Daley Center,2013-12-11T00:00:00.000,2013-12-19T00:00:00.000,,Withdrew
+2013-09-12T00:00:00.000,Film Access License / ABC Studios,Daley Center,2013-09-13T00:00:00.000,2013-09-13T00:00:00.000,,Approved
+2013-09-09T00:00:00.000,"Lubavitch Chabad of the Loop, Gold Coast & Lincoln Park",Daley Center,2013-09-15T00:00:00.000,2013-09-29T00:00:00.000,,Approved
+2013-09-04T00:00:00.000,Cook County Law Library,Daley Center,2013-09-26T00:00:00.000,2013-09-26T00:00:00.000,,Approved
+2013-08-29T00:00:00.000,Veterans Markets Association,Daley Center,2013-10-14T00:00:00.000,2013-10-18T00:00:00.000,,Withdrew
+2013-08-28T00:00:00.000,Purple Light / Pancreatic Cancer Action Network,Daley Center,2013-10-27T00:00:00.000,2013-10-27T00:00:00.000,,Withdrew
+2013-08-27T00:00:00.000,Courtside Ministries,Daley Center,2013-09-04T00:00:00.000,2013-12-27T00:00:00.000,,Approved
+2013-08-27T00:00:00.000,Nativity Scene Committee,Daley Center,2013-11-30T00:00:00.000,2013-12-28T00:00:00.000,,Approved
+2013-08-23T00:00:00.000,Chicago Alliance  ,Daley Center,2013-08-28T00:00:00.000,2013-08-28T00:00:00.000,,Approved
+2013-08-22T00:00:00.000,DCASE / Food Truck Rally,Daley Center,2013-09-27T00:00:00.000,2013-09-27T00:00:00.000,,Approved
+2013-08-22T00:00:00.000,Chicago in White,Daley Center,2013-09-22T00:00:00.000,2013-09-22T00:00:00.000,,Denied
+2013-08-19T00:00:00.000,DCASE - Wurst Fest,Daley Center,2013-09-18T00:00:00.000,2013-09-19T00:00:00.000,,Approved
+2013-08-12T00:00:00.000,Amdur Productions Art Fest,Daley Center,2013-11-14T00:00:00.000,2013-11-16T00:00:00.000,,Withdrew
+2013-08-09T00:00:00.000,Constitutional Rights Foundation Chicago / Constitution Day,Daley Center,2013-09-17T00:00:00.000,2013-09-17T00:00:00.000,,Approved
+2013-08-09T00:00:00.000,American Fallen Warrior Memorial Foundation,Daley Center,2013-09-06T00:00:00.000,2013-09-06T00:00:00.000,,Approved
+2013-08-05T00:00:00.000,DCASE - Chicagoween,Daley Center,2013-10-23T00:00:00.000,2013-10-27T00:00:00.000,,Approved
+2013-07-31T00:00:00.000,Chicago Loop Alliance,Daley Center,2013-09-02T00:00:00.000,2013-09-02T00:00:00.000,,Withdrew
+2013-07-23T00:00:00.000,Rehan Rizvi / Rally,Daley Center,2013-07-26T00:00:00.000,2013-07-26T00:00:00.000,,Approved
+2013-07-23T00:00:00.000,Canright Communications / Christmas in July,Daley Center,2013-07-29T00:00:00.000,2013-07-29T00:00:00.000,,Withdrew
+2013-07-18T00:00:00.000,Disability Pride Parade Association - Post Parade Event,Daley Center,2013-07-20T00:00:00.000,2013-07-20T00:00:00.000,,Approved
+2013-07-15T00:00:00.000,Chicago Park District / Bowing Event,Daley Center,2013-07-16T00:00:00.000,2013-07-16T00:00:00.000,,Approved
+2013-07-12T00:00:00.000,Kilimanjaro International / Kwanzaa and Christmas Bizarre,Daley Center,2013-12-11T00:00:00.000,2013-12-13T00:00:00.000,,Withdrew/Denied
+2013-07-08T00:00:00.000,Welcome to Africa,Daley Center,2013-09-09T00:00:00.000,2013-09-10T00:00:00.000,,Approved
+2013-07-08T00:00:00.000,Day of Quds,Daley Center,2013-08-02T00:00:00.000,2013-08-02T00:00:00.000,,Approved
+2013-06-28T00:00:00.000,Chicago Alliance Against Racist & Political Repression,Daley Center,2013-08-28T00:00:00.000,2013-08-28T00:00:00.000,,Approved
+2013-06-28T00:00:00.000,Jewish Federation of Metropolitan Chicago,Daley Center,2013-10-20T00:00:00.000,2013-10-20T00:00:00.000,,Denied
+2013-06-27T00:00:00.000,American Heart Association,Daley Center,2013-08-22T00:00:00.000,2013-08-22T00:00:00.000,,Approved
+2013-06-27T00:00:00.000,Dance for Life Chicago,Daley Center,2013-08-01T00:00:00.000,2013-08-01T00:00:00.000,,Approved
+2013-06-25T00:00:00.000,Department of Transportation / Divvy Bike Launch,Daley Center,2013-06-27T00:00:00.000,2013-06-27T00:00:00.000,,Approved
+2013-06-19T00:00:00.000,DCASE - Sidewalk Sale,Daley Center,2013-07-23T00:00:00.000,2013-07-24T00:00:00.000,,Approved
+2013-06-11T00:00:00.000,"German American Services, Inc.",Daley Center,2013-06-24T00:00:00.000,2013-06-24T00:00:00.000,,Approved
+2013-06-03T00:00:00.000,DCASE - Bike Rally,Daley Center,2013-06-14T00:00:00.000,2013-06-14T00:00:00.000,,Approved
+2013-06-03T00:00:00.000,DCASE - Tase Preview,Daley Center,2013-06-18T00:00:00.000,2013-06-18T00:00:00.000,,Approved
+2013-05-31T00:00:00.000,DIFFA,Daley Center,2013-06-07T00:00:00.000,2013-06-07T00:00:00.000,,Approved
+2013-05-24T00:00:00.000,Kilimanjaro International / VAICC Harambee Arts and Crafts,Daley Center,2013-08-27T00:00:00.000,2013-08-28T00:00:00.000,,Denied
+2013-05-24T00:00:00.000,Italian American Chamber of Commerce / Gelato Fest,Daley Center,2013-08-17T00:00:00.000,2013-08-23T00:00:00.000,,Withdrew
+2013-05-17T00:00:00.000,Chicago Sister Cities,Daley Center,2013-08-05T00:00:00.000,2013-08-09T00:00:00.000,,Withdrew
+2013-05-17T00:00:00.000,City Year Chicago,Daley Center,2013-05-23T00:00:00.000,2013-05-23T00:00:00.000,,Approved
+2013-05-15T00:00:00.000,DCASE - Farmers Market every Thursday,Daley Center,2013-05-16T00:00:00.000,2013-10-17T00:00:00.000,,Approved
+2013-05-13T00:00:00.000,DCASE - Portrait of a Soldier Exhibit,Daley Center,2013-05-20T00:00:00.000,2013-05-20T00:00:00.000,,Approved
+2013-05-08T00:00:00.000,Freedom From Religion Foundation,Daley Center,2013-11-26T00:00:00.000,2013-12-29T00:00:00.000,,Approved
+2013-05-07T00:00:00.000,Courtside Ministries,Daley Center,2013-05-08T00:00:00.000,2013-08-30T00:00:00.000,,Approved
+2013-05-07T00:00:00.000,Cheryl Williams,Daley Center,2013-06-29T00:00:00.000,2013-06-29T00:00:00.000,,Denied
+2013-05-06T00:00:00.000,Philippine General Consulate,Daley Center,2013-06-12T00:00:00.000,2013-06-12T00:00:00.000,,Approved
+2013-05-06T00:00:00.000,Ketchum Public Relations,Daley Center,2013-06-27T00:00:00.000,2013-06-27T00:00:00.000,,Withdrew
+2013-04-26T00:00:00.000,Film  Access License / Jupiter Ascending,Daley Center,2013-05-03T00:00:00.000,2013-05-03T00:00:00.000,,Approved
+2013-04-25T00:00:00.000,Rush Hour Concerts / Make Music Chicago,Daley Center,2013-06-21T00:00:00.000,2013-06-21T00:00:00.000,,Approved
+2013-04-23T00:00:00.000,Charter Parents United,Daley Center,2013-05-08T00:00:00.000,2013-05-08T00:00:00.000,,Withdrew
+2013-04-23T00:00:00.000,Chicago Teacher's Union Rally,Daley Center,2013-05-20T00:00:00.000,2013-05-20T00:00:00.000,,Approved
+2013-04-22T00:00:00.000,City Year Chicago,Daley Center,2013-04-26T00:00:00.000,2013-04-23T00:00:00.000,,Approved
+2013-04-18T00:00:00.000,Awakening America Alliance with Spirit of Liberty Church of God / Cry Out for America,Daley Center,2013-09-11T00:00:00.000,2013-09-11T00:00:00.000,,Approved
+2013-04-17T00:00:00.000,Sentimiento Boliviano Chicago,Daley Center,2013-08-04T00:00:00.000,2013-08-04T00:00:00.000,,Approved
+2013-04-11T00:00:00.000,"Judicial Watch, Inc.",Daley Center,2013-04-22T00:00:00.000,2013-04-22T00:00:00.000,,Approved
+2013-04-03T00:00:00.000,City of Chicago - Department of Forestry,Daley Center,2013-04-19T00:00:00.000,2013-05-03T00:00:00.000,,Approved
+2013-04-02T00:00:00.000,Department of Cultural Affairs and Special Events ,Daley Center,2013-05-25T00:00:00.000,2013-05-25T00:00:00.000,,Approved
+2013-04-01T00:00:00.000,Congregation or Chadash,Daley Center,2013-05-10T00:00:00.000,2013-05-10T00:00:00.000,,Approved
+2013-03-27T00:00:00.000,Rape Victim Advocates,Daley Center,2013-04-26T00:00:00.000,2013-04-26T00:00:00.000,,Approved
+2013-03-26T00:00:00.000,Illinois NoRML,Daley Center,2013-05-04T00:00:00.000,2013-05-04T00:00:00.000,,Approved
+2013-03-20T00:00:00.000,NE Illinois Lyme Support Network,Daley Center,2013-05-10T00:00:00.000,2013-05-11T00:00:00.000,,Approved
+2013-03-07T00:00:00.000,ART = AMMO,Daley Center,2013-03-24T00:00:00.000,2013-03-24T00:00:00.000,,Approved
+2013-03-01T00:00:00.000,Jewish United Fund/Jewish Federation of Metropolitan Chicago,Daley Center,2013-11-26T00:00:00.000,2013-12-13T00:00:00.000,,Withdrew
+2013-02-28T00:00:00.000,Disability Pride Parade Association,Daley Center,2013-07-19T00:00:00.000,2013-07-20T00:00:00.000,,Approved
+2013-02-28T00:00:00.000,8th Day Center for Justice,Daley Center,2013-03-29T00:00:00.000,2013-03-29T00:00:00.000,,Approved
+2013-02-25T00:00:00.000,"The Divine Mercy Project, Thomas More Society ",Daley Center,2013-03-28T00:00:00.000,2013-04-07T00:00:00.000,,Approved
+2013-02-21T00:00:00.000,Chicago Teachers Union,Daley Center,2013-03-27T00:00:00.000,2013-03-27T00:00:00.000,,Approved
+2013-02-20T00:00:00.000,The Episcopal Diocese of Chicago,Daley Center,2013-03-22T00:00:00.000,2013-03-22T00:00:00.000,,Approved
+2013-02-14T00:00:00.000,Nehemiah Leaders,Daley Center,2013-05-01T00:00:00.000,2013-05-01T00:00:00.000,,Approved
+2013-02-14T00:00:00.000,Department of Cultural Affairs and Special Events ,Daley Center,2013-02-20T00:00:00.000,2013-05-06T00:00:00.000,,Approved
+2013-02-13T00:00:00.000,Chicago Tea Party,Daley Center,2013-04-15T00:00:00.000,2013-04-15T00:00:00.000,,Approved
+2013-02-12T00:00:00.000,City of Chicago and Chicago Cares,Daley Center,2013-06-15T00:00:00.000,2013-06-15T00:00:00.000,,Approved
+2013-02-11T00:00:00.000,City Year Chicago,Daley Center,2013-02-15T00:00:00.000,2013-02-15T00:00:00.000,,Approved
+2013-02-11T00:00:00.000,City of Chicago Dept. Of Business Affairs & Consumer Protection - World Fair Trade Event,Daley Center,2013-05-07T00:00:00.000,2013-05-08T00:00:00.000,,Approved
+2013-02-11T00:00:00.000,City Year Chicago,Daley Center,2013-03-29T00:00:00.000,2013-03-29T00:00:00.000,,Approved
+2013-02-07T00:00:00.000,Croatian American Day,Daley Center,2013-05-10T00:00:00.000,2013-05-10T00:00:00.000,,Approved
+2013-02-05T00:00:00.000,Communion and Liberation,Daley Center,2013-03-29T00:00:00.000,2013-03-29T00:00:00.000,,Approved
+2013-02-01T00:00:00.000,Rehan Rizvi & Safder Hasan,Daley Center,2013-02-04T00:00:00.000,2013-02-04T00:00:00.000,,Approved
+2013-01-31T00:00:00.000,Illinois Coalition for Immigrant and Refugee Rights,Daley Center,2013-06-13T00:00:00.000,2013-06-13T00:00:00.000,,Approved
+2013-01-29T00:00:00.000,Consulate General of Bulgaria,Daley Center,2013-03-03T00:00:00.000,2013-03-03T00:00:00.000,,Approved
+2013-01-25T00:00:00.000,Department of Cultural Affairs and Special Events and Chicago Park District,Daley Center,2013-07-24T00:00:00.000,2013-07-24T00:00:00.000,,Approved
+2013-01-25T00:00:00.000,Citizen's Official Services,Daley Center,2013-03-22T00:00:00.000,2013-03-22T00:00:00.000,,Approved
+2013-01-25T00:00:00.000,Rape Victim Advocates,Daley Center,2013-02-14T00:00:00.000,2013-02-14T00:00:00.000,,Approved
+2013-01-23T00:00:00.000,City Year Chicago,Daley Center,2013-01-25T00:00:00.000,2013-01-25T00:00:00.000,,Approved
+2013-01-22T00:00:00.000,Chicago Citizen's for Change,Daley Center,2013-01-26T00:00:00.000,2013-01-26T00:00:00.000,,Withdrew
+2013-01-17T00:00:00.000,Forest Preserve District of Cook County,Daley Center,2013-06-11T00:00:00.000,,,Approved
+2013-01-17T00:00:00.000,Citizen's Official Services,Daley Center,2013-03-20T00:00:00.000,2013-03-20T00:00:00.000,,Approved
+2013-01-09T00:00:00.000,Chicago Children's Advocacy Center,Daley Center,2013-04-30T00:00:00.000,2013-04-30T00:00:00.000,,Approved
+2013-01-09T00:00:00.000,The ALS Association Greater Chicago Chapter,Daley Center,2013-05-22T00:00:00.000,2013-05-23T00:00:00.000,,Approved
+2013-01-08T00:00:00.000,The Realm / International Arts Festival,Daley Center,2013-04-14T00:00:00.000,2013-04-16T00:00:00.000,,Approved
+2013-01-07T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2013-03-12T00:00:00.000,2013-03-17T00:00:00.000,,Approved
+2013-01-03T00:00:00.000,Committee of French Speaking Societies,Daley Center,2013-07-13T00:00:00.000,2013-07-13T00:00:00.000,,Approved
+2013-01-03T00:00:00.000,International Art Festival - The Realm,Daley Center,2013-08-14T00:00:00.000,2013-08-16T00:00:00.000,,Approved
+2013-01-01T00:00:00.000,"German American Services, Inc.",Daley Center,2013-11-26T00:00:00.000,2013-12-24T00:00:00.000,,Approved
+2013-01-01T00:00:00.000,"German American Services, Inc.",Daley Center,2013-09-28T00:00:00.000,2013-10-20T00:00:00.000,,Withdrew
+2012-12-19T00:00:00.000,Courtside Ministries,Daley Center,2013-01-02T00:00:00.000,2013-01-30T00:00:00.000,,Approved
+2012-12-12T00:00:00.000,American Hijab Design Contest,Daley Center,2012-12-17T00:00:00.000,2012-12-17T00:00:00.000,,Withdrew
+2012-12-07T00:00:00.000,Pro-Life Action League,Daley Center,2013-01-22T00:00:00.000,2013-01-22T00:00:00.000,,Withdrew
+2012-12-06T00:00:00.000,MASOM,Daley Center,2012-12-30T00:00:00.000,2012-12-30T00:00:00.000,,Approved
+2012-12-05T00:00:00.000,Active Transportation Alliance,Daley Center,2013-01-18T00:00:00.000,2013-01-18T00:00:00.000,,Approved
+2012-11-13T00:00:00.000,Lubavitch Chabad of the Loop,Daley Center,2012-12-04T00:00:00.000,2012-12-19T00:00:00.000,,Approved
+2012-10-30T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2012-11-20T00:00:00.000,2012-11-20T00:00:00.000,,Approved
+2012-10-30T00:00:00.000,MASOM,Daley Center,2012-11-24T00:00:00.000,2012-11-25T00:00:00.000,,Approved
+2012-10-30T00:00:00.000,Courtside Ministries,Daley Center,2012-11-07T00:00:00.000,2012-12-28T00:00:00.000,,Approved
+2012-10-18T00:00:00.000,Chicago - Kent College of Law ,Daley Center,2012-10-24T00:00:00.000,2012-10-27T00:00:00.000,,Withdrew
+2012-10-15T00:00:00.000,Illinois Fire Services Association,Daley Center,2012-11-13T00:00:00.000,2012-11-13T00:00:00.000,,Approved
+2012-10-01T00:00:00.000,National Dance for Obama,Daley Center,2012-10-13T00:00:00.000,2012-10-13T00:00:00.000,,Approved
+2012-10-01T00:00:00.000,Siskel/Jacobs Productions,Daley Center,2012-10-02T00:00:00.000,2012-10-02T00:00:00.000,,Approved
+2012-09-24T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2012-10-25T00:00:00.000,2012-10-31T00:00:00.000,,Approved
+2012-09-18T00:00:00.000,Ali Bakhtiari,Daley Center,2012-09-29T00:00:00.000,2012-09-29T00:00:00.000,,Approved
+2012-09-14T00:00:00.000,Pro-Life Action League,Daley Center,2012-10-20T00:00:00.000,2012-10-20T00:00:00.000,,Approved
+2012-09-13T00:00:00.000,New Schools for Chicago,Daley Center,2012-09-18T00:00:00.000,2012-09-18T00:00:00.000,,Approved
+2012-09-13T00:00:00.000,Michael Ryan Noble,Daley Center,2012-10-21T00:00:00.000,2012-10-21T00:00:00.000,,Approved
+2012-09-10T00:00:00.000,City Year Chicago,Daley Center,2012-09-14T00:00:00.000,2012-09-14T00:00:00.000,,Approved
+2012-09-07T00:00:00.000,Michael Ryan Noble,Daley Center,2012-10-06T00:00:00.000,2012-10-06T00:00:00.000,,Withdrew
+2012-09-06T00:00:00.000,Courtside Ministries,Daley Center,2012-09-19T00:00:00.000,2012-10-31T00:00:00.000,,Approved
+2012-08-29T00:00:00.000,Nativity Scene Committee,Daley Center,2012-11-24T00:00:00.000,2012-12-29T00:00:00.000,,Approved
+2012-08-10T00:00:00.000,Chicago Teacher's Union,Daley Center,2012-09-03T00:00:00.000,2012-09-03T00:00:00.000,,Approved
+2012-08-10T00:00:00.000,"Big Rock, LLC",Daley Center,2012-09-23T00:00:00.000,2012-09-23T00:00:00.000,,Approved
+2012-08-07T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2012-11-02T00:00:00.000,2012-11-02T00:00:00.000,,Approved
+2012-08-02T00:00:00.000,Courtside Ministries,Daley Center,2012-08-08T00:00:00.000,2012-09-12T00:00:00.000,,Approved
+2012-07-31T00:00:00.000,City Year Chicago,Daley Center,2012-08-03T00:00:00.000,2012-08-03T00:00:00.000,,Approved
+2012-07-31T00:00:00.000,Michael Ryan Noble,Daley Center,2012-09-08T00:00:00.000,2012-09-08T00:00:00.000,,Withdrew
+2012-07-27T00:00:00.000,Turkish American Cultural Alliance (TACA),Daley Center,2012-09-09T00:00:00.000,2012-09-12T00:00:00.000,,Approved
+2012-07-26T00:00:00.000,Chicago Join Hands,Daley Center,2012-08-24T00:00:00.000,2012-09-14T00:00:00.000,,Denied
+2012-06-29T00:00:00.000,Al-Quds Rally,Daley Center,2012-08-17T00:00:00.000,2012-08-17T00:00:00.000,,Approved
+2012-06-25T00:00:00.000,Pro-Life Action League,Daley Center,2013-01-22T00:00:00.000,2013-01-22T00:00:00.000,,Will Reapply
+2012-06-22T00:00:00.000,Boss Kane Productions,Daley Center,2012-06-29T00:00:00.000,2012-06-29T00:00:00.000,,Withdrew
+2012-06-06T00:00:00.000,Lithuanian Community ,Daley Center,2012-06-25T00:00:00.000,2012-06-25T00:00:00.000,,Approved
+2012-06-01T00:00:00.000,German American Services,Daley Center,2012-11-21T00:00:00.000,2012-12-24T00:00:00.000,,Approved
+2012-05-30T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2012-06-19T00:00:00.000,2012-06-19T00:00:00.000,,Approved
+2012-05-30T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2012-06-15T00:00:00.000,2012-06-15T00:00:00.000,,Approved
+2012-05-24T00:00:00.000,Gorgeous Enterprises,Daley Center,2012-05-27T00:00:00.000,2012-05-27T00:00:00.000,,Withdrew
+2012-05-24T00:00:00.000,Chicago Sister Cities,Daley Center,2012-08-06T00:00:00.000,2012-08-10T00:00:00.000,,Approved
+2012-05-17T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2012-05-24T00:00:00.000,2012-10-18T00:00:00.000,,Approved
+2012-05-16T00:00:00.000,Sathya Sai Baba Centers of Chicagoland,Daley Center,2012-08-11T00:00:00.000,2012-08-11T00:00:00.000,,Approved
+2012-05-15T00:00:00.000,Chicago Office of Tourism,Daley Center,2012-07-17T00:00:00.000,2012-07-18T00:00:00.000,,Approved
+2012-05-08T00:00:00.000,Indian Graduate Students and Scholars Association ,Daley Center,2012-05-11T00:00:00.000,2012-05-11T00:00:00.000,,Approved
+2012-05-01T00:00:00.000,Forest Preserve District of Cook County,Daley Center,2012-06-06T00:00:00.000,2012-06-06T00:00:00.000,,Approved
+2012-04-24T00:00:00.000,Consulate General of the Republic of Lithuania,Daley Center,2012-06-01T00:00:00.000,2012-06-01T00:00:00.000,,Approved
+2012-04-24T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2012-05-26T00:00:00.000,2012-05-26T00:00:00.000,,Approved
+2012-04-23T00:00:00.000,ALS Association Greater Chicago Chapter,Daley Center,2012-05-29T00:00:00.000,2012-05-30T00:00:00.000,,Approved
+2012-04-23T00:00:00.000,Stand Up Chicago,Daley Center,2012-05-23T00:00:00.000,2012-05-23T00:00:00.000,,Withdrew
+2012-04-17T00:00:00.000,Horn of Bible Fellowship,Daley Center,2012-06-23T00:00:00.000,2012-06-23T00:00:00.000,,Approved
+2012-04-17T00:00:00.000,Coldwell Banker Leader Realty,Daley Center,2012-06-17T00:00:00.000,2012-06-17T00:00:00.000,,Withdrew
+2012-04-11T00:00:00.000,German American Chamber of Commerce (das haus),Daley Center,2012-09-14T00:00:00.000,2012-10-04T00:00:00.000,,Approved
+2012-04-11T00:00:00.000,Talented 10th University,Daley Center,2012-07-12T00:00:00.000,2012-07-12T00:00:00.000,,Withdrew
+2012-04-10T00:00:00.000,Illinois NORML,Daley Center,2012-05-05T00:00:00.000,2012-05-05T00:00:00.000,,Approved
+2012-04-10T00:00:00.000,City Year Chicago,Daley Center,2012-04-27T00:00:00.000,2012-04-27T00:00:00.000,,Approved
+2012-04-10T00:00:00.000,Croatian American Day Committee,Daley Center,2012-05-11T00:00:00.000,2012-05-11T00:00:00.000,,Approved
+2012-04-05T00:00:00.000,Sharon Cail,Daley Center,2012-05-12T00:00:00.000,2012-05-12T00:00:00.000,,Approved
+2012-03-26T00:00:00.000,Disability Pride Parade Association,Daley Center,2012-07-21T00:00:00.000,2012-07-21T00:00:00.000,,Approved
+2012-03-23T00:00:00.000,Department of Business Affairs and Consumer Protection,Daley Center,2012-05-09T00:00:00.000,2012-05-09T00:00:00.000,,Approved
+2012-03-23T00:00:00.000,Chicago Children's Advocacy Center,Daley Center,2012-04-30T00:00:00.000,2012-04-30T00:00:00.000,,Approved
+2012-03-22T00:00:00.000,Courtside Ministries,Daley Center,2012-06-20T00:00:00.000,2012-07-25T00:00:00.000,,Approved
+2012-03-21T00:00:00.000,City of Chicago - Department of Streets and Sanitation,Daley Center,2012-04-20T00:00:00.000,2012-05-04T00:00:00.000,,Approved
+2012-03-20T00:00:00.000,Community Sports Fans,Daley Center,2012-07-06T00:00:00.000,2012-07-06T00:00:00.000,,Withdrew
+2012-03-19T00:00:00.000,German American Services,Daley Center,2012-09-01T00:00:00.000,2012-10-01T00:00:00.000,,Withdrew
+2012-03-15T00:00:00.000,Chicago Tea Party,Daley Center,2012-04-16T00:00:00.000,2012-04-16T00:00:00.000,,Approved
+2012-03-14T00:00:00.000,8th Day Center for Justice,Daley Center,2012-04-06T00:00:00.000,2012-04-06T00:00:00.000,,Approved
+2012-03-14T00:00:00.000,Illinois Coalition for Immigrant and Refugee Rights,Daley Center,2012-06-14T00:00:00.000,2012-06-14T00:00:00.000,,Approved
+2012-03-13T00:00:00.000,Boss Kane Productions,Daley Center,2012-03-23T00:00:00.000,2012-03-23T00:00:00.000,,Approved
+2012-03-12T00:00:00.000,"The Realm, Ltd",Daley Center,2012-08-27T00:00:00.000,2012-08-31T00:00:00.000,,Approved
+2012-03-09T00:00:00.000,Chicago Cares,Daley Center,2012-06-09T00:00:00.000,2012-06-09T00:00:00.000,,Approved
+2012-03-07T00:00:00.000,United Against the War on War,Daley Center,2012-04-28T00:00:00.000,2012-04-28T00:00:00.000,,Withdrew
+2012-03-06T00:00:00.000,Coalition Against NATO/G8 War & Poverty Agenda,Daley Center,2012-05-20T00:00:00.000,2012-05-20T00:00:00.000,,Withdrew
+2012-03-02T00:00:00.000,Susan Basko,Daley Center,2012-05-20T00:00:00.000,2012-05-20T00:00:00.000,,Withdrew
+2012-03-01T00:00:00.000,Thomas Moore Society,Daley Center,2012-04-12T00:00:00.000,2012-04-15T00:00:00.000,,Approved
+2012-02-27T00:00:00.000,Episcopal Diocese of Chicago,Daley Center,2012-04-02T00:00:00.000,2012-04-02T00:00:00.000,,Approved
+2012-02-27T00:00:00.000,Episcopal Diocese of Chicago,Daley Center,2012-04-02T00:00:00.000,2012-04-02T00:00:00.000,,Approved
+2012-02-27T00:00:00.000,City Year Chicago,Daley Center,2012-05-04T00:00:00.000,2012-05-04T00:00:00.000,,Approved
+2012-02-27T00:00:00.000,City Year Chicago,Daley Center,2012-04-02T00:00:00.000,2012-04-02T00:00:00.000,,Approved
+2012-02-27T00:00:00.000,City Year Chicago,Daley Center,2012-03-16T00:00:00.000,2012-03-16T00:00:00.000,,Approved
+2012-02-22T00:00:00.000,Consulate General De France,Daley Center,2012-07-14T00:00:00.000,2012-07-14T00:00:00.000,,Approved
+2012-02-21T00:00:00.000,Department of Cultural Affairs and Special Events,Daley Center,2012-07-09T00:00:00.000,2012-07-10T00:00:00.000,,Approved
+2012-02-21T00:00:00.000,Ogilvy Action,Daley Center,2012-04-04T00:00:00.000,2012-04-04T00:00:00.000,,Denied
+2012-02-16T00:00:00.000,Consulate General of Republic of Bulgaria,Daley Center,2012-03-02T00:00:00.000,2012-03-02T00:00:00.000,,Approved
+2012-02-14T00:00:00.000,Communion and Liberation,Daley Center,2012-04-06T00:00:00.000,2012-04-06T00:00:00.000,,Approved
+2012-02-09T00:00:00.000,American Diabetes Association,Daley Center,2012-03-27T00:00:00.000,2012-03-27T00:00:00.000,,Approved
+2012-02-09T00:00:00.000,Chicago Scenic Studio,Daley Center,2012-03-27T00:00:00.000,2012-03-27T00:00:00.000,,Denied
+2012-02-08T00:00:00.000,Immigrant Youth Justice League,Daley Center,2012-03-10T00:00:00.000,2012-03-10T00:00:00.000,,Approved
+2012-02-07T00:00:00.000,City Year Chicago,Daley Center,2012-02-17T00:00:00.000,2012-02-17T00:00:00.000,,Approved
+2012-02-06T00:00:00.000,Fashion Market,Daley Center,2012-06-01T00:00:00.000,2012-09-01T00:00:00.000,,Denied
+2012-02-02T00:00:00.000,Rape Victim Advocates,Daley Center,2012-04-27T00:00:00.000,2012-04-27T00:00:00.000,,Approved
+2012-02-02T00:00:00.000,Citizen's Official Services,Daley Center,2012-03-30T00:00:00.000,2012-03-31T00:00:00.000,,Approved
+2012-01-31T00:00:00.000,"Navy Pier, Inc.",Daley Center,2012-02-02T00:00:00.000,2012-03-16T00:00:00.000,,Approved
+2012-01-31T00:00:00.000,NBC/Shed Media USA,Daley Center,2012-02-22T00:00:00.000,2012-02-22T00:00:00.000,,Withdrew 
+2012-01-18T00:00:00.000,City Year Chicago,Daley Center,2012-01-20T00:00:00.000,2012-01-20T00:00:00.000,,Approved
+2012-01-09T00:00:00.000,Tribeca Flashpoint Media Arts Academy,Daley Center,2012-01-12T00:00:00.000,2012-01-12T00:00:00.000,,Withdrew
+2012-01-09T00:00:00.000,Northern Illinois United Methodist Women ,Daley Center,2012-01-30T00:00:00.000,2012-01-30T00:00:00.000,,Approved
+2012-01-05T00:00:00.000,Illinois Policy Institute,Daley Center,2012-01-11T00:00:00.000,2012-01-11T00:00:00.000,,Withdrew 
+2012-01-04T00:00:00.000,National Nurses United,Daley Center,2012-05-18T00:00:00.000,2012-05-18T00:00:00.000,,Approved
+2012-01-01T00:00:00.000,Coalition Against NATO/G8 War & Poverty Agenda,Daley Center,2012-05-19T00:00:00.000,2012-05-19T00:00:00.000,,Withdrew 

@@ -1,0 +1,265 @@
+store_name,address,zip,new_status,last_updated,location,:@computed_region_rpca_8um6,:@computed_region_vrxf_vc4k,:@computed_region_6mkv_f3dw,:@computed_region_bdys_3d7i,:@computed_region_43wa_7qmu
+Jewel - Osco,87 W 87th St,60620,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.626243, 41.736172]}",59,40,21554,1,13
+Farm on Ogden,3555 W OGDEN AVE,60623,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.71437, 41.854608]}",57,30,21569,157,14
+Jewel - Osco,5343 N Broadway St,60640-2311,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.659887, 41.978998]}",15,76,22616,160,16
+International Foods NW,4404 W FULLERTON AVE,60639,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.737127, 41.924425]}",2,21,22615,439,17
+Jewel - Osco,2520 N Narragansett Ave,60639-1041,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.785559, 41.926236]}",3,19,22615,137,44
+Mariano's Fresh Market,40 S Halsted St,60661-3506,OPEN,,"{'type': 'Point', 'coordinates': [-87.647384, 41.880557]}",44,29,14917,91,46
+Mariano's Fresh Market,3145 South Ashland Ave,60608,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.66563800000002, 41.836512]}",43,56,14920,192,1
+Aldi,7800 S South Chicago Ave,60619-2724,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.587472, 41.752778]}",61,41,21546,133,33
+Food 4 Less,7030 S Ashland Ave,60636-3948,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.663901, 41.765174]}",23,65,22257,283,31
+Whole Foods Market,1 N Halsted St,60661-2176,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.647331, 41.882501]}",45,29,4452,784,36
+Ted's Fresh Market,2840 W Devon Ave,60645,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.701088, 41.99753]}",50,20,4450,30,27
+Aldi,4645 W. Diversy Ave,60639,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.743743, 41.931592]}",21,19,22615,460,17
+Foodsmart,3415 W Diversey Ave,60647,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.712866, 41.931959]}",1,23,22535,72,12
+Shop & Save Market,6312 N Nagle Ave,60646,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.787504, 41.996164]}",17,36,22532,657,29
+La Cienega Super Food,10736 S EWING AVE,60617,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.535294, 41.699723]}",25,49,21202,602,47
+Chicago Produce,3500 W Lawrence Ave,60625-5612,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.715926, 41.968373]}",20,14,21849,118,20
+Paulina Super Market,7622 N Paulina St,60626-1018,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.673098, 42.020029]}",9,10,21853,340,5
+Save A Lot,5555 W North Ave,60639,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.765278, 41.90935000000001]}",5,26,22615,599,45
+Food 4 Less,112 W 87Th St Ste G1,60620-1318,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.628203, 41.736274]}",59,40,21554,1,13
+Fresh Marketplace,2134 N Western Ave,60647,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.68756200000001, 41.920967000000005]}",1,23,22535,323,41
+Aldi,4030 W Wrightwood Ave,60639-2125,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.728091, 41.928127]}",2,23,22615,107,17
+Pete's Fresh Market,4343 S Pulaski Rd.,60632,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.723709, 41.813795]}",56,54,22248,563,8
+Walmart Neighborhood Market,4720 S Cottage Grove Ave,60615-1612,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.606539, 41.80867]}",10,5,21192,461,10
+Fresh Marketplace,5020 W Fullerton Ave,60639,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.75198, 41.924229]}",2,19,22615,304,17
+Aldi,1753 N Milwaukee Ave,60647-5423,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.681868, 41.913241]}",1,25,22535,179,40
+Costco,1430 S Ashland Ave,60608-2040,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.666318, 41.862387]}",43,29,14920,96,23
+Target,1664 W Division St,60622-3922,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.670037, 41.90332]}",4,25,21560,481,41
+Morse Fresh Market,1430 W MORSE AVE,60626,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.667272, 42.007928]}",9,10,21853,358,5
+Local Market,2101 E 71ST ST,60649,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.574498, 41.766083]}",24,39,22538,453,33
+Target,1200 N Larrabee St,60610-1746,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.643205, 41.903741]}",54,37,14926,309,46
+Aldi,5001 N Pulaski Rd,60630-2706,OPEN,,"{'type': 'Point', 'coordinates': [-87.728134, 41.972832]}",20,14,21849,127,38
+Aldi,3320 W Belmont Ave,60618-5513,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.710816, 41.939357]}",39,22,21538,138,12
+Old World Market,5129 N BROADWAY,60640,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.65979300000001, 41.975531]}",15,31,22616,634,16
+Jewel - Osco,1340 S Canal St,60607,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.639156, 41.864386]}",44,29,14917,97,48
+Park to Shop Supermarket Canal,1835 S CANAL ST,60616,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.638889, 41.856363]}",40,33,21194,126,26
+Jewel - Osco,2940 N Ashland Ave,60657-4004,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.66857, 41.93556]}",22,57,4449,711,40
+La Merced,4335 W 26TH ST,60623,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.732431, 41.844143]}",57,32,21569,205,28
+Aldi,6621 S Cottage Grove Ave,60637-4126,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.6058, 41.774139000000005]}",60,9,22260,332,4
+Fairplay Neighborhood Market,2200 S Western Ave.,60608,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.685717, 41.851983]}",43,33,14920,204,23
+Fresh Farms,2626 W Devon Ave,60659,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.695711, 41.997625]}",50,20,4450,31,27
+Jewel - Osco,9400 S Ashland Ave,60620-5121,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.662811, 41.723015]}",59,72,21554,632,13
+Aldi,1508 W 47th St,60609-3236,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.662937, 41.808677]}",37,59,14924,123,3
+Aldi,6221 N Broadway St,60660-1902,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.660357, 41.995236]}",14,76,4451,45,16
+Carnival Grocery & Liquor,458 W Dickens Ave,60614,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.640843, 41.920154]}",16,68,21190,745,34
+Food 4 Less,4821 W North Ave,60639-4529,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.747691, 41.909574]}",5,26,22615,600,45
+Whole Foods Market,6020 N Cicero Ave,60646-4302,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.748332, 41.990481]}",18,12,22532,782,38
+Walmart,8331 S Stewart Ave,60620-1728,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.634052, 41.740814]}",59,70,21554,529,13
+Target,3300 N Ashland Ave,60657-2109,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.66875400000002, 41.941143]}",22,57,4449,742,18
+Supermercado Chapala,7117 N CLARK ST,60626,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.674552, 42.012]}",9,10,21853,49,5
+Grocery Basket,351 E 103RD ST,60628,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.614178, 41.707306]}",19,45,21861,236,43
+Carniceria La Hacienda,2744 W 55th St,60632,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.693138, 41.793733]}",56,61,22248,778,8
+Carniceria Jimenez,4204 W North Ave,60639,OPEN,2020-06-03T21:30:00.000,"{'type': 'Point', 'coordinates': [-87.73185, 41.909879]}",2,24,22615,285,49
+Pete's Fresh Market,2333 W Madison St.,60612,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.68456, 41.881155]}",28,29,21184,37,46
+Target,6422 N Sheridan Rd Unit A,60626-5336,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.660677, 41.998785]}",9,10,21853,48,5
+Jewel - Osco,370 N Desplaines St,60661-1106,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.644337, 41.888757]}",45,25,4452,109,36
+Walmart,2844 N Broadway St,60657-6017,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.644278, 41.934267000000006]}",22,57,4449,684,25
+Trader Joe's,3745 N LINCOLN AVE,60613,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.675803, 41.949969]}",53,46,21186,644,18
+Cermak Produce,3435 S Archer,60608,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.676229, 41.831333]}",43,56,14920,2,1
+Aldi,7345 S State St,60619-1622,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.624864, 41.760589]}",11,67,21559,494,32
+Target,1 S State St,60603-2802,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.62773100000001, 41.881754]}",34,38,14311,367,36
+Fresh Marketplace,2600 N Central Ave,60639,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.766131, 41.928447]}",2,19,22615,79,21
+Mario's Butcher Shop,5817 W Madison St,60644,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.770457, 41.880104]}",32,26,22216,67,7
+Super Mercado Roman,6978 N CLARK ST,60626,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.673898, 42.008677]}",9,10,21853,49,5
+County Fair Foods,10800 S Western Avenue,60643,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.6814, 41.69714900000001]}",33,74,22212,314,42
+Aldi,7627 S Ashland Ave,60620-4248,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.663497, 41.75482]}",59,70,21554,557,31
+Aldi,2333 E 95th St,60617-4806,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.566623, 41.722569]}",25,48,21202,252,37
+Save A Lot,344 E 63rd St,60637,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.616756, 41.780225]}",60,7,22260,404,4
+Costco,2746 N Clybourn Ave,60614-1006,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.676224, 41.930664]}",16,68,21190,743,40
+Jewel - Osco,5516 N Clark St,60640-1214,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.668645, 41.982857]}",15,76,22616,564,24
+Farmer's Best Market,6420 W FULLERTON AVE,60707,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.790105, 41.923654]}",3,19,22615,137,44
+Bockwinkel's at McClurg,320 E Ohio,60601,OPEN,,"{'type': 'Point', 'coordinates': [-87.619678, 41.892621]}",6,37,21182,159,36
+Food Town,935 E 79TH ST,60619,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.601174, 41.751322]}",61,40,21546,247,35
+Mariano's Fresh Market,1500 N Clybourn Ave. #C104,60610,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.646261, 41.908623]}",54,37,14926,108,46
+Supermercado El Guero,1701 W 47th Street,60609,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.667504, 41.808611]}",37,59,14924,738,3
+Save A Lot,4439 W 63rd St,60629,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.734011, 41.778509]}",58,63,21867,6,15
+Pete's Fresh Market,2526 W Cermak Rd.,60608,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.689379, 41.852011]}",43,32,14920,203,23
+Cermak Produce,5220 S Pulaski,60632,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.723369, 41.797972]}",56,60,22248,793,6
+Jewel - Osco,1341 N Paulina St,60622-2145,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.670004, 41.906389]}",4,25,21560,482,41
+Mariano's Fresh Market,3857 S Dr. Martin Luther King Jr. Dr.,60653,OPEN,2020-06-05T13:21:00.000,,,,,,
+Tony's Finer Foods,4608 W. Belmont Avenue,60641,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.742133, 41.938918]}",21,15,22618,328,21
+Bockwinkel's Fresh Express,155 N Harbor Drive,60601,OPEN,,"{'type': 'Point', 'coordinates': [-87.615743, 41.88494]}",42,38,14309,580,36
+Target,2939 W Addison St,60618-4635,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.701338, 41.94667]}",39,16,21538,372,20
+Cermak Produce,6623 Damen Ave,60645,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.680301, 42.002765]}",12,20,22528,320,27
+Whole Foods Market,832 W 63rd St,60621-1902,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.646252, 41.779755]}",11,66,21559,22,2
+Mariano's Fresh Market,5353 N Elston,60630,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.757473, 41.978765]}",48,11,21869,128,50
+Aldi,2431 W Montrose Ave,60618-1605,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.689822, 41.961329]}",20,6,21538,621,18
+Aldi,3030 S Kedzie Ave,60623-4713,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.704836, 41.838177]}",57,32,21569,124,1
+Gordon Food Service Store,6431 W FULLERTON AVE,60707,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.786653, 41.923634]}",3,19,4454,137,44
+Cermak Produce,4401 W ARMITAGE AVE,60639,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.737017, 41.91706]}",2,21,22615,75,44
+Target,1101 W Jackson Blvd,60607-2905,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.654886, 41.877858]}",44,29,14917,91,26
+Whole Foods Market,5118 S Lake Park Ave,60615-4115,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.587718, 41.80173500000001]}",10,8,21192,405,10
+Supermercado El Guero,2101 W Cermak Rd,60608,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.678526, 41.852157]}",43,33,14920,4,26
+Aldi,4645 W Diversey Ave,60639-1828,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.743743, 41.931592]}",21,19,22615,460,17
+Supermercado El Guero,4023 S Archer Ave.,60632,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.693738, 41.820567]}",56,55,22248,641,1
+Walmart,3320 South Cicero Avenue,,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.74364, 41.830299]}",,,4458,,
+Beverly Food Mart,8636 S ASHLAND AVE,60620,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.663181, 41.73671]}",59,70,21554,532,13
+Food Market La Chicquita,3555 W 26th Street,60623,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.714614, 41.844396]}",57,32,21569,755,28
+Aldi,6520 W Fullerton Ave,60707-3431,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.788159, 41.923717]}",3,19,4454,137,44
+Supermercado La Chiqutia,2623 S PULASKI RD,60623,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.724514, 41.843419]}",57,32,21569,227,28
+Tony's Finer Foods,5233 N. Lincoln Ave,60625,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.69240600000002, 41.976631]}",20,6,21849,28,24
+Aldi,6025 S Western Ave,60636-2019,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.68370700000001, 41.78380000000001]}",23,64,22257,111,2
+Mariano's Fresh Market,3030 N Broadway Suite 100,60657,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.644291, 41.937393]}",22,57,4449,683,25
+Pete's Fresh Market,4700 S Kedzie Ave.,60632,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.703961, 41.807662]}",56,55,22248,85,8
+Jewel - Osco,11730 S Marshfield Ave,60643-4904,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.66251200000002, 41.6814]}",13,74,22212,378,22
+Jewel - Osco,3630 N Southport Ave,60613-3710,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.664031, 41.94821400000001]}",53,57,21186,728,25
+Potash Markets,175 E Delaware,60611,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.622865, 41.899246]}",6,37,21182,233,11
+Aldi,3835 W Madison St,60624-2335,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.722009, 41.88078]}",30,27,21572,658,23
+Walmart,2551 W Cermak Rd,60608-3719,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.689211, 41.852013]}",43,32,14920,203,23
+Carniceria La Hacienda,3629 W 63rd St,60629,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.714114, 41.7788]}",58,63,21867,339,6
+H Mart,711 W JACKSON BLVD,60661,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.644687, 41.87801]}",45,29,4452,786,36
+Leamington Foods,3240 W Roosevelt Rd,60624,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.707076, 41.866411]}",30,30,21572,98,14
+Jewel - Osco,7530 S Stony Island Ave,60649-3999,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.586146, 41.758397]}",61,39,22538,188,35
+Jewel - Osco,102 W Division St,60610,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.631522, 41.90392]}",54,37,14926,17,11
+Pete's Fresh Market,5724 S Kedzie Ave.,60629,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.703411, 41.788825]}",58,61,21867,764,8
+Food 4 Less,4620 S Damen Ave,60609-4043,OPEN,,"{'type': 'Point', 'coordinates': [-87.674989, 41.809458]}",37,59,14924,706,1
+Pete's Produce,1543 East 87th Street,60619,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.58648500000001, 41.736904]}",61,41,21546,133,35
+Whole Foods Market,1550 N Kingsbury St,60642-2532,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.651946, 41.908333]}",49,37,22620,108,46
+Cermak Produce,4234 N Kedzie Ave.,60618,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.708144, 41.958242]}",39,16,21538,214,20
+La Casa Del Pueblo,1810 S Blue Island Ave,60608,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.662098, 41.856785]}",43,33,14920,365,26
+Target,4466 N Broadway St,60640-5660,OPEN,,"{'type': 'Point', 'coordinates': [-87.656115, 41.963321]}",15,31,22616,241,39
+Park to Shop Supermarket,2425 S WALLACE ST,60616,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.641933, 41.848631]}",40,35,21194,3,48
+Morelia Supermarket,4833 W DIVERSEY AVE,60639,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.748197, 41.93153]}",21,19,22615,355,17
+Hyde Park Produce,1226 E 53RD ST,60615,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.595593, 41.799496]}",10,8,21192,499,10
+Jewel - Osco,424 W Division St,60610-3190,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.639626, 41.903827]}",54,37,14926,309,46
+Andy's Fruit Ranch,4733 N KEDZIE AVE,60625,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.708464, 41.967651]}",20,14,21849,118,20
+Mariano's Fresh Market,5201 N Sheridan Rd,60640,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.655022, 41.976906]}",15,76,22616,93,16
+Target,1346 E 53rd St,60615-4046,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.593095, 41.799527]}",10,8,21192,499,10
+Mariano's Fresh Market,1800 West Lawrence Ave.,60640,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.675062, 41.968858]}",15,6,22616,106,18
+Fairplay Neighborhood Market,2323 W 111th St.,60643,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.680391, 41.691788]}",13,74,22212,380,42
+Pete's Fresh Market,3448 E 118th St.,60617,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.540984, 41.68094700000001]}",25,52,21202,787,47
+Tony's Finer Foods,5630 W. Belmont Ave,60634,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.76795, 41.938567]}",52,15,22254,342,21
+Stumpy's Grocery & Deli,9001 S ASHLAND AVE,60620,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.662846, 41.730156]}",59,72,21554,195,13
+Devon Market,1440 W Devon Ave,60660,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.667512, 41.998125]}",9,10,4451,358,5
+Whole Foods Market,255 E Grand Ave,60611-3315,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.621346, 41.891801]}",6,37,21182,159,36
+Target,1154 S Clark St,60605-2159,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.630528, 41.867843]}",35,38,14913,12,10
+Mariano's Fresh Market,2112 N Ashland,60614,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.668539, 41.920702]}",16,23,21190,209,40
+Tony's Finer Foods,4137 N. Elston Ave,60618,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.72213, 41.955747]}",39,16,21538,364,38
+Los Cuatro Hermanos Grocery,1858 S ALLPORT ST,60608,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.657622, 41.856653]}",43,33,14920,365,26
+Target,7100 S Cicero Ave,60629-5891,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.742015, 41.764792]}",,,22268,,
+Park to Shop Supermarket Broadway,4879 N BROADWAY,60640,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.659728, 41.971045]}",15,31,22616,633,39
+Dill Pickle Food Co-op,2746 N MILWAUKEE AVE,60647,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.710541, 41.930966]}",1,23,22535,72,12
+Target,4433 S Pulaski Rd,60632-4010,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.723656, 41.812519]}",56,54,22248,563,8
+Moses Butcher Shop,5057 W DIVISION ST,60651,OPEN,,"{'type': 'Point', 'coordinates': [-87.752533, 41.902306]}",5,26,4299,600,45
+Jewel - Osco,4660 W Irving Park Rd,60641-2888,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.744868, 41.953468]}",21,15,22618,139,50
+Mariano's Fresh Market,3350 North Western Avenue,60618,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.688178, 41.942805]}",39,46,21538,615,18
+Happy Foods - Edgebrook,6415 N Central Ave,60646,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.763514, 41.998118]}",18,12,22532,782,29
+Target,2656 N Elston Ave,60647-2019,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.683798, 41.929451]}",1,23,22535,240,41
+Trader Joe's,667 W DIVERSEY PKWY,60614,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.645939, 41.932807]}",22,57,21190,684,25
+Ogies Food,2600 W LITHUANIAN PLAZA CT,60629,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.688311, 41.768259]}",58,64,21867,383,31
+Walmart,10900 S Doty Ave,60628-3804,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.596618, 41.696117]}",19,47,21861,254,43
+Walmart,7535 S Ashland Ave,60620-4246,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.663538, 41.756362]}",59,70,21554,557,31
+Cermak Produce,1711 W Cermak,60608,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.669358, 41.852296]}",43,33,14920,343,26
+Cermak Produce,3033 S Halsted St.,60608,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.646295, 41.838836]}",40,58,14920,688,48
+Pete's Fresh Market,5838 S Pulaski Rd.,60629,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.723053, 41.786519]}",58,60,21867,773,15
+Whole Foods Market,3201 N Ashland Ave,60657-2156,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.668592, 41.93976]}",22,57,4449,678,25
+Target,401 E Illinois St,60611-4305,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.617634, 41.891053]}",6,37,21182,534,36
+Jewel - Osco,6107 S Archer Ave,60638-2743,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.770696, 41.794391]}",7,53,22268,587,6
+Foodsmart,2901 W Armitage Ave,60647,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.699617, 41.917474]}",1,23,22535,322,41
+Target,2434 N SACRAMENTO AVE,60647,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.702326, 41.925616]}",1,23,22535,548,41
+Save A Lot,7240 S Stony Island,60649,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.586265, 41.762774]}",61,39,22538,451,37
+Aldi,821 W 115th St,60643-4618,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.64258800000002, 41.685074]}",13,50,22212,642,22
+Trader Joe's,44 E ONTARIO ST,60611,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.626344, 41.89332300000001]}",6,37,21182,626,36
+Leamington Foods,5467 W Madison St,60644,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.76380600000002, 41.880217]}",32,26,22216,68,7
+Cermak Produce,3311 W 26th St.,60623,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.70826800000002, 41.844499000000006]}",57,32,21569,291,1
+Whole Foods Market,3640 N Halsted St,60613-4316,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.649502, 41.948387]}",53,57,21186,726,39
+Jewel - Osco,6430 W Irving Park Rd,60634-2459,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.787727, 41.952915]}",52,17,22254,442,19
+Carniceria Jimenez,3850 W Fullerton Ave,60647,OPEN,2020-06-03T21:30:00.000,"{'type': 'Point', 'coordinates': [-87.723901, 41.924575]}",1,23,22535,186,17
+Target,6525 W Diversey Ave,60707-2312,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.787135, 41.930987]}",52,19,4454,137,44
+Aldi,10532 S Indianapolis Ave,60617-6355,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.525607, 41.703728]}",25,49,21202,705,47
+Costco,7300 S Cicero Ave,60629-5817,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.741835, 41.760134]}",,,21867,,
+Target,2650 N CLARK ST,60614,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.64393700000001, 41.930805]}",16,68,21190,18,34
+Walmart,4626 W Diversey Ave,60639-1829,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.74243, 41.931608]}",21,19,22615,460,17
+Mariano's Fresh Market,1615 S Clark Street,60616,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.630264, 41.859325]}",40,34,21194,330,9
+Aldi,4500 N Broadway St,60640-5602,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.65629, 41.963599]}",15,31,22616,241,39
+Aldi,8500 S Holland Rd,60620-1338,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.631939, 41.73934]}",59,40,21554,1,13
+Whole Foods Market,6009 N Broadway St,60660-2500,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.660244, 41.991499000000005]}",14,76,4451,213,16
+Armitage Produce,3334 W. Armitage Ave.,60647,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.710835, 41.917361]}",1,23,22535,321,49
+Que Rico Supermercado,3552 W ARMITAGE AVE,60647,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.715646, 41.917317]}",1,23,22535,550,49
+Jewel - Osco,5320 S Pulaski Rd,60632-4224,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.723312, 41.795953]}",56,60,22248,793,6
+Clarendon Food Mart,4183 N CLARENDON AVE,60613,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.649781, 41.958174]}",53,31,21186,636,39
+Trader Joe's,1840 N CLYBOURN AVE,60614,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.654343, 41.914418]}",16,68,21190,168,34
+J Freshmart,2411 S WALLACE ST,60616,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.642075, 41.848785]}",40,35,21194,3,48
+Plum Market,1233 N WELLS ST,60610,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.634502, 41.904751]}",54,37,14926,290,11
+Jewel - Osco,4250 N Lincoln Ave,60618-2902,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.682232, 41.959156]}",39,46,21538,623,18
+First Choice Market,3019 E 91ST ST,60617,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.550363, 41.73008]}",25,42,21202,510,47
+La Feria Grocery,9704 S COMMERCIAL AVE,60617,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.55104, 41.718849]}",25,48,21202,526,47
+Target,1940 W 33rd St,60608-6107,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.674594, 41.834066]}",43,56,14920,192,26
+Tony's Finer Foods,2500 N Central Avenue,60639,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.76607, 41.926441]}",2,19,22615,80,21
+Jewel - Osco,550 N State St,60654-4815,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.628072, 41.89219]}",6,37,21182,626,36
+Jewel - Osco,4734 N Cumberland Ave Apt N,60656-4239,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.836778, 41.965579]}",31,75,4448,130,19
+Tai Nam Food Market,4925 N BROADWAY,60640,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.659695, 41.972167]}",15,31,22616,634,16
+Jewel - Osco,1224 S Wabash Ave,60605-2401,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.6258, 41.866345]}",35,34,14913,374,9
+Tony's Finer Foods,3607 W Fullerton,60647,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.717603, 41.924571]}",1,23,22535,74,12
+Trader Joe's,1528 E 55TH ST,60615,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.588351, 41.795263]}",10,8,21192,500,33
+Jewel - Osco,4355 N Sheridan Rd,60613-1497,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.654722, 41.961462]}",53,31,21186,577,39
+Trader Joe's,1147 S WABASH AVE,60605,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.625838, 41.86804]}",35,38,14913,368,10
+Jewel - Osco,2550 N Clybourn Ave,60614,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.67355, 41.928315]}",16,68,21190,743,40
+Jewel - Osco,4729 N Central Ave,60630-3269,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.767429, 41.966981]}",48,15,21869,260,50
+Jewel - Osco,4042 W Foster Ave,60630-2747,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.729907, 41.975461]}",48,13,21869,748,38
+Jewel - Osco,1763 W Howard St,60626-1626,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.674817, 42.019397]}",9,10,21853,489,5
+Market Fresh Finer Foods,800 N Kedzie Avenue,60651,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.70659, 41.895992]}",5,24,4299,150,46
+Happy Foods - Edison Park,6783 Northwest Highway,60631,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.818421, 42.004199]}",17,77,22243,654,29
+Jewel - Osco,3128 W 103rd St,60655-2010,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.699375, 41.706252]}",33,73,4447,256,42
+Aldi,2828 N Central Ave,60634-5306,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.766235, 41.931987]}",21,19,22254,303,17
+Aldi,5629 W Fillmore St,60644-5504,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.766267, 41.867428]}",32,26,22216,61,7
+Woodlawn Super Fair LLC,6319 S VERNON AVE,60637,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.614421, 41.779709]}",60,9,22260,332,4
+Target,3204 N CLARK ST,60657,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.650766, 41.940086]}",22,57,4449,731,25
+Aldi,1739 W Cermak Rd,60608-4315,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.670188, 41.852282]}",43,33,14920,343,26
+Aldi,1440 N Kostner Ave,60651-1602,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.736287, 41.907435]}",5,24,4299,286,45
+Potash Markets,875 N State Street,60610,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.628297, 41.898681]}",54,37,14926,230,11
+Jewel - Osco,443 E 34th St,60616-4135,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.614555, 41.83312]}",40,1,21194,581,10
+Seafood City Supermarket,5033 N ELSTON AVE,60630,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.746374, 41.971936]}",48,14,21869,751,38
+Target,2112 W Peterson Ave,60659-4277,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.683199, 41.990654]}",50,20,4450,43,24
+Jewel - Osco,3400 N Western Ave,60618-6012,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.688073, 41.943389]}",39,46,21538,646,40
+Walmart,4650 W North Ave,60639-4611,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.743003, 41.909734]}",2,26,22615,62,45
+Cermak Produce,4000 West Diversey Ave,60647,OPEN,2020-06-04T15:00:00.000,,,,,,
+Pete's Produce,1411 West 87th Street,60620,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.658721, 41.73579600000001]}",59,70,21554,533,13
+Whole Foods Market,1101 S Canal St Ste 107,60607-4932,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.639224, 41.868909]}",44,29,14917,97,26
+Aldi,2600 N Clybourn Ave,60614-1004,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.674207, 41.928914]}",16,68,21190,743,40
+Carniceria La Hacienda,3459 W 59th St,60629,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.710412, 41.78613800000001]}",58,61,21867,801,6
+Bockwinkel's at Park Millenium,222 N Columbus,60601,OPEN,,"{'type': 'Point', 'coordinates': [-87.620734, 41.886498]}",42,38,14309,580,36
+Walmart,7050 S Cicero Ave,60638-6402,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.742029, 41.765309]}",,,22268,,
+Aldi,7545 S Western Ave,60620-5817,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.682933, 41.756043]}",59,69,21554,498,30
+Shop & Save Market,5829 S Archer Ave,60638,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.759575, 41.796111]}",7,53,22268,607,6
+Cermak Produce,2701 W NORTH AVE,60647,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.69471, 41.910211]}",4,25,22535,288,49
+Aldi,620 W 63rd St,60621-2012,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.640454, 41.779823]}",11,66,21559,435,2
+One Stop Foods,4301 S Lake Park Ave,60653,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.598545, 41.816482]}",36,5,4301,450,10
+Jewel - Osco,1655 E 95th St,60617-4707,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.584006, 41.722319]}",25,48,21202,252,37
+Fairplay Neighborhood Market,4640 S Halsted St.,60609,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.64562400000001, 41.810628]}",37,59,14924,123,48
+Whole Foods Market,959 W Fullerton Ave,60614-2406,ONLINE ORDERS ONLY,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.6533, 41.925405]}",16,68,21190,769,34
+Save A Lot,420 S Pulaksi Rd,60624,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.725425, 41.874532]}",30,27,21572,736,23
+Potash Markets,1525 N Clark Street,60610,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.63163300000001, 41.910246]}",54,37,14926,100,11
+Mariano's Fresh Market,2021 W Chicago Avenue,60622,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.677972, 41.895918]}",4,25,21560,476,11
+Carniceria La Hacienda,5153 S Kedzie Ave,60632,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.703718, 41.799112]}",56,61,22248,776,8
+Aldi,4934 S Kedzie Ave,60632-3042,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.703824, 41.802995]}",56,61,22248,763,8
+Aldi,13085 S Ashland Ave,60827-6333,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.660633, 41.656854]}",,,4460,313,
+Jewel - Osco,6014 S Cottage Grove,60637,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.606036, 41.784548]}",60,9,22260,471,4
+Rio Valley Market,3307 W 63RD ST,60629,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.707291, 41.778911]}",58,64,21867,344,6
+Johnny's Foods,7158 S ASHLAND AVE,60636,CLOSED,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.663836, 41.763146]}",23,65,22257,433,31
+Jewel - Osco,7342 W Foster Ave Ste 1,60656-3617,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.811426, 41.974395]}",,,4453,,
+Save A Lot,10700 S Halsed St,60628,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.642681, 41.699358]}",13,74,21861,315,22
+Jewel - Osco,3570 N Elston Ave,60618-4318,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.708163, 41.946197]}",39,22,21538,138,12
+Carniceria Jimenez,3850 W North Ave,60647,OPEN,2020-06-03T21:30:00.000,"{'type': 'Point', 'coordinates': [-87.723227, 41.909993]}",1,24,22535,391,49
+Food Market La Chicquita,2637 S Pulaski Road,60623,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.724506, 41.843096]}",57,32,21569,227,28
+Carniceria Jimenez,5330 W Belmont Ave,60641,OPEN,2020-06-03T21:30:00.000,"{'type': 'Point', 'coordinates': [-87.760298, 41.938673]}",21,15,22618,361,21
+Whole Foods Market,30 W Huron St,60654-6402,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.629609, 41.894857]}",55,37,4446,669,11
+Jewel - Osco,3644 S Archer Ave,60609-1044,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.68249100000001, 41.827526]}",37,56,14924,719,1
+Aldi,1836 N Clybourn Ave,60614-4902,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.654184, 41.914306]}",16,68,21190,168,34
+Jewel - Osco,1220 S Ashland Ave,60608,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.666452, 41.866306]}",43,29,14920,96,23
+Aldi,4501 S Pulaski Rd,60632-4035,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.723596, 41.810456]}",56,54,22248,563,8
+Aldi,5501 S HARLEM AVE,60638,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.801377, 41.791634]}",7,53,22268,589,6
+Fresh Thyme Farmers Market,2500 N ELSTON AVE,60647,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.680485, 41.927161000000005]}",1,23,22535,240,40
+Big Apple Finer Foods,2345 N Clark St,60614-3422,OPEN,,"{'type': 'Point', 'coordinates': [-87.639871, 41.924644]}",16,68,21190,207,34
+Centro Fresh Market,4804 W DIVERSEY AVE,60639,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.746768, 41.931564]}",21,19,22615,355,17
+Save A Lot,2858 E 83rd St,60617,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.554402, 41.74461]}",25,42,21202,244,37
+Mariano's Lakeshore East,333 E Benton Pl,60601-7412,OPEN,2020-06-05T13:21:00.000,"{'type': 'Point', 'coordinates': [-87.61846, 41.885515]}",42,38,14309,580,36
+Aldi,8333 S Cicero Ave,60652-3596,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.740988, 41.740856]}",8,69,4300,197,30
+Montrose Food Mart & Deli,6601 W IRVING PARK RD,60634,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.790868, 41.952851]}",52,17,22254,442,19
+Jewel - Osco,3531 N Broadway St,60657-1825,OPEN,2020-06-03T17:00:00.000,"{'type': 'Point', 'coordinates': [-87.646797, 41.946598]}",22,57,4449,692,39
+Fat Lee Supermarket,2707 S WELLS ST,60616,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.633033, 41.843813]}",40,35,21194,346,48
+Aldi,6220 N California Ave,60659-2608,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.699541, 41.994349]}",50,20,4450,30,27
+Fair Share Finer Foods,6422 W 63rd Street,60638,OPEN,2020-06-04T15:00:00.000,"{'type': 'Point', 'coordinates': [-87.782075, 41.777702]}",7,62,22268,335,15
+Avenue Food Mart,6850 W BELMONT AVE,60634,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.79769200000001, 41.938134]}",52,17,22254,396,44
+Lindo Michoacan,3142 W LAWRENCE  AVE,60625,OPEN,2020-06-10T00:00:00.000,"{'type': 'Point', 'coordinates': [-87.707908, 41.968473]}",20,14,21849,749,20
