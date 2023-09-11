@@ -110,7 +110,10 @@ View Distillation
 
 vd = ViewDistillation(dfs=result_dfs)
 
+# Generates a networkx graph representing 4C relationships among views (nodes)
 vd.generate_graph()
-vd.prune_graph(remove_identical_views=True,
-               remove_contained_views=True,
-               union_complementary_views=True)
+
+# Prune the graph with the given pruning strategies, returning the updated graph
+graph = vd.prune_graph(remove_identical_views=True,
+                       remove_contained_views=True,
+                       union_complementary_views=True)
