@@ -1,5 +1,5 @@
 # Quick Start
-## Setup
+## Run quick start using CLI
 Compatible with Python versions 3.8.10 and higher, Java17 and higher
 
 ### Install dependencies
@@ -73,3 +73,25 @@ In `ver_quickstart.py`, we give an end-to-end example of how to use the query-by
 
 
 The output is a set of materialized views (`output/view{i}.csv`) and each view is associated with a metadata profile (`output/view{i}.json`). `view{i}.json` has two fields: `join_graph` and `columns_proj`. `join_graph` is the join graph that is used to generate the view and `columns_proj` are the columns projected from the view.
+
+## Run quick start using docker
+The code below will build a new docker image called ver.
+```bash
+docker build -t ver .
+```
+
+### Get the output from docker
+Before we can copy the output from the docker to local machine, we need to run the docker image.
+```bash
+docker run --name ver -d ver
+```
+
+After we run the docker image, we can take the profiler's output from the docker container.
+```bash
+docker cp ver:/ver/output_profiles_json/ ./output_profiles_json
+```
+
+Or the materialized views.
+```bash
+docker cp ver:/ver/output/ ./output
+```
