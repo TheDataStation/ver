@@ -54,7 +54,7 @@ class FTSIndexDuckDB(FullTextSearchIndex):
                 print(f"error when removing an existing fts index: {ce}")
 
         # Create fts index over all, *, attributes
-        query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='english')"
+        query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='none')"
         self.conn.execute(query)
 
         # prepare_query = f"""
