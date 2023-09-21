@@ -62,7 +62,9 @@ python ver_cli.py build_dindex output_profiles_json/ --force
 python ver_quick_start.py
 ```
 
-In `ver_quick_start.py`, we give an end-to-end example of how to use the query-by-example module of Ver.
+In `ver_quick_start.py`, we give an end-to-end example on how to use the query-by-example and View Distillation module of Ver.
 
 
-The output is a set of materialized views (`output/view{i}.csv`) and each view is associated with a metadata profile (`output/view{i}.json`). `view{i}.json` has two fields: `join_graph` and `columns_proj`. `join_graph` is the join graph that is used to generate the view and `columns_proj` are the columns projected from the view.
+The output of the query-by-example module is a set of materialized views (`output/view{i}.csv`) and each view is associated with a metadata profile (`output/view{i}.json`). `view{i}.json` has two fields: `join_graph` and `columns_proj`. `join_graph` is the join graph that is used to generate the view and `columns_proj` are the columns projected from the view.
+
+The output of the View Distillation module is a `networkx` digraph, where each node represents an output view and each edge represents the 4C relationship between two views. The graph is pruned based on the given pruning strategies. More APIs on navigating the 4C views can be found in [this document](https://github.com/TheDataStation/ver/blob/main/view_distillation/README.md).
