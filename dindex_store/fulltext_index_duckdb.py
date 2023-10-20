@@ -19,7 +19,6 @@ class FTSIndexDuckDB(FullTextSearchIndex):
         self.index_column = config["fts_index_column"]
 
         if not load:
-            # fts_schema_path = Path(os.getcwd() + "/" + config["fts_schema_name"]).absolute()
             fts_schema_path = Path(config['ver_base_path'] / config['fts_schema_name']).absolute()
             if not fts_schema_path.is_file():
                 raise ValueError("The path to fts_schema does not exist, or is not a file")
@@ -54,20 +53,8 @@ class FTSIndexDuckDB(FullTextSearchIndex):
                 print(f"error when removing an existing fts index: {ce}")
 
         # Create fts index over all, *, attributes
-        query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='english')"
+        query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='none')"
         self.conn.execute(query)
-
-        # prepare_query = f"""
-        #     PREPARE fts_query AS (
-        #         WITH scored_docs AS (
-        #             SELECT *, fts_main_{table_name}.match_bm25(profile_id, ?) AS score FROM {table_name})
-        #         SELECT profile_id, score
-        #         FROM scored_docs
-        #         WHERE score IS NOT NULL
-        #         ORDER BY score DESC
-        #         LIMIT 100)
-        #     """
-        # self.conn.execute(prepare_query)
 
     def insert(self, profile_id, dbName, path, sourceName, columnName, data) -> bool:
         try:
@@ -82,13 +69,11 @@ class FTSIndexDuckDB(FullTextSearchIndex):
     # Query Methods
 
     def fts_query(self, keyword, search_domain, max_results, exact_search) -> List:
-        # TODO: switch between exact/approx search ("exact_search")
-
         # FIXME: translate search_domain into a field; here defaulting to data
         search_domain = 'data'
 
         query = f"""WITH scored_docs AS (
-                SELECT *, fts_main_{self.table_name}.match_bm25(data, '{keyword}', fields := '{search_domain}', conjunctive := 1) 
+                SELECT *, fts_main_{self.table_name}.match_bm25(data, '{keyword}', fields := '{search_domain}', conjunctive := {1 if exact_search else 0}) 
                 AS score FROM {self.table_name})
             SELECT DISTINCT ON (profile_id) profile_id, dbname, path, sourcename, columnname, score
             FROM scored_docs
