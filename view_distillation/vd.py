@@ -25,7 +25,7 @@ class ViewDistillation:
         self.dfs_per_schema = classify_per_table_schema(dfs)
 
         print(f"original num views: {len(dfs)}")
-        print(f"num schema groups: {len(self.dfs_per_schema)}")
+        # print(f"num schema groups: {len(self.dfs_per_schema)}")
 
         self.hash_dict = {}
 
@@ -102,8 +102,8 @@ class ViewDistillation:
         return self.G
 
     def prune_graph(self, remove_identical_views=True,
-                      remove_contained_views=True,
-                      union_complementary_views=True):
+                    remove_contained_views=True,
+                    union_complementary_views=True):
 
         if self.G is None:
             self.generate_graph()
@@ -113,7 +113,7 @@ class ViewDistillation:
             self.G.remove_nodes_from(self.compatible_views_to_remove)
 
             print(f"num views after pruning compatible: {len(self.get_current_views())}")
-            
+
         if remove_contained_views:
             self.prune_contained_views(keep_largest=True)
             self.G.remove_nodes_from(self.contained_views_to_remove)
@@ -169,7 +169,6 @@ class ViewDistillation:
         else:
             return self.G[view1][view2]
 
-
     def get_current_views(self):
 
         current_views = []
@@ -195,8 +194,8 @@ class ViewDistillation:
             file_name = os.path.basename(view)
 
             if file_name not in self.path_to_df_dict.keys():
-                print(f"view does not exist")
-                return None
+                print(f"view {file_name} does not exist")
+                continue
 
             dfs.append(self.path_to_df_dict[file_name])
 
@@ -423,17 +422,24 @@ class ViewDistillation:
 
     def _remove_from_contra_compl(self, lst):
 
-        contradictions_to_remove = []
+        # print(self.contradictions)
+
+        contradictions_to_remove = set()
         complementary_idx_to_remove = set()
 
         for path in lst:
             for path1, path2 in self.contradictions.keys():
                 if path == path1 or path == path2:
-                    contradictions_to_remove.append((path1, path2))
+                    if (path1, path2) in self.contradictions.keys():
+                        contradictions_to_remove.add((path1, path2))
+                    elif (path2, path1) in self.contradictions.keys():
+                        contradictions_to_remove.add((path2, path1))
             for i in range(len(self.complementary_pairs)):
                 path1, path2, key = self.complementary_pairs[i]
                 if path == path1 or path == path2:
                     complementary_idx_to_remove.add(i)
+
+        # print(contradictions_to_remove)
 
         for path1, path2 in contradictions_to_remove:
             del self.contradictions[(path1, path2)]
@@ -474,9 +480,9 @@ class ViewDistillation:
         already_classified_as_contradictory = set()
         complementary_pairs = set()
 
-        for candidate_key, inverted_index in tqdm(candidate_key_to_inverted_index.items()):
+        for candidate_key, inverted_index in candidate_key_to_inverted_index.items():
 
-            for key_value, dfs in tqdm(inverted_index.items()):
+            for key_value, dfs in inverted_index.items():
                 if len(dfs) <= 1:
                     # only one view for this key value, no need to compare
                     continue
@@ -568,10 +574,12 @@ class ViewDistillation:
                 continue
 
             # if (path1, path2) in self.contradictions.keys() or (path2, path1) in self.contradictions.keys():
-                # only union the two views when there is no contradiction for ANY key
-                # continue
+            # only union the two views when there is no contradiction for ANY key
+            # continue
 
-            if (path1, path2) in already_processed:
+            # if (path1, path2) in already_processed:
+            #     continue
+            if path1 in already_processed or path2 in already_processed:
                 continue
 
             df1 = self.path_to_df_dict[path1]
@@ -579,13 +587,17 @@ class ViewDistillation:
 
             new_df = pd.concat([df1, df2]).drop_duplicates().reset_index(drop=True)
             file_name = f"{os.path.splitext(path1)[0]}_union_{path2}"
-            if self.path_to_views is not None:
-                new_path = os.path.join(self.path_to_views, file_name)
-                new_df.to_csv(new_path)
+            # if self.path_to_views is not None:
+            #     new_path = os.path.join(self.path_to_views, file_name)
+            #     new_df.to_csv(new_path)
 
-            already_processed.add((path1, path2))
+            # already_processed.add((path1, path2))
+            already_processed.add(path1)
+            already_processed.add(path2)
+
             self.complementary_views_to_remove.add(path1)
             self.complementary_views_to_remove.add(path2)
+
             self.unioned_complementary_views.append((file_name, new_df))
 
         views_left = []
@@ -670,7 +682,8 @@ class ViewDistillation:
                         skip = True
 
                     if num_interactions >= len(self.contradictions):
-                        # we have explored all the contradictory / complementary view pairs and single views at least once
+                        # we have explored all the contradictory / complementary view pairs and single views at least
+                        # once
                         with out:
                             print("You have explored all contradictory views")
                         break
@@ -779,16 +792,14 @@ class ViewDistillation:
 
 if __name__ == "__main__":
     # vd = ViewDistillation("/Users/zhiruzhu/Desktop/Niffler/ver/view_distillation/dataset/toytest/")
-    vd = ViewDistillation(path_to_views="/Users/zhiruzhu/Downloads/test_views/")
+    vd = ViewDistillation(path_to_views="/Users/zhiruzhu/Desktop/Niffler/ver/output/")
 
-    res = vd.distill_views()
-    print(res)
-
-    print(vd.contradictions)
-
-    # vd.generate_graph()
-    # vd.prune_graph()
+    # res = vd.distill_views()
+    # print(res)
+    #
+    # print(vd.contradictions)
+    #
+    vd.generate_graph()
+    vd.prune_graph()
 
     # print("view3 -> view4:", vd.get_attributes("view3.csv", "view4.csv"))
-
-
