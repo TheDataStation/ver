@@ -18,15 +18,11 @@ WORKDIR /ver
 # Install the requirements
 RUN    pip3 install -r requirements_quick_start.txt
 
-# Build
-WORKDIR /ver/ddprofiler
-RUN bash build.sh
-
 # Run ver on demo dataset
 WORKDIR /ver
 RUN python3 ver_cli.py create_sources_file quickstart
 RUN python3 ver_cli.py add_csv quickstart quickstart $DATASET
-RUN python3 ver_cli.py profile quickstart output_profiles_json
+RUN python3 ver_cli.py profile quickstart output_profiles_json --build
 RUN python3 ver_cli.py build_dindex output_profiles_json/ --force
-RUN python3 ver_quickstart.py
+RUN python3 ver_quick_start.py
 CMD ["bash"]
