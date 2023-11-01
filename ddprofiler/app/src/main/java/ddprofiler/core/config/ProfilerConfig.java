@@ -13,6 +13,12 @@ public class ProfilerConfig extends Config {
 
     private static final ConfigDef config;
 
+<<<<<<< HEAD
+=======
+    public static final String PROFILE_SCHEMA_FILE = "profile.schema";
+    private static final String PROFILE_SCHEMA_FILE_DOC = "Path to the YAML file with the " + "profile schema";
+
+>>>>>>> aff10a7cee35a7ef0ed44b20946e857e0c226c57
     public static final String EXPERIMENTAL = "experimental";
     private static final String EXPERIMENTAL_DOC = "To activate experimental features";
 
@@ -81,7 +87,16 @@ public class ProfilerConfig extends Config {
                 .define(ERROR_LOG_FILE_NAME, Type.STRING, "error_profiler.log", Importance.MEDIUM,
                     ERROR_LOG_FILE_NAME_DOC)
                 .define(REPORT_METRICS_CONSOLE, Type.INT, -1, Importance.HIGH, REPORT_METRICS_CONSOLE_DOC)
+<<<<<<< HEAD
                 .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC);
+=======
+                .define(EXPERIMENTAL, Type.BOOLEAN, false, Importance.LOW, EXPERIMENTAL_DOC)
+                .define(PROFILE_SCHEMA_FILE, Type.STRING, "./../profile_schema.yml", Importance.HIGH, PROFILE_SCHEMA_FILE_DOC)
+                .define(XSYSTEM_REFERENCE_FILE, Type.STRING, "./app/src/main/resources/reference.json", 
+                    Importance.MEDIUM, XSYSTEM_REFERENCE_FILE_DOC)
+                .define(XSYSTEM_SIMILARITY_THRESHOLD, Type.DOUBLE, 0.5, 
+                    Importance.MEDIUM, XSYSTEM_SIMILARITY_THRESHOLD_DOC);
+>>>>>>> aff10a7cee35a7ef0ed44b20946e857e0c226c57
     }
 
     public ProfilerConfig(Map<? extends Object, ? extends Object> originals) {
