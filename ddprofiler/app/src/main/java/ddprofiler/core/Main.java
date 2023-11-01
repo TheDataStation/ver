@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import joptsimple.OptionParser;
@@ -114,7 +115,7 @@ public class Main {
     }
 
     public static void main(String args[]) {
-
+        BasicConfigurator.configure();
         // Get Properties with command line configuration
         List<ConfigKey> configKeys = ProfilerConfig.getAllConfigKey();
         OptionParser parser = new OptionParser();

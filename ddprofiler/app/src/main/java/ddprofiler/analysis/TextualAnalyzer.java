@@ -10,15 +10,19 @@ import java.util.List;
 import ddprofiler.analysis.config.AnalyzerConfig;
 import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.CardinalityAnalyzer;
-import ddprofiler.analysis.modules.Entities;
 import ddprofiler.analysis.modules.EntityAnalyzer;
 import ddprofiler.analysis.modules.KMinHash;
+import ddprofiler.analysis.modules.LabelAnalyzer;
+import ddprofiler.analysis.modules.XSystemAnalyzer;
+import ddprofiler.core.config.ProfilerConfig;
+import xsystem.layers.XStructure;
 
 public class TextualAnalyzer implements TextualAnalysis {
 
     private List<DataConsumer> analyzers;
     private CardinalityAnalyzer ca;
     private KMinHash mh;
+    private XSystemAnalyzer xa;
     private EntityAnalyzer ea;
     private LabelAnalyzer la;
 
@@ -45,9 +49,8 @@ public class TextualAnalyzer implements TextualAnalysis {
         }
     }
 
-    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed) {
-//        ea2.clear();
-        return new TextualAnalyzer(pseudoRandomSeed);
+    public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed, ProfilerConfig pc) {
+        return new TextualAnalyzer(pseudoRandomSeed, pc);
     }
 
     @Override
