@@ -6,7 +6,7 @@
 # Data Discovery Tools and Systems
 
 **[This project is currently a work in progress, and we expect to have all
-documentation, test and a full demo done by the end of the 2nd quarter of 2023.]**
+documentation, test and a full demo done by the end of the ~~2nd quarter of 2023.~~ 1st quarter of 2024]**
 
 Data discovery is the problem of identifying and retrieving data that satisfies
 an information need. See [common data discovery problems here](docs/why_ver.md) and feel free to open

@@ -6,9 +6,11 @@ from qbe_module.materializer import Materializer
 from tqdm import tqdm
 import os
 import json
+from view_distillation import vd
+from view_distillation.vd import ViewDistillation
 
 cnf = {setting: getattr(config, setting) for setting in dir(config)
-        if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
+       if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
 
 dindex = load_dindex(cnf)
 print("Loading DIndex...OK")
@@ -22,10 +24,11 @@ qbe = QueryByExample(api)
 """
 Specify an example query
 """
-example_columns = [ExampleColumn(attr='school_name', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
-                   ExampleColumn(attr='school type', examples=["Charter", "Neighborhood"]),
-                    ExampleColumn(attr='level', examples=["Level 1", "Level 2+"])
-                ]
+example_columns = [
+    ExampleColumn(attr='school_name', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
+    ExampleColumn(attr='school type', examples=["Charter", "Neighborhood"]),
+    ExampleColumn(attr='level', examples=["Level 1", "Level 2+"])
+]
 
 """
 Find candidate columns
@@ -54,20 +57,19 @@ for i, join_graph in enumerate(join_graphs):
     print(f"----join graph {i}----")
     join_graph.display()
 
-
 """
 Materialize join graphs
 """
-data_path = './demo_dataset/' # path where the raw data is stored
-output_path = './output/' # path to store the output views
-max_num_views = 200 # how many views you want to materialize
-sep = ',' # csv separator
+data_path = './demo_dataset/'  # path where the raw data is stored
+output_path = './output/'  # path to store the output views
+max_num_views = 200  # how many views you want to materialize
+sep = ','  # csv separator
 
 if not os.path.exists(output_path):
     os.makedirs(output_path)
 materializer = Materializer(data_path, tbl_cols, 200, sep)
 
-result = []
+result_dfs = []
 
 j = 0
 for join_graph in tqdm(join_graphs):
@@ -94,8 +96,24 @@ for join_graph in tqdm(join_graphs):
                 new_cols.append(new_col)
             df.columns = new_cols
             df.to_csv(f"./{output_path}/view{j}.csv", index=False)
-           
+
+            result_dfs.append(df)
+
     if j >= max_num_views:
         break
-           
+
 print("valid views", j)
+
+'''
+View Distillation
+'''
+
+vd = ViewDistillation(dfs=result_dfs)
+
+# Generates a networkx graph representing 4C relationships among views (nodes)
+vd.generate_graph()
+
+# Prune the graph with the given pruning strategies, returning the updated graph
+graph = vd.prune_graph(remove_identical_views=True,
+                       remove_contained_views=True,
+                       union_complementary_views=True)

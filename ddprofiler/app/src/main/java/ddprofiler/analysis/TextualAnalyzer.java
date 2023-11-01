@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import ddprofiler.analysis.config.AnalyzerConfig;
 import ddprofiler.analysis.modules.Cardinality;
 import ddprofiler.analysis.modules.CardinalityAnalyzer;
 import ddprofiler.analysis.modules.Entities;
@@ -19,15 +20,29 @@ public class TextualAnalyzer implements TextualAnalysis {
     private CardinalityAnalyzer ca;
     private KMinHash mh;
     private EntityAnalyzer ea;
+    private LabelAnalyzer la;
 
-    private TextualAnalyzer(int pseudoRandomSeed) {
+    private TextualAnalyzer(int pseudoRandomSeed, ProfilerConfig pc) {
         analyzers = new ArrayList<>();
-        mh = new KMinHash(pseudoRandomSeed);
-        ca = new CardinalityAnalyzer();
-//        this.ea = ea;
-        analyzers.add(ca);
-        analyzers.add(mh);
-//        analyzers.add(ea);
+        if (AnalyzerConfig.getCardinality().getEnabled()) {
+            ca = new CardinalityAnalyzer();
+            analyzers.add(ca);
+        }
+
+        if (AnalyzerConfig.getKminhash().getEnabled()) {
+            mh = new KMinHash(pseudoRandomSeed);
+            analyzers.add(mh);
+        }
+
+        if (AnalyzerConfig.getXsystem().getEnabled()) {
+            xa = new XSystemAnalyzer();
+            analyzers.add(xa);
+        }
+
+        if (AnalyzerConfig.getLabel().getEnabled()) {
+            la = new LabelAnalyzer(pc);
+            analyzers.add(la);
+        }
     }
 
     public static TextualAnalyzer makeAnalyzer(int pseudoRandomSeed) {
@@ -54,17 +69,21 @@ public class TextualAnalyzer implements TextualAnalysis {
 
     @Override
     public Cardinality getCardinality() {
-        return ca.getCardinality();
+        return (ca != null) ? ca.getCardinality() : null;
     }
-
-//    @Override
-//    public Entities getEntities() {
-//        return null;
-//    }
 
     @Override
     public long[] getMH() {
-        return mh.getMH();
+        return (mh != null) ? mh.getMH() : null;
     }
 
+    @Override
+    public XStructure getXstructure() {
+        return (xa != null) ? xa.getXstructure() : null;
+    }
+
+    @Override
+    public String getLabel() {
+        return (la != null) ? la.getLabel() : null;
+    }
 }
