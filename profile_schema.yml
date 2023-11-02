@@ -1,0 +1,62 @@
+attributes:
+  - name: "id"
+    type: "DECIMAL(18, 0) NOT NULL PRIMARY KEY"
+  - name: "dbName"
+    type: "VARCHAR(255)"
+  - name: "path"
+    type: "VARCHAR(255)"
+  - name: "sourceName"
+    type: "VARCHAR(255)"
+  - name: "columnName"
+    type: "VARCHAR(255)"
+  - name: "dataType"
+    type: "VARCHAR(255)"
+
+analyzers:
+  - name: "cardinality"
+    enabled: true
+    fields:
+      - name: "totalValues"
+        type: "INT"
+      - name: "uniqueValues"
+        type: "INT"
+      - name: "nonEmptyValues"
+        type: "INT"
+
+  - name: "entity"
+    enabled: false
+    fields:
+      - name: "entities"
+        type: "VARCHAR(255)"
+
+  - name: "kminhash"
+    enabled: true
+    fields:
+      - name: "minhash"
+        type: "BLOB"
+
+  - name: "range"
+    enabled: true
+    fields:
+      - name: "minValue"
+        type: "DECIMAL(18, 4)"
+      - name: "maxValue"
+        type: "DECIMAL(18, 4)"
+      - name: "avgValue"
+        type: "DECIMAL(18, 4)"
+      - name: "median"
+        type: "DECIMAL(18, 0)"
+      - name: "iqr"
+        type: "DECIMAL(18, 0)"
+
+  - name: "xsystem"
+    enabled: false
+    fields:
+      - name: "xstructure"
+        type: "VARCHAR(255)"
+
+  - name: "label"
+    enabled: false
+    fields:
+      - name: "columnLabel"
+        type: "VARCHAR(255)"

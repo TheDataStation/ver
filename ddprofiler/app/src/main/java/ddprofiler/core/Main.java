@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import joptsimple.OptionParser;
@@ -56,6 +57,18 @@ public class Main {
         // ws.init();
         // }
 
+        // Parsing profile schema file
+        try {
+            String profileSchemaFile = pc.getString(ProfilerConfig.PROFILE_SCHEMA_FILE);
+            LOG.info("Using {} as profile schema file", profileSchemaFile);
+            ProfileSchemaParser.processProfileSchema(profileSchemaFile);
+        } catch (FileNotFoundException fnfe) {
+            LOG.error("Profile schema file not found");
+            System.exit(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         // Parsing sources config file
         String sourceConfigFile = pc.getString(ProfilerConfig.SOURCE_CONFIG_FILE);
         LOG.info("Using {} as sources file", sourceConfigFile);
@@ -102,7 +115,7 @@ public class Main {
     }
 
     public static void main(String args[]) {
-
+        BasicConfigurator.configure();
         // Get Properties with command line configuration
         List<ConfigKey> configKeys = ProfilerConfig.getAllConfigKey();
         OptionParser parser = new OptionParser();

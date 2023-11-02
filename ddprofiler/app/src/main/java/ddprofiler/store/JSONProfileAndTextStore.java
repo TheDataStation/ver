@@ -68,7 +68,7 @@ public class JSONProfileAndTextStore implements Store {
         String json = null;
         try {
             json = mapper.writeValueAsString(wtr);
-        } catch (JsonProcessingException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
