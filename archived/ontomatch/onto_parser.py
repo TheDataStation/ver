@@ -3,7 +3,7 @@ import time
 import pickle
 import sys
 import rdflib
-from dataanalysis import nlp_utils as nlp
+from archived.dataanalysis import nlp_utils as nlp
 from ontomatch.ss_utils import minhash
 
 

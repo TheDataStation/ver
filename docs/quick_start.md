@@ -135,7 +135,7 @@ that model. The easiest way to do so is by importing init_system() function from
 main. Something like:
 
 ```python
-from main import init_system
+from aurum_api.main import init_system
 api, reporting = init_system(<path_to_serialized_model>, create_reporting=False)
 ```
 

@@ -1,3 +1,9 @@
+"""
+This is the main config file for Ver.
+All properties of this config file should be written without using _ so they are easy to "get"
+"""
+from pathlib import Path
+
 # Overlap parameters
 join_overlap_th = 0.4
 
@@ -22,7 +28,6 @@ db_port = '9200'
 ###########
 k = 512
 
-
 ###########
 ## DoD
 ###########
@@ -33,14 +38,19 @@ memory_limit_join_processing = 0.6  # 60% of total memory
 ####################################
 ## New, after refactoring, configs
 
+
+ver_base_path = Path(__file__).parent
+
 ##########
 ## Input Data
 ##########
 
 input_data_type = "json"
 text_csv_delimiter = ','
-profile_schema_path = ""
-
+unified_profile_schema_name = "profile_schema.yml"
+profile_schema_name = "dindex_builder/profile_index_schema_duckdb.txt"
+graph_schema_name = "dindex_builder/graph_index_schema_kuzu.txt"
+fts_schema_name = "dindex_builder/fts_index_schema_duckdb.txt"
 
 ##########
 ## DIndex
@@ -65,8 +75,4 @@ minhash_lsh_threshold = 0.7
 minhash_lsh_num_perm = 512
 
 # graph index configs
-graph_schema_path = ""
-kuzu_database_name = "graph_index"
-
-
-
+graph_kuzu_database_name = "graph_index"

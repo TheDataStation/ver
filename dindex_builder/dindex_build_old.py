@@ -1,4 +1,4 @@
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from knowledgerepr import fieldnetwork
 from knowledgerepr import networkbuilder
 from knowledgerepr.fieldnetwork import FieldNetwork
@@ -6,7 +6,6 @@ from inputoutput import inputoutput as io
 
 import sys
 import time
-import csv
 
 
 def main(output_path=None, table_path=None):

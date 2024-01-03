@@ -1,12 +1,11 @@
 from knowledgerepr import fieldnetwork
 from ontomatch import glove_api
-from nltk.corpus import stopwords
 import numpy as np
 import pickle
 import itertools
 import operator
 from ontomatch import javarandom
-from dataanalysis import nlp_utils as nlp
+from archived.dataanalysis import nlp_utils as nlp
 from nltk.corpus import stopwords
 
 # minhash variables

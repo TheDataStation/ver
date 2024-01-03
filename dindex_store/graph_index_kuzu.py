@@ -1,22 +1,40 @@
 from typing import Dict, List
-
+from pathlib import Path
 import kuzu
+# from kuzu import BinderException
 
 from dindex_store.common import GraphIndex, EdgeType
 
 
 class GraphIndexKuzu(GraphIndex):
 
-    def __init__(self, config: Dict, load=False):
+    def __init__(self, config: Dict, load=False, force=False):
         GraphIndexKuzu._validate_config(config)
         self.config = config
-        self.db = kuzu.database(config["kuzu_database_name"])
-        self.conn = kuzu.connection(self.db)
+        db_path = Path(config['ver_base_path'] / config['graph_kuzu_database_name']).absolute()
+        self.db = kuzu.Database(str(db_path))
+        self.conn = kuzu.Connection(self.db)
         self.schema = ""
 
         if not load:
-            with open(config["graph_schema_path"]) as f:
+            # graph_schema_path = Path(os.getcwd() + "/" + config["graph_schema_name"]).absolute()
+            graph_schema_path = Path(config['ver_base_path'] / config['graph_schema_name']).absolute()
+            if not graph_schema_path.is_file():
+                raise ValueError("The path to graph_schema does not exist, or is not a file")
+            with open(graph_schema_path) as f:
                 self.schema = f.read()
+
+            if force:
+                try:
+                    # Note Edge and Column are hardcoded in the schema
+                    q = f"DROP TABLE Edge;"
+                    self.conn.execute(q)
+                    q = f"DROP TABLE ColumnNode;"
+                    self.conn.execute(q)
+                except RuntimeError as re:
+                    if re == "Binder exception: Node/Rel Edge does not exist.":
+                        print("An error has occurred when reading the schema, probably using "
+                              "--force with the first run of --build")
             try:
                 for statement in self.schema.split(";"):
                     self.conn.execute(statement)
@@ -24,18 +42,15 @@ class GraphIndexKuzu(GraphIndex):
                 print("An error has occurred when reading the schema")
                 raise
 
-    def initialize(self, config):
-        return
-
     # ----------------------------------------------------------------------
     # Modify Methods
 
     def add_node(self, node_id: int) -> bool:
         try:
-            self.conn.execute(f'CREATE (n:Column {{ id: {node_id} }})')
+            self.conn.execute(f'CREATE (n:ColumnNode {{ id: {node_id} }})')
             return True
-        except:
-            print("Error when creating the node")
+        except Exception as e:
+            print(f"Error when creating the node: {e}")
             return False
 
     def add_edge(
@@ -52,13 +67,13 @@ class GraphIndexKuzu(GraphIndex):
                 else:
                     attr.append(key + ': ' + str(value))
             self.conn.execute(
-                f'''MATCH (source:Column), (target:Column)
+                f'''MATCH (source:ColumnNode), (target:ColumnNode)
                 WHERE source.id = {source_node_id} AND target.id = {target_node_id}
                 CREATE (source)-[r:Edge {{ {", ".join(attr)} }}]->(target)
                 ''')
             return True
-        except:
-            print("Error when creating the edge")
+        except Exception as e:
+            print(f"Error when creating the edge: {e}")
             return False
 
     def add_undirected_edge(
@@ -73,13 +88,16 @@ class GraphIndexKuzu(GraphIndex):
     # ----------------------------------------------------------------------
     # Query Methods
 
-    def find_neighborhood(self, node_id, hops) -> List:
+    def find_neighborhood(self, node_id, relation_type, hops) -> List:
         try:
             results = self.conn.execute(
                 f'''MATCH
-                (startNode:Column {{id : {node_id}}})-[:Edge*1..{hops}]->(endNode:Column)
-                RETURN endNode''').getAsDF()
-            return results["endNode.id"].tolist()
+                (startNode:ColumnNode {{id : {node_id}}})-[:Edge*1..{hops}]->(endNode:ColumnNode)
+                RETURN endNode''')
+            neighbors = []
+            while results.has_next():
+                neighbors.append(results.get_next()[0]['id'])
+            return neighbors
         except:
             print(f"Error when trying to find a {hops}-hop neighborhood")
             return []

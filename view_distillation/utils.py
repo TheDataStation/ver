@@ -34,11 +34,11 @@ def curate_view(df, drop_duplicates=True, dropna=True):
 
 
 def get_dataframes(path, dfs=None, dropna=True):
-
     if dfs is not None:
         files = [f"view{i}" for i in range(len(dfs))]
     else:
-        files = [f for f in listdir(path) if isfile(os.path.join(path, f)) and f != '.DS_Store']  # and f != "log.txt"]
+        files = [f for f in listdir(path) if
+                 isfile(os.path.join(path, f)) and f != '.DS_Store' and ".csv" in f]  # and f != "log.txt"]
 
     new_dfs = []
     path_to_df_dict = {}
@@ -141,7 +141,7 @@ def build_inverted_index(dfs, candidate_key_size=2, uniqueness_threshold=0.9):
 
     if len(dfs) <= 1:
         return candidate_key_to_inverted_index, view_to_candidate_keys_dict, \
-               total_find_candidate_keys_time
+            total_find_candidate_keys_time
 
     for df, path in dfs:
 
@@ -171,7 +171,7 @@ def build_inverted_index(dfs, candidate_key_size=2, uniqueness_threshold=0.9):
         total_create_inverted_index_time += time.time() - start_time
 
     return candidate_key_to_inverted_index, view_to_candidate_keys_dict, \
-           total_find_candidate_keys_time
+        total_find_candidate_keys_time
 
 
 def get_row_from_key(df, key_name, key_value):

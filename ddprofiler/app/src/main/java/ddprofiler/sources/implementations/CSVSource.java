@@ -11,12 +11,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.RFC4180Parser;
+import com.opencsv.RFC4180ParserBuilder;
+import com.opencsv.exceptions.CsvValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.codahale.metrics.Counter;
 
-import au.com.bytecode.opencsv.CSVReader;
 import metrics.Metrics;
 import ddprofiler.sources.Source;
 import ddprofiler.sources.SourceType;
@@ -116,11 +120,12 @@ public class CSVSource implements Source {
     }
 
     @Override
-    public List<Attribute> getAttributes() throws IOException, SQLException {
+    public List<Attribute> getAttributes() throws IOException, SQLException, CsvValidationException {
         if (!initialized) {
             String path = this.path + this.relationName;
             char separator = this.config.getSeparator().charAt(0);
-            fileReader = new CSVReader(new FileReader(path), separator);
+            RFC4180Parser parser = new RFC4180ParserBuilder().withSeparator(separator).build();
+            fileReader = new CSVReaderBuilder(new FileReader(path)).withCSVParser(parser).build();
             initialized = true;
         }
         // assume that the first row is the attributes;
@@ -141,11 +146,12 @@ public class CSVSource implements Source {
     }
 
     @Override
-    public Map<Attribute, List<String>> readRows(int num) throws IOException, SQLException {
+    public Map<Attribute, List<String>> readRows(int num) throws IOException, SQLException, CsvValidationException {
         if (!initialized) {
             String path = this.path + this.relationName;
             char separator = this.config.getSeparator().charAt(0);
-            fileReader = new CSVReader(new FileReader(path), separator);
+            RFC4180Parser parser = new RFC4180ParserBuilder().withSeparator(separator).build();
+            fileReader = new CSVReaderBuilder(new FileReader(path)).withCSVParser(parser).build();
             initialized = true;
         }
 
@@ -180,7 +186,7 @@ public class CSVSource implements Source {
         return data;
     }
 
-    private boolean read(int numRecords, List<Record> rec_list) throws IOException {
+    private boolean read(int numRecords, List<Record> rec_list) throws IOException, CsvValidationException {
         boolean read_lines = false;
         String[] res = null;
         for (int i = 0; i < numRecords && (res = fileReader.readNext()) != null; i++) {

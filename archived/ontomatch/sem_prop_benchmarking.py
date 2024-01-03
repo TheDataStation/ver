@@ -1,9 +1,8 @@
 import time
 from ontomatch import matcher_lib as matcherlib
 from ontomatch.matcher_lib import MatchingType
-from ontomatch import ss_api as SS_API
 from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
+from archived.modelstore import StoreHandler
 from ontomatch import glove_api
 from ontomatch.ss_api import SSAPI
 from inputoutput import inputoutput as io

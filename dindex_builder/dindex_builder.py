@@ -1,30 +1,20 @@
 import os
-from os import listdir
-from os.path import isfile, join
-import sys
 from typing import Dict
-import csv
+from pathlib import Path
 import json
 
 from tqdm import tqdm
+import pandas as pd
 
 from dindex_store.discovery_index import DiscoveryIndex
 from dindex_store.common import EdgeType
 
 
-def load_dindex(config: Dict):
-
-    dindex = DiscoveryIndex(config, load=True)
-    return dindex
-
-
-def build_dindex(input_data_path, config: Dict):
+def build_dindex(profile_data_path, config: Dict, force: bool):
+    print(f"Building DIndex. profile_data_path: {profile_data_path}")
 
     # Create an instance of the discovery index
-    dindex = DiscoveryIndex(config)
-
-    # Initialize index
-    dindex.initialize(config)
+    dindex = DiscoveryIndex(config, force=force)
 
     # Check input data type
     if config["input_data_type"] != "json":
@@ -32,12 +22,15 @@ def build_dindex(input_data_path, config: Dict):
         print("Error: only json profiles supported")
         return
 
-    profile_path = input_data_path + "/json/"
-    text_path = input_data_path + "/text/"
+    profile_path = Path(profile_data_path) / "json"
+    text_path = Path(profile_data_path) / "text"
 
-    # Read profiles and populate index
+    # Read profiles and populate the Profile index
     for file_path in os.listdir(profile_path):
-        if os.path.isfile(file_path):
+        file_path = profile_path / file_path
+        # file_path = os.path.join(profile_path, file_path)
+        if file_path.is_file():
+        # if os.path.isfile(file_path):
             with open(file_path) as f:
                 profile = json.load(f)
                 # Preprocessing minhash on profile
@@ -47,25 +40,29 @@ def build_dindex(input_data_path, config: Dict):
                 dindex.add_profile(profile)
 
     # Read text files and populate index
-    onlyfiles = [f for f in listdir(text_path) if isfile(join(text_path, f))]
-    for csv_file_path in tqdm(onlyfiles):
+    for csv_file_path in tqdm(os.listdir(text_path)):
+        csv_file_path = os.path.join(text_path, csv_file_path)
+        if not os.path.isfile(csv_file_path):
+            continue
         csv_delimiter = config["text_csv_delimiter"]
-        with open(csv_file_path) as csvfile:
-            csv_reader = csv.reader(csvfile, delimiter=csv_delimiter)
-            line_count = 0
-            for row in csv_reader:
-                if line_count == 0:
-                    line_count += 1
-                    continue
-                profile_id, dbName, path, sourceName, columnName, data = int(row[0]), row[1], row[2], row[3], row[4], row[5]
 
-                dindex.add_text_content(profile_id, dbName, path, sourceName, columnName, data)
+        df = pd.read_csv(csv_file_path, names=['profile_id', 'dbName', 'path', 'sourceName',
+                             'columnName', 'data'], sep=csv_delimiter, skiprows=1)
+        for _, row in df.iterrows():
+            dindex.add_text_content(row['profile_id'], row['dbName'], row['path'],
+                                    row['sourceName'], row['columnName'], row['data'])
+
+    # Have to manually refresh fts index as per DuckDB's docs: "Note that the FTS index will not update automatically
+    # when input table changes. A workaround of this limitation can be recreating the index to refresh."
+    table_name = config["fts_data_table_name"]
+    index_column = config["fts_index_column"]
+    dindex.refresh_fts_index(table_name, index_column, force=False)
 
     # Create content_similarity edges
     # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency
     profiles = dindex.get_minhashes()
     content_similarity_index = dindex.get_content_similarity_index()
-    for profile in profiles:
+    for profile in tqdm(profiles):
         neighbors = content_similarity_index.query(profile['minhash'])
         for neighbor in neighbors:
             # TODO: Need to check that they are not from the same source
@@ -73,6 +70,7 @@ def build_dindex(input_data_path, config: Dict):
             dindex.add_undirected_edge(
                 profile['id'], neighbor,
                 EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {'similar': 1})
+    print("Done building")
 
     return dindex
 
@@ -80,34 +78,30 @@ def build_dindex(input_data_path, config: Dict):
 if __name__ == "__main__":
     print("DIndex Builder")
 
+    import time
     import config
+    import argparse
 
-    cnf = {setting: getattr(config, setting) for setting in dir(config) if setting.islower() and setting.isalpha()}
+    start_time = time.time()
+
+    cnf = {setting: getattr(config, setting) for setting in dir(config)
+           if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
 
     def print_usage():
         print("USAGE: ")
-        print("python dindex_builder.py load|build --input_path <path>")
-        print("where opath must be writable by the process")
+        print("python dindex_builder.py --profile_data_path <path> [--force]")
         exit()
 
-    build = False
-    load = False
-    input_path = None
-    if len(sys.argv) == 4 or len(sys.argv) == 2:
-        mode = sys.argv[1]
-        if mode == "load":
-            load = True
-        elif mode == "build":
-            input_path = sys.argv[3]
-            build = True
-        else:
-            print_usage()
-    else:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--profile_data_path', default=None, help='Path to profile data')
+    parser.add_argument('--force', action='store_true', help='build discovery index by removing previous one if necessary')
+
+    args = parser.parse_args()
+
+    dindex = None
+    if not args.profile_data_path:
         print_usage()
+    dindex = build_dindex(args.profile_data_path, cnf, force=args.force)
 
-    if build:
-        dindex = build_dindex(input_path, cnf)
-    elif load:
-        dindex = load_dindex(cnf)
-
-    # TODO: notification
+    build_time = time.time() - start_time
+    print(f"""DIndex finished building in {build_time}""")

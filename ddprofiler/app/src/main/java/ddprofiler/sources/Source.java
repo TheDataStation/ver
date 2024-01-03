@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import com.opencsv.exceptions.CsvValidationException;
 import ddprofiler.sources.config.SourceConfig;
 import ddprofiler.sources.deprecated.Attribute;
 
@@ -47,7 +48,7 @@ public interface Source {
      * @throws IOException
      * @throws SQLException
      */
-    public List<Attribute> getAttributes() throws IOException, SQLException;
+    public List<Attribute> getAttributes() throws IOException, SQLException, CsvValidationException;
 
     /**
      * Returns the original source config used to configure the current source
@@ -73,7 +74,7 @@ public interface Source {
      * @throws IOException
      * @throws SQLException
      */
-    public Map<Attribute, List<String>> readRows(int num) throws IOException, SQLException;
+    public Map<Attribute, List<String>> readRows(int num) throws IOException, SQLException, CsvValidationException;
 
     /**
      * Cease existing. Free all resources consumed by this Source

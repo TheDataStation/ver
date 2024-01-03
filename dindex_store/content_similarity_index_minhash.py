@@ -13,15 +13,14 @@ class SimpleMHIndex(ContentSimilarityIndex):
         if load:
             print("Note that SimpleMHIndex is volatile and so it's not available after loading...")
 
-    def initialize(self, config):
-        return
-
     def add_profile(self, profile_id, minhash):
         values = np.array(minhash.split(','))
         minhash = MinHash(num_perm=self.num_perm, hashvalues=values)
         self.index.insert(profile_id, minhash)
 
     def query(self, minhash):
+        values = np.array(minhash.split(','))
+        minhash = MinHash(num_perm=self.num_perm, hashvalues=values)
         return self.index.query(minhash)
 
 
