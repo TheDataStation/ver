@@ -12,14 +12,26 @@ import time
 import os
 from itertools import chain,cycle
 
-from knowledgerepr import fieldnetwork
-from modelstore.elasticstore import StoreHandler
-from algebra import API
-from qbe_module.column_selection import ColumnSelection
+# from knowledgerepr import fieldnetwork
+# from modelstore.elasticstore import StoreHandler
+# from algebra import API
+# from qbe_module.column_selection import ColumnSelection
+# from qbe_module.query_by_example import ExampleColumn, QueryByExample
+# from qbe_module.materializer import Materializer
+# from view_distillation.view_distillation import ViewDistillation
+from view_presentation.ver_view_presentation import ViewPresentation
+
+
+import config
+from dindex_store.discovery_index import load_dindex
+from aurum_api.algebra import AurumAPI
 from qbe_module.query_by_example import ExampleColumn, QueryByExample
 from qbe_module.materializer import Materializer
-from view_distillation.view_distillation import ViewDistillation
-from view_presentation.ver_view_presentation import ViewPresentation
+# from tqdm import tqdm
+# import os
+# import json
+# from view_distillation import vd
+from view_distillation.vd import ViewDistillation
 
 
 from tqdm import tqdm
@@ -31,22 +43,32 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 class Ver:
-    def __init__(self, graph_path='/home/cc/chicago_open_data_graph/', data_path='/home/cc/chicago_open_data/'):
+    def __init__(self, graph_path='/home/cc/chicago_open_data_graph/', data_path='./../demo_dataset/'):
 
         # path to store the aurum graph index
-        self.graph_path = graph_path
+        # self.graph_path = graph_path
         # graph_path = '/home/cc/opendata_large_graph/'
 
         # path to store the raw data
         self.data_path = data_path
         # data_path = '/home/cc/opendata_cleaned/'
 
-        store_client = StoreHandler()
-        network = fieldnetwork.deserialize_network(graph_path)
-        aurum_api = API(network=network, store_client=store_client)
+        # store_client = StoreHandler()
+        # network = fieldnetwork.deserialize_network(graph_path)
+        # aurum_api = API(network=network, store_client=store_client)
 
         # QBE interface
-        self.qbe = QueryByExample(aurum_api)
+        # self.qbe = QueryByExample(aurum_api)
+
+        cnf = {setting: getattr(config, setting) for setting in dir(config)
+            if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
+
+        dindex = load_dindex(cnf)
+
+        api = AurumAPI(dindex)
+
+        # QBE interface
+        self.qbe = QueryByExample(api)
 
         self.example_columns = None
         self.candidate_list = None
@@ -65,9 +87,9 @@ class Ver:
         row_num = 3
         col_num = 3
 
-        default_values = [["school", "type", "rating"],
-                          ["Ogden International High School", "IB", "Level 1"],
-                          ["Hyde Park High School", "General Education", "Level 2"]]
+        default_values = [["school_name", "school type", "level"],
+                          ["Ogden International High School", "Charter", "Level 1"],
+                          ["University of Chicago - Woodlawn", "Neighborhood", "Level 2+"]]
 
         attr_style = "<style>.attr input { background-color:#D0F0D0 !important; }</style>"
         x = [[widgets.Text(value=default_values[i][j]) for j in range(col_num)] for i in range(row_num)]
@@ -226,8 +248,8 @@ class Ver:
 
         # for i, candidate in enumerate(self.candidate_list):
         #     print('Column {}: found {} candidate columns'.format(self.example_columns[i].attr, len(candidate)))
-            # for c in candidate:
-            #     print(c)
+        #     for c in candidate:
+        #         print(c.to_str())
 
         print("---------------------------------------")
 
@@ -239,13 +261,16 @@ class Ver:
 
         print("Finding join graphs among candidate columns...")
 
-        self.join_graphs = self.qbe.find_join_graphs_between_candidate_columns(self.candidate_list, order_chain_only=True)
+        cand_groups, self.tbl_cols = self.qbe.find_candidate_groups(self.candidate_list)
+        self.join_graphs = self.qbe.find_join_graphs_for_cand_groups(cand_groups)
+
+        # self.join_graphs = self.qbe.find_join_graphs_between_candidate_columns(self.candidate_list, order_chain_only=True)
         
-        # self.join_graphs = self.join_graphs[:500]
+        # self.join_graphs = self.join_graphs[:5]
 
         # print("found {} join graphs".format(len(self.join_graphs)))
         
-        # for i, join_graph in enumerate(join_graphs[:10]):
+        # for i, join_graph in enumerate(self.join_graphs[:10]):
         #     print("----join graph {}----".format(i))
         #     join_graph.display()
 
@@ -257,22 +282,63 @@ class Ver:
 
         # print("---------------------------------------")
 
-        print("Materializing join graphs...")
+        # print("Materializing join graphs...")
 
-        materializer = Materializer(self.data_path, 200)
+        # materializer = Materializer(self.data_path, 200)
 
+
+        # j = 0
+        # for join_graph in self.join_graphs:
+
+        #     #ca join graph can produce multiple views because different columns are projected
+        #     df_list = materializer.materialize_join_graph(join_graph)
+
+        #     for df in df_list:
+
+        #         if len(df) != 0:
+        #             j += 1
+        #             # print("non empty view", j)
+        #             new_cols = []
+        #             k = 1
+        #             for col in df.columns:
+        #                 new_col = col.split(".")[-1]
+        #                 if new_col in new_cols:
+        #                     new_col += str(k)
+        #                     k += 1
+        #                 new_cols.append(new_col)
+        #             df.columns = new_cols
+        #             self.view_dfs.append(df)
+
+        #             if dir_path is not None:
+        #                 df.to_csv(f"{dir_path}/view{j}.csv", index=False)
+
+
+        # print(f"Materialized {len(self.view_dfs)} non-empty views")
+        print("---------------------------------------")
+
+        # output_path = './output/'  # path to store the output views
+        sep = ','  # csv separator
+
+        # if not os.path.exists(output_path):
+        #     os.makedirs(output_path)
+            
+        materializer = Materializer(self.data_path, self.tbl_cols, 200, sep)
 
         j = 0
-        for join_graph in self.join_graphs:
-
-            #ca join graph can produce multiple views because different columns are projected
+        for join_graph in tqdm(self.join_graphs):
+            """
+            a join graph can produce multiple views because different columns are projected
+            """
             df_list = materializer.materialize_join_graph(join_graph)
-
             for df in df_list:
-
                 if len(df) != 0:
+                    metadata = {}
+                    metadata["join_graph"] = join_graph.to_str()
+                    metadata["columns_proj"] = list(df.columns)
+                    # with open(f"./{output_path}/view{j}.json", "w") as outfile:
+                    #     json.dump(metadata, outfile)
                     j += 1
-                    # print("non empty view", j)
+                    print("non empty view", j)
                     new_cols = []
                     k = 1
                     for col in df.columns:
@@ -282,13 +348,12 @@ class Ver:
                             k += 1
                         new_cols.append(new_col)
                     df.columns = new_cols
+                    # df.to_csv(f"./{output_path}/view{j}.csv", index=False)
+
                     self.view_dfs.append(df)
 
-                    if dir_path is not None:
-                        df.to_csv(f"{dir_path}/view{j}.csv", index=False)
+        print(f"Materialized {len(self.view_dfs)} non-empty views")
 
-
-        # print(f"Materialized {len(self.view_dfs)} non-empty views")
         print("---------------------------------------")
 
         return self
@@ -326,20 +391,20 @@ class Ver:
 
         return self
 
-    def view_presentation(self):
+    # def view_presentation(self):
 
-        button = widgets.Button(description="view presentation")
-        output = widgets.Output()
+    #     button = widgets.Button(description="view presentation")
+    #     output = widgets.Output()
 
-        # display(button, output)
+    #     # display(button, output)
 
-        def view_presentation(b):
-            with output:
-                print("view presentation")
+    #     def view_presentation(b):
+    #         with output:
+    #             print("view presentation")
 
-        button.on_click(view_presentation)
-        display(button)
-        display(output)
+    #     button.on_click(view_presentation)
+    #     display(button)
+    #     display(output)
 
     def _apply_highlight(self, df, cols_to_highlight, color='lightyellow'):
             
