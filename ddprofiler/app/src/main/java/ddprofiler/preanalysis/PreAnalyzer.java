@@ -104,7 +104,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
                             // Check the ratio error-success is still ok
                             int totalRecords = successes + errors;
                             if (totalRecords > 1000) {
-                                float ratio = successes / errors;
+                                float ratio = (float) successes / errors;
                                 if (ratio > 0.3) {
                                     break;
                                 }
