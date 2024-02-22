@@ -19,8 +19,7 @@ public record Profile(
         float avgValue,
         long median,
         long iqr,
-        String spatialTemporalType,
-        String granularity
+        String semanticType
 ) {
     public Profile(
             long id,
@@ -43,10 +42,10 @@ public record Profile(
             long iqr
     ) {
 
-        // Made for backwards compatibility of when spatialTemporalType and granularity were not part of the Profile
+        // Made for backwards compatibility of when semanticType were not part of the Profile
         this(id, dbName, path, sourceName, columnName, dataType, columnLabel, totalValues, uniqueValues, nonEmptyValues,
                 entities, minhash, xstructure, minValue, maxValue, avgValue, median, iqr,
-                null, null);
+                "");
     }
 
     public float minValue() {

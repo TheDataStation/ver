@@ -54,8 +54,7 @@ public class ProfileHolder {
             float avgValue = 0;
             long median = 0;
             long iqr = 0;
-            String spatialTemporalType = null;
-            String granularity = null;
+            String semanticType = "";
 
             if (attributeType.equals(AttributeType.FLOAT)) {
                 NumericalAnalysis numericalAnalysis = ((NumericalAnalysis) analysis);
@@ -118,8 +117,7 @@ public class ProfileHolder {
                     avgValue,
                     median,
                     iqr,
-                    spatialTemporalType,
-                    granularity
+                    semanticType
             );
             profileResults.add(columnProfile);
         }
