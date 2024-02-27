@@ -14,6 +14,7 @@ public class Attribute {
     private String columnName;
     private AttributeType columnType;
     private int columnSize;
+    private String semanticType;
 
     public Attribute(String column_name) {
         this.columnName = column_name;
@@ -50,6 +51,14 @@ public class Attribute {
 
     public void setColumnSize(int column_size) {
         this.columnSize = column_size;
+    }
+
+    public String getSemanticType() {
+        return semanticType;
+    }
+
+    public void setSemanticType(String semantic_type) {
+        this.semanticType = semantic_type;
     }
 
     public String toString() {

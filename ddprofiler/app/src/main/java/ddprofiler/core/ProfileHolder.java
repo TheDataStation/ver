@@ -54,7 +54,7 @@ public class ProfileHolder {
             float avgValue = 0;
             long median = 0;
             long iqr = 0;
-            String semanticType = "";
+            String semanticType = attribute.getSemanticType();
 
             if (attributeType.equals(AttributeType.FLOAT)) {
                 NumericalAnalysis numericalAnalysis = ((NumericalAnalysis) analysis);

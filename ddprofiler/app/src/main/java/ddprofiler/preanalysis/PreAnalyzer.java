@@ -4,6 +4,16 @@
  */
 package ddprofiler.preanalysis;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.opencsv.exceptions.CsvValidationException;
+import ddprofiler.core.config.ProfilerConfig;
+import ddprofiler.sources.Source;
+import ddprofiler.sources.deprecated.Attribute;
+import ddprofiler.sources.deprecated.Attribute.AttributeType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,15 +23,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-import com.opencsv.exceptions.CsvValidationException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import ddprofiler.core.config.ProfilerConfig;
-import ddprofiler.sources.Source;
-import ddprofiler.sources.deprecated.Attribute;
-import ddprofiler.sources.deprecated.Attribute.AttributeType;
-
 public class PreAnalyzer implements PreAnalysis, IO {
 
     final private Logger LOG = LoggerFactory.getLogger(PreAnalyzer.class.getName());
@@ -30,6 +31,16 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private List<Attribute> attributes;
     private boolean knownDataTypes = false;
     private ProfilerConfig pc;
+
+    private static final HashMap<String, Pattern[]> TEMPORAL_PATTERNS = new HashMap<>() {
+        {
+            put("dateTime",
+                    new Pattern[]{
+                            Pattern.compile("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"),
+                            Pattern.compile("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d+$")
+                    });
+        }
+    };
 
     private static final Pattern _DOUBLE_PATTERN = Pattern
             .compile("[\\x00-\\x20]*[+-]?(NaN|Infinity|((((\\p{Digit}+)(\\.)?((\\p{Digit}+)?)"
@@ -66,6 +77,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
         // Calculate data types if not known yet
         if (!knownDataTypes) {
             calculateDataTypes(data);
+            estimateSemanticTypes(data);
         }
 
         Map<Attribute, Values> castData = new HashMap<>();
@@ -104,7 +116,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
                             // Check the ratio error-success is still ok
                             int totalRecords = successes + errors;
                             if (totalRecords > 1000) {
-                                float ratio = successes / errors;
+                                float ratio = (float) successes / errors;
                                 if (ratio > 0.3) {
                                     break;
                                 }
@@ -130,24 +142,58 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
     private void calculateDataTypes(Map<Attribute, List<String>> data) {
         // estimate data type for each attribute
-        for (Entry<Attribute, List<String>> e : data.entrySet()) {
-            Attribute a = e.getKey();
-            // Only if the type is not already known
-            if (!a.getColumnType().equals(AttributeType.UNKNOWN))
+        for (Entry<Attribute, List<String>> entry : data.entrySet()) {
+            Attribute attribute = entry.getKey();
+
+            // If the type is known, skip
+            if (!attribute.getColumnType().equals(AttributeType.UNKNOWN))
                 continue;
-            AttributeType aType;
+
+            AttributeType attributeType;
             if (pc.getBoolean(ProfilerConfig.EXPERIMENTAL)) {
                 // In experimental mode - force all data to be strings
-                aType = AttributeType.STRING;
+                attributeType = AttributeType.STRING;
             } else {
-                aType = typeOfValue(e.getValue());
+                attributeType = typeOfValue(entry.getValue());
             }
-            if (aType == null) {
+            if (attributeType == null) {
                 continue; // Means that data was dirty/anomaly, so skip value
             }
-            a.setColumnType(aType);
-            // a.setColumnType(AttributeType.STRING);
+            attribute.setColumnType(attributeType);
         }
+    }
+
+    private void estimateSemanticTypes(Map<Attribute, List<String>> data) {
+        // estimate data type for each attribute
+        for (Entry<Attribute, List<String>> entry : data.entrySet()) {
+            Attribute attribute = entry.getKey();
+            if (attribute.getSemanticType() != null && !attribute.getSemanticType().isEmpty()) {
+                continue;
+            }
+            String semanticType = semanticTypeOfValue(entry.getValue());
+            attribute.setSemanticType(semanticType);
+        }
+    }
+
+    private String semanticTypeOfValue(List<String> values) {
+        Map<String, String> semanticTypes = new HashMap<>();
+        for (String value : values) {
+            for (Map.Entry<String, Pattern[]> entry : TEMPORAL_PATTERNS.entrySet()) {
+                for (Pattern pattern : entry.getValue()) {
+                    if (pattern.matcher(value).matches()) {
+                        semanticTypes.put("type", "temporal");
+                        semanticTypes.put("granularity", entry.getKey());
+                        try {
+                            return new ObjectMapper().writeValueAsString(semanticTypes);
+                        } catch (JsonProcessingException e) {
+                            LOG.error("Error while converting to json: {}", e.getMessage());
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     public static boolean isNumerical(String s) {
