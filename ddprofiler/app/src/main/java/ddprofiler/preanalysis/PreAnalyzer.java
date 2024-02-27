@@ -39,6 +39,10 @@ public class PreAnalyzer implements PreAnalysis, IO {
                             Pattern.compile("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"),
                             Pattern.compile("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d+$")
                     });
+            put("day",
+                    new Pattern[]{
+                            Pattern.compile("^(?i)(monday|tuesday|wednesday|thursday|friday|saturday|sunday)$")
+                    });
         }
     };
 
@@ -178,18 +182,26 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private String semanticTypeOfValue(List<String> values) {
         Map<String, String> semanticTypes = new HashMap<>();
         for (String value : values) {
-            for (Map.Entry<String, Pattern[]> entry : TEMPORAL_PATTERNS.entrySet()) {
-                for (Pattern pattern : entry.getValue()) {
-                    if (pattern.matcher(value).matches()) {
-                        semanticTypes.put("type", "temporal");
-                        semanticTypes.put("granularity", entry.getKey());
-                        try {
-                            return new ObjectMapper().writeValueAsString(semanticTypes);
-                        } catch (JsonProcessingException e) {
-                            LOG.error("Error while converting to json: {}", e.getMessage());
-                            return null;
-                        }
-                    }
+            String granularity = checkTemporalGranularity(value);
+            if (granularity != null) {
+                semanticTypes.put("type", "temporal");
+                semanticTypes.put("granularity", granularity);
+                try {
+                    return new ObjectMapper().writeValueAsString(semanticTypes);
+                } catch (JsonProcessingException e) {
+                    LOG.error("Error while converting to json: {}", e.getMessage());
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+
+    private String checkTemporalGranularity(String value) {
+        for (Map.Entry<String, Pattern[]> entry : TEMPORAL_PATTERNS.entrySet()) {
+            for (Pattern pattern : entry.getValue()) {
+                if (pattern.matcher(value).matches()) {
+                    return entry.getKey();
                 }
             }
         }
