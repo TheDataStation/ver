@@ -4,7 +4,7 @@
  */
 package ddprofiler.preanalysis;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.exceptions.CsvValidationException;
 import ddprofiler.core.config.ProfilerConfig;
@@ -15,11 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
@@ -32,19 +30,19 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private boolean knownDataTypes = false;
     private ProfilerConfig pc;
 
-    private static final HashMap<String, Pattern[]> TEMPORAL_PATTERNS = new HashMap<>() {
-        {
-            put("dateTime",
-                    new Pattern[]{
-                            Pattern.compile("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$"),
-                            Pattern.compile("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d+$")
-                    });
-            put("day",
-                    new Pattern[]{
-                            Pattern.compile("^(?i)(monday|tuesday|wednesday|thursday|friday|saturday|sunday)$")
-                    });
+    private static final LinkedHashMap<String, Pattern[]> TEMPORAL_PATTERNS = new LinkedHashMap<>();
+
+    static {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            InputStream inputStream = PreAnalyzer.class.getClassLoader().getResourceAsStream("temporal_patterns.json");
+            Map<String, Pattern[]> patternMap = mapper.readValue(inputStream, new TypeReference<>() {
+            });
+            TEMPORAL_PATTERNS.putAll(patternMap);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    };
+    }
 
     private static final Pattern _DOUBLE_PATTERN = Pattern
             .compile("[\\x00-\\x20]*[+-]?(NaN|Infinity|((((\\p{Digit}+)(\\.)?((\\p{Digit}+)?)"
