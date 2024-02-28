@@ -1,5 +1,7 @@
 package ddprofiler.core;
 
+import java.util.Map;
+
 public record Profile(
         long id,
         String dbName,
@@ -19,7 +21,7 @@ public record Profile(
         float avgValue,
         long median,
         long iqr,
-        String semanticType
+        Map<String, String> semanticType
 ) {
     public Profile(
             long id,
@@ -45,7 +47,7 @@ public record Profile(
         // Made for backwards compatibility of when semanticType were not part of the Profile
         this(id, dbName, path, sourceName, columnName, dataType, columnLabel, totalValues, uniqueValues, nonEmptyValues,
                 entities, minhash, xstructure, minValue, maxValue, avgValue, median, iqr,
-                "");
+                null);
     }
 
     public float minValue() {

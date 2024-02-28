@@ -174,27 +174,22 @@ public class PreAnalyzer implements PreAnalysis, IO {
             if (attribute.getSemanticType() != null && !attribute.getSemanticType().isEmpty()) {
                 continue;
             }
-            String semanticType = semanticTypeOfValue(entry.getValue());
+            Map<String, String> semanticType = semanticTypeOfValue(entry.getValue());
             attribute.setSemanticType(semanticType);
         }
     }
 
-    private String semanticTypeOfValue(List<String> values) {
+    private Map<String, String> semanticTypeOfValue(List<String> values) {
         Map<String, String> semanticTypes = new HashMap<>();
         for (String value : values) {
             String granularity = checkTemporalGranularity(value);
             if (granularity != null) {
                 semanticTypes.put("type", "temporal");
                 semanticTypes.put("granularity", granularity);
-                try {
-                    return new ObjectMapper().writeValueAsString(semanticTypes);
-                } catch (JsonProcessingException e) {
-                    LOG.error("Error while converting to json: {}", e.getMessage());
-                    return null;
-                }
+                break;
             }
         }
-        return null;
+        return semanticTypes;
     }
 
     private String checkTemporalGranularity(String value) {

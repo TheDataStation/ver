@@ -4,6 +4,8 @@
  */
 package ddprofiler.sources.deprecated;
 
+import java.util.Map;
+
 @Deprecated
 public class Attribute {
 
@@ -14,7 +16,7 @@ public class Attribute {
     private String columnName;
     private AttributeType columnType;
     private int columnSize;
-    private String semanticType;
+    private Map<String, String> semanticType;
 
     public Attribute(String column_name) {
         this.columnName = column_name;
@@ -53,11 +55,11 @@ public class Attribute {
         this.columnSize = column_size;
     }
 
-    public String getSemanticType() {
+    public Map<String, String> getSemanticType() {
         return semanticType;
     }
 
-    public void setSemanticType(String semantic_type) {
+    public void setSemanticType(Map<String, String> semantic_type) {
         this.semanticType = semantic_type;
     }
 
