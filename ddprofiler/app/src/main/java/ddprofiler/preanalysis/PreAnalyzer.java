@@ -183,14 +183,40 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
     private Map<String, String> semanticTypeOfValue(List<String> values) {
         Map<String, String> semanticTypes = new HashMap<>();
+        Map<String, Integer> temporalMatchCounts = new HashMap<>();
+        Map<String, Integer> spatialMatchCounts = new HashMap<>();
+
         for (String value : values) {
             String granularity = checkTemporalGranularity(value);
             if (granularity != null) {
-                semanticTypes.put("type", "temporal");
-                semanticTypes.put("granularity", granularity);
-                break;
+                temporalMatchCounts.put(granularity, temporalMatchCounts.getOrDefault(granularity, 0) + 1);
+                continue;
+            }
+
+            granularity = checkSpatialGranularity(value);
+            if (granularity != null) {
+                spatialMatchCounts.put(granularity, spatialMatchCounts.getOrDefault(granularity, 0) + 1);
             }
         }
+
+        if (temporalMatchCounts.isEmpty() && spatialMatchCounts.isEmpty()) {
+            return semanticTypes;
+        }
+
+        // The dummy entry is created to avoid having to check which map is empty
+        Entry<String, Integer> maxTemporalGranularityEntry = temporalMatchCounts.entrySet().stream()
+                .max(Entry.comparingByValue()).orElse(new AbstractMap.SimpleEntry<>("dummy", 0));
+        Entry<String, Integer> maxSpatialGranularityEntry = spatialMatchCounts.entrySet().stream()
+                .max(Entry.comparingByValue()).orElse(new AbstractMap.SimpleEntry<>("dummy", 0));
+
+        if (maxTemporalGranularityEntry.getValue() > maxSpatialGranularityEntry.getValue()) {
+            semanticTypes.put("type", "temporal");
+            semanticTypes.put("granularity", maxTemporalGranularityEntry.getKey());
+        } else {
+            semanticTypes.put("type", "spatial");
+            semanticTypes.put("granularity", maxSpatialGranularityEntry.getKey());
+        }
+
         return semanticTypes;
     }
 
@@ -202,6 +228,11 @@ public class PreAnalyzer implements PreAnalysis, IO {
                 }
             }
         }
+        return null;
+    }
+
+    private String checkSpatialGranularity(String value) {
+        // TODO: implement spatial granularity check
         return null;
     }
 
