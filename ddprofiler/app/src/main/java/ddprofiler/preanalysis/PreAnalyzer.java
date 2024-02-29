@@ -30,19 +30,9 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private boolean knownDataTypes = false;
     private ProfilerConfig pc;
 
-    private static final LinkedHashMap<String, Pattern[]> TEMPORAL_PATTERNS = new LinkedHashMap<>();
+    private static final String TEMPORAL_PATTERN_FILE = "temporal_patterns.json";
 
-    static {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            InputStream inputStream = PreAnalyzer.class.getClassLoader().getResourceAsStream("temporal_patterns.json");
-            Map<String, Pattern[]> patternMap = mapper.readValue(inputStream, new TypeReference<>() {
-            });
-            TEMPORAL_PATTERNS.putAll(patternMap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private static final LinkedHashMap<String, Pattern[]> TEMPORAL_PATTERNS = loadPatternsFromFile(TEMPORAL_PATTERN_FILE);
 
     private static final Pattern _DOUBLE_PATTERN = Pattern
             .compile("[\\x00-\\x20]*[+-]?(NaN|Infinity|((((\\p{Digit}+)(\\.)?((\\p{Digit}+)?)"
@@ -54,6 +44,20 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private static final Pattern INT_PATTERN = Pattern.compile("^(\\+|-)?\\d+$");
 
     private final static String[] BANNED = {"", "nan"};
+
+    private static LinkedHashMap<String, Pattern[]> loadPatternsFromFile(String filename) {
+        LinkedHashMap<String, Pattern[]> patterns = new LinkedHashMap<>();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            InputStream inputStream = PreAnalyzer.class.getClassLoader().getResourceAsStream(filename);
+            Map<String, Pattern[]> patternMap = mapper.readValue(inputStream, new TypeReference<>() {
+            });
+            patterns.putAll(patternMap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return patterns;
+    }
 
     public PreAnalyzer(ProfilerConfig pc) {
         this.pc = pc;
