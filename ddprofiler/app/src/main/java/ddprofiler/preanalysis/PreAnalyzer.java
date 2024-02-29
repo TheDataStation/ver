@@ -31,8 +31,10 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private ProfilerConfig pc;
 
     private static final String TEMPORAL_PATTERN_FILE = "temporal_patterns.json";
+    private static final String SPATIAL_PATTERN_FILE = "spatial_patterns.json";
 
     private static final LinkedHashMap<String, Pattern[]> TEMPORAL_PATTERNS = loadPatternsFromFile(TEMPORAL_PATTERN_FILE);
+    private static final LinkedHashMap<String, Pattern[]> SPATIAL_PATTERNS = loadPatternsFromFile(SPATIAL_PATTERN_FILE);
 
     private static final Pattern _DOUBLE_PATTERN = Pattern
             .compile("[\\x00-\\x20]*[+-]?(NaN|Infinity|((((\\p{Digit}+)(\\.)?((\\p{Digit}+)?)"
@@ -232,7 +234,13 @@ public class PreAnalyzer implements PreAnalysis, IO {
     }
 
     private String checkSpatialGranularity(String value) {
-        // TODO: implement spatial granularity check
+        for (Map.Entry<String, Pattern[]> entry : SPATIAL_PATTERNS.entrySet()) {
+            for (Pattern pattern : entry.getValue()) {
+                if (pattern.matcher(value).matches()) {
+                    return entry.getKey();
+                }
+            }
+        }
         return null;
     }
 
