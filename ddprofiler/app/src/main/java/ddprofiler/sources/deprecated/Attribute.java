@@ -4,19 +4,20 @@
  */
 package ddprofiler.sources.deprecated;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Deprecated
 public class Attribute {
 
     public enum AttributeType {
-        INT, FLOAT, LONG, STRING, UNKNOWN;
+        INT, FLOAT, LONG, STRING, UNKNOWN
     }
 
     private String columnName;
     private AttributeType columnType;
     private int columnSize;
-    private Map<String, String> semanticType;
+    private Map<String, String> semanticType = new HashMap<>();
 
     public Attribute(String column_name) {
         this.columnName = column_name;

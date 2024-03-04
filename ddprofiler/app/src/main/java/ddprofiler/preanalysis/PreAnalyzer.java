@@ -172,54 +172,66 @@ public class PreAnalyzer implements PreAnalysis, IO {
     }
 
     private void estimateSemanticTypes(Map<Attribute, List<String>> data) {
-        // estimate data type for each attribute
+        // To avoid matching spatial and temporal patterns on every value, we
+        // first check if the attribute is likely to be spatial or temporal
+        checkSpatialOrTemporal(data);
+
         for (Entry<Attribute, List<String>> entry : data.entrySet()) {
             Attribute attribute = entry.getKey();
-            if (attribute.getSemanticType() != null && !attribute.getSemanticType().isEmpty()) {
+            String spatioTemporalType = attribute.getSemanticType().get("type");
+            if (spatioTemporalType.equals("none")) {
                 continue;
             }
-            Map<String, String> semanticType = semanticTypeOfValue(entry.getValue());
-            attribute.setSemanticType(semanticType);
+            String granularity = determineGranularity(spatioTemporalType, entry.getValue());
+            attribute.getSemanticType().put("granularity", granularity);
         }
     }
 
-    private Map<String, String> semanticTypeOfValue(List<String> values) {
-        Map<String, String> semanticTypes = new HashMap<>();
-        Map<String, Integer> temporalMatchCounts = new HashMap<>();
-        Map<String, Integer> spatialMatchCounts = new HashMap<>();
+
+    private void checkSpatialOrTemporal(Map<Attribute, List<String>> data) {
+        for (Entry<Attribute, List<String>> entry : data.entrySet()) {
+            Attribute attribute = entry.getKey();
+            int dataReads = 0;
+            for (String value : entry.getValue()) {
+                if (value == null) {
+                    continue;
+                }
+
+                if (checkTemporalGranularity(value) != null) {
+                    attribute.getSemanticType().put("type", "temporal");
+                    break;
+                }
+                if (checkSpatialGranularity(value) != null) {
+                    attribute.getSemanticType().put("type", "spatial");
+                    break;
+                }
+
+                dataReads++;
+                if (dataReads > 25) {
+                    attribute.getSemanticType().put("type", "none");
+                    break;
+                }
+            }
+        }
+    }
+
+    private String determineGranularity(String spatioTemporalType, List<String> values) {
+        Map<String, Integer> granularityMatchCounts = new HashMap<>();
 
         for (String value : values) {
-            String granularity = checkTemporalGranularity(value);
-            if (granularity != null) {
-                temporalMatchCounts.put(granularity, temporalMatchCounts.getOrDefault(granularity, 0) + 1);
-                continue;
+            String granularity;
+            if (spatioTemporalType.equals("temporal")) {
+                granularity = checkTemporalGranularity(value);
+            } else {
+                granularity = checkSpatialGranularity(value);
             }
-
-            granularity = checkSpatialGranularity(value);
             if (granularity != null) {
-                spatialMatchCounts.put(granularity, spatialMatchCounts.getOrDefault(granularity, 0) + 1);
+                granularityMatchCounts.put(granularity, granularityMatchCounts.getOrDefault(granularity, 0) + 1);
             }
         }
 
-        if (temporalMatchCounts.isEmpty() && spatialMatchCounts.isEmpty()) {
-            return semanticTypes;
-        }
-
-        // The dummy entry is created to avoid having to check which map is empty
-        Entry<String, Integer> maxTemporalGranularityEntry = temporalMatchCounts.entrySet().stream()
-                .max(Entry.comparingByValue()).orElse(new AbstractMap.SimpleEntry<>("dummy", 0));
-        Entry<String, Integer> maxSpatialGranularityEntry = spatialMatchCounts.entrySet().stream()
-                .max(Entry.comparingByValue()).orElse(new AbstractMap.SimpleEntry<>("dummy", 0));
-
-        if (maxTemporalGranularityEntry.getValue() > maxSpatialGranularityEntry.getValue()) {
-            semanticTypes.put("type", "temporal");
-            semanticTypes.put("granularity", maxTemporalGranularityEntry.getKey());
-        } else {
-            semanticTypes.put("type", "spatial");
-            semanticTypes.put("granularity", maxSpatialGranularityEntry.getKey());
-        }
-
-        return semanticTypes;
+        return granularityMatchCounts.entrySet().stream()
+                .max(Entry.comparingByValue()).map(Entry::getKey).orElse("unknown");
     }
 
     private String checkTemporalGranularity(String value) {
