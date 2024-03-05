@@ -191,7 +191,6 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private void checkSpatialOrTemporal(Map<Attribute, List<String>> data) {
         for (Entry<Attribute, List<String>> entry : data.entrySet()) {
             Attribute attribute = entry.getKey();
-            int dataReads = 0;
             for (String value : entry.getValue()) {
                 if (value == null) {
                     continue;
@@ -205,12 +204,9 @@ public class PreAnalyzer implements PreAnalysis, IO {
                     attribute.getSemanticType().put("type", "spatial");
                     break;
                 }
-
-                dataReads++;
-                if (dataReads > 25) {
-                    attribute.getSemanticType().put("type", "none");
-                    break;
-                }
+            }
+            if (!attribute.getSemanticType().containsKey("type")) {
+                attribute.getSemanticType().put("type", "none");
             }
         }
     }
