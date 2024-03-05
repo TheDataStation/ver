@@ -28,7 +28,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private Source task;
     private List<Attribute> attributes;
     private boolean knownDataTypes = false;
-    private ProfilerConfig pc;
+    private ProfilerConfig profilerConfig;
 
     private static final String TEMPORAL_PATTERN_FILE = "temporal_patterns.json";
     private static final String SPATIAL_PATTERN_FILE = "spatial_patterns.json";
@@ -61,8 +61,8 @@ public class PreAnalyzer implements PreAnalysis, IO {
         return patterns;
     }
 
-    public PreAnalyzer(ProfilerConfig pc) {
-        this.pc = pc;
+    public PreAnalyzer(ProfilerConfig profilerConfig) {
+        this.profilerConfig = profilerConfig;
     }
 
     /**
@@ -72,10 +72,10 @@ public class PreAnalyzer implements PreAnalysis, IO {
      */
 
     @Override
-    public Map<Attribute, Values> readRows(int num) {
+    public Map<Attribute, Values> readRows(int numRows) {
         Map<Attribute, List<String>> data = null;
         try {
-            data = task.readRows(num);
+            data = task.readRows(numRows);
             if (data == null)
                 return null;
         } catch (IOException | SQLException | CsvValidationException e) {
@@ -90,13 +90,13 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
         Map<Attribute, Values> castData = new HashMap<>();
         // Cast map to the type
-        for (Entry<Attribute, List<String>> e : data.entrySet()) {
+        for (Entry<Attribute, List<String>> dataEntry : data.entrySet()) {
             Values vs = null;
-            AttributeType at = e.getKey().getColumnType();
+            AttributeType at = dataEntry.getKey().getColumnType();
             if (at.equals(AttributeType.FLOAT)) {
                 List<Float> castValues = new ArrayList<>();
                 vs = Values.makeFloatValues(castValues);
-                for (String s : e.getValue()) {
+                for (String s : dataEntry.getValue()) {
                     float f = 0f;
                     if (DOUBLE_PATTERN.matcher(s).matches()) {
                         s = s.replace(",", ""); // remove commas, floats should
@@ -112,7 +112,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
                 vs = Values.makeIntegerValues(castValues);
                 int successes = 0;
                 int errors = 0;
-                for (String s : e.getValue()) {
+                for (String s : dataEntry.getValue()) {
                     long f = 0;
                     if (INT_PATTERN.matcher(s).matches()) {
                         try {
@@ -139,10 +139,10 @@ public class PreAnalyzer implements PreAnalysis, IO {
             } else if (at.equals(AttributeType.STRING)) {
                 List<String> castValues = new ArrayList<>();
                 vs = Values.makeStringValues(castValues);
-                e.getValue().forEach(s -> castValues.add(s));
+                dataEntry.getValue().forEach(s -> castValues.add(s));
             }
 
-            castData.put(e.getKey(), vs);
+            castData.put(dataEntry.getKey(), vs);
         }
 
         return castData;
@@ -150,24 +150,24 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
     private void calculateDataTypes(Map<Attribute, List<String>> data) {
         // estimate data type for each attribute
-        for (Entry<Attribute, List<String>> entry : data.entrySet()) {
-            Attribute attribute = entry.getKey();
+        for (Entry<Attribute, List<String>> dataEntry : data.entrySet()) {
+            Attribute attribute = dataEntry.getKey();
 
             // If the type is known, skip
             if (!attribute.getColumnType().equals(AttributeType.UNKNOWN))
                 continue;
 
-            AttributeType attributeType;
-            if (pc.getBoolean(ProfilerConfig.EXPERIMENTAL)) {
+            AttributeType attributeDataType;
+            if (profilerConfig.getBoolean(ProfilerConfig.EXPERIMENTAL)) {
                 // In experimental mode - force all data to be strings
-                attributeType = AttributeType.STRING;
+                attributeDataType = AttributeType.STRING;
             } else {
-                attributeType = typeOfValue(entry.getValue());
+                attributeDataType = typeOfValue(dataEntry.getValue());
             }
-            if (attributeType == null) {
+            if (attributeDataType == null) {
                 continue; // Means that data was dirty/anomaly, so skip value
             }
-            attribute.setColumnType(attributeType);
+            attribute.setColumnType(attributeDataType);
         }
     }
 
@@ -178,12 +178,12 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
         for (Entry<Attribute, List<String>> entry : data.entrySet()) {
             Attribute attribute = entry.getKey();
-            String spatioTemporalType = attribute.getSemanticType().get("type");
+            String spatioTemporalType = attribute.getColumnSemanticType().get("type");
             if (spatioTemporalType.equals("none")) {
                 continue;
             }
             String granularity = determineGranularity(spatioTemporalType, entry.getValue());
-            attribute.getSemanticType().put("granularity", granularity);
+            attribute.getColumnSemanticType().put("granularity", granularity);
         }
     }
 
@@ -197,16 +197,16 @@ public class PreAnalyzer implements PreAnalysis, IO {
                 }
 
                 if (checkTemporalGranularity(value) != null) {
-                    attribute.getSemanticType().put("type", "temporal");
+                    attribute.getColumnSemanticType().put("type", "temporal");
                     break;
                 }
                 if (checkSpatialGranularity(value) != null) {
-                    attribute.getSemanticType().put("type", "spatial");
+                    attribute.getColumnSemanticType().put("type", "spatial");
                     break;
                 }
             }
-            if (!attribute.getSemanticType().containsKey("type")) {
-                attribute.getSemanticType().put("type", "none");
+            if (!attribute.getColumnSemanticType().containsKey("type")) {
+                attribute.getColumnSemanticType().put("type", "none");
             }
         }
     }

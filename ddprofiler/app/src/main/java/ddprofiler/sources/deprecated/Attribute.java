@@ -17,7 +17,7 @@ public class Attribute {
     private String columnName;
     private AttributeType columnType;
     private int columnSize;
-    private Map<String, String> semanticType = new HashMap<>();
+    private Map<String, String> columnSemanticType = new HashMap<>();
 
     public Attribute(String column_name) {
         this.columnName = column_name;
@@ -56,12 +56,12 @@ public class Attribute {
         this.columnSize = column_size;
     }
 
-    public Map<String, String> getSemanticType() {
-        return semanticType;
+    public Map<String, String> getColumnSemanticType() {
+        return columnSemanticType;
     }
 
-    public void setSemanticType(Map<String, String> semantic_type) {
-        this.semanticType = semantic_type;
+    public void setColumnSemanticType(Map<String, String> semantic_type) {
+        this.columnSemanticType = semantic_type;
     }
 
     public String toString() {
