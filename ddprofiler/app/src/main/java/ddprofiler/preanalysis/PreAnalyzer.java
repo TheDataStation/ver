@@ -11,6 +11,7 @@ import ddprofiler.core.config.ProfilerConfig;
 import ddprofiler.sources.Source;
 import ddprofiler.sources.deprecated.Attribute;
 import ddprofiler.sources.deprecated.Attribute.AttributeType;
+import ddprofiler.sources.deprecated.Attribute.AttributeSemanticType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -178,12 +179,12 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
         for (Entry<Attribute, List<String>> entry : data.entrySet()) {
             Attribute attribute = entry.getKey();
-            String spatioTemporalType = attribute.getColumnSemanticType().get("type");
-            if (spatioTemporalType.equals("none")) {
+            AttributeSemanticType columnSemanticType = attribute.getColumnSemanticType();
+            if (columnSemanticType.equals(AttributeSemanticType.NONE)) {
                 continue;
             }
-            String granularity = determineGranularity(spatioTemporalType, entry.getValue());
-            attribute.getColumnSemanticType().put("granularity", granularity);
+            String granularity = determineGranularity(columnSemanticType, entry.getValue());
+            attribute.getColumnSemanticTypeDetails().put("granularity", granularity);
         }
     }
 
@@ -197,26 +198,26 @@ public class PreAnalyzer implements PreAnalysis, IO {
                 }
 
                 if (checkTemporalGranularity(value) != null) {
-                    attribute.getColumnSemanticType().put("type", "temporal");
+                    attribute.setColumnSemanticType(AttributeSemanticType.TEMPORAL);
                     break;
                 }
                 if (checkSpatialGranularity(value) != null) {
-                    attribute.getColumnSemanticType().put("type", "spatial");
+                    attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
                     break;
                 }
             }
-            if (!attribute.getColumnSemanticType().containsKey("type")) {
-                attribute.getColumnSemanticType().put("type", "none");
+            if (attribute.getColumnSemanticType() == null) {
+                attribute.setColumnSemanticType(AttributeSemanticType.NONE);
             }
         }
     }
 
-    private String determineGranularity(String spatioTemporalType, List<String> values) {
+    private String determineGranularity(AttributeSemanticType spatioTemporalType, List<String> values) {
         Map<String, Integer> granularityMatchCounts = new HashMap<>();
 
         for (String value : values) {
             String granularity;
-            if (spatioTemporalType.equals("temporal")) {
+            if (spatioTemporalType.equals(AttributeSemanticType.TEMPORAL)) {
                 granularity = checkTemporalGranularity(value);
             } else {
                 granularity = checkSpatialGranularity(value);

@@ -54,7 +54,8 @@ public class ProfileHolder {
             float avgValue = 0;
             long median = 0;
             long iqr = 0;
-            Map<String, String> semanticType = attribute.getColumnSemanticType();
+            Map<String, String> semanticTypeDetails = attribute.getColumnSemanticTypeDetails();
+            semanticTypeDetails.put("type", attribute.getColumnSemanticType().name());
 
             if (attributeType.equals(AttributeType.FLOAT)) {
                 NumericalAnalysis numericalAnalysis = ((NumericalAnalysis) analysis);
@@ -117,7 +118,7 @@ public class ProfileHolder {
                     avgValue,
                     median,
                     iqr,
-                    semanticType
+                    semanticTypeDetails
             );
             profileResults.add(columnProfile);
         }

@@ -14,10 +14,16 @@ public class Attribute {
         INT, FLOAT, LONG, STRING, UNKNOWN
     }
 
+    public enum AttributeSemanticType {
+        SPATIAL, TEMPORAL, NONE
+    }
+
+
     private String columnName;
     private AttributeType columnType;
     private int columnSize;
-    private Map<String, String> columnSemanticType = new HashMap<>();
+    private AttributeSemanticType columnSemanticType;
+    private Map<String, String> columnSemanticTypeDetails = new HashMap<>();
 
     public Attribute(String column_name) {
         this.columnName = column_name;
@@ -56,12 +62,16 @@ public class Attribute {
         this.columnSize = column_size;
     }
 
-    public Map<String, String> getColumnSemanticType() {
+    public AttributeSemanticType getColumnSemanticType() {
         return columnSemanticType;
     }
 
-    public void setColumnSemanticType(Map<String, String> semantic_type) {
-        this.columnSemanticType = semantic_type;
+    public void setColumnSemanticType(AttributeSemanticType column_semantic_type) {
+        this.columnSemanticType = column_semantic_type;
+    }
+
+    public Map<String, String> getColumnSemanticTypeDetails() {
+        return columnSemanticTypeDetails;
     }
 
     public String toString() {
