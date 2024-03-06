@@ -163,7 +163,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
                 // In experimental mode - force all data to be strings
                 attributeDataType = AttributeType.STRING;
             } else {
-                attributeDataType = typeOfValue(dataEntry.getValue());
+                attributeDataType = dataTypeOfValue(dataEntry.getValue());
             }
             if (attributeDataType == null) {
                 continue; // Means that data was dirty/anomaly, so skip value
@@ -301,7 +301,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
      * @return
      */
 
-    public static AttributeType typeOfValue(List<String> values) {
+    public static AttributeType dataTypeOfValue(List<String> values) {
         boolean isFloat = false;
         boolean isInt = false;
         int floatMatches = 0;
