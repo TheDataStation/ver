@@ -4,23 +4,23 @@
  */
 package ddprofiler.preanalysis;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.regex.Pattern;
-
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.exceptions.CsvValidationException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import ddprofiler.core.config.ProfilerConfig;
 import ddprofiler.sources.Source;
 import ddprofiler.sources.deprecated.Attribute;
 import ddprofiler.sources.deprecated.Attribute.AttributeType;
+import ddprofiler.sources.deprecated.Attribute.AttributeSemanticType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.regex.Pattern;
 
 public class PreAnalyzer implements PreAnalysis, IO {
 
@@ -29,7 +29,13 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private Source task;
     private List<Attribute> attributes;
     private boolean knownDataTypes = false;
-    private ProfilerConfig pc;
+    private ProfilerConfig profilerConfig;
+
+    private static final String TEMPORAL_PATTERN_FILE = "temporal_patterns.json";
+    private static final String SPATIAL_PATTERN_FILE = "spatial_patterns.json";
+
+    private static final LinkedHashMap<String, Pattern[]> TEMPORAL_PATTERNS = loadPatternsFromFile(TEMPORAL_PATTERN_FILE);
+    private static final LinkedHashMap<String, Pattern[]> SPATIAL_PATTERNS = loadPatternsFromFile(SPATIAL_PATTERN_FILE);
 
     private static final Pattern _DOUBLE_PATTERN = Pattern
             .compile("[\\x00-\\x20]*[+-]?(NaN|Infinity|((((\\p{Digit}+)(\\.)?((\\p{Digit}+)?)"
@@ -42,8 +48,22 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
     private final static String[] BANNED = {"", "nan"};
 
-    public PreAnalyzer(ProfilerConfig pc) {
-        this.pc = pc;
+    private static LinkedHashMap<String, Pattern[]> loadPatternsFromFile(String filename) {
+        LinkedHashMap<String, Pattern[]> patterns = new LinkedHashMap<>();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            InputStream inputStream = PreAnalyzer.class.getClassLoader().getResourceAsStream(filename);
+            Map<String, Pattern[]> patternMap = mapper.readValue(inputStream, new TypeReference<>() {
+            });
+            patterns.putAll(patternMap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return patterns;
+    }
+
+    public PreAnalyzer(ProfilerConfig profilerConfig) {
+        this.profilerConfig = profilerConfig;
     }
 
     /**
@@ -53,10 +73,10 @@ public class PreAnalyzer implements PreAnalysis, IO {
      */
 
     @Override
-    public Map<Attribute, Values> readRows(int num) {
+    public Map<Attribute, Values> readRows(int numRows) {
         Map<Attribute, List<String>> data = null;
         try {
-            data = task.readRows(num);
+            data = task.readRows(numRows);
             if (data == null)
                 return null;
         } catch (IOException | SQLException | CsvValidationException e) {
@@ -66,17 +86,18 @@ public class PreAnalyzer implements PreAnalysis, IO {
         // Calculate data types if not known yet
         if (!knownDataTypes) {
             calculateDataTypes(data);
+            estimateSemanticTypes(data);
         }
 
         Map<Attribute, Values> castData = new HashMap<>();
         // Cast map to the type
-        for (Entry<Attribute, List<String>> e : data.entrySet()) {
+        for (Entry<Attribute, List<String>> dataEntry : data.entrySet()) {
             Values vs = null;
-            AttributeType at = e.getKey().getColumnType();
+            AttributeType at = dataEntry.getKey().getColumnType();
             if (at.equals(AttributeType.FLOAT)) {
                 List<Float> castValues = new ArrayList<>();
                 vs = Values.makeFloatValues(castValues);
-                for (String s : e.getValue()) {
+                for (String s : dataEntry.getValue()) {
                     float f = 0f;
                     if (DOUBLE_PATTERN.matcher(s).matches()) {
                         s = s.replace(",", ""); // remove commas, floats should
@@ -92,7 +113,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
                 vs = Values.makeIntegerValues(castValues);
                 int successes = 0;
                 int errors = 0;
-                for (String s : e.getValue()) {
+                for (String s : dataEntry.getValue()) {
                     long f = 0;
                     if (INT_PATTERN.matcher(s).matches()) {
                         try {
@@ -104,7 +125,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
                             // Check the ratio error-success is still ok
                             int totalRecords = successes + errors;
                             if (totalRecords > 1000) {
-                                float ratio = successes / errors;
+                                float ratio = (float) successes / errors;
                                 if (ratio > 0.3) {
                                     break;
                                 }
@@ -119,10 +140,10 @@ public class PreAnalyzer implements PreAnalysis, IO {
             } else if (at.equals(AttributeType.STRING)) {
                 List<String> castValues = new ArrayList<>();
                 vs = Values.makeStringValues(castValues);
-                e.getValue().forEach(s -> castValues.add(s));
+                dataEntry.getValue().forEach(s -> castValues.add(s));
             }
 
-            castData.put(e.getKey(), vs);
+            castData.put(dataEntry.getKey(), vs);
         }
 
         return castData;
@@ -130,24 +151,106 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
     private void calculateDataTypes(Map<Attribute, List<String>> data) {
         // estimate data type for each attribute
-        for (Entry<Attribute, List<String>> e : data.entrySet()) {
-            Attribute a = e.getKey();
-            // Only if the type is not already known
-            if (!a.getColumnType().equals(AttributeType.UNKNOWN))
+        for (Entry<Attribute, List<String>> dataEntry : data.entrySet()) {
+            Attribute attribute = dataEntry.getKey();
+
+            // If the type is known, skip
+            if (!attribute.getColumnType().equals(AttributeType.UNKNOWN))
                 continue;
-            AttributeType aType;
-            if (pc.getBoolean(ProfilerConfig.EXPERIMENTAL)) {
+
+            AttributeType attributeDataType;
+            if (profilerConfig.getBoolean(ProfilerConfig.EXPERIMENTAL)) {
                 // In experimental mode - force all data to be strings
-                aType = AttributeType.STRING;
+                attributeDataType = AttributeType.STRING;
             } else {
-                aType = typeOfValue(e.getValue());
+                attributeDataType = dataTypeOfValue(dataEntry.getValue());
             }
-            if (aType == null) {
+            if (attributeDataType == null) {
                 continue; // Means that data was dirty/anomaly, so skip value
             }
-            a.setColumnType(aType);
-            // a.setColumnType(AttributeType.STRING);
+            attribute.setColumnType(attributeDataType);
         }
+    }
+
+    private void estimateSemanticTypes(Map<Attribute, List<String>> data) {
+        // To avoid matching spatial and temporal patterns on every value, we
+        // first check if the attribute is likely to be spatial or temporal
+        checkSpatialOrTemporal(data);
+
+        for (Entry<Attribute, List<String>> entry : data.entrySet()) {
+            Attribute attribute = entry.getKey();
+            AttributeSemanticType columnSemanticType = attribute.getColumnSemanticType();
+            if (columnSemanticType.equals(AttributeSemanticType.NONE)) {
+                continue;
+            }
+            String granularity = determineGranularity(columnSemanticType, entry.getValue());
+            attribute.getColumnSemanticTypeDetails().put("granularity", granularity);
+        }
+    }
+
+
+    private void checkSpatialOrTemporal(Map<Attribute, List<String>> data) {
+        for (Entry<Attribute, List<String>> entry : data.entrySet()) {
+            Attribute attribute = entry.getKey();
+            for (String value : entry.getValue()) {
+                if (value == null) {
+                    continue;
+                }
+
+                if (checkTemporalGranularity(value) != null) {
+                    attribute.setColumnSemanticType(AttributeSemanticType.TEMPORAL);
+                    break;
+                }
+                if (checkSpatialGranularity(value) != null) {
+                    attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
+                    break;
+                }
+            }
+            if (attribute.getColumnSemanticType() == null) {
+                attribute.setColumnSemanticType(AttributeSemanticType.NONE);
+            }
+        }
+    }
+
+    private String determineGranularity(AttributeSemanticType spatioTemporalType, List<String> values) {
+        Map<String, Integer> granularityMatchCounts = new HashMap<>();
+
+        for (String value : values) {
+            String granularity;
+            if (spatioTemporalType.equals(AttributeSemanticType.TEMPORAL)) {
+                granularity = checkTemporalGranularity(value);
+            } else {
+                granularity = checkSpatialGranularity(value);
+            }
+            if (granularity != null) {
+                granularityMatchCounts.put(granularity, granularityMatchCounts.getOrDefault(granularity, 0) + 1);
+            }
+        }
+
+        return granularityMatchCounts.entrySet().stream()
+                .max(Entry.comparingByValue()).map(Entry::getKey).orElse("unknown");
+    }
+
+    private String checkTemporalGranularity(String value) {
+        for (Map.Entry<String, Pattern[]> entry : TEMPORAL_PATTERNS.entrySet()) {
+            for (Pattern pattern : entry.getValue()) {
+                if (pattern.matcher(value).matches()) {
+                    return entry.getKey();
+                }
+            }
+        }
+        return null;
+    }
+
+    private String checkSpatialGranularity(String value) {
+        for (Map.Entry<String, Pattern[]> entry : SPATIAL_PATTERNS.entrySet()) {
+            for (Pattern pattern : entry.getValue()) {
+                if (pattern.matcher(value).matches()) {
+                    return entry.getKey();
+                }
+            }
+        }
+        return null;
     }
 
     public static boolean isNumerical(String s) {
@@ -198,7 +301,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
      * @return
      */
 
-    public static AttributeType typeOfValue(List<String> values) {
+    public static AttributeType dataTypeOfValue(List<String> values) {
         boolean isFloat = false;
         boolean isInt = false;
         int floatMatches = 0;

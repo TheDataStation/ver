@@ -4,16 +4,26 @@
  */
 package ddprofiler.sources.deprecated;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Deprecated
 public class Attribute {
 
     public enum AttributeType {
-        INT, FLOAT, LONG, STRING, UNKNOWN;
+        INT, FLOAT, LONG, STRING, UNKNOWN
     }
+
+    public enum AttributeSemanticType {
+        SPATIAL, TEMPORAL, NONE
+    }
+
 
     private String columnName;
     private AttributeType columnType;
     private int columnSize;
+    private AttributeSemanticType columnSemanticType;
+    private Map<String, String> columnSemanticTypeDetails = new HashMap<>();
 
     public Attribute(String column_name) {
         this.columnName = column_name;
@@ -50,6 +60,18 @@ public class Attribute {
 
     public void setColumnSize(int column_size) {
         this.columnSize = column_size;
+    }
+
+    public AttributeSemanticType getColumnSemanticType() {
+        return columnSemanticType;
+    }
+
+    public void setColumnSemanticType(AttributeSemanticType column_semantic_type) {
+        this.columnSemanticType = column_semantic_type;
+    }
+
+    public Map<String, String> getColumnSemanticTypeDetails() {
+        return columnSemanticTypeDetails;
     }
 
     public String toString() {
