@@ -53,7 +53,7 @@ public class PreAnalyzerTest {
     @Before
     public void setUp() throws CsvValidationException, SQLException, IOException {
         // Avoid Exceptions by adding a sample column to the source.
-        when(source.getAttributes()).thenReturn(new ArrayList<>(Arrays.asList(new Attribute("sample"))));
+        when(source.getAttributes()).thenReturn(List.of(new Attribute("sample")));
 
         // Initialize and set source of PreAnalyzer
         preAnalyzer = new PreAnalyzer(profilerConfig);
@@ -66,7 +66,7 @@ public class PreAnalyzerTest {
      */
     @Test
     public void testReadRowsSpatialData() throws CsvValidationException, SQLException, IOException {
-        // Prepare sample spatial columns
+        // Prepare sample spatial columns & read the rows
         Map<Attribute, List<String>> spatialData = getSpatialData();
         when(source.readRows(1)).thenReturn(spatialData);
         preAnalyzer.readRows(1);
@@ -74,28 +74,20 @@ public class PreAnalyzerTest {
         // Ensuring correct semantic type & granularity
         for (Entry<Attribute, List<String>> dataEntry : spatialData.entrySet()) {
             Attribute attribute = dataEntry.getKey();
-            System.out.println(attribute.getColumnName());
             assertEquals(Attribute.AttributeSemanticType.SPATIAL, attribute.getColumnSemanticType());
 
-            switch (attribute.getColumnName()) {
-                case "geo_coordinate1":
-                    assertEquals("geoCoordinate", attribute.getColumnSemanticTypeDetails().get("granularity"));
-                    break;
-                case "geo_coordinate2":
-                    assertEquals("geoCoordinate", attribute.getColumnSemanticTypeDetails().get("granularity"));
-                    break;
-                case "street1":
-                    assertEquals("street", attribute.getColumnSemanticTypeDetails().get("granularity"));
-                    break;
-                case "street2":
-                    assertEquals("street", attribute.getColumnSemanticTypeDetails().get("granularity"));
-                    break;
-                case "zip_code":
-                    assertEquals("zipCode", attribute.getColumnSemanticTypeDetails().get("granularity"));
-                    break;
-                case "state":
-                    assertEquals("state", attribute.getColumnSemanticTypeDetails().get("granularity"));
-                    break;
+            String columnName = attribute.getColumnName();
+            if (columnName.startsWith("geo_coordinate")) {
+                assertEquals("geoCoordinate", attribute.getColumnSemanticTypeDetails().get("granularity"));
+            }
+            else if (columnName.startsWith("street")) {
+                assertEquals("street", attribute.getColumnSemanticTypeDetails().get("granularity"));
+            }
+            else if (columnName.startsWith("zip_code")) {
+                assertEquals("zipCode", attribute.getColumnSemanticTypeDetails().get("granularity"));
+            }
+            else {
+                assertEquals("state", attribute.getColumnSemanticTypeDetails().get("granularity"));
             }
         }
     }
@@ -103,22 +95,22 @@ public class PreAnalyzerTest {
     private Map<Attribute, List<String>> getSpatialData() {
         Map<Attribute, List<String>> spatialData = new HashMap<>();
         spatialData.put(
-                new Attribute("geo_coordinate1"), new ArrayList<>(Arrays.asList("POINT(41.919365236 -87.769726946)"))
+                new Attribute("geo_coordinate1"), List.of("POINT(41.919365236 -87.769726946)")
         );
         spatialData.put(
-                new Attribute("geo_coordinate2"), new ArrayList<>(Arrays.asList("(41.90643°, -87.703717°)"))
+                new Attribute("geo_coordinate2"), List.of("(41.90643°, -87.703717°)")
         );
         spatialData.put(
-                new Attribute("street1"), new ArrayList<>(Arrays.asList("23RD ST"))
+                new Attribute("street1"), List.of("23RD ST")
         );
         spatialData.put(
-                new Attribute("street2"), new ArrayList<>(Arrays.asList("1958 North Milwaukee Avenue"))
+                new Attribute("street2"), List.of("1958 North Milwaukee Avenue")
         );
         spatialData.put(
-                new Attribute("zip_code"), new ArrayList<>(Arrays.asList("60007"))
+                new Attribute("zip_code"), List.of("60007")
         );
         spatialData.put(
-                new Attribute("state"), new ArrayList<>(Arrays.asList("IL"))
+                new Attribute("state"), List.of("IL")
         );
         return spatialData;
     }
