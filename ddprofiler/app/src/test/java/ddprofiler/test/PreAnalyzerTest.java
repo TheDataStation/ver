@@ -1,13 +1,20 @@
-package ddprofiler;
+package ddprofiler.test;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import java.sql.SQLException;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Random;
-import java.util.Vector;
 
+import com.opencsv.exceptions.CsvValidationException;
+import ddprofiler.core.config.ProfilerConfig;
+import ddprofiler.sources.Source;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 import ddprofiler.preanalysis.PreAnalyzer;
 import ddprofiler.preanalysis.Values;
@@ -15,9 +22,16 @@ import ddprofiler.sources.deprecated.Attribute;
 import ddprofiler.sources.deprecated.Attribute.AttributeType;
 import ddprofiler.sources.implementations.CSVSource;
 import ddprofiler.sources.implementations.PostgresSource;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class PreAnalyzerTest {
 
+    @Mock
+    private ProfilerConfig profilerConfig;
+    @Mock
+    private Source source;
+    private PreAnalyzer preAnalyzer;
     private String path = "C:\\";
     private String filename = "Leading_Causes_of_Death__1990-2010.csv";
     // private String path = "/Users/ra-mit/Desktop/mitdwhdata/";
@@ -31,6 +45,83 @@ public class PreAnalyzerTest {
     private String tableName = "nellsimple";
     private String username = "root";
     private String password = "Qatar";
+
+    /**
+     * Setup PreAnalyzer before each test
+     * (specifically for new tests, not legacy ones).
+     */
+    @Before
+    public void setUp() throws CsvValidationException, SQLException, IOException {
+        // Avoid Exceptions by adding a sample column to the source.
+        when(source.getAttributes()).thenReturn(new ArrayList<>(Arrays.asList(new Attribute("sample"))));
+
+        // Initialize and set source of PreAnalyzer
+        preAnalyzer = new PreAnalyzer(profilerConfig);
+        preAnalyzer.assignSourceTask(source);
+    }
+
+    /**
+     * Test readRows method for spatial data, ensuring correct
+     * semantic types and granularity.
+     */
+    @Test
+    public void testReadRowsSpatialData() throws CsvValidationException, SQLException, IOException {
+        // Prepare sample spatial columns
+        Map<Attribute, List<String>> spatialData = getSpatialData();
+        when(source.readRows(1)).thenReturn(spatialData);
+        preAnalyzer.readRows(1);
+
+        // Ensuring correct semantic type & granularity
+        for (Entry<Attribute, List<String>> dataEntry : spatialData.entrySet()) {
+            Attribute attribute = dataEntry.getKey();
+            System.out.println(attribute.getColumnName());
+            assertEquals(Attribute.AttributeSemanticType.SPATIAL, attribute.getColumnSemanticType());
+
+            switch (attribute.getColumnName()) {
+                case "geo_coordinate1":
+                    assertEquals("geoCoordinate", attribute.getColumnSemanticTypeDetails().get("granularity"));
+                    break;
+                case "geo_coordinate2":
+                    assertEquals("geoCoordinate", attribute.getColumnSemanticTypeDetails().get("granularity"));
+                    break;
+                case "street1":
+                    assertEquals("street", attribute.getColumnSemanticTypeDetails().get("granularity"));
+                    break;
+                case "street2":
+                    assertEquals("street", attribute.getColumnSemanticTypeDetails().get("granularity"));
+                    break;
+                case "zip_code":
+                    assertEquals("zipCode", attribute.getColumnSemanticTypeDetails().get("granularity"));
+                    break;
+                case "state":
+                    assertEquals("state", attribute.getColumnSemanticTypeDetails().get("granularity"));
+                    break;
+            }
+        }
+    }
+
+    private Map<Attribute, List<String>> getSpatialData() {
+        Map<Attribute, List<String>> spatialData = new HashMap<>();
+        spatialData.put(
+                new Attribute("geo_coordinate1"), new ArrayList<>(Arrays.asList("POINT(41.919365236 -87.769726946)"))
+        );
+        spatialData.put(
+                new Attribute("geo_coordinate2"), new ArrayList<>(Arrays.asList("(41.90643°, -87.703717°)"))
+        );
+        spatialData.put(
+                new Attribute("street1"), new ArrayList<>(Arrays.asList("23RD ST"))
+        );
+        spatialData.put(
+                new Attribute("street2"), new ArrayList<>(Arrays.asList("1958 North Milwaukee Avenue"))
+        );
+        spatialData.put(
+                new Attribute("zip_code"), new ArrayList<>(Arrays.asList("60007"))
+        );
+        spatialData.put(
+                new Attribute("state"), new ArrayList<>(Arrays.asList("IL"))
+        );
+        return spatialData;
+    }
 
     public void typeChecking(PreAnalyzer pa) {
 
