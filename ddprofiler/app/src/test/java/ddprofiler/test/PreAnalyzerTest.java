@@ -32,19 +32,7 @@ public class PreAnalyzerTest {
     @Mock
     private Source source;
     private PreAnalyzer preAnalyzer;
-    private String path = "C:\\";
-    private String filename = "Leading_Causes_of_Death__1990-2010.csv";
-    // private String path = "/Users/ra-mit/Desktop/mitdwhdata/";
-    // private String filename = "short_cis_course_catalog.csv";
-    private String separator = ",";
     private int numRecords = 10;
-    private String db = "mysql";
-    private String connIP = "localhost";
-    private String port = "3306";
-    private String sourceName = "/test";
-    private String tableName = "nellsimple";
-    private String username = "root";
-    private String password = "Qatar";
 
     /**
      * Setup PreAnalyzer before each test
@@ -79,14 +67,11 @@ public class PreAnalyzerTest {
             String columnName = attribute.getColumnName();
             if (columnName.startsWith("geo_coordinate")) {
                 assertEquals("geoCoordinate", attribute.getColumnSemanticTypeDetails().get("granularity"));
-            }
-            else if (columnName.startsWith("street")) {
+            } else if (columnName.startsWith("street")) {
                 assertEquals("street", attribute.getColumnSemanticTypeDetails().get("granularity"));
-            }
-            else if (columnName.startsWith("zip_code")) {
+            } else if (columnName.startsWith("zip_code")) {
                 assertEquals("zipCode", attribute.getColumnSemanticTypeDetails().get("granularity"));
-            }
-            else {
+            } else {
                 assertEquals("state", attribute.getColumnSemanticTypeDetails().get("granularity"));
             }
         }
