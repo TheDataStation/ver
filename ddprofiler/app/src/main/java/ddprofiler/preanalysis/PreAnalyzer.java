@@ -192,6 +192,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private void checkSpatialOrTemporal(Map<Attribute, List<String>> data) {
         for (Entry<Attribute, List<String>> entry : data.entrySet()) {
             Attribute attribute = entry.getKey();
+            boolean spatialMatchFailedPreviously = false;
             for (String value : entry.getValue()) {
                 if (value == null) {
                     continue;
@@ -202,8 +203,16 @@ public class PreAnalyzer implements PreAnalysis, IO {
                     break;
                 }
                 if (checkSpatialGranularity(value) != null) {
-                    attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
+                    if (spatialMatchFailedPreviously) {
+                        attribute.setColumnSemanticType(AttributeSemanticType.NONE);
+                    }
+                    else {
+                        attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
+                    }
                     break;
+                }
+                else {
+                    spatialMatchFailedPreviously = true;
                 }
             }
             if (attribute.getColumnSemanticType() == null) {
