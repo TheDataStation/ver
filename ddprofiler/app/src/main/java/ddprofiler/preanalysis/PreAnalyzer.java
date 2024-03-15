@@ -204,6 +204,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
                 }
                 if (checkSpatialGranularity(value) != null) {
                     if (spatialMatchFailedPreviously) {
+                        // Prevent "spurious" match
                         attribute.setColumnSemanticType(AttributeSemanticType.NONE);
                     }
                     else {
@@ -212,6 +213,8 @@ public class PreAnalyzer implements PreAnalysis, IO {
                     break;
                 }
                 else {
+                    // "Tag" attributes that are obviously not spatial but could potentially (in later rows) match
+                    // the spatial patterns. This heuristic may not be perfect, but it improves the precision.
                     spatialMatchFailedPreviously = true;
                 }
             }
