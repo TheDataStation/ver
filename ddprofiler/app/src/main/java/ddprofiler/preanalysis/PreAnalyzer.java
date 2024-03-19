@@ -194,7 +194,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
             Attribute attribute = entry.getKey();
             boolean spatialMatchFailedPreviously = false;
             for (String value : entry.getValue()) {
-                if (value == null) {
+                if (value == null || value.equals("")) {
                     continue;
                 }
 
@@ -257,7 +257,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private String checkSpatialGranularity(String value) {
         for (Map.Entry<String, Pattern[]> entry : SPATIAL_PATTERNS.entrySet()) {
             for (Pattern pattern : entry.getValue()) {
-                if (pattern.matcher(value).matches()) {
+                if (pattern.matcher(value).find()) {
                     return entry.getKey();
                 }
             }
