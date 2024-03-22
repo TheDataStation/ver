@@ -175,58 +175,62 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private void estimateSemanticTypes(Map<Attribute, List<String>> data) {
         for (Entry<Attribute, List<String>> dataEntry : data.entrySet()) {
             Attribute attribute = dataEntry.getKey();
-            List<String> values = dataEntry.getValue();
 
-            // Count the number of non-null and non-zero length values
-            long validValuesCount = values.stream()
-                    .filter(Objects::nonNull)
-                    .filter(s -> !s.isEmpty())
-                    .count();
+            // Process the attribute if it is not determined as spatial or temporal previously
+            if (attribute.getColumnSemanticType() == null
+                    || attribute.getColumnSemanticType() == AttributeSemanticType.NONE) {
+                List<String> values = dataEntry.getValue();
 
-            // Count the number of matched values for each type of patterns
-            AttributeSemanticType semanticType = AttributeSemanticType.NONE;
-            String granularity = "";
-            long mostMatchCount = 0L;
+                // Count the number of non-null and non-zero length values
+                long validValuesCount = values.stream()
+                        .filter(Objects::nonNull)
+                        .filter(s -> !s.isEmpty())
+                        .count();
 
-            // Count matches of each spatial pattern
-            for (Map.Entry<String, Pattern[]> patternsEntry : SPATIAL_PATTERNS.entrySet()) {
-                for (Pattern spatialPattern : patternsEntry.getValue()) {
-                    long matchedValuesCount = values.parallelStream()
-                            .filter(Objects::nonNull)
-                            .filter(s -> !s.isEmpty())
-                            .filter(s -> spatialPattern.matcher(s).find())
-                            .count();
-                    if (matchedValuesCount > mostMatchCount) {
-                        semanticType = AttributeSemanticType.SPATIAL;
-                        granularity = patternsEntry.getKey();
-                        mostMatchCount = matchedValuesCount;
+                // Count the number of matched values for each type of patterns
+                AttributeSemanticType semanticType = AttributeSemanticType.NONE;
+                String granularity = "";
+                long mostMatchCount = 0L;
+
+                // Count matches of each spatial pattern
+                for (Map.Entry<String, Pattern[]> patternsEntry : SPATIAL_PATTERNS.entrySet()) {
+                    for (Pattern spatialPattern : patternsEntry.getValue()) {
+                        long matchedValuesCount = values.parallelStream()
+                                .filter(Objects::nonNull)
+                                .filter(s -> !s.isEmpty())
+                                .filter(s -> spatialPattern.matcher(s.replaceAll("[\\t\\n\\r]+", " ").strip()).find())
+                                .count();
+                        if (matchedValuesCount > mostMatchCount) {
+                            semanticType = AttributeSemanticType.SPATIAL;
+                            granularity = patternsEntry.getKey();
+                            mostMatchCount = matchedValuesCount;
+                        }
                     }
                 }
-            }
 
-            // Count matches of each temporal pattern
-            for (Map.Entry<String, Pattern[]> patternsEntry : TEMPORAL_PATTERNS.entrySet()) {
-                for (Pattern temporalPattern : patternsEntry.getValue()) {
-                    long matchedValuesCount = values.parallelStream()
-                            .filter(Objects::nonNull)
-                            .filter(s -> !s.isEmpty())
-                            .filter(s -> temporalPattern.matcher(s).matches())
-                            .count();
-                    if (matchedValuesCount > mostMatchCount) {
-                        semanticType = AttributeSemanticType.TEMPORAL;
-                        granularity = patternsEntry.getKey();
-                        mostMatchCount = matchedValuesCount;
+                // Count matches of each temporal pattern
+                for (Map.Entry<String, Pattern[]> patternsEntry : TEMPORAL_PATTERNS.entrySet()) {
+                    for (Pattern temporalPattern : patternsEntry.getValue()) {
+                        long matchedValuesCount = values.parallelStream()
+                                .filter(Objects::nonNull)
+                                .filter(s -> !s.isEmpty())
+                                .filter(s -> temporalPattern.matcher(s).matches())
+                                .count();
+                        if (matchedValuesCount > mostMatchCount) {
+                            semanticType = AttributeSemanticType.TEMPORAL;
+                            granularity = patternsEntry.getKey();
+                            mostMatchCount = matchedValuesCount;
+                        }
                     }
                 }
-            }
 
-            // Determine semantic type based on whether the proportions of most matched patterns >= 0.6
-            if ((double) mostMatchCount / validValuesCount > 0.5) {
-                attribute.setColumnSemanticType(semanticType);
-                attribute.getColumnSemanticTypeDetails().put("granularity", granularity);
-            }
-            else {
-                attribute.setColumnSemanticType(AttributeSemanticType.NONE);
+                // Determine semantic type based on whether the proportions of most matched patterns >= 0.6
+                if ((double) mostMatchCount / validValuesCount > 0.5) {
+                    attribute.setColumnSemanticType(semanticType);
+                    attribute.getColumnSemanticTypeDetails().put("granularity", granularity);
+                } else {
+                    attribute.setColumnSemanticType(AttributeSemanticType.NONE);
+                }
             }
         }
     }
@@ -249,13 +253,11 @@ public class PreAnalyzer implements PreAnalysis, IO {
                     if (spatialMatchFailedPreviously) {
                         // Prevent "spurious" match
                         attribute.setColumnSemanticType(AttributeSemanticType.NONE);
-                    }
-                    else {
+                    } else {
                         attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
                     }
                     break;
-                }
-                else {
+                } else {
                     // "Tag" attributes that are obviously not spatial but could potentially (in later rows) match
                     // the spatial patterns. This heuristic may not be perfect, but it improves the precision.
                     spatialMatchFailedPreviously = true;

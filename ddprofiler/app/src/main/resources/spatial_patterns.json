@@ -4,13 +4,13 @@
     "\\((-?\\d+(\\.\\d+)?(.)?(°)?)[ ,]+(-?\\d+(\\.\\d+)?(.)?(°)?)\\)"
   ],
   "street": [
-    "^[\\w0-9]+ (?i)(AVE|BVD|DR|ST|RD)$",
-    "^\\d+\\s*(?i)(N|NORTH|SOUTH|S|EAST|E|WEST|W)(?:.|\\s)\\s*(\\w|\\d| |.)+$"
+    "\\b[\\w0-9]+ (?i)(AVE|BVD|DR|ST|RD)\\b",
+    "^\\d+\\s*(?i)(N|NORTH|SOUTH|S|EAST|E|WEST|W)\\.?\\s+.+$"
   ],
   "zipCode": [
-    "^\\d{5}$"
+    "\\b\\d{5}\\b"
   ],
   "state": [
-    "^[A-Z]{2}$"
+    "\\b[A-Z]{2}\\b"
   ]
 }

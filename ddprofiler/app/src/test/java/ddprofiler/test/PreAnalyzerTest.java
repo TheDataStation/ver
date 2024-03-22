@@ -86,13 +86,22 @@ public class PreAnalyzerTest {
                 new Attribute("geo_coordinate2"), List.of("(41.90643°, -87.703717°)")
         );
         spatialData.put(
+                new Attribute("geo_coordinate3"), List.of("68712 W. Belden Ave. Chicago, IL (41.921134, -87.798468)")
+        );
+        spatialData.put(
                 new Attribute("street1"), List.of("23RD ST")
         );
         spatialData.put(
                 new Attribute("street2"), List.of("1958 North Milwaukee Avenue")
         );
         spatialData.put(
+                new Attribute("street3"), List.of("68712 W. Belden Ave. Chicago, IL")
+        );
+        spatialData.put(
                 new Attribute("zip_code"), List.of("60007")
+        );
+        spatialData.put(
+                new Attribute(("zip_code2")), List.of("68712 IL")
         );
         spatialData.put(
                 new Attribute("state"), List.of("IL")
