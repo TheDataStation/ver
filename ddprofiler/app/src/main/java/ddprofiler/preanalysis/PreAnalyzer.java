@@ -22,7 +22,6 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
-@SuppressWarnings("deprecation")
 public class PreAnalyzer implements PreAnalysis, IO {
 
     final private Logger LOG = LoggerFactory.getLogger(PreAnalyzer.class.getName());
