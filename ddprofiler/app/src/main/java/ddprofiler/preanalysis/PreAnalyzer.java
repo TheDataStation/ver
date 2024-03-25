@@ -229,12 +229,14 @@ public class PreAnalyzer implements PreAnalysis, IO {
                 }
 
                 // Check whether any spatial pattern matched > 50% of the values to determine the types.
-                // Assumption: no spatial and temporal patterns have >50% matches at the same time.
-                for (String spatialGranularity : spatialMatchCount.keySet()) {
-                    if ((double) spatialMatchCount.get(spatialGranularity) / validValuesCount > 0.5) {
-                        attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
-                        attribute.getColumnSemanticTypeDetails().put("granularity", spatialGranularity);
-                        break;
+                // Assumption: no spatial and temporal patterns have > 50% matches at the same time.
+                if (validValuesCount > 0) {
+                    for (String spatialGranularity : spatialMatchCount.keySet()) {
+                        if ((double) spatialMatchCount.get(spatialGranularity) / validValuesCount > 0.5) {
+                            attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
+                            attribute.getColumnSemanticTypeDetails().put("granularity", spatialGranularity);
+                            break;
+                        }
                     }
                 }
 
