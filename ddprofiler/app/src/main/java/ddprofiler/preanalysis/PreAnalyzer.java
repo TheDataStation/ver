@@ -49,6 +49,8 @@ public class PreAnalyzer implements PreAnalysis, IO {
 
     private final static String[] BANNED = { "", "nan" };
 
+    private static final double SPATIAL_PATTERN_THRESHOLD = 0.5;
+
     private static LinkedHashMap<String, Pattern[]> loadPatternsFromFile(String filename) {
         LinkedHashMap<String, Pattern[]> patterns = new LinkedHashMap<>();
         ObjectMapper mapper = new ObjectMapper();
@@ -176,10 +178,11 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private void estimateSemanticTypes(Map<Attribute, List<String>> data) {
         for (Entry<Attribute, List<String>> dataEntry : data.entrySet()) {
             Attribute attribute = dataEntry.getKey();
+            String temporalGranularity = null;
 
             // Process the attribute if it is not yet determined as spatial or temporal
             if (attribute.getColumnSemanticType() == null
-                    || attribute.getColumnSemanticType() == AttributeSemanticType.NONE) {
+                || attribute.getColumnSemanticType() == AttributeSemanticType.NONE) {
 
                 long validValuesCount = 0L;
                 List<String> values = dataEntry.getValue();
@@ -193,23 +196,28 @@ public class PreAnalyzer implements PreAnalysis, IO {
                         String cleanedValue = value.replaceAll("[\\t\\n\\r]+", " ").strip();
                         if (cleanedValue.length() != 0) {
                             validValuesCount += 1;
+                        } else {
+                            // No need to process empty string
+                            continue;
                         }
-
-                        // Check whether the value match any of the temporal patterns.
-                        // For temporal, we allow early break because each pattern is specific enough.
-                        for (Map.Entry<String, Pattern[]> patternsEntry : TEMPORAL_PATTERNS.entrySet()) {
-                            for (Pattern temporalPattern : patternsEntry.getValue()) {
-                                if (temporalPattern.matcher(cleanedValue).matches()) {
-                                    String granularity = patternsEntry.getKey();
-                                    attribute.setColumnSemanticType(AttributeSemanticType.TEMPORAL);
-                                    attribute.getColumnSemanticTypeDetails().put("granularity", granularity);
-                                    break valueLoop;
-                                }
+                        
+                        // Check temporal granularity only once. If there is any match,
+                        // early break. Otherwise, temporalGranularity is set to empty string
+                        // (just check for the spatial patterns in later iterations).
+                        if (temporalGranularity == null) {
+                            temporalGranularity = getTemporalGranularity(cleanedValue);
+                            if (!temporalGranularity.equals("")) {
+                                attribute.setColumnSemanticType(AttributeSemanticType.TEMPORAL);
+                                attribute.getColumnSemanticTypeDetails().put(
+                                    "granularity",
+                                    temporalGranularity
+                                );
+                                break valueLoop;
                             }
                         }
 
-                        // Check whether the value match any of the spatial patterns.
-                        // For spatial, we consider partial matching with a threshold.
+                        // If not matched with temporal patterns, continue processing
+                        // with spatial patterns (partial matching + counting for threshold condition)
                         for (Map.Entry<String, Pattern[]> patternsEntry : SPATIAL_PATTERNS.entrySet()) {
                             for (Pattern spatialPattern : patternsEntry.getValue()) {
                                 if (spatialPattern.matcher(cleanedValue).find()) {
@@ -226,12 +234,15 @@ public class PreAnalyzer implements PreAnalysis, IO {
                         }
                     }
                 }
-
-                // Check whether any spatial pattern matched > 50% of the values to determine the types.
-                // Assumption: no spatial and temporal patterns have > 50% matches at the same time.
-                if (validValuesCount > 0) {
+                
+                // If semantic type not set to temporal, check whether any spatial pattern
+                // has number of matches > threshold starting from the most specific.
+                if (attribute.getColumnSemanticType() != AttributeSemanticType.TEMPORAL
+                    && validValuesCount > 0) {
                     for (String spatialGranularity : spatialMatchCount.keySet()) {
-                        if ((double) spatialMatchCount.get(spatialGranularity) / validValuesCount > 0.5) {
+                        double patternMatchRatio = (double) spatialMatchCount.get(spatialGranularity)
+                                                    / validValuesCount;
+                        if (patternMatchRatio > SPATIAL_PATTERN_THRESHOLD) {
                             attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
                             attribute.getColumnSemanticTypeDetails().put("granularity", spatialGranularity);
                             break;
@@ -239,12 +250,23 @@ public class PreAnalyzer implements PreAnalysis, IO {
                     }
                 }
 
-                // If no spatial patterns satisfy the 0.5 threshold, then we set the label to NONE
+                // If no semantic type set so far, it is set to NONE.
                 if (attribute.getColumnSemanticType() == null) {
                     attribute.setColumnSemanticType(AttributeSemanticType.NONE);
                 }
             }
         }
+    }
+
+    private String getTemporalGranularity(String value) {
+        for (Map.Entry<String, Pattern[]> patternsEntry : TEMPORAL_PATTERNS.entrySet()) {
+            for (Pattern temporalPattern : patternsEntry.getValue()) {
+                if (temporalPattern.matcher(value).matches()) {
+                    return patternsEntry.getKey();
+                }
+            }
+        }
+        return "";
     }
 
     public static boolean isNumerical(String s) {
