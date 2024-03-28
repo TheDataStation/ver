@@ -178,7 +178,7 @@ public class PreAnalyzer implements PreAnalysis, IO {
     }
 
     /**
-     * Estimate semantic type of each attribute of a data using regex patterns.
+     * Estimate the semantic type of each attribute of a data using regex patterns.
      * 
      * @param data a Map where each key is an attribute and each value is a List of
      *             values
@@ -188,9 +188,9 @@ public class PreAnalyzer implements PreAnalysis, IO {
             Attribute attribute = dataEntry.getKey();
 
             /*
-             * Process the attribute if it is not yet determined as spatial or temporal.
-             * If it is null, then this is the first time it is being checked. Otherwise,
-             * it is not yet determined as spatial or temporal in previous readRows.
+             * Process the attribute based on the following conditions:
+             * 1. If it is null, then this is the first time it is being checked.
+             * 2. Otherwise, it is not yet determined as spatial or temporal in previous readRows call.
              */
             if (attribute.getColumnSemanticType() == null
                     || attribute.getColumnSemanticType() == AttributeSemanticType.NONE) {
@@ -199,17 +199,17 @@ public class PreAnalyzer implements PreAnalysis, IO {
                         .map(value -> value.replaceAll("[\t\n\r]", " ").strip())
                         .collect(Collectors.toList());
 
-                // Check for temporal attribute.
+                // Check for the temporal patterns.
                 String temporalGranularity = getGranularity(TEMPORAL_PATTERNS, validValues);
                 if (!temporalGranularity.equals("")) {
                     attribute.setColumnSemanticType(AttributeSemanticType.TEMPORAL);
                     attribute.getColumnSemanticTypeDetails().put(
                             "granularity",
                             temporalGranularity);
-                    continue; // No need to check spatial patterns.
+                    continue; // No need to check the spatial patterns.
                 }
 
-                // Temporal patterns failed; check for spatial attribute.
+                // Temporal patterns failed; check for the spatial patterns.
                 String spatialGranularity = getGranularity(SPATIAL_PATTERNS, validValues);
                 if (!spatialGranularity.equals("")) {
                     attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
