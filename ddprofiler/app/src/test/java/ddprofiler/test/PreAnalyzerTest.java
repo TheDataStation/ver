@@ -1,13 +1,20 @@
-package ddprofiler;
+package ddprofiler.test;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import java.sql.SQLException;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Random;
-import java.util.Vector;
 
+import com.opencsv.exceptions.CsvValidationException;
+import ddprofiler.core.config.ProfilerConfig;
+import ddprofiler.sources.Source;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 import ddprofiler.preanalysis.PreAnalyzer;
 import ddprofiler.preanalysis.Values;
@@ -15,22 +22,92 @@ import ddprofiler.sources.deprecated.Attribute;
 import ddprofiler.sources.deprecated.Attribute.AttributeType;
 import ddprofiler.sources.implementations.CSVSource;
 import ddprofiler.sources.implementations.PostgresSource;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class PreAnalyzerTest {
 
-    private String path = "C:\\";
-    private String filename = "Leading_Causes_of_Death__1990-2010.csv";
-    // private String path = "/Users/ra-mit/Desktop/mitdwhdata/";
-    // private String filename = "short_cis_course_catalog.csv";
-    private String separator = ",";
+    @Mock
+    private ProfilerConfig profilerConfig;
+    @Mock
+    private Source source;
+    private PreAnalyzer preAnalyzer;
     private int numRecords = 10;
-    private String db = "mysql";
-    private String connIP = "localhost";
-    private String port = "3306";
-    private String sourceName = "/test";
-    private String tableName = "nellsimple";
-    private String username = "root";
-    private String password = "Qatar";
+
+    /**
+     * Setup PreAnalyzer before each test
+     * (specifically for new tests, not legacy ones).
+     */
+    @Before
+    public void setUp() throws CsvValidationException, SQLException, IOException {
+        // Avoid Exceptions by adding a sample column to the source.
+        when(source.getAttributes()).thenReturn(List.of(new Attribute("sample")));
+
+        // Initialize and set source of PreAnalyzer
+        preAnalyzer = new PreAnalyzer(profilerConfig);
+        preAnalyzer.assignSourceTask(source);
+    }
+
+    /**
+     * Test readRows method for spatial data, ensuring correct
+     * semantic types and granularity.
+     */
+    @Test
+    public void testReadRowsSpatialData() throws CsvValidationException, SQLException, IOException {
+        // Prepare sample spatial columns & read the rows
+        Map<Attribute, List<String>> spatialData = getSpatialData();
+        when(source.readRows(1)).thenReturn(spatialData);
+        preAnalyzer.readRows(1);
+
+        // Ensuring correct semantic type & granularity
+        for (Entry<Attribute, List<String>> dataEntry : spatialData.entrySet()) {
+            Attribute attribute = dataEntry.getKey();
+            assertEquals(Attribute.AttributeSemanticType.SPATIAL, attribute.getColumnSemanticType());
+
+            String columnName = attribute.getColumnName();
+            if (columnName.startsWith("geo_coordinate")) {
+                assertEquals("geoCoordinate", attribute.getColumnSemanticTypeDetails().get("granularity"));
+            } else if (columnName.startsWith("street")) {
+                assertEquals("street", attribute.getColumnSemanticTypeDetails().get("granularity"));
+            } else if (columnName.startsWith("zip_code")) {
+                assertEquals("zipCode", attribute.getColumnSemanticTypeDetails().get("granularity"));
+            } else {
+                assertEquals("state", attribute.getColumnSemanticTypeDetails().get("granularity"));
+            }
+        }
+    }
+
+    private Map<Attribute, List<String>> getSpatialData() {
+        Map<Attribute, List<String>> spatialData = new HashMap<>();
+        spatialData.put(
+                new Attribute("geo_coordinate1"), List.of("POINT(41.919365236 -87.769726946)")
+        );
+        spatialData.put(
+                new Attribute("geo_coordinate2"), List.of("(41.90643°, -87.703717°)")
+        );
+        spatialData.put(
+                new Attribute("geo_coordinate3"), List.of("68712 W. Belden Ave. Chicago, IL (41.921134, -87.798468)")
+        );
+        spatialData.put(
+                new Attribute("street1"), List.of("23RD ST")
+        );
+        spatialData.put(
+                new Attribute("street2"), List.of("1958 North Milwaukee Avenue")
+        );
+        spatialData.put(
+                new Attribute("street3"), List.of("68712 W. Belden Ave. Chicago, IL")
+        );
+        spatialData.put(
+                new Attribute("zip_code"), List.of("60007")
+        );
+        spatialData.put(
+                new Attribute(("zip_code2")), List.of("68712 IL")
+        );
+        spatialData.put(
+                new Attribute("state"), List.of("IL")
+        );
+        return spatialData;
+    }
 
     public void typeChecking(PreAnalyzer pa) {
 

@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class PreAnalyzer implements PreAnalysis, IO {
 
@@ -34,8 +35,10 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private static final String TEMPORAL_PATTERN_FILE = "temporal_patterns.json";
     private static final String SPATIAL_PATTERN_FILE = "spatial_patterns.json";
 
-    private static final LinkedHashMap<String, Pattern[]> TEMPORAL_PATTERNS = loadPatternsFromFile(TEMPORAL_PATTERN_FILE);
-    private static final LinkedHashMap<String, Pattern[]> SPATIAL_PATTERNS = loadPatternsFromFile(SPATIAL_PATTERN_FILE);
+    private static final LinkedHashMap<String, Pattern[]> TEMPORAL_PATTERNS = loadPatternsFromFile(
+            TEMPORAL_PATTERN_FILE);
+    private static final LinkedHashMap<String, Pattern[]> SPATIAL_PATTERNS = loadPatternsFromFile(
+            SPATIAL_PATTERN_FILE);
 
     private static final Pattern _DOUBLE_PATTERN = Pattern
             .compile("[\\x00-\\x20]*[+-]?(NaN|Infinity|((((\\p{Digit}+)(\\.)?((\\p{Digit}+)?)"
@@ -46,7 +49,9 @@ public class PreAnalyzer implements PreAnalysis, IO {
     private static final Pattern DOUBLE_PATTERN = Pattern.compile("^(\\+|-)?\\d+([\\,]\\d+)*([\\.]\\d+)?$");
     private static final Pattern INT_PATTERN = Pattern.compile("^(\\+|-)?\\d+$");
 
-    private final static String[] BANNED = {"", "nan"};
+    private final static String[] BANNED = { "", "nan" };
+
+    private static final double PATTERN_THRESHOLD = 0.5;
 
     private static LinkedHashMap<String, Pattern[]> loadPatternsFromFile(String filename) {
         LinkedHashMap<String, Pattern[]> patterns = new LinkedHashMap<>();
@@ -172,85 +177,83 @@ public class PreAnalyzer implements PreAnalysis, IO {
         }
     }
 
+    /**
+     * Estimate the semantic type of each attribute of a data using regex patterns.
+     * 
+     * @param data a Map where each key is an attribute and each value is a List of
+     *             values
+     */
     private void estimateSemanticTypes(Map<Attribute, List<String>> data) {
-        // To avoid matching spatial and temporal patterns on every value, we
-        // first check if the attribute is likely to be spatial or temporal
-        checkSpatialOrTemporal(data);
+        for (Entry<Attribute, List<String>> dataEntry : data.entrySet()) {
+            Attribute attribute = dataEntry.getKey();
 
-        for (Entry<Attribute, List<String>> entry : data.entrySet()) {
-            Attribute attribute = entry.getKey();
-            AttributeSemanticType columnSemanticType = attribute.getColumnSemanticType();
-            if (columnSemanticType.equals(AttributeSemanticType.NONE)) {
-                continue;
-            }
-            String granularity = determineGranularity(columnSemanticType, entry.getValue());
-            attribute.getColumnSemanticTypeDetails().put("granularity", granularity);
-        }
-    }
+            /*
+             * Process the attribute based on the following conditions:
+             * 1. If it is null, then this is the first time it is being checked.
+             * 2. Otherwise, it is not yet determined as spatial or temporal in previous readRows call.
+             */
+            if (attribute.getColumnSemanticType() == null
+                    || attribute.getColumnSemanticType() == AttributeSemanticType.NONE) {
+                List<String> validValues = dataEntry.getValue().stream()
+                        .filter(value -> value != null && !value.isBlank())
+                        .map(value -> value.replaceAll("[\t\n\r]", " ").strip())
+                        .collect(Collectors.toList());
 
-
-    private void checkSpatialOrTemporal(Map<Attribute, List<String>> data) {
-        for (Entry<Attribute, List<String>> entry : data.entrySet()) {
-            Attribute attribute = entry.getKey();
-            for (String value : entry.getValue()) {
-                if (value == null) {
-                    continue;
-                }
-
-                if (checkTemporalGranularity(value) != null) {
+                // Check for the temporal patterns.
+                String temporalGranularity = getGranularity(TEMPORAL_PATTERNS, validValues);
+                if (!temporalGranularity.equals("")) {
                     attribute.setColumnSemanticType(AttributeSemanticType.TEMPORAL);
-                    break;
+                    attribute.getColumnSemanticTypeDetails().put(
+                            "granularity",
+                            temporalGranularity);
+                    continue; // No need to check the spatial patterns.
                 }
-                if (checkSpatialGranularity(value) != null) {
+
+                // Temporal patterns failed; check for the spatial patterns.
+                String spatialGranularity = getGranularity(SPATIAL_PATTERNS, validValues);
+                if (!spatialGranularity.equals("")) {
                     attribute.setColumnSemanticType(AttributeSemanticType.SPATIAL);
-                    break;
+                    attribute.getColumnSemanticTypeDetails().put(
+                            "granularity",
+                            spatialGranularity);
                 }
-            }
-            if (attribute.getColumnSemanticType() == null) {
-                attribute.setColumnSemanticType(AttributeSemanticType.NONE);
+
+                // Temporal & spatial patterns failed; set the semanticType to NONE.
+                if (attribute.getColumnSemanticType() == null) {
+                    attribute.setColumnSemanticType(AttributeSemanticType.NONE);
+                }
             }
         }
     }
 
-    private String determineGranularity(AttributeSemanticType spatioTemporalType, List<String> values) {
-        Map<String, Integer> granularityMatchCounts = new HashMap<>();
-
-        for (String value : values) {
-            String granularity;
-            if (spatioTemporalType.equals(AttributeSemanticType.TEMPORAL)) {
-                granularity = checkTemporalGranularity(value);
-            } else {
-                granularity = checkSpatialGranularity(value);
-            }
-            if (granularity != null) {
-                granularityMatchCounts.put(granularity, granularityMatchCounts.getOrDefault(granularity, 0) + 1);
-            }
-        }
-
-        return granularityMatchCounts.entrySet().stream()
-                .max(Entry.comparingByValue()).map(Entry::getKey).orElse("unknown");
-    }
-
-    private String checkTemporalGranularity(String value) {
-        for (Map.Entry<String, Pattern[]> entry : TEMPORAL_PATTERNS.entrySet()) {
-            for (Pattern pattern : entry.getValue()) {
-                if (pattern.matcher(value).matches()) {
-                    return entry.getKey();
+    /**
+     * Given some granularity patterns (LinkedHashMap), check whether any of them
+     * matches > threshold
+     * and return the granularity (proritize earlier ones). If none, return an empty
+     * string.
+     * 
+     * @param patterns a LinkedHashMap where each key is a granularity and each
+     *                 value is a regex pattern
+     * @param values   a List of values to be matched, which is assumed to be clean
+     *                 (no null and empty values)
+     * @return the granularity of the pattern that matches > threshold (else an
+     *         empty string)
+     */
+    private String getGranularity(LinkedHashMap<String, Pattern[]> patterns, List<String> values) {
+        for (Map.Entry<String, Pattern[]> patternsEntry : patterns.entrySet()) {
+            for (Pattern pattern : patternsEntry.getValue()) {
+                int matchCount = 0;
+                for (String value : values) {
+                    if (pattern.matcher(value).find()) {
+                        matchCount++;
+                        if ((double) matchCount / values.size() > PATTERN_THRESHOLD) {
+                            return patternsEntry.getKey();
+                        }
+                    }
                 }
             }
         }
-        return null;
-    }
-
-    private String checkSpatialGranularity(String value) {
-        for (Map.Entry<String, Pattern[]> entry : SPATIAL_PATTERNS.entrySet()) {
-            for (Pattern pattern : entry.getValue()) {
-                if (pattern.matcher(value).matches()) {
-                    return entry.getKey();
-                }
-            }
-        }
-        return null;
+        return "";
     }
 
     public static boolean isNumerical(String s) {
