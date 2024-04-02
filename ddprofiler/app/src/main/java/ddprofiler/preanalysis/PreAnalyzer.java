@@ -256,17 +256,6 @@ public class PreAnalyzer implements PreAnalysis, IO {
         return "";
     }
 
-    private String getTemporalGranularity(String value) {
-        for (Map.Entry<String, Pattern[]> patternsEntry : TEMPORAL_PATTERNS.entrySet()) {
-            for (Pattern temporalPattern : patternsEntry.getValue()) {
-                if (temporalPattern.matcher(value).matches()) {
-                    return patternsEntry.getKey();
-                }
-            }
-        }
-        return "";
-    }
-
     public static boolean isNumerical(String s) {
         return DOUBLE_PATTERN.matcher(s).matches();
     }
