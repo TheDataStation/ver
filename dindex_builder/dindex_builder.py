@@ -67,7 +67,7 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
         for neighbor in neighbors:
             # TODO: Need to check that they are not from the same source
             # TODO: Replace with actual attributes
-            dindex.add_undirected_edge(
+            dindex.add_edge(
                 profile['id'], neighbor,
                 EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {'similar': 1})
     print("Done building")
