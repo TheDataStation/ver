@@ -27,6 +27,7 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
 
     # Read profiles and populate the Profile index
     print("Reading profile files...")
+    profile_id_to_tbl = {}
     for file_path in os.listdir(profile_path):
         file_path = profile_path / file_path
         # file_path = os.path.join(profile_path, file_path)
@@ -39,6 +40,7 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
                     profile["minhash"] = ",".join(map(str, profile["minhash"]))
                 # add profile
                 dindex.add_profile(profile)
+                profile_id_to_tbl[profile["id"]] = profile["sourceName"]
 
     # Read text files and populate index
     print("Reading text files...")
@@ -66,14 +68,19 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
 
     # Create content_similarity edges
     # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency
+    print("Building content similarity edges...")
     profiles = dindex.get_minhashes()
     content_similarity_index = dindex.get_content_similarity_index()
+    visited_profile_ids = set()
     for profile in tqdm(profiles):
+        cur_id = profile['id']
+        visited_profile_ids.add(cur_id)
         neighbors = content_similarity_index.query(profile['minhash'])
         for neighbor in neighbors:
-            # TODO: Need to check that they are not from the same source
-            # TODO: Replace with actual attributes
-            dindex.add_undirected_edge(
+            # we don't add edges within the same table.
+            if neighbor in visited_profile_ids or profile_id_to_tbl[cur_id] == profile_id_to_tbl[neighbor]:
+                continue
+            dindex.add_edge(
                 profile['id'], neighbor,
                 EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {'similar': 1})
     print("Done building")
