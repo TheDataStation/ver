@@ -26,6 +26,8 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
     text_path = Path(profile_data_path) / "text"
 
     # Read profiles and populate the Profile index
+    print("Reading profile files...")
+    profile_id_to_tbl = {}
     for file_path in os.listdir(profile_path):
         file_path = profile_path / file_path
         # file_path = os.path.join(profile_path, file_path)
@@ -38,8 +40,11 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
                     profile["minhash"] = ",".join(map(str, profile["minhash"]))
                 # add profile
                 dindex.add_profile(profile)
+                profile_id_to_tbl[profile["id"]] = profile["sourceName"]
 
     # Read text files and populate index
+    print("Reading text files...")
+    profile_ids = set() # there are dupicate profile ids in the text files
     for csv_file_path in tqdm(os.listdir(text_path)):
         csv_file_path = os.path.join(text_path, csv_file_path)
         if not os.path.isfile(csv_file_path):
@@ -49,8 +54,11 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
         df = pd.read_csv(csv_file_path, names=['profile_id', 'dbName', 'path', 'sourceName',
                              'columnName', 'data'], sep=csv_delimiter, skiprows=1)
         for _, row in df.iterrows():
+            if row['profile_id'] in profile_ids:
+                continue
             dindex.add_text_content(row['profile_id'], row['dbName'], row['path'],
                                     row['sourceName'], row['columnName'], row['data'])
+            profile_ids.add(row['profile_id'])
 
     # Have to manually refresh fts index as per DuckDB's docs: "Note that the FTS index will not update automatically
     # when input table changes. A workaround of this limitation can be recreating the index to refresh."
@@ -60,13 +68,18 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
 
     # Create content_similarity edges
     # TODO: this could be done incrementally, every time a new node is added, at a cost in efficiency
+    print("Building content similarity edges...")
     profiles = dindex.get_minhashes()
     content_similarity_index = dindex.get_content_similarity_index()
+    visited_profile_ids = set()
     for profile in tqdm(profiles):
+        cur_id = profile['id']
+        visited_profile_ids.add(cur_id)
         neighbors = content_similarity_index.query(profile['minhash'])
         for neighbor in neighbors:
-            # TODO: Need to check that they are not from the same source
-            # TODO: Replace with actual attributes
+            # we don't add edges within the same table.
+            if neighbor in visited_profile_ids or profile_id_to_tbl[cur_id] == profile_id_to_tbl[neighbor]:
+                continue
             dindex.add_edge(
                 profile['id'], neighbor,
                 EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {'similar': 1})

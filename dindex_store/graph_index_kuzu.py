@@ -92,7 +92,7 @@ class GraphIndexKuzu(GraphIndex):
         try:
             results = self.conn.execute(
                 f'''MATCH
-                (startNode:ColumnNode {{id : {node_id}}})-[:Edge*1..{hops}]->(endNode:ColumnNode)
+                (startNode:ColumnNode {{id : {node_id}}})-[:Edge*1..{hops}]-(endNode:ColumnNode)
                 RETURN endNode''')
             neighbors = []
             while results.has_next():

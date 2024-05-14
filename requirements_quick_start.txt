@@ -2,7 +2,7 @@ bitarray==2.7.3
 datasketch==1.5.9
 duckdb==0.8.0
 fire==0.5.0
-kuzu==0.0.3
+kuzu==0.4.1
 networkx==3.1
 numpy==1.24.3
 pandas==2.0.1
