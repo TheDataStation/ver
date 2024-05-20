@@ -53,7 +53,7 @@ class FTSIndexDuckDB(FullTextSearchIndex):
                 print(f"error when removing an existing fts index: {ce}")
 
         # Create fts index over all, *, attributes
-        query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='none', ignore='(\\.|[^a-z0-9])')"
+        query = f"PRAGMA create_fts_index('{table_name}', '{index_column}', '*', stopwords='none', ignore='(\\.|[^a-z0-9]+)')"
         self.conn.execute(query)
 
     def insert(self, profile_id, dbName, path, sourceName, columnName, data) -> bool:
@@ -82,5 +82,7 @@ class FTSIndexDuckDB(FullTextSearchIndex):
             LIMIT {max_results};"""
 
         res = self.conn.execute(query)
-
+        # for debug
+        # print(keyword)
+        # self.conn.sql(query).show() # note that show() will make res.fetchall() return zero rows
         return res.fetchall()

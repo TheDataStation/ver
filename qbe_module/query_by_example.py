@@ -6,6 +6,7 @@ from aurum_api.algebra import AurumAPI
 from collections import defaultdict
 from itertools import product
 from copy import deepcopy
+from tqdm import tqdm
 
 class ExampleColumn:
     def __init__(self, attr: str, examples: List[str]) -> None:
@@ -61,6 +62,8 @@ class QueryByExample:
         candidate_groups = []
         for cand_tbls, project_options in result.items():
             candidate_groups.append(CandidateGroup(cand_tbls, project_options))
+        # sort candidate groups by the number of tables
+        candidate_groups = sorted(candidate_groups, key=lambda x: len(x.cand_tbls))
         return candidate_groups, tbl_cols
 
     def find_join_graphs_for_cand_group(self, cand_group):
@@ -68,7 +71,7 @@ class QueryByExample:
 
     def find_join_graphs_for_cand_groups(self, cand_groups: List[CandidateGroup]):
         all_join_graphs = []
-        for cand_group in cand_groups:
+        for cand_group in tqdm(cand_groups):
             all_join_graphs.extend(self.join_graph_search.find_join_graphs(cand_group))
         return all_join_graphs
 

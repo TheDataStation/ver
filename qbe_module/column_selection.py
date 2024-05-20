@@ -16,14 +16,14 @@ class FilterType(Enum):
 class ColumnSelection:
     def __init__(self, aurum_api: AurumAPI):
         self.aurum_api = aurum_api
-        self.topk = 2000  # limit the number of columns returned from keyword search
+        self.topk = 50 # limit the number of columns returned from keyword search
 
     def column_retreival(self, attr: str, examples: List[str]):
         candidate_columns = {}
         # if attr is given
         if attr != "":
             drs_attr = self.aurum_api.search_exact_attribute(attr, max_results=self.topk)
-            if len(drs_attr.data) == 0:
+            if len(drs_attr._data) == 0:
                 # if no result is returned, try fuzzy keyword search
                 drs_attr = self.aurum_api.search_attribute(attr, max_results=self.topk)
             for x in drs_attr:
@@ -41,7 +41,7 @@ class ColumnSelection:
                     continue
                 drs_example = self.aurum_api.search_exact_content(example, max_results=self.topk)
                 # if no result is returned, try fuzzy search
-                if len(drs_example.data) == 0:
+                if len(drs_example._data) == 0:
                     drs_example = self.aurum_api.search_content(example, max_results=self.topk)
                   
                 drs_example = self.remove_redundant(drs_example, example)
@@ -56,8 +56,12 @@ class ColumnSelection:
                         col.hit_type = FilterType.ATTR_CELL
                     else:
                         col.hit_type = FilterType.CELL
-                    candidate_columns[x.nid] = col 
-        return candidate_columns
+                    candidate_columns[x.nid] = col
+        valid_candidates = {}
+        for nid, col in candidate_columns.items():
+            if len(col.examples_set) == len(examples):
+                valid_candidates[nid] = col
+        return valid_candidates
 
     def cluster_columns(self, candidates: List[Column], prune=True):
         roots = {}

@@ -56,6 +56,7 @@ class DiscoveryIndex:
         fts_index = config["fts_index"]
         print(f"Initializing FTS index: {fts_index}...")
         self.__fts_index = DiscoveryIndex.fts_index_mapping[fts_index](config, load=load, force=force)
+        self.fts_index = self.__fts_index
         graph_index = config["graph_index"]
         print(f"Initializing Graph index: {graph_index}...")
         self.__graph_index = DiscoveryIndex.graph_index_mapping[graph_index](config, load=load, force=force)

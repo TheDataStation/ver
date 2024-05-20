@@ -206,3 +206,11 @@ ontomatch/glove/
 
 # sessions
 .dsessions/
+
+# scripts
+prepare_data/
+
+# testing
+test.db
+test.py
+ver_e2e_test.py

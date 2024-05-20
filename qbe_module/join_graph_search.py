@@ -85,6 +85,8 @@ class JoinGraph:
             print(self.tbl)
         else:
             i = 0
+            if len(self.graph_dict) == 0:
+                print("empty graph")
             for edge, path in self.graph_dict.items():
                 # print(edge)
                 print(path.to_str())
@@ -102,6 +104,7 @@ class JoinGraphSearch:
     def get_join_path_map(self, cand_group: List):
         self.cur_paths = {}
         tbl_num = len(cand_group)
+        disconnected_pairs = 0
         for i in range(tbl_num):
             for j in range(i+1, tbl_num):
                 src, tgt = cand_group[i], cand_group[j]
@@ -111,6 +114,13 @@ class JoinGraphSearch:
                     self.all_paths[(src, tgt)] = paths
                     self.all_paths[(tgt, src)] = reverse_paths
                 self.cur_paths[(src, tgt)], self.all_paths[(tgt, src)] = self.all_paths[(src, tgt)], self.all_paths[(tgt, src)]
+        # check whether the candidate group is disconnected
+        for _, value in self.cur_paths.items():
+            if len(value) == 0:
+                disconnected_pairs += 1
+                if disconnected_pairs > tbl_num * (tbl_num - 1) // 2 + 1 - tbl_num:
+                    print(f"invalid candidate group - {cand_group}")
+                    return {}
         return self.cur_paths
 
 
@@ -154,6 +164,8 @@ class JoinGraphSearch:
         if len(cand_tbls) == 1:
             return [JoinGraph(cand_group, None)]
         join_path_map = self.get_join_path_map(cand_tbls)
+        if len(join_path_map) == 0:
+            return []
         edges = list(join_path_map.keys())
         graph_skeleton = []
         if not chain_only:
@@ -212,7 +224,7 @@ class JoinGraphSearch:
 
     def dfs_graph_structure(self, adj_list, visited, path_order, start):
         for nei in adj_list[start]:
-            if not nei in visited:
+            if nei not in visited:
                 next_edge = (start, nei)
                 path_order.append(next_edge)
                 visited.add(nei)

@@ -4,6 +4,8 @@ class JoinPath:
 
     def to_str(self):
         format_str = ""
+        if len(self.join_path) == 0:
+            print("empty join path")
         for i, join_key in enumerate(self.join_path):
             format_str += join_key.tbl[:-4] + '.' + join_key.col
             if i < len(self.join_path) - 1:
