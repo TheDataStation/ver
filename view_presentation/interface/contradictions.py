@@ -9,6 +9,7 @@ import ipywidgets as widgets
 from IPython.display import HTML
 from IPython.display import clear_output
 
+from view_distillation.vd import ViewDistillation
 
 class CDatasetInterfaceAttributeSim(interface):
     def __init__(self,name,embedding_obj=None):
@@ -17,43 +18,56 @@ class CDatasetInterfaceAttributeSim(interface):
         self.curr_question_iter=0
         self.embedding_obj=embedding_obj
 
-    def generate_candidates (self, df_lst):
-        self.attr_dic={}
-        iter=0
-        while iter<len(df_lst):
-            df=df_lst[iter]
-            try:
-                attr_lst= list(df.columns)
-                self.attr_dic[iter] = ' '.join(attr_lst)
-                iter+=1
-            except:
-                iter+=1
-                continue
+    def generate_candidates (self, vd: ViewDistillation):
+        self.vd = vd
+        self.cont_dic = vd.contradictions
+        # self.attr_dic={}
+        # iter=0
+        # while iter<len(df_lst):
+        #     df=df_lst[iter]
+        #     try:
+        #         attr_lst= list(df.columns)
+        #         self.attr_dic[iter] = ' '.join(attr_lst)
+        #         iter+=1
+        #     except:
+        #         iter+=1
+        #         continue
 
-    def rank_candidates (self, query): 
-        self.scores={}
-        for df_iter in self.attr_dic.keys():
-            dist=self.embedding_obj.get_distance(self.attr_dic[df_iter],query)#model.wmdistance(attr.split(),query.split())
-            self.scores[df_iter]=dist
-        self.sorted_sc=sorted(self.scores.items(), key=lambda item: item[1],reverse=False)
+    def rank_candidates (self, query):
+        # TODO: Implement
+        _scores = {}
+        i = 1.0
+
+        for cont in self.cont_dic.keys():
+            _scores[cont] = i
+            i += 0.1
+
+        # self.scores={}
+        # for df_iter in self.attr_dic.keys():
+        #     dist=self.embedding_obj.get_distance(self.attr_dic[df_iter],query)#model.wmdistance(attr.split(),query.split())
+        #     self.scores[df_iter]=dist
+
+        self.sorted_sc = sorted(_scores.items(), key=lambda item: item[1],reverse=False)
         return self.sorted_sc
 
     #Returns the data frame with the highest score
-    def get_question(self, ignored_datasets=[],ignore_questions=[]):
-        iter=self.curr_question_iter
-        while iter<len(self.sorted_sc):
-            if self.sorted_sc[iter][0] in ignore_questions or self.sorted_sc[iter][0] in ignored_datasets:
-                iter+=1
-                continue
-            else:
-                break
-        if iter <len(self.sorted_sc):
-            curr_question =self.sorted_sc[iter][0]
-            self.curr_question_iter = iter
-            #returns the location of chosen df 
-            return (1, curr_question,[curr_question])
-        else:
-            return None
+    def get_question(self, ignored_datasets=[], ignore_questions=[]):
+        return (self.sorted_sc[0][1], self.sorted_sc[0][0], [self.sorted_sc[0][0]])
+        # iter=self.curr_question_iter
+        # while iter<len(self.sorted_sc):
+        #     if self.sorted_sc[iter][0] in ignore_questions or self.sorted_sc[iter][0] in ignored_datasets:
+        #         iter+=1
+        #         continue
+        #     else:
+        #         break
+        # if iter <len(self.sorted_sc):
+        #     curr_question =self.sorted_sc[iter][0]
+        #     self.curr_question_iter = iter
+        #     #returns the location of chosen df 
+        #     return (1, curr_question,[curr_question])
+        # else:
+        #     return None
+        
     def highlight_diff(self,df1, df2, color='pink'):
         # Define html attribute
         attr = 'background-color: {}'.format(color)
@@ -65,25 +79,25 @@ class CDatasetInterfaceAttributeSim(interface):
         return 'background-color: %s' % color
 
     def ask_question_gui(self, question, df_lst):
+        key_tuple = list(self.cont_dic[question].keys())[0]
+        key_rows = [x[0] for x in self.cont_dic[question][key_tuple]][:5]
 
-        display(Markdown('<h3><strong>{}</strong></h3>'.format("Below are contradicting datasets (with key = long_name), which dataset would you shortlist?")))#This Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
-        contradictory_rows1=df_lst[0].head(3)#, random_state=1)
-        contradictory_rows1.loc[1]=df_lst[0].loc[4]
-        contradictory_rows2=copy.deepcopy(contradictory_rows1)#df_lst[0].head())
-        contradictory_rows2.at[2,'overall_rating']='inability to rate'
-        contradictory_rows2.at[0,'overall_rating']='inability to rate'
-        key_tuple = tuple(['long_name'])#,'long_name')
+        contradictory_rows1 = self.vd.get_df(question[0]).set_index(key_tuple[0]).loc[key_rows].reset_index()
+        contradictory_rows2 = self.vd.get_df(question[1]).set_index(key_tuple[0]).loc[key_rows].reset_index()
+
+        display(Markdown('<h3><strong>{}</strong></h3>'.format(f"Below are contradicting datasets (with key = {key_tuple[0]}), which dataset would you shortlist?")))#This Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
         html1 = contradictory_rows1.style \
-                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, ['long_name']],
+                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
                                       color='lightyellow') \
                             .apply(self.highlight_diff, axis=None, df2=contradictory_rows2) \
-                            .render()#tio_html()
+                            .to_html()
 
         html2 = contradictory_rows2.style \
-                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, ['long_name']],
+                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
                                       color='lightyellow') \
                             .apply(self.highlight_diff, axis=None, df2=contradictory_rows1) \
-                            .render()#to_html()   
+                            .to_html()
+        
         display(Markdown('<h3><strong>{}</strong></h3>'.format("A:")))
         display(HTML(html1)) 
         display(Markdown('<h3><strong>{}</strong></h3>'.format("B:")))
@@ -113,8 +127,10 @@ class CDatasetInterfaceAttributeSim(interface):
 
     def returnval(self,b):
         return self.attribute_yesno.value
+    
     def ask_question(self, question, df_lst):
         return self.ask_question_gui(question, df_lst)
+    
     #TODO: Change the value of dictionary to the answer from the user
     #def ask_question(self, question, df_lst):
         self.curr_question_iter += 1
@@ -141,27 +157,27 @@ class CDatasetInterfaceAttributeSim(interface):
 
 
 #example usage of the interface
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    data1 = ["Chicago","NYC","SF","Seattle"]
-    df1 = pd.DataFrame(data1, columns=['City'])
+#     data1 = ["Chicago","NYC","SF","Seattle"]
+#     df1 = pd.DataFrame(data1, columns=['City'])
   
-    data2 = ["Paris","Copenhagen","Delhi","Sydney"]
-    df2 = pd.DataFrame(data2, columns=['international city'])
+#     data2 = ["Paris","Copenhagen","Delhi","Sydney"]
+#     df2 = pd.DataFrame(data2, columns=['international city'])
 
-    df_lst=[df1,df2]
+#     df_lst=[df1,df2]
 
    
-    print ("Dataset Interface")
-    embedding_obj = embedding_distance.EmbeddingModel()
-    attr_inf=DatasetInterfaceAttributeSim("header content interface",embedding_obj)
-    attr_inf.generate_candidates(df_lst)
-    print(attr_inf.attr_dic)
+#     print ("Dataset Interface")
+#     embedding_obj = embedding_distance.EmbeddingModel()
+#     attr_inf=DatasetInterfaceAttributeSim("header content interface",embedding_obj)
+#     attr_inf.generate_candidates(df_lst)
+#     print(attr_inf.attr_dic)
 
     
-    print(attr_inf.rank_candidates("new york city"))
+#     print(attr_inf.rank_candidates("new york city"))
 
 
-    print(attr_inf.get_question())
+#     print(attr_inf.get_question())
 
     

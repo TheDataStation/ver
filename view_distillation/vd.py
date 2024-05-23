@@ -118,16 +118,16 @@ class ViewDistillation:
             self.prune_contained_views(keep_largest=True)
             self.G.remove_nodes_from(self.contained_views_to_remove)
 
-            # print(f"num views after pruning contained: {len(self.get_current_views())}")
+            print(f"num views after pruning contained: {len(self.get_current_views())}")
 
         if union_complementary_views:
             self.union_complementary_views()
             self.G.remove_nodes_from(self.complementary_views_to_remove)
             self.G.add_nodes_from([path for path, df in self.unioned_complementary_views])
 
-            # print(f"num views after union complementary: {len(self.get_current_views())}")
+            print(f"num views after union complementary: {len(self.get_current_views())}")
 
-        # print(f"num of contradictory view paris: {len(self.contradictions)}")
+        print(f"num of contradictory view pairs: {len(self.contradictions)}")
 
         # print("nodes")
         # pprint(list(self.G.nodes.data()))

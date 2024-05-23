@@ -11,21 +11,28 @@ import ipywidgets as widgets
 
 from IPython.display import clear_output, Markdown
 
+from view_distillation.vd import ViewDistillation
+from view_presentation.interface.contradictions import CDatasetInterfaceAttributeSim
+
 random.seed(config.seed)
 
 #Right now, same question can be asked by multiple interfaces. Ignored candidates of different interfaces do not share information.
 #Sharing that info can improve complexity
 
 class ViewPresentation:
-    def __init__(self,query, df_lst):
+    def __init__(self, query, vd: ViewDistillation):
         self.interface_options=[]
         self.asked={}
         self.total_questions=0
         self.answered={}
+        
+        self.vd = vd
+        _views = vd.get_current_views()
+        self.df_lst = vd.get_dfs(_views)
 
         self.query = query
         self.embedding_obj = embedding_distance.EmbeddingModel()
-        self.initialize_candidates(df_lst)
+        self.initialize_candidates()
 
         #dataframe index is the key and value denotes the number of times it is ignored/shortlisted
         self.ignored_datasets={}
@@ -37,12 +44,15 @@ class ViewPresentation:
         
 
     #Add a function to initialize the candidates for each interface
-    def initialize_candidates(self,df_lst):
+    def initialize_candidates(self):
         iter=0
-        self.df_lst=df_lst
         for curr_interface in interface_lst.interface_options:
             aci = curr_interface(str(iter),self.embedding_obj)
-            aci.generate_candidates(self.df_lst)
+            
+            if curr_interface == CDatasetInterfaceAttributeSim:
+                aci.generate_candidates(self.vd)
+            else:
+                aci.generate_candidates(self.df_lst)
             aci.rank_candidates(self.query)
             self.interface_options.append(aci)
             iter+=1
