@@ -707,9 +707,9 @@ class Ver:
 
     def view_presentation(self):
 
-        query = "school type rating"
+        query = " ".join([ex.attr for ex in self.example_columns])
 
-        vp = ViewPresentation(query, self.view_dfs)
+        vp = ViewPresentation(query, self.vd)
         
         vp.choose_interface()
 
