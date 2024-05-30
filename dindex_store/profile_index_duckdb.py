@@ -91,7 +91,7 @@ class ProfileIndexDuckDB(ProfileIndex):
     def get_minhashes(self) -> Dict:
         # Get all profiles with minhash
         profile_table = self.conn.table(self.config["profile_table_name"])
-        return profile_table.filter('minhash IS NOT NULL') \
+        return profile_table.filter('minhash IS NOT NULL and uniquevalues >= 10') \
             .project('id, decode(minhash)') \
             .to_df() \
             .rename(columns={'decode(minhash)': 'minhash'}) \

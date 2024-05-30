@@ -43,7 +43,7 @@ class QueryByExample:
             if len(cand_cols[tbl]) == 0:
                 del cand_cols[tbl]
 
-    def find_candidate_groups(self, candidate_list: List[List[Column]]):
+    def find_candidate_groups(self, candidate_list: List[List[Column]], max_tbls=2):
         candidate_tbls = [set() for _ in candidate_list] 
         tbl_cols = {}
         for i, candidates in enumerate(candidate_list):
@@ -64,7 +64,13 @@ class QueryByExample:
             candidate_groups.append(CandidateGroup(cand_tbls, project_options))
         # sort candidate groups by the number of tables
         candidate_groups = sorted(candidate_groups, key=lambda x: len(x.cand_tbls))
-        return candidate_groups, tbl_cols
+        valid_candidate_groups = []
+        for cand_group in candidate_groups:
+            if len(cand_group.cand_tbls) <= max_tbls:
+                valid_candidate_groups.append(cand_group)
+            else:
+                break
+        return valid_candidate_groups, tbl_cols
 
     def find_join_graphs_for_cand_group(self, cand_group):
         return self.join_graph_search.find_join_graphs(cand_group)

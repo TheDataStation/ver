@@ -119,7 +119,7 @@ class JoinGraphSearch:
             if len(value) == 0:
                 disconnected_pairs += 1
                 if disconnected_pairs > tbl_num * (tbl_num - 1) // 2 + 1 - tbl_num:
-                    print(f"invalid candidate group - {cand_group}")
+                    # print(f"invalid candidate group - {cand_group}")
                     return {}
         return self.cur_paths
 

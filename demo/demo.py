@@ -80,16 +80,15 @@ class Ver:
         
         # print("in")
 
-    def interface(self):
-
+    def view_specification(self):
         global row_num
         global col_num
         row_num = 3
         col_num = 3
 
-        default_values = [["school_name", "school type", "level"],
-                          ["Ogden International High School", "Charter", "Level 1"],
-                          ["University of Chicago - Woodlawn", "Neighborhood", "Level 2+"]]
+        default_values = [["school name", "school type", "school day"],
+                          ["Ogden International High School", "Charter", "HALF DAY"],
+                          ["University of Chicago Woodlawn", "Neighborhood", "FULL DAY"]]
 
         attr_style = "<style>.attr input { background-color:#D0F0D0 !important; }</style>"
         x = [[widgets.Text(value=default_values[i][j]) for j in range(col_num)] for i in range(row_num)]
@@ -206,7 +205,7 @@ class Ver:
         display(out)
         display(button5)
 
-    def view_specification(self, *examples, **attrs):
+    def view_specification_archived(self, *examples, **attrs):
 
         # import ast
 
@@ -338,7 +337,7 @@ class Ver:
                     # with open(f"./{output_path}/view{j}.json", "w") as outfile:
                     #     json.dump(metadata, outfile)
                     j += 1
-                    print("non empty view", j)
+                    # print("non empty view", j)
                     new_cols = []
                     k = 1
                     for col in df.columns:
