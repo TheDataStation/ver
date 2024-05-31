@@ -80,7 +80,7 @@ class Ver:
         
         # print("in")
 
-    def view_specification(self):
+    def view_specification(self, examples: List[str] = []):
         global row_num
         global col_num
         row_num = 3
@@ -90,11 +90,19 @@ class Ver:
                           ["Ogden International High School", "Charter", "HALF DAY"],
                           ["University of Chicago Woodlawn", "Neighborhood", "FULL DAY"]]
 
+        if len(examples) > 0:
+            row_num = len(examples)
+            col_num = len(examples[0])
+
+            default_values = [["" for j in range(col_num)] for i in range(row_num)]
+            for i in range(row_num):
+                for j in range(col_num):
+                    default_values[i][j] = examples[i][j]
+
         attr_style = "<style>.attr input { background-color:#D0F0D0 !important; }</style>"
         x = [[widgets.Text(value=default_values[i][j]) for j in range(col_num)] for i in range(row_num)]
 
         out = widgets.Output()
-
 
         @out.capture()
         def draw():
@@ -661,6 +669,23 @@ class Ver:
 
         output = widgets.Output()
 
+        # back here
+        @output.capture()
+        def display_query():
+            col_num = len(self.example_columns) # 3
+            row_num = max([len(self.example_columns[i].examples) for i in range(col_num)]) + 1 # 2 + 1
+            print(f"row num {row_num}")
+            print(f"col num {col_num}")
+            examples = [[None] * col_num for _ in range(row_num)]
+
+            for i in range(col_num):
+                examples[0][i] = self.example_columns[i].attr
+            
+            for i, example_column in enumerate(self.example_columns):
+                for j in range(len(example_column.examples)):
+                    examples[j+1][i] = example_column.examples[j]
+
+            self.view_specification(examples)
 
         def display_view(view_idx, num=10):
 
@@ -669,6 +694,7 @@ class Ver:
         #     global dropdown_candidate
 
             with output:
+                display_query()
         #         print(dropdown_candidate.options)
                 print("Show Views")
                 display(dropdown_view)
