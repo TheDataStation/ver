@@ -20,53 +20,61 @@ class CDatasetInterfaceAttributeSim(interface):
 
     def generate_candidates (self, vd: ViewDistillation):
         self.vd = vd
-        self.cont_dic = vd.contradictions
-        # self.attr_dic={}
-        # iter=0
-        # while iter<len(df_lst):
-        #     df=df_lst[iter]
-        #     try:
-        #         attr_lst= list(df.columns)
-        #         self.attr_dic[iter] = ' '.join(attr_lst)
-        #         iter+=1
-        #     except:
-        #         iter+=1
-        #         continue
+        self.candidates = dict()
+
+        _contradictions = vd.contradictions
+
+        # self.candidates format:
+        # key: ((view1, view2), (key_attr1, key_attr2, ...))
+        # value: {(key1_attr1, key1_attr2, ...), (key2_attr1, key2_attr2, ...), ...}
+        for cont_view_pair, cont in _contradictions.items():
+            for cont_attr_keys, cont_keys in cont.items():
+                self.candidates[(cont_view_pair, cont_attr_keys)] = cont_keys
 
     def rank_candidates (self, query):
-        # TODO: Implement
-        _scores = {}
-        i = 1.0
+        # Score is based on the average semantic distance between every contradictory cells
+        # Lower score (more semantically similar) pairs are ranked higher (prioritized)
+        scores = dict()
 
-        for cont in self.cont_dic.keys():
-            _scores[cont] = i
-            i += 0.1
+        for k, v in self.candidates.items():
+            v = list(v)
+            if len(k[1]) == 1:
+                v = [x[0] for x in v]
 
-        # self.scores={}
-        # for df_iter in self.attr_dic.keys():
-        #     dist=self.embedding_obj.get_distance(self.attr_dic[df_iter],query)#model.wmdistance(attr.split(),query.split())
-        #     self.scores[df_iter]=dist
+            df1 = self.vd.get_df(k[0][0]).set_index(list(k[1])).loc[v].reset_index()
+            df2 = self.vd.get_df(k[0][1]).set_index(list(k[1])).loc[v].reset_index()
 
-        self.sorted_sc = sorted(_scores.items(), key=lambda item: item[1],reverse=False)
+            ne_pos = (df1.ne(df2)).stack()
+            ne_pos = ne_pos[ne_pos]
+
+            curr_score = 0.0
+            curr_count = 0.0
+            for row, col in ne_pos.index:
+                dist = self.embedding_obj.get_distance(df1.at[row, col], df2.at[row, col])
+                curr_count += 1.0
+                curr_score = curr_score + (dist - curr_score) / curr_count
+
+            scores[k] = curr_score
+
+        self.sorted_sc = sorted(scores.items(), key=lambda item: item[1],reverse=False)
         return self.sorted_sc
 
-    #Returns the data frame with the highest score
     def get_question(self, ignored_datasets=[], ignore_questions=[]):
-        return (self.sorted_sc[0][1], self.sorted_sc[0][0], [self.sorted_sc[0][0]])
-        # iter=self.curr_question_iter
-        # while iter<len(self.sorted_sc):
-        #     if self.sorted_sc[iter][0] in ignore_questions or self.sorted_sc[iter][0] in ignored_datasets:
-        #         iter+=1
-        #         continue
-        #     else:
-        #         break
-        # if iter <len(self.sorted_sc):
-        #     curr_question =self.sorted_sc[iter][0]
-        #     self.curr_question_iter = iter
-        #     #returns the location of chosen df 
-        #     return (1, curr_question,[curr_question])
-        # else:
-        #     return None
+        iter = self.curr_question_iter
+
+        while iter < len(self.sorted_sc):
+            # Check if question is already asked or dataset in question is ignored
+            if self.sorted_sc[iter][0] in ignore_questions or self.sorted_sc[iter][0][0][0] in ignored_datasets or self.sorted_sc[iter][0][0][1] in ignored_datasets:
+                iter += 1
+                continue
+            break
+
+        self.curr_question_iter = iter
+        if iter >= len(self.sorted_sc):
+            return None
+
+        # TODO: Fix coverage return
+        return (1, self.sorted_sc[iter][0], [self.sorted_sc[iter][0]])
         
     def highlight_diff(self,df1, df2, color='pink'):
         # Define html attribute
@@ -79,21 +87,26 @@ class CDatasetInterfaceAttributeSim(interface):
         return 'background-color: %s' % color
 
     def ask_question_gui(self, question, df_lst):
-        key_tuple = list(self.cont_dic[question].keys())[0]
-        key_rows = [x[0] for x in self.cont_dic[question][key_tuple]][:5]
+        cont_pair = question[0]
+        key_attrs = question[1]
+        key_rows = list(self.candidates[question])[:5]
+        key_attrs = list(key_attrs)
 
-        contradictory_rows1 = self.vd.get_df(question[0]).set_index(key_tuple[0]).loc[key_rows].reset_index()
-        contradictory_rows2 = self.vd.get_df(question[1]).set_index(key_tuple[0]).loc[key_rows].reset_index()
+        if len(key_attrs) == 1:
+            key_rows = [x[0] for x in key_rows]
 
-        display(Markdown('<h3><strong>{}</strong></h3>'.format(f"Below are contradicting datasets (with key = {key_tuple[0]}), which dataset would you shortlist?")))#This Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
+        contradictory_rows1 = self.vd.get_df(cont_pair[0]).set_index(key_attrs).loc[key_rows].reset_index()
+        contradictory_rows2 = self.vd.get_df(cont_pair[1]).set_index(key_attrs).loc[key_rows].reset_index()
+
+        display(Markdown('<h3><strong>{}</strong></h3>'.format(f"Below are contradicting datasets (with key = {key_attrs}), which dataset would you shortlist?")))#This Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
         html1 = contradictory_rows1.style \
-                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
+                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, key_attrs],
                                       color='lightyellow') \
                             .apply(self.highlight_diff, axis=None, df2=contradictory_rows2) \
                             .to_html()
 
         html2 = contradictory_rows2.style \
-                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],
+                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, key_attrs],
                                       color='lightyellow') \
                             .apply(self.highlight_diff, axis=None, df2=contradictory_rows1) \
                             .to_html()
@@ -106,18 +119,19 @@ class CDatasetInterfaceAttributeSim(interface):
         #display(df_lst[question].head(10))
 
         self.attribute_yesno=widgets.RadioButtons(
-                options=['A: Choose the first one', 'B: Choose the second one','None'],
+            options=['A: Choose the first one', 'B: Choose the second one','None'],
             value='None', # Defaults to 'pineapple'
             description='',
             disabled=False
         )
+
         self.submit = widgets.Button(
-                description='Submit',
-                disabled=False,
-                button_style='', # 'success', 'info', 'warning', 'danger' or ''
-                tooltip='Submit',
-                icon='' # (FontAwesome names without the `fa-` prefix)
-            )
+            description='Submit',
+            disabled=False,
+            button_style='', # 'success', 'info', 'warning', 'danger' or ''
+            tooltip='Submit',
+            icon='' # (FontAwesome names without the `fa-` prefix)
+        )
 
         self.submit.on_click(self.returnval)
         display(self.attribute_yesno)
