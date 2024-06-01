@@ -29,6 +29,7 @@ class ViewPresentation:
         self.vd = vd
         _views = vd.get_current_views()
         self.df_lst = vd.get_dfs(_views)
+        self.view_to_df_idx_map = {_views[i]: i for i in range(len(_views))}
 
         self.query = query
         self.embedding_obj = embedding_distance.EmbeddingModel()
@@ -47,48 +48,32 @@ class ViewPresentation:
     def initialize_candidates(self):
         iter=0
         for curr_interface in interface_lst.interface_options:
-            aci = curr_interface(str(iter),self.embedding_obj)
+            aci = curr_interface(str(iter), self.shortlist_datasets, self.ignore_datasets, self.embedding_obj)
             
             if curr_interface == CDatasetInterfaceAttributeSim:
-                aci.generate_candidates(self.vd)
+                aci.generate_candidates(self.vd, self.view_to_df_idx_map)
             else:
                 aci.generate_candidates(self.df_lst)
             aci.rank_candidates(self.query)
             self.interface_options.append(aci)
             iter+=1
     
-        
+    def shortlist_datasets(self, datasets_idx):
+        for df_idx in datasets_idx:
+            if df_idx in self.ignored_datasets.keys():
+                continue
 
-    # ranking of questions
-    def update_output(self,b):
-        #print ("updated output")
-        res= (self.result)
-        coverage_lst=res[-1]
-        self.choose_interface()
-        #print (res)
-        #print (res[0])
-        try:
-            out_index= res[0].index(res[1].value)
-        except:
-            out_index=0
-        if out_index==0:
-            for df_iter in coverage_lst:
-                if df_iter in self.shortlisted_datasets.keys():
-                    self.shortlisted_datasets[df_iter]+=1
-                else:
-                    self.shortlisted_datasets[df_iter]=1
-        elif out_index==1:
-            for df_iter in coverage_lst:
-                if df_iter in self.ignored_datasets.keys():
-                    self.ignored_datasets[df_iter]+=1
-                else:
-                    self.ignored_datasets[df_iter]=1
+            if df_idx in self.shortlisted_datasets.keys():
+                self.shortlisted_datasets[df_idx] += 1
+            else:
+                self.shortlisted_datasets[df_idx] = 1
 
-
-        # print ("this",out_index,self.shortlisted_datasets,self.ignored_datasets)
-
-        return
-    
+    def ignore_datasets(self, datasets_idx):
+        for df_idx in datasets_idx:
+            if df_idx in self.ignored_datasets.keys():
+                self.ignored_datasets[df_idx] += 1
+            else:
+                self.ignored_datasets[df_idx] = 1
 
     def get_shortlisted_datasets(self,b=None):
         print ("shortlisted datasets are")
@@ -116,7 +101,7 @@ class ViewPresentation:
         scores = sorted(final_scores.items(), key=lambda item: item[1],reverse=True)
         
         iter=1
-        for (score,df_iter) in scores:
+        for (df_iter, score) in scores:
             print ("Rank ",iter)
             self.download = widgets.Button(
                 description='Download',
@@ -134,13 +119,13 @@ class ViewPresentation:
 
     def choose_interface(self,b=None):
 
-        threshold=math.ceil(math.log(len(self.interface_options))*1.0/math.log(2))
+        threshold = math.ceil(math.log(len(self.interface_options))*1.0/math.log(2))
         
         clear_output(wait=True)
 
         display(Markdown('<h1><center><strong>{}</strong></center></h1>'.format("View Presentation")))
 
-        gamma=config.gamma
+        gamma = config.gamma
 
         scores=[]
         corresponding_ques=[]
@@ -151,7 +136,7 @@ class ViewPresentation:
 
         for interface in self.interface_options:#move to config.py
             try:
-                score,ques,coverage=interface.get_question(list(self.ignored_datasets.keys()))
+                score,ques=interface.get_question(list(self.ignored_datasets.keys()))
             except:
                 continue
             #print (interface.name,score,ques,coverage)
@@ -166,7 +151,7 @@ class ViewPresentation:
                 valid_interfaces.append(interface)
                 scores.append(answer_prob*score)
                 corresponding_ques.append(ques)
-                coverage_lst.append(coverage)
+                # coverage_lst.append(coverage)
             iter+=1
         if len(valid_interfaces)==0:
             return None,None,None
@@ -194,16 +179,17 @@ class ViewPresentation:
         self.total_questions+=1
         #print ("chosen interface",self.interface_options[max_index])
         #print (max_index,valid_interfaces,corresponding_ques)
-        self.result = valid_interfaces[max_index].ask_question(corresponding_ques[max_index],self.df_lst)
-        self.result.append(coverage_lst[max_index])
-        self.result[2].on_click(self.update_output)
+
+        valid_interfaces[max_index].ask_question(corresponding_ques[max_index], self.df_lst, self.choose_interface)
+
         self.shortlisted_datasets_button = widgets.Button(
-                description='Show\n Shortlist',
-                disabled=False,
-                button_style='', # 'success', 'info', 'warning', 'danger' or ''
-                tooltip='Submit',
-                icon='' # (FontAwesome names without the `fa-` prefix)
-            )
+            description='Show\n Shortlist',
+            disabled=False,
+            button_style='', # 'success', 'info', 'warning', 'danger' or ''
+            tooltip='Submit',
+            icon='' # (FontAwesome names without the `fa-` prefix)
+        )
+        
         self.shortlisted_datasets_button.on_click(self.get_shortlisted_datasets)
         display(HBox([self.shortlisted_datasets_button], layout= Layout(width='100%')))
         '''
@@ -224,11 +210,7 @@ class ViewPresentation:
         print ("this",self.shortlisted_datasets,self.ignored_datasets)
         '''
         #Use responses to update shortlisted and ignored ones
-
-
-
-      
-        return valid_interfaces[max_index], corresponding_ques[max_index], coverage_lst[max_index]
+        return valid_interfaces[max_index], corresponding_ques[max_index]
     
 
 

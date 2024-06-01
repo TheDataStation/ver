@@ -12,15 +12,21 @@ from IPython.display import clear_output
 from view_distillation.vd import ViewDistillation
 
 class CDatasetInterfaceAttributeSim(interface):
-    def __init__(self,name,embedding_obj=None):
+    def __init__(self, name, shortlist_func, ignore_func, embedding_obj=None):
         self.name=name
         self.asked_questions={}
         self.curr_question_iter=0
         self.embedding_obj=embedding_obj
 
-    def generate_candidates (self, vd: ViewDistillation):
+        self.shortlist_func = shortlist_func
+        self.ignore_func = ignore_func
+
+        self.OPTIONS = ['A: Choose the first one', 'B: Choose the second one', 'None']
+
+    def generate_candidates (self, vd: ViewDistillation, mapping):
         self.vd = vd
         self.candidates = dict()
+        self.mapping = mapping
 
         _contradictions = vd.contradictions
 
@@ -64,7 +70,9 @@ class CDatasetInterfaceAttributeSim(interface):
 
         while iter < len(self.sorted_sc):
             # Check if question is already asked or dataset in question is ignored
-            if self.sorted_sc[iter][0] in ignore_questions or self.sorted_sc[iter][0][0][0] in ignored_datasets or self.sorted_sc[iter][0][0][1] in ignored_datasets:
+            if self.sorted_sc[iter][0] in ignore_questions \
+                    or self.mapping[self.sorted_sc[iter][0][0][0]] in ignored_datasets \
+                    or self.mapping[self.sorted_sc[iter][0][0][1]] in ignored_datasets:
                 iter += 1
                 continue
             break
@@ -73,20 +81,24 @@ class CDatasetInterfaceAttributeSim(interface):
         if iter >= len(self.sorted_sc):
             return None
 
-        # TODO: Fix coverage return
-        return (1, self.sorted_sc[iter][0], [self.sorted_sc[iter][0]])
+        return (1, self.sorted_sc[iter][0])
+
+    def highlight_cells(self, df1, df2, key_columns):
+        def highlight(row):
+            return [
+                'background-color: lightyellow' if col in key_columns else 
+                'background-color: pink' if row[col] != df2.at[row.name, col] else 
+                ''
+                for col in df1.columns
+            ]
         
-    def highlight_diff(self,df1, df2, color='pink'):
-        # Define html attribute
-        attr = 'background-color: {}'.format(color)
-        # Where df1 != df2 set attribute
-        return pd.DataFrame(np.where(df1.ne(df2), attr, ''), index=df1.index, columns=df1.columns)
-
-
-    def highlight_cols(self,s, color='lightgreen'):
-        return 'background-color: %s' % color
+        # Apply the highlight function to the entire DataFrame
+        return df1.style.apply(highlight, axis=1)
 
     def ask_question_gui(self, question, df_lst):
+        self.curr_question = question
+        self.curr_question_iter += 1
+
         cont_pair = question[0]
         key_attrs = question[1]
         key_rows = list(self.candidates[question])[:5]
@@ -97,29 +109,19 @@ class CDatasetInterfaceAttributeSim(interface):
 
         contradictory_rows1 = self.vd.get_df(cont_pair[0]).set_index(key_attrs).loc[key_rows].reset_index()
         contradictory_rows2 = self.vd.get_df(cont_pair[1]).set_index(key_attrs).loc[key_rows].reset_index()
+        keys_display = 'with key' + ('s' if len(key_attrs) > 1 else '') + ' = ' + ' '.join(key_attrs)
 
-        display(Markdown('<h3><strong>{}</strong></h3>'.format(f"Below are contradicting datasets (with key = {key_attrs}), which dataset would you shortlist?")))#This Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
-        html1 = contradictory_rows1.style \
-                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, key_attrs],
-                                      color='lightyellow') \
-                            .apply(self.highlight_diff, axis=None, df2=contradictory_rows2) \
-                            .to_html()
-
-        html2 = contradictory_rows2.style \
-                            .applymap(self.highlight_cols, subset=pd.IndexSlice[:, key_attrs],
-                                      color='lightyellow') \
-                            .apply(self.highlight_diff, axis=None, df2=contradictory_rows1) \
-                            .to_html()
+        display(Markdown('<h3><strong>{}</strong></h3>'.format(f"Below are contradicting datasets ({keys_display}), which dataset would you shortlist?")))
+        html1 = self.highlight_cells(contradictory_rows1, contradictory_rows2, key_attrs)
+        html2 = self.highlight_cells(contradictory_rows2, contradictory_rows1, key_attrs)
         
         display(Markdown('<h3><strong>{}</strong></h3>'.format("A:")))
-        display(HTML(html1)) 
+        display(html1)
         display(Markdown('<h3><strong>{}</strong></h3>'.format("B:")))
-        display(HTML(html2))
-        self.curr_question_iter += 1
-        #display(df_lst[question].head(10))
+        display(html2)
 
         self.attribute_yesno=widgets.RadioButtons(
-            options=['A: Choose the first one', 'B: Choose the second one','None'],
+            options=self.OPTIONS,
             value='None', # Defaults to 'pineapple'
             description='',
             disabled=False
@@ -133,17 +135,31 @@ class CDatasetInterfaceAttributeSim(interface):
             icon='' # (FontAwesome names without the `fa-` prefix)
         )
 
-        self.submit.on_click(self.returnval)
+        self.submit.on_click(self.update_score)
+
         display(self.attribute_yesno)
         display(self.submit)
+        return
 
-        return [['Yes, my data must contain this dataset', 'No, my data should not contain this dataset','Does not matter'],self.attribute_yesno,self.submit]
+    def update_score(self, b):
+        answer = self.OPTIONS.index(self.attribute_yesno.value)
+        a = self.mapping[self.curr_question[0][0]]
+        b = self.mapping[self.curr_question[0][1]]
 
-    def returnval(self,b):
-        return self.attribute_yesno.value
+        if answer == 0:
+            self.shortlist_func([a])
+            self.ignore_func([b])
+        elif answer == 1:
+            self.shortlist_func([b])
+            self.ignore_func([a])
+
+        self.submit_callback()
+        return
     
-    def ask_question(self, question, df_lst):
-        return self.ask_question_gui(question, df_lst)
+    def ask_question(self, question, df_lst, submit_callback):
+        self.submit_callback = submit_callback
+        self.ask_question_gui(question, df_lst)
+        return
     
     #TODO: Change the value of dictionary to the answer from the user
     #def ask_question(self, question, df_lst):
