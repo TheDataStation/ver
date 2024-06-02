@@ -122,7 +122,7 @@ class CDatasetInterfaceAttributeSim(interface):
 
         self.attribute_yesno=widgets.RadioButtons(
             options=self.OPTIONS,
-            value='None', # Defaults to 'pineapple'
+            value=self.OPTIONS[-1],
             description='',
             disabled=False
         )

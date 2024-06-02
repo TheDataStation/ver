@@ -50,13 +50,12 @@ class DatasetInterfaceAttributeSim(interface):
                 continue
             else:
                 break
-        if iter <len(self.sorted_sc):
-            curr_question = self.sorted_sc[iter][0]
-            self.curr_question_iter = iter
-            #returns the location of chosen df 
-            return (1, curr_question)
-        else:
+
+        self.curr_question_iter = iter
+        if iter >= len(self.sorted_sc):
             return None
+        
+        return (1, self.sorted_sc[iter][0])
 
     def ask_question_gui(self, question, df_lst):
         self.curr_question = question
@@ -67,7 +66,7 @@ class DatasetInterfaceAttributeSim(interface):
 
         self.attribute_yesno=widgets.RadioButtons(
             options=self.OPTIONS,
-            value='Does not matter', # Defaults to 'pineapple'
+            value=self.OPTIONS[-1],
             description='',
             disabled=False
         )
