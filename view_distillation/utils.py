@@ -26,10 +26,10 @@ def curate_view(df, drop_duplicates=True, dropna=True):
     if drop_duplicates:
         df = df.drop_duplicates()
     # this may tweak indexes, so need to reset that
-    df = df.reset_index(drop=True)
-    # make sure it's sorted according to some order
-    df.sort_index(inplace=True, axis=1)
-    df.sort_index(inplace=True, axis=0)
+    # df = df.reset_index(drop=True)
+    # # make sure it's sorted according to some order
+    # df.sort_index(inplace=True, axis=1)
+    # df.sort_index(inplace=True, axis=0)
     return df
 
 

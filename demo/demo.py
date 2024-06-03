@@ -39,12 +39,15 @@ from tqdm import tqdm
 import fire
 
 import warnings
+
+import random
+random.seed(0)
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 class Ver:
     def __init__(self, graph_path='/home/cc/chicago_open_data_graph/', data_path='./../demo_dataset/'):
-
         # path to store the aurum graph index
         # self.graph_path = graph_path
         # graph_path = '/home/cc/opendata_large_graph/'
@@ -674,8 +677,6 @@ class Ver:
         def display_query():
             col_num = len(self.example_columns) # 3
             row_num = max([len(self.example_columns[i].examples) for i in range(col_num)]) + 1 # 2 + 1
-            print(f"row num {row_num}")
-            print(f"col num {col_num}")
             examples = [[None] * col_num for _ in range(row_num)]
 
             for i in range(col_num):
