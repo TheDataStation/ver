@@ -9,11 +9,16 @@ from IPython.display import clear_output
 
 
 class DatasetInterfaceAttributeSim(interface):
-    def __init__(self,name,embedding_obj=None):
+    def __init__(self, name, shortlist_func, ignore_func, embedding_obj=None):
         self.name=name
         self.asked_questions={}
         self.curr_question_iter=0
         self.embedding_obj=embedding_obj
+
+        self.shortlist_func = shortlist_func
+        self.ignore_func = ignore_func
+
+        self.OPTIONS = ['Yes, my data must contain this dataset', 'No, my data should not contain this dataset', 'Does not matter']
 
     def generate_candidates (self, df_lst):
         self.attr_dic={}
@@ -45,43 +50,57 @@ class DatasetInterfaceAttributeSim(interface):
                 continue
             else:
                 break
-        if iter <len(self.sorted_sc):
-            curr_question =self.sorted_sc[iter][0]
-            self.curr_question_iter = iter
-            #returns the location of chosen df 
-            return (1, curr_question,[curr_question])
-        else:
+
+        self.curr_question_iter = iter
+        if iter >= len(self.sorted_sc):
             return None
+        
+        return (1, self.sorted_sc[iter][0])
 
     def ask_question_gui(self, question, df_lst):
+        self.curr_question = question
         self.curr_question_iter += 1
+
         display(Markdown('<h3><strong>{}</strong></h3>'.format("Would you shortlist this dataset for the query? ")))#Do you want to shortlist datasets containing the attribute: "+question)))
         display(df_lst[question].head(10))
 
         self.attribute_yesno=widgets.RadioButtons(
-            options=['Yes, my data must contain this dataset', 'No, my data should not contain this dataset','Does not matter'],
-            value='Does not matter', # Defaults to 'pineapple'
+            options=self.OPTIONS,
+            value=self.OPTIONS[-1],
             description='',
             disabled=False
         )
-        self.submit = widgets.Button(
-                description='Submit',
-                disabled=False,
-                button_style='', # 'success', 'info', 'warning', 'danger' or ''
-                tooltip='Submit',
-                icon='' # (FontAwesome names without the `fa-` prefix)
-            )
 
-        self.submit.on_click(self.returnval)
+        self.submit = widgets.Button(
+            description='Submit',
+            disabled=False,
+            button_style='', # 'success', 'info', 'warning', 'danger' or ''
+            tooltip='Submit',
+            icon='' # (FontAwesome names without the `fa-` prefix)
+        )
+
+        self.submit.on_click(self.update_score)
+
         display(self.attribute_yesno)
         display(self.submit)
+        return
 
-        return [['Yes, my data must contain this dataset', 'No, my data should not contain this dataset','Does not matter'],self.attribute_yesno,self.submit]
+    def update_score(self, b):
+        answer = self.OPTIONS.index(self.attribute_yesno.value)
 
-    def returnval(self,b):
-        return self.attribute_yesno.value
-    def ask_question(self, question, df_lst):
-        return self.ask_question_gui(question, df_lst)
+        if answer == 0:
+            self.shortlist_func([self.curr_question])
+        elif answer == 1:
+            self.ignore_func([self.curr_question])
+
+        self.submit_callback()
+        return
+    
+    def ask_question(self, question, df_lst, submit_callback):
+        self.submit_callback = submit_callback
+        self.ask_question_gui(question, df_lst)
+        return
+    
     #TODO: Change the value of dictionary to the answer from the user
     #def ask_question(self, question, df_lst):
         self.curr_question_iter += 1

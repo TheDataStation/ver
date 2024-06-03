@@ -7,18 +7,23 @@ import ipywidgets as widgets
 from IPython.display import clear_output
 
 class AttributeNameInterface(interface):
-    def __init__(self,name,embedding_obj=None):
+    def __init__(self, name, shortlist_func, ignore_func, embedding_obj=None):
         self.name=name
         self.asked_questions={}
         self.curr_question_iter=0
         self.embedding_obj=embedding_obj
+
+        self.shortlist_func = shortlist_func
+        self.ignore_func = ignore_func
+
+        self.OPTIONS = ['Yes, my data must contain this attribute', 'No, my data should not contain this attribute', 'Does not matter']
+
     def generate_candidates (self, df_lst):
         self.attr_dic={}
         iter=0
         while iter<len(df_lst):
             df=df_lst[iter]
             try:
-                attr_lst= list(df.columns)
                 for attr in list(df.columns):
                     if len(attr)<3:
                         continue
@@ -42,54 +47,67 @@ class AttributeNameInterface(interface):
 
             
     #Returns the attribute with highest score, ignoring the attributes in ignore_questions
-    def get_question(self, ignored_datasets=[],ignore_questions=[]):
-        iter=self.curr_question_iter
-        #print ("sorted",self.sorted_sc,iter)
-        while iter<len(self.sorted_sc):
+    def get_question(self, ignored_datasets=[], ignore_questions=[]):
+        iter = self.curr_question_iter
+        while iter < len(self.sorted_sc):
             if self.sorted_sc[iter][0] in ignore_questions:
-                iter+=1
+                iter += 1
                 continue
-            else:
-                break
-        curr_question = self.sorted_sc[iter][0]
-        self.curr_question_iter = iter
-        #print ("sorted2",self.sorted_sc,iter)
-        #returns the chosen attribute and list of dataframes containing the attribute
-        coverage = list(set(self.attr_dic[curr_question]) - set(ignored_datasets))
 
-        return (len(coverage), curr_question,self.attr_dic[curr_question])
+            coverage = list(set(self.attr_dic[self.sorted_sc[iter][0]]) - set(ignored_datasets))
+            if len(coverage) == 0:
+                iter += 1
+                continue
+
+            break
+
+        self.curr_question_iter = iter
+        return (len(coverage), self.sorted_sc[iter][0])
 
     def ask_question_gui(self, question, df_lst):
         self.curr_question_iter += 1
-        display(Markdown('<h3><strong>{}</strong></h3>'.format("Do you want to shortlist datasets containing the attribute: "+question)))
+        self.curr_question = question
+        display(Markdown('<h3><strong>{}</strong></h3>'.format("Do you want to shortlist datasets containing the attribute: " + question)))
         #print ("Do you want to shortlist datasets containing the attribute: ",question)
+
         self.attribute_yesno=widgets.RadioButtons(
-            options=['Yes, my data must contain this attribute', 'No, my data should not contain this attribute','Does not matter'],
-            value='Does not matter', # Defaults to 'pineapple'
+            options=self.OPTIONS,
+            value=self.OPTIONS[-1],
             description='',
             disabled=False
         )
+
         self.submit = widgets.Button(
-                description='Submit',
-                disabled=False,
-                button_style='', # 'success', 'info', 'warning', 'danger' or ''
-                tooltip='Submit',
-                icon='' # (FontAwesome names without the `fa-` prefix)
-            )
+            description='Submit',
+            disabled=False,
+            button_style='', # 'success', 'info', 'warning', 'danger' or ''
+            tooltip='Submit',
+            icon='' # (FontAwesome names without the `fa-` prefix)
+        )
+
         self.curr_question=question
-        self.submit.on_click(self.returnval)
+        self.submit.on_click(self.update_score)
+
         display(self.attribute_yesno)
         display(self.submit)
+        return
+    
+    def update_score(self, b):
+        answer = self.OPTIONS.index(self.attribute_yesno.value)
+        coverage = self.attr_dic[self.curr_question]
 
-        return [['Yes, my data must contain this attribute', 'No, my data should not contain this attribute','Does not matter'],self.attribute_yesno,self.submit]
+        if answer == 0:
+            self.shortlist_func(coverage)
+        elif answer == 1:
+            self.ignore_func(coverage)
 
-    def returnval(self,b):
-
-        self.asked_questions[self.curr_question] = self.attribute_yesno.value
-        #self.asked_questions[question] = self.attribute_yesno.value
-        return self.attribute_yesno.value
-    def ask_question(self, question, df_lst):
-        return self.ask_question_gui(question, df_lst)
+        self.submit_callback()
+        return
+    
+    def ask_question(self, question, df_lst, submit_callback):
+        self.submit_callback = submit_callback
+        self.ask_question_gui(question, df_lst)
+        return
         '''
         self.curr_question_iter += 1
         print ("Does the required dataset contain attribute: ",question)
