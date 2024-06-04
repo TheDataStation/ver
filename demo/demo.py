@@ -124,8 +124,8 @@ class Ver:
             for i in range(1, row_num):
                 x[i].append(widgets.Text())
             clear_output()
-            draw()
-
+            # draw()
+            display_all()
 
         @out.capture()
         def remove_column(_):
@@ -135,8 +135,7 @@ class Ver:
                 w.close()
             col_num -= 1
             clear_output()
-            draw()
-
+            display_all()
 
         @out.capture()
         def add_row(_):
@@ -144,7 +143,8 @@ class Ver:
             row_num += 1
             x.append([widgets.Text() for _ in range(col_num)])
             clear_output()
-            draw()
+            display_all()
+
 
 
         @out.capture()
@@ -155,7 +155,8 @@ class Ver:
                 w.close()
             row_num -= 1
             clear_output()
-            draw()
+            display_all()
+
 
 
         def confirm(_):
@@ -197,24 +198,28 @@ class Ver:
             # self.view_presentation()
 
 
-        button1 = widgets.Button(description="Add Column")
-        button2 = widgets.Button(description="Remove Column")
-        button3 = widgets.Button(description="Add Row")
-        button4 = widgets.Button(description="Remove Row")
-        button5 = widgets.Button(description="Find\nViews")
-        button1.on_click(add_column)
-        button2.on_click(remove_column)
-        button3.on_click(add_row)
-        button4.on_click(remove_row)
-        button5.on_click(confirm)
+        def display_all():
 
-        # print("Query-by-Example interface")
-        display(Markdown('<h1><center><strong>{}</strong></center></h1>'.format("Ver QBE interface")))
+            button1 = widgets.Button(description="Add Column")
+            button2 = widgets.Button(description="Remove Column")
+            button3 = widgets.Button(description="Add Row")
+            button4 = widgets.Button(description="Remove Row")
+            button5 = widgets.Button(description="Find\nViews")
+            button1.on_click(add_column)
+            button2.on_click(remove_column)
+            button3.on_click(add_row)
+            button4.on_click(remove_row)
+            button5.on_click(confirm)
 
-        display(widgets.HBox([button1, button2, button3, button4]))
-        draw()
-        display(out)
-        display(button5)
+            # print("Query-by-Example interface")
+            display(Markdown('<h1><center><strong>{}</strong></center></h1>'.format("Ver QBE interface")))
+
+            display(widgets.HBox([button1, button2, button3, button4]))
+            draw()
+            display(out)
+            display(button5)
+        
+        display_all()
 
     def view_specification_archived(self, *examples, **attrs):
 
@@ -474,7 +479,10 @@ class Ver:
         def dropdown_col_eventhandler(change):
             col = change.new
             #     global dropdown_candidate
-            dropdown_candidate.options = list(candidate_columns_dict[col])
+            dropdown_candidate = widgets.Dropdown(description="Candidate Table Column",
+                                              options=candidate_columns_dict[col])
+            dropdown_candidate.observe(dropdown_candidate_eventhandler, names='value')
+            # dropdown_candidate.options = list(candidate_columns_dict[col])
             # new_dropdown_candidate = widgets.Dropdown(description="Candidate Table Column",
             #                                           options=list(candidate_columns_dict[col]))
             # dropdown_candidate = new_dropdown_candidate
@@ -482,6 +490,7 @@ class Ver:
 
             num = int(bounded_num.value)
 
+            display(dropdown_candidate)
             display_candidate(dropdown_candidate.options[0], dropdown_candidate, num=num)
 
         def dropdown_candidate_eventhandler(change):
@@ -497,6 +506,7 @@ class Ver:
             # dropdown_candidate = new_dropdown_candidate
             # dropdown_candidate.observe(dropdown_candidate_eventhandler, names='value')
 
+            display(dropdown_candidate)
             display_candidate(candidate, dropdown_candidate, num=num)
 
         def bounded_num_eventhandler(change):
@@ -514,6 +524,7 @@ class Ver:
 
             display_candidate(candidate, dropdown_candidate, num=num)
 
+            
         dropdown_col = widgets.Dropdown(options=list(candidate_columns_dict.keys()), description="Column Name")
         dropdown_candidate = widgets.Dropdown(description="Candidate Table Column",
                                               options=candidate_columns_dict[default_col])
