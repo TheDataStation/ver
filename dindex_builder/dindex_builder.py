@@ -83,6 +83,19 @@ def build_dindex(profile_data_path, config: Dict, force: bool):
             dindex.add_edge(
                 profile['id'], neighbor,
                 EdgeType.ATTRIBUTE_SYNTACTIC_SIMILARITY, {'similar': 1})
+            
+    print("Building common joinable columns edges...")
+    COMMON_JOINABLE_COLUMNS = ["zip%"]
+    for colName in COMMON_JOINABLE_COLUMNS:
+        common_joinable_profiles = dindex.get_filtered_profiles_from_attribute_contain('columnName', colName, ['id'])
+        common_joinable_profiles = [x[0] for x in common_joinable_profiles]
+        for i in tqdm(range(len(common_joinable_profiles))):
+            for j in range(i + 1, len(common_joinable_profiles)):
+                # TODO: check for duplicate
+                dindex.add_edge(
+                    common_joinable_profiles[i], common_joinable_profiles[j],
+                    EdgeType.COMMON_JOINABLE_COLUMN, {'similar': 1})
+
     print("Done building")
 
     return dindex

@@ -85,6 +85,17 @@ class ProfileIndexDuckDB(ProfileIndex):
             print(f"""An error has occured when trying to get profile {be}""")
             return False
         
+    def get_filtered_profiles_from_attribute_contain(self, attribute, contain, desired_attributes: List[str]):
+        project_list = ",".join(desired_attributes)
+        try:
+            profile_table = self.config["profile_table_name"]
+            query = f"SELECT {project_list} FROM {profile_table} WHERE {attribute} ILIKE '{contain}'"
+            results = self.conn.execute(query)
+            return results.fetchall()
+        except BinderException as be:
+            print(f"""An error has occured when trying to get profile {be}""")
+            return False
+        
     def get_profile(self, node_id: int) -> Dict:
         pass
     
