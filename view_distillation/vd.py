@@ -127,7 +127,7 @@ class ViewDistillation:
 
             print(f"num views after union complementary: {len(self.get_current_views())}")
 
-        print(f"num of contradictory view paris: {len(self.contradictions)}")
+        print(f"num of contradictory view pairs: {len(self.contradictions)}")
 
         # print("nodes")
         # pprint(list(self.G.nodes.data()))
@@ -585,7 +585,7 @@ class ViewDistillation:
             df1 = self.path_to_df_dict[path1]
             df2 = self.path_to_df_dict[path2]
 
-            new_df = pd.concat([df1, df2]).drop_duplicates().reset_index(drop=True)
+            new_df = pd.concat([df1, df2]).drop_duplicates()
             file_name = f"{os.path.splitext(path1)[0]}_union_{path2}"
             # if self.path_to_views is not None:
             #     new_path = os.path.join(self.path_to_views, file_name)
@@ -597,7 +597,6 @@ class ViewDistillation:
 
             self.complementary_views_to_remove.add(path1)
             self.complementary_views_to_remove.add(path2)
-
             self.unioned_complementary_views.append((file_name, new_df))
 
         views_left = []
@@ -722,8 +721,8 @@ class ViewDistillation:
                     # concatenate all contradictory rows in both side
                     if len(row1_dfs) > 0 and len(row2_dfs) > 0:
 
-                        contradictory_rows1 = pd.concat(row1_dfs).reset_index(drop=True)
-                        contradictory_rows2 = pd.concat(row2_dfs).reset_index(drop=True)
+                        contradictory_rows1 = pd.concat(row1_dfs)
+                        contradictory_rows2 = pd.concat(row2_dfs)
 
                         html1 = contradictory_rows1.style \
                             .applymap(highlight_cols, subset=pd.IndexSlice[:, list(key_tuple)],

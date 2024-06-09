@@ -6,6 +6,7 @@ from aurum_api.algebra import AurumAPI
 from collections import defaultdict
 from itertools import product
 from copy import deepcopy
+from tqdm import tqdm
 
 class ExampleColumn:
     def __init__(self, attr: str, examples: List[str]) -> None:
@@ -42,7 +43,7 @@ class QueryByExample:
             if len(cand_cols[tbl]) == 0:
                 del cand_cols[tbl]
 
-    def find_candidate_groups(self, candidate_list: List[List[Column]]):
+    def find_candidate_groups(self, candidate_list: List[List[Column]], max_tbls=2):
         candidate_tbls = [set() for _ in candidate_list] 
         tbl_cols = {}
         for i, candidates in enumerate(candidate_list):
@@ -61,21 +62,29 @@ class QueryByExample:
         candidate_groups = []
         for cand_tbls, project_options in result.items():
             candidate_groups.append(CandidateGroup(cand_tbls, project_options))
-        return candidate_groups, tbl_cols
+        # sort candidate groups by the number of tables
+        candidate_groups = sorted(candidate_groups, key=lambda x: len(x.cand_tbls))
+        valid_candidate_groups = []
+        for cand_group in candidate_groups:
+            if len(cand_group.cand_tbls) <= max_tbls:
+                valid_candidate_groups.append(cand_group)
+            else:
+                break
+        return valid_candidate_groups, tbl_cols
 
     def find_join_graphs_for_cand_group(self, cand_group):
         return self.join_graph_search.find_join_graphs(cand_group)
 
     def find_join_graphs_for_cand_groups(self, cand_groups: List[CandidateGroup]):
         all_join_graphs = []
-        for cand_group in cand_groups:
+        for cand_group in tqdm(cand_groups):
             all_join_graphs.extend(self.join_graph_search.find_join_graphs(cand_group))
         return all_join_graphs
 
     def get_column_clusters(self, candidate_list, prune=False):
         column_clusters = []
         for i, candidate in enumerate(candidate_list):
-            print("num", i, "column")
+            # print("num", i, "column")
             column_cluster = self.column_selection.cluster_columns(candidate, prune)
             column_clusters.append(column_cluster)
         return column_clusters

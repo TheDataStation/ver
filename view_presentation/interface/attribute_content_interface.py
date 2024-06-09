@@ -1,7 +1,7 @@
 import pandas as pd
 from view_presentation.interface.interface import interface
 from view_presentation.interface.attribute_name_interface import AttributeNameInterface
-import view_presentation.interface.embedding_distance as embedding_distance
+from view_presentation.interface import embedding_distance
 
 #Ranks attributes based on their content
 class AttributeContentInterface(AttributeNameInterface):

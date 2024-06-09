@@ -8,6 +8,7 @@ import os
 import json
 from view_distillation import vd
 from view_distillation.vd import ViewDistillation
+import time
 
 cnf = {setting: getattr(config, setting) for setting in dir(config)
        if setting.islower() and len(setting) > 2 and setting[:2] != "__"}
@@ -25,37 +26,49 @@ qbe = QueryByExample(api)
 Specify an example query
 """
 example_columns = [
-    ExampleColumn(attr='school_name', examples=["Ogden International High School", "University of Chicago - Woodlawn"]),
+    ExampleColumn(attr='school_name', examples=["Ogden International High School", "University of Chicago Woodlawn"]),
     ExampleColumn(attr='school type', examples=["Charter", "Neighborhood"]),
-    ExampleColumn(attr='level', examples=["Level 1", "Level 2+"])
+    ExampleColumn(attr='level', examples=["Level 1", "Level 2"])
 ]
+
+# correct join path is 9a5f-2r4p.csv join d7as-muwj.csv
 
 """
 Find candidate columns
 """
-candidate_list = qbe.find_candidate_columns(example_columns, cluster_prune=True)
+start = time.time()
+candidate_list = qbe.find_candidate_columns(example_columns, cluster_prune=False)
+print("Time taken to find candidate columns: ", time.time() - start)
 
 """
 Display candidate columns (for debugging purpose)
 """
 for i, candidate in enumerate(candidate_list):
     print('column {}: found {} candidate columns'.format(format(i), len(candidate)))
-    for col in candidate:
-        print(col.to_str())
+    # for debugging purpose, print the candidate columns
+    # for col in candidate:
+    #     print(col.to_str(), col.examples_set)
 
 cand_groups, tbl_cols = qbe.find_candidate_groups(candidate_list)
 
-"""
-Find join graphs
-"""
-join_graphs = qbe.find_join_graphs_for_cand_groups(cand_groups)
+print("number of candidate groups: ", len(cand_groups))
+
+# """
+# Find join graphs
+# """
+number_of_cand_groups_to_search = 200
+join_graphs = qbe.find_join_graphs_for_cand_groups(cand_groups[0:number_of_cand_groups_to_search])
 print(f"number of join graphs: {len(join_graphs)}")
-"""
-Display join graphs (for debugging purpose)
-"""
+
+# """
+# Display join graphs (for debugging purpose)
+# """
 for i, join_graph in enumerate(join_graphs):
-    print(f"----join graph {i}----")
-    join_graph.display()
+    # check join graphs between the correct pair of tables.
+    if "9a5f-2r4p.csv" in join_graph.to_str() and "d7as-muwj" in join_graph.to_str():
+        print(f"----join graph {i}----")
+        join_graph.display()
+
 
 """
 Materialize join graphs

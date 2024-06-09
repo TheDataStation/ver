@@ -1,17 +1,28 @@
 from view_presentation.interface.interface import interface
-import view_presentation.interface.embedding_distance as embedding_distance
+from view_presentation.interface import embedding_distance
 import pandas as pd
-import view_presentation.interface.cluster as cluster
+import random
+from IPython.display import Markdown
+from IPython.display import display
+
+# import view_presentation.interface.cluster as cluster
+from view_presentation.interface import cluster
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import ipywidgets as widgets
+import matplotlib.pyplot as plt
 
 class WordCloudAttributeNameInterface(interface):
-    def __init__(self,name,embedding_obj=None,k=100):
+    def __init__(self, name, shortlist_func, ignore_func, embedding_obj=None, k=10):
         self.name=name
         self.asked_questions={}
         self.curr_question_iter=0
         self.embedding_obj=embedding_obj
         self.k=k
+
+        self.shortlist_func = shortlist_func
+        self.ignore_func = ignore_func
+
+        self.OPTIONS = ['Yes, my data must contain this attribute', 'No, my data should not contain this attribute','Does not matter']
 
     def generate_candidates (self, df_lst):
 
@@ -53,7 +64,7 @@ class WordCloudAttributeNameInterface(interface):
                 l=self.cluster_attr[pred_map_attr[attr]]
             l.append(attr)
             self.cluster_attr[pred_map_attr[attr]]=l
-
+        # print (self.cluster_attr,self.center_attr)
 
 
     def rank_candidates (self, query): 
@@ -67,34 +78,44 @@ class WordCloudAttributeNameInterface(interface):
 
             
     #Returns the attribute with highest score, ignoring the attributes in ignore_questions
-    def get_question(self, ignored_datasets=[],ignore_questions=[]):
-        iter=self.curr_question_iter
-        #print ("sorted",self.sorted_sc,iter)
+    def get_question(self, ignored_datasets=[], ignore_questions=[]):
+        iter = self.curr_question_iter
         while iter<len(self.sorted_sc):
             if self.sorted_sc[iter][0] in ignore_questions:
                 iter+=1
                 continue
             else:
                 break
-        curr_question = self.sorted_sc[iter][0]
-        
-               
+
+        coverage = list(set(self.attr_dic[self.sorted_sc[iter][0]]) - set(ignored_datasets))
+
         self.curr_question_iter = iter
-        #print ("sorted2",self.sorted_sc,iter)
-        #returns the chosen attribute and list of dataframes containing the attribute
-
-        lst = self.cluster_attr[curr_question] 
-
-        coverage = list(set(self.attr_dic[curr_question]) - set(ignored_datasets))
-
-        return (len(coverage), lst, self.attr_dic[curr_question])
+        if iter >= len(self.sorted_sc):
+            return None
+        
+        return (len(coverage), self.sorted_sc[iter][0])
 
     def ask_question_gui(self, question, df_lst):
+        self.curr_question = question
         self.curr_question_iter += 1
-        print ("Does the required dataset contain attribute: ",question)
+
+        attrs = self.cluster_attr[question]
+        display(Markdown('<h3><strong>{}</strong></h3>'.format("Does the required dataset contain any of these attributes:")))
+
+        wordcloud = WordCloud(background_color="white",stopwords=STOPWORDS,collocations=True).generate(' '.join(attrs))
+        def grey_color_func(word, font_size, position, orientation, random_state=None,
+                    **kwargs):
+            return "hsl(0, 0%%, %d%%)" % random.randint(0, 1)
+
+        def update():
+            plt.imshow(wordcloud.recolor(color_func=grey_color_func, random_state=3), cmap='Greys',interpolation='bilinear')
+    
+        wc_widget=widgets.interactive_output(update,{})
+        display(wc_widget)
+
         self.attribute_yesno=widgets.RadioButtons(
-            options=['Yes, my data must contain this attribute', 'No, the data should not contain this attribute','Does not matter'],
-            value='Does not matter', # Defaults to 'pineapple'
+            options=self.OPTIONS,
+            value=self.OPTIONS[-1], # Defaults to 'pineapple'
             description='',
             disabled=False
         )
@@ -105,20 +126,28 @@ class WordCloudAttributeNameInterface(interface):
                 tooltip='Submit',
                 icon='' # (FontAwesome names without the `fa-` prefix)
             )
-        self.curr_question=question
-        self.submit.on_click(self.returnval)
+        self.submit.on_click(self.update_score)
+
         display(self.attribute_yesno)
         display(self.submit)
+        return
 
-        return [['Yes, my data must contain this attribute', 'No, my data should not contain this attribute','Does not matter'],self.attribute_yesno,self.submit]
+    def update_score(self, b):
+        answer = self.OPTIONS.index(self.attribute_yesno.value)
 
-    def returnval(self,b):
-        for ques in self.curr_question:
-            self.asked_questions[ques] = self.attribute_yesno.value
-        #self.asked_questions[question] = self.attribute_yesno.value
-        return self.attribute_yesno.value
-    def ask_question(self, question, df_lst):
-        return self.ask_question_gui(question, df_lst)
+        if answer == 0:
+            self.shortlist_func(self.attr_dic[self.curr_question])
+        elif answer == 1:
+            self.ignore_func(self.attr_dic[self.curr_question])
+
+        self.submit_callback()
+        return
+    
+    def ask_question(self, question, df_lst, submit_callback):
+        self.submit_callback = submit_callback
+        self.ask_question_gui(question, df_lst)
+        return
+    
         '''
         self.curr_question_iter += 1
         print ("Does the required dataset contain attribute: ",question)

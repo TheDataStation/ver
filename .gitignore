@@ -2,6 +2,8 @@
 .DS_Store
 .ipynb_checkpoints/
 *.ipynb
+!sigmod_demo.ipynb
+
 .python-version
 # *.csv
 archived/DoD/ui/node_modules/
@@ -206,3 +208,11 @@ ontomatch/glove/
 
 # sessions
 .dsessions/
+
+# scripts
+prepare_data/
+
+# testing
+test.db
+test.py
+ver_e2e_test.py

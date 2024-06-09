@@ -85,13 +85,24 @@ class ProfileIndexDuckDB(ProfileIndex):
             print(f"""An error has occured when trying to get profile {be}""")
             return False
         
+    def get_filtered_profiles_from_attribute_contain(self, attribute, contain, desired_attributes: List[str]):
+        project_list = ",".join(desired_attributes)
+        try:
+            profile_table = self.config["profile_table_name"]
+            query = f"SELECT {project_list} FROM {profile_table} WHERE {attribute} ILIKE '{contain}'"
+            results = self.conn.execute(query)
+            return results.fetchall()
+        except BinderException as be:
+            print(f"""An error has occured when trying to get profile {be}""")
+            return False
+        
     def get_profile(self, node_id: int) -> Dict:
         pass
     
     def get_minhashes(self) -> Dict:
         # Get all profiles with minhash
         profile_table = self.conn.table(self.config["profile_table_name"])
-        return profile_table.filter('minhash IS NOT NULL') \
+        return profile_table.filter('minhash IS NOT NULL and uniquevalues >= 10') \
             .project('id, decode(minhash)') \
             .to_df() \
             .rename(columns={'decode(minhash)': 'minhash'}) \

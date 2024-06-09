@@ -1,5 +1,5 @@
 import random
-import view_presentation.interface.embedding_distance as embedding_distance
+from view_presentation.interface import embedding_distance
 
 def cluster(attr_lst,attr_to_val,attr_val_lst,option,embedding_obj,k):
 

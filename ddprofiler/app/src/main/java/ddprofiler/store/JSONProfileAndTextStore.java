@@ -14,7 +14,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class JSONProfileAndTextStore implements Store {
 
@@ -109,7 +111,10 @@ public class JSONProfileAndTextStore implements Store {
         }
 
         // write data
-        String data = String.join(" ", values);
+        Set<String> valueSet = new HashSet<String>(); 
+        for (String value : values)
+            valueSet.add(value); 
+        String data = String.join(" ", valueSet);
         String[] line = {Long.toString(id), dbName, path, sourceName, columnName, data};
         this.csvWriter.writeNext(line);
 

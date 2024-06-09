@@ -63,7 +63,7 @@ class Algebra:
         results = self.dindex.fts_query(keywords=kw, search_domain=kw_type, max_results=max_results, exact_search=True)
         
         # hits = [Hit(r.nid, r.db_name, r.s_name, r.f_name, 0, []) for r in results]
-        hits = [Hit(r[0], r[1], r[3], r[4], 0, []) for r in results]
+        hits = [Hit(r[0], r[1], r[3], r[4], round(r[5], 2), []) for r in results]
         # hits = self._store_client.exact_search_keywords(
         #     keywords=kw, elasticfieldname=kw_type, max_hits=max_results)
 
