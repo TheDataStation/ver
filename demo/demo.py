@@ -88,7 +88,7 @@ class Ver:
         global col_num
         row_num = 3
         col_num = 3
-
+        self.view_dfs = []
         default_values = [["school name", "school type", "school day"],
                           ["Ogden International High School", "Charter", "HALF DAY"],
                           ["University of Chicago Woodlawn", "Neighborhood", "FULL DAY"]]
