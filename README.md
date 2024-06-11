@@ -5,9 +5,6 @@
 
 # Data Discovery Tools and Systems
 
-**[This project is currently a work in progress, and we expect to have all
-documentation, test and a full demo done by the end of the ~~2nd quarter of 2023.~~ 1st quarter of 2024]**
-
 Data discovery is the problem of identifying and retrieving data that satisfies
 an information need. See [common data discovery problems here](docs/why_ver.md) and feel free to open
 issues to suggest other scenarios you know about. This respository contains Ver, a 
@@ -21,9 +18,7 @@ discovery API (Aurum), a view discovery API (we call it Ver as well), and a
 utility-function based search (we call it Metam). And we are always thinking of new interfaces
 and components to help more users address their discovery needs.
 
-- [Quick Start](docs/quickstart.md)
-- [Tutorials](docs/tutorials.md)
-- [Contributing](docs/contributing.md)
+- [Quick Start](quick_start_cli.md)
 
 ### Structure of the Repository
 
